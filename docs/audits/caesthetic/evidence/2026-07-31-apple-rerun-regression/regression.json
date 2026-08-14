@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS",
+  "counts": {
+    "BLOCKER": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "findings": [],
+  "head": "7804cc044656e53e888d6edeb5335bd41cd60691",
+  "worker": "effe4e10-82b2-4e82-b849-1db425a37ef3"
+}

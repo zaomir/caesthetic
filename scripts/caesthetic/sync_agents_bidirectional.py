@@ -1,0 +1,440 @@
+#!/usr/bin/env python3
+"""Bidirectional sync: zaomir/caesthetic ↔ grainee-v2 mapped trees (DEC-829).
+
+Per-file rules (after pull both remotes):
+  - identical content → skip
+  - only on one side → copy to the other
+  - both differ from last sync state → conflict:
+      * protected paths → grainee wins
+      * else newer mtime wins (ties → grainee)
+  - only one side changed since last sync → that side wins
+
+State: docs/projects/caesthetic/.agents-sync-state.json (mirrored into both trees).
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Dict, Iterable, List, Optional, Set
+
+GRAINEE_DEFAULT = Path("/var/www/grainee-v2")
+SAT_DEFAULT = Path("/var/www/caesthetic")
+SAT_URL = os.environ.get(
+    "CAESTHETIC_AGENTS_REPO_URL", "https://github.com/zaomir/caesthetic.git"
+)
+
+TREES = [
+    "site-caesthetic",
+    "docs/projects/caesthetic",
+    "docs/caesthetic",
+    "docs/audits/caesthetic",
+    "scripts/caesthetic",
+    "tests/caesthetic",
+]
+
+SSOT_GLOBS = [
+    "docs/ssot/CAESTHETIC*.md",
+]
+
+EXTRA_FILES = [
+    "agents/manifests/caesthetic.yaml",
+]
+
+EXCLUDE_DIR_NAMES = {
+    "node_modules",
+    "dist",
+    ".baseline",
+    ".git",
+    ".DS_Store",
+    "__pycache__",
+}
+EXCLUDE_FILE_PREFIXES = (".env",)
+EXCLUDE_FILE_SUFFIXES = (".pyc", ".pyo")
+EXCLUDE_REL_PREFIXES = (
+    "site-caesthetic/private/",
+    "site-caesthetic/score/aurora-medspa-x7k9m2/",
+    "docs/projects/caesthetic/operations/ig-growth/footage/",
+)
+
+PROTECTED_PREFIXES = (
+    "site-caesthetic/src/config/pricing.ts",
+)
+
+STATE_REL = "docs/projects/caesthetic/.agents-sync-state.json"
+MARKER_REL = "docs/projects/caesthetic/AGENTS_REPO_SYNC.md"
+CONFLICTS_REL = "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md"
+
+
+def run(cmd: List[str], cwd: Optional[Path] = None) -> None:
+    subprocess.run(cmd, cwd=str(cwd) if cwd else None, check=True)
+
+
+def run_out(cmd: List[str], cwd: Optional[Path] = None) -> str:
+    return subprocess.check_output(cmd, cwd=str(cwd) if cwd else None, text=True).strip()
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _norm_rel(rel: str, is_dir: bool = False) -> str:
+    out = rel.replace("\\", "/")
+    if is_dir and out and not out.endswith("/"):
+        out += "/"
+    return out
+
+
+def should_skip(rel: str, name: str, is_dir: bool) -> bool:
+    if name in EXCLUDE_DIR_NAMES:
+        return True
+    if any(name.startswith(p) for p in EXCLUDE_FILE_PREFIXES):
+        return True
+    if any(name.endswith(p) for p in EXCLUDE_FILE_SUFFIXES):
+        return True
+    rel_n = _norm_rel(rel, is_dir)
+    for prefix in EXCLUDE_REL_PREFIXES:
+        if rel_n == prefix or rel_n.startswith(prefix):
+            return True
+        if is_dir and rel_n.rstrip("/") == prefix.rstrip("/"):
+            return True
+    return False
+
+
+def iter_files(root: Path, rel_root: str) -> Iterable[str]:
+    base = root / rel_root
+    if not base.exists():
+        return
+    if base.is_file():
+        yield rel_root
+        return
+    for dirpath, dirnames, filenames in os.walk(base):
+        dirnames[:] = [
+            d
+            for d in dirnames
+            if not should_skip(
+                str(Path(dirpath, d).relative_to(root)), d, True
+            )
+        ]
+        for fn in filenames:
+            full = Path(dirpath) / fn
+            rel = str(full.relative_to(root))
+            if should_skip(rel, fn, False):
+                continue
+            yield rel
+
+
+def expand_ssot(root: Path) -> List[str]:
+    out: List[str] = []
+    ssot = root / "docs" / "ssot"
+    if not ssot.is_dir():
+        return out
+    for p in sorted(ssot.glob("CAESTHETIC*.md")):
+        out.append(str(p.relative_to(root)))
+    return out
+
+
+def collect_rels(root: Path) -> Set[str]:
+    rels: Set[str] = set()
+    for tree in TREES:
+        for rel in iter_files(root, tree):
+            rels.add(rel)
+    for rel in expand_ssot(root):
+        rels.add(rel)
+    for rel in EXTRA_FILES:
+        if (root / rel).is_file():
+            rels.add(rel)
+    return rels
+
+
+def is_protected(rel: str) -> bool:
+    for p in PROTECTED_PREFIXES:
+        if p.endswith("/") and rel.startswith(p):
+            return True
+        if rel == p:
+            return True
+    return False
+
+
+def load_state(path: Path) -> Dict[str, str]:
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text())
+        files = data.get("files") or {}
+        return {str(k): str(v) for k, v in files.items()}
+    except Exception:
+        return {}
+
+
+@dataclass
+class Action:
+    rel: str
+    direction: str  # g2s | s2g
+    reason: str
+
+
+def decide(
+    rel: str,
+    g_path: Path,
+    s_path: Path,
+    last: Dict[str, str],
+) -> Optional[Action]:
+    g_exists = g_path.is_file()
+    s_exists = s_path.is_file()
+
+    if not g_exists and not s_exists:
+        return None
+    if g_exists and not s_exists:
+        return Action(rel, "g2s", "only_in_grainee")
+    if s_exists and not g_exists:
+        return Action(rel, "s2g", "only_in_satellite")
+
+    g_hash = sha256_file(g_path)
+    s_hash = sha256_file(s_path)
+    if g_hash == s_hash:
+        return None
+
+    prev = last.get(rel)
+    g_changed = prev is None or g_hash != prev
+    s_changed = prev is None or s_hash != prev
+
+    if prev is None:
+        if is_protected(rel):
+            return Action(rel, "g2s", "bootstrap_protected_grainee")
+        g_m = g_path.stat().st_mtime
+        s_m = s_path.stat().st_mtime
+        if s_m > g_m:
+            return Action(rel, "s2g", "bootstrap_newer_satellite")
+        return Action(rel, "g2s", "bootstrap_newer_grainee")
+
+    if g_changed and not s_changed:
+        return Action(rel, "g2s", "grainee_changed")
+    if s_changed and not g_changed:
+        return Action(rel, "s2g", "satellite_changed")
+
+    if is_protected(rel):
+        return Action(rel, "g2s", "conflict_protected_grainee")
+    g_m = g_path.stat().st_mtime
+    s_m = s_path.stat().st_mtime
+    if s_m > g_m:
+        return Action(rel, "s2g", "conflict_newer_satellite")
+    return Action(rel, "g2s", "conflict_newer_grainee")
+
+
+def copy_file(src: Path, dst: Path) -> None:
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst)
+
+
+def ensure_satellite(sat: Path) -> None:
+    if not (sat / ".git").is_dir():
+        run(["git", "clone", SAT_URL, str(sat)])
+    else:
+        run(["git", "fetch", "origin", "-q"], cwd=sat)
+        run(["git", "checkout", "main"], cwd=sat)
+        run(["git", "pull", "--ff-only", "origin", "main"], cwd=sat)
+
+
+def git_commit_push(repo: Path, message: str, paths: List[str], do_commit: bool, do_push: bool) -> None:
+    if not do_commit:
+        return
+    existing = [p for p in paths if (repo / p).exists()]
+    for extra in (STATE_REL, MARKER_REL, CONFLICTS_REL):
+        if (repo / extra).exists() and extra not in existing:
+            existing.append(extra)
+    if not existing:
+        print(f"[{repo.name}] nothing to add")
+        return
+    # Skip gitignored paths (e.g. leftover pycache) so add does not fail.
+    addable: List[str] = []
+    for p in existing:
+        chk = subprocess.run(
+            ["git", "check-ignore", "-q", "--", p],
+            cwd=str(repo),
+        )
+        if chk.returncode == 0:
+            continue
+        addable.append(p)
+    if not addable:
+        print(f"[{repo.name}] nothing addable")
+        return
+    run(["git", "add", "-A", "--"] + addable, cwd=repo)
+    diff = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=str(repo))
+    if diff.returncode == 0:
+        print(f"[{repo.name}] nothing staged")
+        return
+    name = run_out(["git", "log", "-1", "--format=%an"], cwd=repo) or "grainee-bot"
+    email = run_out(["git", "log", "-1", "--format=%ae"], cwd=repo) or "bot@local"
+    run(
+        ["git", "-c", f"user.name={name}", "-c", f"user.email={email}", "commit", "-m", message],
+        cwd=repo,
+    )
+    if do_push:
+        run(["git", "push", "origin", "main"], cwd=repo)
+
+
+def write_marker(grainee: Path, sat: Path, summary: str) -> None:
+    g_sha = run_out(["git", "rev-parse", "HEAD"], cwd=grainee)
+    s_sha = run_out(["git", "rev-parse", "HEAD"], cwd=sat)
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    body = f"""# Agents repo sync marker
+
+- **Mode:** bidirectional (DEC-829)
+- **Grainee SHA (pre-commit):** `{g_sha}`
+- **Satellite SHA (pre-commit):** `{s_sha}`
+- **Synced at (UTC):** {now}
+- **Script:** `scripts/caesthetic/sync-agents-bidirectional.sh`
+- **Summary:** {summary}
+
+Production deploy still ships only from grainee-v2.
+"""
+    path = grainee / MARKER_REL
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(body)
+    copy_file(path, sat / MARKER_REL)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Bidirectional CAESTHETIC Agents ↔ grainee sync")
+    ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--commit", action="store_true")
+    ap.add_argument("--push", action="store_true")
+    ap.add_argument("--grainee", type=Path, default=Path(os.environ.get("GRAINEE_ROOT", GRAINEE_DEFAULT)))
+    ap.add_argument("--satellite", type=Path, default=Path(os.environ.get("CAESTHETIC_AGENTS_DIR", SAT_DEFAULT)))
+    args = ap.parse_args()
+    if args.push:
+        args.commit = True
+
+    grainee: Path = args.grainee.resolve()
+    sat: Path = args.satellite.resolve()
+
+    print("== Bidirectional CAESTHETIC Agents ↔ grainee sync ==")
+    print(f"grainee:   {grainee}")
+    print(f"satellite: {sat}")
+    print(f"mode:      {'APPLY' if args.apply else 'DRY-RUN'}")
+
+    run(["git", "fetch", "origin", "main", "-q"], cwd=grainee)
+    run(["git", "checkout", "main"], cwd=grainee)
+    run(["git", "pull", "--ff-only", "origin", "main"], cwd=grainee)
+    ensure_satellite(sat)
+
+    last = load_state(grainee / STATE_REL)
+    if not last and (sat / STATE_REL).is_file():
+        last = load_state(sat / STATE_REL)
+
+    rels = collect_rels(grainee) | collect_rels(sat)
+    rels.discard(STATE_REL)
+    rels.discard(MARKER_REL)
+
+    actions: List[Action] = []
+    conflicts: List[Action] = []
+    for rel in sorted(rels):
+        act = decide(rel, grainee / rel, sat / rel, last)
+        if not act:
+            continue
+        actions.append(act)
+        if act.reason.startswith("conflict_"):
+            conflicts.append(act)
+
+    g2s = [a for a in actions if a.direction == "g2s"]
+    s2g = [a for a in actions if a.direction == "s2g"]
+    print(f"planned: grainee→sat={len(g2s)} sat→grainee={len(s2g)} conflicts={len(conflicts)}")
+    for a in actions[:50]:
+        print(f"  {a.direction}\t{a.reason}\t{a.rel}")
+    if len(actions) > 50:
+        print(f"  ... +{len(actions) - 50} more")
+
+    if not args.apply:
+        print("DRY-RUN complete (no writes)")
+        return 0
+
+    if not actions:
+        print("Nothing to sync; skipping writes/commits")
+        return 0
+
+    for a in actions:
+        if a.direction == "g2s":
+            copy_file(grainee / a.rel, sat / a.rel)
+        else:
+            copy_file(sat / a.rel, grainee / a.rel)
+
+    new_state_files: Dict[str, str] = {}
+    for rel in sorted(collect_rels(grainee) | collect_rels(sat)):
+        if rel in (STATE_REL, MARKER_REL):
+            continue
+        g_p = grainee / rel
+        s_p = sat / rel
+        if g_p.is_file():
+            new_state_files[rel] = sha256_file(g_p)
+        elif s_p.is_file():
+            new_state_files[rel] = sha256_file(s_p)
+
+    state_obj = {
+        "version": 1,
+        "updated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "policy": "bidirectional_hash_lww_protected_grainee",
+        "files": new_state_files,
+    }
+    state_path = grainee / STATE_REL
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    state_path.write_text(json.dumps(state_obj, indent=2, sort_keys=True) + "\n")
+    copy_file(state_path, sat / STATE_REL)
+
+    if conflicts:
+        lines = [
+            "# Agents sync conflicts (auto-resolved)",
+            "",
+            f"UTC: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}",
+            "",
+            "| Rel | Winner | Reason |",
+            "|-----|--------|--------|",
+        ]
+        for a in conflicts:
+            winner = "grainee→satellite" if a.direction == "g2s" else "satellite→grainee"
+            lines.append(f"| `{a.rel}` | {winner} | `{a.reason}` |")
+        lines.append("")
+        conf_path = grainee / CONFLICTS_REL
+        conf_path.write_text("\n".join(lines) + "\n")
+        copy_file(conf_path, sat / CONFLICTS_REL)
+
+    summary = f"g2s={len(g2s)} s2g={len(s2g)} conflicts={len(conflicts)}"
+    write_marker(grainee, sat, summary)
+
+    mapped_files = sorted(
+        (collect_rels(grainee) | collect_rels(sat)) | {STATE_REL, MARKER_REL, CONFLICTS_REL}
+    )
+
+    if args.commit:
+        git_commit_push(
+            grainee,
+            f"sync(caesthetic): bidirectional Agents↔grainee ({summary})",
+            mapped_files,
+            True,
+            args.push,
+        )
+        git_commit_push(
+            sat,
+            f"sync(caesthetic): bidirectional Agents↔grainee ({summary})",
+            mapped_files,
+            True,
+            args.push,
+        )
+
+    print(f"DONE {summary}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

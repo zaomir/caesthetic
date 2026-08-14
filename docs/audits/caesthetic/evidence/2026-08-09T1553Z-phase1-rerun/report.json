@@ -1,0 +1,678 @@
+{
+  "stamp": "2026-08-09T1553Z-phase1-rerun",
+  "host": "https://caesthetic.com",
+  "sha": "018498aa6",
+  "verdict": "PASS",
+  "counts": {
+    "blocker": 0,
+    "high": 0,
+    "medium": 0,
+    "total": 0
+  },
+  "findings": [],
+  "httpChecks": [
+    {
+      "path": "/",
+      "code": 200,
+      "title": "CAESTHETIC — Growth layer for independent aesthetic practices",
+      "edge": "stage5",
+      "logo": true,
+      "robots": ""
+    },
+    {
+      "path": "/growth-score/",
+      "code": 200,
+      "title": "Growth Score — CAESTHETIC",
+      "edge": "stage5",
+      "logo": true,
+      "robots": ""
+    },
+    {
+      "path": "/sprint/",
+      "code": 200,
+      "title": "30-Day Growth Sprint — CAESTHETIC",
+      "edge": "stage5",
+      "logo": true,
+      "robots": ""
+    },
+    {
+      "path": "/about/",
+      "code": 200,
+      "title": "About — CAESTHETIC",
+      "edge": "stage5",
+      "logo": true,
+      "robots": ""
+    },
+    {
+      "path": "/legal/privacy/",
+      "code": 200,
+      "title": "Privacy Policy — CAESTHETIC",
+      "edge": "stage5",
+      "logo": true,
+      "robots": ""
+    },
+    {
+      "path": "/legal/terms/",
+      "code": 200,
+      "title": "Terms of Use — CAESTHETIC",
+      "edge": "stage5",
+      "logo": true,
+      "robots": ""
+    },
+    {
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "code": 200,
+      "title": "Growth Score — Aurora Med Spa (sample)",
+      "edge": "stage5",
+      "logo": true,
+      "robots": "<meta name=\"robots\" content=\"noindex, nofollow\">"
+    },
+    {
+      "path": "/assessment/",
+      "code": 301,
+      "redir": "https://caesthetic.com/growth-score/"
+    },
+    {
+      "path": "/dental/",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    },
+    {
+      "path": "/beauty/",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    },
+    {
+      "path": "/aesthetic-medicine/",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    },
+    {
+      "path": "/school/",
+      "code": 301,
+      "redir": "https://caesthetic.com/growth-score/"
+    },
+    {
+      "path": "/school/real-estate/",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    },
+    {
+      "path": "/pricing/",
+      "code": 301,
+      "redir": "https://caesthetic.com/sprint/"
+    },
+    {
+      "path": "/contact/",
+      "code": 301,
+      "redir": "https://caesthetic.com/growth-score/"
+    },
+    {
+      "path": "/work/",
+      "code": 301,
+      "redir": "https://caesthetic.com/about/"
+    },
+    {
+      "path": "/solutions/",
+      "code": 301,
+      "redir": "https://caesthetic.com/sprint/"
+    },
+    {
+      "path": "/maps-reputation/",
+      "code": 301,
+      "redir": "https://caesthetic.com/growth-score/"
+    },
+    {
+      "path": "/blog/",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    },
+    {
+      "path": "/go/salon-growth/",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    },
+    {
+      "path": "/go/aesthetic-practice-growth/",
+      "code": 301,
+      "redir": "https://caesthetic.com/growth-score/"
+    },
+    {
+      "path": "/legal/cookies/",
+      "code": 301,
+      "redir": "https://caesthetic.com/legal/privacy/"
+    },
+    {
+      "path": "/treatments/",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    },
+    {
+      "path": "/partners/",
+      "code": 301,
+      "redir": "https://caesthetic.com/about/"
+    }
+  ],
+  "browserReports": [
+    {
+      "vp": "m320",
+      "path": "/",
+      "status": 200,
+      "loadMs": 1136,
+      "lcpMs": 524,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m320_home.png"
+    },
+    {
+      "vp": "m320",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 699,
+      "lcpMs": 125,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m320_growth-score_.png"
+    },
+    {
+      "vp": "m320",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 658,
+      "lcpMs": 132,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m320_sprint_.png"
+    },
+    {
+      "vp": "m320",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 661,
+      "lcpMs": 113,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m320_about_.png"
+    },
+    {
+      "vp": "m320",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 665,
+      "lcpMs": 136,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m320_score_aurora-medspa-x7k9m2_.png"
+    },
+    {
+      "vp": "m375",
+      "path": "/",
+      "status": 200,
+      "loadMs": 989,
+      "lcpMs": 386,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m375_home.png"
+    },
+    {
+      "vp": "m375",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 700,
+      "lcpMs": 129,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m375_growth-score_.png"
+    },
+    {
+      "vp": "m375",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 667,
+      "lcpMs": 136,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m375_sprint_.png"
+    },
+    {
+      "vp": "m375",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 654,
+      "lcpMs": 124,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m375_about_.png"
+    },
+    {
+      "vp": "m375",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 678,
+      "lcpMs": 134,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m375_score_aurora-medspa-x7k9m2_.png"
+    },
+    {
+      "vp": "m390",
+      "path": "/",
+      "status": 200,
+      "loadMs": 1058,
+      "lcpMs": 473,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m390_home.png"
+    },
+    {
+      "vp": "m390",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 710,
+      "lcpMs": 142,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m390_growth-score_.png"
+    },
+    {
+      "vp": "m390",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 687,
+      "lcpMs": 143,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m390_sprint_.png"
+    },
+    {
+      "vp": "m390",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 758,
+      "lcpMs": 217,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m390_about_.png"
+    },
+    {
+      "vp": "m390",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 760,
+      "lcpMs": 197,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m390_score_aurora-medspa-x7k9m2_.png"
+    },
+    {
+      "vp": "m430",
+      "path": "/",
+      "status": 200,
+      "loadMs": 1011,
+      "lcpMs": 423,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m430_home.png"
+    },
+    {
+      "vp": "m430",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 781,
+      "lcpMs": 163,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "m430_growth-score_.png"
+    },
+    {
+      "vp": "m430",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 696,
+      "lcpMs": 157,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m430_sprint_.png"
+    },
+    {
+      "vp": "m430",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 688,
+      "lcpMs": 139,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m430_about_.png"
+    },
+    {
+      "vp": "m430",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 671,
+      "lcpMs": 136,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "m430_score_aurora-medspa-x7k9m2_.png"
+    },
+    {
+      "vp": "t768",
+      "path": "/",
+      "status": 200,
+      "loadMs": 948,
+      "lcpMs": 403,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "t768_home.png"
+    },
+    {
+      "vp": "t768",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 717,
+      "lcpMs": 135,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "t768_growth-score_.png"
+    },
+    {
+      "vp": "t768",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 676,
+      "lcpMs": 152,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "t768_sprint_.png"
+    },
+    {
+      "vp": "t768",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 661,
+      "lcpMs": 134,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "t768_about_.png"
+    },
+    {
+      "vp": "t768",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 660,
+      "lcpMs": 137,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "t768_score_aurora-medspa-x7k9m2_.png"
+    },
+    {
+      "vp": "d1280",
+      "path": "/",
+      "status": 200,
+      "loadMs": 971,
+      "lcpMs": 409,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "d1280_home.png"
+    },
+    {
+      "vp": "d1280",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 706,
+      "lcpMs": 144,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "d1280_growth-score_.png"
+    },
+    {
+      "vp": "d1280",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 699,
+      "lcpMs": 152,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1280_sprint_.png"
+    },
+    {
+      "vp": "d1280",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 689,
+      "lcpMs": 154,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1280_about_.png"
+    },
+    {
+      "vp": "d1280",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 654,
+      "lcpMs": 147,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1280_score_aurora-medspa-x7k9m2_.png"
+    },
+    {
+      "vp": "d1440",
+      "path": "/",
+      "status": 200,
+      "loadMs": 929,
+      "lcpMs": 397,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "d1440_home.png"
+    },
+    {
+      "vp": "d1440",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 692,
+      "lcpMs": 141,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "d1440_growth-score_.png"
+    },
+    {
+      "vp": "d1440",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 670,
+      "lcpMs": 150,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1440_sprint_.png"
+    },
+    {
+      "vp": "d1440",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 669,
+      "lcpMs": 143,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1440_about_.png"
+    },
+    {
+      "vp": "d1440",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 675,
+      "lcpMs": 169,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1440_score_aurora-medspa-x7k9m2_.png"
+    },
+    {
+      "vp": "d1920",
+      "path": "/",
+      "status": 200,
+      "loadMs": 954,
+      "lcpMs": 420,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "d1920_home.png"
+    },
+    {
+      "vp": "d1920",
+      "path": "/growth-score/",
+      "status": 200,
+      "loadMs": 711,
+      "lcpMs": 160,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 4,
+      "consoleErrors": 0,
+      "shot": "d1920_growth-score_.png"
+    },
+    {
+      "vp": "d1920",
+      "path": "/sprint/",
+      "status": 200,
+      "loadMs": 697,
+      "lcpMs": 176,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1920_sprint_.png"
+    },
+    {
+      "vp": "d1920",
+      "path": "/about/",
+      "status": 200,
+      "loadMs": 900,
+      "lcpMs": 371,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1920_about_.png"
+    },
+    {
+      "vp": "d1920",
+      "path": "/score/aurora-medspa-x7k9m2/",
+      "status": 200,
+      "loadMs": 762,
+      "lcpMs": 224,
+      "overflowX": false,
+      "h1Visible": true,
+      "ctaVisible": true,
+      "inputs": 0,
+      "consoleErrors": 0,
+      "shot": "d1920_score_aurora-medspa-x7k9m2_.png"
+    }
+  ]
+}

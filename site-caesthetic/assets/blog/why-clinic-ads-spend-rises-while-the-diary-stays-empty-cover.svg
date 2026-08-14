@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="788" viewBox="0 0 1400 788" role="img" aria-label="Why clinic ads spend rises while the diary stays empty">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1C3A4A"/>
+      <stop offset="100%" stop-color="#14191C"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect x="48" y="48" width="1304" height="692" fill="none" stroke="#EEF1F3" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="72" y="110" fill="#F5E8EC" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="22" letter-spacing="3">ADS SPEND WITHOUT BOOKING GROWTH</text>
+  <text x="50%" y="330.96" text-anchor="middle" fill="#F5F7F8" font-family="Source Serif 4, Georgia, serif" font-size="44" font-weight="600"><tspan x="50%" dy="0">Why clinic ads spend rises while</tspan><tspan x="50%" dy="48">the diary stays empty</tspan></text>
+  <text x="72" y="716" fill="#C9D1D7" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="20">CAESTHETIC</text>
+</svg>

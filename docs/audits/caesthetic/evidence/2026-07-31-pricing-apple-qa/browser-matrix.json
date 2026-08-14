@@ -1,0 +1,262 @@
+[
+  {
+    "locale": "en",
+    "viewport": "m375",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [
+      "cae-nav",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__item",
+      "cae-nav__dropdown-toggle",
+      {}
+    ],
+    "stickyVisible": true,
+    "servicesCount": 9,
+    "amountsSample": [
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200"
+    ],
+    "faqCount": 8,
+    "hero": "Choose certainty or shared growth.",
+    "exampleHas2800": true,
+    "exampleHas1200": true,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/en-m375.png"
+  },
+  {
+    "locale": "en",
+    "viewport": "m390",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [
+      "cae-nav",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__item",
+      "cae-nav__dropdown-toggle",
+      {}
+    ],
+    "stickyVisible": true,
+    "servicesCount": 9,
+    "amountsSample": [
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200"
+    ],
+    "faqCount": 8,
+    "hero": "Choose certainty or shared growth.",
+    "exampleHas2800": true,
+    "exampleHas1200": true,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/en-m390.png"
+  },
+  {
+    "locale": "en",
+    "viewport": "d1280",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [],
+    "stickyVisible": false,
+    "servicesCount": 9,
+    "amountsSample": [
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200"
+    ],
+    "faqCount": 8,
+    "hero": "Choose certainty or shared growth.",
+    "exampleHas2800": true,
+    "exampleHas1200": true,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/en-d1280.png"
+  },
+  {
+    "locale": "en",
+    "viewport": "d1440",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [],
+    "stickyVisible": false,
+    "servicesCount": 9,
+    "amountsSample": [
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200",
+      "$4,000",
+      "$1,200"
+    ],
+    "faqCount": 8,
+    "hero": "Choose certainty or shared growth.",
+    "exampleHas2800": true,
+    "exampleHas1200": true,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/en-d1440.png"
+  },
+  {
+    "locale": "ru",
+    "viewport": "m375",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [
+      "cae-nav",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__item",
+      "cae-nav__dropdown-toggle",
+      {}
+    ],
+    "stickyVisible": true,
+    "servicesCount": 9,
+    "amountsSample": [
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $"
+    ],
+    "faqCount": 8,
+    "hero": "Фиксированная модель для конкретного объёма работ. Совместная модель для операционного партнёрства.",
+    "exampleHas2800": false,
+    "exampleHas1200": false,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/ru-m375.png"
+  },
+  {
+    "locale": "ru",
+    "viewport": "m390",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [
+      "cae-nav",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__link",
+      "cae-nav__item",
+      "cae-nav__dropdown-toggle",
+      {}
+    ],
+    "stickyVisible": true,
+    "servicesCount": 9,
+    "amountsSample": [
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $"
+    ],
+    "faqCount": 8,
+    "hero": "Фиксированная модель для конкретного объёма работ. Совместная модель для операционного партнёрства.",
+    "exampleHas2800": false,
+    "exampleHas1200": false,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/ru-m390.png"
+  },
+  {
+    "locale": "ru",
+    "viewport": "d1280",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [],
+    "stickyVisible": false,
+    "servicesCount": 9,
+    "amountsSample": [
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $"
+    ],
+    "faqCount": 8,
+    "hero": "Фиксированная модель для конкретного объёма работ. Совместная модель для операционного партнёрства.",
+    "exampleHas2800": false,
+    "exampleHas1200": false,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/ru-d1280.png"
+  },
+  {
+    "locale": "ru",
+    "viewport": "d1440",
+    "status": 200,
+    "overflowX": false,
+    "offenders": [],
+    "stickyVisible": false,
+    "servicesCount": 9,
+    "amountsSample": [
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $",
+      "4 000 $",
+      "1 200 $"
+    ],
+    "faqCount": 8,
+    "hero": "Фиксированная модель для конкретного объёма работ. Совместная модель для операционного партнёрства.",
+    "exampleHas2800": false,
+    "exampleHas1200": false,
+    "events": [
+      "page_view",
+      "pricing_view",
+      "pricing_example_expand",
+      "case_open"
+    ],
+    "screenshot": "docs/audits/caesthetic/evidence/2026-07-31-pricing-apple-qa/ru-d1440.png"
+  }
+]

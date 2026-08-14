@@ -1,0 +1,3243 @@
+{
+  "generated_at": "2026-07-31T01:28:29.511Z",
+  "host": "https://caesthetic.com",
+  "stamp": "2026-07-31-apple-rerun",
+  "head_sha": "b91aa507527d524461d043f1d6293bab5b661692",
+  "worker_version_expected": "1d93f12a-ff90-4b29-90ce-f8fba71b6aad",
+  "verdict": "PASS",
+  "counts": {
+    "BLOCKER": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "findings": [],
+  "acceptance": {
+    "offerClear5s": true,
+    "fourProducts": true,
+    "noFakeProof": true,
+    "skinAbsent": true,
+    "brandPresent": true
+  },
+  "evidence": [
+    {
+      "viewport": "m320",
+      "page": "/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-home.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "m320",
+      "page": "/dental/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-dental.png",
+      "title": "Dental Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m320",
+      "page": "/beauty/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-beauty.png",
+      "title": "Beauty Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m320",
+      "page": "/aesthetic-medicine/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-aesthetic-medicine.png",
+      "title": "Aesthetic Medicine Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m320",
+      "page": "/maps-reputation/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-maps-reputation.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m320",
+      "page": "/assessment/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-assessment.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m320",
+      "page": "/contact/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-contact.png",
+      "title": "Contact — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m320",
+      "page": "/404/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m320-404.png",
+      "title": "Page Not Found — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-home.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/dental/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-dental.png",
+      "title": "Dental Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/beauty/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-beauty.png",
+      "title": "Beauty Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/aesthetic-medicine/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-aesthetic-medicine.png",
+      "title": "Aesthetic Medicine Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/maps-reputation/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-maps-reputation.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/assessment/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-assessment.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/contact/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-contact.png",
+      "title": "Contact — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/404/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m375-404.png",
+      "title": "Page Not Found — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-home.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/dental/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-dental.png",
+      "title": "Dental Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/beauty/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-beauty.png",
+      "title": "Beauty Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/aesthetic-medicine/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-aesthetic-medicine.png",
+      "title": "Aesthetic Medicine Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/maps-reputation/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-maps-reputation.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/assessment/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-assessment.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/contact/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-contact.png",
+      "title": "Contact — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/404/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m390-404.png",
+      "title": "Page Not Found — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-home.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/dental/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-dental.png",
+      "title": "Dental Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/beauty/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-beauty.png",
+      "title": "Beauty Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/aesthetic-medicine/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-aesthetic-medicine.png",
+      "title": "Aesthetic Medicine Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/maps-reputation/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-maps-reputation.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/assessment/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-assessment.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/contact/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-contact.png",
+      "title": "Contact — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m430",
+      "page": "/404/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/m430-404.png",
+      "title": "Page Not Found — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-home.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/dental/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-dental.png",
+      "title": "Dental Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/beauty/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-beauty.png",
+      "title": "Beauty Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/aesthetic-medicine/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-aesthetic-medicine.png",
+      "title": "Aesthetic Medicine Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/maps-reputation/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-maps-reputation.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/assessment/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-assessment.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/contact/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-contact.png",
+      "title": "Contact — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/404/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1440-404.png",
+      "title": "Page Not Found — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-home.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/dental/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-dental.png",
+      "title": "Dental Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/beauty/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-beauty.png",
+      "title": "Beauty Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/aesthetic-medicine/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-aesthetic-medicine.png",
+      "title": "Aesthetic Medicine Marketing — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/maps-reputation/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-maps-reputation.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/assessment/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-assessment.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/contact/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-contact.png",
+      "title": "Contact — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1920",
+      "page": "/404/",
+      "file": "/var/www/grainee-v2/docs/audits/caesthetic/evidence/2026-07-31-apple-rerun/d1920-404.png",
+      "title": "Page Not Found — CAESTHETIC",
+      "status": 200
+    }
+  ],
+  "httpChecks": [
+    {
+      "path": "/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "robots": "",
+      "canonical": "https://caesthetic.com/",
+      "skinHit": false
+    },
+    {
+      "path": "/dental/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Dental Marketing — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/dental/",
+      "skinHit": false
+    },
+    {
+      "path": "/beauty/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Beauty Marketing — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/beauty/",
+      "skinHit": false
+    },
+    {
+      "path": "/aesthetic-medicine/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Aesthetic Medicine Marketing — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/aesthetic-medicine/",
+      "skinHit": false
+    },
+    {
+      "path": "/maps-reputation/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Maps Reputation — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/maps-reputation/",
+      "skinHit": false
+    },
+    {
+      "path": "/solutions/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Solutions — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/solutions/",
+      "skinHit": false
+    },
+    {
+      "path": "/work/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Work — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/work/",
+      "skinHit": false
+    },
+    {
+      "path": "/insights/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Insights — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/insights/",
+      "skinHit": false
+    },
+    {
+      "path": "/process/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "How It Works — CAESTHETIC Process",
+      "robots": "",
+      "canonical": "https://caesthetic.com/process/",
+      "skinHit": false
+    },
+    {
+      "path": "/about/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "About CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/about/",
+      "skinHit": false
+    },
+    {
+      "path": "/assessment/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Growth Assessment — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/assessment/",
+      "skinHit": false
+    },
+    {
+      "path": "/contact/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Contact — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/contact/",
+      "skinHit": false
+    },
+    {
+      "path": "/faq/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "FAQ — CAESTHETIC",
+      "robots": "",
+      "canonical": "https://caesthetic.com/faq/",
+      "skinHit": false
+    },
+    {
+      "path": "/legal/privacy/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Privacy Policy — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex\">",
+      "canonical": "https://caesthetic.com/legal/privacy/",
+      "skinHit": false
+    },
+    {
+      "path": "/legal/terms/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Terms of Service — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex\">",
+      "canonical": "https://caesthetic.com/legal/terms/",
+      "skinHit": false
+    },
+    {
+      "path": "/legal/cookies/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Cookie Policy — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex\">",
+      "canonical": "https://caesthetic.com/legal/cookies/",
+      "skinHit": false
+    },
+    {
+      "path": "/accessibility/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Accessibility Statement — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex\">",
+      "canonical": "https://caesthetic.com/accessibility/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/dental-growth/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Dental Practice Growth — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex, follow\">",
+      "canonical": "https://caesthetic.com/go/dental-growth/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/implant-patients/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Implant Patient Acquisition — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex, follow\">",
+      "canonical": "https://caesthetic.com/go/implant-patients/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/salon-growth/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Salon Growth — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex, follow\">",
+      "canonical": "https://caesthetic.com/go/salon-growth/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/new-salon-launch/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "New Salon Launch — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex, follow\">",
+      "canonical": "https://caesthetic.com/go/new-salon-launch/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/aesthetic-practice-growth/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Aesthetic Practice Growth — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex, follow\">",
+      "canonical": "https://caesthetic.com/go/aesthetic-practice-growth/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/injector-growth/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Injector Growth — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex, follow\">",
+      "canonical": "https://caesthetic.com/go/injector-growth/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/maps-analysis/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Get a Maps Reputation Analysis — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex,follow\">",
+      "canonical": "https://caesthetic.com/go/maps-analysis/",
+      "skinHit": false
+    },
+    {
+      "path": "/go/multi-location-snapshot/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Multi-Location Network Snapshot — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex, follow\">",
+      "canonical": "https://caesthetic.com/go/multi-location-snapshot/",
+      "skinHit": false
+    },
+    {
+      "path": "/404/",
+      "code": 200,
+      "edge": "stage5",
+      "title": "Page Not Found — CAESTHETIC",
+      "robots": "<meta name=\"robots\" content=\"noindex\">",
+      "canonical": null,
+      "skinHit": false
+    },
+    {
+      "path": "/networks/skin-rejuvenation/",
+      "code": 301,
+      "redir": "https://caesthetic.com/aesthetic-medicine/",
+      "expect": 301
+    },
+    {
+      "path": "/treatments/",
+      "code": 301,
+      "redir": "https://caesthetic.com/aesthetic-medicine/",
+      "expect": 301
+    },
+    {
+      "path": "/treatments/morpheus8/",
+      "code": 301,
+      "redir": "https://caesthetic.com/aesthetic-medicine/",
+      "expect": 301
+    },
+    {
+      "path": "/cities/paris/",
+      "code": 301,
+      "redir": "https://caesthetic.com/assessment/?market=paris",
+      "expect": 301
+    },
+    {
+      "path": "/cities/london/",
+      "code": 301,
+      "redir": "https://caesthetic.com/assessment/?market=london",
+      "expect": 301
+    },
+    {
+      "path": "/cities/dubai/",
+      "code": 301,
+      "redir": "https://caesthetic.com/assessment/?market=dubai",
+      "expect": 301
+    },
+    {
+      "path": "/partners/",
+      "code": 301,
+      "redir": "https://caesthetic.com/contact/",
+      "expect": 301
+    },
+    {
+      "path": "/infrastructure/",
+      "code": 301,
+      "redir": "https://caesthetic.com/process/",
+      "expect": 301
+    },
+    {
+      "path": "/definitely-not-existing-page",
+      "code": 404,
+      "redir": "",
+      "expect": 404
+    },
+    {
+      "path": "/robots.txt",
+      "code": 200,
+      "hasSitemap": true,
+      "disallowGo": true
+    },
+    {
+      "path": "/sitemap.xml",
+      "code": 200,
+      "hasDental": true,
+      "hasMaps": true
+    },
+    {
+      "path": "www→apex",
+      "code": 301,
+      "redir": "https://caesthetic.com/"
+    }
+  ],
+  "pageReportsSummary": [
+    {
+      "viewport": "m320",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m320",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m375",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m390",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "m430",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "t768",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1024",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1280",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1440",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/dental/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/beauty/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/aesthetic-medicine/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/maps-reputation/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/solutions/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/work/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/insights/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/process/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/about/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/assessment/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/contact/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/faq/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/legal/privacy/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/legal/terms/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/legal/cookies/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/accessibility/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/dental-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/implant-patients/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/salon-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/new-salon-launch/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/aesthetic-practice-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/injector-growth/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/maps-analysis/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/go/multi-location-snapshot/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    },
+    {
+      "viewport": "d1920",
+      "path": "/404/",
+      "status": 200,
+      "overflowX": 0,
+      "canScrollX": false,
+      "h1": true,
+      "console": 0,
+      "pageErrors": 0,
+      "skinHit": false
+    }
+  ]
+}

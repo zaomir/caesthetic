@@ -1,0 +1,112 @@
+/*
+ * CAESTHETIC — Clinical Editorial Intelligence
+ * Design System Tokens v2.0 — Lane B Handoff
+ * Replaces: site-caesthetic/assets/css/tokens.css
+ *
+ * Typography: Source Serif 4 (display) + IBM Plex Sans (UI) + IBM Plex Mono (data)
+ * Surface: Cool clinical paper (light) — NOT dark purple SaaS
+ *
+ * To use production Google Fonts, add to every HTML <head>:
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap">
+ *
+ * See site-caesthetic/DESIGN.md for full design thesis.
+ */
+
+/* ─── Google Fonts CDN (tokens.css delivery; also add preconnect links in HTML) ─── */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap");
+
+:root {
+
+  /* ─── Surfaces ─── */
+  --cae-bg:          #F5F7F8;   /* cool clinical paper — primary background */
+  --cae-bg-2:        #EEF1F3;   /* slightly deeper — section alternation */
+  --cae-bg-3:        #E4E9ED;   /* tonal depth — pulled sections, data cells */
+  --cae-bg-dark:     #14191C;   /* editorial charcoal — reversed sections */
+  --cae-bg-dark-2:   #1A2228;   /* dark surface — footer inner, dark cards */
+
+  /* ─── Borders ─── */
+  --cae-border:        #C9D1D7;   /* standard horizontal rule */
+  --cae-border-strong: #14191C;   /* ink rule — primary structural emphasis */
+  --cae-border-data:   #A8B3BC;   /* data table rule — lighter */
+  --cae-border-accent: #1C3A4A;   /* navy border — active states */
+
+  /* ─── Text ─── */
+  --cae-text:        #14191C;   /* near-black charcoal — primary text */
+  --cae-text-strong: #0B1013;   /* editorial black — display headings */
+  --cae-muted:       #5A646C;   /* cool slate — secondary prose */
+  --cae-muted-2:     #4E5963;   /* lighter — captions, footnotes, labels */
+
+  /* ─── Accent: Clinical Navy ─── */
+  --cae-accent:       #1C3A4A;   /* clinical navy — institutional confidence */
+  --cae-accent-2:     #274E63;   /* lighter navy — hover states */
+  --cae-accent-light: #E8EFF3;   /* tint — table headers, highlights */
+
+  /* ─── Signal: Crimson ─── */
+  --cae-signal:       #7B244B;   /* crimson — CTAs, priority flags, kicker text */
+  --cae-signal-2:     #96325E;   /* lighter — hover states */
+  --cae-signal-light: #F5E8EC;   /* tint — priority backgrounds */
+
+  /* ─── Data colors ─── */
+  --cae-data-positive:    #2A5C40;
+  --cae-data-positive-bg: #E8F2EC;
+  --cae-data-negative:    #7B1F1F;
+  --cae-data-negative-bg: #F5E8E8;
+  --cae-data-warning:     #7A4000;
+  --cae-data-warning-bg:  #F5EDDB;
+  --cae-data-neutral:     #3D4F5A;
+  --cae-data-neutral-bg:  #ECF0F3;
+
+  /* ─── Typography ─── */
+  --cae-font:         "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --cae-font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --cae-font-mono:    "IBM Plex Mono", "Courier New", monospace;
+
+  /* ─── Type scale ─── */
+  --cae-text-xs:   0.6875rem;   /* 11px */
+  --cae-text-sm:   0.8125rem;   /* 13px */
+  --cae-text-base: 1rem;        /* 16px */
+  --cae-text-lg:   1.125rem;    /* 18px */
+  --cae-text-xl:   1.25rem;     /* 20px */
+  --cae-text-2xl:  1.5rem;      /* 24px */
+
+  /* ─── Spacing ─── */
+  --cae-space-1:  4px;
+  --cae-space-2:  8px;
+  --cae-space-3:  12px;
+  --cae-space-4:  16px;
+  --cae-space-5:  20px;
+  --cae-space-6:  24px;
+  --cae-space-8:  32px;
+  --cae-space-10: 40px;
+  --cae-space-12: 48px;
+  --cae-space-16: 64px;
+  --cae-space-20: 80px;
+  --cae-space-24: 96px;
+
+  /* ─── Geometry ─── */
+  --cae-radius-sm: 2px;    /* barely-there — signals precision */
+  --cae-radius:    4px;    /* default panels, inputs */
+  --cae-radius-lg: 6px;    /* form elements, large cards */
+
+  /* ─── Layout ─── */
+  --cae-header-h:    74px;
+  --cae-wrap:        min(1180px, calc(100% - 40px));
+  --cae-wrap-narrow: min(880px, calc(100% - 40px));
+  --cae-wrap-wide:   min(1440px, calc(100% - 40px));
+
+  /* ─── Motion ─── */
+  --cae-ease:          cubic-bezier(0.25, 0, 0.25, 1);
+  --cae-ease-out:      cubic-bezier(0, 0, 0.25, 1);
+  --cae-duration-fast: 140ms;
+  --cae-duration:      220ms;
+  --cae-duration-slow: 380ms;
+
+  /* ─── Focus ring ─── */
+  --cae-outline-focus: 0 0 0 3px rgba(28, 58, 74, 0.35);
+
+  /* ─── Legacy aliases (kept for backward compat with existing HTML) ─── */
+  --cae-text-strong-on-dark: #F5F7F8;
+  --cae-muted-on-dark:       rgba(247, 245, 240, 0.65);
+}

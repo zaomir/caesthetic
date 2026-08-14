@@ -1,0 +1,806 @@
+{
+  "schemaVersion": 3,
+  "reportState": "approved_report",
+  "reportVersion": "demo-search-gap-v3.0",
+  "verifiedFactSetVersion": "demo-search-gap-facts-v3.0",
+  "reportKind": "demo",
+  "disclosure": "Demonstration only. Fictional practice, synthetic data, no client relationship, and no reported client outcome.",
+  "practice": {
+    "name": "Fictional Meridian Med Spa",
+    "location": "Fictional Southwest market",
+    "preparedAt": "2026-08-11",
+    "preparedFor": "Growth Score demonstration"
+  },
+  "executiveSummary": "Strong clinician-led Social proof is not matched by local Search discovery in this fictional Phase-1 aesthetic-practice scenario.",
+  "surfaces": [
+    {
+      "id": "search",
+      "summary": "Local discovery is the binding constraint despite stronger evidence elsewhere.",
+      "metrics": [
+        {
+          "metric_id": "map_visibility",
+          "raw_value": "Synthetic rubric observation: 28",
+          "normalized_score": 28,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Map visibility",
+          "finding": "Synthetic geo-grid visibility weakens beyond the immediate address radius."
+        },
+        {
+          "metric_id": "gbp_treatment_category_completeness",
+          "raw_value": "Synthetic rubric observation: 42",
+          "normalized_score": 42,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "GBP treatment/category completeness",
+          "finding": "Priority treatments and profile categories are only partly aligned."
+        },
+        {
+          "metric_id": "entity_integrity",
+          "raw_value": "Synthetic rubric observation: 55",
+          "normalized_score": 55,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Entity integrity",
+          "finding": "Core identity fields are consistent across most synthetic citations."
+        },
+        {
+          "metric_id": "gbp_conversion_readiness",
+          "raw_value": "Synthetic rubric observation: 48",
+          "normalized_score": 48,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "GBP conversion readiness",
+          "finding": "The synthetic profile leaves high-intent conversion questions unresolved."
+        },
+        {
+          "metric_id": "freshness",
+          "raw_value": "Synthetic rubric observation: 35",
+          "normalized_score": 35,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Freshness",
+          "finding": "Recent profile activity is intermittent in the synthetic review window."
+        },
+        {
+          "metric_id": "branded_search_control",
+          "raw_value": "Synthetic rubric observation: 44",
+          "normalized_score": 44,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Branded search control",
+          "finding": "The fictional practice controls only part of the branded results page."
+        }
+      ],
+      "owner_card": {
+        "strength": "Core identity fields stay consistent across most synthetic citations.",
+        "problem": "Geo-grid visibility collapses outside the immediate address area.",
+        "priority": "HIGH"
+      }
+    },
+    {
+      "id": "website",
+      "summary": "The website provides a credible treatment and booking path.",
+      "metrics": [
+        {
+          "metric_id": "booking_friction",
+          "raw_value": "Synthetic rubric observation: 76",
+          "normalized_score": 76,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Booking friction",
+          "finding": "The synthetic booking journey remains short and legible."
+        },
+        {
+          "metric_id": "treatment_clarity",
+          "raw_value": "Synthetic rubric observation: 78",
+          "normalized_score": 78,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Treatment clarity",
+          "finding": "Priority treatment pages answer the main decision questions."
+        },
+        {
+          "metric_id": "mobile_performance",
+          "raw_value": "Synthetic rubric observation: 72",
+          "normalized_score": 72,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Mobile performance",
+          "finding": "Synthetic mobile performance is stable."
+        },
+        {
+          "metric_id": "above_fold_conversion",
+          "raw_value": "Synthetic rubric observation: 74",
+          "normalized_score": 74,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Above-fold conversion",
+          "finding": "The primary mobile action is visible above the fold."
+        },
+        {
+          "metric_id": "clinician_trust_proof",
+          "raw_value": "Synthetic rubric observation: 82",
+          "normalized_score": 82,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Clinician and trust proof",
+          "finding": "Clinician credentials and proof are connected to treatment decisions."
+        },
+        {
+          "metric_id": "mystery_shopper",
+          "raw_value": "Synthetic rubric observation: 65",
+          "normalized_score": 65,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Mystery shopper",
+          "finding": "A synthetic mystery-shopper enquiry received a usable response."
+        },
+        {
+          "metric_id": "technical_booking_integrity",
+          "raw_value": "Synthetic rubric observation: 84",
+          "normalized_score": 84,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Technical booking integrity",
+          "finding": "No broken booking handoff appears in the synthetic fixture."
+        }
+      ],
+      "owner_card": {
+        "strength": "The synthetic booking journey remains short and technically intact.",
+        "problem": "Mystery-shopper response is usable but slower than the rest of the path.",
+        "priority": "LOW"
+      }
+    },
+    {
+      "id": "social",
+      "summary": "Clinician-led education and proof form the strongest surface.",
+      "metrics": [
+        {
+          "metric_id": "priority_treatment_presence",
+          "raw_value": "Synthetic rubric observation: 88",
+          "normalized_score": 88,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Priority-treatment presence",
+          "finding": "Priority treatments are consistently represented."
+        },
+        {
+          "metric_id": "clinician_expertise",
+          "raw_value": "Synthetic rubric observation: 84",
+          "normalized_score": 84,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Clinician expertise",
+          "finding": "Clinician-led education is the clearest asset in the fixture."
+        },
+        {
+          "metric_id": "proof_quality",
+          "raw_value": "Synthetic rubric observation: 86",
+          "normalized_score": 86,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Proof quality",
+          "finding": "Proof is contextual and treatment-specific."
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": "Synthetic rubric observation: 80",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Recency",
+          "finding": "The fictional feed is current in the review window."
+        },
+        {
+          "metric_id": "profile_to_booking",
+          "raw_value": "Synthetic rubric observation: 78",
+          "normalized_score": 78,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Profile to booking",
+          "finding": "Profile links retain treatment context."
+        },
+        {
+          "metric_id": "local_offer_clarity",
+          "raw_value": "Synthetic rubric observation: 75",
+          "normalized_score": 75,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Local offer clarity",
+          "finding": "The practice location and treatment offer are clear."
+        }
+      ],
+      "owner_card": {
+        "strength": "Clinician-led education and proof are current and treatment-specific.",
+        "problem": "Strong social proof is only partly carried into Search and Website.",
+        "priority": "LOW"
+      }
+    },
+    {
+      "id": "reputation",
+      "summary": "Reputation is credible, with response cadence trailing the fictional comparison set.",
+      "metrics": [
+        {
+          "metric_id": "review_velocity_90d",
+          "raw_value": "Synthetic rubric observation: 72",
+          "normalized_score": 72,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "90-day review velocity",
+          "finding": "Synthetic review velocity is competitive but not leading."
+        },
+        {
+          "metric_id": "rating",
+          "raw_value": "Synthetic rubric observation: 77",
+          "normalized_score": 77,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Rating",
+          "finding": "The synthetic rating remains strong."
+        },
+        {
+          "metric_id": "review_depth",
+          "raw_value": "Synthetic rubric observation: 70",
+          "normalized_score": 70,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Review depth",
+          "finding": "Reviews include useful treatment decision detail."
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": "Synthetic rubric observation: 68",
+          "normalized_score": 68,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Recency",
+          "finding": "Recent reviews appear across the 90-day window."
+        },
+        {
+          "metric_id": "response_coverage",
+          "raw_value": "Synthetic rubric observation: 62",
+          "normalized_score": 62,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Response coverage",
+          "finding": "Response coverage is uneven."
+        },
+        {
+          "metric_id": "response_speed",
+          "raw_value": "Synthetic rubric observation: 58",
+          "normalized_score": 58,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Response speed",
+          "finding": "Responses lag the fictional peer set."
+        },
+        {
+          "metric_id": "negative_review_handling",
+          "raw_value": "Synthetic rubric observation: 76",
+          "normalized_score": 76,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Negative-review handling",
+          "finding": "Negative feedback receives calm, privacy-safe responses."
+        },
+        {
+          "metric_id": "treatment_clinician_proof",
+          "raw_value": "Synthetic rubric observation: 74",
+          "normalized_score": 74,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Treatment and clinician proof",
+          "finding": "Reviews name treatments and clinicians often enough to support decisions."
+        }
+      ],
+      "owner_card": {
+        "strength": "The synthetic rating remains strong and reviews name treatments.",
+        "problem": "Review response speed trails the fictional peer set.",
+        "priority": "MEDIUM"
+      }
+    }
+  ],
+  "crossSurface": {
+    "summary": "Treatment language and proof do not carry consistently from Social into Search and Website.",
+    "metrics": [
+      {
+        "metric_id": "treatment_presence",
+        "raw_value": "Synthetic rubric observation: 42",
+        "normalized_score": 42,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Treatment presence",
+        "finding": "Priority-treatment presence varies across search and website surfaces."
+      },
+      {
+        "metric_id": "positioning_coherence",
+        "raw_value": "Synthetic rubric observation: 46",
+        "normalized_score": 46,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Positioning coherence",
+        "finding": "Positioning language changes between entry surfaces."
+      },
+      {
+        "metric_id": "proof_continuity",
+        "raw_value": "Synthetic rubric observation: 58",
+        "normalized_score": 58,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Proof continuity",
+        "finding": "Strong social proof is only partly carried into search and website."
+      },
+      {
+        "metric_id": "conversion_continuity",
+        "raw_value": "Synthetic rubric observation: 50",
+        "normalized_score": 50,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Conversion continuity",
+        "finding": "Calls to action change by entry surface."
+      },
+      {
+        "metric_id": "identity_coherence",
+        "raw_value": "Synthetic rubric observation: 64",
+        "normalized_score": 64,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Identity coherence",
+        "finding": "The fictional practice identity remains mostly consistent."
+      }
+    ]
+  },
+  "humanDiagnosis": {
+    "reviewer_status": "approved",
+    "reviewer": {
+      "name": "Fictional Morgan Hale",
+      "approved_at": "2026-08-11T16:00:00Z"
+    },
+    "objective_strength": {
+      "title": "Clinician-led Social proof is current, treatment-specific and decision-useful.",
+      "evidence_refs": [
+        "social.clinician_expertise",
+        "social.proof_quality"
+      ]
+    },
+    "strongest_surface": "social",
+    "binding_constraint": {
+      "title": "Local Search cannot reliably surface the treatment proof already present elsewhere.",
+      "evidence_refs": [
+        "search.map_visibility",
+        "search.gbp_treatment_category_completeness",
+        "cross.treatment_presence"
+      ],
+      "statement": "Local Search cannot reliably surface the treatment proof already present on Social. Geo-grid visibility and incomplete GBP treatment categories keep high-intent patients from encountering the practice beyond its immediate address.",
+      "demand_stage": "discovery"
+    },
+    "top_priorities": [
+      {
+        "id": "priority-search-map",
+        "problem_refs": [
+          "search-map-coverage"
+        ],
+        "title": "Correct the priority-treatment local discovery gap.",
+        "evidence_refs": [
+          "search.map_visibility"
+        ],
+        "impact": "High-intent local demand is least likely to encounter the fictional practice beyond its immediate address.",
+        "why_now": "High-intent local demand is least likely to encounter the practice beyond its immediate address.",
+        "expected_effect": "A measured geo-grid baseline would show where discovery fails so later profile work is aimed at the actual leak, not a ranking guarantee.",
+        "complexity": "Medium",
+        "task_refs": [
+          "task-map-baseline"
+        ]
+      },
+      {
+        "id": "priority-gbp",
+        "problem_refs": [
+          "search-profile-taxonomy"
+        ],
+        "title": "Align GBP treatments and categories with the priority offer.",
+        "evidence_refs": [
+          "search.gbp_treatment_category_completeness"
+        ],
+        "impact": "A clearer profile taxonomy would connect the existing proof to matching search intent.",
+        "why_now": "The public profile still gives search platforms an incomplete view of the priority offer.",
+        "expected_effect": "Accurate GBP categories and services can connect existing proof to matching search intent, without promising a visibility outcome.",
+        "complexity": "Medium",
+        "task_refs": [
+          "task-gbp-taxonomy"
+        ]
+      },
+      {
+        "id": "priority-proof-continuity",
+        "problem_refs": [
+          "cross-proof-gap"
+        ],
+        "title": "Carry clinician proof into high-intent Search and Website decisions.",
+        "evidence_refs": [
+          "cross.proof_continuity",
+          "social.clinician_expertise"
+        ],
+        "impact": "The strongest evidence currently loses continuity before the booking decision.",
+        "why_now": "The strongest clinician evidence currently loses continuity before the booking decision.",
+        "expected_effect": "Carrying approved proof into high-intent pages would reduce the drop between attention and enquiry, without forecasting patient volume.",
+        "complexity": "High",
+        "task_refs": [
+          "task-proof-continuity"
+        ]
+      }
+    ],
+    "do_not_do": {
+      "title": "Do not increase paid traffic until local treatment discovery and proof continuity are corrected.",
+      "evidence_refs": [
+        "search.map_visibility",
+        "cross.proof_continuity"
+      ],
+      "rationale": "Paid ads and extra traffic would send more people into a market where the practice is not discoverable for priority treatments, amplifying the same search-visibility leak.",
+      "revisit_after": [
+        "Priority-treatment geo-grid cells recover to a useful local result set",
+        "GBP categories and services match the approved treatment catalogue"
+      ]
+    },
+    "competitors": {
+      "status": "applicable",
+      "selection_method": "Three fictional nearby aesthetic practices offering the same priority treatments within the synthetic geo-grid.",
+      "entries": [
+        {
+          "name": "Fictional Northstar Aesthetics",
+          "finding": "The fictional peer remains visible across more of the comparable priority-treatment geo-grid.",
+          "evidence_refs": [
+            "search.map_visibility"
+          ]
+        },
+        {
+          "name": "Fictional Juniper Med Spa",
+          "finding": "The fictional peer presents a more complete priority-treatment category set in local discovery.",
+          "evidence_refs": [
+            "search.map_visibility"
+          ]
+        },
+        {
+          "name": "Fictional Arc Skin Clinic",
+          "finding": "The fictional peer adds a more current reputation signal beside the search comparison.",
+          "evidence_refs": [
+            "reputation.review_velocity_90d"
+          ]
+        }
+      ]
+    },
+    "walkthrough": {
+      "status": "pending",
+      "url": null,
+      "placeholder": "Human walkthrough placeholder: omitted for this synthetic demo."
+    },
+    "problem_inventory": [
+      {
+        "id": "search-map-coverage",
+        "surface": "search",
+        "title": "Geo-grid visibility collapses outside the immediate address area.",
+        "evidence_refs": [
+          "search.map_visibility"
+        ],
+        "impact": "Priority-treatment local discovery is materially weaker than the synthetic peer set.",
+        "task_refs": [
+          "task-map-baseline"
+        ],
+        "suggested_horizon": "Immediate",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "search-profile-taxonomy",
+        "surface": "search",
+        "title": "GBP categories and treatment inventory are incomplete.",
+        "evidence_refs": [
+          "search.gbp_treatment_category_completeness"
+        ],
+        "impact": "The profile gives search platforms and patients an incomplete view of the priority offer.",
+        "task_refs": [
+          "task-gbp-taxonomy"
+        ],
+        "suggested_horizon": "0–30 days",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "search-freshness",
+        "surface": "search",
+        "title": "Profile freshness is inconsistent.",
+        "evidence_refs": [
+          "search.freshness"
+        ],
+        "impact": "Intermittent activity weakens current-treatment confidence.",
+        "task_refs": [],
+        "suggested_horizon": "30–90 days",
+        "status": "monitor",
+        "status_reason": "Recheck freshness after the higher-impact discovery and taxonomy corrections are accepted.",
+        "priority": "Low",
+        "complexity": "Low"
+      },
+      {
+        "id": "cross-proof-gap",
+        "surface": "cross_surface",
+        "title": "Clinician proof does not continue into high-intent pages.",
+        "evidence_refs": [
+          "cross.proof_continuity",
+          "social.clinician_expertise"
+        ],
+        "impact": "Decision confidence drops between attention and booking.",
+        "task_refs": [
+          "task-proof-continuity"
+        ],
+        "suggested_horizon": "0–30 days",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "reputation-response-lag",
+        "surface": "reputation",
+        "title": "Review response speed trails the fictional peer set.",
+        "evidence_refs": [
+          "reputation.response_speed"
+        ],
+        "impact": "Slow acknowledgement makes otherwise credible reputation evidence feel less active.",
+        "task_refs": [],
+        "suggested_horizon": "30–90 days",
+        "status": "monitor",
+        "status_reason": "Monitor a fresh response sample before assigning implementation work.",
+        "priority": "Low",
+        "complexity": "Low"
+      }
+    ],
+    "remediation_tasks": [
+      {
+        "id": "task-map-baseline",
+        "problem_refs": [
+          "search-map-coverage"
+        ],
+        "outcome": "Priority-treatment visibility is measured from a reproducible geo-grid and the weakest cells have an evidence-backed correction plan.",
+        "steps": [
+          "Freeze the priority treatment, city query, grid centre, five-mile radius and named comparison set.",
+          "Export the 5×5 baseline and label the cells where the practice falls outside the useful local result set.",
+          "Check each weak cell against GBP category, treatment and entity evidence before documenting the corrective action.",
+          "Repeat the same grid after the accepted changes and compare like-for-like evidence."
+        ],
+        "evidence_refs": [
+          "search.map_visibility"
+        ],
+        "prerequisites_access": [
+          "Approved priority-treatment list",
+          "Public GBP and competitor URLs",
+          "Local geo-grid collection skill"
+        ],
+        "dependencies": [],
+        "sequence": {
+          "order": 1,
+          "rationale": "The baseline defines where discovery fails and prevents unrelated search work from being treated as the first fix."
+        },
+        "owner_role": "Local search specialist, with an owner approving the priority treatment and market",
+        "effort_complexity": "Medium — one controlled measurement set plus evidence review; coordination rises if entity records conflict.",
+        "implementation_risk": "Changing the profile from one grid snapshot can damage relevance; preserve the query method and require corroborating profile evidence.",
+        "horizon": "Baseline in days; observable local movement may require several weeks and is not guaranteed.",
+        "acceptance_evidence": [
+          "Dated 5×5 export with query, centre, radius and competitors",
+          "Cell-level issue log",
+          "Like-for-like post-change export"
+        ],
+        "next_action": "Approve the one priority treatment and exact local query for the baseline."
+      },
+      {
+        "id": "task-gbp-taxonomy",
+        "problem_refs": [
+          "search-profile-taxonomy"
+        ],
+        "outcome": "The public GBP categories and services accurately represent the approved priority treatments without stuffing or unsupported claims.",
+        "steps": [
+          "Export the current primary category, secondary categories and service inventory.",
+          "Compare that inventory with the approved treatment catalogue and the named local comparison set.",
+          "Draft the smallest accurate category and service changes, including owner review for naming and compliance.",
+          "Publish accepted changes and capture the live profile state."
+        ],
+        "evidence_refs": [
+          "search.gbp_treatment_category_completeness"
+        ],
+        "prerequisites_access": [
+          "GBP manager access for the chosen implementer",
+          "Approved treatment catalogue",
+          "Owner or compliance approval"
+        ],
+        "dependencies": [
+          "task-map-baseline"
+        ],
+        "sequence": {
+          "order": 2,
+          "rationale": "The geo-grid baseline fixes the comparison method before the GBP taxonomy changes are published."
+        },
+        "owner_role": "GBP/local search specialist with owner approval",
+        "effort_complexity": "Medium — straightforward configuration when access and naming are clean; higher if duplicates or category conflicts emerge.",
+        "implementation_risk": "Unsupported services, keyword stuffing or category churn can reduce trust; use only accurate public treatments and retain a before state.",
+        "horizon": "Implementation within days; indexing and visibility response can take longer.",
+        "acceptance_evidence": [
+          "Before-and-after GBP category export",
+          "Live service inventory screenshots",
+          "Owner approval record"
+        ],
+        "next_action": "Export the current GBP category and service inventory."
+      },
+      {
+        "id": "task-proof-continuity",
+        "problem_refs": [
+          "cross-proof-gap"
+        ],
+        "outcome": "The same verifiable clinician proof appears at the high-intent Search-to-Website decision points without adding unsupported claims.",
+        "steps": [
+          "Inventory the strongest approved clinician proof already visible on Social.",
+          "Map each proof item to the relevant treatment page and public profile destination.",
+          "Add attribution, clinician context and a clear next step at the chosen decision points.",
+          "Test the mobile journey from discovery to the proof and booking action."
+        ],
+        "evidence_refs": [
+          "cross.proof_continuity",
+          "social.clinician_expertise"
+        ],
+        "prerequisites_access": [
+          "Approved proof assets and usage permission",
+          "Website content access",
+          "Clinical/compliance review"
+        ],
+        "dependencies": [
+          "task-gbp-taxonomy"
+        ],
+        "sequence": {
+          "order": 3,
+          "rationale": "Proof is carried into the corrected treatment taxonomy after the discovery path has a stable destination."
+        },
+        "owner_role": "Content strategist and web implementer, with clinician/compliance acceptance",
+        "effort_complexity": "Medium to high — requires asset permissions, content adaptation, web changes and cross-surface QA.",
+        "implementation_risk": "Proof can become misleading when context or permission is lost; retain attribution and obtain approval before publication.",
+        "horizon": "One to three weeks depending on asset permission and website release cadence.",
+        "acceptance_evidence": [
+          "Approved proof inventory",
+          "Live treatment-page URLs",
+          "Mobile discovery-to-booking QA screenshots"
+        ],
+        "next_action": "Select the two strongest attributable clinician-proof assets for the priority treatment."
+      }
+    ],
+    "current_state": {
+      "strengths": [
+        "Clinician-led Social proof is current and treatment-specific.",
+        "The website booking path is short and technically intact."
+      ],
+      "constraint_label": "Local search visibility",
+      "constraint_detail": "Priority-treatment discovery collapses outside the immediate address area.",
+      "priority_line": "Fix before buying more traffic."
+    },
+    "roadmap_preview": {
+      "weeks": [
+        {
+          "label": "WEEK 1",
+          "title": "Freeze the priority query and measure the geo-grid baseline"
+        },
+        {
+          "label": "WEEK 2",
+          "title": "Align GBP categories and services with the approved offer"
+        },
+        {
+          "label": "WEEKS 3–4",
+          "title": "Carry clinician proof into Search and Website destinations"
+        }
+      ],
+      "disclaimer": "Illustrative sequencing based on this diagnosis. Final Sprint scope is confirmed separately."
+    },
+    "coordination_burden": {
+      "diagnosed_issues": 5,
+      "high_priority_fixes": 3,
+      "systems_involved": 4,
+      "dependencies": 11,
+      "specialist_roles": 3
+    }
+  },
+  "implementation_paths": {
+    "diy": "Assign the listed owner roles internally, follow task sequence 1–3 and retain every acceptance artifact in one shared evidence folder.",
+    "other_provider": "Give another local-search and web team this report, the metric evidence and task IDs; require them to return the same acceptance evidence without re-hiding the method.",
+    "defer": "Preserve the dated baseline, monitor the two lower-priority items and repeat the same collection method before making a later decision.",
+    "caesthetic": "Ask CAESTHETIC to scope only the selected tasks, access, owners and acceptance checks in a separate written Sprint agreement."
+  },
+  "why_caesthetic": {
+    "evidence_advantage": "CAESTHETIC has already assembled the synthetic case method, evidence references and dependency order, so a real-case team would not need to restart diagnosis.",
+    "coordination_advantage": "The work crosses local search, content, web implementation and compliance acceptance; one coordinator can reduce handoff cost while keeping specialist accountability visible.",
+    "sprint_boundary": "The Growth Score is not purchased Sprint scope. A 30-Day Sprint includes only tasks, dependencies and acceptance evidence confirmed later in writing, with no ranking, enquiry or revenue guarantee.",
+    "ownership": "The owner keeps the report, evidence pack and complete task plan and may implement it in-house, use another provider, defer it or stop. There is no lock-in."
+  },
+  "estimates": [
+    {
+      "title": "Illustrative missed-enquiry range (optional, not a headline)",
+      "evidence_class": "B",
+      "finding_type": "estimate",
+      "method": "Apply a conservative synthetic conversion range to the fixture's observed local-visibility gap; no revenue value is assigned.",
+      "assumptions": [
+        "Synthetic search demand is directionally representative",
+        "No patient or revenue outcome is forecast",
+        "The range is for method demonstration only"
+      ]
+    }
+  ],
+  "methodology": {
+    "sources": [
+      "Synthetic Local Falcon-style geo-grid",
+      "Synthetic GBP review",
+      "Synthetic website and mobile review",
+      "Synthetic social and 90-day reputation sample"
+    ],
+    "collectedAt": "2026-08-11",
+    "competitorSelection": "Three named fictional aesthetic practices sharing the same synthetic market and priority treatments.",
+    "limitations": "All practices, people, observations, competitors and scores are synthetic. This is not client work, a ranking claim, or a guarantee of patients, enquiries or revenue."
+  }
+}

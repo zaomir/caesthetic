@@ -1,0 +1,66 @@
+/* CAESTHETIC Impeccable pass — Clinical Editorial Intelligence v2.1 */
+
+.cae-diagnostic-hero{padding:clamp(72px,10vw,148px) 0 64px;border-bottom:1px solid var(--cae-border)}
+.cae-diagnostic-hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:clamp(48px,8vw,120px);align-items:end}
+.cae-diagnostic-hero__eyebrow{font:500 12px/1.4 var(--cae-font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cae-signal);margin-bottom:22px}
+.cae-diagnostic-hero .cae-h1{max-width:11ch;font-size:clamp(3.4rem,7.8vw,7.4rem);line-height:.9}
+.cae-diagnostic-hero__statement{max-width:48ch;margin-top:30px;font-size:clamp(1.05rem,1.5vw,1.32rem);line-height:1.55;color:var(--cae-muted)}
+
+.cae-casefile{border-top:3px solid var(--cae-text-strong);border-bottom:1px solid var(--cae-border);background:var(--cae-bg)}
+.cae-casefile__meta{display:grid;grid-template-columns:1fr auto;gap:24px;padding:14px 0;border-bottom:1px solid var(--cae-border);font:500 11px/1.4 var(--cae-font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--cae-muted)}
+.cae-casefile__title{padding:28px 0 20px;font-family:var(--cae-font-display);font-size:clamp(1.55rem,2.6vw,2.4rem);font-weight:400;line-height:1.08}
+.cae-casefile__finding{display:grid;grid-template-columns:84px 1fr;gap:20px;padding:19px 0;border-top:1px solid var(--cae-border)}
+.cae-casefile__code{font:500 12px/1.3 var(--cae-font-mono);color:var(--cae-signal)}
+.cae-casefile__finding strong{display:block;margin-bottom:6px;font-size:.98rem}
+.cae-casefile__finding p{color:var(--cae-muted);font-size:.92rem;line-height:1.55}
+.cae-casefile__decision{padding:20px;margin:24px 0 0;background:var(--cae-accent);color:var(--cae-bg);font-size:.93rem;line-height:1.55}
+
+.cae-journey{padding:clamp(76px,9vw,132px) 0;background:var(--cae-bg-dark);color:var(--cae-text-strong-on-dark)}
+.cae-journey__intro{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;margin-bottom:56px}
+.cae-journey__intro p{color:var(--cae-muted-on-dark);max-width:58ch}
+.cae-journey__rail{border-top:1px solid #49443f}
+.cae-journey__stage{display:grid;grid-template-columns:90px minmax(150px,.7fr) minmax(240px,1.3fr) minmax(190px,.8fr);gap:28px;align-items:start;padding:27px 0;border-bottom:1px solid #49443f}
+.cae-journey__num{font:500 12px/1.4 var(--cae-font-mono);color:#9d968e}
+.cae-journey__stage h3{font-family:var(--cae-font-display);font-size:clamp(1.45rem,2.2vw,2.05rem);font-weight:400;line-height:1}
+.cae-journey__stage p{color:#c8c0b6;line-height:1.55}
+.cae-journey__signal{font:500 11px/1.45 var(--cae-font-mono);letter-spacing:.05em;text-transform:uppercase;color:#e7a9be}
+.cae-journey__stage--fault{border-left:3px solid var(--cae-signal);padding-left:22px}
+
+.cae-evidence-room{padding:clamp(76px,9vw,132px) 0}
+.cae-evidence-room__head{display:grid;grid-template-columns:.75fr 1.25fr;gap:48px;margin-bottom:46px}
+.cae-evidence-room__grid{display:grid;grid-template-columns:1.25fr .75fr;border-top:1px solid var(--cae-border-strong);border-left:1px solid var(--cae-border)}
+.cae-evidence-plate{padding:28px;border-right:1px solid var(--cae-border);border-bottom:1px solid var(--cae-border);min-height:260px}
+.cae-evidence-plate__label{font:500 11px/1.4 var(--cae-font-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--cae-muted);margin-bottom:30px}
+.cae-evidence-plate__metric{font:400 clamp(3rem,6vw,6.6rem)/.85 var(--cae-font-display);letter-spacing:-.04em}
+.cae-evidence-plate__unit{font:500 12px/1.4 var(--cae-font-mono);color:var(--cae-muted);margin:13px 0 34px}
+.cae-evidence-plate__bar{height:8px;background:var(--cae-bg-3);position:relative;margin:22px 0}
+.cae-evidence-plate__bar span{display:block;height:100%;background:var(--cae-signal)}
+.cae-evidence-plate__note{font-size:.92rem;line-height:1.55;color:var(--cae-muted);max-width:42ch}
+.cae-evidence-plate--priority{background:var(--cae-signal-light)}
+.cae-evidence-plate--wide{grid-column:1/-1;min-height:auto;display:grid;grid-template-columns:.7fr 1.3fr;gap:40px}
+
+.cae-routes{padding:clamp(76px,9vw,124px) 0;border-top:1px solid var(--cae-border)}
+.cae-routes__item{display:grid;grid-template-columns:110px minmax(180px,.75fr) minmax(260px,1.25fr) auto;gap:28px;align-items:center;padding:30px 0;border-bottom:1px solid var(--cae-border)}
+.cae-routes__code{font:500 12px/1.4 var(--cae-font-mono);color:var(--cae-muted)}
+.cae-routes__item h3{font-family:var(--cae-font-display);font-size:clamp(1.5rem,2.4vw,2.2rem);font-weight:400}
+.cae-routes__item p{color:var(--cae-muted);line-height:1.55}
+.cae-routes__item a{font:600 12px/1.4 var(--cae-font);letter-spacing:.07em;text-transform:uppercase}
+
+/* Systemic anti-slop: reduce repeated card/kicker rhythm across legacy pages. */
+.cae-panel{border-radius:0;background:transparent;box-shadow:none}
+.cae-grid-3>.cae-panel,.cae-grid-4>.cae-panel{border-width:1px 0 0;padding-left:0;padding-right:clamp(18px,3vw,38px)}
+.cae-section__head .cae-kicker{font-family:var(--cae-font-mono);letter-spacing:.08em;color:var(--cae-muted)}
+.cae-proof__visual{background:var(--cae-bg-2);border:1px solid var(--cae-border-strong);border-radius:0}
+
+@media(max-width:900px){
+ .cae-diagnostic-hero__grid,.cae-journey__intro,.cae-evidence-room__head{grid-template-columns:1fr}
+ .cae-journey__stage{grid-template-columns:56px 1fr}.cae-journey__stage p,.cae-journey__signal{grid-column:2}
+ .cae-evidence-room__grid{grid-template-columns:1fr}.cae-evidence-plate--wide{grid-column:auto;grid-template-columns:1fr}
+ .cae-routes__item{grid-template-columns:64px 1fr}.cae-routes__item p,.cae-routes__item a{grid-column:2}
+}
+@media(max-width:560px){
+ .cae-diagnostic-hero{padding-top:56px}.cae-diagnostic-hero__grid{gap:52px}
+ .cae-casefile__finding{grid-template-columns:52px 1fr}
+ .cae-journey__stage{gap:14px;padding:22px 0}.cae-journey__stage--fault{padding-left:14px}
+ .cae-evidence-plate{padding:22px}.cae-routes__item{gap:14px}
+}

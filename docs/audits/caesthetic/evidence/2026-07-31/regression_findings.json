@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-07-30T23:28:50.115Z",
+  "findings": [],
+  "evidence": [
+    {
+      "viewport": "d1440",
+      "page": "/",
+      "file": "/tmp/cae-qa/screenshots/reg-d1440-.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/maps-reputation/",
+      "file": "/tmp/cae-qa/screenshots/reg-d1440-maps-reputation-.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "d1440",
+      "page": "/assessment/",
+      "file": "/tmp/cae-qa/screenshots/reg-d1440-assessment-.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/",
+      "file": "/tmp/cae-qa/screenshots/reg-m375-.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/maps-reputation/",
+      "file": "/tmp/cae-qa/screenshots/reg-m375-maps-reputation-.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m375",
+      "page": "/assessment/",
+      "file": "/tmp/cae-qa/screenshots/reg-m375-assessment-.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/",
+      "file": "/tmp/cae-qa/screenshots/reg-m390-.png",
+      "title": "CAESTHETIC — Growth systems for specialist practices",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/maps-reputation/",
+      "file": "/tmp/cae-qa/screenshots/reg-m390-maps-reputation-.png",
+      "title": "Maps Reputation — CAESTHETIC",
+      "status": 200
+    },
+    {
+      "viewport": "m390",
+      "page": "/assessment/",
+      "file": "/tmp/cae-qa/screenshots/reg-m390-assessment-.png",
+      "title": "Growth Assessment — CAESTHETIC",
+      "status": 200
+    }
+  ],
+  "httpChecks": [
+    {
+      "path": "/networks/skin-rejuvenation/",
+      "code": "301",
+      "redir": "https://caesthetic.com/aesthetic-medicine/",
+      "expect": "301"
+    },
+    {
+      "path": "/treatments/morpheus8/",
+      "code": "301",
+      "redir": "https://caesthetic.com/aesthetic-medicine/",
+      "expect": "301"
+    },
+    {
+      "path": "/cities/paris/",
+      "code": "301",
+      "redir": "https://caesthetic.com/assessment/?market=paris",
+      "expect": "301"
+    },
+    {
+      "path": "/partners/",
+      "code": "301",
+      "redir": "https://caesthetic.com/contact/",
+      "expect": "301"
+    },
+    {
+      "path": "/infrastructure/",
+      "code": "301",
+      "redir": "https://caesthetic.com/process/",
+      "expect": "301"
+    },
+    {
+      "path": "/this-missing-xyz-qa-final/",
+      "code": "404",
+      "redir": "",
+      "expect": "404"
+    }
+  ],
+  "counts": {
+    "BLOCKER": 0,
+    "HIGH": 0,
+    "MEDIUM": 0
+  }
+}

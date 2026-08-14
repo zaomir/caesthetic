@@ -1,0 +1,825 @@
+{
+  "schemaVersion": 3,
+  "reportState": "approved_report",
+  "reportVersion": "demo-reputation-gap-v3.0",
+  "verifiedFactSetVersion": "demo-reputation-gap-facts-v3.0",
+  "reportKind": "demo",
+  "disclosure": "Demonstration only. Fictional practice, synthetic data, no client relationship, and no reported client outcome.",
+  "practice": {
+    "name": "Fictional Sable Aesthetics Clinic",
+    "location": "Fictional Sun Belt market",
+    "preparedAt": "2026-08-11",
+    "preparedFor": "Growth Score demonstration"
+  },
+  "executiveSummary": "Current Social proof is undermined by low 90-day review velocity and inconsistent responses in this fictional Phase-1 aesthetics-clinic scenario.",
+  "surfaces": [
+    {
+      "id": "search",
+      "summary": "Search presents a coherent priority-treatment offer.",
+      "metrics": [
+        {
+          "metric_id": "map_visibility",
+          "raw_value": "Synthetic rubric observation: 78",
+          "normalized_score": 78,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Map visibility",
+          "finding": "Map visibility is recorded at 78/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "gbp_treatment_category_completeness",
+          "raw_value": "Synthetic rubric observation: 76",
+          "normalized_score": 76,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "GBP treatment/category completeness",
+          "finding": "GBP treatment/category completeness is recorded at 76/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "entity_integrity",
+          "raw_value": "Synthetic rubric observation: 82",
+          "normalized_score": 82,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Entity integrity",
+          "finding": "Entity integrity is recorded at 82/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "gbp_conversion_readiness",
+          "raw_value": "Synthetic rubric observation: 74",
+          "normalized_score": 74,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "GBP conversion readiness",
+          "finding": "GBP conversion readiness is recorded at 74/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "freshness",
+          "raw_value": "Synthetic rubric observation: 80",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Freshness",
+          "finding": "Freshness is recorded at 80/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "branded_search_control",
+          "raw_value": "Synthetic rubric observation: 84",
+          "normalized_score": 84,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Branded search control",
+          "finding": "Branded search control is recorded at 84/100 in this synthetic search rubric."
+        }
+      ],
+      "owner_card": {
+        "strength": "Search presents a coherent priority-treatment offer.",
+        "problem": "No search-visibility defect is the binding constraint.",
+        "priority": "LOW"
+      }
+    },
+    {
+      "id": "website",
+      "summary": "The website supports treatment decisions with a low-friction path.",
+      "metrics": [
+        {
+          "metric_id": "booking_friction",
+          "raw_value": "Synthetic rubric observation: 80",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Booking friction",
+          "finding": "Booking friction is recorded at 80/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "treatment_clarity",
+          "raw_value": "Synthetic rubric observation: 82",
+          "normalized_score": 82,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Treatment clarity",
+          "finding": "Treatment clarity is recorded at 82/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "mobile_performance",
+          "raw_value": "Synthetic rubric observation: 76",
+          "normalized_score": 76,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Mobile performance",
+          "finding": "Mobile performance is recorded at 76/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "above_fold_conversion",
+          "raw_value": "Synthetic rubric observation: 78",
+          "normalized_score": 78,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Above-fold conversion",
+          "finding": "Above-fold conversion is recorded at 78/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "clinician_trust_proof",
+          "raw_value": "Synthetic rubric observation: 85",
+          "normalized_score": 85,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Clinician and trust proof",
+          "finding": "Clinician and trust proof is recorded at 85/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "mystery_shopper",
+          "raw_value": "Synthetic rubric observation: 72",
+          "normalized_score": 72,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Mystery shopper",
+          "finding": "Mystery shopper is recorded at 72/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "technical_booking_integrity",
+          "raw_value": "Synthetic rubric observation: 88",
+          "normalized_score": 88,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Technical booking integrity",
+          "finding": "Technical booking integrity is recorded at 88/100 in this synthetic website rubric."
+        }
+      ],
+      "owner_card": {
+        "strength": "The website supports treatment decisions with a low-friction path.",
+        "problem": "No website booking leak is the binding constraint.",
+        "priority": "LOW"
+      }
+    },
+    {
+      "id": "social",
+      "summary": "Current contextual proof makes Social the strongest surface.",
+      "metrics": [
+        {
+          "metric_id": "priority_treatment_presence",
+          "raw_value": "Synthetic rubric observation: 86",
+          "normalized_score": 86,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Priority-treatment presence",
+          "finding": "Priority-treatment presence is recorded at 86/100 in this synthetic social rubric."
+        },
+        {
+          "metric_id": "clinician_expertise",
+          "raw_value": "Synthetic rubric observation: 84",
+          "normalized_score": 84,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Clinician expertise",
+          "finding": "Clinician expertise is recorded at 84/100 in this synthetic social rubric."
+        },
+        {
+          "metric_id": "proof_quality",
+          "raw_value": "Synthetic rubric observation: 82",
+          "normalized_score": 82,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Proof quality",
+          "finding": "Current, contextual Social proof is the strongest evidence in the fixture."
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": "Synthetic rubric observation: 88",
+          "normalized_score": 88,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Recency",
+          "finding": "Recency is recorded at 88/100 in this synthetic social rubric."
+        },
+        {
+          "metric_id": "profile_to_booking",
+          "raw_value": "Synthetic rubric observation: 78",
+          "normalized_score": 78,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Profile to booking",
+          "finding": "Profile to booking is recorded at 78/100 in this synthetic social rubric."
+        },
+        {
+          "metric_id": "local_offer_clarity",
+          "raw_value": "Synthetic rubric observation: 80",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Local offer clarity",
+          "finding": "Local offer clarity is recorded at 80/100 in this synthetic social rubric."
+        }
+      ],
+      "owner_card": {
+        "strength": "Current contextual Social proof is the strongest evidence in the fixture.",
+        "problem": "Social proof does not continue into the Reputation surface.",
+        "priority": "MEDIUM"
+      }
+    },
+    {
+      "id": "reputation",
+      "summary": "Low review velocity, recency and response coverage form the binding constraint.",
+      "metrics": [
+        {
+          "metric_id": "review_velocity_90d",
+          "raw_value": "Synthetic rubric observation: 22",
+          "normalized_score": 22,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "90-day review velocity",
+          "finding": "Only two synthetic reviews appear in the 90-day window, behind every fictional comparator."
+        },
+        {
+          "metric_id": "rating",
+          "raw_value": "Synthetic rubric observation: 68",
+          "normalized_score": 68,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Rating",
+          "finding": "Rating is recorded at 68/100 in this synthetic reputation rubric."
+        },
+        {
+          "metric_id": "review_depth",
+          "raw_value": "Synthetic rubric observation: 52",
+          "normalized_score": 52,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Review depth",
+          "finding": "The synthetic review set rarely names a treatment or decision detail."
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": "Synthetic rubric observation: 35",
+          "normalized_score": 35,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Recency",
+          "finding": "The newest synthetic review is outside the preferred recency window."
+        },
+        {
+          "metric_id": "response_coverage",
+          "raw_value": "Synthetic rubric observation: 30",
+          "normalized_score": 30,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Response coverage",
+          "finding": "Only a minority of synthetic reviews receive a practice response."
+        },
+        {
+          "metric_id": "response_speed",
+          "raw_value": "Synthetic rubric observation: 25",
+          "normalized_score": 25,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Response speed",
+          "finding": "Synthetic responses are slow relative to the fictional peer set."
+        },
+        {
+          "metric_id": "negative_review_handling",
+          "raw_value": "Synthetic rubric observation: 40",
+          "normalized_score": 40,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Negative-review handling",
+          "finding": "The synthetic negative-review response is generic but remains privacy-safe."
+        },
+        {
+          "metric_id": "treatment_clinician_proof",
+          "raw_value": "Synthetic rubric observation: 45",
+          "normalized_score": 45,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Treatment and clinician proof",
+          "finding": "Treatment and clinician names appear inconsistently in the synthetic review corpus."
+        }
+      ],
+      "owner_card": {
+        "strength": "Negative-review replies stay generic but privacy-safe.",
+        "problem": "90-day review velocity and response coverage trail every fictional comparator.",
+        "priority": "HIGH"
+      }
+    }
+  ],
+  "crossSurface": {
+    "summary": "Proof continuity is the weakest cross-surface component because current Social evidence does not appear in Reputation.",
+    "metrics": [
+      {
+        "metric_id": "treatment_presence",
+        "raw_value": "Synthetic rubric observation: 74",
+        "normalized_score": 74,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Treatment presence",
+        "finding": "Treatment presence is recorded at 74/100 in this synthetic cross rubric."
+      },
+      {
+        "metric_id": "positioning_coherence",
+        "raw_value": "Synthetic rubric observation: 76",
+        "normalized_score": 76,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Positioning coherence",
+        "finding": "Positioning coherence is recorded at 76/100 in this synthetic cross rubric."
+      },
+      {
+        "metric_id": "proof_continuity",
+        "raw_value": "Synthetic rubric observation: 44",
+        "normalized_score": 44,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Proof continuity",
+        "finding": "Current Social proof is not reflected in the Reputation surface."
+      },
+      {
+        "metric_id": "conversion_continuity",
+        "raw_value": "Synthetic rubric observation: 70",
+        "normalized_score": 70,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Conversion continuity",
+        "finding": "Conversion continuity is recorded at 70/100 in this synthetic cross rubric."
+      },
+      {
+        "metric_id": "identity_coherence",
+        "raw_value": "Synthetic rubric observation: 82",
+        "normalized_score": 82,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Identity coherence",
+        "finding": "Identity coherence is recorded at 82/100 in this synthetic cross rubric."
+      }
+    ]
+  },
+  "humanDiagnosis": {
+    "reviewer_status": "approved",
+    "reviewer": {
+      "name": "Fictional Jordan Ellis",
+      "approved_at": "2026-08-11T16:30:00Z"
+    },
+    "objective_strength": {
+      "title": "Current, treatment-specific Social proof gives prospective patients useful decision context.",
+      "evidence_refs": [
+        "social.proof_quality",
+        "social.recency"
+      ]
+    },
+    "strongest_surface": "social",
+    "binding_constraint": {
+      "title": "Reputation does not accumulate or respond to enough recent treatment evidence.",
+      "evidence_refs": [
+        "reputation.review_velocity_90d",
+        "reputation.recency",
+        "reputation.response_coverage"
+      ],
+      "statement": "Reputation does not accumulate or respond to enough recent treatment evidence. Prospective patients who reach the clinic see weaker current proof than the fictional comparison set, so trust stalls before enquiry.",
+      "demand_stage": "trust"
+    },
+    "top_priorities": [
+      {
+        "id": "priority-neutral-review-request",
+        "problem_refs": [
+          "review-velocity-gap",
+          "review-recency-gap"
+        ],
+        "title": "Create a neutral, universal review-request workflow.",
+        "evidence_refs": [
+          "reputation.review_velocity_90d"
+        ],
+        "impact": "A consistent invitation to every eligible patient can address low velocity without selective routing.",
+        "why_now": "The practice presents less current patient evidence than every named comparator in the same 90-day window.",
+        "expected_effect": "A neutral invitation to every eligible patient can address low velocity without selective routing; it does not guarantee review volume.",
+        "complexity": "Medium",
+        "task_refs": [
+          "task-neutral-review-workflow"
+        ]
+      },
+      {
+        "id": "priority-response-standard",
+        "problem_refs": [
+          "response-coverage-gap",
+          "response-speed-gap"
+        ],
+        "title": "Respond consistently and privacy-safely.",
+        "evidence_refs": [
+          "reputation.response_coverage",
+          "reputation.response_speed"
+        ],
+        "impact": "Broader and faster acknowledgement would make the reputation surface visibly active.",
+        "why_now": "Most synthetic reviews receive no timely acknowledgement, so the surface looks inactive.",
+        "expected_effect": "Broader, privacy-safe responses would make reputation look attended; coverage is not a rating or patient forecast.",
+        "complexity": "Medium",
+        "task_refs": [
+          "task-response-standard"
+        ]
+      },
+      {
+        "id": "priority-proof-themes",
+        "problem_refs": [
+          "review-depth-gap",
+          "cross-proof-gap"
+        ],
+        "title": "Use recurring treatment themes to improve operations and proof continuity.",
+        "evidence_refs": [
+          "reputation.review_depth",
+          "cross.proof_continuity"
+        ],
+        "impact": "Better decision detail can reveal operational themes and connect real feedback to other surfaces.",
+        "why_now": "Reviews rarely name treatments or clinicians, so decision proof stays on Social only.",
+        "expected_effect": "Theme work can improve operations and proof continuity without scripting sentiment or promising review depth.",
+        "complexity": "High",
+        "task_refs": [
+          "task-proof-themes"
+        ]
+      }
+    ],
+    "do_not_do": {
+      "title": "Do not use incentives, sentiment filtering, selective routing, or any form of review gating.",
+      "evidence_refs": [
+        "reputation.review_velocity_90d",
+        "reputation.negative_review_handling"
+      ],
+      "rationale": "Funding new acquisition before reputation is repaired would send more patients into a trust leak: low 90-day velocity and missing responses make the practice look less current than named peers. Incentives or gating would also distort the same evidence.",
+      "revisit_after": [
+        "A neutral invitation workflow covers every eligible patient",
+        "Response coverage is visibly active on the current review sample"
+      ]
+    },
+    "competitors": {
+      "status": "applicable",
+      "selection_method": "Three fictional aesthetics clinics with comparable priority treatments, selected from the same synthetic local market.",
+      "entries": [
+        {
+          "name": "Fictional Alder Aesthetics",
+          "finding": "The fictional comparator adds substantially more recent reviews in the identical 90-day window.",
+          "evidence_refs": [
+            "reputation.review_velocity_90d"
+          ]
+        },
+        {
+          "name": "Fictional Halo Skin Clinic",
+          "finding": "The fictional comparator responds to a larger share of the same eligible review sample.",
+          "evidence_refs": [
+            "reputation.response_coverage"
+          ]
+        },
+        {
+          "name": "Fictional Commonwell Med Spa",
+          "finding": "The fictional comparator's reviews contain more treatment and clinician decision detail.",
+          "evidence_refs": [
+            "reputation.review_depth"
+          ]
+        }
+      ]
+    },
+    "walkthrough": {
+      "status": "pending",
+      "url": null,
+      "placeholder": "Human walkthrough placeholder: omitted for this synthetic demo."
+    },
+    "problem_inventory": [
+      {
+        "id": "review-velocity-gap",
+        "surface": "reputation",
+        "title": "The 90-day review velocity trails every fictional comparator.",
+        "evidence_refs": [
+          "reputation.review_velocity_90d"
+        ],
+        "impact": "The practice presents less current patient evidence at a key decision point.",
+        "task_refs": [
+          "task-neutral-review-workflow"
+        ],
+        "suggested_horizon": "Immediate",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "review-recency-gap",
+        "surface": "reputation",
+        "title": "Recent review evidence is sparse.",
+        "evidence_refs": [
+          "reputation.recency"
+        ],
+        "impact": "Older evidence gives weaker reassurance about the current patient experience.",
+        "task_refs": [
+          "task-neutral-review-workflow"
+        ],
+        "suggested_horizon": "0–30 days",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "response-coverage-gap",
+        "surface": "reputation",
+        "title": "Most synthetic reviews receive no response.",
+        "evidence_refs": [
+          "reputation.response_coverage"
+        ],
+        "impact": "The practice appears less attentive than the fictional comparison set.",
+        "task_refs": [
+          "task-response-standard"
+        ],
+        "suggested_horizon": "Immediate",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "response-speed-gap",
+        "surface": "reputation",
+        "title": "Review responses arrive slowly.",
+        "evidence_refs": [
+          "reputation.response_speed"
+        ],
+        "impact": "Delayed acknowledgement weakens the sense of an active practice.",
+        "task_refs": [
+          "task-response-standard"
+        ],
+        "suggested_horizon": "30–90 days",
+        "status": "monitor",
+        "priority": "Medium",
+        "complexity": "Medium"
+      },
+      {
+        "id": "review-depth-gap",
+        "surface": "reputation",
+        "title": "Reviews rarely name treatments, clinicians or decision detail.",
+        "evidence_refs": [
+          "reputation.review_depth",
+          "reputation.treatment_clinician_proof"
+        ],
+        "impact": "Prospective patients receive limited proof for the choices they are evaluating.",
+        "task_refs": [
+          "task-proof-themes"
+        ],
+        "suggested_horizon": "30–90 days",
+        "status": "diagnosed",
+        "priority": "Medium",
+        "complexity": "Medium"
+      },
+      {
+        "id": "cross-proof-gap",
+        "surface": "cross_surface",
+        "title": "Current Social proof does not continue into Reputation.",
+        "evidence_refs": [
+          "cross.proof_continuity",
+          "social.proof_quality"
+        ],
+        "impact": "The strongest visible evidence is not reinforced at the review decision surface.",
+        "task_refs": [
+          "task-proof-themes"
+        ],
+        "suggested_horizon": "30–90 days",
+        "status": "monitor",
+        "priority": "Low",
+        "complexity": "Medium"
+      }
+    ],
+    "remediation_tasks": [
+      {
+        "id": "task-neutral-review-workflow",
+        "problem_refs": [
+          "review-velocity-gap",
+          "review-recency-gap"
+        ],
+        "outcome": "Every eligible patient receives the same neutral review invitation through a documented, platform-compliant workflow.",
+        "steps": [
+          "Define the same objective eligibility event for every patient without using sentiment, rating or complaint status.",
+          "Choose the permitted invitation channel and write neutral copy that allows any honest feedback.",
+          "Configure one universal trigger, suppression rule for duplicate sends and an operational owner.",
+          "Audit a disclosed sample for invitation coverage and retain the workflow evidence."
+        ],
+        "evidence_refs": [
+          "reputation.review_velocity_90d",
+          "reputation.recency"
+        ],
+        "prerequisites_access": [
+          "Current platform-policy review",
+          "Practice messaging-system access for the chosen implementer",
+          "Objective eligible-patient event",
+          "Privacy/compliance approval"
+        ],
+        "dependencies": [],
+        "sequence": {
+          "order": 1,
+          "rationale": "A neutral invitation process addresses the measured recency and velocity gap without prohibited selection."
+        },
+        "owner_role": "Practice operations lead with privacy/compliance acceptance",
+        "effort_complexity": "Medium — copy is simple, but trigger design, platform rules and unbiased coverage require careful operations work.",
+        "implementation_risk": "Sentiment filtering, incentives or selective routing can become prohibited review gating; use one neutral rule for every eligible patient.",
+        "horizon": "Workflow setup within one to two weeks; review recency develops over a longer window without a volume guarantee.",
+        "acceptance_evidence": [
+          "Approved neutral invitation copy",
+          "Documented eligibility and suppression rules",
+          "Sample invitation-coverage audit"
+        ],
+        "next_action": "Approve one objective eligibility event that applies equally to every patient."
+      },
+      {
+        "id": "task-response-standard",
+        "problem_refs": [
+          "response-coverage-gap",
+          "response-speed-gap"
+        ],
+        "outcome": "Eligible reviews receive timely, privacy-safe acknowledgement under one owned response standard.",
+        "steps": [
+          "Define the response owner, daily review check and escalation path for sensitive or negative content.",
+          "Create short response patterns that acknowledge feedback without confirming treatment or patient status.",
+          "Backfill only the selected recent sample, starting with unresolved negative reviews under privacy review.",
+          "Measure response coverage and observable response delay over the next disclosed sample window."
+        ],
+        "evidence_refs": [
+          "reputation.response_coverage",
+          "reputation.response_speed"
+        ],
+        "prerequisites_access": [
+          "GBP response access for the chosen responder",
+          "Privacy-safe escalation policy",
+          "Named daily workflow owner"
+        ],
+        "dependencies": [
+          "task-neutral-review-workflow"
+        ],
+        "sequence": {
+          "order": 2,
+          "rationale": "Response ownership follows the invitation standard so one operator can manage both current-review workflows consistently."
+        },
+        "owner_role": "Trained reputation responder with practice/privacy escalation support",
+        "effort_complexity": "Medium and ongoing — initial standards are bounded, while daily coverage creates continuing operating load.",
+        "implementation_risk": "A response can expose protected or clinical information or become argumentative; prohibit confirmation of patient status and escalate sensitive cases.",
+        "horizon": "Initial standard in days; coverage and speed should be assessed over at least one documented review window.",
+        "acceptance_evidence": [
+          "Approved response and escalation guide",
+          "Named daily owner",
+          "Dated response-coverage and response-delay sample"
+        ],
+        "next_action": "Name the daily response owner and privacy escalation reviewer."
+      },
+      {
+        "id": "task-proof-themes",
+        "problem_refs": [
+          "review-depth-gap",
+          "cross-proof-gap"
+        ],
+        "outcome": "Recurring public feedback themes inform operations and are reflected across surfaces without scripting, prompting for positive sentiment or copying patient claims.",
+        "steps": [
+          "Code a disclosed review sample by treatment, clinician, process and experience themes without identifying patients.",
+          "Separate operational gaps from reusable public proof and send sensitive themes to the internal owner only.",
+          "Use aggregate, truthful themes to improve treatment-page questions and clinician education content.",
+          "Recheck review depth and Cross-Surface proof continuity using the same rubric."
+        ],
+        "evidence_refs": [
+          "reputation.review_depth",
+          "reputation.treatment_clinician_proof",
+          "cross.proof_continuity",
+          "social.proof_quality"
+        ],
+        "prerequisites_access": [
+          "Dated public review sample",
+          "Privacy-safe theme-coding method",
+          "Content and clinical/compliance reviewers"
+        ],
+        "dependencies": [
+          "task-response-standard"
+        ],
+        "sequence": {
+          "order": 3,
+          "rationale": "Theme work follows the neutral invitation and response standards so proof continuity never drives selective collection."
+        },
+        "owner_role": "Research/content strategist with operations and clinical/compliance acceptance",
+        "effort_complexity": "Medium to high — requires consistent coding, privacy review and coordinated content changes across more than one surface.",
+        "implementation_risk": "Cherry-picking positive comments or reproducing identifiable claims would distort evidence; use disclosed samples and aggregate themes only.",
+        "horizon": "Initial theme set in two to four weeks; deeper public evidence matures over multiple review cycles.",
+        "acceptance_evidence": [
+          "De-identified theme ledger with disclosed sample",
+          "Approved operational action log",
+          "Live aggregate-theme content and repeat rubric check"
+        ],
+        "next_action": "Select the first dated review sample and approve the de-identification rules."
+      }
+    ],
+    "current_state": {
+      "strengths": [
+        "Current Social proof is treatment-specific and decision-useful.",
+        "The website supports treatment decisions with a low-friction path."
+      ],
+      "constraint_label": "Review velocity and response",
+      "constraint_detail": "90-day review evidence and owner responses trail every fictional comparator.",
+      "priority_line": "Fix before funding new acquisition."
+    },
+    "roadmap_preview": {
+      "weeks": [
+        {
+          "label": "WEEK 1",
+          "title": "Stand up the neutral review-request workflow"
+        },
+        {
+          "label": "WEEK 2",
+          "title": "Own daily privacy-safe review responses"
+        },
+        {
+          "label": "WEEKS 3–4",
+          "title": "Code review themes into operations and proof continuity"
+        }
+      ],
+      "disclaimer": "Illustrative sequencing based on this diagnosis. Final Sprint scope is confirmed separately."
+    },
+    "coordination_burden": {
+      "diagnosed_issues": 6,
+      "high_priority_fixes": 3,
+      "systems_involved": 4,
+      "dependencies": 12,
+      "specialist_roles": 3
+    }
+  },
+  "implementation_paths": {
+    "diy": "Assign an operations owner, trained responder and content reviewer; follow tasks 1–3 without incentives, sentiment filtering or selective routing.",
+    "other_provider": "Give another reputation provider the complete task plan and insist on universal eligibility, privacy-safe responses, disclosed samples and the listed acceptance evidence.",
+    "defer": "Keep the 90-day baseline and monitor response coverage, but do not substitute paid reputation tactics or a gated review funnel for the diagnosed workflow.",
+    "caesthetic": "Ask CAESTHETIC to scope selected workflow, response and theme tasks with explicit platform/privacy controls in a separate Sprint statement."
+  },
+  "why_caesthetic": {
+    "evidence_advantage": "CAESTHETIC has already connected the synthetic 90-day comparison, response pattern and Cross-Surface proof gap into one evidence ledger.",
+    "coordination_advantage": "The workload crosses operations, platform configuration, daily response ownership, privacy escalation and content acceptance; coordinated execution can reduce handoff risk without hiding any step.",
+    "sprint_boundary": "The Score does not pre-sell a review campaign or promise review volume. A 30-Day Sprint confirms selected work, access and acceptance evidence separately and cannot guarantee ratings, patients or revenue.",
+    "ownership": "The practice owns and may reuse the report, evidence and full task plan with its own team or any provider. There is no exclusive method or lock-in."
+  },
+  "estimates": [],
+  "methodology": {
+    "sources": [
+      "Synthetic local Search review",
+      "Synthetic website and mystery-shopper review",
+      "Synthetic Social sample",
+      "Synthetic 90-day review and response sample"
+    ],
+    "collectedAt": "2026-08-11",
+    "competitorSelection": "Three named fictional aesthetics clinics selected by synthetic market proximity and treatment overlap.",
+    "limitations": "All practices, people, observations, competitors and scores are synthetic. The safe review-system diagnosis does not use incentives, filtering, selective routing or review gating. No outcome is guaranteed."
+  }
+}

@@ -1,0 +1,523 @@
+{
+  "generatedAt": "2026-07-30",
+  "canonicalHost": "https://caesthetic.com",
+  "language": "en",
+  "defaultImage": "https://caesthetic.com/assets/img/logo.png",
+  "notes": [
+    "Handoff only: production page files are not modified by Lane C.",
+    "No AggregateRating or Review schema is used.",
+    "FAQPage, Article and Person schema are omitted until page content explicitly supports them.",
+    "Old /networks/, /treatments/, /cities/ and /paris/ URLs are redirect-only and excluded from sitemap."
+  ],
+  "organization": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://caesthetic.com/#organization",
+    "name": "CAESTHETIC",
+    "alternateName": "The Aesthetic Collective",
+    "url": "https://caesthetic.com/",
+    "logo": "https://caesthetic.com/assets/img/logo.png",
+    "description": "CAESTHETIC builds growth systems for specialist healthcare, beauty and aesthetic practices around discovery, reputation, websites, acquisition and conversion.",
+    "email": "team@caesthetic.com",
+    "telephone": "+44 7361 630001",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Berkeley Square House, Berkeley Square",
+      "addressLocality": "London",
+      "postalCode": "W1J 6BD",
+      "addressCountry": "GB"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/caesthetic/",
+      "https://www.youtube.com/@caesthetic"
+    ]
+  },
+  "pages": [
+    {
+      "url": "https://caesthetic.com/",
+      "path": "/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "CAESTHETIC - Specialist Practice Growth Systems",
+      "description": "Marketing, maps reputation and conversion systems for dental, beauty and aesthetic medicine practices.",
+      "canonical": "https://caesthetic.com/",
+      "og": {
+        "type": "website",
+        "title": "CAESTHETIC - Specialist Practice Growth Systems",
+        "description": "Dental, beauty, aesthetic medicine and maps reputation built as one measurable growth system.",
+        "url": "https://caesthetic.com/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "CAESTHETIC - Specialist Practice Growth Systems",
+        "description": "Dental, beauty, aesthetic medicine and maps reputation built as one measurable growth system.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Organization", "WebSite"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" }
+      ],
+      "jsonLd": [
+        { "@id": "https://caesthetic.com/#organization" },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://caesthetic.com/#website",
+          "url": "https://caesthetic.com/",
+          "name": "CAESTHETIC",
+          "publisher": { "@id": "https://caesthetic.com/#organization" },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/about/",
+      "path": "/about/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "About CAESTHETIC - Evidence-Led Growth",
+      "description": "CAESTHETIC connects maps, reputation, websites, acquisition and conversion for specialist practices.",
+      "canonical": "https://caesthetic.com/about/",
+      "og": {
+        "type": "website",
+        "title": "About CAESTHETIC - Evidence-Led Growth",
+        "description": "Specialist growth systems built around evidence, trust and operational follow-up.",
+        "url": "https://caesthetic.com/about/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "About CAESTHETIC - Evidence-Led Growth",
+        "description": "Specialist growth systems built around evidence, trust and operational follow-up.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Organization", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "About", "url": "https://caesthetic.com/about/" }
+      ],
+      "jsonLd": [
+        { "@id": "https://caesthetic.com/#organization" },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "About", "item": "https://caesthetic.com/about/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/dental/",
+      "path": "/dental/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Dental Marketing System - CAESTHETIC",
+      "description": "A connected growth system for dental clinics: treatment demand, maps, websites, reputation and conversion.",
+      "canonical": "https://caesthetic.com/dental/",
+      "og": {
+        "type": "website",
+        "title": "Dental Marketing System - CAESTHETIC",
+        "description": "Connect implant, veneer and orthodontic demand with trust, pages and front-desk conversion.",
+        "url": "https://caesthetic.com/dental/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Dental Marketing System - CAESTHETIC",
+        "description": "Connect implant, veneer and orthodontic demand with trust, pages and front-desk conversion.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Dental", "url": "https://caesthetic.com/dental/" }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/dental/#service",
+          "name": "Dental marketing system",
+          "serviceType": "Specialist dental growth system",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "areaServed": ["United Kingdom", "Europe", "United Arab Emirates"],
+          "url": "https://caesthetic.com/dental/",
+          "description": "A connected growth system for dental clinics covering treatment demand, maps, websites, reputation, acquisition and administrator conversion."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Dental", "item": "https://caesthetic.com/dental/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/beauty/",
+      "path": "/beauty/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Beauty Business Marketing - CAESTHETIC",
+      "description": "Local discovery, reputation, booking surfaces and retention systems for salons and beauty businesses.",
+      "canonical": "https://caesthetic.com/beauty/",
+      "og": {
+        "type": "website",
+        "title": "Beauty Business Marketing - CAESTHETIC",
+        "description": "Turn local visibility into booked and returning clients for salons and beauty businesses.",
+        "url": "https://caesthetic.com/beauty/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Beauty Business Marketing - CAESTHETIC",
+        "description": "Turn local visibility into booked and returning clients for salons and beauty businesses.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Beauty", "url": "https://caesthetic.com/beauty/" }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/beauty/#service",
+          "name": "Beauty business marketing",
+          "serviceType": "Local beauty business growth system",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "url": "https://caesthetic.com/beauty/",
+          "description": "Launch, local discovery, reputation, bookings and repeat-visit systems for salons and beauty businesses."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Beauty", "item": "https://caesthetic.com/beauty/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/aesthetic-medicine/",
+      "path": "/aesthetic-medicine/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Aesthetic Medicine Marketing - CAESTHETIC",
+      "description": "Treatment-led growth, doctor authority, maps reputation and consultation conversion for aesthetic practices.",
+      "canonical": "https://caesthetic.com/aesthetic-medicine/",
+      "og": {
+        "type": "website",
+        "title": "Aesthetic Medicine Marketing - CAESTHETIC",
+        "description": "Build demand around expertise, treatment intent and compliant consultation conversion.",
+        "url": "https://caesthetic.com/aesthetic-medicine/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Aesthetic Medicine Marketing - CAESTHETIC",
+        "description": "Build demand around expertise, treatment intent and compliant consultation conversion.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Aesthetic Medicine", "url": "https://caesthetic.com/aesthetic-medicine/" }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/aesthetic-medicine/#service",
+          "name": "Aesthetic medicine marketing",
+          "serviceType": "Aesthetic practice growth system",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "url": "https://caesthetic.com/aesthetic-medicine/",
+          "description": "Treatment-led growth, doctor authority, maps reputation and consultation conversion for aesthetic practices and med spas."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Aesthetic Medicine", "item": "https://caesthetic.com/aesthetic-medicine/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/maps-reputation/",
+      "path": "/maps-reputation/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Maps Reputation - CAESTHETIC",
+      "description": "Maps and reputation management for local and multi-location businesses, ratings, reviews and profiles.",
+      "canonical": "https://caesthetic.com/maps-reputation/",
+      "og": {
+        "type": "website",
+        "title": "Maps Reputation - CAESTHETIC",
+        "description": "Analyse profiles, ratings, review themes and competitor gaps before buying more traffic.",
+        "url": "https://caesthetic.com/maps-reputation/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Maps Reputation - CAESTHETIC",
+        "description": "Analyse profiles, ratings, review themes and competitor gaps before buying more traffic.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Maps Reputation", "url": "https://caesthetic.com/maps-reputation/" }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/maps-reputation/#service",
+          "name": "Maps reputation analysis",
+          "serviceType": "Local reputation and maps analysis",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "url": "https://caesthetic.com/maps-reputation/",
+          "description": "Maps and reputation analysis for local and multi-location businesses, including profiles, ratings, reviews, responses and competitor gaps."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Maps Reputation", "item": "https://caesthetic.com/maps-reputation/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/assessment/",
+      "path": "/assessment/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Growth Assessment - CAESTHETIC",
+      "description": "Request a structured assessment of discovery, reputation, website, acquisition and conversion constraints.",
+      "canonical": "https://caesthetic.com/assessment/",
+      "og": {
+        "type": "website",
+        "title": "Growth Assessment - CAESTHETIC",
+        "description": "Find the constraint before choosing the channel, spend or next growth system.",
+        "url": "https://caesthetic.com/assessment/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Growth Assessment - CAESTHETIC",
+        "description": "Find the constraint before choosing the channel, spend or next growth system.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Assessment", "url": "https://caesthetic.com/assessment/" }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/assessment/#service",
+          "name": "Growth assessment",
+          "serviceType": "Growth constraint assessment",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "url": "https://caesthetic.com/assessment/",
+          "description": "A structured assessment of discovery, reputation, website, acquisition and conversion for specialist practices."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Assessment", "item": "https://caesthetic.com/assessment/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/infrastructure/",
+      "path": "/infrastructure/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Network Infrastructure - CAESTHETIC",
+      "description": "How CAESTHETIC network infrastructure moves demand from map assets to consultation routing.",
+      "canonical": "https://caesthetic.com/infrastructure/",
+      "og": {
+        "type": "website",
+        "title": "Network Infrastructure - CAESTHETIC",
+        "description": "Map assets, discovery, qualification, consultation routing, provider, treatment and follow-up.",
+        "url": "https://caesthetic.com/infrastructure/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Network Infrastructure - CAESTHETIC",
+        "description": "Map assets, discovery, qualification, consultation routing, provider, treatment and follow-up.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Infrastructure", "url": "https://caesthetic.com/infrastructure/" }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/infrastructure/#service",
+          "name": "Network infrastructure",
+          "serviceType": "Demand infrastructure",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "url": "https://caesthetic.com/infrastructure/",
+          "description": "Demand infrastructure around map assets, discovery, qualification, consultation routing and provider partnerships."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Infrastructure", "item": "https://caesthetic.com/infrastructure/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/partners/",
+      "path": "/partners/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Provider Partnership - CAESTHETIC",
+      "description": "Partner with CAESTHETIC to reach treatment-specific demand and increase qualified consultations.",
+      "canonical": "https://caesthetic.com/partners/",
+      "og": {
+        "type": "website",
+        "title": "Provider Partnership - CAESTHETIC",
+        "description": "For practice owners, medical directors and operators with advanced treatment protocols.",
+        "url": "https://caesthetic.com/partners/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Provider Partnership - CAESTHETIC",
+        "description": "For practice owners, medical directors and operators with advanced treatment protocols.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Partners", "url": "https://caesthetic.com/partners/" }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/partners/#service",
+          "name": "Provider partnership",
+          "serviceType": "Provider partnership intake",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "url": "https://caesthetic.com/partners/",
+          "description": "Provider partnership intake for practices seeking treatment-specific demand and qualified consultations."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Partners", "item": "https://caesthetic.com/partners/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/contact/",
+      "path": "/contact/",
+      "indexable": true,
+      "robots": "index,follow",
+      "title": "Contact CAESTHETIC",
+      "description": "Contact CAESTHETIC for provider network, partnership and specialist growth system inquiries.",
+      "canonical": "https://caesthetic.com/contact/",
+      "og": {
+        "type": "website",
+        "title": "Contact CAESTHETIC",
+        "description": "Provider network and partnership inquiries. team@caesthetic.com, London, UK.",
+        "url": "https://caesthetic.com/contact/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Contact CAESTHETIC",
+        "description": "Provider network and partnership inquiries. team@caesthetic.com, London, UK.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Organization", "BreadcrumbList"],
+      "breadcrumbs": [
+        { "name": "Home", "url": "https://caesthetic.com/" },
+        { "name": "Contact", "url": "https://caesthetic.com/contact/" }
+      ],
+      "jsonLd": [
+        { "@id": "https://caesthetic.com/#organization" },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://caesthetic.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://caesthetic.com/contact/" }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://caesthetic.com/go/maps-analysis/",
+      "path": "/go/maps-analysis/",
+      "indexable": false,
+      "robots": "noindex,follow",
+      "title": "Get a Maps Reputation Analysis - CAESTHETIC",
+      "description": "See rating distribution, review themes, competitor gaps and priority actions for your business locations.",
+      "canonical": "https://caesthetic.com/go/maps-analysis/",
+      "og": {
+        "type": "website",
+        "title": "Get a Maps Reputation Analysis - CAESTHETIC",
+        "description": "A focused maps reputation analysis landing page with one CTA.",
+        "url": "https://caesthetic.com/go/maps-analysis/",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Get a Maps Reputation Analysis - CAESTHETIC",
+        "description": "A focused maps reputation analysis landing page with one CTA.",
+        "image": "https://caesthetic.com/assets/img/logo.png"
+      },
+      "schemaTypes": ["Service"],
+      "breadcrumbs": [],
+      "goRules": {
+        "robots": "noindex,follow",
+        "sitemap": false,
+        "ctaCount": 1,
+        "utmPersistence": true
+      },
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://caesthetic.com/go/maps-analysis/#service",
+          "name": "Maps reputation analysis",
+          "serviceType": "Maps reputation analysis",
+          "provider": { "@id": "https://caesthetic.com/#organization" },
+          "url": "https://caesthetic.com/go/maps-analysis/",
+          "description": "A structured analysis of profile quality, ratings, review themes, competitor gaps and priority actions."
+        }
+      ]
+    }
+  ]
+}

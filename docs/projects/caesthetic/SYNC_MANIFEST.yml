@@ -1,0 +1,29 @@
+# Maps zaomir/caesthetic → grainee-v2 paths (identical relative paths).
+version: 1
+source_repo: zaomir/caesthetic
+target_repo: zaomir/grainee-v2
+direction: bidirectional  # DEC-829
+trees:
+  - site-caesthetic
+  - docs/projects/caesthetic
+  - docs/caesthetic
+  - docs/audits/caesthetic
+  - scripts/caesthetic
+  - tests/caesthetic
+ssot_globs:
+  - docs/ssot/CAESTHETIC*.md
+extra_files:
+  - agents/manifests/caesthetic.yaml
+excludes:
+  - node_modules
+  - dist
+  - .baseline
+  - .env
+  - .env.*
+  - .git
+  - .DS_Store
+  - site-caesthetic/private/**
+  - site-caesthetic/score/aurora-medspa-x7k9m2/**
+  - docs/projects/caesthetic/operations/ig-growth/footage/**
+protected_in_target:
+  - site-caesthetic/src/config/pricing.ts

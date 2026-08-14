@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /go/
+Disallow: /internal/
+Disallow: /paris/
+Disallow: /private/
+Disallow: /_handoff/
+
+Sitemap: https://caesthetic.com/sitemap.xml

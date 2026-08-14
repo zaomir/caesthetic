@@ -1,0 +1,20 @@
+<!-- CAESTHETIC analytics handoff -->
+<!-- Place once on every public page, immediately before </body>. -->
+<!-- No third-party ID is embedded here; GTM/GA/Meta adapters can listen to window.dataLayer later. -->
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+</script>
+<script src="/assets/js/analytics.js" defer></script>
+
+<!-- Integration notes:
+  1. Copy _handoff/lane-c/analytics.js to the final production asset path, e.g. /assets/js/analytics.js.
+  2. Keep it on /go/ pages too: it persists UTM in sessionStorage and sends noindex funnel events.
+  3. Use ?debug_analytics=1 on any URL to print pushed payloads to the console.
+  4. Supported events:
+     page_view, product_select, case_open, cta_click, form_start,
+     form_step_complete, form_submit, phone_click, email_click, whatsapp_click.
+  5. Supported dimensions:
+     industry, product, offer, landing_page, language, utm_source, utm_medium,
+     utm_campaign, utm_term, utm_content, utm_id, locations_count.
+-->

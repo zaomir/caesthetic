@@ -1,0 +1,795 @@
+{
+  "schemaVersion": 3,
+  "reportState": "approved_report",
+  "reportVersion": "demo-booking-friction-v3.0",
+  "verifiedFactSetVersion": "demo-booking-friction-facts-v3.0",
+  "reportKind": "demo",
+  "disclosure": "Demonstration only. Fictional practice, synthetic data, no client relationship, and no reported client outcome.",
+  "practice": {
+    "name": "Fictional Lumen Injector Practice",
+    "location": "Fictional Southeast market",
+    "preparedAt": "2026-08-11",
+    "preparedFor": "Growth Score demonstration"
+  },
+  "executiveSummary": "Credible Search and Reputation evidence reaches a high-friction mobile booking handoff in this fictional Phase-1 injector-practice scenario.",
+  "surfaces": [
+    {
+      "id": "search",
+      "summary": "Search discovery and profile readiness are credible in the synthetic market.",
+      "metrics": [
+        {
+          "metric_id": "map_visibility",
+          "raw_value": "Synthetic rubric observation: 74",
+          "normalized_score": 74,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Map visibility",
+          "finding": "Map visibility is recorded at 74/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "gbp_treatment_category_completeness",
+          "raw_value": "Synthetic rubric observation: 78",
+          "normalized_score": 78,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "GBP treatment/category completeness",
+          "finding": "GBP treatment/category completeness is recorded at 78/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "entity_integrity",
+          "raw_value": "Synthetic rubric observation: 76",
+          "normalized_score": 76,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Entity integrity",
+          "finding": "Entity integrity is recorded at 76/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "gbp_conversion_readiness",
+          "raw_value": "Synthetic rubric observation: 70",
+          "normalized_score": 70,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "GBP conversion readiness",
+          "finding": "GBP conversion readiness is recorded at 70/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "freshness",
+          "raw_value": "Synthetic rubric observation: 72",
+          "normalized_score": 72,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Freshness",
+          "finding": "Freshness is recorded at 72/100 in this synthetic search rubric."
+        },
+        {
+          "metric_id": "branded_search_control",
+          "raw_value": "Synthetic rubric observation: 80",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Branded search control",
+          "finding": "Branded search control is recorded at 80/100 in this synthetic search rubric."
+        }
+      ],
+      "owner_card": {
+        "strength": "Map visibility and branded search control are credible in the synthetic market.",
+        "problem": "GBP conversion readiness is the weakest search signal, not the binding leak.",
+        "priority": "LOW"
+      }
+    },
+    {
+      "id": "website",
+      "summary": "Booking friction and a broken treatment-context handoff form the binding constraint.",
+      "metrics": [
+        {
+          "metric_id": "booking_friction",
+          "raw_value": "Synthetic rubric observation: 28",
+          "normalized_score": 28,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Booking friction",
+          "finding": "The synthetic mobile booking path requires repeated context entry and five decision steps."
+        },
+        {
+          "metric_id": "treatment_clarity",
+          "raw_value": "Synthetic rubric observation: 72",
+          "normalized_score": 72,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Treatment clarity",
+          "finding": "Treatment clarity is recorded at 72/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "mobile_performance",
+          "raw_value": "Synthetic rubric observation: 66",
+          "normalized_score": 66,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Mobile performance",
+          "finding": "Mobile performance is recorded at 66/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "above_fold_conversion",
+          "raw_value": "Synthetic rubric observation: 35",
+          "normalized_score": 35,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Above-fold conversion",
+          "finding": "Above-fold conversion is recorded at 35/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "clinician_trust_proof",
+          "raw_value": "Synthetic rubric observation: 80",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Clinician and trust proof",
+          "finding": "Clinician and trust proof is recorded at 80/100 in this synthetic website rubric."
+        },
+        {
+          "metric_id": "mystery_shopper",
+          "raw_value": "Synthetic rubric observation: 20",
+          "normalized_score": 20,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Mystery shopper",
+          "finding": "The synthetic mystery-shopper enquiry loses treatment context before a reply."
+        },
+        {
+          "metric_id": "technical_booking_integrity",
+          "raw_value": "Synthetic rubric observation: 32",
+          "normalized_score": 32,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Technical booking integrity",
+          "finding": "The booking handoff drops the selected injector treatment."
+        }
+      ],
+      "owner_card": {
+        "strength": "Clinician and trust proof on treatment pages remains strong.",
+        "problem": "The mobile booking path requires repeated context and drops treatment intent.",
+        "priority": "HIGH"
+      }
+    },
+    {
+      "id": "social",
+      "summary": "Only 60% of canonical Social weight has approved evidence, so this surface is not scored.",
+      "metrics": [
+        {
+          "metric_id": "priority_treatment_presence",
+          "raw_value": "Synthetic rubric observation: 72",
+          "normalized_score": 72,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Priority-treatment presence",
+          "finding": "Priority-treatment presence is recorded at 72/100 in this synthetic social rubric."
+        },
+        {
+          "metric_id": "clinician_expertise",
+          "raw_value": "Synthetic rubric observation: 76",
+          "normalized_score": 76,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Clinician expertise",
+          "finding": "Clinician expertise is recorded at 76/100 in this synthetic social rubric."
+        },
+        {
+          "metric_id": "proof_quality",
+          "raw_value": "Synthetic rubric observation: 70",
+          "normalized_score": 70,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Proof quality",
+          "finding": "Proof quality is recorded at 70/100 in this synthetic social rubric."
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "label": "Recency"
+        },
+        {
+          "metric_id": "profile_to_booking",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "label": "Profile to booking"
+        },
+        {
+          "metric_id": "local_offer_clarity",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "label": "Local offer clarity"
+        }
+      ],
+      "owner_card": {
+        "strength": "Approved posts show priority treatments and clinician expertise.",
+        "problem": "Only 60% of Social weight has approved evidence, so the surface is not scored.",
+        "priority": "MEDIUM"
+      }
+    },
+    {
+      "id": "reputation",
+      "summary": "Detailed, recent treatment proof makes Reputation the strongest surface.",
+      "metrics": [
+        {
+          "metric_id": "review_velocity_90d",
+          "raw_value": "Synthetic rubric observation: 84",
+          "normalized_score": 84,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "90-day review velocity",
+          "finding": "90-day review velocity is recorded at 84/100 in this synthetic reputation rubric."
+        },
+        {
+          "metric_id": "rating",
+          "raw_value": "Synthetic rubric observation: 86",
+          "normalized_score": 86,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Rating",
+          "finding": "Rating is recorded at 86/100 in this synthetic reputation rubric."
+        },
+        {
+          "metric_id": "review_depth",
+          "raw_value": "Synthetic rubric observation: 82",
+          "normalized_score": 82,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Review depth",
+          "finding": "Synthetic reviews contain useful injector- and treatment-specific detail."
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": "Synthetic rubric observation: 88",
+          "normalized_score": 88,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Recency",
+          "finding": "Recency is recorded at 88/100 in this synthetic reputation rubric."
+        },
+        {
+          "metric_id": "response_coverage",
+          "raw_value": "Synthetic rubric observation: 78",
+          "normalized_score": 78,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Response coverage",
+          "finding": "Response coverage is recorded at 78/100 in this synthetic reputation rubric."
+        },
+        {
+          "metric_id": "response_speed",
+          "raw_value": "Synthetic rubric observation: 76",
+          "normalized_score": 76,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Response speed",
+          "finding": "Response speed is recorded at 76/100 in this synthetic reputation rubric."
+        },
+        {
+          "metric_id": "negative_review_handling",
+          "raw_value": "Synthetic rubric observation: 82",
+          "normalized_score": 82,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Negative-review handling",
+          "finding": "Negative-review handling is recorded at 82/100 in this synthetic reputation rubric."
+        },
+        {
+          "metric_id": "treatment_clinician_proof",
+          "raw_value": "Synthetic rubric observation: 85",
+          "normalized_score": 85,
+          "evidence_class": "A",
+          "source": "Synthetic demo fixture — not collected from a live practice",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "label": "Treatment and clinician proof",
+          "finding": "Treatment and clinician proof is recorded at 85/100 in this synthetic reputation rubric."
+        }
+      ],
+      "owner_card": {
+        "strength": "Detailed, recent treatment proof makes Reputation the strongest surface.",
+        "problem": "No reputation defect is the binding constraint in this fixture.",
+        "priority": "LOW"
+      }
+    }
+  ],
+  "crossSurface": {
+    "summary": "Conversion continuity is weak even though identity and treatment positioning remain recognizable.",
+    "metrics": [
+      {
+        "metric_id": "treatment_presence",
+        "raw_value": "Synthetic rubric observation: 74",
+        "normalized_score": 74,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Treatment presence",
+        "finding": "Treatment presence is recorded at 74/100 in this synthetic cross rubric."
+      },
+      {
+        "metric_id": "positioning_coherence",
+        "raw_value": "Synthetic rubric observation: 68",
+        "normalized_score": 68,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Positioning coherence",
+        "finding": "Positioning coherence is recorded at 68/100 in this synthetic cross rubric."
+      },
+      {
+        "metric_id": "proof_continuity",
+        "raw_value": "Synthetic rubric observation: 72",
+        "normalized_score": 72,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Proof continuity",
+        "finding": "Proof continuity is recorded at 72/100 in this synthetic cross rubric."
+      },
+      {
+        "metric_id": "conversion_continuity",
+        "raw_value": "Synthetic rubric observation: 30",
+        "normalized_score": 30,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Conversion continuity",
+        "finding": "Treatment intent is not preserved between page, scheduler and enquiry confirmation."
+      },
+      {
+        "metric_id": "identity_coherence",
+        "raw_value": "Synthetic rubric observation: 80",
+        "normalized_score": 80,
+        "evidence_class": "A",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "label": "Identity coherence",
+        "finding": "Identity coherence is recorded at 80/100 in this synthetic cross rubric."
+      }
+    ]
+  },
+  "humanDiagnosis": {
+    "reviewer_status": "approved",
+    "reviewer": {
+      "name": "Fictional Taylor Rowan",
+      "approved_at": "2026-08-11T16:15:00Z"
+    },
+    "objective_strength": {
+      "title": "Reputation carries recent, treatment-specific proof that supports injector decisions.",
+      "evidence_refs": [
+        "reputation.review_depth",
+        "reputation.treatment_clinician_proof"
+      ]
+    },
+    "strongest_surface": "reputation",
+    "binding_constraint": {
+      "title": "The booking handoff interrupts otherwise credible treatment demand.",
+      "evidence_refs": [
+        "website.booking_friction",
+        "website.mystery_shopper",
+        "cross.conversion_continuity"
+      ],
+      "statement": "The booking handoff interrupts otherwise credible treatment demand. Visitors who already found the practice lose treatment context across repeated mobile steps before a confirmed enquiry.",
+      "demand_stage": "booking"
+    },
+    "top_priorities": [
+      {
+        "id": "priority-booking-steps",
+        "problem_refs": [
+          "booking-step-friction"
+        ],
+        "title": "Reduce the mobile path from treatment page to confirmed enquiry.",
+        "evidence_refs": [
+          "website.booking_friction"
+        ],
+        "impact": "Fewer repeated steps would protect high-intent visitors at the measured point of loss.",
+        "why_now": "High-intent treatment visitors face avoidable abandonment at the measured point of loss.",
+        "expected_effect": "A shorter mobile path would protect more of the demand that already reaches the site, without guaranteeing enquiry volume.",
+        "complexity": "Medium",
+        "task_refs": [
+          "task-booking-path"
+        ]
+      },
+      {
+        "id": "priority-context-handoff",
+        "problem_refs": [
+          "booking-context-loss",
+          "cross-conversion-gap"
+        ],
+        "title": "Preserve selected treatment context through the scheduler.",
+        "evidence_refs": [
+          "website.technical_booking_integrity",
+          "cross.conversion_continuity"
+        ],
+        "impact": "The practice can respond to the actual treatment intent instead of a generic enquiry.",
+        "why_now": "The scheduler currently receives a generic enquiry instead of the selected treatment.",
+        "expected_effect": "Preserving treatment context would let the practice respond to the actual intent, not a guaranteed conversion lift.",
+        "complexity": "High",
+        "task_refs": [
+          "task-context-handoff"
+        ]
+      },
+      {
+        "id": "priority-response-loop",
+        "problem_refs": [
+          "mystery-shopper-gap"
+        ],
+        "title": "Close the mystery-shopper response loop.",
+        "evidence_refs": [
+          "website.mystery_shopper"
+        ],
+        "impact": "A clear, timely next step would reduce uncertainty after submission.",
+        "why_now": "The follow-up experience does not match the credibility built before submission.",
+        "expected_effect": "A timely, treatment-relevant next step would reduce post-submit uncertainty; response speed is not a patient forecast.",
+        "complexity": "Medium",
+        "task_refs": [
+          "task-response-loop"
+        ]
+      }
+    ],
+    "do_not_do": {
+      "title": "Do not buy more traffic into a booking path that drops treatment intent.",
+      "evidence_refs": [
+        "website.booking_friction",
+        "cross.conversion_continuity"
+      ],
+      "rationale": "Buying more traffic before the booking path is fixed would send additional high-intent visitors into the same leak, increasing abandonment rather than confirmed enquiries.",
+      "revisit_after": [
+        "A priority-treatment visitor can reach a confirmed mobile enquiry without repeated choices",
+        "Selected treatment context survives the Website-to-scheduler handoff"
+      ]
+    },
+    "competitors": {
+      "status": "applicable",
+      "selection_method": "Three fictional injector practices with comparable priority treatments and booking options in the synthetic market.",
+      "entries": [
+        {
+          "name": "Fictional Vale Injectables",
+          "finding": "The fictional comparator reaches a confirmed mobile enquiry in fewer measured steps.",
+          "evidence_refs": [
+            "website.booking_friction"
+          ]
+        },
+        {
+          "name": "Fictional Everline Aesthetics",
+          "finding": "The fictional comparator preserves treatment context and returns a specific next step in the same test window.",
+          "evidence_refs": [
+            "website.mystery_shopper"
+          ]
+        },
+        {
+          "name": "Fictional Studio Nineteen",
+          "finding": "The fictional comparator's reputation evidence reinforces the treatment path with more specific decision detail.",
+          "evidence_refs": [
+            "reputation.review_depth"
+          ]
+        }
+      ]
+    },
+    "walkthrough": {
+      "status": "pending",
+      "url": null,
+      "placeholder": "Human walkthrough placeholder: omitted for this synthetic demo."
+    },
+    "problem_inventory": [
+      {
+        "id": "booking-step-friction",
+        "surface": "website",
+        "title": "The mobile booking path requires repeated context and too many steps.",
+        "evidence_refs": [
+          "website.booking_friction"
+        ],
+        "impact": "High-intent treatment visitors face avoidable abandonment risk.",
+        "task_refs": [
+          "task-booking-path"
+        ],
+        "suggested_horizon": "Immediate",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "booking-context-loss",
+        "surface": "website",
+        "title": "Selected treatment context is lost at the booking handoff.",
+        "evidence_refs": [
+          "website.technical_booking_integrity"
+        ],
+        "impact": "Generic enquiries create extra work and a less relevant first response.",
+        "task_refs": [
+          "task-context-handoff"
+        ],
+        "suggested_horizon": "Immediate",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "High"
+      },
+      {
+        "id": "mystery-shopper-gap",
+        "surface": "website",
+        "title": "The synthetic enquiry did not receive a clear treatment-specific next step.",
+        "evidence_refs": [
+          "website.mystery_shopper"
+        ],
+        "impact": "The follow-up experience does not match the credibility built before submission.",
+        "task_refs": [
+          "task-response-loop"
+        ],
+        "suggested_horizon": "0–30 days",
+        "status": "diagnosed",
+        "priority": "High",
+        "complexity": "Medium"
+      },
+      {
+        "id": "cross-conversion-gap",
+        "surface": "cross_surface",
+        "title": "Conversion continuity breaks between Website and scheduler.",
+        "evidence_refs": [
+          "cross.conversion_continuity"
+        ],
+        "impact": "Treatment intent weakens across the final decision handoff.",
+        "task_refs": [
+          "task-context-handoff"
+        ],
+        "suggested_horizon": "0–30 days",
+        "status": "diagnosed",
+        "priority": "Medium",
+        "complexity": "Medium"
+      },
+      {
+        "id": "social-evidence-gap",
+        "surface": "social",
+        "title": "Approved Social evidence covers only 60% of canonical weight.",
+        "evidence_refs": [
+          "social.priority_treatment_presence",
+          "social.clinician_expertise",
+          "social.proof_quality"
+        ],
+        "impact": "No defensible Social score or overall score can be published until the missing evidence is collected.",
+        "task_refs": [],
+        "suggested_horizon": "Before next score",
+        "status": "not_actionable",
+        "status_reason": "This is a research gap, not an implementation defect; collect the missing approved Social evidence before prescribing a fix.",
+        "priority": "Low",
+        "complexity": "Low"
+      }
+    ],
+    "remediation_tasks": [
+      {
+        "id": "task-booking-path",
+        "problem_refs": [
+          "booking-step-friction"
+        ],
+        "outcome": "A priority-treatment visitor can reach a confirmed mobile enquiry without repeated choices or unnecessary fields.",
+        "steps": [
+          "Record the current mobile path from treatment entry page to acknowledgement, including every tap, required field and dead end.",
+          "Remove duplicated service/location choices and defer nonessential questions until after the enquiry is accepted.",
+          "Keep one persistent primary action and a truthful explanation of what happens after submission.",
+          "Retest on current iOS and Android viewport sizes and record the final path."
+        ],
+        "evidence_refs": [
+          "website.booking_friction"
+        ],
+        "prerequisites_access": [
+          "Website and scheduler configuration access for the chosen implementer",
+          "Approved minimum enquiry fields",
+          "Mobile QA capability"
+        ],
+        "dependencies": [],
+        "sequence": {
+          "order": 1,
+          "rationale": "The path structure must be simplified before preserving context or rewriting follow-up logic."
+        },
+        "owner_role": "Conversion-focused web implementer with practice operations acceptance",
+        "effort_complexity": "Medium — several systems may own the handoff even when the visible edit is small.",
+        "implementation_risk": "Removing a required operational field can break scheduling; agree the minimum data set and retain a rollback path.",
+        "horizon": "Several days to two weeks depending on scheduler constraints.",
+        "acceptance_evidence": [
+          "Before-and-after mobile path recording",
+          "Final click and required-field count",
+          "Successful test acknowledgement on two mobile viewport sizes"
+        ],
+        "next_action": "Record one complete mobile booking path and label every repeated decision."
+      },
+      {
+        "id": "task-context-handoff",
+        "problem_refs": [
+          "booking-context-loss",
+          "cross-conversion-gap"
+        ],
+        "outcome": "The selected treatment and practice context survive the Website-to-scheduler handoff and appear in the received enquiry.",
+        "steps": [
+          "Define the treatment and location values that must pass from each entry page.",
+          "Map those values to supported scheduler fields or a safe query/hidden-field mechanism.",
+          "Verify the received staff notification and confirmation copy contain the intended non-clinical context.",
+          "Test direct, back-button and expired-session paths without creating an unwanted appointment."
+        ],
+        "evidence_refs": [
+          "website.technical_booking_integrity",
+          "cross.conversion_continuity"
+        ],
+        "prerequisites_access": [
+          "Website and booking-system configuration access",
+          "Scheduler field documentation",
+          "Monitored test inbox"
+        ],
+        "dependencies": [
+          "task-booking-path"
+        ],
+        "sequence": {
+          "order": 2,
+          "rationale": "Context mapping is implemented against the accepted shorter path rather than the retired journey."
+        },
+        "owner_role": "Web integration specialist with front-desk workflow acceptance",
+        "effort_complexity": "Medium to high — complexity depends on scheduler field support and cross-domain handoff controls.",
+        "implementation_risk": "Passing clinical or sensitive detail through URLs would create privacy risk; restrict the handoff to treatment and location context.",
+        "horizon": "One to three weeks when vendor support or cross-domain testing is needed.",
+        "acceptance_evidence": [
+          "Field-mapping record",
+          "Received test enquiry with correct non-clinical context",
+          "Mobile QA evidence for direct and recovery paths"
+        ],
+        "next_action": "List the exact non-clinical context fields the front desk needs in the first notification."
+      },
+      {
+        "id": "task-response-loop",
+        "problem_refs": [
+          "mystery-shopper-gap"
+        ],
+        "outcome": "A permitted truthful test enquiry receives a treatment-relevant acknowledgement and owned next step within the documented service window.",
+        "steps": [
+          "Set the acknowledgement, routing owner and escalation window for public treatment enquiries.",
+          "Write a privacy-safe response template that answers the next-step question without clinical advice.",
+          "Route a truthful non-clinical test through the accepted path using a monitored inbox.",
+          "Record submission and response timestamps at the agreed 24/48/72-hour checks."
+        ],
+        "evidence_refs": [
+          "website.mystery_shopper"
+        ],
+        "prerequisites_access": [
+          "Explicit mystery-shopper permission",
+          "Monitored test inbox",
+          "Front-desk owner and escalation rule"
+        ],
+        "dependencies": [
+          "task-context-handoff"
+        ],
+        "sequence": {
+          "order": 3,
+          "rationale": "Response handling is accepted only after the live enquiry carries the intended context."
+        },
+        "owner_role": "Practice operations lead with front-desk staff and web QA support",
+        "effort_complexity": "Medium — template work is light, but routing ownership and reliable testing require coordination.",
+        "implementation_risk": "Tests must not impersonate an urgent patient, provide clinical detail or create an unwanted appointment; use truthful non-clinical wording.",
+        "horizon": "Workflow setup in days; response reliability should be monitored over several real operating days.",
+        "acceptance_evidence": [
+          "Approved response and escalation standard",
+          "Dated test submission receipt",
+          "Timestamped treatment-relevant response"
+        ],
+        "next_action": "Name the front-desk owner and the maximum acknowledgement window."
+      }
+    ],
+    "current_state": {
+      "strengths": [
+        "Reputation carries recent, treatment-specific injector proof.",
+        "Search discovery and profile readiness are credible."
+      ],
+      "constraint_label": "Mobile booking path",
+      "constraint_detail": "Repeated steps and a dropped treatment handoff interrupt high-intent visitors.",
+      "priority_line": "Fix before buying more traffic."
+    },
+    "roadmap_preview": {
+      "weeks": [
+        {
+          "label": "WEEK 1",
+          "title": "Record and shorten the mobile booking path"
+        },
+        {
+          "label": "WEEK 2",
+          "title": "Preserve treatment context through the scheduler"
+        },
+        {
+          "label": "WEEKS 3–4",
+          "title": "Close the mystery-shopper response loop"
+        }
+      ],
+      "disclaimer": "Illustrative sequencing based on this diagnosis. Final Sprint scope is confirmed separately."
+    },
+    "coordination_burden": {
+      "diagnosed_issues": 5,
+      "high_priority_fixes": 3,
+      "systems_involved": 3,
+      "dependencies": 11,
+      "specialist_roles": 3
+    }
+  },
+  "implementation_paths": {
+    "diy": "Have the operations lead and web implementer execute tasks 1–3 in order, using the acceptance evidence as the internal release checklist.",
+    "other_provider": "Share the full path evidence, scheduler field map and task IDs with another provider; require mobile QA and a privacy-safe received-enquiry test before acceptance.",
+    "defer": "Do not add traffic. Preserve the current path recording and collect the missing Social evidence while the conversion risk remains visible.",
+    "caesthetic": "Ask CAESTHETIC to scope the chosen web, scheduler and response-loop tasks with access, owners and acceptance proof in a separate Sprint statement."
+  },
+  "why_caesthetic": {
+    "evidence_advantage": "CAESTHETIC has already connected the visible friction, technical handoff and response evidence into one dependency-aware plan.",
+    "coordination_advantage": "The work needs a web implementer, booking-system knowledge, operations ownership and privacy-safe QA; a single coordinator can keep those handoffs from becoming the next failure.",
+    "sprint_boundary": "This diagnosis does not commit website, scheduler or operations work. Any 30-Day Sprint selects the exact tasks and acceptance checks separately and makes no enquiry or revenue guarantee.",
+    "ownership": "The practice owns the report, evidence and task plan. It may implement the same instructions internally, appoint another provider, defer them or stop without CAESTHETIC."
+  },
+  "estimates": [],
+  "methodology": {
+    "sources": [
+      "Synthetic local Search sample",
+      "Synthetic mobile booking walkthrough",
+      "Synthetic mystery-shopper event",
+      "Synthetic 90-day reputation sample"
+    ],
+    "collectedAt": "2026-08-11",
+    "competitorSelection": "Three named fictional injector practices selected by comparable treatments and synthetic market proximity.",
+    "limitations": "All practices, people, observations, competitors and scores are synthetic. Social evidence intentionally covers only 60% of canonical weight; Social and Overall are therefore withheld. No outcome is guaranteed."
+  }
+}

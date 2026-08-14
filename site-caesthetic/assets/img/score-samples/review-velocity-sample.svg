@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360">
+  <rect width="720" height="360" fill="#F5F7F8"/>
+  <text x="24" y="36" font-family="IBM Plex Sans, Arial" font-size="13" fill="#5A646C">SAMPLE · review velocity · 90 days · anonymized competitors</text>
+  <polyline points="60,280 140,260 220,240 300,250 380,210 460,190 540,170 620,150" fill="none" stroke="#1C3A4A" stroke-width="3"/>
+  <polyline points="60,300 140,295 220,290 300,285 380,280 460,270 540,265 620,255" fill="none" stroke="#7B244B" stroke-width="3"/>
+  <polyline points="60,270 140,250 220,230 300,200 380,180 460,160 540,140 620,120" fill="none" stroke="#A8B3BC" stroke-width="3"/>
+  <text x="60" y="330" font-family="IBM Plex Sans, Arial" font-size="12" fill="#5A646C">Practice (navy) · Competitor A (crimson) · Competitor B (gray)</text>
+</svg>

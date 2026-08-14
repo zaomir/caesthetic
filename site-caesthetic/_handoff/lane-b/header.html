@@ -1,0 +1,89 @@
+<header class="cae-header" id="cae-header">
+  <div class="cae-wrap cae-header__inner">
+
+    <!-- Brand / Logo -->
+    <a class="cae-brand" href="/" aria-label="CAESTHETIC home">
+      <span class="cae-brand__logo-wrap">
+        <img class="cae-brand__logo" src="/assets/img/logo.png" width="38" height="38" alt="">
+      </span>
+      <span class="cae-brand__text">
+        <span class="cae-brand__name">CAESTHETIC</span>
+        <span class="cae-brand__tag">Growth systems for specialist practices</span>
+      </span>
+    </a>
+
+    <!-- Mobile menu button -->
+    <button
+      class="cae-menu-btn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="cae-nav"
+      id="cae-menu-btn"
+      aria-label="Open navigation menu"
+    >
+      <span class="cae-menu-btn__bar" aria-hidden="true"></span>
+      <span class="cae-sr-only">Menu</span>
+    </button>
+
+    <!-- Primary navigation -->
+    <nav class="cae-nav" id="cae-nav" aria-label="Primary navigation">
+
+      <!-- Specialisms -->
+      <a class="cae-nav__link" href="/dental/" data-nav="dental">Dental</a>
+      <a class="cae-nav__link" href="/beauty/" data-nav="beauty">Beauty</a>
+      <a class="cae-nav__link" href="/aesthetic-medicine/" data-nav="aesthetic">Aesthetic medicine</a>
+      <a class="cae-nav__link" href="/maps-reputation/" data-nav="maps">Maps reputation</a>
+
+      <!-- Solutions dropdown -->
+      <div class="cae-nav__item" id="cae-nav-solutions">
+        <button
+          class="cae-nav__dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="cae-dropdown-solutions"
+          id="cae-dropdown-solutions-btn"
+        >
+          Solutions
+          <svg class="cae-nav__dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="cae-nav__dropdown" id="cae-dropdown-solutions" role="region" aria-labelledby="cae-dropdown-solutions-btn">
+          <div class="cae-nav__dropdown-group">
+            <span class="cae-nav__dropdown-label">By need</span>
+            <a class="cae-nav__dropdown-link" href="/maps-reputation/">
+              <strong>Maps &amp; Reputation</strong>
+              <span>Rating, review and profile management</span>
+            </a>
+            <a class="cae-nav__dropdown-link" href="/dental/#conversion">
+              <strong>Enquiry conversion</strong>
+              <span>Front-desk systems for specialist practices</span>
+            </a>
+            <a class="cae-nav__dropdown-link" href="/aesthetic-medicine/#authority">
+              <strong>Doctor authority</strong>
+              <span>Compliant content and trust infrastructure</span>
+            </a>
+          </div>
+          <div class="cae-nav__dropdown-group">
+            <span class="cae-nav__dropdown-label">Start here</span>
+            <a class="cae-nav__dropdown-link" href="/assessment/">
+              <strong>Growth assessment</strong>
+              <span>Diagnose your constraint before choosing a channel</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary nav items -->
+      <a class="cae-nav__link" href="/work/" data-nav="work">Work</a>
+      <a class="cae-nav__link" href="/insights/" data-nav="insights">Insights</a>
+      <a class="cae-nav__link" href="/about/" data-nav="about">About</a>
+
+      <!-- CTA -->
+      <span class="cae-nav-cta">
+        <a class="cae-btn cae-btn--primary" href="/assessment/">Get an assessment</a>
+      </span>
+
+    </nav>
+  </div>
+</header>

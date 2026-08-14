@@ -1,0 +1,67 @@
+[
+  {
+    "ua": "Chrome",
+    "status": "200",
+    "cf_cache_status": "HIT",
+    "age": null,
+    "cache_control": "public, max-age=0, must-revalidate",
+    "x_grainee_edge": "stage5",
+    "title": "CAESTHETIC \u2014 Growth systems for specialist practices",
+    "h1": "Built to be found. Trusted. Chosen.",
+    "growth_systems": 2,
+    "demand_infra": 0,
+    "skin_rejuvenation_network": 0
+  },
+  {
+    "ua": "Safari",
+    "status": "200",
+    "cf_cache_status": "HIT",
+    "age": null,
+    "cache_control": "public, max-age=0, must-revalidate",
+    "x_grainee_edge": "stage5",
+    "title": "CAESTHETIC \u2014 Growth systems for specialist practices",
+    "h1": "Built to be found. Trusted. Chosen.",
+    "growth_systems": 2,
+    "demand_infra": 0,
+    "skin_rejuvenation_network": 0
+  },
+  {
+    "ua": "Googlebot",
+    "status": "200",
+    "cf_cache_status": "HIT",
+    "age": null,
+    "cache_control": "public, max-age=0, must-revalidate",
+    "x_grainee_edge": "stage5",
+    "title": "CAESTHETIC \u2014 Growth systems for specialist practices",
+    "h1": "Built to be found. Trusted. Chosen.",
+    "growth_systems": 2,
+    "demand_infra": 0,
+    "skin_rejuvenation_network": 0
+  },
+  {
+    "ua": "Bingbot",
+    "status": "200",
+    "cf_cache_status": "HIT",
+    "age": null,
+    "cache_control": "public, max-age=0, must-revalidate",
+    "x_grainee_edge": "stage5",
+    "title": "CAESTHETIC \u2014 Growth systems for specialist practices",
+    "h1": "Built to be found. Trusted. Chosen.",
+    "growth_systems": 2,
+    "demand_infra": 0,
+    "skin_rejuvenation_network": 0
+  },
+  {
+    "ua": "curl",
+    "status": "200",
+    "cf_cache_status": "HIT",
+    "age": null,
+    "cache_control": "public, max-age=0, must-revalidate",
+    "x_grainee_edge": "stage5",
+    "title": "CAESTHETIC \u2014 Growth systems for specialist practices",
+    "h1": "Built to be found. Trusted. Chosen.",
+    "growth_systems": 2,
+    "demand_infra": 0,
+    "skin_rejuvenation_network": 0
+  }
+]
