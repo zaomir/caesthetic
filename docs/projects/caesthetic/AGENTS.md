@@ -12,7 +12,9 @@ Read in order:
 9. For ship/deploy: `docs/ssot/CHATGPT_SERVER_OPS.md`
 
 ## Invariants
-- Four surfaces: Search / Website / Social / Reputation; Cross-Surface Consistency is not a fifth surface.
+- `4444` and `Четверки` route only to the CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation.
+- Paid Ads is the Demand Layer that directs demand into 4444, not a fifth surface; scale it only when the verified binding constraint is insufficient qualified demand and the four surfaces, capacity and economics are ready.
+- Cross-Surface Consistency is not a fifth surface.
 - Growth Score: public 3-stage intake; AI researches/pre-scores/drafts; a named human verifies Class A facts, corrects tasks/priorities and approves the final report.
 - Growth Score numbers are secondary navigation; the Problem Inventory, binding constraint, priorities and dependency-aware remediation tasks are the primary decision layer.
 - Score corrections improve later cases only through approved versioned rules/templates/rubrics/evals; never through uncontrolled model/chat memory.

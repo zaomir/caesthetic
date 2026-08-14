@@ -1,14 +1,15 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.8
-updated: 2026-08-14
+version: 3.12
+updated: 2026-08-15
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
 related:
   - docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md
   - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
+  - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
   - docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
 supersedes: docs/caesthetic/CAESTHETIC_SSOT.md
@@ -23,7 +24,7 @@ supersedes: docs/caesthetic/CAESTHETIC_SSOT.md
 
 This is the single master strategy authority for CAESTHETIC. Detailed working specs may elaborate it but may not contradict it. The Dropbox mirror at `docs/caesthetic/`, including its legacy `CAESTHETIC_SSOT.md`, is provenance and working material rather than repository authority.
 
-CAESTHETIC is the first **reference implementation** of the global Growth Control approach. Global rules live in `docs/ssot/MARKETING_SYSTEM_STANDARD.md`, `docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md` and `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`. This file specializes the aesthetic-practice funnel, offer ladder, roles and client-facing products. It does not silently fork those global principles.
+CAESTHETIC is the first **reference implementation** of the global Growth Control approach. Global rules live in `docs/ssot/MARKETING_SYSTEM_STANDARD.md`, `docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md`, `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md` and `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`. This file specializes the aesthetic-practice funnel, offer ladder, roles and client-facing products. It does not silently fork those global principles.
 
 ## 1. Positioning
 **The growth operating system for independent aesthetic practices.**
@@ -45,7 +46,53 @@ Patients evaluate one practice across four decision surfaces:
 3. **Social**
 4. **Reputation / Reviews**
 
+**Canonical aliases:** `4444` and `Четверки` always mean this CAESTHETIC Four Surfaces model. They do not mean an arbitrary group of four and must not be expanded into a fifth surface.
+
 **Cross-Surface Consistency** is a cross-surface metric, not a fifth surface. Every stage uses this same model.
+
+When a local comparison set is applicable, every Growth Score also includes **Competitive Decision Analysis** across these same four surfaces. It names the selection method and public sources, preserves strengths and weaknesses/risks plus positive and negative review themes, and ends with `Defend / Close / Differentiate / Do not copy`. It is a decision layer, never a fifth scored surface. The global authority is `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`; the CAESTHETIC adapter is `docs/caesthetic/competitive_decision_analysis.md`.
+
+### Paid Ads: Demand Layer, not a fifth surface
+
+Paid Ads / paid acquisition is a **paid demand-generation mechanism** in the Demand Layer. It directs qualified demand into one or more of the four surfaces; it is not an additional patient-decision surface.
+
+```text
+Demand Layer (organic + outbound + paid)
+→ 4444 (Search / GBP + Website + Social + Reputation / Reviews)
+→ inquiry / booking
+→ internal conversion and patient-operations layer
+→ patient / revenue
+```
+
+Paid acquisition amplifies the current state of 4444. Strong, coherent surfaces can convert paid attention efficiently; weak or inconsistent surfaces can waste spend and accelerate leakage. Paid demand does not itself repair a verified constraint later in the journey.
+
+**Intervention gate:**
+
+- Do not increase paid demand when the verified binding constraint is downstream of 4444—for example inquiry handling, response or follow-up, attendance, capacity or another internal conversion/patient-operations dependency. Fund and verify the binding constraint first.
+- Paid acquisition may be selected as the intervention when the relevant four-surface journey is sufficiently strong, delivery capacity and unit economics are verified, and the binding constraint is insufficient qualified demand.
+- If the evidence does not distinguish a demand shortage from a downstream leak, keep the constraint `Insufficient evidence` and run the smallest validation needed before scaling spend.
+
+Any paid intervention must name the audience, channel, destination surface, budget, measurement window, success/stop conditions and the capacity/economics evidence that justifies it. This specializes the global rule in `docs/ssot/MARKETING_SYSTEM_STANDARD.md`: paid acquisition without capacity and unit-economics checks is not a growth system.
+
+### 2.1 Focus and staged disclosure: external surfaces first
+
+The four surfaces are the complete **public patient-decision model**. CRM, telephony, chatbots, front desk, recruitment, training, call quality assurance and adjacent practice operations are not additional surfaces. They form an internal conversion, adoption and patient-operations layer. CAESTHETIC must not lead the Growth Score, public entry or pre-Sprint conversation with a broad catalogue of those capabilities: doing so dilutes the constraint-first category and makes the offer resemble a generic full-service agency.
+
+**Growth Score is an outside-in diagnostic.** It evaluates observable evidence across Search, Website, Social and Reputation, plus Cross-Surface Consistency and applicable Competitive Decision Analysis. A truthful, permissioned non-clinical enquiry-path test may establish an observable fact such as whether a response occurred by a disclosed cutoff. It may not, without internal access and evidence, infer that the cause is a weak receptionist, broken CRM, inadequate training, staffing shortage or another internal defect. The internal layer is stated briefly as `Not assessed` or `Insufficient evidence — requires workflow/data access`; it is not scored and is not expanded into an entry-stage service menu.
+
+**The 30-Day Growth Sprint is not a general business audit.** It implements the agreed priority constraint and observes only the minimum operational interface required to ship, adopt and measure that intervention—for example the accountable owner, access, inquiry capture, handoff or follow-up dependency. This observation may reveal evidence, but it does not silently expand Sprint scope or justify a broad in-Sprint capability pitch.
+
+The **Day-30 evidence and report are the first standard point for a broader internal-operations discussion**. Only a verified next constraint that directly affects acquisition, conversion, attendance, retention, reputation/service recovery or adoption may be routed to the practice, another provider, optional Sprint 2, Growth System or an approved add-on. CRM, telephony, chatbots, recruitment, training and call QA are possible interventions against a verified constraint, not standalone public product categories.
+
+Canonical client-facing sequence:
+
+```text
+Growth Score — see the constraint from the outside
+→ 30-Day Sprint — fix the first priority and verify adoption
+→ after Day 30 — decide whether a deeper internal constraint deserves funding
+```
+
+This is a focus rule as well as an evidence rule: mention that the internal layer exists, but do not diagnose or sell it before the required access, workflow observation and real operating data exist.
 
 ## 3. Canonical funnel
 Public funnel:
@@ -84,7 +131,7 @@ Full lifecycle:
 No later stage is mandatory.
 
 ## 4. Growth Score — diagnose
-Growth Score diagnoses all four surfaces before implementation.
+Growth Score diagnoses all four external decision surfaces before implementation. It does not score the internal conversion and patient-operations layer; section 2.1 controls what may be observed, stated and deferred.
 
 ### Public intake
 
@@ -100,9 +147,11 @@ Stage 3 abandonment or `Skip` remains a successful submission. Optional answers 
 
 1. Intake/context creates a versioned case. Client assertions remain self-reported context until independently verified.
 2. AI-assisted research resolves the practice and gathers date-stamped candidate evidence across Search, Website, Social and Reputation; Cross-Surface Consistency stays separate.
-3. AI normalizes and compares evidence and drafts pre-scores, diagnosis, binding constraint, full Problem Inventory, Top priorities and remediation tasks with proposed sequence/dependencies.
-4. A named human verifies every proposed Class A fact and its source/date/method, approves or rejects metric judgments, checks competitor selection, corrects priorities/language/tasks and freezes the verified fact set.
+3. AI normalizes and compares evidence and drafts pre-scores, diagnosis, binding constraint, Competitive Decision Analysis, full Problem Inventory, Top priorities and remediation tasks with proposed sequence/dependencies.
+4. A named human verifies every proposed Class A fact and its source/date/method, approves or rejects metric judgments, checks competitor selection, comparable windows/samples and review-theme recurrence, corrects priorities/language/tasks and freezes the verified fact set.
 5. Deterministic scores and the final narrative compile only from the verified fact set and explicitly labelled Class B items. A named human approves the versioned report before publication. No autonomous AI final diagnosis.
+
+Reviewer identity is fail-closed. The normal form is a first and last name. The exact registered human-reviewer mononym **`Валерия`** is also canonical and must render exactly as written; it may not be expanded to a surname, translated to `Valerie`, or replaced by the Valerie Petra brand persona. Any other one-word reviewer value fails publication until explicitly added to canon and validator tests.
 
 At least 80% of published findings are observable **Class A** facts. Class B estimates are explicit and disclose method and assumptions. Unknown, stale, unsupported or contradictory evidence remains unavailable; intake claims and Class B estimates do not fill metric coverage.
 
@@ -124,11 +173,14 @@ The private owner cockpit's primary product is the human-approved, evidence-back
 
 - objective strength and strongest surface;
 - binding constraint and named-competitor evidence where applicable;
+- Competitive Decision Analysis across Search, Website, Social and Reputation — Comparison Matrix, Competitor Cards, `Defend / Close / Differentiate / Do not copy` and a Market Practice Gap decision (`Keep / Evaluate / Pilot / Replace / Do not adopt`) where relevant; this is a cross-cutting decision layer, not a fifth surface;
 - full Problem Inventory, not only a Top 3 summary;
 - exactly three Top priorities and one `do not do`;
 - concrete remediation tasks mapped to problems, with steps, sequence, dependencies, required access/skills, accountable role, honest effort/complexity, implementation risk, horizon, next action and acceptance evidence;
 - clear `Insufficient evidence` and verification actions where a task cannot yet be justified; and
 - methodology, source dates, limitations and explicit Class B assumptions.
+
+For an applicable market, competitor coverage is fail-closed. The report must disclose a useful 3–5 competitor set by default, selection reason/type, branch scope where relevant, comparable query/path/review windows, sample sizes, repeated positive and negative themes, why a patient may choose each competitor, observable advantage/gap, what to repeat/improve/not copy, and the effect on the binding constraint and exactly three priorities. It must also test whether relevant local/global practice has materially shifted in technology, product/material, protocol, price/offer architecture or delivery model. A surface without comparable evidence remains visible as `insufficient_evidence`. One review is an episode; it cannot establish a weakness. Medical/drug/device/protocol modernization remains a market signal until qualified clinical and regulatory review approves any clinical conclusion or change.
 
 The cockpit must be self-contained enough for the owner to implement the plan internally or with another provider. Do not hide instructions to create sales dependency. The client owns the delivered report, evidence pack, task plan and completed outputs; there is no lock-in.
 
