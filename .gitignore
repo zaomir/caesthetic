@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.baseline/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.cursor/*
+!.cursor/environment.json
+.vscode/
+site-caesthetic/private/
+site-caesthetic/score/aurora-medspa-x7k9m2/
+docs/projects/caesthetic/operations/ig-growth/footage/

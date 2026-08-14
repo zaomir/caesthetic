@@ -1,0 +1,5 @@
+{
+  "name": "caesthetic-agents",
+  "install": "node -v\nnpm -v",
+  "start": ""
+}
