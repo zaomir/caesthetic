@@ -1,0 +1,74 @@
+episode_id: CAE-REEL-B-001
+slug: 200k-trust-leak-format-b
+title: "A PRACTICE CAN MAKE $200K A MONTH — AND STILL LOSE PATIENTS EVERY DAY."
+series: FORMAT B EXPERIMENTS
+track: cold_reach
+status: approved_for_production
+format_system: "CAESTHETIC Reel Format B v1.0"
+spec_version: "Format B v1.0"
+spec_ref: docs/ssot/CAESTHETIC_REEL_FORMAT_B.md
+compiled_against_git_sha: null
+objective: >-
+  Demonstrate the four-surface diagnostic logic and the sequencing decision to
+  find the trust break before funding more traffic.
+claim_contract:
+  epistemic_class: Illustrative
+  model_example: true
+  real_case_claim: false
+  required_disclosure: MODEL EXAMPLE — NOT A CLIENT CASE
+  forbidden:
+    - presenting $200K as observed client revenue, benchmark or case result
+    - presenting example OBSERVED rows as findings about a real clinic
+    - fabricated UI, dashboards, reviews, performance or patient outcomes
+format:
+  class: Format B long-form experiment
+  canvas: {width: 1080, height: 1920, aspect_ratio: "9:16"}
+  duration_target_s: 54.0
+  language: en
+  valerie_anchor_appearances: 4
+  kling_master_plates: 6
+spoken_script: |-
+  A practice can make two hundred thousand dollars a month — and still quietly lose patients every day.
+  Because patients don't judge your practice in one place. They cross-check.
+  They find you on Google. They open your website. They look at your social. Then they check your reputation.
+  And if those four surfaces tell four slightly different stories, trust starts leaking before anyone books.
+  That's why the first problem isn't always traffic.
+  More ads can simply send more people into the same leak.
+  First, find where trust breaks. Then fix the highest-impact surface. Then decide what deserves more budget.
+  That's what a CAESTHETIC Growth Score is designed to reveal.
+  Before you spend more on growth — find what's already holding it back.
+audio_master:
+  synthesis_scope: full_reel_single_master
+  provider: ElevenLabs
+  voice_id: lxYfHSkYm1EzQzGhdbfc
+  canonical_script_source: spoken_script
+  continuous_voice: true
+  no_leading_silence: true
+  per_scene_tts_allowed: false
+  master_ref: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-B-001/audio/cae-reel-b-001-elevenlabs-master.wav
+  timestamps_ref: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-B-001/audio/cae-reel-b-001-elevenlabs-master.timestamps.json
+  storage: dropbox_only
+cta:
+  action: GET YOUR FREE GROWTH SCORE
+  destination: https://caesthetic.com/growth-score/
+  single_action: true
+scene_timing:
+  - {scene_id: S01, start: "00:00", end: "00:04", mode: valerie_anchor_1, audio_anchor: "A practice can make", disclosure: "MODEL EXAMPLE — NOT A CLIENT CASE"}
+  - {scene_id: S02, start: "00:04", end: "00:08", mode: kling_broll, audio_anchor: "Because patients don't judge"}
+  - {scene_id: S03, start: "00:08", end: "00:11", mode: valerie_anchor_2, audio_anchor: "They cross-check"}
+  - {scene_id: S04, start: "00:11", end: "00:17", mode: kling_plus_motion, audio_anchor: "They find you on Google"}
+  - {scene_id: S05, start: "00:17", end: "00:22", mode: motion, audio_anchor: "And if those four surfaces"}
+  - {scene_id: S06, start: "00:22", end: "00:26", mode: valerie_anchor_3, audio_anchor: "That's why the first problem"}
+  - {scene_id: S07, start: "00:26", end: "00:31", mode: kling_plus_motion, audio_anchor: "More ads can simply"}
+  - {scene_id: S08, start: "00:31", end: "00:36", mode: motion_evidence_card, audio_anchor: "First, find where trust breaks"}
+  - {scene_id: S09, start: "00:36", end: "00:41", mode: valerie_anchor_4a, audio_anchor: "Then fix the highest-impact surface"}
+  - {scene_id: S10, start: "00:41", end: "00:45", mode: motion, audio_anchor: "Then decide what deserves more budget"}
+  - {scene_id: S11, start: "00:45", end: "00:50", mode: valerie_anchor_4b, audio_anchor: "That's what a CAESTHETIC Growth Score"}
+  - {scene_id: S12, start: "00:50", end: "00:54", mode: closing_card_and_loop, audio_anchor: "Before you spend more on growth"}
+production_refs:
+  valerie_shot_list: docs/ssot/CAESTHETIC_REEL_FORMAT_B.md#3-valerie-shot-list
+  kling_prompts: docs/ssot/CAESTHETIC_REEL_FORMAT_B.md#4-six-kling-b-roll-prompts
+  motion_spec: docs/ssot/CAESTHETIC_REEL_FORMAT_B.md#5-motion-specification
+  loop_spec: docs/ssot/CAESTHETIC_REEL_FORMAT_B.md#6-subtitles-sound-and-loop
+  outputs: null
+  publication: null

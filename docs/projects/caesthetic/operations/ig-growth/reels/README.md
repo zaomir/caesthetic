@@ -1,8 +1,10 @@
 # CAESTHETIC Reel Scenario Registry
 
 This namespace is the machine-readable scenario authority for CAESTHETIC
-Reels. It implements Reel System V3.2 (`DEC-838`, amended by `DEC-839` and
-`DEC-840`).
+Reels. It supports the default Reel System V3.2 (`DEC-838`, amended by
+`DEC-839` and `DEC-840`) and explicitly tagged parallel formats. Format B v1.0
+is governed by `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md`; it does not replace or
+recompile Format A/V3.2 episodes.
 
 ## Contract
 
@@ -28,6 +30,8 @@ Reels. It implements Reel System V3.2 (`DEC-838`, amended by `DEC-839` and
 - `lip_sync_provider` is capability-gated. Missing master/timestamps or an
   unsupported selected lip-sync route fails closed; a reserve provider may use
   the same master segment but may not generate a new voice.
+- Format B episodes declare `format_system` and `spec_ref`; workers must not
+  apply Format B timing, loop or long-form scene rules to untagged episodes.
 
 ## Storage authority
 
@@ -47,6 +51,7 @@ REGISTRY.yaml -> episodes/<episode>.yaml -> pinned SSOT/method/evidence refs
 ## Canonical references
 
 - `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md`
+- `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md`
 - `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_OPENER_CANON.md`
 - `docs/ssot/CAESTHETIC_HEYGEN_PRODUCTION_SYSTEM.md`
 - `docs/ssot/CAESTHETIC_VALERIE_AVATAR_LIBRARY.md`

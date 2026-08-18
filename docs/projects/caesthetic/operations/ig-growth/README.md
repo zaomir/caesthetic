@@ -23,6 +23,7 @@
 | 11 | [`11-REEL_SCRIPTS_L5_L7_L8.md`](./11-REEL_SCRIPTS_L5_L7_L8.md) | Shoot-ready Reel packages: L5 Maps ≠ rating, L7 booking path, L8 city breakdown (footage gate) |
 | 12 | [`footage/L5/`](./footage/L5/) | L5 still cards + how to assemble (no camera) |
 | 13 | [`reels/`](./reels/) | Reel System V3 canonical scenario registry: one Reel per YAML; registry-first machine discovery |
+| 14 | [`reels/episodes/002-200k-trust-leak-format-b.yaml`](./reels/episodes/002-200k-trust-leak-format-b.yaml) | First approved Format B production experiment; `$200K` is a model/example, not a case claim |
 
 ## Hard holds
 
