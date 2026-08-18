@@ -140,7 +140,7 @@ The library supports two distinct jobs, whose metrics must not be combined:
 Product FAQ is an evergreen decision library for profile, Highlights,
 retargeting, DM and pre-call use; it is not a cold-reach engine and is not judged
 by Cold Reach metrics. One Reel answers one primary question. Runtime follows
-the Evidence and Reel System V3 classes; this library sets no fixed production
+the Evidence and Reel System V3.2 classes; this library sets no fixed production
 split or duration.
 
 ### 8.2 Canonical first 10 Reel topics
@@ -160,7 +160,7 @@ split or duration.
 
 These ten topics remain the canonical evergreen Product FAQ / Score Intent
 library. DEC-838 supersedes their status as a fixed first production batch.
-Cold Reach backlog and batch authorization live in Reel System V3.
+Cold Reach backlog and batch authorization live in Reel System V3.2.
 
 ### 8.3 Required answer content
 
@@ -188,7 +188,7 @@ Cold Reach backlog and batch authorization live in Reel System V3.
 
 - Language: English, US-owner vocabulary.
 - Reels: 1080×1920, 9:16, burned-in captions, immediate hook, one thesis.
-- Runtime follows Reel System V3: first comparable learning includes
+- Runtime follows Reel System V3.2: first comparable learning includes
   `Single Insight` (`12–18s`) and `Evidence Reel` (`22–30s`), chosen by the
   evidence rather than completion rate.
 - Hook target: no more than 9 words where possible; no greeting or company introduction before the hook.
@@ -201,13 +201,26 @@ Cold Reach backlog and batch authorization live in Reel System V3.
 
 ### 8.5 Recommended library sequence
 
-For decision support, the library may be sequenced in this order after the V3
+For decision support, the library may be sequenced in this order after the V3.2
 freeze and capacity gate; this is not a fixed production batch:
 
 `5 → 2 → 4 → 6 → 8 → 9 → 10 → 1 → 3 → 7`
 
 Rationale: start with a recognisable operating leak, make the free product concrete, remove the catch/lock-in objection, demonstrate prioritisation logic, then explain the paid implementation path and economics.
 
-### 8.6 HeyGen production rule
+### 8.6 Voice and motion production rule
 
-HeyGen may be used as the production engine, but it does not own strategy or claims. Before each generation, the agent must resolve current product/pricing canon, then produce a complete director brief including spoken script, scene timing, on-screen copy, avatar/voice intent, aspect ratio and CTA. A generated video is a draft until script/visual claims are checked against this SSOT and the master CAESTHETIC canon.
+Reel voice and motion production follows Reel System V3.2 / DEC-840.
+ElevenLabs creates one continuous spoken master for the full Reel with canonical
+Valerie voice `lxYfHSkYm1EzQzGhdbfc`; scenes must not synthesize separate voice
+tracks. Kling is the primary Valerie motion layer and may receive master-audio
+segments for lip sync only when the available official integration declares
+that capability. Otherwise production fails closed or uses the approved reserve
+lip-sync path with the same ElevenLabs segment. HeyGen may serve only as that
+declared reserve motion/lip-sync provider and must not generate Valerie's voice.
+
+Before production, the agent must resolve current product/pricing canon and
+produce a complete director brief including the full spoken script, audio-master
+and segment references, scene timing, on-screen copy, on-camera/voice-over
+routing, aspect ratio and CTA. A generated video is a draft until script and
+visual claims are checked against this SSOT and the master CAESTHETIC canon.

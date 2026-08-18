@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.3
+version: 1.4
 updated: 2026-08-18
-scope: HeyGen avatar, hybrid video production pipeline and Reel asset workflow
+scope: HeyGen avatar and capability-gated reserve motion/lip-sync workflow
 parent: docs/ssot/CAESTHETIC.md
 ---
 
@@ -11,13 +11,17 @@ parent: docs/ssot/CAESTHETIC.md
 
 ## 1. Purpose
 
-HeyGen is not the final video editor for CAESTHETIC. It is the synthetic production layer for the founder/avatar presenter. Final Reels are produced through a hybrid workflow:
+HeyGen is not the final video editor or voice generator for CAESTHETIC. Under
+Reel System V3.2 / DEC-840 it is a capability-gated reserve motion/lip-sync
+provider for the founder/avatar presenter. ElevenLabs owns the single
+continuous Valerie voice master; Kling is the primary motion layer.
 
 ```
 Strategy
 → Script
 → Director brief
-→ Valerie scenes in HeyGen
+→ One continuous ElevenLabs voice master
+→ Valerie motion in Kling, or approved reserve lip sync using master segments
 → Editor assembly
 → B-roll / mockups / screenshots / captions
 → Final Reel
@@ -135,7 +139,11 @@ Executive:
 
 ## 6. Editor workflow
 
-HeyGen produces Valerie speaking scenes only.
+HeyGen may produce Valerie motion/lip-sync plates only when the primary Kling
+path lacks a declared required capability and the production contract selects
+HeyGen as the approved reserve. It receives segments of the existing
+ElevenLabs master and must not synthesize, replace or alter Valerie's voice.
+Missing provider capability or missing master audio fails closed.
 
 HeyGen clips and their intermediates are episode- or format-specific production
 artifacts. Store them under Dropbox
@@ -184,7 +192,7 @@ Every Reel requires:
 3. Hook
 4. Spoken script
 5. Scene timing
-6. Valerie scenes for HeyGen
+6. Valerie `on_camera` / `voice_over` routing and master segment references
 7. Editor instructions
 8. B-roll list
 9. On-screen text
@@ -196,8 +204,8 @@ Every Reel requires:
 
 For Daily Growth Note editorial Reels, timing, evidence supply chain, Pause
 Trigger overlay, Closing Card V1 and measurement are canonical in
-`docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` (Reel System V3,
-DEC-837).
+`docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` (Reel System V3.2,
+DEC-840).
 
 ## 9. First Reel re-production rule
 

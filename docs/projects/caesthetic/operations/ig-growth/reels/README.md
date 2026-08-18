@@ -1,7 +1,8 @@
 # CAESTHETIC Reel Scenario Registry
 
 This namespace is the machine-readable scenario authority for CAESTHETIC
-Reels. It implements Reel System V3.1 (`DEC-838`, amended by `DEC-839`).
+Reels. It implements Reel System V3.2 (`DEC-838`, amended by `DEC-839` and
+`DEC-840`).
 
 ## Contract
 
@@ -17,6 +18,16 @@ Reels. It implements Reel System V3.1 (`DEC-838`, amended by `DEC-839`).
   Valerie or evidence-rule changes require a versioned authority change.
 - `compiled_against_git_sha` stays `null` until a production worker compiles
   the episode, then records the exact repository commit used.
+- Every episode declares one `audio_master` with provider `elevenlabs`, voice id
+  `lxYfHSkYm1EzQzGhdbfc`, `no_leading_silence: true` and
+  `continuous_voice: true`. Heavy master/timestamp files are Dropbox refs, not
+  Git binaries.
+- Voiced scenes use `delivery_mode: on_camera|voice_over` and an ordered,
+  non-overlapping `audio_segment_ref` into that master. `spoken_text` is review
+  copy only; workers must not synthesize it per scene.
+- `lip_sync_provider` is capability-gated. Missing master/timestamps or an
+  unsupported selected lip-sync route fails closed; a reserve provider may use
+  the same master segment but may not generate a new voice.
 
 ## Storage authority
 
