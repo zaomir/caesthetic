@@ -1,0 +1,256 @@
+episode_id: CAE-REEL-001
+slug: more-traffic-not-yet
+title: "MORE TRAFFIC? NOT YET."
+series: NOT YET
+track: cold_reach
+status: approved
+
+spec_version: "Reel System V3.0"
+compiled_against_git_sha: null
+question_id: Q05
+audience_question: Should I increase ad spend, or fix the website, booking path and follow-up first?
+objective: >-
+  Help an aesthetic-practice owner recognize that additional traffic should be
+  evaluated only after the post-click path is clear enough to find, understand
+  and book.
+thesis: >-
+  More traffic amplifies the experience already present after the click; fix or
+  verify the path before deciding whether more traffic deserves budget.
+cta:
+  action: GET YOUR FREE GROWTH SCORE
+  route_label: Link in bio
+  experiment_arm: link_in_bio
+  single_action: true
+
+format:
+  class: Evidence Reel
+  canvas: {width: 1080, height: 1920, aspect_ratio: "9:16"}
+  duration_target_s: {min: 22.0, max: 30.0}
+  language: en
+
+spoken_script: |-
+  Before you buy more traffic, check what happens after the click.
+  The problem may be the page, the booking path, or what happens next.
+  Can someone find you, understand the offer, and book right now?
+  Fix the path first. Then decide whether more traffic deserves your budget.
+
+references:
+  method:
+    - ref: docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md
+      sections: ["2. Evidence first", "3. Format classes and scene contract", "4. Closing Card V1", "9. CTA and response operations"]
+      use: structure, evidence boundaries, CTA and closing-card contract
+    - ref: docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_OPENER_CANON.md
+      use: opener composition and typography authority
+    - ref: docs/ssot/CAESTHETIC_HEYGEN_PRODUCTION_SYSTEM.md
+      use: Valerie speaking-plate production contract
+    - ref: docs/ssot/CAESTHETIC_VALERIE_AVATAR_LIBRARY.md
+      use: approved Valerie source identity and plate lineage
+    - ref: docs/ssot/CAESTHETIC_OWNER_MARKETING_QUESTIONS.md
+      sections: ["Q05"]
+      use: canonical audience question
+    - ref: docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
+      use: claim classification and evidence labeling
+  evidence: []
+  claim_contract:
+    epistemic_class: Illustrative
+    evidence_required_before_production: false
+    allowed_scope: general sequencing and self-diagnosis; no clinic-specific result
+    forbidden:
+      - fabricated traffic, conversion, revenue or booking metrics
+      - claim that a named clinic is losing patients
+      - guaranteed outcome from fixing the path
+
+scenes:
+  - scene_id: S01
+    role: motion_editorial_hook_and_framing
+    scene_type: opening_master_clip
+    duration_target_s: {min: 6.0, max: 8.0}
+    spoken_text: Before you buy more traffic, check what happens after the click.
+    spoken_timing:
+      silent_open_s: {min: 1.2, max: 1.5}
+      starts_after_headline_exit: true
+    on_screen_text:
+      headline_lines: ["MORE TRAFFIC?", "NOT YET."]
+      emphasis_line: "NOT YET."
+      placement: fixed_left_headline_zone
+      behavior: disappears before spoken line begins
+    visual_direction: >-
+      One continuous Valerie master clip with no cut between silent animation
+      and speech. Keep the headline in the fixed left zone and adapt Valerie to
+      the right half, preserving calm authority and negative space on the left.
+    presenter_mode: valerie_continuous_master
+    source_plate:
+      preferred: docs/projects/caesthetic/operations/ig-growth/footage/valerie-clean-plates/vcp-009-clinic-blazer-smile.png
+      selection_status: preferred_not_locked
+      geometry_contract: >-
+        If geometry conflicts, first use deterministic reposition/reframe. If
+        that is insufficient, Kling may move Valerie to the right half while
+        preserving identity, outfit and environment and leaving negative space
+        on the left. The template never chases Valerie.
+    kling_instructions:
+      applies_to: silent character motion only
+      prompt: >-
+        Animate subtle natural breathing, a small head turn and eye contact.
+        Preserve Valerie's identity, blazer, clinic environment and lighting.
+        Keep Valerie in the right half and leave clean negative space on the
+        left. No text, no logo, no speech, no camera jump and no scene change.
+      renderer_owns: [headline, headline_exit, final_composite]
+    heygen_instructions:
+      applies_to: speaking continuation
+      instruction: >-
+        Generate the exact spoken text as a Valerie speaking plate, preserving
+        the same identity, outfit, environment, framing and calm delivery. Join
+        only through the supported continuous-master workflow; do not claim
+        Kling supplies speech unless the actual selected tool explicitly does.
+    transition: headline_fade_then_continuous_speech_no_cut
+    asset_outputs:
+      silent_motion_plate: null
+      speaking_plate: null
+      master_clip: null
+
+  - scene_id: S02
+    role: explanation
+    scene_type: editorial_text_card
+    duration_target_s: {min: 3.0, max: 4.0}
+    spoken_text: null
+    on_screen_text:
+      headline: MORE TRAFFIC AMPLIFIES WHAT'S ALREADY THERE.
+      support: If the next step is unclear, more visitors meet the same friction.
+    visual_direction: >-
+      Cream editorial information surface, one takeaway, no Valerie, no fake UI
+      and no decorative evidence artifact.
+    presenter_mode: none
+    source_plate: null
+    kling_instructions: null
+    heygen_instructions: null
+    transition: restrained_editorial_cut
+    asset_outputs: {card: null}
+
+  - scene_id: S03
+    role: explanation
+    scene_type: valerie_speaking
+    duration_target_s: {min: 4.0, max: 5.5}
+    spoken_text: The problem may be the page, the booking path, or what happens next.
+    on_screen_text:
+      sequential_emphasis: [PAGE, BOOKING, FOLLOW-UP]
+    visual_direction: >-
+      Valerie in a related angle with restrained sequential emphasis; the words
+      clarify the spoken categories and do not masquerade as evidence.
+    presenter_mode: valerie_speaking_plate
+    source_plate:
+      selection: from approved Valerie avatar/source namespace
+      status: pending_production_selection
+    kling_instructions: null
+    heygen_instructions:
+      instruction: >-
+        Speak the exact text with calm advisory authority, natural pacing and no
+        greeting. Preserve approved Valerie identity and wardrobe/environment
+        continuity. Renderer adds emphasis and brand captions.
+    transition: clean_cut
+    asset_outputs: {speaking_plate: null, composited_scene: null}
+
+  - scene_id: S04
+    role: pause_trigger
+    scene_type: valerie_self_check_overlay
+    duration_target_s: {min: 4.0, max: 5.5}
+    spoken_text: Can someone find you, understand the offer, and book right now?
+    on_screen_text:
+      question_lines: ["CAN SOMEONE", "BOOK WITH YOU", "RIGHT NOW?"]
+      scale: large
+    visual_direction: >-
+      Continue moving Valerie/evidence-compatible motion while the large
+      self-check overlay appears; do not turn the pause trigger into a separate
+      static evidence card.
+    presenter_mode: valerie_speaking_plate
+    source_plate:
+      selection: continuity with S03
+      status: pending_production_selection
+    kling_instructions: null
+    heygen_instructions:
+      instruction: >-
+        Speak the exact question with a measured self-check cadence. Preserve
+        continuity with S03. Renderer adds the question overlay and captions.
+    transition: continuous_motion_overlay
+    asset_outputs: {speaking_plate: null, composited_scene: null}
+
+  - scene_id: S05
+    role: decision_implication
+    scene_type: conclusion
+    duration_target_s: {min: 3.0, max: 4.0}
+    spoken_text: Fix the path first. Then decide whether more traffic deserves your budget.
+    on_screen_text:
+      emphasis: FIX THE PATH FIRST.
+    visual_direction: >-
+      One decision implication only; no new evidence and no second CTA.
+    presenter_mode: voice_or_valerie_continuity
+    source_plate:
+      selection: production choice consistent with the batch's Valerie arm
+      status: pending_production_selection
+    kling_instructions: null
+    heygen_instructions:
+      applies_if: Valerie arm is selected
+      instruction: Speak the exact text with a decisive, restrained close.
+    transition: visual_rhyme_into_close
+    asset_outputs: {plate: null, composited_scene: null}
+
+  - scene_id: S06
+    role: closing_card
+    scene_type: closing_card_v1
+    duration_target_s: {min: 1.5, max: 2.0}
+    spoken_text: null
+    on_screen_text:
+      logo: "[REAL LOGO]"
+      headline: FIX THE PATH BEFORE YOU FUND THE TRAFFIC.
+      cta: GET YOUR FREE GROWTH SCORE
+      route_label: Link in bio
+    visual_direction: >-
+      Canonical real logo, one conclusion and one CTA on the cream/navy/burgundy
+      system. The route label supports the single CTA experiment arm. Visually
+      rhyme with the opener; no Valerie, new evidence, fake UI or second CTA.
+    presenter_mode: none
+    source_plate:
+      logo: site-caesthetic/assets/brand/logo-long.png
+      logo_policy: use byte-for-byte; never redraw, generate, crop or distort
+    kling_instructions: null
+    heygen_instructions: null
+    transition: replay_rhyme
+    asset_outputs: {closing_card: null}
+
+production:
+  batch_id: null
+  production_status: not_started
+  selected_format_class: Evidence Reel
+  selected_presenter_arm: null
+  source_manifest: null
+  dropbox_workspace: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-001/
+  heavy_asset_policy: dropbox_only
+  huck:
+    cards: null
+    reel: null
+    thumbnail: null
+  workers:
+    discovery: read REGISTRY.yaml then this episode YAML
+    strategy_source: repository_only
+    memory_or_chat_fallback_allowed: false
+  qa:
+    evidence_and_claims: pending
+    rights_and_privacy: pending
+    visual: pending
+    captions: pending
+    closing_card: pending
+
+output:
+  final_mp4_path: null
+  thumbnail_path: null
+  duration_actual_s: null
+  checksum_sha256: null
+
+publication:
+  surface: instagram_reel
+  status: not_published
+  published_at: null
+  permalink: null
+  platform_media_id: null
+  caption_version: null
+  cta_arm: link_in_bio
+  measurement_ref: null

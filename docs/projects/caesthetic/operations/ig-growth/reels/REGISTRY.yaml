@@ -1,0 +1,23 @@
+registry_version: 1
+authority:
+  system: CAESTHETIC Reel System V3.0
+  decision: DEC-838
+  ssot: docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md
+enumeration_policy:
+  registry_is_only_enumeration_point: true
+  episode_body_authority: referenced_yaml
+  chat_history_is_authority: false
+episodes:
+  - episode_id: CAE-REEL-001
+    slug: more-traffic-not-yet
+    title: "MORE TRAFFIC? NOT YET."
+    series: NOT YET
+    track: cold_reach
+    status: approved
+    path: episodes/001-more-traffic-not-yet.yaml
+    topic: traffic-after-click-friction
+    question_id: Q05
+    audience_question: Should I increase ad spend, or fix the website, booking path and follow-up first?
+    spec_version: "Reel System V3.0"
+    latest_output: null
+    publication: null
