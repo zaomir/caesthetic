@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.0
-updated: 2026-08-14
+version: 1.3
+updated: 2026-08-18
 scope: HeyGen avatar, hybrid video production pipeline and Reel asset workflow
 parent: docs/ssot/CAESTHETIC.md
 ---
@@ -31,11 +31,16 @@ Primary host:
 
 **Valerie Petra**
 
+Still-photo inventory (identity refs + IG plates): `docs/ssot/CAESTHETIC_VALERIE_AVATAR_LIBRARY.md`. Dropbox folder `Valerie-avatar-plates`.
+
 Roles:
 - Founder, CAESTHETIC
 - CAESTHETIC Growth Advisor
+- optional branded narrator / human continuity for Reel System V3
 
 Valerie is a real brand representative. Content must preserve authentic founder positioning. The avatar is used to scale communication, not to create a fictional spokesperson.
+Evidence, not the avatar, is the credibility anchor. Never position Valerie as
+the trust anchor or use the avatar to substitute for claim provenance.
 
 ## 3. Avatar direction
 
@@ -61,6 +66,14 @@ Avoid:
 - generic AI presenter tone
 - aggressive sales energy
 - fake personal claims
+- fake testimonials or endorsements
+
+Disclosure/compliance gate:
+- use platform or legally required synthetic-media disclosure;
+- do not hide synthetic production where disclosure is required;
+- obtain qualified legal review before scaled use across platforms or
+  jurisdictions rather than embedding unsupported legal claims in production
+  copy.
 
 ## 4. Location system
 
@@ -124,6 +137,12 @@ Executive:
 
 HeyGen produces Valerie speaking scenes only.
 
+HeyGen clips and their intermediates are episode- or format-specific production
+artifacts. Store them under Dropbox
+`CAESTHETIC/CAESTHETIC MEDIA/Production/`, never in
+`Valerie-avatar-plates/`. The source path, output routing and full lineage are
+canonical in `docs/ssot/CAESTHETIC_VALERIE_AVATAR_LIBRARY.md`.
+
 Editor adds:
 - B-roll
 - screenshots
@@ -135,6 +154,11 @@ Editor adds:
 - transitions
 
 A Reel should normally not contain the avatar continuously.
+
+**Legacy exception on hold — Template Reel Factory (DEC-831, superseded in part
+by DEC-838):** the continuous corner-circle Valerie adapter is not authorized
+for new production until V3 revalidation. Full-frame continuous avatar remains
+forbidden.
 
 ## 7. Required visual asset library
 
@@ -165,6 +189,15 @@ Every Reel requires:
 8. B-roll list
 9. On-screen text
 10. CTA
+11. Evidence provenance + epistemic label
+12. Privacy/redaction state + two-stage visual QA owner
+13. Synthetic-media disclosure decision
+14. Measurement hypothesis and CTA experiment arm
+
+For Daily Growth Note editorial Reels, timing, evidence supply chain, Pause
+Trigger overlay, Closing Card V1 and measurement are canonical in
+`docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` (Reel System V3,
+DEC-837).
 
 ## 9. First Reel re-production rule
 

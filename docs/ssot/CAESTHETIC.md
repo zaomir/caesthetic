@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.12
+version: 3.14
 updated: 2026-08-15
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
@@ -93,6 +93,77 @@ Growth Score — see the constraint from the outside
 ```
 
 This is a focus rule as well as an evidence rule: mention that the internal layer exists, but do not diagnose or sell it before the required access, workflow observation and real operating data exist.
+
+### 2.2 Canonical client presentation script: 4444 / Four Surfaces
+
+**Purpose:** use this master script and sketch language to explain the CAESTHETIC model in a live owner conversation, help the owner understand the problem before any product reveal, and make the later progression from **Growth Score** to the **30-Day Growth Sprint** understandable. It is a general sales/explainer narrative, not a substitute for the evidence-led, practice-specific Valerie Petra Growth Score walkthrough governed by `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
+
+The delivery language may be adapted to the client, and examples may use verified practice context, but the model, sequence and claim boundaries below must remain intact.
+
+#### Client-sketch visual grammar
+
+The canonical `4444 / Four Surfaces` client sketch uses the following visual language:
+
+1. Place **Search / GBP, Website, Social and Reputation / Reviews** as four distinct surfaces around the practice identity or logo.
+2. Draw one **dashed line through all four surface blocks** so that it visibly intersects and stitches together Search / GBP, Website, Social and Reputation / Reviews. The dashed line means **one interconnected system**. It is not an outside perimeter, surrounding circle or external contour.
+3. Draw a separate **thick solid outer frame around the complete four-surface system**. The outer frame means **one owner of the logic**: a single accountable strategic authority and source of truth across every surface. It does not require one person to execute every specialist task.
+4. Draw **Growth Score** with a thin return arrow pointing back to one of the four surfaces. The returned-to surface is the human-verified priority constraint identified by the Score, not automatically the surface with the lowest displayed number. Mark that constraint with **burgundy hatching**; do not use the hatching as a general decoration across the system.
+
+This sketch is a problem-first client explanation and sales sequence. First establish the four surfaces, show that the dashed line makes them one system, show that the outer frame gives the system one owner of logic, and use Growth Score to reveal the constraint. The client should first agree that the problem requires a concentrated, synchronizing intervention — the **synchronizing strike** in the live sketch. Do not lead the sketch with the product name, `$2,500` price or an ongoing relationship. Only after the need for the intervention is understood may the presenter circle/name that intervention and connect it to the commercial path: **30-Day Growth Sprint — $2,500**, followed later, if justified, by an optional ongoing relationship. The sale follows understanding of the problem; the product is not the premise of the drawing.
+
+#### Spoken master script
+
+Let me show you how we think about growth for an aesthetic practice.
+
+A business has several growth layers. But when we focus specifically on how a new patient decides whether to choose a practice, nearly everything they can see from the outside can be organized into four decision surfaces. We call this model **4444**, or the **Four Surfaces**.
+
+The first surface is **Search and Google Business Profile**. Can the patient find you for the treatment they need? What do they see in Google Search or Maps?
+
+The second is your **Website**. Once they find you, can they understand who you are, what you offer, why they should trust you and how to book?
+
+The third is **Social**. Does the practice look active and credible? Can the patient see clinicians, treatments, results, expertise and a point of view that supports the impression created elsewhere?
+
+The fourth is **Reputation and Reviews**. Do other patients independently confirm the promise the practice makes about itself?
+
+So the four surfaces are **Search, Website, Social and Reputation**. Together, they form the external system through which a patient evaluates the practice.
+
+Paid Ads also matter, but they are **not a fifth surface**. Paid acquisition belongs to the **Demand Layer**. It can send more qualified people into the existing Four Surfaces, and the paid flow usually falls when the spending stops. What advertising cannot do by itself is repair what a person sees after the click.
+
+If the website is weak, more advertising sends more people to the same weak website. If the reviews create doubt, advertising sends more people toward the same doubt. If Social says one thing, the Website says another and Google shows a third version of the practice, paid traffic does not resolve that contradiction. It amplifies the current system. That is why our rule is: **do not fund the leak**.
+
+Patients do not move through these surfaces in an order we control. One may discover you on Instagram and then read reviews. Another may find you on Google Maps and then open the Website. A third may click an ad, visit a treatment page and check the rating immediately before booking. The route can be different every time, but patients commonly verify a first impression through other sources.
+
+That is where **Cross-Surface Consistency** becomes critical.
+
+Imagine that a patient finds you on Maps for a specific procedure, opens the Website and cannot find a clear page, current information or a booking path for it. They are unlikely to investigate the discrepancy; the next practice is one click away.
+
+Or Social presents a modern premium practice, while the Website looks dated and uses a completely different language. That creates a break in trust. The same happens when the Website promises one experience but recurring review evidence points to another.
+
+The four surfaces should not be literal copies of one another. Google, a Website, Social and Reviews have different jobs and formats. But they must describe the same business without contradictions: the same core service facts, positioning and strengths, with a clear and compatible next action. We call this **Cross-Surface Consistency**.
+
+There is usually an ownership problem behind inconsistency. Google may be managed by one specialist, the Website by another, Social by a third, and reviews by the practice team. Each person may perform their individual task well while nobody owns the whole decision system. What is required is not necessarily one person who personally executes everything. It is **one owner of the logic**: one source of truth and one accountable view across all four surfaces.
+
+That is why we do not begin with advertising or with a proposal to rebuild everything. We begin with the **Growth Score**. We examine all four surfaces, their consistency and the available evidence to answer a more useful question: **where is the main constraint now?**
+
+The answer is not automatically the lowest visible score, and it is not a reason to fix everything at once. Search and Reputation may already be strong, Social may be sufficient, and the main loss may occur on the Website. In that case, spreading time and budget across every surface—or buying more demand before fixing the leak—would be the wrong first move.
+
+After the Growth Score, the **30-Day Growth Sprint** implements the agreed priority constraint. If fixing it requires coordinated changes across more than one surface, we synchronize those changes so a treatment, claim, proof point or next action does not appear in one place and conflict with the others. The Sprint also establishes the shared logic and ownership needed to keep the surfaces aligned.
+
+After the Sprint, the practice keeps agency. You can maintain the system with your own team, use separate specialists, or continue with CAESTHETIC. The foundational work completed in the Sprint is the diagnosis, prioritization, correction of the agreed constraint and creation of a coherent operating base. Ongoing work is a separate choice: maintain, measure, improve and identify the next constraint.
+
+There is also an internal conversion and patient-operations layer: what happens to enquiries, calls, handoffs, follow-up, attendance and capacity after interest is created. We mention that this layer exists, but we do not diagnose a broken CRM, weak front desk or other internal cause from the outside. Growth Score records the internal layer as not assessed or insufficient evidence unless there is valid access and evidence. During the Sprint, we observe only the minimum operational interface required to implement and measure the agreed intervention. The Day-30 evidence is the first standard point at which we can responsibly say whether a verified internal constraint should be addressed next.
+
+In short:
+
+```text
+Demand brings people into the system.
+→ 4444 shapes the patient decision.
+→ Growth Score finds the binding constraint.
+→ 30-Day Growth Sprint fixes the agreed priority.
+→ Then the practice decides what to maintain, improve or scale next.
+```
+
+So our first question is not, “How much more are you ready to spend on advertising?” It is: **“Where are we sending those people, and are we already losing them there?”**
 
 ## 3. Canonical funnel
 Public funnel:
@@ -400,6 +471,7 @@ No canonical Valerie Petra personal LinkedIn URL is verified in the repository y
 - Growth economics and measurement: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`
 - Growth System operations, automation and request/add-on classification: `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`
 - Owner VOC, canonical marketing questions and first-carousel topic order: `docs/ssot/CAESTHETIC_OWNER_MARKETING_QUESTIONS.md`
+- Reel production and evidence-driven acquisition authority: `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` v3.0 (DEC-838 V3 FREEZE)
 - Expert Dental/Raimov client history: `docs/ssot/EXPERT_DENTAL_GROWTH_OFFER.md` — client-specific legacy commercial arrangement; not reusable CAESTHETIC dental pricing, budget, attribution or performance-fee canon
 - Historical Sprint working spec: `docs/caesthetic/growth_sprint_spec.md` — non-canonical where conflicting (including old price/retainer assumptions)
 - Knowledge/runtime lane: `docs/projects/caesthetic/`

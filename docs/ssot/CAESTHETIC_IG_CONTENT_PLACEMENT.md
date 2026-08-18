@@ -13,6 +13,7 @@ related:
   - docs/ssot/CAESTHETIC_IG_GROWTH_PROGRAM.md
   - docs/ssot/CAESTHETIC_OWNER_MARKETING_QUESTIONS.md
   - docs/ssot/CAESTHETIC_HEYGEN_PRODUCTION_SYSTEM.md
+  - docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md
   - docs/ssot/reports/cae_ig_coverage_ops_2026-08-14.md
   - docs/ssot/SOCIAL_ADAPTER_INSTAGRAM.md
   - docs/founder-notes/DEC-822.md
@@ -38,8 +39,8 @@ Coverage runners (AM/PM) make *us* appear in *their* story viewers. Placement + 
 |----------|------|
 | Follow is not a reach lever | Keep outbound follow **5–8/day**. Do **not** raise follows to buy post views (DEC-822 / DEC-824). |
 | When follow may rise | Only after 7–14 days, **0** action blocks, follow-back **≥10–12%**, coverage stable — then **8–10**, never a blast. |
-| Daily presence | **Own Stories 1–4 frames** on weekdays — not a brand-new Reel every day. |
-| Reel library | **3–5 Reels/week** from the canonical FAQ set (`CAESTHETIC_OWNER_MARKETING_QUESTIONS.md` §8). |
+| Daily presence | **Own Stories 1–4 frames** on weekdays. DEC-831 Template Reel Factory is on hold under DEC-838. |
+| Reel cadence | Derived from publishable Evidence and high-quality Growth Score capacity under Reel System V3; no fixed daily/weekly volume overrides quality. |
 | Volume channel | **Email carries volume; IG carries familiarity** (`CAESTHETIC_EMAIL_TO_IG.md`). |
 | Forbidden amplification | Bought followers/views, pods, gray boost farms, IG-handle Meta Customer Lists, second IG on the same fingerprint as `833304152`. |
 
@@ -55,7 +56,7 @@ One **frame** = one Story slide (still, screen, short clip, or text overlay).
 | Surface | Cadence | Job | Canon pack |
 |---------|---------|-----|------------|
 | **Stories** | Almost every weekday, 1–4 frames | Warm visibility / research-desk presence | `CAESTHETIC_IG_STORY_TEMPLATES_WEEK.md` |
-| **Reels** | 3–5/week | Discovery, saves, long-lived library | OWNER_MARKETING_QUESTIONS §8 + HeyGen pipeline |
+| **Reels** | Evidence/capacity-derived | Cold Reach acquisition + Score Intent evergreen library | Reel System V3 + OWNER_MARKETING_QUESTIONS §8; DEC-831 factory on hold |
 | **Feed carousel / static** | Per launch grid | Save/share hooks; **3 pins** always live | Growth program §4 + reach playbook §4 |
 | **Feed video (non-Reel)** | Rare | Usually weaker discovery than Reel | — |
 | **Highlights** | Always on | START / SCORE / FAQ (owner-named) | Growth program |
@@ -63,7 +64,9 @@ One **frame** = one Story slide (still, screen, short clip, or text overlay).
 
 ### 1.1 Correct understanding (from strategy chat)
 
-We need **daily Stories**, not necessarily a new Reel every day. Reels are a **library** produced via:
+We need **daily Stories**. Reels are produced from publishable Evidence and
+downstream Score capacity. The DEC-831 daily Template Reel Factory is on hold
+pending versioned V3 revalidation. Editorial Reels remain a library produced via:
 
 ```text
 Topic (§8 FAQ)
@@ -76,6 +79,11 @@ Topic (§8 FAQ)
 ```
 
 Human work = fact check + APPROVED — not daily greenfield filming.
+
+Editorial Reel System V3 is the acquisition/editorial core, not the entire content mix.
+Its three controlled learning formats and measurement contract live in
+`CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md`; this placement SSOT continues
+to govern cadence and channel mix.
 
 ### 1.2 Weekday Story jobs (placement pack)
 

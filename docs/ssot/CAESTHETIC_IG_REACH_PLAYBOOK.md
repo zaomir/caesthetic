@@ -34,7 +34,7 @@ Coverage runners make *us* appear in *their* story viewers. This playbook answer
 
 1. **Do not raise outbound follow above 5–8/day** to get more post views. Follow is a scarce close, not a reach lever (DEC-822 / DEC-824).
 2. Raise follow only after 7–14 days with **0 action blocks** and follow-back **≥10–12%**, and only to **8–10** — never a blast.
-3. **Daily presence = Stories (1–4 frames on weekdays).** Ready week templates: `CAESTHETIC_IG_STORY_TEMPLATES_WEEK.md`. Reels are a library (3–5/week from the canonical FAQ set), not “a new Reel from scratch every day.”
+3. **Daily presence = Stories (1–4 frames on weekdays).** Ready week templates: `CAESTHETIC_IG_STORY_TEMPLATES_WEEK.md`. Reel cadence derives from publishable Evidence and Growth Score capacity under Reel System V3, not a fixed daily/weekly quota.
 4. **Email carries volume; IG carries familiarity** — `CAESTHETIC_EMAIL_TO_IG.md`.
 5. **Forbidden:** bought followers/views, engagement pods, gray boost farms, IG-handle Meta Custom Audiences, second IG on the same Dolphin fingerprint as `833304152`.
 
@@ -43,7 +43,7 @@ Coverage runners make *us* appear in *their* story viewers. This playbook answer
 | Format | Cadence | Job |
 |--------|---------|-----|
 | **Stories** | Almost every weekday, 1–4 frames | Warm audience sees us; research-desk presence |
-| **Reels** | 3–5/week from evergreen FAQ library | Discovery + saves; long-lived profile asset |
+| **Reels** | Evidence/capacity-derived | Cold Reach acquisition + Score Intent evergreen library |
 | **Feed carousel / static** | As planned in launch grid | Save/share hooks; pins |
 | **Feed video (non-Reel)** | Rare | Usually weaker than Reel for discovery |
 
@@ -72,6 +72,10 @@ Topic (OWNER_MARKETING_QUESTIONS §8)
   → founder APPROVED
   → publish on US-hours calendar
   → clip → Stories for 2–3 days
+
+Template Reel Factory (DEC-831) — **ON HOLD under DEC-838**:
+  do not start new production until versioned V3 revalidation
+  SSOT: CAESTHETIC_IG_TEMPLATE_REEL_FACTORY.md
 ```
 
 Human work should be: fact check + APPROVED. Not daily greenfield filming.
@@ -119,7 +123,8 @@ Not a cold blast to 1,400.
 1. Only Tier A + follow-back or email/IG reply.
 2. Ask: permission to feature a **public** post in a research Story / short collab Reel — no hard sell.
 3. Offer: free Growth Score or one-leak teardown.
-4. Format: 15–20s “what we saw across four surfaces” with their OK on facts.
+4. Format: use the Reel System V3 class that gives the approved evidence enough
+   inspection time; “what we saw across four surfaces” with their OK on facts.
 5. Pace: ~1 city / week.
 6. Opening must be observation-first, not “let’s collab for reach.”
 
