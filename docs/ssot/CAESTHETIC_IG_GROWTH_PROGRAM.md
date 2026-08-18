@@ -2,13 +2,14 @@
 
 **Status:** ACTIVE SSOT  
 **Date:** 2026-08-10  
-**Last reviewed:** 2026-08-13  
+**Last reviewed:** 2026-08-17  
 **Project:** CAESTHETIC · Phase 1 · United States  
 **Surface:** `B_CAE_IG`  
 **Brand canon:** `docs/ssot/CAESTHETIC.md`  
 **Commercial decision:** `docs/founder-notes/DEC-812.md`  
 **Queue coverage (one account):** `docs/founder-notes/DEC-824.md`  
 **Reach (they see *our* posts):** `docs/ssot/CAESTHETIC_IG_REACH_PLAYBOOK.md`  
+**Action conversion:** `docs/ssot/DELFIN_ACTION_CONVERSION_STRATEGY.md`  
 **Own Stories week pack:** `docs/ssot/CAESTHETIC_IG_STORY_TEMPLATES_WEEK.md`  
 **Placement + amplification:** `docs/ssot/CAESTHETIC_IG_CONTENT_PLACEMENT.md`  
 **Design:** `site-caesthetic/DESIGN.md`
@@ -56,7 +57,9 @@ The four decision surfaces are:
 ## 3. Content architecture
 
 ### P1 — Practice / market breakdowns — 35%
-Public-data teardowns of real aesthetic practices and markets. Use observable facts first. Preferred recurring series: **Growth Score: [City]** and **Aesthetic Growth Index: [City]**.
+Public-data analysis of real aesthetic-practice markets. Use observable facts
+first. Under DEC-838 the only named market series is **CITY CHECK**; individual
+negative public teardowns are anonymized by default.
 
 Initial market research pool: Scottsdale · Nashville · Charlotte · Tampa · Raleigh · Austin · Naples · Charleston · Greenville.
 
@@ -103,21 +106,28 @@ Reddit/forum material in that document is directional Class C VOC only: it may s
 
 ## 5. Regular cadence
 
-Baseline after the launch grid: **3 feed posts/week**.
+Baseline after the launch grid is constrained by publishable Evidence and
+high-quality Growth Score capacity. The historical `3 feed posts/week` rhythm
+is a planning reference, not a V3 production quota.
 
 Default weekly rhythm:
 - Monday — diagnostic carousel / Growth Leak;
-- Wednesday — Reel, normally 15–45 seconds, one idea and one evidence point;
+- Wednesday — optional Reel slot using the current V3 class and one evidence-led thesis;
 - Friday — real practice / market breakdown or proof asset.
 
 Stories: **4–5 weekdays/week**, normally 1–4 frames. Stories should behave like a live research desk: market being reviewed, anonymized/public observations, polls about what to inspect next, new Growth Score completed, or a useful fragment from the week's research.
 
-Do not publish daily feed merely to hit volume. Reassess cadence after four weeks using actual account Insights and qualified funnel outcomes.
+Do not publish daily **editorial** feed merely to hit volume. Reassess editorial cadence after four weeks using actual account Insights and qualified funnel outcomes.
+
+**Template Reel Factory (DEC-831): ON HOLD under DEC-838.** It cannot authorize
+daily volume or no-per-Reel review until a versioned V3 revalidation.
 
 ## 6. Format rules
 
 - Carousels: 1080×1350, normally 6–10 slides; optimized for saves/shares.
-- Reels: 1080×1920, normally 15–45s; hook immediately; burned-in captions; one thesis per Reel.
+- Reels: 1080×1920; V3 runtime follows Evidence (`Single Insight` approximately
+  12–18s; `Evidence Reel` approximately 22–30s in the first comparison); hook
+  meaningful motion/visual at roughly one second; burned-in captions; one thesis.
 - Static: minority format, used for strong evidence statements or institutional identity.
 - Stories: research desk / continuity, not lifestyle filler.
 - Hashtags: 3–5 relevant maximum; no stuffing.
@@ -150,15 +160,25 @@ Forbidden:
 
 Review content may discuss neutral capture, response operations, review velocity and aggregate reputation intelligence.
 
-## 9. Growth Score city series
+## 9. CITY CHECK — sales + content asset
 
-The recurring editorial IP is **Growth Score: [City]**.
+The only named city IP is **CITY CHECK**.
 
 One research pass should feed multiple surfaces:
 
 `market research → ranked practices → Growth Score observations → Instagram breakdown → cold-email observation → private Growth Score lead → later site insight if approved`
 
-For each city, prefer 2–4 representative practices and extract one defensible market-level pattern. Never imply a statistically representative city benchmark unless the sample and method support that claim.
+Sequence: `research → evidence dataset → 3–5 full Growth Scores / deep
+assessments where permitted → personalized outreach → aggregate publication →
+reuse`. Measure hours by stage and end-to-end cycle time. CITY CHECK is judged
+primarily by pipeline value. Do not publish the aggregate before initial
+personalized outreach when that would weaken sales value. Public negative
+analysis is aggregate and anonymized by default; identifying a clinic requires
+rights, consent or approved legal basis. Never imply a representative city
+benchmark unless sample and method support it.
+
+The nine-city pool is unranked. Scottsdale's first-list position and prior smoke
+do not select it as P0; use the current market ranking before choosing a city.
 
 Every city asset must preserve source/evidence provenance internally.
 
@@ -166,7 +186,10 @@ Every city asset must preserve source/evidence provenance internally.
 
 Content production flow:
 
-`research/evidence → draft → claim check → visual brief → founder APPROVED → publish → same-day comment handling → 7-day performance review`
+`V3 FREEZE → research/evidence → PUBLISHABLE gate → draft → claim/rights/privacy check → visual brief → founder APPROVED → publish → response operations → performance and revenue review`
+
+The DEC-831 Template Reel Factory exception is on hold. It cannot bypass V3 or
+sensitive-evidence second-pair-of-eyes QA.
 
 Manual Instagram warming remains part of Phase-1 acquisition. Cold DM to consumer patients is forbidden. B2B owner interaction must be human-looking, low-volume and based on real observations; no engagement pods, bought followers or automation spam.
 
@@ -174,7 +197,7 @@ Dolphin/profile operations remain governed by the current social ops canon; this
 
 ### 10.1 One-account queue coverage (DEC-824) — how we intensify Instagram
 
-Founder accepted 2026-08-13. Working universe: **859** (`sel_cae_medspa_ig_v1` after deny) plus **~200** inbound the next day ≈ **1,059** rows. **One account:** `@caesthetic.growth` on Dolphin `833304152`. Email and Meta ads are deferred (remind 2026-08-14). Email→IG sequencing SSOT: `docs/ssot/CAESTHETIC_EMAIL_TO_IG.md`.
+Founder accepted 2026-08-13. **Founder execution decision 2026-08-17:** the complete `cae_us_medspa_ig` CURRENT release is the execution inventory — the founder-approved set is **869 usernames** — with no added username qualification filters and no silent row skips. If the canonical pointer does not resolve to an immutable release of exactly 869, execution stops as a configuration blocker until the release/pointer is aligned; never substitute a dated export, candidate pool or remembered list. Candidate/incoming pools may be larger, but they do not replace CURRENT. **One account:** `@caesthetic.growth` on Dolphin `833304152`. Email and Meta ads are deferred. Email→IG sequencing SSOT: `docs/ssot/CAESTHETIC_EMAIL_TO_IG.md`. Action-run rules: `DELFIN_ACTION_CONVERSION_STRATEGY.md`.
 
 **Audience expansion (2026-08-14, NON-EXECUTION):** TASK-814 exhausted the $15 Apify cap → **746** Phase-1 city IG usernames. Candidate pool rebuilt to **1441** (`sel_cae_medspa_ig_v1`). Dolphin/SBO coverage queue rebuilt to **1431** (`cae_ig_build_dolphin_queue.mjs` → `tmp/cae-ig-queue/`). Private: `dropbox:CAESTHETIC/icp/9-city-ig-usernames-2026-08/master_usernames.csv` + registry `incoming/task814-2026-08-14/` + `dropbox:CAESTHETIC/audience/cae-ig-dolphin-queue/`. Agent card: `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md`. **Dolphin write plane FINAL still resolves `CURRENT.json` only** (bootstrap ~161) until a new immutable release folds incoming. Do not treat 1431/1441 as approved FINAL wave size; day runners use the coverage queue under DEC-822/824 caps.
 
@@ -182,7 +205,7 @@ Founder accepted 2026-08-13. Working universe: **859** (`sel_cae_medspa_ig_v1` a
 
 | Action | Day-1 of a coverage week | If 48h clean | Week | Job |
 |---|---|---|---|---|
-| Story view | 120 | 150–180 | clears ~1,059 | Coverage |
+| Story view | 120 | 150–180 | covers CURRENT across the approved cycle | Coverage |
 | Profile open + 3s scroll | bundled with story pass | same | same | Human pattern |
 | Like 1 recent post | 30 | 40–50 | 280–350 | Signal |
 | Outbound follow | **5–8** (DEC-822) | 8 | ≤40 | Scarce close |
@@ -202,11 +225,11 @@ Gaps: **45–90s** between story/profile opens; **10–20+ min** after any write
 
 Follow slots come **only from Tier A**. Empty A that hour → skip the follow; do not burn it on a quiet handle. Comment FIRST/NEXT on **our** captions stays banned (§12.1). Commenting a prospect’s post with a real observation is allowed warming (this §10 / line 166).
 
-**Week-done (counts only, no usernames in git):** ≥1 story-view or profile-open on every row; 280–350 likes; 35–40 follows; 25–50 comments; follow-back rate measured (expect 8–15% now that three pins are live); thanks DMs = follow-backs; **0** action blocks. One block → stop that write class 24–48h, resume at half. If coverage is <80% of the list on day 4, add a second session block — do not raise follows.
+**Cycle-done (counts only, no usernames in git):** every CURRENT row has an immutable terminal outcome: verified story/profile touch, permitted defer/revisit, suppression, prior completion or blocker. No legacy qualification filter may remove a row. Operational bands remain 280–350 likes, 35–40 follows and 25–50 comments per approved coverage week; follow-back rate is measured; thanks DMs = eligible follow-backs; **0** action blocks. One block → stop that write class 24–48h, resume at half. If coverage is <80% of the list on day 4, add a second session block — do not raise follows.
 
 Reach playbook (Stories/Reels/save hooks/Email/paid boundaries): `docs/ssot/CAESTHETIC_IG_REACH_PLAYBOOK.md`. Ops detail: `docs/ssot/reports/cae_ig_week_coverage_1account_2026-08-13.md`. **Daily runner:** `bash scripts/caesthetic/cae_ig_run_coverage_day.sh` (SBO `run-cae-ig-coverage-day-833304152.mjs`). **Weekday timers:** `cae-ig-coverage-am/pm.timer` — ops `docs/ssot/reports/cae_ig_coverage_ops_2026-08-14.md`. Caps and circuit breaker: `SOCIAL_ADAPTER_INSTAGRAM.md` §8 + `SOCIAL_INBOUND_INVITE_FOLLOWUP.md` §4.3.
 
-## 11. KPI
+## 11. KPI and operating capacity
 
 Primary:
 1. qualified owner profile visits;
@@ -215,6 +238,19 @@ Primary:
 4. qualified owner follows / DMs;
 5. saves and shares on diagnostic content;
 6. teardown topics that create profile visits and Score requests.
+
+V3 operating numbers:
+
+1. Publishable Evidence Units / week;
+2. Evidence reuse rate;
+3. High-quality Growth Scores / week;
+4. Revenue per delivered Growth Score.
+
+Revenue funnel: `Reel → Profile → Score request → Score started → Score
+delivered → qualified conversation → Sprint proposed → Sprint won → revenue`.
+Track Score→Sprint conversion and revenue per publishable Evidence Unit. Cold
+Reach and Score Intent are not evaluated with one metric; business outcomes
+outrank completion rate.
 
 Secondary: reach, Reel discovery, follower count.
 

@@ -132,12 +132,16 @@ Each carousel must answer one owner question, show one observable failure patter
 
 Reels are not a random awareness stream. They form an evergreen video decision library that answers the most important questions a practice owner has before, during and after buying CAESTHETIC. The same videos may be reused on Instagram, landing pages, Highlights, direct-message follow-up and pre-call education.
 
-The library combines two jobs:
+The library supports two distinct jobs, whose metrics must not be combined:
 
-1. **Problem discovery / reach** — make an owner recognise a measurable growth leak.
-2. **Product education / objection removal** — explain what the owner receives, what happens next, what remains theirs, and how commercial continuation works.
+1. **Cold Reach** — make an owner recognise an evidenced growth leak, self-diagnose and make a qualified profile visit.
+2. **Score Intent / Product FAQ** — warm education and objection removal: what the owner receives, what happens next, what remains theirs, and how continuation works.
 
-Default production split: **8 evergreen FAQ/instruction Reels at 25–35 seconds** and **2 diagnostic reach Reels at 15–20 seconds**. One Reel answers one primary question.
+Product FAQ is an evergreen decision library for profile, Highlights,
+retargeting, DM and pre-call use; it is not a cold-reach engine and is not judged
+by Cold Reach metrics. One Reel answers one primary question. Runtime follows
+the Evidence and Reel System V3 classes; this library sets no fixed production
+split or duration.
 
 ### 8.2 Canonical first 10 Reel topics
 
@@ -154,7 +158,9 @@ Default production split: **8 evergreen FAQ/instruction Reels at 25–35 seconds
 | 9 | **What remains with me after the Sprint, and what happens on Day 30?** | Lock-in objection | client ownership / optional continuation |
 | 10 | **What are the payment options after the Sprint, and how is performance measured?** | Commercial instruction | Growth System / Growth Budget / performance measurement |
 
-These ten topics are the canonical first production batch unless a later founder decision supersedes them.
+These ten topics remain the canonical evergreen Product FAQ / Score Intent
+library. DEC-838 supersedes their status as a fixed first production batch.
+Cold Reach backlog and batch authorization live in Reel System V3.
 
 ### 8.3 Required answer content
 
@@ -182,7 +188,9 @@ These ten topics are the canonical first production batch unless a later founder
 
 - Language: English, US-owner vocabulary.
 - Reels: 1080×1920, 9:16, burned-in captions, immediate hook, one thesis.
-- Default FAQ duration: 25–35 seconds. Diagnostic reach: 15–20 seconds.
+- Runtime follows Reel System V3: first comparable learning includes
+  `Single Insight` (`12–18s`) and `Evidence Reel` (`22–30s`), chosen by the
+  evidence rather than completion rate.
 - Hook target: no more than 9 words where possible; no greeting or company introduction before the hook.
 - Narrative system: **Evidence → Tension → Discovery → Agency**.
 - Tone: calm, analytical, operator-side, specific, non-salesy.
@@ -191,9 +199,10 @@ These ten topics are the canonical first production batch unless a later founder
 - Do not invent clients, outcomes, response-time benchmarks, revenue loss, rankings or patient counts.
 - Reddit/forum material in §2 is Class C qualitative VOC: use it to choose questions and language, never as proof that a tactic works or that a result is typical.
 
-### 8.5 Recommended publication order
+### 8.5 Recommended library sequence
 
-For attention and decision support, publish the batch in this order:
+For decision support, the library may be sequenced in this order after the V3
+freeze and capacity gate; this is not a fixed production batch:
 
 `5 → 2 → 4 → 6 → 8 → 9 → 10 → 1 → 3 → 7`
 
