@@ -1,7 +1,7 @@
 # CAESTHETIC Reel Scenario Registry
 
 This namespace is the machine-readable scenario authority for CAESTHETIC
-Reels. It implements Reel System V3.0 (`DEC-838`).
+Reels. It implements Reel System V3.1 (`DEC-838`, amended by `DEC-839`).
 
 ## Contract
 
