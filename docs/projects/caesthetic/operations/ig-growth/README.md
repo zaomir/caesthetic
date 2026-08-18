@@ -22,6 +22,7 @@
 | 10 | [`10-CAROUSEL_CHAT_HANDOFF.md`](./10-CAROUSEL_CHAT_HANDOFF.md) | CAESTHETIC Carousel Psychology Playbook: global Behavioral Communication System implementation, completed grid, copy interface and new-chat bootstrap |
 | 11 | [`11-REEL_SCRIPTS_L5_L7_L8.md`](./11-REEL_SCRIPTS_L5_L7_L8.md) | Shoot-ready Reel packages: L5 Maps ≠ rating, L7 booking path, L8 city breakdown (footage gate) |
 | 12 | [`footage/L5/`](./footage/L5/) | L5 still cards + how to assemble (no camera) |
+| 13 | [`reels/`](./reels/) | Reel System V3 canonical scenario registry: one Reel per YAML; registry-first machine discovery |
 
 ## Hard holds
 
