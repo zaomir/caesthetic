@@ -1,18 +1,20 @@
 ---
 owner: CAESTHETIC
 status: canonical
-version: 3.0
+version: 3.1
 created: 2026-08-16
 updated: 2026-08-18
-authority: DEC-838
+authority: DEC-838, amended by DEC-839
 supersedes: DEC-837 timing, Valerie default, CTA operations and measurement scope
 ---
 
-# CAESTHETIC Reel System V3 — Daily Growth Note Video Pipeline
+# CAESTHETIC Reel System V3.1 — Daily Growth Note Video Pipeline
 
 ## 0. V3 FREEZE
 
-`V3.0` is the frozen production authority from 2026-08-18. A production batch
+`V3.1` is the production authority from 2026-08-18. It is a narrow, versioned
+amendment to frozen `V3.0`: DEC-839 supersedes only the Scene 1A silent-hook
+rule. A production batch
 must record and use one spec version. Structure, timing, CTA route, Valerie role
 or evidence rules may change only through a versioned decision/change note; no
 silent edits during a batch. Production starts only after this freeze.
@@ -85,6 +87,17 @@ The first meaningful visual or movement targets roughly the first second:
 restrained push-in, subtle parallax, text reveal or moving evidence. This is an
 early-retention hypothesis, not a claim that Instagram penalizes static frames.
 Composition remains governed by `CAESTHETIC_DAILY_GROWTH_NOTE_OPENER_CANON.md`.
+
+When Valerie is used in the opening master, Scene 1A starts at frame `0` with
+the complete headline already visible, Valerie already moving and the first
+spoken word already audible. The headline uses the approved fixed lower-third
+area inside the opener editorial zone; Valerie remains on the right. Scene 1A
+and 1B are one continuous master clip. The 1A→1B boundary is visual only: the
+headline disappears while Valerie continues the same line without a pause,
+audio edit or visual cut. ElevenLabs masters start with the first word, and the
+assembler must not add artificial leading silence. Existing template-level
+brand assets retain their current status; this rule does not canonize a new
+round-logo asset.
 
 ### Valerie / framing
 
@@ -331,7 +344,7 @@ captions → assembly → final`. Final cards route to
 
 ## 15. Production release checklist
 
-1. Batch records `Reel System V3.0` and track/job.
+1. Batch records `Reel System V3.1` and track/job.
 2. Evidence unit is `PUBLISHABLE`; wording, label, rights and privacy pass.
 3. Runtime/class follows the evidence; no universal duration is imposed.
 4. Valerie usage matches the organic rule or clean paid-test protocol.

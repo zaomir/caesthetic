@@ -5,7 +5,7 @@ series: NOT YET
 track: cold_reach
 status: approved
 
-spec_version: "Reel System V3.0"
+spec_version: "Reel System V3.1"
 compiled_against_git_sha: null
 question_id: Q05
 audience_question: Should I increase ad spend, or fix the website, booking path and follow-up first?
@@ -67,17 +67,20 @@ scenes:
     duration_target_s: {min: 6.0, max: 8.0}
     spoken_text: Before you buy more traffic, check what happens after the click.
     spoken_timing:
-      silent_open_s: {min: 1.2, max: 1.5}
-      starts_after_headline_exit: true
+      starts_at_frame: 0
+      leading_silence_s: 0
+      continuous_through_1a_1b: true
     on_screen_text:
       headline_lines: ["MORE TRAFFIC?", "NOT YET."]
       emphasis_line: "NOT YET."
-      placement: fixed_left_headline_zone
-      behavior: disappears before spoken line begins
+      placement: fixed_lower_third_within_left_editorial_zone
+      behavior: fully_visible_at_frame_0_then_disappears_during_continuous_speech
     visual_direction: >-
-      One continuous Valerie master clip with no cut between silent animation
-      and speech. Keep the headline in the fixed left zone and adapt Valerie to
-      the right half, preserving calm authority and negative space on the left.
+      One continuous Valerie master clip from frame 0: Valerie is already
+      animated and speaking while the complete headline is visible. Keep the
+      headline in the fixed lower-third area inside the left editorial zone and
+      Valerie in the right half. The headline disappears at the 1A→1B visual
+      boundary while Valerie continues the same line without a pause or cut.
     presenter_mode: valerie_continuous_master
     source_plate:
       preferred: docs/projects/caesthetic/operations/ig-growth/footage/valerie-clean-plates/vcp-009-clinic-blazer-smile.png
@@ -88,24 +91,24 @@ scenes:
         preserving identity, outfit and environment and leaving negative space
         on the left. The template never chases Valerie.
     kling_instructions:
-      applies_to: silent character motion only
+      applies_to: opening-master visual motion only
       prompt: >-
         Animate subtle natural breathing, a small head turn and eye contact.
         Preserve Valerie's identity, blazer, clinic environment and lighting.
         Keep Valerie in the right half and leave clean negative space on the
-        left. No text, no logo, no speech, no camera jump and no scene change.
+        left. No generated text or logo, no camera jump and no scene change.
       renderer_owns: [headline, headline_exit, final_composite]
     heygen_instructions:
-      applies_to: speaking continuation
+      applies_to: frame-0 speaking master
       instruction: >-
         Generate the exact spoken text as a Valerie speaking plate, preserving
         the same identity, outfit, environment, framing and calm delivery. Join
         only through the supported continuous-master workflow; do not claim
         Kling supplies speech unless the actual selected tool explicitly does.
-    transition: headline_fade_then_continuous_speech_no_cut
+    transition: visual_only_headline_exit_during_continuous_speech_no_cut
     asset_outputs:
-      silent_motion_plate: null
       speaking_plate: null
+      audio_master_no_leading_silence: null
       master_clip: null
 
   - scene_id: S02
