@@ -8,6 +8,19 @@ enumeration_policy:
   episode_body_authority: referenced_yaml
   chat_history_is_authority: false
 episodes:
+  - episode_id: CAE-REEL-B-001
+    slug: 200k-trust-leak-format-b
+    title: "A PRACTICE CAN MAKE $200K A MONTH — AND STILL LOSE PATIENTS EVERY DAY."
+    series: FORMAT B EXPERIMENTS
+    track: cold_reach
+    status: approved_for_production
+    path: episodes/002-200k-trust-leak-format-b.yaml
+    topic: four-surface-trust-leak
+    question_id: Q05
+    audience_question: Should I fund more traffic before finding where trust breaks?
+    spec_version: "Format B v1.0"
+    latest_output: null
+    publication: null
   - episode_id: CAE-REEL-001
     slug: more-traffic-not-yet
     title: "MORE TRAFFIC? NOT YET."
