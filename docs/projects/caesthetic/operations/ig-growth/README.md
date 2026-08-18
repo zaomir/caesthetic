@@ -21,9 +21,12 @@
 | 9 | [`09-CAROUSEL_VOC_AND_SMM_BRIEF.md`](./09-CAROUSEL_VOC_AND_SMM_BRIEF.md) | Locked 20-question owner VOC bank, 10-carousel starting package and SMM production brief |
 | 10 | [`10-CAROUSEL_CHAT_HANDOFF.md`](./10-CAROUSEL_CHAT_HANDOFF.md) | CAESTHETIC Carousel Psychology Playbook: global Behavioral Communication System implementation, completed grid, copy interface and new-chat bootstrap |
 | 11 | [`11-REEL_SCRIPTS_L5_L7_L8.md`](./11-REEL_SCRIPTS_L5_L7_L8.md) | Shoot-ready Reel packages: L5 Maps ≠ rating, L7 booking path, L8 city breakdown (footage gate) |
-| 12 | [`footage/L5/`](./footage/L5/) | L5 still cards + how to assemble (no camera) |
-| 13 | [`reels/`](./reels/) | Reel System V3 canonical scenario registry: one Reel per YAML; registry-first machine discovery |
-| 14 | [`reels/episodes/002-200k-trust-leak-format-b.yaml`](./reels/episodes/002-200k-trust-leak-format-b.yaml) | First approved Format B production experiment; `$200K` is a model/example, not a case claim |
+| 12 | [`12-TEMPLATE_REEL_FACTORY.md`](./12-TEMPLATE_REEL_FACTORY.md) | Daily Template Reel Factory (DEC-831): frozen layout, weekly pack, daily publish |
+| 13 | [`daily-growth-note/`](./daily-growth-note/) | Daily Growth Note Story template (DEC-832): shared Text Card + episode 001 |
+| 14 | [`footage/L5/`](./footage/L5/) | L5 still cards + how to assemble (no camera) |
+| 15 | [`editorial-overlay/`](./editorial-overlay/) | VALERIE_EDITORIAL_TEXT_OVERLAY_V1 — cream-atmosphere overlay (**preview, not locked**) |
+| 16 | [`reels/`](./reels/) | Reel System V3 canonical scenario registry: one Reel per YAML; registry-first machine discovery |
+| 17 | [`reels/episodes/002-200k-trust-leak-format-b.yaml`](./reels/episodes/002-200k-trust-leak-format-b.yaml) | First approved Format B production experiment; `$200K` is a model/example, not a case claim |
 
 ## Hard holds
 
