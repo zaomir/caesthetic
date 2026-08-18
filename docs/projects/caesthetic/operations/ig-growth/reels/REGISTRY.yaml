@@ -1,7 +1,7 @@
-registry_version: 1
+registry_version: 2
 authority:
-  system: CAESTHETIC Reel System V3.1
-  decision: DEC-839
+  system: CAESTHETIC Reel System V3.2
+  decision: DEC-840
   ssot: docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md
 enumeration_policy:
   registry_is_only_enumeration_point: true
@@ -18,6 +18,6 @@ episodes:
     topic: traffic-after-click-friction
     question_id: Q05
     audience_question: Should I increase ad spend, or fix the website, booking path and follow-up first?
-    spec_version: "Reel System V3.1"
+    spec_version: "Reel System V3.2"
     latest_output: null
     publication: null

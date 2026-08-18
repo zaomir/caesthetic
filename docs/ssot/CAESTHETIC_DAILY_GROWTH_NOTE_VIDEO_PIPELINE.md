@@ -1,20 +1,21 @@
 ---
 owner: CAESTHETIC
 status: canonical
-version: 3.1
+version: 3.2
 created: 2026-08-16
 updated: 2026-08-18
-authority: DEC-838, amended by DEC-839
-supersedes: DEC-837 timing, Valerie default, CTA operations and measurement scope
+authority: DEC-838, amended by DEC-839 and DEC-840
+supersedes: V3.1 voice/audio orchestration and corresponding synthetic presenter ownership only
 ---
 
-# CAESTHETIC Reel System V3.1 — Daily Growth Note Video Pipeline
+# CAESTHETIC Reel System V3.2 — Daily Growth Note Video Pipeline
 
 ## 0. V3 FREEZE
 
-`V3.1` is the production authority from 2026-08-18. It is a narrow, versioned
-amendment to frozen `V3.0`: DEC-839 supersedes only the Scene 1A silent-hook
-rule. A production batch
+`V3.2` is the production authority from 2026-08-18. It is a narrow, versioned
+amendment to frozen `V3.1`: DEC-840 supersedes only voice/audio orchestration
+and the corresponding synthetic presenter ownership. All V3.1 evidence, CTA,
+Closing Card, measurement, privacy and brand-asset rules survive unchanged. A production batch
 must record and use one spec version. Structure, timing, CTA route, Valerie role
 or evidence rules may change only through a versioned decision/change note; no
 silent edits during a batch. Production starts only after this freeze.
@@ -94,8 +95,9 @@ spoken word already audible. The headline uses the approved fixed lower-third
 area inside the opener editorial zone; Valerie remains on the right. Scene 1A
 and 1B are one continuous master clip. The 1A→1B boundary is visual only: the
 headline disappears while Valerie continues the same line without a pause,
-audio edit or visual cut. ElevenLabs masters start with the first word, and the
-assembler must not add artificial leading silence. Existing template-level
+audio edit or visual cut. The continuous ElevenLabs master starts with the
+first word at time/frame `0`, and the assembler must not add artificial leading
+silence. Existing template-level
 brand assets retain their current status; this rule does not canonize a new
 round-logo asset.
 
@@ -106,10 +108,39 @@ When used, framing carries one thought, normally `8–12` spoken words and up to
 approximately `15`, with no greeting or preamble. Valerie is optional in
 organic Reels until the clean paid test in §8 supports a default.
 
-HeyGen creates only Valerie speaking plates; it does not own strategy, evidence,
-claims or the final edit. Preserve identity, clothing/environment continuity,
+Valerie delivery is either `on_camera` or `voice_over`. Kling is the primary
+motion layer for on-camera Valerie. Lip sync is capability-gated as defined in
+§3A; neither Kling nor a reserve provider owns or resynthesizes her voice.
+Preserve identity, clothing/environment continuity,
 calm authority and brand-controlled burned-in captions. No influencer styling,
 fake personal experience, testimonial or credibility substitution.
+
+### 3A. Continuous voice and audio timeline
+
+ElevenLabs is the sole canonical Valerie voice source. Every Reel first creates
+one continuous audio master for the complete spoken script using voice id
+`lxYfHSkYm1EzQzGhdbfc`; separate per-scene TTS is forbidden in the primary
+path. The master has no artificial leading silence, and its first word begins
+at time/frame `0`.
+
+The audio master plus its word/segment timestamps is the authoritative Reel
+timeline. Visual boundaries, captions, on-camera motion and voice-over cards
+are compiled over that timeline. Every voiced scene references one ordered,
+non-overlapping segment of the same master. `spoken_text` may remain as
+human-readable validation copy, but it is never a scene-owned synthesis input.
+Editorial and text cards may use `voice_over` normally; when Valerie leaves and
+returns to camera, the voice continues through successive segments of the same
+master without resynthesis.
+
+Kling is the primary Valerie motion provider. Production may pass an
+ElevenLabs segment to Kling for lip sync only when the currently available
+official integration declares audio-input lip sync support. If it does not,
+the capability gate must fail closed or route to the approved reserve
+motion/lip-sync provider using that same master segment. HeyGen may serve only
+as such a declared reserve path; it must not generate Valerie's voice.
+Production must not silently fabricate an integration, substitute per-scene
+TTS or proceed when the required master, timestamps, segment coverage or
+declared lip-sync capability is absent.
 
 ### Evidence / Explanation
 
@@ -323,28 +354,34 @@ required`.
 ## 14. Production ownership, storage and lineage
 
 CAESTHETIC Asset Worker creates editorial/motion, Evidence/Explanation, Pause
-Trigger and Closing Card layers. HeyGen creates optional Valerie plates. Caption
-Renderer creates brand-controlled accessible captions. Final assembly combines
-them.
+Trigger and Closing Card layers. ElevenLabs creates one continuous voice
+master. Kling creates primary Valerie motion and capability-gated lip sync;
+an approved reserve provider may lip-sync the same master segment but must not
+resynthesize voice. Caption Renderer creates brand-controlled accessible
+captions from master timestamps. Final assembly routes the master segments and
+visual layers without resynthesizing them.
 
 The canonical source namespace is in `CAESTHETIC_VALERIE_AVATAR_LIBRARY.md`.
 
 ```text
 Production/daily-growth-note/<episode>/
   source-manifest/
-  heygen/
+  audio-master/
+  motion/
   captions/
   assembly/
 ```
 
-Required lineage is `source → evidence unit → render → optional HeyGen →
-captions → assembly → final`. Final cards route to
+Required lineage is `source → evidence unit → full-script ElevenLabs master →
+timestamps/segments → render → motion/lip-sync capability gate → captions →
+assembly → final`. Heavy audio, timestamp and video artifacts stay in Dropbox;
+Git stores only contracts, references and lineage metadata. Final cards route to
 `Huck/stories/<request_id>/`, MP4 to `Huck/reels/<request_id>/`, thumbnails to
 `Huck/thumbnails/` and retired versions to `Huck/archive/`.
 
 ## 15. Production release checklist
 
-1. Batch records `Reel System V3.1` and track/job.
+1. Batch records `Reel System V3.2` and track/job.
 2. Evidence unit is `PUBLISHABLE`; wording, label, rights and privacy pass.
 3. Runtime/class follows the evidence; no universal duration is imposed.
 4. Valerie usage matches the organic rule or clean paid-test protocol.
@@ -353,3 +390,8 @@ captions → assembly → final`. Final cards route to
 7. Sensitive visual QA and platform/synthetic disclosure gates pass.
 8. Distribution variants retain the same evidence and native packaging.
 9. Measurement continues through Sprint won and revenue.
+10. One ElevenLabs master uses voice `lxYfHSkYm1EzQzGhdbfc`, begins at `t=0`,
+    and covers every voiced scene with ordered, non-overlapping segments.
+11. `voice_over` cards route the same master; no scene-level TTS is requested.
+12. Motion/lip sync passes its declared capability gate and never resynthesizes
+    Valerie's voice.

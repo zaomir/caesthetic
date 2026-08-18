@@ -5,7 +5,7 @@ series: NOT YET
 track: cold_reach
 status: approved
 
-spec_version: "Reel System V3.1"
+spec_version: "Reel System V3.2"
 compiled_against_git_sha: null
 question_id: Q05
 audience_question: Should I increase ad spend, or fix the website, booking path and follow-up first?
@@ -30,9 +30,31 @@ format:
 
 spoken_script: |-
   Before you buy more traffic, check what happens after the click.
+  More traffic only amplifies what’s already there. If the next step is unclear, more visitors meet the same friction.
   The problem may be the page, the booking path, or what happens next.
   Can someone find you, understand the offer, and book right now?
   Fix the path first. Then decide whether more traffic deserves your budget.
+
+audio_master:
+  synthesis_scope: full_reel_single_master
+  provider: ElevenLabs
+  voice_id: lxYfHSkYm1EzQzGhdbfc
+  canonical_script_source: spoken_script
+  no_leading_silence: true
+  continuous_voice: true
+  starts_at_time_s: 0
+  starts_at_frame: 0
+  sample_asset_status: required_not_attached
+  master_ref: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-001/audio/cae-reel-001-elevenlabs-master.wav
+  timestamps_ref: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-001/audio/cae-reel-001-elevenlabs-master.timestamps.json
+  storage: dropbox_only
+  per_scene_tts_allowed: false
+  segments:
+    - {segment_id: AMS01, scene_id: S01, order: 1, timing_source: timestamps_ref, text_anchor: "Before you buy more traffic, check what happens after the click."}
+    - {segment_id: AMS02, scene_id: S02, order: 2, timing_source: timestamps_ref, text_anchor: "More traffic only amplifies what’s already there. If the next step is unclear, more visitors meet the same friction."}
+    - {segment_id: AMS03, scene_id: S03, order: 3, timing_source: timestamps_ref, text_anchor: "The problem may be the page, the booking path, or what happens next."}
+    - {segment_id: AMS04, scene_id: S04, order: 4, timing_source: timestamps_ref, text_anchor: "Can someone find you, understand the offer, and book right now?"}
+    - {segment_id: AMS05, scene_id: S05, order: 5, timing_source: timestamps_ref, text_anchor: "Fix the path first. Then decide whether more traffic deserves your budget."}
 
 references:
   method:
@@ -66,6 +88,8 @@ scenes:
     scene_type: opening_master_clip
     duration_target_s: {min: 6.0, max: 8.0}
     spoken_text: Before you buy more traffic, check what happens after the click.
+    audio_segment_ref: AMS01
+    delivery_mode: on_camera
     spoken_timing:
       starts_at_frame: 0
       leading_silence_s: 0
@@ -98,31 +122,31 @@ scenes:
         Keep Valerie in the right half and leave clean negative space on the
         left. No generated text or logo, no camera jump and no scene change.
       renderer_owns: [headline, headline_exit, final_composite]
-    heygen_instructions:
-      applies_to: frame-0 speaking master
-      instruction: >-
-        Generate the exact spoken text as a Valerie speaking plate, preserving
-        the same identity, outfit, environment, framing and calm delivery. Join
-        only through the supported continuous-master workflow; do not claim
-        Kling supplies speech unless the actual selected tool explicitly does.
+    lip_sync:
+      lip_sync_provider: capability_gated
+      capability_status: unverified
+      audio_segment_ref: AMS01
+      requirement: use prepared ElevenLabs segment; never synthesize voice
     transition: visual_only_headline_exit_during_continuous_speech_no_cut
     asset_outputs:
       speaking_plate: null
-      audio_master_no_leading_silence: null
+      audio_master_no_leading_silence: audio_master.master_ref
       master_clip: null
 
   - scene_id: S02
     role: explanation
     scene_type: editorial_text_card
     duration_target_s: {min: 3.0, max: 4.0}
-    spoken_text: null
+    spoken_text: More traffic only amplifies what’s already there. If the next step is unclear, more visitors meet the same friction.
+    audio_segment_ref: AMS02
+    delivery_mode: voice_over
     on_screen_text:
       headline: MORE TRAFFIC AMPLIFIES WHAT'S ALREADY THERE.
       support: If the next step is unclear, more visitors meet the same friction.
     visual_direction: >-
       Cream editorial information surface, one takeaway, no Valerie, no fake UI
       and no decorative evidence artifact.
-    presenter_mode: none
+    presenter_mode: voice_over
     source_plate: null
     kling_instructions: null
     heygen_instructions: null
@@ -134,6 +158,8 @@ scenes:
     scene_type: valerie_speaking
     duration_target_s: {min: 4.0, max: 5.5}
     spoken_text: The problem may be the page, the booking path, or what happens next.
+    audio_segment_ref: AMS03
+    delivery_mode: on_camera
     on_screen_text:
       sequential_emphasis: [PAGE, BOOKING, FOLLOW-UP]
     visual_direction: >-
@@ -144,11 +170,11 @@ scenes:
       selection: from approved Valerie avatar/source namespace
       status: pending_production_selection
     kling_instructions: null
-    heygen_instructions:
-      instruction: >-
-        Speak the exact text with calm advisory authority, natural pacing and no
-        greeting. Preserve approved Valerie identity and wardrobe/environment
-        continuity. Renderer adds emphasis and brand captions.
+    lip_sync:
+      lip_sync_provider: capability_gated
+      capability_status: unverified
+      audio_segment_ref: AMS03
+      requirement: use prepared ElevenLabs segment; never synthesize voice
     transition: clean_cut
     asset_outputs: {speaking_plate: null, composited_scene: null}
 
@@ -157,6 +183,8 @@ scenes:
     scene_type: valerie_self_check_overlay
     duration_target_s: {min: 4.0, max: 5.5}
     spoken_text: Can someone find you, understand the offer, and book right now?
+    audio_segment_ref: AMS04
+    delivery_mode: on_camera
     on_screen_text:
       question_lines: ["CAN SOMEONE", "BOOK WITH YOU", "RIGHT NOW?"]
       scale: large
@@ -169,10 +197,11 @@ scenes:
       selection: continuity with S03
       status: pending_production_selection
     kling_instructions: null
-    heygen_instructions:
-      instruction: >-
-        Speak the exact question with a measured self-check cadence. Preserve
-        continuity with S03. Renderer adds the question overlay and captions.
+    lip_sync:
+      lip_sync_provider: capability_gated
+      capability_status: unverified
+      audio_segment_ref: AMS04
+      requirement: use prepared ElevenLabs segment; never synthesize voice
     transition: continuous_motion_overlay
     asset_outputs: {speaking_plate: null, composited_scene: null}
 
@@ -181,6 +210,8 @@ scenes:
     scene_type: conclusion
     duration_target_s: {min: 3.0, max: 4.0}
     spoken_text: Fix the path first. Then decide whether more traffic deserves your budget.
+    audio_segment_ref: AMS05
+    delivery_mode: on_camera_or_voice_over
     on_screen_text:
       emphasis: FIX THE PATH FIRST.
     visual_direction: >-
@@ -190,9 +221,12 @@ scenes:
       selection: production choice consistent with the batch's Valerie arm
       status: pending_production_selection
     kling_instructions: null
-    heygen_instructions:
+    lip_sync:
+      lip_sync_provider: capability_gated
+      capability_status: unverified
+      audio_segment_ref: AMS05
       applies_if: Valerie arm is selected
-      instruction: Speak the exact text with a decisive, restrained close.
+      requirement: use prepared ElevenLabs segment; never synthesize voice
     transition: visual_rhyme_into_close
     asset_outputs: {plate: null, composited_scene: null}
 
@@ -227,6 +261,21 @@ production:
   source_manifest: null
   dropbox_workspace: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-001/
   heavy_asset_policy: dropbox_only
+  audio_contract:
+    synthesis_owner: audio_master
+    scene_audio_synthesis: forbidden
+    assembly_audio_source: audio_master.master_ref
+    timestamps_source: audio_master.timestamps_ref
+    segment_order: [AMS01, AMS02, AMS03, AMS04, AMS05]
+    coverage: all_voiced_scenes_exactly_once
+  lip_sync:
+    preferred_motion_provider: Kling
+    lip_sync_provider: capability_gated
+    capability_status: unverified
+    on_supported_official_audio_input: use_audio_master_segments
+    fallback: canonical_supported_lip_sync_path_with_elevenlabs_audio
+    fail_closed_if_no_supported_path: true
+    voice_generation_by_motion_provider: forbidden
   huck:
     cards: null
     reel: null
