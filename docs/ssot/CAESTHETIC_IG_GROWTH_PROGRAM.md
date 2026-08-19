@@ -102,6 +102,11 @@ The stable 20-question owner VOC bank, founder-selected first questions, 10-caro
 
 The project-specific Carousel Psychology Playbook is `docs/projects/caesthetic/operations/ig-growth/10-CAROUSEL_CHAT_HANDOFF.md`. It implements the ecosystem-wide `docs/ssot/BEHAVIORAL_COMMUNICATION_SYSTEM.md`; global epistemic labels, causal test and self-audit soft-CTA boundary are binding.
 
+### 4.2 Entertainment reference and VOC lane
+
+Downloaded public med-spa Reels may be used only as **reference-only entertainment inspiration** unless rights/permission are documented. The CAESTHETIC entertainment/VOC pool, E5 topic bank, RAW/CLEAN provenance rule, quarantine rules and scheduling boundaries are maintained in `docs/projects/caesthetic/operations/ig-growth/11-ENTERTAINMENT_REELS_ROTATION_PLAN.md`, `docs/ssot/CAESTHETIC_ENTERTAINMENT_REELS_REFERENCE_MAP.md`, `docs/ssot/CAESTHETIC_ENTERTAINMENT_VOC_TOPIC_BANK.md` and `docs/ssot/CAESTHETIC_SHORT_FORM_VIRAL_REFERENCE_SYSTEM.md`. This lane must remain owner/operator-side, must not consume the main informational Reel engine by default, and cannot override Phase-1 evidence, claims, rights, PHI or Growth Score CTA gates.
+
+
 Reddit/forum material in that document is directional Class C VOC only: it may supply owner language and questions, but it is not evidence that a tactic works or that a result is typical. Published answers remain governed by this SSOT, the master CAESTHETIC canon and the Phase-1 evidence/rights/claims gate.
 
 ## 5. Regular cadence
