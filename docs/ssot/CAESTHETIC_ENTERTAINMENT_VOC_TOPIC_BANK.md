@@ -30,10 +30,11 @@ Primary KPI: **usable owner/operator verbatim phrases captured per unit**.
 
 ## 2. Owner and storage
 
-**VOC bank owner:** CAESTHETIC SMM/community operator.  
-**Fallback owner until named:** founder/manual operator.
+**VOC bank owner:** Founder  
+**Weekly review day:** Friday  
+**Activation status:** active.
 
-No E5 KPI is considered live until one named person owns collection, cleanup and weekly review.
+Founder owns collection, privacy cleaning before storage, storage hygiene and weekly review until a named SMM/community operator is assigned in this file.
 
 Storage rule:
 
@@ -44,7 +45,7 @@ source_surface · post_or_story_id · date · prompt_id · respondent_type · ve
 Default storage target until a Sheet/DB exists:
 
 ```text
-/Users/donnyduck/Library/CloudStorage/Dropbox/Projects/CAESTHETIC/content/voc/CAESTHETIC_OWNER_VERBATIM_BANK.tsv
+Dropbox: CAESTHETIC/content/voc/CAESTHETIC_OWNER_VERBATIM_BANK.tsv
 ```
 
 Do not store patient-identifying facts, health details, treatment details, screenshots of DMs with names, or private profile details in Git.
@@ -116,9 +117,23 @@ Use these as original CAESTHETIC prompts. They are not copied from downloaded re
 | E5-Q19 | Q19 reviews | What makes review requests feel consistent without feeling forced? | What is the hardest part of asking for reviews responsibly? | review_ops_language |
 | E5-Q20 | Q20 agency accountability | What makes an agency report feel useful rather than empty? | What would you want to see before trusting an outside marketing partner? | agency_accountability |
 
-## 7. Weekly review
+## 7. Privacy cleaning before storage
 
-Every week, the VOC owner reviews E5 output and records:
+Privacy cleaning happens before a phrase is written into the VOC bank, not after.
+
+Required cleanup:
+
+- remove names, handles, screenshots, profile details and contact details;
+- remove any patient-identifying facts;
+- remove procedure/treatment details when they could identify a patient or imply medical advice;
+- downgrade or discard any phrase that cannot be stored without PHI/compliance risk;
+- set `privacy_status` before the row is saved.
+
+Extra caution: E5-Q17 and E5-Q19 can invite clinician-on-camera, trust, review and patient-story replies. Capture only privacy-cleaned owner language about the business problem, not clinical or patient specifics.
+
+## 8. Weekly review
+
+Every week, the named VOC owner reviews E5 output and records:
 
 - prompts used;
 - owner/operator replies captured;
@@ -128,3 +143,5 @@ Every week, the VOC owner reviews E5 output and records:
 - any sign of staff-skew or vendor-skew.
 
 If no owner/operator verbatim is captured after two weeks, E5 content should be rewritten before increasing volume.
+
+This rule is active under the Founder/Friday owner assignment above.

@@ -472,7 +472,7 @@ No canonical Valerie Petra personal LinkedIn URL is verified in the repository y
 - Growth System operations, automation and request/add-on classification: `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`
 - Owner VOC, canonical marketing questions and first-carousel topic order: `docs/ssot/CAESTHETIC_OWNER_MARKETING_QUESTIONS.md`
 - Reel production and evidence-driven acquisition authority: `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` v3.0 (DEC-838 V3 FREEZE)
-- Parallel Reel Format B production authority: `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md` v1.0; only explicitly tagged episodes use it, and Format A/V3.2 remains active
+- Parallel Reel Format B production authority: `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md` v1.0 for explicitly tagged episodes only; `docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` blocks new topic-bank production until v1.1; Format A/V3.2 remains active
 - Expert Dental/Raimov client history: `docs/ssot/EXPERT_DENTAL_GROWTH_OFFER.md` — client-specific legacy commercial arrangement; not reusable CAESTHETIC dental pricing, budget, attribution or performance-fee canon
 - Historical Sprint working spec: `docs/caesthetic/growth_sprint_spec.md` — non-canonical where conflicting (including old price/retainer assumptions)
 - Knowledge/runtime lane: `docs/projects/caesthetic/`

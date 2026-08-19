@@ -6,6 +6,7 @@ created: 2026-08-18
 authority: founder-approved parallel production format
 applies_to: episodes explicitly declaring format_system: CAESTHETIC Reel Format B v1.0
 does_not_supersede: CAESTHETIC Reel System V3.2 (Format A)
+related_stop_flag: docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md
 ---
 
 # CAESTHETIC Reel Format B v1.0
@@ -16,6 +17,8 @@ Format B is a parallel production format. It does not replace, amend or
 recompile existing Format A episodes governed by
 `CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` V3.2. Use it only when an
 episode explicitly declares `format_system: CAESTHETIC Reel Format B v1.0`.
+
+New Format B topic-bank production is blocked by `CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` until v1.1 is approved. v1.0 is not a general permission to create additional long-form synthesis episodes.
 
 ```text
 Script → ElevenLabs master VO → timing map → Valerie anchor shots

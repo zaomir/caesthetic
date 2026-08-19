@@ -198,11 +198,11 @@ Use RAW/CLEAN separation.
 
 CLEAN Git files keep only reference IDs, source query/theme, CAESTHETIC section, borrowable mechanic, quarantine status, risk note, rights basis, review status and expiry.
 
-RAW provenance stays outside Git in restricted Dropbox storage and may include reference ID, source URL and saved filename for audit, rights review, duplicate-distance review or complaint handling.
+RAW provenance stays outside Git in restricted Dropbox storage and may include reference ID, source URL and saved filename for audit, rights review, duplicate-distance review or complaint handling. Logical location: `Dropbox: CAESTHETIC/content/reference-research/CAESTHETIC_ENTERTAINMENT_REELS_RAW_PROVENANCE_2026-08-19.tsv`.
 
 Do not store creator handles, personal names, profile bios, scraped profile details, source URLs or shortcode-based filenames in Git unless separately justified and approved.
 
-Reference maps expire quickly. The 2026-08-19 batch must be revalidated by 2026-09-30 before new scripts are adapted from it.
+Reference maps expire quickly. The 2026-08-19 batch must be revalidated by 2026-09-30 before new scripts are adapted from it. The VOC storage contract is `Dropbox: CAESTHETIC/content/voc/CAESTHETIC_OWNER_VERBATIM_BANK.tsv`.
 
 ## 12. Treatment row before production
 

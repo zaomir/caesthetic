@@ -83,10 +83,10 @@ This Git file stores only a clean classification of the 50 downloaded public Ree
 
 ## RAW provenance
 
-Restricted RAW provenance file, not committed to Git:
+Restricted RAW provenance file, not committed to Git. Resolve the local Dropbox root from environment/local config, never from this SSOT:
 
 ```text
-/Users/donnyduck/Library/CloudStorage/Dropbox/Projects/CAESTHETIC/content/reference-research/CAESTHETIC_ENTERTAINMENT_REELS_RAW_PROVENANCE_2026-08-19.tsv
+Dropbox: CAESTHETIC/content/reference-research/CAESTHETIC_ENTERTAINMENT_REELS_RAW_PROVENANCE_2026-08-19.tsv
 ```
 
 Use RAW only for audit, rights review, duplicate-distance review or takedown/complaint handling. Do not copy RAW source URLs, creator handles or shortcode filenames into Git artifacts.
