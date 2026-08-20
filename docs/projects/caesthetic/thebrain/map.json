@@ -33,6 +33,16 @@
     {"from": "cockpit", "to": "evidence", "type": "requires"},
     {"from": "evidence", "to": "strategy", "type": "informs"}
   ],
+  "auxiliary_nodes": [
+    {"id": "tasks-projection", "label": "Tasks projection", "kind": "tasks-projection", "source": "./tasks.json"},
+    {"id": "runtime-projection", "label": "Runtime projection", "kind": "runtime-projection", "source": "./runtime.json"}
+  ],
+  "auxiliary_links": [
+    {"from": "tasks-projection", "to": "tasks", "type": "projects"},
+    {"from": "tasks-projection", "to": "cockpit", "type": "reports-in"},
+    {"from": "runtime-projection", "to": "runtime-gates", "type": "projects"},
+    {"from": "runtime-projection", "to": "current", "type": "qualifies"}
+  ],
   "excluded": [
     "prospect row-level data",
     "emails",

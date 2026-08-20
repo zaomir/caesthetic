@@ -5,6 +5,8 @@ This directory is a public-safe navigation layer for TheBrain/Cerebro. It is a m
 ## Start here
 
 - Machine-readable graph: [`map.json`](./map.json)
+- Public-safe task projection: [`tasks.json`](./tasks.json)
+- Public-safe runtime projection: [`runtime.json`](./runtime.json)
 - Cerebro import/read instructions: [`CEREBRO.md`](./CEREBRO.md)
 - Strategy canon: [`../../../ssot/CAESTHETIC.md`](../../../ssot/CAESTHETIC.md)
 - Public CAESTHETIC index: [`../../../caesthetic/00_INDEX.md`](../../../caesthetic/00_INDEX.md)
@@ -31,3 +33,9 @@ The requested DEC-845 acquisition package and `CAESTHETIC_ACQUISITION_DIAGNOSTIC
 - Do not add runtime/write-plane instructions or launch a pilot from this map.
 - When a canonical document changes, update the projection through the existing bidirectional sync and verify the diff before pushing.
 - Treat links in this directory as navigation hints; the repository and its declared SSOT remain authoritative.
+- `tasks.json` and `runtime.json` are incremental projections. Update or append only confirmed records; an absent source stays `NOT_CONNECTED` or `UNVERIFIED` rather than being reconstructed.
+- The 11-node graph in `map.json` remains canonical for navigation. Auxiliary projection nodes may be imported alongside it without replacing or relinking the canonical graph.
+
+## Update policy
+
+`grainee-v2` is the Git/canonical authority. `caesthetic` is the public satellite projection. Asana is the work interface, TheBrain is the visual layer, and ChatGPT is the analytical/orchestration layer. No private identifiers, credentials, row-level data or execution instructions belong in this directory.

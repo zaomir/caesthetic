@@ -1,0 +1,60 @@
+{
+  "schema": "caesthetic.thebrain.runtime/v1",
+  "status": "public-safe-runtime-projection",
+  "generated_at": "2026-08-20T21:57:40Z",
+  "authority": "zaomir/grainee-v2",
+  "data_source_status": "PARTIAL",
+  "sources": [
+    "docs/runtime/projects/caesthetic/CURRENT_STATE.md",
+    "docs/runtime/projects/caesthetic/PROJECT_HEALTH.md",
+    "docs/runtime/projects/caesthetic/WORK_LOG.md",
+    "docs/runtime/projects/caesthetic/TASKS.md"
+  ],
+  "gates": {
+    "pat_rotation": {
+      "status": "UNVERIFIED",
+      "evidence": "No public-safe canonical PAT rotation state found; credentials are excluded."
+    },
+    "timers": {
+      "status": "UNVERIFIED",
+      "evidence": "No public-safe CAESTHETIC timer state found."
+    },
+    "last_actual_actions": {
+      "status": "VERIFIED",
+      "last_verified_at": "2026-07-27",
+      "summary": "Runtime packet initialization was documented with no production jobs, outreach, master-data or private-row change."
+    },
+    "queue_provenance": {
+      "status": "VERIFIED",
+      "source": "docs/runtime/projects/caesthetic/TASKS.md",
+      "canonical_next_action": "TASK-CAESTHETIC-001",
+      "last_verified_at": "2026-07-27"
+    },
+    "final_current": {
+      "status": "UNVERIFIED",
+      "evidence": "No public-safe FINAL CURRENT gate or execution registry was found."
+    },
+    "fail_closed": {
+      "status": "UNVERIFIED",
+      "evidence": "No public-safe runtime gate record was found; do not infer behavior from configuration."
+    },
+    "dry_run": {
+      "status": "UNVERIFIED",
+      "evidence": "No dry-run execution was performed for this projection update."
+    },
+    "pilot": {
+      "status": "NOT_RELEASED",
+      "evidence": "Canonical current-state packet records no production impact and no production jobs or campaign change."
+    }
+  },
+  "excluded": [
+    "usernames",
+    "tokens",
+    "server addresses",
+    "private paths",
+    "credentials",
+    "prospect emails and row-level data",
+    "Asana GIDs and URLs"
+  ],
+  "execution_note": "This update is documentation-only. Timers, runtime/write-plane, dry-run execution, outreach and pilot were not started."
+}

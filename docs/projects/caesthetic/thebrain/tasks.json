@@ -1,0 +1,33 @@
+{
+  "schema": "caesthetic.thebrain.tasks/v1",
+  "status": "public-safe-operational-projection",
+  "generated_at": "2026-08-20T21:57:40Z",
+  "authority": "zaomir/grainee-v2",
+  "data_source_status": "VERIFIED",
+  "data_source": "docs/runtime/projects/caesthetic/TASKS.md",
+  "source_last_updated": "2026-07-27",
+  "tasks": [
+    {
+      "id": "TASK-CAESTHETIC-001",
+      "title": "Refresh the minimal CAESTHETIC runtime packet from linked SSOT",
+      "status": "ready",
+      "priority": "P0",
+      "strategy_node": "current",
+      "blocked_by": [],
+      "asana_link_state": "unknown",
+      "evidence_state": "linked-canonical-ssot",
+      "last_verified_at": "2026-07-27"
+    },
+    {
+      "id": "TASK-CAESTHETIC-002",
+      "title": "Replace placeholder metrics and backlog items after verified evidence exists",
+      "status": "proposed",
+      "priority": "P2",
+      "strategy_node": "evidence",
+      "blocked_by": ["TASK-CAESTHETIC-001"],
+      "asana_link_state": "unknown",
+      "evidence_state": "requires-verified-project-evidence",
+      "last_verified_at": "2026-07-27"
+    }
+  ]
+}
