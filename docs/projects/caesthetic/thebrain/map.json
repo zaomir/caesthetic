@@ -1,0 +1,46 @@
+{
+  "schema": "caesthetic.thebrain.map/v1",
+  "status": "public-safe-navigation-layer",
+  "authority": {
+    "canonical_repo": "zaomir/grainee-v2",
+    "public_satellite": "zaomir/caesthetic",
+    "strategy_authority": "canonical_repo",
+    "projection_authority": "public_satellite"
+  },
+  "nodes": [
+    {"id": "strategy", "label": "CAESTHETIC strategy", "kind": "strategy", "source": "../../../ssot/CAESTHETIC.md"},
+    {"id": "north-star", "label": "North star", "kind": "north-star", "source": "../../../ssot/CAESTHETIC.md"},
+    {"id": "product-ladder", "label": "Product ladder", "kind": "product-ladder", "source": "../../../caesthetic/caesthetic_strategy_v2.md"},
+    {"id": "acquisition", "label": "Acquisition system", "kind": "acquisition", "source": "../../../ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md"},
+    {"id": "channels", "label": "Channels", "kind": "channels", "source": "../../../ssot/CAESTHETIC_IG_GROWTH_PROGRAM.md"},
+    {"id": "signals", "label": "Signals", "kind": "signals", "source": "../../../caesthetic/growth_score_spec.md"},
+    {"id": "current", "label": "Current public state", "kind": "current", "source": "../PROJECT_STATUS.md"},
+    {"id": "runtime-gates", "label": "Runtime gates", "kind": "runtime-gates", "source": "../governance/README.md"},
+    {"id": "tasks", "label": "Tasks", "kind": "tasks", "source": "../operations/README.md"},
+    {"id": "cockpit", "label": "Management cockpit", "kind": "cockpit", "source": "../ROUTER.md"},
+    {"id": "evidence", "label": "Public evidence", "kind": "evidence", "source": "../../../audits/caesthetic/CAESTHETIC_FULL_SITE_QA_2026-07-30.md"}
+  ],
+  "links": [
+    {"from": "strategy", "to": "north-star", "type": "defines"},
+    {"from": "north-star", "to": "product-ladder", "type": "constrains"},
+    {"from": "product-ladder", "to": "acquisition", "type": "activates"},
+    {"from": "acquisition", "to": "channels", "type": "uses"},
+    {"from": "channels", "to": "signals", "type": "produces"},
+    {"from": "signals", "to": "current", "type": "updates"},
+    {"from": "current", "to": "runtime-gates", "type": "checked-by"},
+    {"from": "runtime-gates", "to": "tasks", "type": "gates"},
+    {"from": "tasks", "to": "cockpit", "type": "reported-in"},
+    {"from": "cockpit", "to": "evidence", "type": "requires"},
+    {"from": "evidence", "to": "strategy", "type": "informs"}
+  ],
+  "excluded": [
+    "prospect row-level data",
+    "emails",
+    "secrets",
+    "private URLs",
+    "Asana GIDs and URLs",
+    "runtime credentials",
+    "runtime/write-plane",
+    "pilot execution"
+  ]
+}
