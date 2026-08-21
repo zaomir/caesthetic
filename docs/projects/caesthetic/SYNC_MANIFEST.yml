@@ -22,6 +22,7 @@ excludes:
   - .env.*
   - .git
   - .DS_Store
+  - __pycache__
   - site-caesthetic/private/**
   - site-caesthetic/score/aurora-medspa-x7k9m2/**
   - site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/**
