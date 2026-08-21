@@ -14,6 +14,7 @@ parents:
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
 project_master: docs/ssot/CAESTHETIC.md
 related:
+  - docs/ssot/CAESTHETIC_LAUNCH_PRIORITIES.md
   - docs/ssot/CAESTHETIC_AUDIENCE_LISTS.md
   - docs/ssot/OUTREACH_USERNAME_REGISTRY.md
   - docs/ssot/CAESTHETIC_EMAIL_TO_IG.md
@@ -34,6 +35,8 @@ related:
 > **Универсальная система привлечения, диагностики и управления ростом на примере CAESTHETIC.**
 
 Этот документ объединяет в один непротиворечивый SSOT все решения из стратегического обсуждения CAESTHETIC до 20 августа 2026 включительно: каналы привлечения, account intelligence, 1,441-кандидатную базу, квалификацию, tiers, signals, Instagram, email, LinkedIn, Maps, Meta Ad Library, events, partners, referrals, website/SEO/paid, Growth Score, Sprint, Impact, Evidence Bank, AI/Дельфин, freelancers, stage gates и owner cockpit.
+
+Текущая каноническая очередность запуска, first cohort, Wave approval и deliberate deferrals: `docs/ssot/CAESTHETIC_LAUNCH_PRIORITIES.md`.
 
 Если старый working doc противоречит этому документу в acquisition / pre-Score / activation / CITY CHECK sequencing, действует этот документ и DEC-845.
 

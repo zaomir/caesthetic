@@ -8,6 +8,8 @@ authority: DEC-846
 scope: information architecture and classification of the CAESTHETIC strategy
 parent: docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md
 project_master: docs/ssot/CAESTHETIC.md
+related:
+  - docs/ssot/CAESTHETIC_LAUNCH_PRIORITIES.md
 ---
 
 # CAESTHETIC Strategy Taxonomy
@@ -15,6 +17,8 @@ project_master: docs/ssot/CAESTHETIC.md
 > Каноническая структура, по которой команда раскладывает стратегию, задачи и визуальную карту системы.
 
 Этот документ **не создаёт новую конкурирующую стратегию** и не заменяет продуктовые, channel или runtime SSOT. Он определяет, к какой категории относится каждый объект и как показывать связи между объектами.
+
+Порядок запуска категорий, first cohort, Wave approval и намеренно отложенные элементы определяет `docs/ssot/CAESTHETIC_LAUNCH_PRIORITIES.md`.
 
 ---
 
