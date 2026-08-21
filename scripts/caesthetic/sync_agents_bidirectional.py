@@ -66,6 +66,8 @@ EXCLUDE_REL_PREFIXES = (
     "docs/projects/caesthetic/operations/ig-growth/footage/",
     "docs/projects/caesthetic/operations/ig-growth/daily-growth-note/footage/",
     "docs/projects/caesthetic/clients/",
+    "docs/projects/caesthetic/operations/growth-score-board.jsonl",
+    "docs/projects/caesthetic/operations/ig-growth/editorial-story-card/_hex-mark-52.png",
 )
 
 PROTECTED_PREFIXES = (
