@@ -28,6 +28,8 @@ related:
 
 Этот SSOT — операционный companion к общей acquisition-архитектуре. Он не создаёт новый продукт и не меняет решение DEC-845: до явного запроса Free Growth Score не делается персональный mini-audit / `1-Minute Leak` / deep 4444 diagnosis.
 
+Growth Score здесь — не acquisition channel и не P0/P1 lane. Это общий conversion product и permission gate между acquisition и Sprint. Pre-Score ограничен qualification, enrichment и signal/timing; deep diagnosis начинается только после явного Growth Score request.
+
 ---
 
 # 1. Единая master funnel
@@ -48,7 +50,7 @@ QUALIFIED ACCOUNT / WARM INTRO / CONTENT VISITOR
                          ↓
              HUMAN-APPROVED GROWTH SCORE
                          ↓
-          PRIVATE /score/ PAGE + 4–6m WALKTHROUGH
+       PRIVATE /score/ PAGE + VALERIE WALKTHROUGH
                          ↓
                    SHOULD WE FIX THIS?
                          ↓
@@ -68,7 +70,9 @@ QUALIFIED ACCOUNT / WARM INTRO / CONTENT VISITOR
 
 > **Канал меняет источник и контекст входа, но не создаёт собственный продукт.**
 
-Cold Email, Instagram, LinkedIn, Partners, Referrals, Events, Search и Paid ведут прежде всего к `/growth-score/` либо к human-controlled Score conversation, которая заканчивается тем же intake.
+Для Wave 1 порядок входа зафиксирован как `P0 Signal-based Cold Email + Partner / Referral; P1 Selective LinkedIn ABM + Instagram warming / trust (cold DM OFF) → permission / interest`. Затем все lanes проходят один путь: `Free Growth Score request → AI research pack → human-approved diagnosis → private /score/ page → Valerie walkthrough → written Sprint scope → $2,500 Sprint → Stripe`.
+
+Cold Email, Instagram, LinkedIn, Partners, Referrals, Events, Search и Paid ведут прежде всего к `/growth-score/` либо к human-controlled Score conversation, которая заканчивается тем же intake. Формат и длительность walkthrough определяет только `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 
 ---
 
@@ -191,7 +195,7 @@ Device rep / trainer / vendor / client
 | Lead notification | Resend internal receipt, Telegram, Asana/manual queue | named owner + next action | Form success is not enough without ownership |
 | Score production | AI research pack, Growth Score engine, evidence schema | draft report | Deep diagnosis begins only after request |
 | Score approval | named human reviewer | final constraint / Top 3 / Do Not Fund | AI cannot finalise binding constraint |
-| Score delivery | private `/score/<slug>/`, recorder | 4–6m walkthrough + written link | Delivery capacity must be capped |
+| Score delivery | private `/score/<slug>/`, recorder | Valerie walkthrough per walkthrough SSOT + written link | Delivery capacity must be capped |
 | Sprint conversion | `/sprint/`, written scope/SOW, Stripe | accepted scope + payment | Mailto alone is not completed checkout |
 | Sprint delivery | Asana, access gate, evidence/Impact Ledger | Shipped/Adopted/Impact/Maturing | Activity is not impact |
 | Learning | Evidence Bank, analytics, cockpit | signal/channel/product learning | Reuse only after rights/claims gate |
@@ -570,6 +574,8 @@ Still required before live partner sends:
 8. Basic source attribution working
 ```
 
+Growth Score readiness внутри этого gate означает не только работающую форму: intake/routing, production capacity, named human approval capacity, private page delivery и walkthrough capacity должны быть подтверждены одновременно. После Score должны быть готовы written Sprint scope и Stripe payment path.
+
 ## P1 — trust/conversion improvements
 
 ```text
@@ -715,6 +721,24 @@ CAESTHETIC may declare first-lead readiness only when:
 ```
 
 A beautiful profile, a working form or warmed inboxes alone do not equal readiness.
+
+## 9.1 Wave 1 funnel KPIs
+
+Каноническая последовательность метрик:
+
+```text
+activated qualified accounts
+→ delivered
+→ replies
+→ qualified dialogues
+→ Growth Score requests
+→ Scores approved
+→ Scores delivered
+→ Sprint scope requested
+→ paid Sprint
+```
+
+Send volume учитывается как input/capacity metric, но не определяет launch success без продвижения по downstream stages.
 
 ---
 

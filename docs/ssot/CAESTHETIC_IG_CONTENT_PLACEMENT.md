@@ -5,7 +5,7 @@ status: canonical
 authority: CAESTHETIC / marketing
 owner: Marketing / platform
 created: 2026-08-14
-last_reviewed: 2026-08-14
+last_reviewed: 2026-08-21
 related:
   - docs/ssot/CAESTHETIC_IG_REACH_PLAYBOOK.md
   - docs/ssot/CAESTHETIC_IG_STORY_TEMPLATES_WEEK.md
@@ -40,6 +40,8 @@ Coverage runners (AM/PM) make *us* appear in *their* story viewers. Placement + 
 | Follow is not a reach lever | Keep outbound follow **5–8/day**. Do **not** raise follows to buy post views (DEC-822 / DEC-824). |
 | When follow may rise | Only after 7–14 days, **0** action blocks, follow-back **≥10–12%**, coverage stable — then **8–10**, never a blast. |
 | Daily presence | **Own Stories 1–4 frames** on weekdays. DEC-831 Template Reel Factory is on hold under DEC-838. |
+| Sustainable weekly rhythm | After the launch grid: **Mon expert carousel · Wed entertaining/human Reel with one business bridge · Fri diagnostic/proof/city Reel**. Stories support the same weekly arc on **4–5 weekdays**. |
+| Feed mix | Rolling target: **2 informational units : 1 entertaining/human unit**. Entertainment is an entry point into an owner-relevant growth idea, not a separate lifestyle narrative. |
 | Reel cadence | Derived from publishable Evidence and high-quality Growth Score capacity under Reel System V3; no fixed daily/weekly volume overrides quality. |
 | Volume channel | **Email carries volume; IG carries familiarity** (`CAESTHETIC_EMAIL_TO_IG.md`). |
 | Forbidden amplification | Bought followers/views, pods, gray boost farms, IG-handle Meta Customer Lists, second IG on the same fingerprint as `833304152`. |
@@ -111,6 +113,41 @@ Same narrative may ship as **3 still Stories** or as one **18–22s vertical vid
 - Do not schedule by VPS local clock without converting to US Eastern.  
 - Coverage timers (touch *their* accounts): **13:00 / 16:30 UTC** EDT-season proxy — see coverage ops. After US fall-back, shift UTC +1h.  
 - Detail: reach playbook §5.
+
+### 1.4 Sustainable weekly rhythm after the launch grid
+
+The launch grid remains a one-time 7–10 day sequence. After it is complete,
+the canonical baseline is **3 feed units/week + Stories on 4–5 weekdays**:
+
+| Day | Feed | Stories job | Primary role |
+|-----|------|-------------|--------------|
+| **Monday** | Expert carousel | Teaser + poll / micro-diagnosis | Education / saves |
+| **Tuesday** | — | Light human or behind-the-desk frame(s) | Familiarity |
+| **Wednesday** | Entertaining/human Reel with one owner-relevant business bridge | Reel recycle + reaction/question | Reach / engagement |
+| **Thursday** | — | Mini-breakdown, quiz, or choose-the-leak interaction | Participation |
+| **Friday** | Diagnostic, proof, or city-breakdown Reel | Weekly conclusion + optional Growth Score CTA | Trust / intent |
+| **Saturday** | No required feed | Optional short human moment only when on-narrative | Presence without quota |
+| **Sunday** | No required publication | Review performance and replenish the 7-day buffer | Measurement / reset |
+
+#### Informational vs entertaining contract
+
+- Rolling feed target: **2 informational units : 1 entertaining/human unit**.
+- Informational units include Growth Leak, Daily Growth Note, Growth Score
+  Breakdown, Do This Before Ads, Owner Question, and Behind the Score.
+- Entertaining/human units may use founder/desk/lifestyle visuals, POV,
+  reactions, light humour, or trend mechanics, but must carry **one clear
+  owner-relevant growth idea** and remain understandable without sound.
+- Entertainment must not turn `@caesthetic.growth` into a disconnected personal
+  lifestyle account, invent proof, or weaken the Phase-1 audience boundary.
+- The default Growth Score CTA appears in **at least 2 of the 3 weekly feed
+  units**; pure familiarity Stories may have no CTA.
+- Quality and Evidence gates override the calendar: if the Friday proof unit is
+  not publishable, use an approved informational reserve rather than fabricate
+  a case, metric, or claim.
+
+This section supersedes the older post-launch shorthand “research desk
+continuity, not lifestyle”: controlled human and entertaining material is now
+allowed when it satisfies the business-bridge contract above.
 
 ---
 
