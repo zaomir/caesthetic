@@ -1,0 +1,78 @@
+episode_number: 1
+id: CAE-DGN-001
+title: DON'T BUY MORE LEADS YET.
+series: daily-growth-note
+series_config: ../config/series.v1.json
+text_card: ../config/text-card.v1.json
+status: assembled
+cta: null
+publish_surface: instagram-story
+canvas: { w: 1080, h: 1920 }
+duration_s: 18.64
+
+avatar_asset: footage/001/scene-1-avatar.png
+avatar_situation: >
+  Valerie Petra at an advisory office desk; laptop closed enough that no UI
+  is readable; paper documents; cream/navy medical-business room; static,
+  not a talking avatar.
+
+hook:
+  - DON'T BUY
+  - MORE LEADS YET.
+hook_subline: Check what happens to the demand you already have.
+
+scenes:
+  - type: AVATAR_STATIC_HOOK
+    t: [0.0, 2.5]
+    asset: footage/001/scene-1-avatar.png
+
+  - type: GENERATED_VIDEO
+    t: [2.5, 7.0]
+    overlay: SEARCH → WEBSITE
+    plates:
+      - footage/001/scene-2a-search.png
+      - footage/001/scene-2b-website.png
+    prompt: >
+      Over-shoulder cinematic stills of an unidentifiable adult using a phone
+      to find an aesthetic clinic via search/maps, then opening a generic
+      website and looking for the next step. No faces, no real clinic name,
+      no readable Google/Maps UI, no patient identity. Premium, restrained.
+
+  - type: TEXT_CARD
+    t: [7.0, 9.5]
+    text: |
+      MORE DEMAND
+      CAN'T FIX
+      FRICTION AFTER
+      THE CLICK.
+
+  - type: GENERATED_VIDEO
+    t: [9.5, 15.0]
+    overlays:
+      - { t: [0.0, 2.5], text: BOOKING }
+      - { t: [2.5, 5.5], text: RESPONSE }
+    warning_marker: true
+    plates:
+      - footage/001/scene-4a-booking.png
+      - footage/001/scene-4b-response.png
+    prompt: >
+      Website to booking to waiting for a reply. Abstract booking control,
+      then a phone with an unanswered enquiry glow. One small burgundy
+      friction mark. No metrics, no clinic name, no faces.
+
+  - type: TEXT_CARD_CLOSE
+    t: [15.0, 19.0]
+    text: |
+      FIND THE
+      CONSTRAINT
+      BEFORE YOU
+      FUND MORE.
+    footer: CAESTHETIC · DAILY GROWTH NOTE 001
+
+do_not_say:
+  - This clinic is losing patients.
+  - Invented revenue, lead, or conversion numbers.
+  - Buy now / limited / guaranteed outcomes.
+  - Free Growth Score / link in bio.
+
+output: footage/001/CAE-DGN-001-dont-buy-more-leads-yet.mp4

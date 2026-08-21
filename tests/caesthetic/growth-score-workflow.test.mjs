@@ -42,13 +42,42 @@ const metrics = (surface) => Object.keys(CANONICAL_METRICS[surface]).map((metric
   finding: `${metric_id} fixture finding`,
 }));
 
+function competitiveFixture(subjectName) {
+  const evidence = ["search.map_visibility", "website.booking_friction", "social.proof_quality", "reputation.rating"];
+  const competitor = {
+    id: "fictional-peer", name: "Fictional Peer", competitor_type: "local",
+    selection_reason: "Same market and treatment.", branch_scope: "Single-market fixture.",
+    sources: [{ url_or_snapshot: "fixture://competitor", source_type: "maps", collected_at: "2026-08-14", sample_note: "Synthetic comparable sample." }], strengths: ["Clear first step."], weaknesses_or_risks: ["No verified outcome superiority."],
+    surface_evidence: Object.fromEntries(["search", "website", "social", "reputation"].map((surface, index) => [surface, { status: "observed", finding: `${surface} comparison`, evidence_refs: [evidence[index]] }])),
+    repeated_positive_themes: [{ theme: "Clear first step", mentions: 3, sample_size: 10, window: "2026-05-14 to 2026-08-11", evidence_refs: ["reputation.rating"] }],
+    repeated_negative_themes: [{ theme: "Price uncertainty", mentions: 2, sample_size: 10, window: "2026-05-14 to 2026-08-11", evidence_refs: ["reputation.rating"] }],
+    patient_choice_reason: "Clearer next step.", observable_advantage: "Clearer continuity.", observable_gap: "No verified outcome superiority.",
+    repeat: "Repeat clear explanation.", improve: "Connect proof to booking.", do_not_copy: "Avoid unsupported claims.",
+    strategic_implication: "Close the path gap first.", constraint_effect: "Confirms discovery constraint.", priority_effect: "Confirms Top 3.",
+    modernization_implication: "Pilot the path without inferring clinical superiority.", evidence_refs: evidence,
+    limitations: "Synthetic fixture; no real business conclusion.",
+  };
+  const decision = (title, rationale, evidence_ref) => [{ title, rationale, evidence_refs: [evidence_ref] }];
+  return {
+    status: "applicable", selection_method: "Same market and treatment.", sample_limitations: "Synthetic fixture; no real business conclusion.", comparison_window: { start: "2026-05-14", end: "2026-08-11" },
+    review_sample_rule: "Same 90-day window and ten eligible reviews; recurrence requires two mentions.", branch_scope: "Single-market fixture.", entries: [competitor],
+    comparison_matrix: { subject_name: subjectName, rows: [
+      { entity_ref: "subject", entity_name: subjectName, entity_type: "subject", search: "Subject search.", website: "Subject website.", social: "Subject social.", reputation: "Subject reputation.", evidence_refs: evidence },
+      { entity_ref: competitor.id, entity_name: competitor.name, entity_type: "competitor", search: "Peer search.", website: "Peer website.", social: "Peer social.", reputation: "Peer reputation.", evidence_refs: evidence },
+    ] },
+    decision_summary: { defend: decision("Defend strength", "Preserve verified proof.", "reputation.rating"), close: decision("Close discovery", "Fix the binding constraint.", "search.map_visibility"), differentiate: decision("Own continuity", "Connect proof to booking.", "website.booking_friction"), do_not_copy: decision("Avoid claims", "Activity is not proof.", "social.proof_quality") },
+    market_practice_gap: { status: "applicable", reason: "A clearer path is observable.", recommendations: [{ title: "Pilot clearer path", current_state: "Proof and booking are separate.", market_shift: "Peers join the path.", evidence_scope: "Synthetic local comparison.", business_implication: "May reduce friction.", transition_economics: "Bounded test before replacement spend.", dependencies: ["Owner approval"], decision: "pilot", specialist_validation: "Qualified clinical and regulatory review is required for any clinical change.", evidence_refs: ["website.booking_friction"], limitations: "Adoption does not prove superiority." }] },
+  };
+}
+
 function report() {
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     reportState: "approved_report",
     reportVersion: "case-report/1.0.0",
     verifiedFactSetVersion: "case-facts/1.0.0",
     reportKind: "demo",
+    practice: { name: "Workflow Fixture Practice" },
     disclosure: "Synthetic fixture; no client relationship.",
     surfaces: ["search", "website", "social", "reputation"].map((id) => ({ id, metrics: metrics(id) })),
     crossSurface: { metrics: metrics("cross") },
@@ -64,7 +93,7 @@ function report() {
         { id: "p3", problem_refs: ["problem-1"], title: "Align proof", evidence_refs: ["social.proof_quality"], impact: "Make observed proof coherent." },
       ],
       do_not_do: { title: "Do not add spend before the measured constraint is fixed.", evidence_refs: ["search.map_visibility"] },
-      competitors: { status: "applicable", selection_method: "Same market and treatment.", entries: [{ name: "Fictional Peer", evidence_refs: ["search.map_visibility"] }] },
+      competitors: competitiveFixture("Workflow Fixture Practice"),
       walkthrough: { status: "pending", url: null, placeholder: "Valerie Petra walkthrough pending." },
       problem_inventory: [{
         id: "problem-1",
@@ -331,4 +360,15 @@ test("migration enforces private RLS workflow tables and append-only review stor
   assert.match(migration, /source_kind <> 'self_reported'/);
   assert.match(migration, /proposed_evidence_class = 'B'/);
   assert.match(migration, /REVOKE ALL ON TABLE[\s\S]+FROM anon, authenticated/);
+});
+
+test("schema-v4 migration preserves historical rows and gates new approved reports", () => {
+  const migration = fs.readFileSync(
+    path.join(root, "supabase/migrations/20260814233000_caesthetic_growth_score_competitive_decision_v4.sql"),
+    "utf8",
+  );
+  assert.match(migration, /DROP CONSTRAINT/);
+  assert.match(migration, /schema_v4_check/);
+  assert.match(migration, /report_json ->> 'schemaVersion' = '4'/);
+  assert.match(migration, /NOT VALID/);
 });

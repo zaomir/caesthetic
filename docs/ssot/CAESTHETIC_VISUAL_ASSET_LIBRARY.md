@@ -123,6 +123,8 @@ Show three Day 30 paths:
 
 Valerie Petra is the canonical CAESTHETIC host.
 
+Still photos (one Dropbox folder): `docs/ssot/CAESTHETIC_VALERIE_AVATAR_LIBRARY.md`.
+
 Use:
 - Editorial Strategy Office.
 - Operations Desk.

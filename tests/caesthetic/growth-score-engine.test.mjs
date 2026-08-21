@@ -4,6 +4,7 @@ import {
   CANONICAL_METRICS,
   CANONICAL_METRIC_WEIGHTS,
   HUMAN_REVIEW_METRICS,
+  REGISTERED_HUMAN_REVIEWER_MONONYMS,
   resolveGrowthEconomics,
   scoreGrowthReport,
   SURFACE_WEIGHTS,
@@ -26,14 +27,87 @@ const metricInput = (metric_id, normalized_score = 50, overrides = {}) => ({
 const metricSet = (surfaceId, score = 50, overrides = {}) => Object.keys(CANONICAL_METRICS[surfaceId])
   .map((metricId) => metricInput(metricId, score, overrides[metricId]));
 
+function competitiveFixture(subjectName, competitorName = "Named Competitor A") {
+  const evidence = ["search.map_visibility", "website.booking_friction", "social.proof_quality", "reputation.rating"];
+  const competitor = {
+    id: "named-competitor-a",
+    name: competitorName,
+    competitor_type: "local",
+    selection_reason: "Direct local alternative for the same priority treatment.",
+    branch_scope: "Single-market fixture.",
+    sources: [{ url_or_snapshot: "fixture://competitor", source_type: "maps", collected_at: "2026-08-11", sample_note: "Synthetic comparable sample." }],
+    strengths: ["Clear first step."],
+    weaknesses_or_risks: ["No verified outcome superiority."],
+    surface_evidence: Object.fromEntries(["search", "website", "social", "reputation"].map((surface, index) => [surface, {
+      status: "observed",
+      finding: `${surface} fixture comparison`,
+      evidence_refs: [evidence[index]],
+    }])),
+    repeated_positive_themes: [{ theme: "Clear first step", mentions: 3, sample_size: 10, window: "2026-05-14 to 2026-08-11", evidence_refs: ["reputation.rating"] }],
+    repeated_negative_themes: [{ theme: "Price uncertainty", mentions: 2, sample_size: 10, window: "2026-05-14 to 2026-08-11", evidence_refs: ["reputation.rating"] }],
+    patient_choice_reason: "The competitor presents a clearer first step.",
+    observable_advantage: "Clearer discovery-to-booking continuity.",
+    observable_gap: "No verified superiority in clinical outcome.",
+    repeat: "Repeat the clear explanation pattern.",
+    improve: "Connect it to verified proof and price conditions.",
+    do_not_copy: "Do not copy unsupported clinical claims.",
+    strategic_implication: "Close the decision-path gap before adding spend.",
+    constraint_effect: "Confirms the discovery constraint.",
+    priority_effect: "Confirms the existing Top 3 order.",
+    modernization_implication: "Pilot the clearer path; do not infer that newer clinical inputs are superior.",
+    evidence_refs: evidence,
+    limitations: "Synthetic fixture; no real competitor or clinical conclusion.",
+  };
+  return {
+    status: "applicable",
+    selection_method: "Nearest practices offering the same priority treatment.",
+    sample_limitations: "Synthetic fixture; no real business conclusion.",
+    comparison_window: { start: "2026-05-14", end: "2026-08-11" },
+    review_sample_rule: "Same 90-day window and ten eligible reviews; recurrence requires two mentions.",
+    branch_scope: "Single-market fixture.",
+    entries: [competitor],
+    comparison_matrix: {
+      subject_name: subjectName,
+      rows: [
+        { entity_ref: "subject", entity_name: subjectName, entity_type: "subject", search: "Subject search baseline.", website: "Subject website baseline.", social: "Subject social baseline.", reputation: "Subject reputation baseline.", evidence_refs: evidence },
+        { entity_ref: competitor.id, entity_name: competitor.name, entity_type: "competitor", search: "Competitor search comparison.", website: "Competitor website comparison.", social: "Competitor social comparison.", reputation: "Competitor reputation comparison.", evidence_refs: evidence },
+      ],
+    },
+    decision_summary: {
+      defend: [{ title: "Defend verified reputation", rationale: "Preserve the existing strength.", evidence_refs: ["reputation.rating"] }],
+      close: [{ title: "Close discovery gap", rationale: "It remains the binding constraint.", evidence_refs: ["search.map_visibility"] }],
+      differentiate: [{ title: "Own clear continuity", rationale: "Connect proof to booking.", evidence_refs: ["website.booking_friction"] }],
+      do_not_copy: [{ title: "Avoid unsupported claims", rationale: "Activity is not proof.", evidence_refs: ["social.proof_quality"] }],
+    },
+    market_practice_gap: {
+      status: "applicable",
+      reason: "A clearer decision-path pattern is observable and suitable for a bounded pilot.",
+      recommendations: [{
+        title: "Pilot the clearer decision path",
+        current_state: "The fixture separates proof and booking.",
+        market_shift: "The comparison joins them into one path.",
+        evidence_scope: "Synthetic local comparison only.",
+        business_implication: "The path may reduce decision friction.",
+        transition_economics: "Run a bounded test before replacement spend.",
+        dependencies: ["Owner approval", "Baseline metric"],
+        decision: "pilot",
+        specialist_validation: "A qualified clinician and regulatory authority validate any clinical, drug, device or protocol change.",
+        evidence_refs: ["website.booking_friction"],
+        limitations: "Adoption does not prove superiority or profitability.",
+      }],
+    },
+  };
+}
+
 function report(scores = { search: 40, website: 60, social: 80, reputation: 100, cross: 5 }) {
   const surfaces = Object.keys(SURFACE_WEIGHTS).map((id) => ({ id, metrics: metricSet(id, scores[id]) }));
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     reportState: "approved_report",
     reportVersion: "fixture-report/1.0.0",
     verifiedFactSetVersion: "fixture-facts/1.0.0",
     reportKind: "demo",
+    practice: { name: "Fixture Practice" },
     surfaces,
     crossSurface: { metrics: metricSet("cross", scores.cross) },
     humanDiagnosis: {
@@ -48,11 +122,7 @@ function report(scores = { search: 40, website: 60, social: 80, reputation: 100,
         { id: "priority-proof", title: "Unify proof", problem_refs: ["search-gap"], evidence_refs: ["social.proof_quality"], impact: "Strengthen decision confidence." },
       ],
       do_not_do: { title: "Do not increase paid media before fixing the measured constraint.", evidence_refs: ["search.map_visibility"] },
-      competitors: {
-        status: "applicable",
-        selection_method: "Three nearest practices offering the same priority treatment.",
-        entries: [{ name: "Named Competitor A", evidence_refs: ["search.map_visibility"] }],
-      },
+      competitors: competitiveFixture("Fixture Practice"),
       walkthrough: { status: "pending", url: null, placeholder: "Human walkthrough recording pending." },
       problem_inventory: [{
         id: "search-gap",
@@ -328,7 +398,7 @@ test("still requires the report-level human diagnosis approval", () => {
   assert.throws(() => scoreGrowthReport(diagnosedByAi), /reviewer_status must be approved/);
 });
 
-test("publication is v3 approved-report only with named human and frozen fact-set versions", () => {
+test("publication is v4 approved-report only with named human and frozen fact-set versions", () => {
   const valid = report();
   assert.equal(validateGrowthScoreReport(valid).overall.sufficient, true);
 
@@ -337,12 +407,22 @@ test("publication is v3 approved-report only with named human and frozen fact-se
   assert.throws(() => scoreGrowthReport(draft), /drafts cannot publish/);
 
   const oldSchema = report();
-  oldSchema.schemaVersion = 2;
-  assert.throws(() => scoreGrowthReport(oldSchema), /schemaVersion must be 3/);
+  oldSchema.schemaVersion = 3;
+  assert.throws(() => scoreGrowthReport(oldSchema), /schemaVersion must be 4/);
 
   const unnamed = report();
   unnamed.humanDiagnosis.reviewer.name = "AI assistant";
   assert.throws(() => scoreGrowthReport(unnamed), /named human reviewer/);
+
+  assert.deepEqual(REGISTERED_HUMAN_REVIEWER_MONONYMS, ["Валерия"]);
+
+  const registeredMononym = report();
+  registeredMononym.humanDiagnosis.reviewer.name = "Валерия";
+  assert.equal(scoreGrowthReport(registeredMononym).overall.sufficient, true);
+
+  const unregisteredMononym = report();
+  unregisteredMononym.humanDiagnosis.reviewer.name = "Morgan";
+  assert.throws(() => scoreGrowthReport(unregisteredMononym), /registered reviewer mononym/);
 
   const dateOnlyApproval = report();
   dateOnlyApproval.humanDiagnosis.reviewer.approved_at = "2026-08-11";
@@ -597,6 +677,24 @@ test("validates named competitors and real-report walkthrough state", () => {
   const invalidWalkthrough = report();
   invalidWalkthrough.humanDiagnosis.walkthrough = { status: "available", url: "not a URL" };
   assert.throws(() => scoreGrowthReport(invalidWalkthrough), /valid URL/);
+});
+
+test("requires the complete Competitive Decision Analysis and safe modernization gate", () => {
+  const missingMatrix = report();
+  delete missingMatrix.humanDiagnosis.competitors.comparison_matrix;
+  assert.throws(() => scoreGrowthReport(missingMatrix), /comparison_matrix must be an object/);
+
+  const oneReview = report();
+  oneReview.humanDiagnosis.competitors.entries[0].repeated_negative_themes[0].mentions = 1;
+  assert.throws(() => scoreGrowthReport(oneReview), /mentions must be an integer of at least 2/);
+
+  const missingDecision = report();
+  missingDecision.humanDiagnosis.competitors.decision_summary.differentiate = [];
+  assert.throws(() => scoreGrowthReport(missingDecision), /differentiate must be a non-empty array/);
+
+  const unsafeModernization = report();
+  unsafeModernization.humanDiagnosis.competitors.market_practice_gap.recommendations[0].specialist_validation = "";
+  assert.throws(() => scoreGrowthReport(unsafeModernization), /specialist_validation is required/);
 });
 
 test("validates methodology and real calendar dates", () => {

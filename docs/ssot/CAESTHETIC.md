@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.14
-updated: 2026-08-15
+version: 3.15
+updated: 2026-08-21
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -12,6 +12,7 @@ related:
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
   - docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md
 supersedes: docs/caesthetic/CAESTHETIC_SSOT.md
 ---
 
@@ -259,6 +260,8 @@ The honest `Why CAESTHETIC / Why the 30-Day Sprint` block explains convenience, 
 
 Delivery: private/noindex `/score/<unguessable-slug>/` owner cockpit plus a **3–8 minute Valerie Petra recorded walkthrough**. The route stays outside the sitemap and is not password-gated by default. Walkthrough content and production authority remain exclusively in `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; the detailed report spec may reference but not override it.
 
+A successful form is not a finished Score. Every accepted request must have a `score_case_id`, a named owner, a next action, same-day triage SLA and a durable notification outbox. Status changes only through the allowlisted transition contract in `docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md` (DEC-848). Safe weekly capacity is 2–3 Scores until measured; backlog extends delivery SLA and does not reject a valid owner request.
+
 The public site may link to representative synthetic Growth Score examples, but every `/score/` route remains `noindex` and outside the sitemap. Demo/synthetic examples must be conspicuously labelled, use fictional data and state that no client relationship is represented. Real examples require truthful attribution and permission/redaction as appropriate.
 
 ### 4.1 ManyChat username-first prefill
@@ -472,7 +475,7 @@ No canonical Valerie Petra personal LinkedIn URL is verified in the repository y
 - Growth System operations, automation and request/add-on classification: `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`
 - Owner VOC, canonical marketing questions and first-carousel topic order: `docs/ssot/CAESTHETIC_OWNER_MARKETING_QUESTIONS.md`
 - Reel production and evidence-driven acquisition authority: `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` v3.0 (DEC-838 V3 FREEZE)
-- Parallel Reel Format B production authority: `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md` v1.0 for explicitly tagged episodes only; `docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` blocks new topic-bank production until v1.1; Format A/V3.2 remains active
+- Parallel Reel Format B production authority: `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md` v1.0; only explicitly tagged episodes use it, and Format A/V3.2 remains active
 - Expert Dental/Raimov client history: `docs/ssot/EXPERT_DENTAL_GROWTH_OFFER.md` — client-specific legacy commercial arrangement; not reusable CAESTHETIC dental pricing, budget, attribution or performance-fee canon
 - Historical Sprint working spec: `docs/caesthetic/growth_sprint_spec.md` — non-canonical where conflicting (including old price/retainer assumptions)
 - Knowledge/runtime lane: `docs/projects/caesthetic/`

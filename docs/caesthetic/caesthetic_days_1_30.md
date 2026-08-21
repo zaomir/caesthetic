@@ -177,7 +177,7 @@ Based on what you've described, the fastest thing to fix is
 review velocity and the enquiry response gap — those two alone
 account for most of the difference between you and Willow.
 
-That's a fixed 30-day scope: $3,000, everything listed here [link].
+That's a fixed 30-day scope: $2,500, everything listed here [link].
 No retainer, no contract past 30 days. At the end you get a
 before/after grid and a written recommendation on what to keep running.
 

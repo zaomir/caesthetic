@@ -1,24 +1,22 @@
 ---
 owner: CAESTHETIC
 status: canonical-production-experiment
-version: 1.0
+version: 1.1
 created: 2026-08-18
-authority: founder-approved parallel production format
-applies_to: episodes explicitly declaring format_system: CAESTHETIC Reel Format B v1.0
+updated: 2026-08-19
+authority: founder-approved parallel production format, amended by DEC-841
+applies_to: episodes explicitly declaring format_system CAESTHETIC Reel Format B v1.1 (v1.0 episodes, e.g. CAE-REEL-B-001, stay governed by the v1.0 rules recorded in §2-§7)
 does_not_supersede: CAESTHETIC Reel System V3.2 (Format A)
-related_stop_flag: docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md
 ---
 
-# CAESTHETIC Reel Format B v1.0
+# CAESTHETIC Reel Format B v1.1
 
 ## 0. Authority and pipeline
 
 Format B is a parallel production format. It does not replace, amend or
 recompile existing Format A episodes governed by
 `CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` V3.2. Use it only when an
-episode explicitly declares `format_system: CAESTHETIC Reel Format B v1.0`.
-
-New Format B topic-bank production is blocked by `CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` until v1.1 is approved. v1.0 is not a general permission to create additional long-form synthesis episodes.
+episode explicitly declares its Format B version.
 
 ```text
 Script → ElevenLabs master VO → timing map → Valerie anchor shots
@@ -30,7 +28,39 @@ Valerie Petra is the only persistent CAESTHETIC face and voice. Context people
 may appear anonymously in B-roll, but no second expert, fictional doctor,
 testimonial identity or alternative brand voice is permitted.
 
-## 1. Production and claim contract
+## 0A. v1.1 amendment (DEC-841)
+
+`§1` below and `§2`–`§7` describe Format B **v1.0**, the contract
+`CAE-REEL-B-001` was produced and measured under. That episode is not
+retroactively recompiled. New episodes declare
+`format_system: CAESTHETIC Reel Format B v1.1` and follow this section
+instead of the v1.0 bullets it amends. Full rationale: `DEC-841`.
+
+1. **Runtime:** approximately `42–45s` (was `54s`).
+2. **Valerie: exactly three appearances** (was four), defined by role —
+   **Hook** (frame `0`, as v1.0 S01), **Pivot** (introduces FIX FIRST / NOT
+   YET / UNTIL, carries v1.0 S06's content), **Close** (CTA seed and, for
+   B-warm, product framing, carries v1.0's shared S09/S11 content). v1.0's
+   separate "cross-check reset" appearance (S03) is cut.
+3. **Pause Trigger is mandatory** — overlay on continuing moving Evidence
+   per V3.2 §3, using the per-topic register in
+   `CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` §5. v1.0 had none.
+4. **`FIX FIRST → NOT YET → UNTIL` is a mandatory on-screen block**,
+   replacing v1.0's generic `Evidence → Priority → Decision / FUND NEXT`
+   labels. All three fields must carry episode-specific values (topic bank
+   §3 admission gate); an episode missing one does not compile.
+5. **CTA stays one per episode** (Closing Card one-CTA rule, V3.2 §4,
+   unchanged) but which CTA populates it is track-selected: **B-warm**
+   keeps `GET YOUR FREE GROWTH SCORE` only (v1.0 §1, unchanged); **B-cold**
+   may use a save-oriented CTA instead, only when the episode manifest
+   declares a distinct success metric and failure criterion for it (V3.2
+   §12). A save CTA without a declared metric does not compile.
+
+Everything else in v1.0 — the single continuous ElevenLabs master, Kling
+cinematic-plate-only constraints, illustrative/model-example labeling,
+subtitle/music/loop rules and release gates — carries forward unchanged.
+
+## 1. Production and claim contract (v1.0 — historical, see §0A for v1.1)
 
 - Create one continuous ElevenLabs master from the complete approved script,
   voice id `lxYfHSkYm1EzQzGhdbfc`. Per-scene TTS and voice replacement are
@@ -50,7 +80,7 @@ testimonial identity or alternative brand voice is permitted.
 - S08 `OBSERVED` rows are example diagnostic categories, not real findings.
   The card must carry `MODEL EXAMPLE` and must not masquerade as a dashboard.
 
-## 2. First production experiment
+## 2. First production experiment (v1.0 — historical record, not recompiled)
 
 **Episode:** `CAE-REEL-B-001`  
 **Hook:** `A practice can make $200K a month — and still lose patients every day.`  
@@ -172,12 +202,14 @@ surface owns the route; it is not rendered as a second action.
 - QA two concatenated copies: no black frame, audio click, duplicate word, logo
   flash or disclosure gap.
 
-## 7. Release gates
+## 7. Release gates (v1.0 — CAE-REEL-B-001; v1.1 episodes use §0A counts)
 
 1. Registry episode and this version are pinned to the production commit.
 2. One master, timestamps and non-overlapping segment coverage exist.
 3. `$200K` and every S08 row carry model/example qualification.
-4. Exactly four Valerie appearances; no other persistent expert/voice.
+4. Exactly four Valerie appearances (v1.1: exactly three, see §0A); no other
+   persistent expert/voice.
 5. Kling plates contain no text, logo, UI or medical procedure.
 6. Motion, subtitles, canonical logo, mix and two-pass loop QA pass.
-7. CTA is Free Growth Score only; output/publication refs are written back.
+7. CTA is Free Growth Score only (v1.1: track-selected per §0A); output/
+   publication refs are written back.

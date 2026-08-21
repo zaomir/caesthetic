@@ -1,0 +1,104 @@
+{
+  "id": "VALERIE_EDITORIAL_STORY_CARD_V2",
+  "status": "locked",
+  "authority": "DEC-833",
+  "note": "Canonical still-card for Valerie pose-library Stories. Geometry is frozen. Episodes change only photo, headline, highlight, supporting text, and episode number. Layout (SIDE/BOTTOM) is chosen by composition, not by hand.",
+  "canvas": { "w": 1080, "h": 1920 },
+  "colors": {
+    "navy": "#0B2438",
+    "burgundy": "#7B244B",
+    "cream": "#F0EDE6",
+    "cream_warm": "#F4EFE4"
+  },
+  "fonts": {
+    "headline": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSansCondensed-Bold.ttf",
+    "mark": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-SemiBold.ttf",
+    "series": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-Medium.ttf",
+    "support": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-Medium.ttf"
+  },
+  "hex_mark": {
+    "source": "site-caesthetic/assets/brand/logo-square.png",
+    "size_px": 52,
+    "x": 72,
+    "y": 92
+  },
+  "brand_anchor": {
+    "x": 72,
+    "y": 92,
+    "lockup_width_px": 420,
+    "wordmark": {
+      "text": "CAESTHETIC",
+      "dx": 66,
+      "dy": 2,
+      "size_px": 20,
+      "tracking_em": 0.16,
+      "color": "#0B2438"
+    },
+    "series": {
+      "prefix": "DAILY GROWTH NOTE",
+      "dx": 66,
+      "dy": 28,
+      "size_px": 15,
+      "tracking_em": 0.08,
+      "color": "#7B244B"
+    },
+    "readability": {
+      "x": 40,
+      "y": 64,
+      "w": 460,
+      "h": 110,
+      "max_alpha": 0.42
+    }
+  },
+  "accent_line": {
+    "w": 48,
+    "h": 3,
+    "color": "#7B244B",
+    "gap_before_headline_px": 22,
+    "gap_after_headline_px": 22,
+    "gap_after_rule_to_support_px": 20
+  },
+  "side": {
+    "margin_x": 72,
+    "column_w": 396,
+    "min_safe_ratio": 0.32,
+    "preferred_safe_ratio": 0.36,
+    "headline_y": 430,
+    "headline_size_px": 58,
+    "headline_line_height": 1.06,
+    "support_size_px": 22,
+    "support_line_height": 1.32,
+    "support_max_lines": 4,
+    "gradient": {
+      "max_alpha": 0.9,
+      "stop_before_subject_px": 36,
+      "power": 1.55
+    }
+  },
+  "bottom": {
+    "panel_ratio": 0.29,
+    "panel_max_alpha": 0.93,
+    "fade_px": 88,
+    "blur_px": 6,
+    "headline_y": 1424,
+    "margin_x": 72,
+    "column_w": 936,
+    "headline_size_px": 52,
+    "headline_line_height": 1.06,
+    "support_size_px": 22,
+    "support_line_height": 1.32,
+    "support_max_lines": 3
+  },
+  "ig_safe": {
+    "top_px": 250,
+    "bottom_px": 250,
+    "note": "Brand lockup is intentionally fixed at y=92 (TZ). Headline/support must stay out of the reply bar."
+  },
+  "analysis": {
+    "downscale": 4,
+    "text_band": { "y0": 360, "y1": 1180 },
+    "face_band": { "y0": 80, "y1": 980 },
+    "occupancy_threshold": 0.11,
+    "hair_core_threshold": 0.16
+  }
+}

@@ -19,7 +19,7 @@ test("retired demo route directories do not remain as duplicate canonical URLs",
   assert.equal(fs.existsSync(path.join(scoreRoot, "demo-beauty-studio-reputation-gap")), false);
 });
 
-test("publishes three clearly synthetic v3 demos through the same approved-report contract", () => {
+test("publishes three clearly synthetic v4 demos through the same approved-report contract", () => {
   const hub = fs.readFileSync(path.join(root, "site-caesthetic/growth-score/index.html"), "utf8");
   const sitemap = fs.readFileSync(path.join(root, "site-caesthetic/sitemap.xml"), "utf8");
   assert.match(reports[0].practice.name, /Med Spa/);
@@ -30,7 +30,7 @@ test("publishes three clearly synthetic v3 demos through the same approved-repor
     const route = routes[index];
     const html = fs.readFileSync(path.join(scoreRoot, route, "index.html"), "utf8");
     const result = scoreGrowthReport(report);
-    assert.equal(report.schemaVersion, 3);
+    assert.equal(report.schemaVersion, 4);
     assert.equal(report.reportKind, "demo");
     assert.equal(report.reportState, "approved_report");
     assert.ok(report.reportVersion);
@@ -50,6 +50,14 @@ test("publishes three clearly synthetic v3 demos through the same approved-repor
     assert.match(html, /no client relationship/i);
     assert.match(html, /Valerie Petra/);
     assert.match(html, /Approved · Fictional/);
+    assert.match(html, /Competitive Decision Analysis/);
+    assert.match(html, /Comparison Matrix/);
+    assert.match(html, /Competitor Card/);
+    assert.match(html, /Defend/);
+    assert.match(html, /Close/);
+    assert.match(html, /Differentiate/);
+    assert.match(html, /Do not copy/);
+    assert.match(html, /Market Practice Gap/);
     assert.match(html, /Complete remediation plan/);
     assert.match(html, /Approximate \/ secondary navigation/);
     assert.match(html, /Cross-Surface Consistency/);
@@ -63,6 +71,27 @@ test("publishes three clearly synthetic v3 demos through the same approved-repor
     assert.ok(hub.includes(`/score/${route}/`));
     assert.ok(!sitemap.includes(`/score/${route}/`));
   });
+});
+
+test("demo competitive decisions preserve four surfaces, recurrence and modernization boundaries", () => {
+  for (const report of reports) {
+    const competitors = report.humanDiagnosis.competitors;
+    assert.equal(competitors.status, "applicable");
+    assert.ok(competitors.entries.length >= 3 && competitors.entries.length <= 5);
+    assert.equal(competitors.comparison_matrix.rows.length, competitors.entries.length + 1);
+    for (const entry of competitors.entries) {
+      assert.deepEqual(Object.keys(entry.surface_evidence).sort(), ["reputation", "search", "social", "website"]);
+      assert.ok(entry.repeated_positive_themes.every((theme) => theme.mentions >= 2 && theme.mentions <= theme.sample_size));
+      assert.ok(entry.repeated_negative_themes.every((theme) => theme.mentions >= 2 && theme.mentions <= theme.sample_size));
+      assert.ok(entry.patient_choice_reason && entry.strategic_implication && entry.modernization_implication);
+    }
+    for (const field of ["defend", "close", "differentiate", "do_not_copy"]) assert.ok(competitors.decision_summary[field].length > 0);
+    assert.match(competitors.market_practice_gap.status, /^(applicable|no_material_gap|insufficient_evidence)$/);
+    for (const item of competitors.market_practice_gap.recommendations) {
+      assert.match(item.decision, /^(keep|evaluate|pilot|replace|do_not_adopt)$/);
+      assert.match(item.specialist_validation, /qualified clinician|clinical|regulatory/i);
+    }
+  }
 });
 
 test("demo metrics use the exact canonical ids and no caller weights", () => {

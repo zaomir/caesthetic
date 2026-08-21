@@ -1,0 +1,99 @@
+{
+  "template": "VALERIE_EDITORIAL_TEXT_OVERLAY_V1",
+  "status": "preview",
+  "note": "Same headline on all six plates so overlay logic is the only variable. Not locked.",
+  "cards": [
+    {
+      "scene": "portrait-close-up",
+      "episode": 1,
+      "photo": "docs/projects/caesthetic/operations/ig-growth/footage/valerie-pose-library/01-profile-night.png",
+      "headline": ["DON'T BUY", "MORE LEADS", "YET."],
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have.",
+      "safety": {
+        "face": [0.48, 0.12, 0.82, 0.40],
+        "hair": [0.36, 0.06, 0.90, 0.48],
+        "subject_x0": 0.36,
+        "subject_x1": 1.0,
+        "second_person": false
+      }
+    },
+    {
+      "scene": "walking",
+      "episode": 2,
+      "photo": "docs/projects/caesthetic/operations/ig-growth/footage/valerie-pose-library/02-city-walk.png",
+      "headline": ["DON'T BUY", "MORE LEADS", "YET."],
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have.",
+      "safety": {
+        "face": [0.44, 0.06, 0.68, 0.26],
+        "hair": [0.40, 0.02, 0.74, 0.28],
+        "subject_x0": 0.38,
+        "subject_x1": 0.78,
+        "second_person": false
+      }
+    },
+    {
+      "scene": "sitting",
+      "episode": 3,
+      "photo": "docs/projects/caesthetic/operations/ig-growth/footage/valerie-pose-library/03-tree-seated.png",
+      "headline": ["DON'T BUY", "MORE LEADS", "YET."],
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have.",
+      "safety": {
+        "face": [0.44, 0.14, 0.70, 0.38],
+        "hair": [0.32, 0.06, 0.82, 0.48],
+        "hands": [0.08, 0.68, 0.62, 1.0],
+        "subject_x0": 0.34,
+        "subject_x1": 0.88,
+        "second_person": false
+      }
+    },
+    {
+      "scene": "podcast",
+      "episode": 4,
+      "photo": "docs/projects/caesthetic/operations/ig-growth/footage/valerie-pose-library/05-podcast.png",
+      "headline": ["DON'T BUY", "MORE LEADS", "YET."],
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have.",
+      "safety": {
+        "face": [0.34, 0.14, 0.68, 0.44],
+        "hair": [0.10, 0.04, 0.92, 0.52],
+        "subject_x0": 0.10,
+        "subject_x1": 0.92,
+        "second_person": false
+      }
+    },
+    {
+      "scene": "office",
+      "episode": 5,
+      "photo": "docs/projects/caesthetic/operations/ig-growth/footage/valerie-clean-plates/vcp-010-office-phone-smile.png",
+      "headline": ["DON'T BUY", "MORE LEADS", "YET."],
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have.",
+      "safety": {
+        "face": [0.28, 0.12, 0.72, 0.48],
+        "hair": [0.18, 0.08, 0.82, 0.52],
+        "hands": [0.15, 0.48, 0.72, 0.78],
+        "subject_x0": 0.18,
+        "subject_x1": 0.82,
+        "second_person": false
+      }
+    },
+    {
+      "scene": "outdoor",
+      "episode": 6,
+      "photo": "docs/projects/caesthetic/operations/ig-growth/footage/valerie-pose-library/06-pillar.png",
+      "headline": ["DON'T BUY", "MORE LEADS", "YET."],
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have.",
+      "safety": {
+        "face": [0.38, 0.12, 0.56, 0.30],
+        "hair": [0.36, 0.08, 0.58, 0.30],
+        "subject_x0": 0.34,
+        "subject_x1": 0.64,
+        "second_person": false
+      }
+    }
+  ]
+}

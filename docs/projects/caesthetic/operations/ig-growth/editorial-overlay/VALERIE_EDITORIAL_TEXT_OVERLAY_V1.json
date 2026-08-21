@@ -1,0 +1,89 @@
+{
+  "id": "VALERIE_EDITORIAL_TEXT_OVERLAY_V1",
+  "status": "preview",
+  "lock": "NOT LOCKED — 6-pose visual approval required before reuse",
+  "canvas": { "w": 1080, "h": 1920 },
+  "colors": {
+    "cream": "#F5EFE6",
+    "navy": "#0B2438",
+    "burgundy": "#7A263A"
+  },
+  "fonts": {
+    "headline": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSansCondensed-Bold.ttf",
+    "mark": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-SemiBold.ttf",
+    "series": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-Medium.ttf",
+    "support": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-Medium.ttf"
+  },
+  "hex_mark": {
+    "source": "site-caesthetic/assets/brand/logo-square.png",
+    "size_px": 52,
+    "x": 72,
+    "y": 90
+  },
+  "brand_lockup": {
+    "x": 72,
+    "y": 90,
+    "wordmark": {
+      "text": "CAESTHETIC",
+      "dx": 66,
+      "dy": 2,
+      "size_px": 20,
+      "tracking_em": 0.16,
+      "color": "#0B2438"
+    },
+    "series": {
+      "prefix": "DAILY GROWTH NOTE",
+      "dx": 66,
+      "dy": 28,
+      "size_px": 15,
+      "tracking_em": 0.08,
+      "color": "#0B2438"
+    }
+  },
+  "accent_line": {
+    "w": 80,
+    "h": 3,
+    "color": "#7A263A",
+    "gap_before_headline_px": 22,
+    "gap_after_headline_px": 22,
+    "gap_after_rule_to_support_px": 20
+  },
+  "side": {
+    "margin_x": 72,
+    "column_w": 396,
+    "min_safe_ratio": 0.32,
+    "headline_y": 430,
+    "headline_size_px": 58,
+    "headline_line_height": 1.06,
+    "support_size_px": 22,
+    "support_line_height": 1.32,
+    "support_max_lines": 4,
+    "atmosphere": {
+      "edge_alpha": 0.90,
+      "stop_before_subject_px": 48,
+      "vertical_half_px": 520,
+      "power_x": 1.85,
+      "power_y": 2.15
+    }
+  },
+  "bottom": {
+    "panel_ratio_min": 0.25,
+    "panel_ratio": 0.29,
+    "panel_ratio_max": 0.32,
+    "panel_max_alpha": 0.93,
+    "fade_px": 110,
+    "blur_px": 4,
+    "headline_y": 1424,
+    "margin_x": 72,
+    "column_w": 936,
+    "headline_size_px": 52,
+    "headline_line_height": 1.06,
+    "support_size_px": 22,
+    "support_line_height": 1.32,
+    "support_max_lines": 3
+  },
+  "analysis": {
+    "downscale": 4,
+    "face_band": { "y0": 80, "y1": 980 }
+  }
+}

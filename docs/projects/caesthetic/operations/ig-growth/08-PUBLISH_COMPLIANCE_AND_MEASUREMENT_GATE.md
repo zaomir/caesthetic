@@ -35,6 +35,7 @@ Each feed unit must have:
 - [ ] Final slide copy or Reel script/shot list with a named authorised analyst; default analyst is Valerie Petra when she approves the recording.
 - [ ] Burned captions for spoken Reels and accessible alt text for feed assets.
 - [ ] 1080×1350 feed or 1080×1920 Reel/Story export, safe-zone check, approved fonts, contrast and thumbnail review.
+- [ ] **Template Reel Factory (DEC-831):** weekly pack APPROVED replaces per-asset thumbnail/visual founder review. Fonts, logo, top inset and circle stay frozen. Banned-terms / claims guard still required.
 - [ ] Final evidence ledger row and compliance approver.
 - [ ] Tagged placement URL and publication slot; after publish add Instagram post URL/ID and UTC timestamp.
 

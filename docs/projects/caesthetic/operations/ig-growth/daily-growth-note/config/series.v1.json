@@ -1,0 +1,47 @@
+{
+  "id": "cae-daily-growth-note",
+  "surface": "B_CAE_IG",
+  "account": "@caesthetic.growth",
+  "format": "instagram-story-video",
+  "canvas": { "w": 1080, "h": 1920 },
+  "duration_s": { "min": 15, "max": 20 },
+  "fps": 24,
+  "text_card": "config/text-card.v1.json",
+  "scene_types": [
+    "AVATAR_STATIC_HOOK",
+    "GENERATED_VIDEO",
+    "TEXT_CARD",
+    "GENERATED_VIDEO",
+    "TEXT_CARD_CLOSE"
+  ],
+  "hook_overlay": {
+    "font_file": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-Bold.ttf",
+    "font_weight": 700,
+    "headline_size_px": 78,
+    "headline_line_height": 1.08,
+    "headline_color": "#F5F7F8",
+    "subline_font_file": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-Medium.ttf",
+    "subline_size_px": 28,
+    "subline_color": "#F0EDE6",
+    "x": 88,
+    "headline_y": 1180,
+    "max_width_px": 904,
+    "gradient": { "from_y": 1080, "alpha": 165 }
+  },
+  "video_overlay": {
+    "font_file": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-SemiBold.ttf",
+    "size_px": 28,
+    "color": "#F5F7F8",
+    "x": 88,
+    "y": 300,
+    "tracking_em": 0.12
+  },
+  "forbidden": [
+    "cta_in_episode_001",
+    "fake_metrics",
+    "named_clinic",
+    "recognizable_patient",
+    "purple_gradients",
+    "glowing_dashboards"
+  ]
+}

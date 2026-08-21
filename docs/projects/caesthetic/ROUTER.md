@@ -9,6 +9,10 @@ Brand domains: `caesthetic.com` (public site) · `caesthetic.co` (cold-email bra
 Canonical concept routing:
 - `4444` / `Четверки` → `docs/ssot/CAESTHETIC.md` §2, the Four Surfaces model only: Search / GBP, Website, Social, Reputation / Reviews.
 - Paid Ads → the Demand Layer that sends demand into 4444; it is not a fifth surface.
+- Acquisition / prospect qualification / signals / A-B-C-Research-Reject / multichannel activation / pre-Score boundary / Partner Growth Score / referrals / CITY CHECK sequencing / acquisition cockpit → `docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md` (DEC-845).
+- Strategy classification / visual organization / distinction between products, audiences, tools, materials, signals, mechanics, channels, funnels, processes and governance → `docs/ssot/CAESTHETIC_STRATEGY_TAXONOMY.md` (DEC-846).
+- Funnel destination / required tools at each stage / account and service readiness / launch blockers / division of work between ChatGPT, founder and narrow freelancers → `docs/ssot/CAESTHETIC_FUNNEL_TOOLING_AND_LAUNCH_READINESS.md` (DEC-847).
+- If an older CAESTHETIC working document requires a prospect-specific mini-audit, `1-Minute Leak`, diagnostic fact or full Growth Score before outreach, DEC-845 supersedes that requirement: pre-Score = qualification + signal/timing; deep diagnosis begins after explicit Free Growth Score request.
 
 Key product routes:
 - `/` — public CAESTHETIC site

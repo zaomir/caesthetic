@@ -1,0 +1,52 @@
+{
+  "id": "cae-dgn-text-card-v1",
+  "status": "locked",
+  "authority": "DEC-832",
+  "note": "Shared Text Card for every Daily Growth Note. Do not fork per episode. Change only via a new versioned file + DEC.",
+  "canvas": { "w": 1080, "h": 1920 },
+  "background": "#F0EDE6",
+  "text": "#0B2438",
+  "accent": "#7B244B",
+  "font_family": "IBM Plex Sans",
+  "font_file": "/usr/share/fonts/truetype/ibm-plex/IBMPlexSans-SemiBold.ttf",
+  "font_weight": 600,
+  "safe": { "top": 280, "bottom": 420, "left": 80, "right": 80 },
+  "mark": {
+    "text": "CAESTHETIC",
+    "x": 88,
+    "y": 300,
+    "size_px": 20,
+    "tracking_em": 0.18,
+    "color": "#0B2438"
+  },
+  "series_number": {
+    "prefix": "DAILY GROWTH NOTE",
+    "x": 88,
+    "y": 338,
+    "size_px": 18,
+    "color": "#7B244B"
+  },
+  "accent_rule": { "x": 88, "y": 380, "w": 48, "h": 3, "color": "#7B244B" },
+  "headline": {
+    "size_px": 72,
+    "line_height": 1.14,
+    "top_offset_px": 520,
+    "margin_left_px": 88,
+    "margin_right_px": 88,
+    "max_width_px": 904,
+    "align": "left",
+    "transform": "uppercase",
+    "color": "#0B2438"
+  },
+  "footer": {
+    "x": 88,
+    "y": 1460,
+    "size_px": 18,
+    "color": "#0B2438",
+    "tracking_em": 0.08
+  },
+  "motion": {
+    "type": "fade_in",
+    "duration_s": 0.35
+  }
+}

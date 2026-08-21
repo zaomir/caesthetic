@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "reportState": "approved_report",
   "reportVersion": "demo-booking-friction-v3.0",
   "verifiedFactSetVersion": "demo-booking-friction-facts-v3.0",
@@ -506,29 +506,419 @@
     "competitors": {
       "status": "applicable",
       "selection_method": "Three fictional injector practices with comparable priority treatments and booking options in the synthetic market.",
+      "sample_limitations": "Fictional synthetic public-source sample; no real competitor, patient, clinical or commercial conclusion.",
+      "comparison_window": {
+        "start": "2026-05-14",
+        "end": "2026-08-11"
+      },
+      "review_sample_rule": "Same synthetic 90-day window; first 12–14 eligible fictional reviews per practice; a repeated theme requires at least two independent mentions.",
+      "branch_scope": "Single fictional local market; no branch-specific set required.",
       "entries": [
         {
+          "id": "vale-injectables",
           "name": "Fictional Vale Injectables",
-          "finding": "The fictional comparator reaches a confirmed mobile enquiry in fewer measured steps.",
+          "competitor_type": "local",
+          "selection_reason": "Direct fictional local alternative for the same priority treatment.",
+          "branch_scope": "Single fictional practice market; no branch split required.",
+          "sources": [
+            {
+              "url_or_snapshot": "fixture://competitive-decision-analysis",
+              "source_type": "maps",
+              "collected_at": "2026-08-11",
+              "sample_note": "Synthetic comparable market and review sample used only for demo validation."
+            }
+          ],
+          "strengths": [
+            "Clearer synthetic patient decision signal on the compared path."
+          ],
+          "weaknesses_or_risks": [
+            "Public activity does not prove clinical quality, conversion or profitability."
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the search decision path under the same disclosed method.",
+              "evidence_refs": [
+                "search.map_visibility"
+              ]
+            },
+            "website": {
+              "status": "observed",
+              "finding": "The fictional comparator reaches a confirmed mobile enquiry in fewer measured steps.",
+              "evidence_refs": [
+                "website.booking_friction"
+              ]
+            },
+            "social": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the social decision path under the same disclosed method.",
+              "evidence_refs": [
+                "social.priority_treatment_presence"
+              ]
+            },
+            "reputation": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the reputation decision path under the same disclosed method.",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          },
+          "repeated_positive_themes": [
+            {
+              "theme": "Clear explanations and an easy first step",
+              "mentions": 4,
+              "sample_size": 12,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          ],
+          "repeated_negative_themes": [
+            {
+              "theme": "Several fictional reviewers report uncertainty about final price",
+              "mentions": 2,
+              "sample_size": 12,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          ],
+          "patient_choice_reason": "The fictional comparator reaches a confirmed mobile enquiry in fewer measured steps.",
+          "observable_advantage": "The fictional comparator reaches a confirmed mobile enquiry in fewer measured steps.",
+          "observable_gap": "The synthetic comparison leaves room for a clearer, lower-friction and more consistent patient decision path.",
+          "repeat": "Repeat the clearest evidence-backed explanation and first-step pattern.",
+          "improve": "Improve the pattern by connecting proof, price conditions and booking without losing treatment context.",
+          "do_not_copy": "Do not copy visible activity that lacks a verified patient-decision or conversion role.",
+          "strategic_implication": "Close the observed decision gap before funding more reach.",
+          "constraint_effect": "The comparison confirms the report binding constraint rather than creating a fifth surface.",
+          "priority_effect": "It supports the existing Top 3 order; no additional priority is inserted.",
+          "modernization_implication": "Evaluate the stronger market-practice pattern as a bounded pilot; do not infer clinical superiority from public adoption.",
           "evidence_refs": [
-            "website.booking_friction"
-          ]
+            "website.booking_friction",
+            "search.map_visibility",
+            "social.priority_treatment_presence",
+            "reputation.review_velocity_90d"
+          ],
+          "limitations": "Fictional synthetic competitor and review sample; themes are illustrative and do not describe a real business."
         },
         {
+          "id": "everline-aesthetics",
           "name": "Fictional Everline Aesthetics",
-          "finding": "The fictional comparator preserves treatment context and returns a specific next step in the same test window.",
+          "competitor_type": "category_leader",
+          "selection_reason": "Fictional category leader shaping patient expectations in the same market.",
+          "branch_scope": "Single fictional practice market; no branch split required.",
+          "sources": [
+            {
+              "url_or_snapshot": "fixture://competitive-decision-analysis",
+              "source_type": "maps",
+              "collected_at": "2026-08-11",
+              "sample_note": "Synthetic comparable market and review sample used only for demo validation."
+            }
+          ],
+          "strengths": [
+            "Clearer synthetic patient decision signal on the compared path."
+          ],
+          "weaknesses_or_risks": [
+            "Public activity does not prove clinical quality, conversion or profitability."
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the search decision path under the same disclosed method.",
+              "evidence_refs": [
+                "search.map_visibility"
+              ]
+            },
+            "website": {
+              "status": "observed",
+              "finding": "The fictional comparator preserves treatment context and returns a specific next step in the same test window.",
+              "evidence_refs": [
+                "website.booking_friction"
+              ]
+            },
+            "social": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the social decision path under the same disclosed method.",
+              "evidence_refs": [
+                "social.priority_treatment_presence"
+              ]
+            },
+            "reputation": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the reputation decision path under the same disclosed method.",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          },
+          "repeated_positive_themes": [
+            {
+              "theme": "Visible practitioner proof and specific treatment guidance",
+              "mentions": 5,
+              "sample_size": 13,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          ],
+          "repeated_negative_themes": [
+            {
+              "theme": "Several fictional reviewers report follow-up delays",
+              "mentions": 3,
+              "sample_size": 13,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          ],
+          "patient_choice_reason": "The fictional comparator preserves treatment context and returns a specific next step in the same test window.",
+          "observable_advantage": "The fictional comparator preserves treatment context and returns a specific next step in the same test window.",
+          "observable_gap": "The synthetic comparison leaves room for a clearer, lower-friction and more consistent patient decision path.",
+          "repeat": "Repeat the clearest evidence-backed explanation and first-step pattern.",
+          "improve": "Improve the pattern by connecting proof, price conditions and booking without losing treatment context.",
+          "do_not_copy": "Do not copy visible activity that lacks a verified patient-decision or conversion role.",
+          "strategic_implication": "Close the observed decision gap before funding more reach.",
+          "constraint_effect": "The comparison confirms the report binding constraint rather than creating a fifth surface.",
+          "priority_effect": "It supports the existing Top 3 order; no additional priority is inserted.",
+          "modernization_implication": "Evaluate the stronger market-practice pattern as a bounded pilot; do not infer clinical superiority from public adoption.",
           "evidence_refs": [
-            "website.mystery_shopper"
-          ]
+            "website.mystery_shopper",
+            "search.map_visibility",
+            "website.booking_friction",
+            "social.priority_treatment_presence",
+            "reputation.review_velocity_90d"
+          ],
+          "limitations": "Fictional synthetic competitor and review sample; themes are illustrative and do not describe a real business."
         },
         {
+          "id": "studio-nineteen",
           "name": "Fictional Studio Nineteen",
-          "finding": "The fictional comparator's reputation evidence reinforces the treatment path with more specific decision detail.",
+          "competitor_type": "positioning_reference",
+          "selection_reason": "Fictional positioning reference with a distinct decision narrative.",
+          "branch_scope": "Single fictional practice market; no branch split required.",
+          "sources": [
+            {
+              "url_or_snapshot": "fixture://competitive-decision-analysis",
+              "source_type": "maps",
+              "collected_at": "2026-08-11",
+              "sample_note": "Synthetic comparable market and review sample used only for demo validation."
+            }
+          ],
+          "strengths": [
+            "Clearer synthetic patient decision signal on the compared path."
+          ],
+          "weaknesses_or_risks": [
+            "Public activity does not prove clinical quality, conversion or profitability."
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the search decision path under the same disclosed method.",
+              "evidence_refs": [
+                "search.map_visibility"
+              ]
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the website decision path under the same disclosed method.",
+              "evidence_refs": [
+                "website.booking_friction"
+              ]
+            },
+            "social": {
+              "status": "observed",
+              "finding": "Synthetic comparison captured the social decision path under the same disclosed method.",
+              "evidence_refs": [
+                "social.priority_treatment_presence"
+              ]
+            },
+            "reputation": {
+              "status": "observed",
+              "finding": "The fictional comparator's reputation evidence reinforces the treatment path with more specific decision detail.",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          },
+          "repeated_positive_themes": [
+            {
+              "theme": "Visible practitioner proof and specific treatment guidance",
+              "mentions": 6,
+              "sample_size": 14,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          ],
+          "repeated_negative_themes": [
+            {
+              "theme": "Several fictional reviewers report follow-up delays",
+              "mentions": 4,
+              "sample_size": 14,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.review_velocity_90d"
+              ]
+            }
+          ],
+          "patient_choice_reason": "The fictional comparator's reputation evidence reinforces the treatment path with more specific decision detail.",
+          "observable_advantage": "The fictional comparator's reputation evidence reinforces the treatment path with more specific decision detail.",
+          "observable_gap": "The synthetic comparison leaves room for a clearer, lower-friction and more consistent patient decision path.",
+          "repeat": "Repeat the clearest evidence-backed explanation and first-step pattern.",
+          "improve": "Improve the pattern by connecting proof, price conditions and booking without losing treatment context.",
+          "do_not_copy": "Do not copy visible activity that lacks a verified patient-decision or conversion role.",
+          "strategic_implication": "Close the observed decision gap before funding more reach.",
+          "constraint_effect": "The comparison confirms the report binding constraint rather than creating a fifth surface.",
+          "priority_effect": "It supports the existing Top 3 order; no additional priority is inserted.",
+          "modernization_implication": "Evaluate the stronger market-practice pattern as a bounded pilot; do not infer clinical superiority from public adoption.",
           "evidence_refs": [
-            "reputation.review_depth"
-          ]
+            "reputation.review_depth",
+            "search.map_visibility",
+            "website.booking_friction",
+            "social.priority_treatment_presence",
+            "reputation.review_velocity_90d"
+          ],
+          "limitations": "Fictional synthetic competitor and review sample; themes are illustrative and do not describe a real business."
         }
-      ]
+      ],
+      "comparison_matrix": {
+        "subject_name": "Fictional Lumen Injector Practice",
+        "rows": [
+          {
+            "entity_ref": "subject",
+            "entity_name": "Fictional Lumen Injector Practice",
+            "entity_type": "subject",
+            "search": "Synthetic subject baseline for local discovery.",
+            "website": "Synthetic subject website and booking-path baseline.",
+            "social": "Synthetic subject social proof and next-step baseline.",
+            "reputation": "Synthetic subject 90-day review and response baseline.",
+            "evidence_refs": [
+              "search.map_visibility",
+              "website.booking_friction",
+              "social.priority_treatment_presence",
+              "reputation.review_velocity_90d"
+            ]
+          },
+          {
+            "entity_ref": "vale-injectables",
+            "entity_name": "Fictional Vale Injectables",
+            "entity_type": "competitor",
+            "search": "Synthetic comparison captured the search decision path under the same disclosed method.",
+            "website": "The fictional comparator reaches a confirmed mobile enquiry in fewer measured steps.",
+            "social": "Synthetic comparison captured the social decision path under the same disclosed method.",
+            "reputation": "Synthetic comparison captured the reputation decision path under the same disclosed method.",
+            "evidence_refs": [
+              "website.booking_friction",
+              "search.map_visibility",
+              "social.priority_treatment_presence",
+              "reputation.review_velocity_90d"
+            ]
+          },
+          {
+            "entity_ref": "everline-aesthetics",
+            "entity_name": "Fictional Everline Aesthetics",
+            "entity_type": "competitor",
+            "search": "Synthetic comparison captured the search decision path under the same disclosed method.",
+            "website": "The fictional comparator preserves treatment context and returns a specific next step in the same test window.",
+            "social": "Synthetic comparison captured the social decision path under the same disclosed method.",
+            "reputation": "Synthetic comparison captured the reputation decision path under the same disclosed method.",
+            "evidence_refs": [
+              "website.mystery_shopper",
+              "search.map_visibility",
+              "website.booking_friction",
+              "social.priority_treatment_presence",
+              "reputation.review_velocity_90d"
+            ]
+          },
+          {
+            "entity_ref": "studio-nineteen",
+            "entity_name": "Fictional Studio Nineteen",
+            "entity_type": "competitor",
+            "search": "Synthetic comparison captured the search decision path under the same disclosed method.",
+            "website": "Synthetic comparison captured the website decision path under the same disclosed method.",
+            "social": "Synthetic comparison captured the social decision path under the same disclosed method.",
+            "reputation": "The fictional comparator's reputation evidence reinforces the treatment path with more specific decision detail.",
+            "evidence_refs": [
+              "reputation.review_depth",
+              "search.map_visibility",
+              "website.booking_friction",
+              "social.priority_treatment_presence",
+              "reputation.review_velocity_90d"
+            ]
+          }
+        ]
+      },
+      "decision_summary": {
+        "defend": [
+          {
+            "title": "Defend the strongest verified subject signal",
+            "rationale": "Preserve the existing strength while correcting the binding constraint.",
+            "evidence_refs": [
+              "search.map_visibility"
+            ]
+          }
+        ],
+        "close": [
+          {
+            "title": "Close the clearest patient-decision gap",
+            "rationale": "The comparable synthetic paths show a material gap before additional reach is funded.",
+            "evidence_refs": [
+              "website.booking_friction"
+            ]
+          }
+        ],
+        "differentiate": [
+          {
+            "title": "Own a clearer evidence-to-booking narrative",
+            "rationale": "The open position is not more activity; it is continuity from discovery through trust to the next step.",
+            "evidence_refs": [
+              "website.booking_friction",
+              "reputation.review_velocity_90d"
+            ]
+          }
+        ],
+        "do_not_copy": [
+          {
+            "title": "Do not copy unverified visible activity",
+            "rationale": "Public activity and newer-looking practice do not prove effectiveness, clinical superiority or economics.",
+            "evidence_refs": [
+              "social.priority_treatment_presence"
+            ]
+          }
+        ]
+      },
+      "market_practice_gap": {
+        "status": "applicable",
+        "reason": "The synthetic local/category comparison shows a newer decision-path pattern worth testing, but not a basis for an automatic clinical or technology replacement.",
+        "recommendations": [
+          {
+            "title": "Pilot the clearer market-practice pattern before replacing tools or clinical inputs",
+            "current_state": "The fictional subject separates treatment explanation, proof, price conditions and booking.",
+            "market_shift": "Fictional local and category references present those elements as one continuous patient decision path.",
+            "evidence_scope": "Synthetic local competitors plus a fictional category/positioning reference; public adoption signal only.",
+            "business_implication": "A clearer path may reduce decision friction and should be tested before additional reach is funded.",
+            "transition_economics": "Use a bounded page/process pilot and measure completion; do not commit to equipment, software or clinical replacement from this evidence.",
+            "dependencies": [
+              "Human owner approval",
+              "Qualified clinical review for any treatment, drug, device or protocol implication",
+              "Baseline and acceptance metric"
+            ],
+            "decision": "pilot",
+            "specialist_validation": "Marketing owner validates the journey; a qualified clinician and applicable regulator/manufacturer authority must validate any clinical, drug, device or protocol change.",
+            "evidence_refs": [
+              "website.booking_friction",
+              "search.map_visibility"
+            ],
+            "limitations": "Synthetic illustration. Adoption does not prove superiority, safety, profitability or patient fit."
+          }
+        ]
+      }
     },
     "walkthrough": {
       "status": "pending",

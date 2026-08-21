@@ -1,0 +1,260 @@
+week_id: 2026-W34
+surface: B_CAE_IG
+account: "@caesthetic.growth"
+template: CAE-TR-v1
+status: draft
+approved_by: null
+approved_at: null
+cta: Free Growth Score
+cta_url: https://caesthetic.com/growth-score/
+first_comment_default: Free Growth Score — link in bio.
+notes: >
+  First factory pack. Founder approves texts and background prompts only.
+  Cut units to keep 5 if the week should stay weekday-only.
+
+reels:
+  - id: CAE-TR-2026-08-17
+    publish_date: 2026-08-17
+    question_id: L5
+    objective: Maps rating is one signal, not a demand system.
+    hook_text: A 4.9 can still hide a demand leak.
+    lines:
+      - { t: "0.0-3.5", text: "A 4.9 can still hide a demand leak." }
+      - { t: "3.5-10.0", text: "Rating is not demand." }
+      - { t: "10.0-18.0", text: "Check velocity. Check replies." }
+      - { t: "18.0-24.0", text: "We score the card. Not the star." }
+      - { t: "24.0-30.0", text: "Free Growth Score" }
+    vo_script: |
+      A 4.9 rating can still hide a demand leak.
+      Maps does not rank you on the star alone. It reads the rest of the card.
+      Look at review velocity. Look at whether the practice answers. Those are observable. The star is not.
+      We score the card — categories, proof, response — before anyone buys more traffic.
+      Free Growth Score. Link in bio.
+    bg_prompt: |
+      Vertical 9:16, 8 seconds, slow push-in. Cream editorial office desk,
+      printed papers and a closed laptop, soft daylight, no faces, no logos,
+      no readable UI or brand names. Clinical journal mood, not spa, not gold,
+      not neon. Shallow depth of field.
+    caption: |
+      A 4.9 on Maps is one signal. It is not a demand system.
+
+      Before you buy more traffic, look at the rest of the card: categories, services, how recently reviews arrive, and whether the practice replies.
+
+      We score the public card first. Then we say what to fix — and what not to fund yet.
+
+      Want the free Growth Score for your practice? Link in bio.
+    hashtags: [medspa, googlebusinessprofile, aestheticclinic, practicegrowth]
+    do_not_say:
+      - This clinic is losing patients.
+      - Invented review counts, ranks, or revenue.
+      - We'll get you to 5.0.
+    status: draft
+
+  - id: CAE-TR-2026-08-18
+    publish_date: 2026-08-18
+    question_id: L7
+    objective: Booking path is part of marketing; ads cannot fix a broken path.
+    hook_text: Ads can’t fix a broken book path.
+    lines:
+      - { t: "0.0-3.5", text: "Ads can’t fix a broken book path." }
+      - { t: "3.5-11.0", text: "How many taps to a real next step?" }
+      - { t: "11.0-18.0", text: "Traffic is not a booking." }
+      - { t: "18.0-24.0", text: "Fix the path. Then buy traffic." }
+      - { t: "24.0-30.0", text: "Free Growth Score" }
+    vo_script: |
+      If the site can’t book on mobile, ads only buy frustration.
+      Open your site on a phone. How many taps to a real next step — a time, a form that submits, or a call?
+      A pretty page with no action is not marketing. It is a brochure that you are paying to distribute.
+      Fix the path first. Then decide whether the practice needs more traffic.
+      We score booking friction in the free Growth Score. Link in bio.
+    bg_prompt: |
+      Vertical 9:16, 8 seconds, slow lateral move. Empty clinic corridor or
+      reception threshold, parchment and charcoal palette, no people, no
+      treatment rooms, no pink marble, no gold fixtures, no readable signage.
+    caption: |
+      If a new patient cannot book on a phone, paid traffic buys frustration.
+
+      Before the next ad dollar: open the site on mobile. Count the taps. Find the dead ends. See whether Book, Call, or the form actually completes.
+
+      Booking flow is part of marketing. We score it before we pitch a Sprint.
+
+      Free Growth Score — link in bio.
+    hashtags: [medspa, booking, aestheticclinic, websitecx]
+    do_not_say:
+      - Your conversion rate is X%.
+      - Invented form-abandon or call volume.
+      - Medical advice or treatment pitches.
+    status: draft
+
+  - id: CAE-TR-2026-08-19
+    publish_date: 2026-08-19
+    question_id: Q11
+    objective: Enquiry response speed is an observable operations leak.
+    hook_text: The lead arrived. Who answered?
+    lines:
+      - { t: "0.0-3.5", text: "The lead arrived. Who answered?" }
+      - { t: "3.5-11.0", text: "Speed is a system. Not a mood." }
+      - { t: "11.0-18.0", text: "After hours still counts." }
+      - { t: "18.0-24.0", text: "Measure the gap. Then staff it." }
+      - { t: "24.0-30.0", text: "Free Growth Score" }
+    vo_script: |
+      A new enquiry is not a patient yet. It is a clock that has started.
+      Response speed is a system: who owns the inbox, what the first reply is, and how long the gap is.
+      Evenings and weekends still count. An unanswered message is an observable leak.
+      We do not invent your minutes. We tell you to measure the gap — then decide what to staff.
+      Free Growth Score. Link in bio.
+    bg_prompt: |
+      Vertical 9:16, 8 seconds. Phone face-down on a cream desk, soft amber
+      notification glow, no readable lock-screen text, no hands, no faces.
+      Quiet operations mood. No fake CRM dashboard.
+    caption: |
+      A new enquiry starts a clock. Who owns it — and how long is the gap?
+
+      We do not invent your response time. We ask you to measure it: first reply, after-hours coverage, and whether the thread reaches a real next step.
+
+      That is operations. It is also marketing.
+
+      Free Growth Score — link in bio.
+    hashtags: [medspa, frontdesk, practiceoperations, aestheticclinic]
+    do_not_say:
+      - You lose X patients after 5 minutes.
+      - Guaranteed booking lift from faster replies.
+    status: draft
+
+  - id: CAE-TR-2026-08-20
+    publish_date: 2026-08-20
+    question_id: Q16
+    objective: Reach and followers are not a calendar.
+    hook_text: Reach grew. The calendar did not.
+    lines:
+      - { t: "0.0-3.5", text: "Reach grew. The calendar did not." }
+      - { t: "3.5-11.0", text: "Attention is not a booking." }
+      - { t: "11.0-18.0", text: "Ask what the post asked them to do." }
+      - { t: "18.0-24.0", text: "Score the path. Not the views." }
+      - { t: "24.0-30.0", text: "Free Growth Score" }
+    vo_script: |
+      Reach can grow while the appointment book stays flat.
+      Attention is not a booking. A view is not a next step.
+      Look at what the post actually asked a practice-owner — or a patient — to do.
+      We score the path from attention to a real action. Not the view count.
+      Free Growth Score. Link in bio.
+    bg_prompt: |
+      Vertical 9:16, 8 seconds. Empty strategy room, muted navy chair, cream
+      wall, a closed notebook, slow dolly. No screens with charts, no social
+      app UI, no people.
+    caption: |
+      Reach can grow while the calendar does not.
+
+      Attention is not a booking. Before you buy more distribution, look at the path: what the post asked for, and whether a visitor can complete a next step.
+
+      We score that path. We do not treat views as demand.
+
+      Free Growth Score — link in bio.
+    hashtags: [medspa, instagramforbusiness, practicegrowth, aestheticclinic]
+    do_not_say:
+      - Invented reach or follower numbers.
+      - Guaranteed calendar lift from posting more.
+    status: draft
+
+  - id: CAE-TR-2026-08-21
+    publish_date: 2026-08-21
+    question_id: Q05
+    objective: Do not buy more traffic before the conversion path is inspectable.
+    hook_text: Don’t buy more traffic yet.
+    lines:
+      - { t: "0.0-3.5", text: "Don’t buy more traffic yet." }
+      - { t: "3.5-11.0", text: "First: where demand already dies." }
+      - { t: "11.0-18.0", text: "Maps. Site. Reply. Book." }
+      - { t: "18.0-24.0", text: "Then decide what to fund." }
+      - { t: "24.0-30.0", text: "Free Growth Score" }
+    vo_script: |
+      Don’t buy more traffic yet — not as a slogan. As a sequence.
+      First find where demand already dies: the card, the site, the reply, the book path.
+      Those four are inspectable without guessing clinical quality.
+      Then decide what to fund. The free Growth Score exists to put that order on paper.
+      Link in bio.
+    bg_prompt: |
+      Vertical 9:16, 8 seconds. Overhead of a paper roadmap on a cream desk,
+      pencil, no readable words, soft shadow, slow zoom. Editorial, not
+      startup-pitch. No glowing arrows, no fake metrics.
+    caption: |
+      Don’t buy more traffic yet.
+
+      First inspect where demand already dies: Maps card, website, reply speed, booking path. Those are observable. Clinical quality is not the question.
+
+      Then decide what to fund — and what not to fund yet.
+
+      Free Growth Score — link in bio.
+    hashtags: [medspa, paidads, practicegrowth, aestheticclinic]
+    do_not_say:
+      - Ads never work.
+      - Invented ROAS or wasted-ad dollar figures.
+    status: draft
+
+  - id: CAE-TR-2026-08-22
+    publish_date: 2026-08-22
+    question_id: Q03
+    objective: Leads arriving is not the same as booked and attended visits.
+    hook_text: Leads are coming. The book is not.
+    lines:
+      - { t: "0.0-3.5", text: "Leads are coming. The book is not." }
+      - { t: "3.5-11.0", text: "A lead is not an appointment." }
+      - { t: "11.0-18.0", text: "Find the drop: reply, book, show." }
+      - { t: "18.0-24.0", text: "Fix the leak you can see." }
+      - { t: "24.0-30.0", text: "Free Growth Score" }
+    vo_script: |
+      Leads can arrive while booked and attended visits stay low.
+      A lead is not an appointment. An appointment is not an attended visit.
+      Look at the drop you can see: reply, book, confirm, show.
+      We do not invent your funnel numbers. We tell you to find the leak that is already visible.
+      Free Growth Score. Link in bio.
+    bg_prompt: |
+      Vertical 9:16, 8 seconds. Quiet operations desk, stacked paper trays,
+      one closed laptop, cool daylight through blinds, no people, no screens
+      with numbers.
+    caption: |
+      Leads can arrive while the appointment book stays thin.
+
+      A lead is not an appointment. Look at the drop you can already see: reply, book, confirm, show. We do not invent those numbers for you.
+
+      Free Growth Score — link in bio.
+    hashtags: [medspa, conversion, frontdesk, aestheticclinic]
+    do_not_say:
+      - Your show rate is X%.
+      - Guaranteed booked-consult lift.
+    status: draft
+
+  - id: CAE-TR-2026-08-23
+    publish_date: 2026-08-23
+    question_id: Q20
+    objective: Agency vs DIY is an accountability question, not a vibe.
+    hook_text: Reports are not a growth system.
+    lines:
+      - { t: "0.0-3.5", text: "Reports are not a growth system." }
+      - { t: "3.5-11.0", text: "Ask what changed this month." }
+      - { t: "11.0-18.0", text: "What was fixed. What was not funded." }
+      - { t: "18.0-24.0", text: "Accountability before another retainer." }
+      - { t: "24.0-30.0", text: "Free Growth Score" }
+    vo_script: |
+      A slide deck is not a growth system.
+      Before another retainer, ask what changed this month — on the card, the site, the reply, the book path.
+      What was fixed. What was deliberately not funded.
+      We start with a free Growth Score so the first document is a diagnosis, not a pitch deck.
+      Link in bio.
+    bg_prompt: |
+      Vertical 9:16, 8 seconds. Bound report on a cream table, cover closed,
+      no invented clinic name, no chart visible, slow push-in, museum-quiet
+      light. Not luxury gold. Not SaaS gradient.
+    caption: |
+      Reports are not a growth system.
+
+      Before another retainer, ask what changed this month on the public surfaces: Maps, site, reply, booking path. What was fixed. What was not funded.
+
+      The free Growth Score is a diagnosis first. Not a pitch deck.
+
+      Link in bio.
+    hashtags: [medspa, agency, practicegrowth, aestheticclinic]
+    do_not_say:
+      - Agencies are scams.
+      - Invented client savings or ROI.
+    status: draft

@@ -10,6 +10,9 @@
 | `render-ig-w34-visuals.py` | Render Clinical Editorial IG slides/reel/stories → `tmp/cae-ig-w34/` then rclone to Dropbox |
 | `growth-score-engine.mjs` | Thin CLI over the canonical Growth Score module and shared real/demo renderer; schema-v2 examples live under `site-caesthetic/score/demo-*/report.json` |
 | `cae_ig_dolphin_current_dryrun.mjs` | Phase-1 dry-run against registry `CURRENT.json` / `CAE_MEDSPA_IG_FINAL_V1` (deny overlay + wave). `--dolphin-control-plane` = start/stop only. Instagram writes forbidden (DEC-819). |
+| `cae_ig_promote_current.py` | The only governed `CURRENT.json` writer. Validates the protected release policy and `execution_allowed=false`, then uses Dropbox revision compare-and-swap so stale/parallel writers fail closed. |
+| `cae_wave1_public_enrich.py` | Public first-party enrichment for a private Wave pack. Records visibly published email/source evidence only; never guesses addresses; row-level output must stay outside Git. |
+| `cae_wave1_no_write.py` | Builds a private draft manifest only after row owner/email/verification/suppression checks and global email, Score, reply-capacity and Sprint-payment gates. Execution and cold IG DM remain off. |
 | `cae_ig_build_dolphin_queue.mjs` | Build private SBO/Dolphin coverage queue from candidate **1441** (−deny) + TASK-814 strong-first ranking → `tmp/cae-ig-queue/` + Dropbox `cae-ig-dolphin-queue/`. Not CURRENT authority. |
 | `cae_ig_run_coverage_day_guarded.sh` | Timer entry: flock + skip-on-block + AM/PM caps. |
 | `cae_ig_run_coverage_day.sh` | Full DEC-824 day: rebuild queue → proxy-preflight → start → `run-cae-ig-coverage-day-833304152.mjs` (story/like/follow caps) → stop. |

@@ -60,7 +60,10 @@ function requireArray(value, label, { min = 1, max = Infinity } = {}) {
 
 function requireReportContent(report) {
   const diagnosis = report.humanDiagnosis;
-  if (report.schemaVersion !== 3) throw new TypeError("schemaVersion must be 3");
+  if (report.schemaVersion !== 4) throw new TypeError("schemaVersion must be 4");
+  if (report.reportKind === "real") {
+    requireNonEmptyString(report.disclosure, "disclosure");
+  }
   if (!diagnosis?.reviewer?.name || !diagnosis.reviewer.approved_at) {
     throw new TypeError("humanDiagnosis.reviewer requires a named human and approval timestamp");
   }
@@ -114,10 +117,13 @@ function requireReportContent(report) {
   });
   requireNonEmptyString(diagnosis.roadmap_preview?.disclaimer, "humanDiagnosis.roadmap_preview.disclaimer");
 
-  const burden = diagnosis.coordination_burden;
+  if (!diagnosis.coordination_burden || typeof diagnosis.coordination_burden !== "object") {
+    throw new TypeError("humanDiagnosis.coordination_burden is required");
+  }
   for (const field of ["diagnosed_issues", "high_priority_fixes", "systems_involved", "dependencies", "specialist_roles"]) {
-    if (burden?.[field] === undefined || burden[field] === null || burden[field] === "") {
-      throw new TypeError(`humanDiagnosis.coordination_burden.${field} is required`);
+    const value = diagnosis.coordination_burden[field];
+    if (value !== undefined && value !== null && (!Number.isInteger(value) || value < 0)) {
+      throw new TypeError(`humanDiagnosis.coordination_burden.${field} must be a non-negative integer or null`);
     }
   }
 
@@ -169,17 +175,19 @@ function metricClassLabel(metric) {
 }
 
 function metricEvidenceRows(metrics, metricResults, sufficient) {
-  if (!sufficient) return '<p class="cae-report-note">Insufficient evidence</p>';
-  return metrics.map((metric) => {
+  const coverageNote = sufficient ? "" : '<li class="cae-report-note">Insufficient evidence for a surface score. Available and unavailable metric states are shown below.</li>';
+  return coverageNote + metrics.map((metric) => {
     const result = metricResults.find((candidate) => candidate.metric_id === metric.metric_id);
     const scoreValue = result?.normalized_score ?? metric.normalized_score;
-    const raw = metric.raw_value === null || metric.raw_value === undefined ? "Not collected" : String(metric.raw_value);
+    const raw = metric.raw_value === null || metric.raw_value === undefined
+      ? "Not collected"
+      : typeof metric.raw_value === "object" ? JSON.stringify(metric.raw_value) : String(metric.raw_value);
     return `
               <li class="cae-report-metric">
                 <div>
                   <p class="cae-kicker">${metricClassLabel(metric)}</p>
                   <strong>${escapeHtml(metric.label || sentenceCase(metric.metric_id))}</strong>
-                  <p>${escapeHtml(metric.finding || "No published finding for this metric.")}</p>
+                  <p>${escapeHtml(metric.finding || metric.unavailable_reason || "No published finding for this metric.")}</p>
                 </div>
                 <span>${displayScore(scoreValue)}</span>
                 <small>Source: ${escapeHtml(metric.source || "No source: unavailable")} · Collected: ${escapeHtml(metric.collected_at || "No collection date")} · Raw: ${escapeHtml(raw)}</small>
@@ -187,20 +195,103 @@ function metricEvidenceRows(metrics, metricResults, sufficient) {
   }).join("");
 }
 
+function reviewThemeRows(themes, emptyLabel) {
+  if (themes.length === 0) return `<li>${escapeHtml(emptyLabel)}</li>`;
+  return themes.map((theme) => `<li>${escapeHtml(theme.theme)} <small>${theme.mentions}/${theme.sample_size} eligible reviews · ${escapeHtml(theme.window)} · Evidence: ${refs(theme.evidence_refs)}</small></li>`).join("");
+}
+
+function decisionRows(items) {
+  return items.map((item) => `<li><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.rationale)}</p><small>Evidence: ${refs(item.evidence_refs)}</small></li>`).join("");
+}
+
+function comparisonMatrixHtml(matrix) {
+  return `
+        <div class="cae-report-comparison-wrap" role="region" aria-label="Competitive comparison matrix" tabindex="0">
+          <table class="cae-report-comparison-matrix">
+            <caption>Comparison Matrix — subject and named alternatives across the same Four Surfaces</caption>
+            <thead><tr><th>Business</th>${SURFACE_NAV.map((surface) => `<th>${surface.label}</th>`).join("")}</tr></thead>
+            <tbody>
+${matrix.rows.map((row) => `              <tr>
+                <th scope="row">${escapeHtml(row.entity_name)}${row.entity_type === "subject" ? " <small>Subject</small>" : ""}</th>
+                ${SURFACE_NAV.map((surface) => `<td>${escapeHtml(row[surface.id])}</td>`).join("")}
+              </tr>`).join("\n")}
+            </tbody>
+          </table>
+        </div>`;
+}
+
+function marketPracticeGapHtml(gap) {
+  if (gap.status !== "applicable") {
+    return `<div class="cae-report-market-gap"><p class="cae-kicker">Market Practice Gap · ${escapeHtml(gap.status)}</p><p>${escapeHtml(gap.reason)}</p></div>`;
+  }
+  return `<div class="cae-report-market-gap">
+          <p class="cae-kicker">Market Practice Gap · Strategic Modernization</p>
+          <h3>Newer is not automatically better. Test the decision and validation gates.</h3>
+          <p>${escapeHtml(gap.reason)}</p>
+          <div class="cae-report-market-gap__grid">
+${gap.recommendations.map((item) => `            <article>
+              <p class="cae-report-market-gap__decision">${escapeHtml(item.decision.replaceAll("_", " "))}</p>
+              <h4>${escapeHtml(item.title)}</h4>
+              <p><strong>Current:</strong> ${escapeHtml(item.current_state)}</p>
+              <p><strong>Observed shift:</strong> ${escapeHtml(item.market_shift)}</p>
+              <p><strong>Scope:</strong> ${escapeHtml(item.evidence_scope)}</p>
+              <p><strong>Business implication:</strong> ${escapeHtml(item.business_implication)}</p>
+              <p><strong>Transition economics:</strong> ${escapeHtml(item.transition_economics)}</p>
+              <p><strong>Dependencies:</strong> ${escapeHtml(item.dependencies.join("; "))}</p>
+              <p><strong>Validation gate:</strong> ${escapeHtml(item.specialist_validation)}</p>
+              <p class="cae-report-note"><strong>Limitations:</strong> ${escapeHtml(item.limitations)}</p>
+              <small>Evidence: ${refs(item.evidence_refs)}</small>
+            </article>`).join("\n")}
+          </div>
+        </div>`;
+}
+
 function competitorRows(competitors) {
   if (competitors.status === "not_applicable") {
-    return `<p><strong>Named comparison set:</strong> Not applicable. ${escapeHtml(competitors.reason)}</p>`;
+    return `<p><strong>Competitive Decision Analysis:</strong> Not applicable. ${escapeHtml(competitors.reason)}</p>`;
   }
+  const summary = competitors.decision_summary;
   return `
-        <div class="cae-report-competitors">
-${competitors.entries.map((competitor) => `          <article>
-              <p class="cae-kicker">Named competitor</p>
+        <p class="cae-report-note"><strong>Selection method:</strong> ${escapeHtml(competitors.selection_method)}<br>
+        <strong>Window:</strong> ${escapeHtml(competitors.comparison_window.start)} to ${escapeHtml(competitors.comparison_window.end)} · <strong>Branch scope:</strong> ${escapeHtml(competitors.branch_scope)}<br>
+        <strong>Review sample rule:</strong> ${escapeHtml(competitors.review_sample_rule)}<br>
+        <strong>Sample limitations:</strong> ${escapeHtml(competitors.sample_limitations)}</p>
+${comparisonMatrixHtml(competitors.comparison_matrix)}
+        <div class="cae-report-competitor-cards">
+${competitors.entries.map((competitor) => `          <article class="cae-report-competitor-card">
+              <p class="cae-kicker">Competitor Card · ${escapeHtml(competitor.competitor_type.replaceAll("_", " "))}</p>
               <h3>${escapeHtml(competitor.name)}</h3>
-              <p>${escapeHtml(competitor.finding || "Included in the decisive comparison evidence for this diagnosis.")}</p>
+              <p><strong>Why included:</strong> ${escapeHtml(competitor.selection_reason)}</p>
+              <p><strong>Why a patient may choose it:</strong> ${escapeHtml(competitor.patient_choice_reason)}</p>
+              <p><strong>Observed strengths:</strong> ${escapeHtml(competitor.strengths.join("; "))}</p>
+              <p><strong>Weaknesses / risks:</strong> ${escapeHtml(competitor.weaknesses_or_risks.join("; "))}</p>
+              <div class="cae-report-competitor-card__themes">
+                <div><h4>Repeated positive themes</h4><ul>${reviewThemeRows(competitor.repeated_positive_themes, "Insufficient repetition for a positive theme.")}</ul></div>
+                <div><h4>Repeated negative themes</h4><ul>${reviewThemeRows(competitor.repeated_negative_themes, "Insufficient repetition for a negative theme.")}</ul></div>
+              </div>
+              <dl>
+                <div><dt>Observable advantage</dt><dd>${escapeHtml(competitor.observable_advantage)}</dd></div>
+                <div><dt>Observable gap</dt><dd>${escapeHtml(competitor.observable_gap)}</dd></div>
+                <div><dt>Repeat</dt><dd>${escapeHtml(competitor.repeat)}</dd></div>
+                <div><dt>Improve</dt><dd>${escapeHtml(competitor.improve)}</dd></div>
+                <div><dt>Do not copy</dt><dd>${escapeHtml(competitor.do_not_copy)}</dd></div>
+                <div><dt>Strategic implication</dt><dd>${escapeHtml(competitor.strategic_implication)}</dd></div>
+                <div><dt>Constraint effect</dt><dd>${escapeHtml(competitor.constraint_effect)}</dd></div>
+                <div><dt>Priority effect</dt><dd>${escapeHtml(competitor.priority_effect)}</dd></div>
+                <div><dt>Modernization implication</dt><dd>${escapeHtml(competitor.modernization_implication)}</dd></div>
+              </dl>
+              <p class="cae-report-note"><strong>Limitations:</strong> ${escapeHtml(competitor.limitations)}</p>
+              <p class="cae-report-note"><strong>Sources:</strong> ${competitor.sources.map((source) => `${escapeHtml(source.source_type)} · ${escapeHtml(source.collected_at)} · ${escapeHtml(source.url_or_snapshot)} · ${escapeHtml(source.sample_note)}`).join("<br>")}</p>
               <small>Evidence: ${refs(competitor.evidence_refs)}</small>
             </article>`).join("\n")}
         </div>
-        <p class="cae-report-note"><strong>Selection method:</strong> ${escapeHtml(competitors.selection_method)}</p>`;
+        <div class="cae-report-competitive-decisions">
+          <article><p class="cae-kicker">Defend</p><ul>${decisionRows(summary.defend)}</ul></article>
+          <article><p class="cae-kicker">Close</p><ul>${decisionRows(summary.close)}</ul></article>
+          <article><p class="cae-kicker">Differentiate</p><ul>${decisionRows(summary.differentiate)}</ul></article>
+          <article><p class="cae-kicker">Do not copy</p><ul>${decisionRows(summary.do_not_copy)}</ul></article>
+        </div>
+${marketPracticeGapHtml(competitors.market_practice_gap)}`;
 }
 
 function demandSystemHtml(demandStage) {
@@ -380,9 +471,20 @@ export function renderGrowthReport(report) {
   const pageTitle = `${isDemo ? "Growth Score" : "Private Growth Score"} — ${escapeHtml(report.practice.name)} | CAESTHETIC`;
   const disclosure = isDemo
     ? `<div class="cae-demo-banner" role="note">SYNTHETIC DEMO — ${escapeHtml(report.disclosure)}</div>`
-    : "";
+    : `<div class="cae-report-disclosure" role="note">${escapeHtml(report.disclosure)}</div>`;
   const strengths = diagnosis.current_state.strengths.slice(0, 2);
   const burden = diagnosis.coordination_burden;
+  const burdenLabels = Object.freeze({
+    diagnosed_issues: "diagnosed issues",
+    high_priority_fixes: "high-priority fixes",
+    systems_involved: "systems involved",
+    dependencies: "dependencies",
+    specialist_roles: "specialist roles",
+  });
+  const burdenRows = Object.entries(burdenLabels)
+    .filter(([field]) => Number.isInteger(burden[field]))
+    .map(([field, label]) => `<p><strong>${escapeHtml(burden[field])}</strong> ${label}</p>`)
+    .join("");
   const inventoryCount = diagnosis.problem_inventory.length;
 
   return `<!doctype html>
@@ -440,7 +542,7 @@ ${disclosure}
         <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
         <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
       </div>
-      <h3 class="cae-report-subhead">Decisive named-competitor evidence</h3>
+      <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
 ${competitorRows(diagnosis.competitors)}
     </div>
   </section>
@@ -526,11 +628,7 @@ ${competitorRows(diagnosis.competitors)}
       <p class="cae-kicker">Why CAESTHETIC / Why the 30-Day Sprint</p>
       <h2 class="cae-h2">YOU CAN IMPLEMENT THIS YOURSELF. The hard part is coordinating it.</h2>
       <div class="cae-report-burden">
-        <p><strong>${escapeHtml(burden.diagnosed_issues)}</strong> diagnosed issues</p>
-        <p><strong>${escapeHtml(burden.high_priority_fixes)}</strong> high-priority fixes</p>
-        <p><strong>${escapeHtml(burden.systems_involved)}</strong> systems involved</p>
-        <p><strong>${escapeHtml(burden.dependencies)}</strong> dependencies</p>
-        <p><strong>${escapeHtml(burden.specialist_roles)}</strong> specialist roles</p>
+        ${burdenRows}
       </div>
       <h3 class="cae-report-subhead">CAESTHETIC already knows:</h3>
       <ul>

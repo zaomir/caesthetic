@@ -24,6 +24,11 @@ excludes:
   - .DS_Store
   - site-caesthetic/private/**
   - site-caesthetic/score/aurora-medspa-x7k9m2/**
+  - site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/**
+  - site-caesthetic/docs/website-studio/site-caesthetic-score-aesthetemed-public-evidence-7c3e91b4a8f26d50.md
   - docs/projects/caesthetic/operations/ig-growth/footage/**
+  - docs/projects/caesthetic/operations/ig-growth/daily-growth-note/footage/**
+  - docs/projects/caesthetic/clients/**
 protected_in_target:
+  - site-caesthetic/**
   - site-caesthetic/src/config/pricing.ts

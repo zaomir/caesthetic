@@ -27,8 +27,6 @@
 | 15 | [`editorial-overlay/`](./editorial-overlay/) | VALERIE_EDITORIAL_TEXT_OVERLAY_V1 — cream-atmosphere overlay (**preview, not locked**) |
 | 16 | [`reels/`](./reels/) | Reel System V3 canonical scenario registry: one Reel per YAML; registry-first machine discovery |
 | 17 | [`reels/episodes/002-200k-trust-leak-format-b.yaml`](./reels/episodes/002-200k-trust-leak-format-b.yaml) | First approved Format B production experiment; `$200K` is a model/example, not a case claim |
-| FB | `docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` | Format B topic-bank stop flag: production blocked until v1.1 is approved |
-| 18 | [`11-ENTERTAINMENT_REELS_ROTATION_PLAN.md`](./11-ENTERTAINMENT_REELS_ROTATION_PLAN.md) | Entertainment/VOC reference-pool classification, E5 topic bank routing, quarantine rules and scheduling boundaries |
 
 ## Hard holds
 

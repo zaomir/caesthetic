@@ -68,7 +68,7 @@
 |---|---|---|
 | `/` | Позиционирование, доведение до Score | 1 |
 | `/growth-score/` | Точка входа, объяснение отчёта | 1 |
-| `/score/[slug]` | **Персональный owner cockpit по конкретной практике** | AI-assisted research + обязательная human verification/approval |
+| `/score/[slug]` | **Персональный отчёт по конкретной практике** | 1 (вручную) / 2 (шаблон) |
 | `/sprint/` | 30-Day Growth Sprint, цена, чекаут | 1 |
 | `/growth-system/` | Ретейнер | 2 |
 | `/clinic-launch/` | Проект для открывающихся клиник | 2 |
@@ -104,57 +104,54 @@
 Три шага: Growth Score → 30-Day Sprint → Growth System. У Sprint указана цена прямо здесь.
 
 **Экран 5 — async-модель**
-> No mandatory discovery calls. You get an analysis of your own practice, a Valerie Petra recorded walkthrough, and a complete remediation plan. A Sprint scope is optional and confirmed separately.
+> No mandatory discovery calls. You get an analysis of your own practice, a recorded walkthrough, and a written scope with a fixed price.
 
 **Экран 6 — человек**
 Имя, фотография, роль. Реальный человек, который ведёт видеоразборы. Это заменяет отсутствующие кейсы.
 
 **Экран 7 — CTA + честная оговорка**
-CTA ведёт в единый intake `/growth-score/#request`; не дублировать вторую независимую форму. Рядом — фраза об отсутствии гарантированных результатов. Оговорка не прячется — для этой аудитории она признак адекватности.
+Форма Score и рядом фраза об отсутствии гарантированных результатов. Оговорка не прячется — для этой аудитории она признак адекватности.
 
 ### 5.2 `/growth-score/`
 
-- Что именно измеряется: Search, Website, Social, Reputation и отдельная Cross-Surface Consistency; score — secondary navigator
+- Что именно измеряется: шесть блоков с описанием в одну строку каждый
 - **Пример обезличенного отчёта** — скриншоты grid-карты и блока скорости отзывов
 - Срок подготовки, стоимость (бесплатно), что произойдёт дальше
 - Явно: это не автоматический PDF-генератор, отчёт готовится по конкретной практике
 
-**Intake — три этапа, четыре обязательных поля всего:**
+**Форма — максимум 4 поля:**
+`Practice name` · `City, State` · `Your name` · `Email`
 
-1. Контакт: `Your name` · `Work email`.
-2. Базовая информация: `Practice name` · `City, State`. После успешной отправки этого шага запрос уже принят.
-3. `Thank you — this is enough for us to start` + необязательные website/GBP/Instagram/booking links, priority treatments, main concern, competitors, preferred contact и permission for a truthful non-clinical enquiry-path test.
-
-`Skip` и закрытие optional-этапа не отменяют запрос. Ничего обязательного про выручку, бюджет, PHI, пароли или доступы. Если практику нельзя однозначно найти, запросить один public URL позже по email, не добавлять обязательное поле.
+Ничего про выручку, бюджет и роль в принятии решения. Эти вопросы уместны на этапе Sprint, а не на первом касании.
 
 ### 5.3 `/score/[slug]` — ядро воронки
 
 Отдельная страница на каждую практику. Не PDF: страница отслеживается, обновляется, в неё встраивается видео и не режется спам-фильтрами как вложение.
 
-**Иерархия owner cockpit:**
+**Обязательные блоки:**
 
 | # | Блок | Содержимое |
 |---|---|---|
-| 1 | Диагноз | Objective strength, strongest surface, binding constraint, named competitor evidence where applicable |
-| 2 | Top priorities | Ровно три human-approved приоритета |
-| 3 | Remediation plan | Полный task list: шаги, order, dependencies, access/skills, effort/complexity, risks, horizon, acceptance evidence, next action |
-| 4 | Score navigator | Overall + Search/Website/Social/Reputation и отдельный Cross-Surface; веса явно приблизительные, score вторичен |
-| 5 | Evidence drill-down | Maps, Entity Integrity, website/booking, Social, review velocity/responses и `Insufficient evidence` там, где данных мало |
-| 6 | Problem Inventory | Все evidence-backed проблемы, а не только Top 3; одна рекомендация `do not do` |
-| 7 | Next actions | DIY / другой подрядчик / defer / optional CAESTHETIC scope |
-| 8 | Why CAESTHETIC / Why Sprint | Evidence и diagnosis уже собраны, известен dependency order; CAESTHETIC может implement/coordinate/accept выбранный письменный scope за 30 дней |
-| 9 | Видеоразбор | Valerie Petra, 4–6 минут, текст + экран cockpit |
-| 10 | Метод | Sources, dates, competitor selection, Class A/B, limitations и approximate score weights |
+| 1 | Заголовок | Название практики и город |
+| 2 | Оценка потерь | «Estimated 18–31 patient opportunities/month» + **раскрытый метод расчёта** |
+| 3 | Maps Visibility | Grid-карта Local Falcon по трём запросам |
+| 4 | Review Velocity | График их прироста против трёх названных конкурентов за 90 дней |
+| 5 | Competitor Gap | Кто выше в map pack и за счёт чего |
+| 6 | Website Conversion | Число кликов до записи, скорость на мобильном, видимость телефона |
+| 7 | Booking Friction | Результат тайного покупателя: точные дата и время отправленной заявки, факт отсутствия ответа |
+| 8 | Reactivation | Оценка объёма неконтактируемой базы |
+| 9 | Видеоразбор | Встроенное видео 4–6 минут, носитель языка в кадре |
+| 10 | Следующий шаг | Ссылка на `/sprint/` |
 
-Инструкции не скрываются ради продажи. Клиент владеет отчётом, evidence и task plan и может выполнить его сам/с другим исполнителем. Sprint не обещает автоматически покрыть первые два или все пункты: scope подтверждается отдельно.
+> **Примечание:** позднее добавлен блок 4½ Consistency Gap между блоками 4 и 5 — см. `tz_website_addendum.md`, раздел 3, и `growth_score_spec.md`.
 
 **Требования:**
 - Ссылка не индексируется: `noindex`, отсутствие в sitemap
 - Ссылка не угадывается: slug содержит случайный сегмент
 - Работает без пароля — любой барьер убивает конверсию на холодном контакте
-- Если Class B estimate потерь используется, отметка `estimate`, метод и assumptions обязательны. Estimate не является обязательным headline и не заменяет Class A diagnosis.
+- Обязательна отметка `estimate` рядом с числом потерь и раскрытый метод. Владелец с оборотом $100k/мес перепроверит цифру; непроверяемое число уничтожает доверие ко всему отчёту
 
-**Первые 30:** использовать тот же AI-assisted research pipeline, но с полной ручной проверкой каждого Class A fact, приоритета и remediation task. Правки фиксируются как review events и попадают в следующие отчёты только после осознанного promotion в versioned rules/templates/rubrics/evals; модельная память и автоматическое обобщение запрещены.
+**Фазность:** первые 30 отчётов собираются вручную по единому шаблону. CMS-шаблон делается на фазе 2 — только после того, как станет ясно, какие блоки вызывают реакцию.
 
 ### 5.4 `/sprint/`
 
@@ -226,7 +223,7 @@ CTA ведёт в единый intake `/growth-score/#request`; не дубли�
 
 | Фаза | Срок | Состав |
 |---|---|---|
-| **1** | дни 1–7 | Очистка и редиректы, американизация, `/`, `/growth-score/`, `/sprint/` с ценой и чекаутом, `/about/`, юридические страницы, пиксель, аналитика. Score research — AI-assisted; публикация только после human approval |
+| **1** | дни 1–7 | Очистка и редиректы, американизация, `/`, `/growth-score/`, `/sprint/` с ценой и чекаутом, `/about/`, юридические страницы, пиксель, аналитика. Страницы Score — вручную |
 | **2** | дни 31–45 | CMS-шаблон `/score/[slug]`, `/growth-system/`, `/clinic-launch/`, первые кейсы |
 | **3** | дни 61+ | `/launch/`, контентный раздел |
 
@@ -239,7 +236,7 @@ CTA ведёт в единый intake `/growth-score/#request`; не дубли�
 - [ ] Ни одного упоминания Toxifillers
 - [ ] Ни одной цены в евро
 - [ ] Носитель языка прочитал весь сайт и не нашёл британских написаний
-- [ ] Intake Growth Score содержит ровно 4 обязательных поля на первых двух этапах; запрос подтверждён до необязательного третьего этапа, `Skip` не отменяет completion
+- [ ] Форма Growth Score содержит ровно 4 поля
 - [ ] На `/sprint/` указана цена и работает Stripe Checkout с ACH
 - [ ] Meta Pixel и GA4 фиксируют события
 - [ ] Все удалённые URL отдают 301, ни одного 404

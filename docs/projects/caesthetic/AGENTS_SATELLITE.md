@@ -30,7 +30,7 @@ Cron canon: `deploy/cron.d/caesthetic-agents-sync` (every 10 min, `flock /tmp/ca
 
 Policy: per-file hash vs last state; one-side change wins; true conflicts → protected paths prefer grainee, else newer mtime. See DEC-829.
 
-Not mirrored (public-safe exclusions): `site-caesthetic/private/`, unlisted real score slug, IG footage binaries.
+Not mirrored (public-safe exclusions): `site-caesthetic/private/`, unlisted real score slug, `docs/projects/caesthetic/clients/`, and IG footage binaries.
 
 ## Daily use
 

@@ -18,8 +18,8 @@ test("required intake persists version and success timestamp before enrichment",
   assert.match(source, /const INTAKE_VERSION = "caesthetic-growth-score\/2\.0"/);
   assert.match(source, /intakeStage === "optional"/);
   assert.match(source, /required_submitted_at: requiredSubmittedAt/);
-  assert.match(source, /intake_state: "required_complete"/);
-  assert.match(source, /return json\(200, \{ ok: true, lead_id: leadId \}\)/);
+  assert.match(source, /create_caesthetic_growth_score_intake/);
+  assert.match(source, /return json\(200, \{\s*ok: true,\s*lead_id: leadId,/);
   assert.match(migration, /required_submitted_at timestamptz/);
   assert.match(migration, /intake_version text/);
 });
@@ -48,16 +48,35 @@ test("optional enrichment is allowlisted and updates only the matching case iden
 test("optional save returns before notifications and cannot resend the required receipt", () => {
   const optionalBranch = source.indexOf('if (intakeStage === "optional")');
   const optionalReturn = source.indexOf("optional_saved: true", optionalBranch);
-  const emailCall = source.indexOf("await sendInternalReceipt", optionalReturn);
-  const telegramCall = source.indexOf("await sendAdminTelegram", optionalReturn);
+  const optionalEnd = source.indexOf("const practiceName", optionalReturn);
+  const optionalSlice = source.slice(optionalBranch, optionalEnd > optionalReturn ? optionalEnd : source.length);
   assert.ok(optionalBranch > 0);
   assert.ok(optionalReturn > optionalBranch);
-  assert.ok(emailCall > optionalReturn);
-  assert.ok(telegramCall > optionalReturn);
+  assert.equal(optionalSlice.includes("drainOutbox"), false);
+  assert.equal(optionalSlice.includes("await sendInternalReceipt"), false);
+  assert.equal(optionalSlice.includes("await sendAdminTelegram"), false);
+  assert.ok(source.indexOf("await drainOutbox", optionalReturn) > optionalReturn);
 });
 
 test("skip and abandonment need no state-changing backend call", () => {
   assert.doesNotMatch(source, /intake_stage\s*===?\s*["']skip/);
   assert.doesNotMatch(migration, /optional_(?:required|gate)/i);
   assert.match(migration, /intake_state IN \('required_complete', 'optional_saved'\)/);
+});
+
+test("required intake creates an owner_intake score case and TEST marker prefixes notifications", () => {
+  assert.match(source, /const WORKFLOW_VERSION = "growth-score-workflow\/3\.0\.0"/);
+  assert.match(source, /from\("caesthetic_score_cases"\)/);
+  assert.match(source, /source_kind: "owner_intake"/);
+  assert.match(source, /state: "created"/);
+  assert.match(source, /score_case_id: scoreCaseId/);
+  assert.match(source, /function isQaTestLead/);
+  assert.match(source, /\[TEST\/QA\]/);
+  assert.match(source, /qa_marker === true/);
+  assert.match(source, /emailSent \|\| telegramSent/);
+  assert.match(source, /create_caesthetic_growth_score_intake/);
+  assert.match(source, /notify_customer_ack/);
+  assert.doesNotMatch(source, /Access-Control-Allow-Origin": "\*"/);
+  assert.match(source, /https:\/\/caesthetic\.com/);
+  assert.match(source, /rate_limited/);
 });

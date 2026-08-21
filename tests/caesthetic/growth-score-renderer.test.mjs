@@ -87,7 +87,10 @@ test("demo HTML is exact output of the reportKind-independent renderer", () => {
 test("the same renderer accepts an approved real report and enforces private route rules", () => {
   const real = structuredClone(fixture);
   real.reportKind = "real";
+  real.disclosure = "Independent public-evidence diagnostic prepared as a CAESTHETIC test; no client relationship is implied.";
   real.practice.name = "Synthetic Private Route Test";
+  real.humanDiagnosis.competitors.comparison_matrix.subject_name = real.practice.name;
+  real.humanDiagnosis.competitors.comparison_matrix.rows.find((row) => row.entity_ref === "subject").entity_name = real.practice.name;
   real.disclosure = "Synthetic private-route contract fixture. No client relationship or real practice is represented.";
   real.humanDiagnosis.reviewer = {
     name: "Alex Contract Reviewer",
@@ -103,6 +106,7 @@ test("the same renderer accepts an approved real report and enforces private rou
   assert.match(html, /CAESTHETIC Growth Advisor/);
   assert.doesNotMatch(html, /cae-demo-banner/);
   assert.doesNotMatch(html, /SYNTHETIC DEMO/);
+  assert.match(html, /Synthetic private-route contract fixture\. No client relationship or real practice is represented\./);
   assert.equal((html.match(/href="\/sprint\/"/g) || []).length, 1);
   assert.equal(isUnguessableScoreSlug("private-practice-9f3c7a2d1b6e4c80"), true);
   assert.equal(isUnguessableScoreSlug("private-practice"), false);
@@ -121,6 +125,48 @@ test("the same renderer accepts an approved real report and enforces private rou
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }
+});
+
+test("real reports omit coordination counts that cannot be derived", () => {
+  const real = structuredClone(fixture);
+  real.reportKind = "real";
+  real.disclosure = "Independent public-evidence diagnostic prepared as a CAESTHETIC test; no client relationship is implied.";
+  real.practice.name = "Synthetic Private Route Test";
+  real.humanDiagnosis.competitors.comparison_matrix.subject_name = real.practice.name;
+  real.humanDiagnosis.competitors.comparison_matrix.rows.find((row) => row.entity_ref === "subject").entity_name = real.practice.name;
+  real.humanDiagnosis.reviewer = { name: "Alex Contract Reviewer", approved_at: "2026-08-21T12:00:00Z" };
+  real.humanDiagnosis.coordination_burden = {
+    diagnosed_issues: real.humanDiagnosis.problem_inventory.length,
+    high_priority_fixes: 3,
+    systems_involved: null,
+    dependencies: null,
+    specialist_roles: null,
+  };
+  const html = renderGrowthReport(real);
+  assert.match(html, />3<\/strong> high-priority fixes/);
+  assert.doesNotMatch(html, /systems involved|specialist roles/);
+});
+
+test("Aesthetemed public-evidence test stays private, evidence-limited and reproducible", () => {
+  const route = "aesthetemed-public-evidence-7c3e91b4a8f26d50";
+  const directory = path.join(root, "site-caesthetic/score", route);
+  const report = JSON.parse(fs.readFileSync(path.join(directory, "report.json"), "utf8"));
+  const html = fs.readFileSync(path.join(directory, "index.html"), "utf8");
+
+  assert.equal(report.reportKind, "real");
+  assert.equal(report.practice.name, "Aesthetemed Beauty & Wellness Clinic");
+  assert.equal(report.humanDiagnosis.reviewer.name, "Alex Goldman");
+  assert.equal(report.humanDiagnosis.top_priorities.length, 3);
+  assert.equal(report.humanDiagnosis.competitors.entries.length, 3);
+  assert.equal(report.humanDiagnosis.walkthrough.status, "pending");
+  assert.equal(report.surfaces.find(({ id }) => id === "search").metrics.find(({ metric_id }) => metric_id === "map_visibility").normalized_score, null);
+  assert.equal(report.surfaces.find(({ id }) => id === "website").metrics.find(({ metric_id }) => metric_id === "above_fold_conversion").normalized_score, null);
+  assert.equal(html, renderGrowthReport(report));
+  assert.match(html, /noindex,nofollow,noarchive,nosnippet/);
+  assert.match(html, /no client relationship is implied/);
+  assert.match(html, /Insufficient evidence/);
+  assert.equal((html.match(/href="\/sprint\/"/g) || []).length, 1);
+  assert.equal(isUnguessableScoreSlug(route), true);
 });
 
 test("real and demo score routes stay out of the sitemap", () => {

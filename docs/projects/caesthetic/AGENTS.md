@@ -48,7 +48,6 @@ Before any CAESTHETIC Instagram username / warm / queue work:
 3b1. Reach levers detail: `docs/ssot/CAESTHETIC_IG_REACH_PLAYBOOK.md`
 3b2. Weekday Story templates: `docs/ssot/CAESTHETIC_IG_STORY_TEMPLATES_WEEK.md`
 3c. Email→IG: `docs/ssot/CAESTHETIC_EMAIL_TO_IG.md`
-3d. Entertainment/VOC lane: `docs/projects/caesthetic/operations/ig-growth/11-ENTERTAINMENT_REELS_ROTATION_PLAN.md`, `docs/ssot/CAESTHETIC_ENTERTAINMENT_VOC_TOPIC_BANK.md`, `docs/ssot/CAESTHETIC_ENTERTAINMENT_REELS_REFERENCE_MAP.md`, `docs/ssot/CAESTHETIC_SHORT_FORM_VIRAL_REFERENCE_SYSTEM.md`, `docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md`
 4. **Dolphin day pipeline (DEC-824 coverage):**  
    `bash scripts/caesthetic/cae_ig_run_coverage_day.sh`  
    (rebuilds queue → proxy-preflight → start `833304152` → story/like/follow under caps → stop)  

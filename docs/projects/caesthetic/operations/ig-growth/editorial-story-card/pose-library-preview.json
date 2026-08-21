@@ -1,0 +1,122 @@
+{
+  "template": "VALERIE_EDITORIAL_STORY_CARD_V2",
+  "note": "Preview pack for pose-library QA. Copy follows Daily Growth Note voice. No CTA.",
+  "cards": [
+    {
+      "episode": 1,
+      "photo": "01-profile-night.png",
+      "headline": ["DON'T BUY", "MORE LEADS YET."],
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have.",
+      "safety": {
+        "face": [0.48, 0.12, 0.82, 0.40],
+        "hair": [0.36, 0.06, 0.90, 0.48],
+        "subject_x0": 0.36,
+        "subject_x1": 1.0,
+        "second_person": false
+      }
+    },
+    {
+      "episode": 2,
+      "photo": "02-city-walk.png",
+      "headline": ["MORE DEMAND", "CAN'T FIX", "FRICTION."],
+      "highlight": "FRICTION",
+      "support": "Find the constraint before you fund more attention.",
+      "safety": {
+        "face": [0.44, 0.06, 0.68, 0.26],
+        "hair": [0.40, 0.02, 0.74, 0.28],
+        "subject_x0": 0.38,
+        "subject_x1": 0.78,
+        "second_person": false
+      }
+    },
+    {
+      "episode": 3,
+      "photo": "03-tree-seated.png",
+      "headline": ["RATING IS NOT", "DEMAND."],
+      "highlight": "DEMAND",
+      "support": "Check velocity. Check replies. Then decide.",
+      "safety": {
+        "face": [0.44, 0.14, 0.70, 0.38],
+        "hair": [0.32, 0.06, 0.82, 0.48],
+        "hands": [0.08, 0.68, 0.62, 1.0],
+        "subject_x0": 0.34,
+        "subject_x1": 0.88,
+        "second_person": false
+      }
+    },
+    {
+      "episode": 4,
+      "photo": "04-car-sunroof.png",
+      "headline": ["THE PATH", "AFTER THE", "CLICK."],
+      "highlight": "CLICK",
+      "support": "Search, website, booking, response — in that order.",
+      "safety": {
+        "face": [0.18, 0.06, 0.58, 0.38],
+        "hair": [0.08, 0.00, 0.62, 0.36],
+        "second_face": [0.48, 0.52, 0.96, 0.92],
+        "subject_x0": 0.08,
+        "subject_x1": 0.96,
+        "second_person": true
+      }
+    },
+    {
+      "episode": 5,
+      "photo": "05-podcast.png",
+      "headline": ["DON'T FUND", "THE WRONG", "LEAK."],
+      "highlight": "LEAK",
+      "support": "New leads will not repair a broken path.",
+      "safety": {
+        "face": [0.34, 0.14, 0.68, 0.44],
+        "hair": [0.10, 0.04, 0.92, 0.52],
+        "subject_x0": 0.10,
+        "subject_x1": 0.92,
+        "second_person": false
+      }
+    },
+    {
+      "episode": 6,
+      "photo": "06-pillar.png",
+      "headline": ["LOOK AT THE", "DEMAND YOU", "HAVE."],
+      "highlight": "DEMAND",
+      "support": "The unused path is usually closer than a new campaign.",
+      "safety": {
+        "face": [0.38, 0.12, 0.56, 0.30],
+        "hair": [0.36, 0.08, 0.58, 0.30],
+        "subject_x0": 0.34,
+        "subject_x1": 0.64,
+        "second_person": false
+      }
+    },
+    {
+      "episode": 7,
+      "photo": "07-handbag.png",
+      "headline": ["BOOKING IS", "A SURFACE."],
+      "highlight": "SURFACE",
+      "support": "If the reply dies, ads only buy silence.",
+      "safety": {
+        "face": [0.46, 0.10, 0.72, 0.32],
+        "hair": [0.40, 0.04, 0.78, 0.34],
+        "hands": [0.38, 0.42, 0.68, 0.62],
+        "subject_x0": 0.38,
+        "subject_x1": 0.80,
+        "second_person": false
+      }
+    },
+    {
+      "episode": 8,
+      "photo": "08-hand-behind-head.png",
+      "headline": ["CHECK THE", "CONSTRAINT", "FIRST."],
+      "highlight": "CONSTRAINT",
+      "support": "Then decide whether to buy more attention.",
+      "safety": {
+        "face": [0.36, 0.08, 0.66, 0.32],
+        "hair": [0.24, 0.04, 0.76, 0.36],
+        "hands": [0.08, 0.28, 0.42, 0.58],
+        "subject_x0": 0.08,
+        "subject_x1": 0.78,
+        "second_person": false
+      }
+    }
+  ]
+}
