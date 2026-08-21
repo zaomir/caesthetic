@@ -1890,7 +1890,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
 }
 
 .cae-footer__brand .cae-brand__tag {
-  color: rgba(247, 245, 240, 0.4);
+  color: var(--cae-muted-on-dark);
 }
 
 .cae-footer__grid {
@@ -1932,7 +1932,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(247, 245, 240, 0.4);
+  color: var(--cae-muted-on-dark);
   display: block;
   margin-bottom: var(--cae-space-4);
 }

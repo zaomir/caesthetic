@@ -18,6 +18,8 @@ project_master: docs/ssot/CAESTHETIC.md
 
 ## 1. Приоритет каналов
 
+Growth Score **не является acquisition channel и не получает отдельный P0/P1 priority**. Это центральный conversion product и permission gate между acquisition и Sprint. Каналы создают permission/interest; только явный запрос Free Growth Score разрешает deep diagnosis.
+
 | Приоритет | Lane | Решение |
 |---|---|---|
 | P0 | Signal-based Cold Email | Основной scalable acquisition после закрытия deliverability gate. Только квалифицированные accounts, подтверждённый signal/context, verified email и suppression. |
@@ -28,11 +30,20 @@ project_master: docs/ssot/CAESTHETIC.md
 Один funnel для всех lanes:
 
 ```text
-Growth Score
-→ human-approved walkthrough
-→ 30-Day Growth Sprint — $2,500
-→ Stripe payment
+P0 Signal-based Cold Email + Partner / Referral
+P1 Selective LinkedIn ABM + Instagram warming / trust (cold DM OFF)
+→ permission / interest
+→ Free Growth Score request
+→ AI research pack
+→ human-approved diagnosis
+→ private /score/ page
+→ Valerie walkthrough
+→ written Sprint scope
+→ $2,500 30-Day Growth Sprint
+→ Stripe
 ```
+
+Pre-Score разрешены только qualification, enrichment и signal/timing. Deep diagnosis начинается после явного Growth Score request. Формат и длительность walkthrough определяет только `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 
 **Stripe обязателен до масштабирования.** Sprint не становится cold offer; payment path включается после Score, walkthrough и согласованного scope.
 
@@ -51,10 +62,11 @@ Wave получает `GO` только когда одновременно по
 1. email каждого адресата verified;
 2. deliverability принята: sending inboxes, SPF/DKIM/DMARC, warmup/inbox placement и send limits;
 3. suppression / DNC / conflict checks fail closed;
-4. назначен reply owner и подтверждена реальная capacity на Growth Score;
-5. `/growth-score/` и lead routing работают end-to-end;
-6. Score production, human approval и walkthrough готовы;
-7. Sprint scope и **Stripe payment path** проверены end-to-end.
+4. Growth Score intake и routing работают end-to-end и приводят запрос к named owner;
+5. подтверждена реальная Score production capacity;
+6. подтверждена capacity именованного human approver;
+7. private `/score/<slug>/` delivery и Valerie walkthrough capacity готовы;
+8. post-Score written Sprint scope и **Stripe payment path** проверены end-to-end.
 
 Нет полного gate — нет отправки. Активность, список или доступ к инструменту не заменяют Wave approval.
 
@@ -95,7 +107,25 @@ Wave получает `GO` только когда одновременно по
 
 Schools / academies — более поздний **partner track**, не первая acquisition cohort.
 
-## 7. Governance
+## 7. Wave 1 KPIs
+
+Wave 1 измеряется переходами между стадиями, а не send volume сам по себе:
+
+```text
+activated qualified accounts
+→ delivered
+→ replies
+→ qualified dialogues
+→ Growth Score requests
+→ Scores approved
+→ Scores delivered
+→ Sprint scope requested
+→ paid Sprint
+```
+
+Объём отправки — только операционный input. Он не является launch success без downstream conversion, human-approved delivery и paid Sprint evidence.
+
+## 8. Governance
 
 - DEC-845 остаётся authority для acquisition, qualification, signals и pre-Score boundary.
 - DEC-846 остаётся authority для категорий Products / Data / Tools / Materials / Signals / Mechanics / Channels / Funnels / Processes / Governance.

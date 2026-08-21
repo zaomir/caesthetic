@@ -13,6 +13,7 @@ const score = read('growth-score/index.html');
 const sprint = read('sprint/index.html');
 const system = read('growth-system/index.html');
 const about = read('about/index.html');
+const support = read('support/index.html');
 const header = read('templates/header.html');
 const footer = read('templates/footer.html');
 const sitemap = read('sitemap.xml');
@@ -106,6 +107,27 @@ test('nav and sitemap expose Growth System', () => {
   assert.match(header, /href="\/growth-system\/"[^>]*data-nav="growth-system"/);
   assert.match(footer, /href="\/growth-system\/"/);
   assert.match(sitemap, /https:\/\/caesthetic\.com\/growth-system\//);
+});
+
+test('Customer Support publishes safe contact and legal details', () => {
+  assert.match(support, /<html lang="en-US" data-page="support">/);
+  assert.match(support, /<link rel="canonical" href="https:\/\/caesthetic\.com\/support\/">/);
+  assert.match(support, /<h1 class="cae-h1">Customer Support<\/h1>/);
+  assert.match(support, /mailto:info@caesthetic\.com/);
+  assert.match(support, /We aim to respond within one business day/);
+  assert.match(support, /OXFORD PROJECTS LTD/);
+  assert.match(support, /Company number 16953799/);
+  assert.match(support, /128 City Road, London, United Kingdom, EC1V 2NX/);
+  for (const href of ['/legal/privacy/', '/legal/terms/', '/legal/cookies/']) {
+    assert.ok(support.includes(`href="${href}"`), `missing support legal link: ${href}`);
+  }
+  assert.match(support, /Do not send patient information, medical records or protected health information \(PHI\)/);
+  assert.match(support, /Do not send passwords, API keys or access credentials/);
+  assert.match(support, /Do not send card details/);
+  assert.doesNotMatch(support, /noindex|telephone|live chat|guaranteed response|guaranteed refund/i);
+  assert.match(header, /href="\/support\/"[^>]*data-nav="support"/);
+  assert.match(footer, /href="\/support\/"/);
+  assert.match(sitemap, /https:\/\/caesthetic\.com\/support\//);
 });
 
 test('public pricing artifact contains only public product prices and client-specific recurring terms', () => {

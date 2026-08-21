@@ -16,6 +16,7 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 | `/growth-system/` | Explain recurring operating ownership | Evaluate optional ongoing work | Growth Budget parts, minimum scope and evidence maturity | Discuss Growth System | index |
 | `/pricing/` | Compare the public product ladder | Understand commercial model | Generated public-stage pricing and client-specific recurring boundaries | Choose a stage | index |
 | `/about/` | Public identity and legal operator | Understand who leads delivery | Valerie Petra and entity details | Start with Growth Score | index |
+| `/support/` | Customer support and safe-contact guidance | Resolve a service, billing, privacy or technical question | Verified support address and legal entity | Email customer support | index |
 | `/legal/cookies/` | Disclose measurement state | Understand tracking | Conditional analytics and no replay | Contact | index |
 | `/score/demo-medical-aesthetics-search-gap/` | Demonstrate the full written score structure | Inspect report structure | Synthetic evidence ledger | View all demos | noindex |
 | `/score/demo-injector-practice-booking-friction/` | Demonstrate insufficient evidence | Inspect publication threshold | Synthetic evidence ledger | View all demos | noindex |
@@ -23,7 +24,7 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 
 ## Internal linking
 
-- `/` links to `/growth-score/` and `/growth-system/`; the global navigation links Growth Score, Sprint, Growth System and Pricing.
+- `/` links to `/growth-score/` and `/growth-system/`; the global navigation links Growth Score, Sprint, Growth System, Pricing and Support.
 - `/growth-score/` links to every demo and the request form. `/pricing/` links to every public product stage.
 - Every demo links back to the demo index. Demo routes stay out of the sitemap.
 

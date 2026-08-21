@@ -1691,7 +1691,7 @@ Cold/warm context
 → Yes
 → short intake
 → Score
-→ 4–6 min walkthrough
+→ Valerie walkthrough per `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`
 → Should we fix this?
 → Sprint
 ```
