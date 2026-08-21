@@ -1,19 +1,20 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1
+version: 1.2
 updated: 2026-08-14
 scope: Growth Score walkthrough speaker, script, scene, approval and lifecycle canon
 parent: docs/ssot/CAESTHETIC.md
 related:
   - docs/caesthetic/growth_score_spec.md
   - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
+  - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
   - docs/ssot/CAESTHETIC.md
 ---
 
 # CAESTHETIC — Valerie Growth Score Walkthrough SSOT
 
-This file is the canonical production authority for the human-facing video walkthrough that accompanies an approved CAESTHETIC Growth Score. It is subordinate to `docs/ssot/CAESTHETIC.md` and may not override Growth Score evidence, scoring or product rules.
+This file is the canonical production authority for the human-facing video walkthrough that accompanies an approved CAESTHETIC Growth Score. It is subordinate to `docs/ssot/CAESTHETIC.md`, `docs/caesthetic/growth_score_spec.md` and `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md` and may not override Growth Score evidence, scoring or product rules.
 
 ## 1. Purpose
 
@@ -44,7 +45,7 @@ A script may be compiled only from approved state:
 - `humanDiagnosis`;
 - approved `problem_inventory`;
 - approved `remediation_tasks`;
-- approved named-competitor evidence.
+- approved Competitive Decision Analysis, including named-competitor evidence and Market Practice Gap decisions where applicable.
 
 Forbidden as spoken facts:
 
@@ -64,13 +65,14 @@ Valerie must:
 3. name all four surfaces once: Search, Website, Social, Reputation;
 4. discuss in detail only the strongest and weakest surfaces;
 5. explain one binding constraint;
-6. use named competitors when comparison is applicable;
-7. cover exactly three top priorities;
-8. keep implementation guidance short in speech while the cockpit contains the full executable steps;
-9. include exactly one `Do Not Fund Yet` recommendation from the approved Score;
-10. explicitly state that the owner may implement internally or use another provider;
-11. explain why CAESTHETIC is easier/faster because the evidence, sequence, dependencies and acceptance logic are already understood;
-12. end on the binding constraint and next action, not on a hard sell.
+6. use named competitors and state the `Defend / Close / Differentiate / Do not copy` decision when comparison is applicable;
+7. include a Market Practice Gap recommendation only when approved evidence supports `Keep / Evaluate / Pilot / Replace / Do not adopt`; never convert public adoption into an unreviewed clinical claim;
+8. cover exactly three top priorities;
+9. keep implementation guidance short in speech while the cockpit contains the full executable steps;
+10. include exactly one `Do Not Fund Yet` recommendation from the approved Score;
+11. explicitly state that the owner may implement internally or use another provider;
+12. explain why CAESTHETIC is easier/faster because the evidence, sequence, dependencies and acceptance logic are already understood;
+13. end on the binding constraint and next action, not on a hard sell.
 
 Valerie must not:
 
@@ -167,6 +169,16 @@ When competitor comparison is applicable:
 
 > For comparison, [COMPETITOR_1] is currently showing [COMPETITOR_1_EVIDENCE]. [COMPETITOR_2] is showing [COMPETITOR_2_EVIDENCE]. That does not necessarily mean they provide a better patient experience. It means their patient-acquisition setup is currently stronger in this part of the journey.
 
+Then state the approved decision, not only the observation:
+
+> The strategic decision from that comparison is to defend [DEFEND], close [CLOSE], differentiate through [DIFFERENTIATE], and not copy [DO_NOT_COPY]. This comparison [BINDING_CONSTRAINT_EFFECT] and [TOP_PRIORITY_EFFECT].
+
+When an approved Market Practice Gap is applicable:
+
+> We also found a market-practice shift worth [KEEP_EVALUATE_PILOT_REPLACE_OR_REJECT]: [MARKET_SHIFT]. Newer is not automatically better, so the recommendation is [MODERNIZATION_RECOMMENDATION], subject to [SPECIALIST_OR_REGULATORY_VALIDATION].
+
+For any drug, device, material or clinical-protocol implication, the spoken script must say that qualified clinical and regulatory review is required before a practice change. The walkthrough may explain the patient-decision or business implication; it may not declare clinical obsolescence, safety or superiority from marketing evidence.
+
 ### 6.6 Top 3
 
 > The first thing I would fix is [TOP_1_TITLE]. Why first? [TOP_1_WHY]. The practical action is [TOP_1_ACTION].
@@ -206,7 +218,7 @@ Every final walkthrough must expose chapter timestamps for:
 1. Strength
 2. Four Surfaces
 3. Main Constraint
-4. Evidence
+4. Evidence & Competitive Decision
 5. Top 3
 6. Do Not Fund
 7. Next Step
@@ -268,6 +280,7 @@ Each later review represents a new business state and must preserve its own evid
 ```text
 Evidence
 → Constraint
+→ Competitive Decision / Market Practice Gap where applicable
 → Top 3
 → Do Not Fund
 → Owner Agency

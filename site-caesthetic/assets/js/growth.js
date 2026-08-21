@@ -35,15 +35,37 @@
     return {};
   }
 
-  function idempotencyKey() {
+  function requestFingerprint(form) {
+    return [
+      fieldValue(form, "email"),
+      fieldValue(form, "practice_name"),
+      fieldValue(form, "city_state"),
+      fieldValue(form, "name"),
+    ]
+      .join("|")
+      .toLowerCase();
+  }
+
+  function idempotencyKey(form) {
+    var fingerprint = form ? requestFingerprint(form) : "";
     try {
-      var existing = window.sessionStorage.getItem(IDEM_STORAGE_KEY);
-      if (existing) return existing;
+      var stored = window.sessionStorage.getItem(IDEM_STORAGE_KEY);
+      var parsed = null;
+      if (stored) {
+        try {
+          parsed = JSON.parse(stored);
+        } catch (e) {
+          parsed = typeof stored === "string" && stored && stored.indexOf("{") !== 0
+            ? { key: stored, fp: "" }
+            : null;
+        }
+      }
+      if (parsed && parsed.key && parsed.fp === fingerprint) return parsed.key;
       var next =
         typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
           ? crypto.randomUUID()
           : String(Date.now()) + "-" + Math.random().toString(16).slice(2);
-      window.sessionStorage.setItem(IDEM_STORAGE_KEY, next);
+      window.sessionStorage.setItem(IDEM_STORAGE_KEY, JSON.stringify({ fp: fingerprint, key: next }));
       return next;
     } catch (e) {
       return null;
@@ -148,9 +170,20 @@
     });
   }
 
+  function isQaTestFields(form) {
+    var blob = (
+      fieldValue(form, "name") +
+      "\n" +
+      fieldValue(form, "email") +
+      "\n" +
+      fieldValue(form, "practice_name")
+    ).toLowerCase();
+    return /\btest\b/.test(blob) || /\bqa\b/.test(blob) || blob.indexOf("lane b") >= 0;
+  }
+
   function requiredPayload(form, requestKey) {
     var utm = readUtm();
-    return {
+    var payload = {
       name: fieldValue(form, "name"),
       email: fieldValue(form, "email"),
       practice_name: fieldValue(form, "practice_name"),
@@ -169,6 +202,8 @@
       utm_content: utm.utm_content || null,
       utm_id: utm.utm_id || null,
     };
+    if (isQaTestFields(form)) payload.qa_marker = true;
+    return payload;
   }
 
   function optionalPayload(form, leadId, requestKey) {
@@ -223,7 +258,7 @@
 
       var isMultistage = form.hasAttribute("data-cae-multistage-score-form");
       var successEl = form.querySelector(".cae-form-success");
-      var requestKey = idempotencyKey();
+      var requestKey = null;
       var leadId = null;
       if (successEl) successEl.hidden = true;
 
@@ -267,6 +302,7 @@
 
         if (!validateFields(form, REQUIRED_FIELDS)) return;
 
+        requestKey = idempotencyKey(form);
         var payload = requiredPayload(form, requestKey);
 
         var btn = form.querySelector("[data-cae-required-submit]") || form.querySelector('button[type="submit"]');

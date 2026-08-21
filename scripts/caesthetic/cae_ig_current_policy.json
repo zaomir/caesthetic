@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "current_pointer": "/Projects/CAESTHETIC/audience/us-spa-ig-master/CURRENT.json",
+  "protected_release_id": "r20260821T014534Z-qualified-646-contract",
+  "required_execution_allowed": false,
+  "historical_only_release_patterns": [
+    "^r[0-9]{8}T[0-9]{6}Z-qualified-660(?:-|$)"
+  ]
+}

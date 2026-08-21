@@ -52,6 +52,7 @@ REGISTRY.yaml -> episodes/<episode>.yaml -> pinned SSOT/method/evidence refs
 
 - `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md`
 - `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md`
+- `docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` (proposed; no production authority until Format B v1.1)
 - `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_OPENER_CANON.md`
 - `docs/ssot/CAESTHETIC_HEYGEN_PRODUCTION_SYSTEM.md`
 - `docs/ssot/CAESTHETIC_VALERIE_AVATAR_LIBRARY.md`

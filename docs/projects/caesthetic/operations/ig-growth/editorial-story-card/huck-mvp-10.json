@@ -1,0 +1,77 @@
+{
+  "template": "VALERIE_EDITORIAL_STORY_CARD_V2",
+  "folder": "clean-plates",
+  "note": "MVP proof: 10 Dropbox clean plates → Huck/stories. Copy follows Daily Growth Note voice. No CTA.",
+  "cards": [
+    {
+      "episode": 1,
+      "photo": "vcp-001-bookshelf-smile.png",
+      "headline": "DON'T BUY MORE LEADS YET",
+      "highlight": "LEADS",
+      "support": "Check what happens to the demand you already have."
+    },
+    {
+      "episode": 2,
+      "photo": "vcp-002-car-seatbelt-smile.png",
+      "headline": "MORE DEMAND CAN'T FIX FRICTION",
+      "highlight": "FRICTION",
+      "support": "Find the constraint before you fund more attention."
+    },
+    {
+      "episode": 3,
+      "photo": "vcp-003-pool-smile.png",
+      "headline": "RATING IS NOT DEMAND",
+      "highlight": "DEMAND",
+      "support": "Check velocity. Check replies. Then decide."
+    },
+    {
+      "episode": 4,
+      "photo": "vcp-004-pink-shirt-smile.png",
+      "headline": "THE PATH AFTER THE CLICK",
+      "highlight": "CLICK",
+      "support": "Search, website, booking, response — in that order."
+    },
+    {
+      "episode": 5,
+      "photo": "vcp-005-dog-stone-wall.png",
+      "headline": "DON'T FUND THE WRONG LEAK",
+      "highlight": "LEAK",
+      "support": "New leads will not repair a broken path."
+    },
+    {
+      "episode": 6,
+      "photo": "vcp-006-suv-white-dress.png",
+      "headline": "LOOK AT THE DEMAND YOU HAVE",
+      "highlight": "DEMAND",
+      "support": "The unused path is usually closer than a new campaign."
+    },
+    {
+      "episode": 7,
+      "photo": "vcp-007-pillar-smile.png",
+      "headline": "BOOKING IS A SURFACE",
+      "highlight": "SURFACE",
+      "support": "If the reply dies, ads only buy silence."
+    },
+    {
+      "episode": 8,
+      "photo": "vcp-008-podcast-smile.png",
+      "headline": "CHECK THE CONSTRAINT FIRST",
+      "highlight": "CONSTRAINT",
+      "support": "Then decide whether to buy more attention."
+    },
+    {
+      "episode": 9,
+      "photo": "vcp-009-clinic-blazer-smile.png",
+      "headline": "YOUR WEBSITE MAY BE THE BOTTLENECK",
+      "highlight": "WEBSITE",
+      "support": "Fix the path before you buy more clicks."
+    },
+    {
+      "episode": 10,
+      "photo": "vcp-010-office-phone-smile.png",
+      "headline": "UNUSED DEMAND IS CLOSER THAN ADS",
+      "highlight": "ADS",
+      "support": "See who already asked — and what happened next."
+    }
+  ]
+}

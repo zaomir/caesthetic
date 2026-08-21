@@ -44,10 +44,27 @@ audio_master:
   continuous_voice: true
   starts_at_time_s: 0
   starts_at_frame: 0
-  sample_asset_status: required_not_attached
+  sample_asset_status: attached_verified
   master_ref: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-001/audio/cae-reel-001-elevenlabs-master.wav
   timestamps_ref: CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-001/audio/cae-reel-001-elevenlabs-master.timestamps.json
   storage: dropbox_only
+  synthesis:
+    endpoint: /v1/text-to-speech/lxYfHSkYm1EzQzGhdbfc/with-timestamps
+    model_id: eleven_multilingual_v2
+    source_format: mp3_44100_128
+    enable_logging: false
+  measured_output:
+    duration_s: 22.941315
+    sample_rate_hz: 44100
+    channels: 1
+    pcm_bit_depth: 24
+    first_character: B
+    first_character_start_s: 0.0
+    alignment_granularity: character
+    master_sha256: d2e0199397035371b2e67f7922cbbe8ee7d280ccb31cb4c3d9339bbfd3e3c729
+    timestamps_sha256: e66ce62e3104c10468402de282c7aa5e3c0705c451d890760a623e194dee4c8b
+    master_dropbox_file_id: "id:gjjRTi1A6rIAAAAAAA80ig"
+    timestamps_dropbox_file_id: "id:gjjRTi1A6rIAAAAAAA80iQ"
   per_scene_tts_allowed: false
   segments:
     - {segment_id: AMS01, scene_id: S01, order: 1, timing_source: timestamps_ref, text_anchor: "Before you buy more traffic, check what happens after the click."}

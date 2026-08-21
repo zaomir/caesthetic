@@ -1,6 +1,6 @@
 # CAESTHETIC — Project Status
 
-**Updated:** 2026-08-14
+**Updated:** 2026-08-21
 **Phase:** Phase 1 — proof + outbound readiness
 
 ## Agents satellite (DEC-829)
@@ -63,6 +63,24 @@ Lifecycle and route closeout evidence:
 - Establish Valerie Petra walkthrough recording and quality-assurance capacity for every approved Score.
 - Complete Stripe/payment setup and funnel analytics.
 
+## Growth Score ops contract (DEC-848 / TASK-853–855, 2026-08-21)
+
+- Required intake is one Postgres transaction: lead + case + status event + outbox.
+- Default owner `Valerie Petra`, next action, same-day triage (8h) and delivery SLA (5d; +7d if rolling open cases ≥ 3). Capacity never rejects a valid request.
+- QA/TEST auto-closes. Customer acknowledgement is sent for non-QA leads. Notifications retry via outbox + `scripts/caesthetic/growth-score-ops.mjs`.
+- Case state changes only through `transition_caesthetic_score_case`. GA4/Meta IDs remain empty.
+- Operator runbook: `docs/projects/caesthetic/operations/GROWTH_SCORE_OPERATOR_RUNBOOK.md`.
+
+## Conversion infrastructure (TASK-849, 2026-08-21)
+
+- TASK-849 shipped to production Worker: `deployed_sha` `4986a91ca467dade73558e4b6bac85fc0c1525ac` (workflow `32437073960`). Growth Score smoke PASS including `/growth-score/` analytics marker.
+
+- Public `/growth-score/` remains a 3-stage skippable intake; required capture writes `caesthetic_growth_score_leads` then creates `caesthetic_score_cases` (`source_kind=owner_intake`).
+- UTM + referrer persist on the lead row; new Score requests notify `notifications@caesthetic.com` and admin Telegram. TEST/QA payloads are labelled `[TEST/QA]` and must be archived (`status=declined`, case `state=closed`) so they never sit in the owner working queue.
+- Walkthrough lives on `/score/<slug>/` (Valerie Petra 3–8 min, evidence-led; demos use an explicit placeholder). `/sprint/` is the paid path from Score; canonical price is `$2,500` from `site-caesthetic/src/config/pricing.ts`.
+- Stripe/checkout is **not wired** on the public Sprint page. Scope and payment instructions are requested by email. GA4/Meta pixel IDs remain empty (dataLayer-only until ads secrets are set).
+- Public edge (2026-08-21): origin SHA `4986a91ca`; Worker `grainee-caesthetic-public` version `1b61b6f9-0856-4705-8f44-b95bb8b7bce7`. Production smoke `CAESTHETIC_GROWTH_SCORE_SMOKE_PASS=true`.
+
 ## Email readiness
 
 | Role | Domain | Mailboxes | Status |
@@ -84,10 +102,45 @@ The approved 2026-08-14 owner-cockpit canon is implemented in runtime:
 
 - `/growth-score/` is a mobile-first three-stage intake. The required case persists after the four contact/practice fields and before optional enrichment; Skip, optional-save failure and optional-stage abandonment preserve the successful request. Optional answers remain `self_reported`, permission is explicit, and stage analytics contain no PII or answers.
 - Supabase storage separates versioned intake, score case, candidate evidence, frozen verified facts, AI draft, append-only review events, approved report, de-identified learning candidate and explicit rule release. Drafts are non-publishable; reviewer corrections never activate global memory, fine-tuning or rules automatically.
-- Report schema v4 requires a named human approver and timestamp, complete Problem Inventory↔remediation-task mapping, full implementation fields, exact three priorities, owner implementation paths, Competitive Decision Analysis and honest Sprint/no-lock-in language. Deterministic scoring still uses the canonical metric IDs/weights, Class A-only coverage, the inclusive 70% surface gate, all-four Overall and Cross-Surface exclusion; publication remains fail-closed below 80% Class A.
+- Report schema v4 requires a named human approver and timestamp, complete Problem Inventory↔remediation-task mapping, full implementation fields, exact three priorities, owner implementation paths and honest Sprint/no-lock-in language. Applicable reports now fail closed without Competitive Decision Analysis: four-surface Comparison Matrix, Competitor Cards, repeated-review themes, `Defend / Close / Differentiate / Do not copy`, binding-constraint/priority effects and an evidence-gated Market Practice Gap decision. Deterministic scoring still uses the canonical metric IDs/weights, Class A-only coverage, the inclusive 70% surface gate, all-four Overall and Cross-Surface exclusion; publication remains fail-closed below 80% Class A.
 - TASK-821 / DEC-828 owner cockpit: header + Valerie walkthrough + current state, binding-constraint statement and Demand System leak, Top 3, full remediation tasks, then compact Four-Surface navigator, evidence, inventory, one Do Not Fund, DIY, Why CAESTHETIC, illustrative roadmap, one Sprint CTA, methodology. Score remains secondary. All real and demo reports emit noindex; real output requires an unguessable slug; demos stay explicitly synthetic.
 - All three public synthetic demos are schema-v4 fixtures rendered deterministically through the same production authority. The retired private placeholder remains noindex and outside the sitemap.
 - 2026-08-21 docs cleanup removed the conflicting legacy 12-block report contract, restored the referenced CAESTHETIC Competitive Decision Analysis adapter and aligned active product docs to the renderer's 13-section cockpit plus the 3–8 minute walkthrough SSOT. Runtime and scoring logic were unchanged.
 
 ## Reusable implementation asset
 Raimov feedback capture may be adapted as a Reputation module only as a neutral request to every eligible client, subject to US platform/legal/privacy review. Incentives, sentiment filtering, selective public/private routing and review gating are prohibited.
+
+## «Ноги в Руки» Growth Score — decision package ready, publication gated
+
+As of 2026-08-14:
+
+- The July assumption that no official website exists is superseded. `nogyvruky.com.ua` is live and self-identifies the business as a two-location medical-centre network.
+- Public-only research is complete for the current decision draft. No call, message, form submission, appointment or mystery-shopper interaction was used.
+- Live Maps evidence is frozen in `docs/agent-api/results/nogi-v-ruki-growth-score-20260814.json`. Google ratings/counts remain platform-specific and preserve match confidence.
+- The proposed binding constraint is cross-surface medical-entity consistency plus booking continuity, not a generic lack of reviews.
+- The client working set lives in `docs/projects/caesthetic/clients/nogi-v-ruki/`: completion plan, full review draft, Competitive Decision Analysis and Denis Valerievich conversation script.
+- Global canon now requires the Competitive Decision Analysis defined in `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`; `docs/caesthetic/competitive_decision_analysis.md` is the CAESTHETIC adapter. The report schema v4, engine, renderer, demo fixtures and tests enforce the expanded contract.
+- The current Maps-led client draft remains explicitly partial until comparable fresh-review samples, website/booking paths, social, offers/prices and Market Practice Gap evidence are collected for each branch-relevant competitor.
+- Publication remains fail-closed until a named human reviewer approves the objective strength, binding constraint, exactly three priorities and `Do not fund yet`. The unguessable noindex report route and 3–8 minute Valerie Petra walkthrough are therefore not yet released.
+
+
+### «Ноги в Руки» approval update — 2026-08-14
+
+- User approved the proposed objective strength, binding constraint, exact Top 3 and `Do not fund yet`.
+- The decision approval is recorded in the client draft and the Valerie Petra walkthrough brief is ready; final production follows the current 3–8 minute walkthrough SSOT.
+- Publication remains fail-closed until the reviewer provides a real name for the canonical approval record. No private route or production deploy has been released.
+
+
+### Registered human-reviewer mononym — 2026-08-14
+
+- Canonical reviewer display identity for the approved Nogi v Ruki decision is exactly `Валерия`.
+- Growth Score spec v4.1 and CAESTHETIC master v3.10 allow this exact registered mononym while keeping ordinary first+last validation and rejecting every unregistered one-word value.
+- Runtime validator and tests are updated. Valerie Petra remains the Growth Advisor/walkthrough presenter, not an inferred reviewer surname or alias.
+
+
+### Reviewer mononym runtime release — 2026-08-14
+
+- PR #751 shipped exact registered reviewer identity `Валерия` without surname/translation/persona expansion.
+- Targeted Growth Score engine validation passed `32/32`; ordinary first+last names still pass and unregistered mononyms fail.
+- Deploy request `deploy-caesthetic-valeria-reviewer-20260814T2156Z` returned `status=success`, `smoke.ok=true`; deployed SHA `6f8519fc3459e1482a154ae54efa630afcd89603`.
+- Public satellite sync now excludes `docs/projects/caesthetic/clients/**`; real client packs remain private to `grainee-v2`.

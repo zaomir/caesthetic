@@ -61,10 +61,15 @@ EXCLUDE_FILE_SUFFIXES = (".pyc", ".pyo")
 EXCLUDE_REL_PREFIXES = (
     "site-caesthetic/private/",
     "site-caesthetic/score/aurora-medspa-x7k9m2/",
+    "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+    "site-caesthetic/docs/website-studio/site-caesthetic-score-aesthetemed-public-evidence-7c3e91b4a8f26d50.md",
     "docs/projects/caesthetic/operations/ig-growth/footage/",
+    "docs/projects/caesthetic/operations/ig-growth/daily-growth-note/footage/",
+    "docs/projects/caesthetic/clients/",
 )
 
 PROTECTED_PREFIXES = (
+    "site-caesthetic/",
     "site-caesthetic/src/config/pricing.ts",
 )
 

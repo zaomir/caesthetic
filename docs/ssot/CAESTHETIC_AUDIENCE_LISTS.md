@@ -3,7 +3,7 @@
 **Status:** ACTIVE pointer  
 **Date:** 2026-08-14  
 **Owner:** platform / CAESTHETIC ops  
-**Related:** `CAESTHETIC_EMAIL_TO_IG.md` · `CAESTHETIC_IG_LOOKUP.md` · `OUTREACH_USERNAME_REGISTRY.md` · `CAESTHETIC_IG_GROWTH_PROGRAM.md` · `CAESTHETIC_PRACTITIONER_GROWTH_TO_SUPPLY_FUNNEL.md` · `OUTREACH_SELECTIONS.md` · `docs/ssot/data/outreach-username-registries.yaml` · `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md` · DEC-781 · DEC-791 · DEC-793 · DEC-818 · DEC-819 · DEC-821 · **DEC-822** · DEC-824 · **DEC-827**
+**Related:** `CAESTHETIC_EMAIL_TO_IG.md` · `CAESTHETIC_IG_LOOKUP.md` · `OUTREACH_USERNAME_REGISTRY.md` · `CAESTHETIC_IG_GROWTH_PROGRAM.md` · `CAESTHETIC_PRACTITIONER_GROWTH_TO_SUPPLY_FUNNEL.md` · `OUTREACH_SELECTIONS.md` · `docs/ssot/data/outreach-username-registries.yaml` · `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md` · DEC-781 · DEC-791 · DEC-793 · DEC-818 · DEC-819 · DEC-821 · **DEC-822** · DEC-824 · **DEC-827** · **DEC-845**
 
 **Two-base Apify pass (preferred for students):** `scripts/outreach/cae_ig_schools_students_apify.py` — schools DB + students DB (followers + post engagers). Rebuild without spend: `cae_ig_two_base_rebuild.py`. Legacy single-workbook pass (2026-08-02) remains valid for Priority A warm queue until Sheet reseed.
 
@@ -23,7 +23,7 @@ Private data stays on Dropbox — **not** in Git.
 | **Students Priority B** | filter `priority=B` in `students.csv` | **322** | Aesthetic pro/practice who follow academies — primary warm follow pool for `cae_ig` owners/grads narrative. |
 | **Aesthetic academy student IG (legacy)** | `dropbox:CAESTHETIC/audience/aesthetic_academy_student_contacts_2026-08-02.xlsx` | **941** | Prior single-workbook discovery (post tags/comments only; schools were seed input). Still registered. |
 | **9-city med-spa IG harvest (TASK-814)** | `dropbox:CAESTHETIC/icp/9-city-ig-usernames-2026-08/master_usernames.csv` | **746** | Instagram-only Phase-1 city harvest ($14.90 / $15). Proxy ICP strong/weak. **NON-EXECUTION** discovery + registry `incoming/`. Agent card: `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md`. |
-| **US spa IG execution registry (Phase 1)** | `dropbox:CAESTHETIC/audience/us-spa-ig-master/CURRENT.json` via `docs/ssot/data/outreach-username-registries.yaml` | 174 bootstrap / 161 claimed after deny | Resolve CURRENT → immutable release. Selection **`CAE_MEDSPA_IG_FINAL_V1`** / `sel_cae_medspa_ig_final_v1`. Dolphin `833304152`. Writes still need an approved wave (DEC-819). No username qualification evidence gates (DEC-821). |
+| **US spa IG execution registry (Phase 1)** | `dropbox:Projects/CAESTHETIC/audience/us-spa-ig-master/CURRENT.json` via `docs/ssot/data/outreach-username-registries.yaml` | **646** qualified (`r20260821T014534Z-qualified-646-contract`; phase-1 A/B/C). A/B/C/Research/Reject on the 1441 universe. Racing `r20260821T014017Z-qualified-660` is not CURRENT. | Resolve CURRENT → immutable release. Selection **`CAE_MEDSPA_IG_FINAL_V1`** / `sel_cae_medspa_ig_final_v1`. Dolphin `833304152`. `execution_allowed=false`. Writes still need an approved wave (DEC-819). Five-gate qualification is DEC-845 / TASK-848. Candidate `sel_cae_medspa_ig_v1` remains NON-EXECUTION. |
 | **US spa IG dated export (NON-EXECUTION)** | `dropbox:CAESTHETIC/audience/us-spa-ig-master-2026-08/canonical_master.csv` | 174 | Historical DEC-818 classification/build artifact. **Not** Dolphin/execution authority. |
 | **Dolphin/SBO coverage queue** | `dropbox:CAESTHETIC/audience/cae-ig-dolphin-queue/` (+ local `tmp/cae-ig-queue/`) | **1431** | Built from candidate 1441 − CURRENT deny. TASK-814 strong ranked first. Builder `cae_ig_build_dolphin_queue.mjs`. Runner `run-cae-ig-869-day1-833304152.mjs`. **Not** FINAL/CURRENT. |
 | **Med spa / practice IG candidate (NON-EXECUTION)** | `dropbox:CAESTHETIC/audience/medspa-ig-outreach-v1/registry.csv` | **1441** | Candidate selection `CAE_MEDSPA_IG_V1` / `sel_cae_medspa_ig_v1`. Rebuilt 2026-08-14 from TASK-814 (746) ∪ xlsx practice ∪ students practice. **Not** execution. Tool: `scripts/outreach/cae_medspa_ig_selection.py`. |
@@ -45,7 +45,7 @@ Private data stays on Dropbox — **not** in Git.
 
 ### A0. US spa business IG registry — Phase 1 owner/practice queue (DEC-819)
 
-**Execution pointer:** `dropbox:CAESTHETIC/audience/us-spa-ig-master/CURRENT.json`  
+**Execution pointer:** `dropbox:Projects/CAESTHETIC/audience/us-spa-ig-master/CURRENT.json`  
 **Git pointer:** `docs/ssot/data/outreach-username-registries.yaml`  
 **Index:** `dropbox:CAESTHETIC/audience/REGISTRY_INDEX.json`  
 **Selection:** `CAE_MEDSPA_IG_FINAL_V1` / `sel_cae_medspa_ig_final_v1`  
@@ -53,7 +53,7 @@ Private data stays on Dropbox — **not** in Git.
 
 Resolve CURRENT → immutable release → **approved** wave → dry-run (`cae_ig_dolphin_current_dryrun.mjs`) → human-approved social actions. Instagram writes are forbidden until that chain is complete.
 
-Bootstrap CURRENT (`r20260813T154900Z-bootstrap`, status `BOOTSTRAP_CURRENT_WITH_DENY_OVERLAY`) may claim 161 `ready_for_warm` after a 10-username deny overlay. That overlay is not write approval; an **approved** wave is still required. Do not use dated export `us-spa-ig-master-2026-08/` or `sel_cae_medspa_ig_v1` as execution. Do not apply Gate A/B / `needs_qualification` evidence gates (DEC-821). `CURRENT.json` is not edited here.
+CURRENT (`r20260821T014534Z-qualified-646-contract`, status `QUALIFIED_CURRENT_PENDING_RUNTIME_ACCEPTANCE`) claims **646** `ready_for_warm` after five-gate qualification of the full 1,441 candidate universe (DEC-845 / TASK-848). Live Dropbox path is `dropbox:Projects/CAESTHETIC/audience/us-spa-ig-master/CURRENT.json`. Racing `r20260821T014017Z-qualified-660` is immutable history, not CURRENT. `execution_allowed=false`. Deny overlay (10) + `overrides.csv` suppress/DNC/conflict remain applied. That pointer is not write approval; an **approved** wave is still required. Do not use dated export `us-spa-ig-master-2026-08/` or `sel_cae_medspa_ig_v1` as execution. Count 869 is superseded — count follows actual qualification. Dry-run: `scripts/caesthetic/cae_ig_dolphin_current_dryrun.mjs` (no Instagram writes; cold DM off).
 
 **Historical DEC-818 build artifact (NON-EXECUTION):** `dropbox:CAESTHETIC/audience/us-spa-ig-master-2026-08/canonical_master.csv` plus `lane_b_audit.json`. Git-safe method docs: `docs/research/caesthetic-us-spa-ig-master-2026-08/CLASSIFY.md` and aggregate-only `manifest.json`.
 

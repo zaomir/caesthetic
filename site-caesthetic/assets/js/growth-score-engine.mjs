@@ -89,6 +89,8 @@ export const HUMAN_REVIEW_METRICS = Object.freeze(Object.fromEntries(
   ]),
 ));
 
+export const REGISTERED_HUMAN_REVIEWER_MONONYMS = Object.freeze(["Валерия"]);
+
 const REVIEWER_STATUSES = Object.freeze(["approved", "pending", "ai_draft", "rejected"]);
 const EVIDENCE_CLASSES = Object.freeze(["A", "B"]);
 const PROBLEM_SURFACES = Object.freeze([...REQUIRED_SURFACES, "cross_surface"]);
@@ -137,8 +139,13 @@ function validTimestamp(value, label) {
 
 function namedHuman(value, label) {
   nonEmptyString(value, label);
-  invariant(!NON_HUMAN_REVIEWER.test(value), `${label} must identify a named human reviewer`);
-  invariant(value.trim().split(/\s+/).length >= 2, `${label} must contain a named human's first and last name`);
+  const canonicalName = value.trim().normalize("NFC");
+  invariant(!NON_HUMAN_REVIEWER.test(canonicalName), `${label} must identify a named human reviewer`);
+  const isRegisteredMononym = REGISTERED_HUMAN_REVIEWER_MONONYMS.includes(canonicalName);
+  invariant(
+    canonicalName.split(/\s+/).length >= 2 || isRegisteredMononym,
+    `${label} must contain a named human's first and last name or a registered reviewer mononym`,
+  );
 }
 
 function validRawValue(value, label) {
@@ -463,6 +470,151 @@ function validateOwnerExecutionContract(report) {
   }
 }
 
+function validateOptionalEvidenceRefs(refs, context, evidenceIndex) {
+  invariant(Array.isArray(refs), `${context}.evidence_refs must be an array`);
+  if (refs.length > 0) validateEvidenceRefs(refs, context, evidenceIndex);
+}
+
+function validateCompetitiveSurfaceCell(cell, context, evidenceIndex) {
+  invariant(cell && typeof cell === "object" && !Array.isArray(cell), `${context} must be an object`);
+  invariant(["observed", "insufficient_evidence"].includes(cell.status), `${context}.status must be observed or insufficient_evidence`);
+  nonEmptyString(cell.finding, `${context}.finding`);
+  if (cell.status === "observed") {
+    validateEvidenceRefs(cell.evidence_refs, context, evidenceIndex);
+  } else {
+    validateOptionalEvidenceRefs(cell.evidence_refs, context, evidenceIndex);
+    nonEmptyString(cell.limitation, `${context}.limitation`);
+  }
+}
+
+function validateReviewThemes(themes, context, evidenceIndex, limitations) {
+  invariant(Array.isArray(themes), `${context} must be an array`);
+  if (themes.length === 0) {
+    invariant(/insufficient (?:repetition|evidence)/i.test(limitations), `${context} may be empty only when limitations state insufficient repetition`);
+    return;
+  }
+  themes.forEach((theme, index) => {
+    const itemContext = `${context}[${index}]`;
+    invariant(theme && typeof theme === "object" && !Array.isArray(theme), `${itemContext} must be an object`);
+    nonEmptyString(theme.theme, `${itemContext}.theme`);
+    invariant(Number.isInteger(theme.mentions) && theme.mentions >= 2, `${itemContext}.mentions must be an integer of at least 2`);
+    invariant(Number.isInteger(theme.sample_size) && theme.sample_size >= theme.mentions, `${itemContext}.sample_size must be at least mentions`);
+    nonEmptyString(theme.window, `${itemContext}.window`);
+    validateEvidenceRefs(theme.evidence_refs, itemContext, evidenceIndex);
+  });
+}
+
+function validateDecisionItems(items, context, evidenceIndex) {
+  invariant(Array.isArray(items) && items.length > 0, `${context} must be a non-empty array`);
+  items.forEach((item, index) => {
+    const itemContext = `${context}[${index}]`;
+    invariant(item && typeof item === "object" && !Array.isArray(item), `${itemContext} must be an object`);
+    nonEmptyString(item.title, `${itemContext}.title`);
+    nonEmptyString(item.rationale, `${itemContext}.rationale`);
+    validateEvidenceRefs(item.evidence_refs, itemContext, evidenceIndex);
+  });
+}
+
+function validateMarketPracticeGap(gap, context, evidenceIndex) {
+  invariant(gap && typeof gap === "object" && !Array.isArray(gap), `${context} must be an object`);
+  invariant(["applicable", "no_material_gap", "insufficient_evidence"].includes(gap.status), `${context}.status is invalid`);
+  nonEmptyString(gap.reason, `${context}.reason`);
+  invariant(Array.isArray(gap.recommendations), `${context}.recommendations must be an array`);
+  if (gap.status === "applicable") {
+    invariant(gap.recommendations.length > 0, `${context}.recommendations must not be empty when applicable`);
+  } else {
+    invariant(gap.recommendations.length === 0, `${context}.recommendations must be empty unless applicable`);
+  }
+  gap.recommendations.forEach((item, index) => {
+    const itemContext = `${context}.recommendations[${index}]`;
+    invariant(item && typeof item === "object" && !Array.isArray(item), `${itemContext} must be an object`);
+    for (const field of [
+      "title", "current_state", "market_shift", "evidence_scope", "business_implication",
+      "transition_economics", "specialist_validation", "limitations",
+    ]) nonEmptyString(item[field], `${itemContext}.${field}`);
+    validateStringArray(item.dependencies, `${itemContext}.dependencies`, { nonEmpty: true });
+    invariant(["keep", "evaluate", "pilot", "replace", "do_not_adopt"].includes(item.decision), `${itemContext}.decision is invalid`);
+    validateEvidenceRefs(item.evidence_refs, itemContext, evidenceIndex);
+  });
+}
+
+function validateCompetitiveDecisionAnalysis(competitors, report, evidenceIndex) {
+  invariant(competitors && typeof competitors === "object" && !Array.isArray(competitors), "humanDiagnosis.competitors must be an object");
+  invariant(["applicable", "not_applicable"].includes(competitors.status), "humanDiagnosis.competitors.status must be applicable or not_applicable");
+  if (competitors.status === "not_applicable") {
+    nonEmptyString(competitors.reason, "humanDiagnosis.competitors.reason");
+    return;
+  }
+
+  const base = "humanDiagnosis.competitors";
+  nonEmptyString(competitors.selection_method, `${base}.selection_method`);
+  nonEmptyString(competitors.sample_limitations, `${base}.sample_limitations`);
+  nonEmptyString(competitors.review_sample_rule, `${base}.review_sample_rule`);
+  nonEmptyString(competitors.branch_scope, `${base}.branch_scope`);
+  invariant(competitors.comparison_window && typeof competitors.comparison_window === "object" && !Array.isArray(competitors.comparison_window), `${base}.comparison_window must be an object`);
+  validDate(competitors.comparison_window.start, `${base}.comparison_window.start`);
+  validDate(competitors.comparison_window.end, `${base}.comparison_window.end`);
+  invariant(Date.parse(competitors.comparison_window.start) <= Date.parse(competitors.comparison_window.end), `${base}.comparison_window start must not be after end`);
+  invariant(Array.isArray(competitors.entries) && competitors.entries.length > 0, `${base}.entries must contain named competitors when applicable`);
+
+  const competitorIds = new Set();
+  competitors.entries.forEach((competitor, index) => {
+    const context = `${base}.entries[${index}]`;
+    invariant(competitor && typeof competitor === "object" && !Array.isArray(competitor), `${context} must be an object`);
+    nonEmptyString(competitor.id, `${context}.id`);
+    invariant(!competitorIds.has(competitor.id), `${base}.entries has duplicate id ${competitor.id}`);
+    competitorIds.add(competitor.id);
+    nonEmptyString(competitor.name, `${context}.name`);
+    invariant(["local", "category_leader", "positioning_reference", "other"].includes(competitor.competitor_type), `${context}.competitor_type is invalid`);
+    for (const field of [
+      "selection_reason", "branch_scope", "patient_choice_reason", "observable_advantage", "observable_gap",
+      "repeat", "improve", "do_not_copy", "strategic_implication", "constraint_effect", "priority_effect",
+      "modernization_implication", "limitations",
+    ]) nonEmptyString(competitor[field], `${context}.${field}`);
+    validateStringArray(competitor.strengths, `${context}.strengths`, { nonEmpty: true });
+    validateStringArray(competitor.weaknesses_or_risks, `${context}.weaknesses_or_risks`, { nonEmpty: true });
+    invariant(Array.isArray(competitor.sources) && competitor.sources.length > 0, `${context}.sources must be a non-empty array`);
+    competitor.sources.forEach((source, sourceIndex) => {
+      const sourceContext = `${context}.sources[${sourceIndex}]`;
+      invariant(source && typeof source === "object" && !Array.isArray(source), `${sourceContext} must be an object`);
+      nonEmptyString(source.url_or_snapshot, `${sourceContext}.url_or_snapshot`);
+      invariant(["maps", "website", "social", "review_platform", "directory", "public_ad"].includes(source.source_type), `${sourceContext}.source_type is invalid`);
+      validDate(source.collected_at, `${sourceContext}.collected_at`);
+      nonEmptyString(source.sample_note, `${sourceContext}.sample_note`);
+    });
+    invariant(competitor.surface_evidence && typeof competitor.surface_evidence === "object" && !Array.isArray(competitor.surface_evidence), `${context}.surface_evidence must be an object`);
+    REQUIRED_SURFACES.forEach((surface) => validateCompetitiveSurfaceCell(competitor.surface_evidence[surface], `${context}.surface_evidence.${surface}`, evidenceIndex));
+    validateReviewThemes(competitor.repeated_positive_themes, `${context}.repeated_positive_themes`, evidenceIndex, competitor.limitations);
+    validateReviewThemes(competitor.repeated_negative_themes, `${context}.repeated_negative_themes`, evidenceIndex, competitor.limitations);
+    validateEvidenceRefs(competitor.evidence_refs, context, evidenceIndex);
+  });
+
+  const matrix = competitors.comparison_matrix;
+  invariant(matrix && typeof matrix === "object" && !Array.isArray(matrix), `${base}.comparison_matrix must be an object`);
+  nonEmptyString(matrix.subject_name, `${base}.comparison_matrix.subject_name`);
+  invariant(matrix.subject_name === report.practice.name, `${base}.comparison_matrix.subject_name must match practice.name`);
+  invariant(Array.isArray(matrix.rows) && matrix.rows.length === competitorIds.size + 1, `${base}.comparison_matrix.rows must contain the practice and every competitor exactly once`);
+  const matrixRefs = new Set();
+  matrix.rows.forEach((row, index) => {
+    const context = `${base}.comparison_matrix.rows[${index}]`;
+    invariant(row && typeof row === "object" && !Array.isArray(row), `${context} must be an object`);
+    nonEmptyString(row.entity_ref, `${context}.entity_ref`);
+    invariant(!matrixRefs.has(row.entity_ref), `${base}.comparison_matrix.rows has duplicate entity_ref ${row.entity_ref}`);
+    matrixRefs.add(row.entity_ref);
+    nonEmptyString(row.entity_name, `${context}.entity_name`);
+    invariant(["subject", "competitor"].includes(row.entity_type), `${context}.entity_type is invalid`);
+    REQUIRED_SURFACES.forEach((surface) => nonEmptyString(row[surface], `${context}.${surface}`));
+    validateEvidenceRefs(row.evidence_refs, context, evidenceIndex);
+  });
+  invariant(matrixRefs.has("subject"), `${base}.comparison_matrix.rows must contain entity_ref subject`);
+  competitorIds.forEach((id) => invariant(matrixRefs.has(id), `${base}.comparison_matrix.rows is missing competitor ${id}`));
+
+  const summary = competitors.decision_summary;
+  invariant(summary && typeof summary === "object" && !Array.isArray(summary), `${base}.decision_summary must be an object`);
+  for (const field of ["defend", "close", "differentiate", "do_not_copy"]) validateDecisionItems(summary[field], `${base}.decision_summary.${field}`, evidenceIndex);
+  validateMarketPracticeGap(competitors.market_practice_gap, `${base}.market_practice_gap`, evidenceIndex);
+}
+
 function validateHumanDiagnosis(report, evidenceIndex) {
   const diagnosis = report.humanDiagnosis;
   invariant(diagnosis && typeof diagnosis === "object" && !Array.isArray(diagnosis), "humanDiagnosis is required");
@@ -488,29 +640,7 @@ function validateHumanDiagnosis(report, evidenceIndex) {
     "humanDiagnosis.binding_constraint",
     evidenceIndex,
   );
-  invariant(
-    diagnosis.competitors && typeof diagnosis.competitors === "object" && !Array.isArray(diagnosis.competitors),
-    "humanDiagnosis.competitors must be an object",
-  );
-  invariant(
-    ["applicable", "not_applicable"].includes(diagnosis.competitors.status),
-    "humanDiagnosis.competitors.status must be applicable or not_applicable",
-  );
-  if (diagnosis.competitors.status === "applicable") {
-    nonEmptyString(diagnosis.competitors.selection_method, "humanDiagnosis.competitors.selection_method");
-    invariant(
-      Array.isArray(diagnosis.competitors.entries) && diagnosis.competitors.entries.length > 0,
-      "humanDiagnosis.competitors.entries must contain named competitors when applicable",
-    );
-    diagnosis.competitors.entries.forEach((competitor, index) => {
-      const context = `humanDiagnosis.competitors.entries[${index}]`;
-      invariant(competitor && typeof competitor === "object" && !Array.isArray(competitor), `${context} must be an object`);
-      nonEmptyString(competitor.name, `${context}.name`);
-      validateEvidenceRefs(competitor.evidence_refs, context, evidenceIndex);
-    });
-  } else {
-    nonEmptyString(diagnosis.competitors.reason, "humanDiagnosis.competitors.reason");
-  }
+  validateCompetitiveDecisionAnalysis(diagnosis.competitors, report, evidenceIndex);
 
   invariant(
     diagnosis.walkthrough && typeof diagnosis.walkthrough === "object" && !Array.isArray(diagnosis.walkthrough),
@@ -716,7 +846,7 @@ function validateMethodology(methodology) {
 
 export function scoreGrowthReport(report) {
   invariant(report && typeof report === "object" && !Array.isArray(report), "report must be an object");
-  invariant(report.schemaVersion === 3, "schemaVersion must be 3");
+  invariant(report.schemaVersion === 4, "schemaVersion must be 4");
   invariant(report.reportState === "approved_report", "reportState must be approved_report; drafts cannot publish");
   nonEmptyString(report.reportVersion, "reportVersion");
   nonEmptyString(report.verifiedFactSetVersion, "verifiedFactSetVersion");

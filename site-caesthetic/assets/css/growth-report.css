@@ -35,6 +35,15 @@
   text-transform: uppercase;
 }
 
+.cae-report-disclosure {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--cae-border);
+  background: var(--cae-surface-soft);
+  color: var(--cae-text-muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
 /* ─── Report header (practice identity + review line) ─── */
 
 .cae-report-header {
@@ -390,6 +399,160 @@ a.cae-report-walkthrough:hover {
 
 .cae-report-competitors {
   margin-top: var(--cae-space-5);
+}
+
+/* ─── Competitive Decision Analysis ─── */
+
+.cae-report-comparison-wrap {
+  margin-top: var(--cae-space-6);
+  overflow-x: auto;
+  border: 1px solid var(--cae-border-strong);
+  background: var(--cae-bg);
+}
+
+.cae-report-comparison-matrix {
+  width: 100%;
+  min-width: 58rem;
+  border-collapse: collapse;
+}
+
+.cae-report-comparison-matrix caption {
+  padding: var(--cae-space-4) var(--cae-space-5);
+  color: var(--cae-muted);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  letter-spacing: .05em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.cae-report-comparison-matrix th,
+.cae-report-comparison-matrix td {
+  min-width: 11rem;
+  padding: var(--cae-space-4);
+  border-top: 1px solid var(--cae-border);
+  border-right: 1px solid var(--cae-border);
+  font-size: var(--cae-text-sm);
+  line-height: 1.5;
+  text-align: left;
+  vertical-align: top;
+}
+
+.cae-report-comparison-matrix thead th {
+  color: var(--cae-accent);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  text-transform: uppercase;
+}
+
+.cae-report-comparison-matrix tbody th {
+  color: var(--cae-text-strong);
+  font-family: var(--cae-font-display);
+  font-size: var(--cae-text-base);
+  font-weight: 400;
+}
+
+.cae-report-comparison-matrix tbody th small {
+  display: block;
+  margin-top: var(--cae-space-1);
+  color: var(--cae-signal);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  text-transform: uppercase;
+}
+
+.cae-report-competitor-cards {
+  display: grid;
+  gap: var(--cae-space-6);
+  margin-top: var(--cae-space-8);
+}
+
+.cae-report-competitor-card {
+  padding: var(--cae-space-7);
+  border: 1px solid var(--cae-border);
+  border-top: 2px solid var(--cae-border-strong);
+  background: var(--cae-bg);
+}
+
+.cae-report-competitor-card > h3 {
+  margin: var(--cae-space-2) 0 var(--cae-space-5);
+  font-family: var(--cae-font-display);
+  font-size: var(--cae-text-2xl);
+  font-weight: 400;
+}
+
+.cae-report-competitor-card__themes,
+.cae-report-competitor-card dl,
+.cae-report-competitive-decisions,
+.cae-report-market-gap__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: var(--cae-space-5);
+  background: var(--cae-border);
+  border: 1px solid var(--cae-border);
+}
+
+.cae-report-competitor-card__themes > div,
+.cae-report-competitor-card dl > div,
+.cae-report-competitive-decisions > article,
+.cae-report-market-gap__grid > article {
+  min-width: 0;
+  padding: var(--cae-space-5);
+  background: var(--cae-bg);
+}
+
+.cae-report-competitor-card h4,
+.cae-report-market-gap h3,
+.cae-report-market-gap h4 {
+  font-family: var(--cae-font-display);
+  font-size: var(--cae-text-lg);
+  font-weight: 400;
+}
+
+.cae-report-competitor-card li + li,
+.cae-report-competitive-decisions li + li {
+  margin-top: var(--cae-space-3);
+}
+
+.cae-report-competitor-card dt {
+  margin-bottom: var(--cae-space-2);
+  color: var(--cae-muted);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  text-transform: uppercase;
+}
+
+.cae-report-competitor-card dd,
+.cae-report-competitive-decisions p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cae-report-competitive-decisions {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: var(--cae-space-8);
+  border-top: 3px solid var(--cae-signal);
+}
+
+.cae-report-competitive-decisions ul {
+  margin: var(--cae-space-3) 0 0;
+  padding-left: 1rem;
+}
+
+.cae-report-market-gap {
+  margin-top: var(--cae-space-8);
+  padding: var(--cae-space-7);
+  border: 1px solid var(--cae-border-strong);
+  background: var(--cae-bg-2);
+}
+
+.cae-report-market-gap__decision {
+  color: var(--cae-signal);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 /* ─── Demand system (horizontal journey + leak) ─── */
@@ -1168,6 +1331,10 @@ a.cae-report-walkthrough:hover {
     grid-template-columns: 1fr 1fr;
   }
 
+  .cae-report-competitive-decisions {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .cae-report-score-nav {
     grid-template-columns: 1fr;
   }
@@ -1197,7 +1364,11 @@ a.cae-report-walkthrough:hover {
   }
 
   .cae-report-paths,
-  .cae-report-task dl {
+  .cae-report-task dl,
+  .cae-report-competitor-card__themes,
+  .cae-report-competitor-card dl,
+  .cae-report-competitive-decisions,
+  .cae-report-market-gap__grid {
     grid-template-columns: 1fr;
   }
 

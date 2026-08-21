@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "task": "TASK-849",
+  "date": "2026-08-21",
+  "note": "IDs and flags only. No extra PII. Both rows archived so they cannot sit in an owner working queue.",
+  "accepted_lead": {
+    "lead_id": "8695060e-e3a9-4a8f-87ab-ee268b4e4f78",
+    "score_case_id": "6c18a02c-6289-495d-8446-a27ae8a058bc",
+    "lead_status": "declined",
+    "case_state": "closed",
+    "source_kind": "owner_intake",
+    "notification_sent": true,
+    "utm_source": "qa",
+    "utm_campaign": "task-849",
+    "intake_state": "required_complete",
+    "qa_test": true
+  },
+  "earlier_probe_lead": {
+    "lead_id": "6e6fe796-7775-4eda-bc31-3aead713f1a4",
+    "score_case_id": "4a6428ac-14df-4004-9aa4-1d328d5ee5e3",
+    "lead_status": "declined",
+    "case_state": "closed",
+    "notification_sent": false,
+    "utm_source": "qa",
+    "utm_campaign": "task-849",
+    "note": "Submitted before notify-sent=email-or-telegram; archived the same day"
+  }
+}

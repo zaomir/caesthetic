@@ -136,7 +136,9 @@
 
   function routeEvents() {
     var path = location.pathname;
-    if (path.indexOf("/score/") === 0) push("score_page_viewed");
+    if (path.indexOf("/score/") === 0 || path.indexOf("/growth-score/") === 0) {
+      push("score_page_viewed");
+    }
     if (path.indexOf("/sprint/") === 0) push("sprint_page_viewed");
     push("page_view");
   }

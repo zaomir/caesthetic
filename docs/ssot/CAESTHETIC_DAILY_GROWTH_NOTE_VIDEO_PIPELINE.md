@@ -61,11 +61,6 @@ badges are optional on screen when natural, scoped wording is clearer.
 Never publish fake dashboards, fake conversations, fabricated results,
 fabricated metrics, pseudo-analytics or decorative proof substitutes.
 
-
-### Organic testing limit for Valerie/openers
-
-Do not infer Valerie/avatar/opening-format winners from a handful of organic Reels. At one protected informational Reel per week, the `Format A → Format A → Format A → Format B` cycle produces roughly four Reels/month and topic differences confound the result. Valerie/opening tests belong in a paid or otherwise controlled distribution layer; organic results may suggest hypotheses only.
-
 ## 3. Format classes and scene contract
 
 There is no universal Reel duration. Evidence and the job determine runtime;
