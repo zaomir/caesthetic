@@ -110,7 +110,7 @@ CAESTHETIC is a B2B growth diagnostics and implementation service for independen
 3. **Verify:** a named human checks Class A facts, evidence lineage and judgment metrics, corrects priorities and remediation tasks, and approves the final report; AI does not issue the final diagnosis autonomously.
 4. **Connect:** Cross-Surface Consistency checks whether positioning, proof, identity and the booking path agree across the four surfaces. It is not a fifth surface.
 5. **Prioritize:** the owner receives the strongest surface, binding constraint, named-competitor evidence where applicable, full Problem Inventory, Top priorities, dependency-aware remediation tasks and one explicit `do not do / do not fund yet`. Overall/surface scores are an approximate navigator, not the main decision layer.
-6. **Deliver:** the free Score is delivered through a private/noindex owner cockpit and a 4–6 minute Valerie Petra walkthrough.
+6. **Deliver:** the free Score is delivered through a private/noindex owner cockpit and a 3–8 minute Valerie Petra walkthrough.
 7. **Next step:** the owner can implement the complete task plan internally or with any provider. There is no lock-in or mandatory purchase. If implementation is justified, the optional first paid step is the fixed 30-Day Growth Sprint at `$2,500`, with a separately confirmed scope and no retainer required to start.
 
 ### Claims boundary
@@ -166,7 +166,7 @@ Cold Reach backlog and batch authorization live in Reel System V3.2.
 
 **Reel 1 — category:** explain that CAESTHETIC is a growth diagnostics + implementation/control system for independent aesthetic practices. It is not presented as a generic traffic agency, EHR/CRM replacement or generic AI assistant.
 
-**Reel 2 — Score deliverable:** explain human-verified review of Search/GBP, Website, Social and Reputation/Reviews; strongest surface, binding constraint, named-competitor evidence where applicable, full Problem Inventory, Top priorities, concrete remediation tasks with order/dependencies/risks, explicit `do not do / do not fund yet`, private owner cockpit and 4–6 minute Valerie Petra walkthrough. Scores are secondary navigation.
+**Reel 2 — Score deliverable:** explain human-verified review of Search/GBP, Website, Social and Reputation/Reviews; strongest surface, binding constraint, named-competitor evidence where applicable, full Problem Inventory, Top priorities, concrete remediation tasks with order/dependencies/risks, explicit `do not do / do not fund yet`, private owner cockpit and 3–8 minute Valerie Petra walkthrough. Scores are secondary navigation.
 
 **Reel 3 — access/privacy:** explain the three-stage intake: contact, four required practice/contact fields completed in total, then thank-you plus optional enrichment. The Score research uses observable external patient-journey evidence; do not imply that revenue, budget, PHI, patient records, EHR passwords or clinical records are required.
 

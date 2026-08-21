@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.0
-updated: 2026-08-14
+version: 4.1
+updated: 2026-08-21
 scope: public intake, AI-assisted research, human approval, controlled learning, scoring and owner-cockpit contract
 parent: docs/ssot/CAESTHETIC.md
 ---
@@ -11,7 +11,7 @@ parent: docs/ssot/CAESTHETIC.md
 
 `docs/ssot/CAESTHETIC.md` is the master product and strategy authority. This document is its subordinate implementation specification. It defines the Four-Surface metric catalogue, evidence and review gates, scoring policy, and the content contract for real and synthetic reports. It must not create a competing product model.
 
-Growth Score answers one owner question: **where is the practice losing patients, what should it fix first, and what should it not spend money on yet?** It is a self-contained diagnosis and remediation plan, not a Sprint scope, ranking guarantee, patient forecast, or revenue forecast.
+Growth Score answers one owner question: **where is the practice losing patients, what should it fix first, and what should it not spend money on yet?** It is a self-contained diagnosis and remediation plan, not a Sprint scope, ranking guarantee, patient forecast, or revenue forecast. Competitive decisions inherit the global `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`; `docs/caesthetic/competitive_decision_analysis.md` is the CAESTHETIC source/evidence adapter, not a competing method.
 
 ## 0. Public intake and case creation
 
@@ -47,7 +47,7 @@ Every publishable owner cockpit must make these items explicit:
 - next actions that the owner, an alternative provider or CAESTHETIC can execute without hidden instructions;
 - an honest `Why CAESTHETIC / Why the 30-Day Sprint` explanation and explicit no-lock-in/client-ownership language;
 - methodology, limitations and Class A/Class B disclosure;
-- human reviewer state and, for a real report, a 4–6 minute Valerie Petra walkthrough link or an explicit pending placeholder;
+- human reviewer state and, for a real report, a 3–8 minute Valerie Petra walkthrough link or an explicit pending placeholder;
 - one CTA to `/sprint/`.
 
 The report must praise one objectively strong point. If no defensible strength exists, the practice does not pass the Growth Score ICP gate and the report is not published. Scores never outrank the human-approved inventory: when a number and verified problem severity disagree, the evidence, dependencies and remediation logic control the decision.
@@ -98,6 +98,8 @@ Local Falcon screenshots and exports are Class A evidence when the query, grid c
 
 Mystery shopping must use a real monitored inbox and truthful, non-clinical wording; it must not impersonate a patient with an urgent medical need or create an unwanted appointment. Record a positive result as a strength when response is fast and useful. An AI-generated draft or guessed response time is unavailable, not evidence.
 
+`mystery_shopper` remains a canonical **metric/evidence capability** because the engine must preserve a permitted, human-executed observation when one exists. It is not part of the standard Free Score research or spoken walkthrough. In the normal outside-in Free Score it remains unavailable unless an explicit permission and compliant evidence workflow already produced the observation. Valerie must not discuss Mystery Shopper in the Free Score walkthrough; it may be introduced later only if the client continues and the applicable written scope permits it. The walkthrough authority is `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
+
 ### 2.3 Social — 15% outer weight
 
 | `metric_id` | Component weight | What is measured | Primary method |
@@ -137,6 +139,21 @@ Review velocity is a core observable comparison: name the real local competitors
 | `identity_coherence` | 10 | Consistent identity and location presentation | Cross-check name, address, phone, clinician/practice identity and destination ownership |
 
 Cross-Surface findings can explain a binding constraint, but the score never enters the 30/25/15/30 overall formula.
+
+### 2.6 Competitive Decision Analysis — cross-cutting, unscored
+
+Competitive Decision Analysis follows `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`. It is mandatory when patients have meaningful alternatives and evidence can change the diagnosis. It is not a fifth surface and does not add a weighted competitor score.
+
+Default set: 3–5 named competitors comprising relevant local alternatives plus, where useful, a category leader or positioning reference. Multi-location practices require a local set per branch when geography changes the patient decision.
+
+Every comparison must preserve comparable query/geography/path/review windows and disclose sample sizes. Review themes require recurrence in at least two independent eligible observations; a single review remains a `single report` and cannot support a generalized weakness. Public ads show visible strategy, not effectiveness.
+
+The required owner outputs are:
+
+1. **Comparison Matrix** — practice plus competitor rows across Search, Website, Social and Reputation; unavailable cells remain `insufficient_evidence`.
+2. **Competitor Cards** — selection reason, repeated positive/negative review themes, patient-choice reason, advantage/gap, repeat/improve/do-not-copy action, strategic implication and limitations.
+3. **Decision Summary** — evidence-backed `Defend / Close / Differentiate / Do not copy`, with explicit effects on the binding constraint and Top 3.
+4. **Market Practice Gap** — `applicable`, `no_material_gap` or `insufficient_evidence`; applicable recommendations compare current practice with disclosed local/global signals and choose `keep`, `evaluate`, `pilot`, `replace` or `do_not_adopt` with transition economics, dependencies, specialist/regulatory validation, evidence and limitations.
 
 ## 3. Production metric schema
 
@@ -255,10 +272,20 @@ The report separates human synthesis from mechanical scoring. Required fields/se
 - `problem_inventory`: the complete diagnostic array specified in §5.3, separate from `top_priorities`;
 - `remediation_tasks`: the executable, dependency-aware plan specified in §5.4;
 - `do_not_do`: exactly one `{ title, evidence_refs }` recommendation;
-- `competitors`: either `{ status: "applicable", selection_method, entries: [{ name, evidence_refs }] }` with at least one named entry, or `{ status: "not_applicable", reason }`;
+- `competitors`: the schema-v4 Competitive Decision Analysis object below, or `{ status: "not_applicable", reason }` with a durable reason;
 - `walkthrough`: either `{ status: "available", url }` with a valid URL, or `{ status: "pending", url: null, placeholder }`.
 
 `top_priorities` are not a shortened substitute for the inventory or task list. Each priority references one or more inventory/evidence IDs and describes why it comes first. No item may say that Sprint work is purchased, committed or guaranteed.
+
+#### 5.2.1 Schema-v4 competitor contract
+
+When `status: "applicable"`, `humanDiagnosis.competitors` contains `selection_method`, `sample_limitations`, `comparison_window`, `review_sample_rule`, `branch_scope`, `entries[]`, `comparison_matrix`, `decision_summary` and `market_practice_gap`.
+
+Each competitor entry must include a stable id and name, competitor type and selection reason, branch scope, observed/insufficient-evidence cells for all four surfaces, recurring positive and negative review themes, patient-choice reason, observable advantage/gap, `repeat / improve / do_not_copy`, strategic/constraint/priority/modernization implications, evidence references, dated sources, strengths, weaknesses/risks and limitations. Theme arrays may be empty only when limitations explicitly state that recurrence was insufficient; a recurring theme requires at least two eligible mentions and may not exceed its disclosed sample size.
+
+`comparison_matrix` contains the practice plus every competitor exactly once and gives a decision summary or `Insufficient evidence — …` for Search, Website, Social and Reputation. `decision_summary` contains non-empty evidence-backed arrays for `defend`, `close`, `differentiate` and `do_not_copy`, plus the effect on the binding constraint and Top 3.
+
+`market_practice_gap` contains `{ status, reason, recommendations }`, with status `applicable`, `no_material_gap` or `insufficient_evidence`. Applicable recommendations include current state, market shift, evidence scope, business implication, transition economics, dependencies, decision (`keep`, `evaluate`, `pilot`, `replace` or `do_not_adopt`), specialist validation, evidence references and limitations. Any clinical/drug/device/protocol implication requires qualified clinical and regulatory validation before a practice change.
 
 ### 5.3 Full Problem Inventory
 
@@ -304,25 +331,28 @@ Task volume must reflect the real evidence. Do not invent remediation to make th
 
 The renderer must accept both `reportKind=real` and `reportKind=demo`; it must not depend on a `demo-*` directory name.
 
-### 6.1 Required presentation
+### 6.1 Canonical client-facing cockpit order
 
-Use this owner decision hierarchy:
+The current renderer is the presentation contract. It uses these sections in this order; this is not a legacy `Block 0–12` model:
 
-1. Practice, market, collection/preparation date, human reviewer state and report disclosure; the Valerie Petra walkthrough is visible near the top.
-2. Human diagnosis: objective strength, strongest surface, binding constraint and material named-competitor evidence.
-3. Exactly three top priorities, followed by the complete remediation task list with order, dependencies, complexity, risks and acceptance evidence.
-4. A compact overall/four-surface score navigator. Scores may create tension and link into evidence, but must be visually and verbally secondary; approximate weights are disclosed beside the score method.
-5. Surface and Cross-Surface evidence drill-down, with `Insufficient evidence` where required, plus named competitor comparisons where applicable.
-6. Full Problem Inventory and one `do_not_do`, without hiding lower-priority findings.
-7. Immediate next actions and implementation paths: do it in-house, use another provider, defer, or ask CAESTHETIC to scope selected work.
-8. `Why CAESTHETIC / Why the 30-Day Sprint`: CAESTHETIC has already assembled the evidence and diagnosis, understands dependency order, and can implement, coordinate and accept the selected changes within a written 30-day scope. This is an honest convenience argument, not exclusivity or a guarantee.
-9. Methodology, data windows, sources, limitations, Class A ratio and labelled Class B methods/assumptions.
-10. One calm link to `/sprint/`; state that scope is confirmed separately and every post-Sprint path is optional.
+1. **Executive Overview** — private/synthetic disclosure; practice name and location; preparation date; Valerie Petra identity; named-human review state; quiet Overall score; Valerie walkthrough; `Current State` with one or two strengths, main constraint and first priority.
+2. **Human-approved diagnosis** — objective strength, strongest surface, binding-constraint statement and the marked Demand System leak. **Competitive Decision Analysis sits inside this decision section, before Top 3:** Comparison Matrix, named Competitor Cards/evidence, recurring positive and negative review themes, `Defend / Close / Differentiate / Do not copy`, and the Market Practice Gap decision when applicable. It is not a fifth scored surface.
+3. **Exactly Top 3 priorities** — exactly three human-approved items in implementation order, with `why now`, expected effect, complexity/impact and task references. Top 3 is not a substitute for the full inventory or task plan.
+4. **Complete Remediation Plan** — every actionable problem maps to executable tasks showing outcome, why/evidence, implementation steps, prerequisites/access/skills, dependencies and sequence, accountable owner role, effort/complexity, implementation risk and mitigation, horizon, acceptance evidence (`done when`) and first next action.
+5. **Four-Surface score navigator** — Search, Website, Social and Reputation with the 30/25/15/30 heuristic display weights; Cross-Surface is separate; Overall is secondary and appears only when all four surfaces are sufficient. Scores never determine Sprint scope.
+6. **Evidence drill-down** — every metric exposes source/reference, collection date, raw value, approval/availability state and Class A/B status. Unsupported, stale, inaccessible, rejected or insufficiently covered evidence displays the relevant unavailable reason or `Insufficient evidence`; it is never converted to zero or filled by self-report/Class B assumptions.
+7. **Full Problem Inventory** — all evidence-backed diagnosed, monitor and explicitly non-actionable items, including lower-priority findings, with stable links to evidence and remediation tasks.
+8. **Do Not Fund Yet** — one human-approved recommendation, evidence-backed rationale and explicit conditions for revisiting it.
+9. **Four implementation paths** — implement in-house, use another provider, defer, or ask CAESTHETIC to scope selected work. The report, evidence pack and complete task plan belong to the client; there is no lock-in.
+10. **Why CAESTHETIC / coordination burden** — an honest convenience case based on already assembled evidence, known dependency order, coordination cost and acceptance logic. Numerical issue/system/dependency/specialist counts may render only when derived from the approved report; unavailable counts are omitted, never estimated for persuasion. No Score task is implied to be included in a Sprint.
+11. **Illustrative 30-day sequencing preview** — a dependency-aware example of how selected work could be sequenced. It is not purchased scope, a delivery promise or a results guarantee; written Sprint scope is confirmed separately.
+12. **Optional Sprint CTA** — one calm commercial CTA to `/sprint/`, after the report has delivered value. It must not claim that the first two priorities, or any other fixed subset of the Score, are automatically covered.
+13. **Methodology and limitations** — sources, collection windows/dates, competitor-selection method, limitations, unavailable evidence, Class A ratio and every labelled Class B method/assumption.
 
 Surface sections should carry the useful diagnostic evidence from the former long-form template:
 
 - Search: Local Falcon maps, Entity Integrity and branded/GBP evidence;
-- Website: conversion path, performance and mystery shopper;
+- Website: conversion path, performance and the `mystery_shopper` metric only when the permissioned evidence capability was actually used; its existence in the catalogue does not make it part of the standard Free Score workflow or walkthrough;
 - Reputation: 90-day review velocity, responses and named competitors;
 - Cross-Surface: treatment/positioning/proof/conversion/identity continuity;
 - Summary: objective strength, constraints, priorities, walkthrough, method, limitations and `do_not_do`.
@@ -365,7 +395,7 @@ Logical records are `score_case`, `candidate_evidence`, `verified_fact_set`, `dr
 6. Freeze the verified fact set. Final scores are calculated deterministically, and final narrative is compiled only from verified facts plus visibly labelled Class B items with method and assumptions.
 7. Validate `≥80%` Class A published findings, the surface coverage rules and every evidence reference. Pre-review AI content or an unnamed approval is a hard publication failure.
 8. Render and visually verify the cockpit. A named human approves a versioned report with reviewer and timestamp before the private link is delivered.
-9. Valerie Petra records the 4–6 minute walkthrough: objective strength → binding constraint → decisive evidence → top priorities/tasks and dependency order → what not to do → optional implementation path. It may explain why the 30-Day Sprint is convenient, but may not imply guaranteed or already-purchased scope.
+9. Valerie Petra records the 3–8 minute walkthrough under `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`. That SSOT alone owns the spoken sequence, presenter/screen mix, subtitles and production rules; this detailed report spec must not duplicate or override them. The walkthrough may explain why the 30-Day Sprint is convenient, but may not imply guaranteed or already-purchased scope.
 
 ### 7.1 Controlled learning layer
 

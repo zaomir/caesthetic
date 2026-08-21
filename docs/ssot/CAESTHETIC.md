@@ -257,9 +257,9 @@ The cockpit must be self-contained enough for the owner to implement the plan in
 
 The honest `Why CAESTHETIC / Why the 30-Day Sprint` block explains convenience, not exclusivity: CAESTHETIC has already assembled the evidence and diagnosis, knows the dependency order and can implement, coordinate and accept the selected changes inside a separately confirmed written 30-day scope. It must show real workload, specialist needs, dependencies, coordination cost and implementation risks without implying that every Score task is included. After the Sprint the client may continue in-house, use another provider, choose an optional CAESTHETIC path or stop.
 
-Delivery: private/noindex `/score/<unguessable-slug>/` owner cockpit plus a **4–6 minute Valerie Petra recorded walkthrough** covering the strength, binding constraint, decisive evidence, priorities/tasks, dependency order, `do not do` and optional Sprint path without a guaranteed-results claim.
+Delivery: private/noindex `/score/<unguessable-slug>/` owner cockpit plus a **3–8 minute Valerie Petra recorded walkthrough**. The route stays outside the sitemap and is not password-gated by default. Walkthrough content and production authority remain exclusively in `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; the detailed report spec may reference but not override it.
 
-Public site should show several representative browsable Growth Score examples. Demo/synthetic examples must be labelled; real examples require truthful attribution and permission/redaction as appropriate.
+The public site may link to representative synthetic Growth Score examples, but every `/score/` route remains `noindex` and outside the sitemap. Demo/synthetic examples must be conspicuously labelled, use fictional data and state that no client relationship is represented. Real examples require truthful attribution and permission/redaction as appropriate.
 
 ### 4.1 ManyChat username-first prefill
 

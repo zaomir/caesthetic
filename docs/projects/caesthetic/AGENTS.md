@@ -22,7 +22,7 @@ Read in order:
 - Sprint Extension is $2,500 per additional 30 days, optional/unpublished and only offered after Day 30 for justified finite implementation.
 - Growth System uses one client-specific Growth Budget: its Fixed Management Fee is a visible line inside the budget, variable inputs use the remaining approved funds, and any legally available Performance Fee sits separately above the budget. No reusable recurring amount, rate or cap.
 - Growth System is recurring ownership, not hours/output quotas; request classes and add-on routing come from the operating-model SSOT.
-- Through Day 30 communication is email-only; a 4–6 minute Valerie Petra video is standard only for the free Growth Score.
+- Through Day 30 communication is email-only; a 3–8 minute Valerie Petra video is standard only for the free Growth Score and follows `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 - No fabricated proof, ranking/patient/revenue guarantees, prohibited review gating, or deliberate unfinished work.
 
 ## Runtime
