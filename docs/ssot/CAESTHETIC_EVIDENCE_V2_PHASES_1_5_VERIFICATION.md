@@ -15,8 +15,8 @@ publication_performed: false
 
 ## Executed scope
 
-Implementation branch: `codex/cae-evidence-v2-phases-1-5`  
-Draft PR: [#894](https://github.com/zaomir/grainee-v2/pull/894)  
+Implementation branch: `codex/cae-evidence-v2-phases-1-5`
+Draft PR: [#894](https://github.com/zaomir/grainee-v2/pull/894)
 Verified implementation head: `644a42711893c585b13269f1d8dde7197e50c81c`
 
 | Phase | Result |

@@ -20,4 +20,3 @@ test("CAESTHETIC outreach copy kit remains structurally and policy valid", () =>
   assert.match(library, /draft_not_sent/);
   assert.doesNotMatch(library, /\$2,400|48-hour|Initial partner InMail sent 2026-08-20/);
 });
-
