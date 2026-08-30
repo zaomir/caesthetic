@@ -2,7 +2,7 @@
 owner: CAESTHETIC
 status: active
 project: caesthetic
-updated: 2026-08-13
+updated: 2026-08-28
 standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 ---
 
@@ -15,8 +15,14 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 | `/sprint/` | Explain finite implementation | Evaluate paid next step | Scope and fixed pricing | Request scope and payment instructions | index |
 | `/growth-system/` | Explain recurring operating ownership | Evaluate optional ongoing work | Growth Budget parts, minimum scope and evidence maturity | Discuss Growth System | index |
 | `/pricing/` | Compare the public product ladder | Understand commercial model | Generated public-stage pricing and client-specific recurring boundaries | Choose a stage | index |
+| `/beauty-salons/` | English beauty-salon vertical | Diagnose salon growth constraints | Salon demand route and synthetic evidence ledger | Request Salon Growth Score | index |
+| `/es/salones-de-belleza/` | Spanish beauty-salon vertical | Diagnose salon growth constraints in Spanish | Same localized salon decision system | Request Salon Growth Score | index |
+| `/ru/salony-krasoty/` | Russian beauty-salon vertical | Diagnose salon growth constraints in Russian | Same localized salon decision system | Request Salon Growth Score | index |
+| `/fr/salons-de-beaute/` | French beauty-salon vertical | Diagnose salon growth constraints in French | Same localized salon decision system | Request Salon Growth Score | index |
 | `/about/` | Public identity and legal operator | Understand who leads delivery | Valerie Petra and entity details | Start with Growth Score | index |
 | `/support/` | Customer support and safe-contact guidance | Resolve a service, billing, privacy or technical question | Verified support address and legal entity | Email customer support | index |
+| `/privacy/` | Compatibility alias for external merchant profiles | Reach the canonical Privacy Policy | Canonical redirect to `/legal/privacy/` | Continue to policy | noindex |
+| `/terms/` | Compatibility alias for external merchant profiles | Reach the canonical Terms of Use | Canonical redirect to `/legal/terms/` | Continue to terms | noindex |
 | `/legal/cookies/` | Disclose measurement state | Understand tracking | Conditional analytics and no replay | Contact | index |
 | `/score/demo-medical-aesthetics-search-gap/` | Demonstrate the full written score structure | Inspect report structure | Synthetic evidence ledger | View all demos | noindex |
 | `/score/demo-injector-practice-booking-friction/` | Demonstrate insufficient evidence | Inspect publication threshold | Synthetic evidence ledger | View all demos | noindex |
@@ -24,13 +30,26 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 
 ## Internal linking
 
-- `/` links to `/growth-score/` and `/growth-system/`; the global navigation links Growth Score, Sprint, Growth System, Pricing and Support.
+- `/` links to `/growth-score/` and `/growth-system/`; primary navigation remains focused on the aesthetic-practice funnel.
+- The global footer links the isolated `/beauty-salons/` vertical; each salon locale links all four locale routes directly.
 - `/growth-score/` links to every demo and the request form. `/pricing/` links to every public product stage.
 - Every demo links back to the demo index. Demo routes stay out of the sitemap.
 
+## Locale contract
+
+The salon routes are standalone static documents with reciprocal `hreflang` values `en`, `es`, `ru`, `fr` and `x-default` to `/beauty-salons/`. Locale choice is explicit; there is no automatic IP or browser-language redirect.
+
 ## Redirects and legacy
 
-The retired Aurora sample remains a noindex explanation page and links to the labeled demos.
+The retired Aurora sample remains a noindex explanation page and links to the labeled demos. `/privacy/` and `/terms/` are noindex compatibility aliases for external merchant settings and immediately hand off to the canonical `/legal/` routes.
+
+Salon aliases keep safe query/UTM and 301 to the English Beauty Salons route:
+
+| From | To |
+|---|---|
+| `/beauty/` | `/beauty-salons/` |
+| `/go/new-salon-launch/` | `/beauty-salons/` |
+| `/go/salon-growth/` | `/beauty-salons/` |
 
 ## Brand assets (not nav)
 

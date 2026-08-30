@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE SSOT  
 **Date:** 2026-08-10  
-**Last reviewed:** 2026-08-17  
+**Last reviewed:** 2026-08-22
 **Project:** CAESTHETIC · Phase 1 · United States  
 **Surface:** `B_CAE_IG`  
 **Brand canon:** `docs/ssot/CAESTHETIC.md`  
@@ -12,6 +12,7 @@
 **Action conversion:** `docs/ssot/DELFIN_ACTION_CONVERSION_STRATEGY.md`  
 **Own Stories week pack:** `docs/ssot/CAESTHETIC_IG_STORY_TEMPLATES_WEEK.md`  
 **Placement + amplification:** `docs/ssot/CAESTHETIC_IG_CONTENT_PLACEMENT.md`  
+**Approved publishing / Hooppy routing:** `docs/ssot/HOOPPY_API.md` §11.1
 **Design:** `site-caesthetic/DESIGN.md`
 
 ## 0. Purpose
@@ -104,6 +105,134 @@ The project-specific Carousel Psychology Playbook is `docs/projects/caesthetic/o
 
 Reddit/forum material in that document is directional Class C VOC only: it may supply owner language and questions, but it is not evidence that a tactic works or that a result is typical. Published answers remain governed by this SSOT, the master CAESTHETIC canon and the Phase-1 evidence/rights/claims gate.
 
+### 4.2 Founder-approved pain-to-video production and Hooppy publishing flow
+
+Founder accepted 2026-08-22. This is the canonical recurring production flow
+for CAESTHETIC short-form editorial video. It does not reactivate the DEC-831
+Template Reel Factory exception and cannot bypass Reel System V3, evidence,
+claims, rights, privacy, visual QA or per-asset human approval.
+
+#### 1. Pain research and topic registry
+
+Continuously collect real owner/practice pain language from public sources such
+as Reddit, Instagram, reviews, professional communities and search questions.
+Normalize duplicate expressions into one pain cluster and preserve source URL,
+date, quotation/context, audience fit and provenance internally.
+
+Rank clusters by repeated occurrence, severity, Phase-1 ICP fit, commercial
+relevance, freshness and the availability of defensible evidence. A repeated
+complaint supports topic priority and owner language; it does **not** prove that
+a diagnosis, tactic or outcome is true. Reddit/forum/social material remains
+Class C VOC unless independently supported by stronger evidence.
+
+Maintain a ranked candidate bank, normally **50 founder-selectable topics**.
+The founder selects which topics enter production; no unselected topic is
+silently promoted into the publish queue.
+
+#### 2. Script and evidence plan
+
+For every selected topic, prepare a production row containing:
+
+- topic / pain cluster and target owner question;
+- one thesis, hook, script, CTA and intended platform variants;
+- evidence required for every material claim;
+- planned live/public screenshots, charts, diagrams, generated explanatory
+  visuals, B-roll and source/rights status;
+- claim class, uncertainty/estimate label, privacy risk and exclusions;
+- expected format, duration and aspect ratio.
+
+Observable screenshots, sourced data and verified artifacts may be evidence.
+Generated images, diagrams and mockups may explain a thesis but must never be
+presented as a real clinic, patient, review, result, interface capture or proof.
+
+#### 3. Two-week approval batch
+
+Assemble ready production rows into a rolling **two-week batch table**. The
+first founder gate approves the topic, script, evidence plan, visual plan and
+CTA. Approval must be explicit and recorded per row. `APPROVED_SCRIPT` permits
+production only; it does not permit publishing.
+
+#### 4. Production and platform adaptation
+
+After `APPROVED_SCRIPT`, create and fully QA the master video and platform
+variants. Short-video surfaces normally receive a validated 9:16 master and
+platform-specific packaging for Instagram Reels, Facebook Reels, TikTok and
+YouTube Shorts. LinkedIn receives a native professional adaptation rather than
+a blindly copied caption. Produce additional aspect ratios only where the
+destination format requires them.
+
+The executable v1 packaging contract is:
+
+| Platform | Rendered output | Required separate result |
+|---|---|---|
+| Instagram Reels | `1080×1920`, H.264/AAC MP4 | file, caption, SHA-256, status |
+| Facebook Reels | `1080×1920`, H.264/AAC MP4 | file, caption, SHA-256, status |
+| TikTok | `1080×1920`, H.264/AAC MP4 | file, caption, SHA-256, status |
+| YouTube Shorts | `1080×1920`, H.264/AAC MP4 | file, caption, SHA-256, Shorts setting |
+| LinkedIn | `1080×1920`, H.264/AAC MP4 | vertical file, professional caption, SHA-256, status |
+
+The pipeline must render five physical output files, even when four share the
+same dimensions. It writes them to
+`dropbox:SIMON_OPS/content/B_CAE_IG/{content_id}/{version}/{platform}/` and
+upserts the corresponding cells in the live SIMON_OPS
+`CAE_Creative_Pipeline` tab. A path or caption copied from another platform is
+not a completed platform result.
+
+The canonical short-video master is vertical `9:16`. When a platform offers
+both horizontal video and a vertical placement, use only the vertical
+placement; YouTube must be routed as a Short. Do not derive a horizontal video
+from a vertical source by crop, stretch, mirroring, background duplication or
+synthetic side-fill. If a future destination cannot accept a compliant
+vertical version, mark that destination `SKIPPED_UNSUPPORTED_VERTICAL` rather
+than manufacturing a horizontal asset. The current five CAESTHETIC Hooppy
+destinations all accept the validated `1080×1920` package.
+
+Run full decode and visual review, captions/audio QA, claim/source verification,
+rights/privacy review and the forbidden-content checks in §8. Record final file
+checksums so the approved asset cannot be silently replaced.
+
+#### 5. Final publish approval
+
+Return final rendered assets, captions, destinations and scheduled times to the
+`CAE_Creative_Pipeline` row. A second explicit per-row founder gate sets
+`approved_publish=TRUE`.
+Only that status permits upload or scheduling in Hooppy. Any material change to
+script, evidence, visual, caption, destination or CTA invalidates the publish
+approval and requires a new version.
+
+#### 6. Hooppy scheduling and live report
+
+Hooppy is a delivery executor, not the editorial SSOT or approval system.
+Upload only `APPROVED_PUBLISH` assets, use the exact allowlisted CAESTHETIC
+destination, create a separate scheduled record per platform, and retain the
+platform-specific text. Do not enable blind cross-posting, AI rewrite, RSS,
+unapproved repeats or immediate publishing by default.
+
+The production table must track at minimum:
+
+`content_id · version · pain cluster · sources · evidence plan · script · asset paths/checksums · platform variant · APPROVED_SCRIPT · APPROVED_PUBLISH · Hooppy post ID · scheduled time/timezone · delivery status · live URL · verification time · error/retry note`
+
+Executable worker:
+`scripts/caesthetic/hooppy-creative-pipeline.py`. Build writes the five
+platform cells; scheduling must then read the approved row back with
+`--from-sheet CONTENT_ID VERSION`. Scheduling from a newly rebuilt asset is
+forbidden because it would invalidate the reviewed checksum.
+
+Hooppy queue/archive state is not proof of publication. After the scheduled
+time, verify every destination live for the correct identity, format, media,
+caption, CTA and absence of duplicates. Mark `LIVE` only after recording the
+actual platform URL. Performance review uses platform analytics, UTM/GA4,
+Growth Score submissions, qualified conversations and revenue, not Hooppy
+delivery counts alone.
+
+Entertainment files added to the permanent Dropbox inbox are routed through
+`CAE_Entertainment_Rotation`, not directly to Hooppy. Upload is discovery only.
+The recurring selector may reuse an unchanged exact platform package only while
+the row remains fully green for rights, business-account audio, privacy, claims,
+visual QA and founder publish approval. New approved items are served before a
+new cycle of older items. Full rules and folder routing are canonical in
+`docs/projects/caesthetic/operations/ig-growth/11-ENTERTAINMENT_REELS_ROTATION_PLAN.md` §13.
+
 ## 5. Regular cadence
 
 Baseline after the launch grid is constrained by publishable Evidence and
@@ -186,7 +315,7 @@ Every city asset must preserve source/evidence provenance internally.
 
 Content production flow:
 
-`V3 FREEZE → research/evidence → PUBLISHABLE gate → draft → claim/rights/privacy check → visual brief → founder APPROVED → publish → response operations → performance and revenue review`
+`V3 FREEZE → pain/VOC research → ranked topic bank → founder topic selection → script + evidence plan → two-week batch → APPROVED_SCRIPT → production + platform variants → claim/rights/privacy/visual QA → APPROVED_PUBLISH → Hooppy schedule → live URL verification → response operations → performance and revenue review`
 
 The DEC-831 Template Reel Factory exception is on hold. It cannot bypass V3 or
 sensitive-evidence second-pair-of-eyes QA.

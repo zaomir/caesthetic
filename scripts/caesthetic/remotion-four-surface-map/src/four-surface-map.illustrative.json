@@ -1,0 +1,47 @@
+{
+  "manifest_version": "cae-render-manifest@0.1.0",
+  "design_system_version": "caesthetic-reel@1.0.0",
+  "content_id": "CAE-4444-DEMO-001",
+  "spec_version": "Reel System V3.2",
+  "render_purpose": "component_demo",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration_in_frames": 180
+  },
+  "audio_timeline": {
+    "source": "editorial_fixture"
+  },
+  "scenes": [
+    {
+      "scene_id": "S01",
+      "type": "four_surface_map",
+      "mode": "illustrative",
+      "locale": "en-US",
+      "start_frame": 0,
+      "end_frame": 180,
+      "headline": "PATIENTS CROSS-CHECK",
+      "practice_label": "YOUR PRACTICE",
+      "binding_constraint": {
+        "surface_id": "website"
+      },
+      "growth_score_return": {
+        "target_surface_id": "website"
+      },
+      "timeline_cues": [
+        {"cue_id": "C01", "event": "surface_introduced", "surface_id": "search", "at_frame": 30},
+        {"cue_id": "C02", "event": "surface_introduced", "surface_id": "website", "at_frame": 45},
+        {"cue_id": "C03", "event": "surface_introduced", "surface_id": "social", "at_frame": 70},
+        {"cue_id": "C04", "event": "surface_introduced", "surface_id": "reputation", "at_frame": 95},
+        {"cue_id": "C05", "event": "binding_constraint_selected", "at_frame": 120},
+        {"cue_id": "C06", "event": "growth_score_returned", "at_frame": 145}
+      ],
+      "evidence": {
+        "epistemic_label": "Illustrative",
+        "evidence_ids": [],
+        "public_label": "MODEL EXAMPLE — NOT A CLIENT CASE"
+      }
+    }
+  ]
+}

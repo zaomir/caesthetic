@@ -8,6 +8,9 @@ const SITE = resolve(REPO, 'site-caesthetic');
 const sprint = readFileSync(resolve(SITE, 'sprint/index.html'), 'utf8');
 const growthScore = readFileSync(resolve(SITE, 'growth-score/index.html'), 'utf8');
 const growthJs = readFileSync(resolve(SITE, 'assets/js/growth.js'), 'utf8');
+const configJs = readFileSync(resolve(SITE, 'assets/js/caesthetic-config.js'), 'utf8');
+const terms = readFileSync(resolve(SITE, 'legal/terms/index.html'), 'utf8');
+const paymentTerms = readFileSync(resolve(SITE, 'legal/payment-terms/index.html'), 'utf8');
 
 test('public Sprint delivery stays email-only and ends with a written Day-30 report', () => {
   assert.match(sprint, /3–6 main constraints/i);
@@ -54,4 +57,23 @@ test('Sprint requests written scope and payment instructions instead of starting
   assert.match(growthJs, /Scope request — 30-Day Growth Sprint/);
   assert.match(growthJs, /track\("sprint_scope_requested"/);
   assert.doesNotMatch(sprint + growthJs, /data-cae-checkout|Start Stripe Checkout|Request a secure payment link|supports card and ACH|ACH refunds|PandaDoc|DocuSign|checkout_started|payment_link_requested/i);
+});
+
+test('public Sprint has no reusable provider URL; payment path is signed-order-first and controlled by CAESTHETIC', () => {
+  assert.doesNotMatch(configJs, /buy\.stripe\.com|wise\.com\/pay/i);
+  assert.doesNotMatch(sprint + growthJs, /buy\.stripe\.com|wise\.com\/pay|data-cae-checkout/i);
+  assert.match(configJs, /approvedSprintPaymentPolicy:\s*"signed_order_then_controlled_payment_request"/);
+  assert.match(configJs, /functions\/v1\/caesthetic-payment/);
+  assert.match(sprint, /Sprint Start Date: the later of the signed Order, cleared payment, and completion of the Day-0 Access Gate/i);
+  assert.match(sprint, /\/legal\/payment-terms\//);
+});
+
+test('Terms and Payment Terms cover signed-order payment request, authorized payer and dispute contact without waiving bank dispute rights', () => {
+  assert.match(terms, /client-specific payment request is issued only after the applicable written order is signed/i);
+  assert.match(terms, /Authorized payer/i);
+  assert.match(paymentTerms, /does not publish an open or reusable provider payment URL/i);
+  assert.match(paymentTerms, /does not limit any right you have to dispute a charge with your bank or card issuer/i);
+  assert.match(paymentTerms, /protected health information/i);
+  assert.match(paymentTerms, /missing reference, partial payment, overpayment/i);
+  assert.match(paymentTerms, /personal account/i);
 });

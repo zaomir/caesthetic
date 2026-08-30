@@ -1,0 +1,49 @@
+{
+  "name": "@caesthetic/remotion-four-surface-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fail-closed CAESTHETIC FourSurfaceMap Remotion renderer",
+  "scripts": {
+    "prepare:fonts": "node scripts/prepare-fonts.mjs",
+    "postinstall": "npm run prepare:fonts",
+    "prebuild": "npm run prepare:fonts",
+    "build": "tsc --noEmit",
+    "test:schema": "jest --runInBand tests/validation.spec.ts",
+    "pretest:visual": "npm run prepare:fonts",
+    "test:visual": "jest --runInBand tests/four-surface-map.spec.ts",
+    "pretest:font": "npm run prepare:fonts",
+    "test:font": "jest --runInBand tests/missing-font.spec.ts",
+    "test": "npm run build && npm run test:schema && npm run test:evidence-v2 && npm run test:visual && npm run test:font && npm run test:synthetic-e2e && npm run test:real-shadow",
+    "pretest:visual:update": "npm run prepare:fonts",
+    "test:visual:update": "jest --runInBand tests/four-surface-map.spec.ts -u",
+    "test:evidence-v2": "node --test tests/evidence-v2-shadow.test.mjs",
+    "test:synthetic-e2e": "node scripts/run-synthetic-e2e.mjs",
+    "test:real-shadow": "node scripts/run-real-shadow-4444.mjs"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.515",
+    "@remotion/cli": "4.0.515",
+    "@remotion/renderer": "4.0.515",
+    "lucide-react": "1.33.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.515",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@ibm/plex-mono": "2.5.0",
+    "@ibm/plex-sans": "1.1.0",
+    "@types/jest": "29.5.14",
+    "@types/jest-image-snapshot": "6.4.1",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "jest": "29.7.0",
+    "jest-image-snapshot": "6.5.2",
+    "ts-jest": "29.4.12",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

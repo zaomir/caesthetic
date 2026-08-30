@@ -1,0 +1,22 @@
+{
+  "schema": "caesthetic-partner-public-enrichment-summary/v1",
+  "observed_at": "2026-08-22T00:49:00Z",
+  "status": "public_candidates_unverified_fail_closed",
+  "rows": 8,
+  "companies_with_public_email_candidate": 6,
+  "companies_without_public_email_candidate": 2,
+  "provider_verified_emails": 0,
+  "suppression_checked": false,
+  "writes_performed": false,
+  "private_artifact": "/tmp/caesthetic-linkedin-partner-audit-20260822/public-enrichment.json",
+  "results": [
+    {"company": "Geneo", "public_email_candidate_count": 0, "status": "needs_public_contact_enrichment"},
+    {"company": "Symplast", "public_email_candidate_count": 2, "status": "needs_emailverifier_and_suppression"},
+    {"company": "The Perfect Derma Peel", "public_email_candidate_count": 2, "status": "needs_emailverifier_and_suppression"},
+    {"company": "Adoreal", "public_email_candidate_count": 0, "status": "needs_public_contact_enrichment"},
+    {"company": "Advanced MedAesthetic Partners", "public_email_candidate_count": 1, "status": "needs_role_fit_emailverifier_and_suppression"},
+    {"company": "Aesthetic Partners", "public_email_candidate_count": 1, "status": "needs_emailverifier_and_suppression"},
+    {"company": "American Academy of Aesthetic Medicine", "public_email_candidate_count": 5, "status": "needs_role_fit_emailverifier_and_suppression"},
+    {"company": "AMS Solutions", "public_email_candidate_count": 1, "status": "lower_priority_needs_emailverifier_and_suppression"}
+  ]
+}

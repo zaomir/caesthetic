@@ -1,10 +1,11 @@
 # CAESTHETIC Reel Scenario Registry
 
 This namespace is the machine-readable scenario authority for CAESTHETIC
-Reels. It supports the default Reel System V3.2 (`DEC-838`, amended by
-`DEC-839` and `DEC-840`) and explicitly tagged parallel formats. Format B v1.0
+Reels. It supports the default Reel System V3.3 (`DEC-838`, amended by
+`DEC-839`, `DEC-840` and the founder-locked Format A acceptance on 2026-08-22)
+and explicitly tagged parallel formats. Format B v1.0
 is governed by `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md`; it does not replace or
-recompile Format A/V3.2 episodes.
+recompile Format A/V3.3 episodes.
 
 ## Contract
 
@@ -50,6 +51,7 @@ REGISTRY.yaml -> episodes/<episode>.yaml -> pinned SSOT/method/evidence refs
 
 ## Canonical references
 
+- `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (ops / ElevenLabs / Kling / agent answers)
 - `docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md`
 - `docs/ssot/CAESTHETIC_REEL_FORMAT_B.md`
 - `docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md` (proposed; no production authority until Format B v1.1)

@@ -2,11 +2,14 @@
 owner: CAESTHETIC / platform ops
 status: active
 created: 2026-08-16
-updated: 2026-08-18
-authority: DEC-834 extension, amended by DEC-840
+updated: 2026-08-26
+authority: DEC-834 extension, amended by DEC-840, DEC-854
 ---
 
 # CAESTHETIC Daily Growth Note Automation Layer
+
+**Implementation and agent answers:** `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md`
+(DEC-854). This file keeps the short stage diagram only.
 
 ## Purpose
 

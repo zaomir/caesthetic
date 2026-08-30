@@ -1,0 +1,6 @@
+node_modules/
+dist/
+public/fonts/*.woff2
+public/fonts/LICENSE-IBM-PLEX.txt
+artifacts/review/*.png
+artifacts/review/*.json

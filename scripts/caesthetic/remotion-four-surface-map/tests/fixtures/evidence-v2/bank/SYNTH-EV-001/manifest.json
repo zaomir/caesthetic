@@ -1,0 +1,49 @@
+{
+  "evidence_manifest_version": "cae-evidence-unit@2.0.0",
+  "unit_id": "SYNTH-EV-001",
+  "unit_revision": 1,
+  "source": {
+    "source_type": "public_url",
+    "reference": "https://example.invalid/synthetic-source",
+    "captured_at": "2026-08-24T09:00:00.000Z"
+  },
+  "capture_date": "2026-08-24",
+  "epistemic_label": "Observed",
+  "verified_observation": "Synthetic fixture: the website booking action is absent.",
+  "method_scope": null,
+  "authorized_public_claims": [
+    {
+      "claim_id": "CL-HEADLINE",
+      "claim_type": "text",
+      "locale": "en-US",
+      "value": "WEBSITE BLOCKS GROWTH"
+    },
+    {
+      "claim_id": "CL-SURFACE",
+      "claim_type": "surface_id",
+      "value": "website"
+    }
+  ],
+  "rights_status": "public_source",
+  "consent_ref": null,
+  "rights_valid_until": "2099-01-01T00:00:00.000Z",
+  "redaction_status": "clean",
+  "reviewer": "Synthetic CI Reviewer",
+  "reviewed_at": "2026-08-24T09:05:00.000Z",
+  "lifecycle_state": "CAPTURED",
+  "publishable_attestation_id": null,
+  "clean_artifacts": [
+    {
+      "artifact_id": "ART-001",
+      "relative_path": "clean/website.txt",
+      "media_type": "text/plain",
+      "byte_size": 61,
+      "sha256": "196f90c46fb08ac4dd05433fae58fefafa52d69a36c5522233078da84da0e323",
+      "created_at": "2026-08-24T09:00:00.000Z",
+      "expires_at": "2099-01-01T00:00:00.000Z"
+    }
+  ],
+  "reuse": [],
+  "created_at": "2026-08-24T09:00:00.000Z",
+  "updated_at": "2026-08-24T09:05:00.000Z"
+}

@@ -34,6 +34,7 @@ test("optional enrichment is allowlisted and updates only the matching case iden
     "main_concern",
     "relevant_competitors",
     "preferred_contact_phone",
+    "location_count",
   ]) assert.match(source, new RegExp(`${field}: \\d+`));
 
   assert.match(source, /self_reported_field_not_allowed/);
@@ -62,6 +63,13 @@ test("skip and abandonment need no state-changing backend call", () => {
   assert.doesNotMatch(source, /intake_stage\s*===?\s*["']skip/);
   assert.doesNotMatch(migration, /optional_(?:required|gate)/i);
   assert.match(migration, /intake_state IN \('required_complete', 'optional_saved'\)/);
+});
+
+test("beauty salon required intake persists vertical and locale without overwriting optional fields", () => {
+  assert.match(source, /clip\(body\.vertical, 40\) === "beauty_salon"/);
+  assert.match(source, /\["en", "es", "ru", "fr"\]\.includes\(clip\(body\.locale, 8\)\)/);
+  assert.match(source, /mergedSelfReported\.vertical = existingMeta\.vertical/);
+  assert.match(source, /mergedSelfReported\.locale = existingMeta\.locale/);
 });
 
 test("required intake creates an owner_intake score case and TEST marker prefixes notifications", () => {

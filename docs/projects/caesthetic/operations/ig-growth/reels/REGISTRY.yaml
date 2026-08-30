@@ -1,13 +1,26 @@
 registry_version: 2
 authority:
-  system: CAESTHETIC Reel System V3.2
-  decision: DEC-840
+  system: CAESTHETIC Reel System V3.3
+  decision: founder-locked Format A production acceptance 2026-08-22
   ssot: docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md
 enumeration_policy:
   registry_is_only_enumeration_point: true
   episode_body_authority: referenced_yaml
   chat_history_is_authority: false
 episodes:
+  - episode_id: CAE-REEL-A-IG-4444-001
+    slug: instagram-interest-no-booking
+    title: "YOUR INSTAGRAM GETS ENGAGEMENT — BUT NOT APPOINTMENTS."
+    series: FORMAT A EVIDENCE REELS
+    track: cold_reach
+    status: accepted_reference_master
+    path: episodes/003-instagram-interest-no-booking.yaml
+    topic: instagram-interest-no-booking
+    question_id: null
+    audience_question: Why does Instagram engagement not turn into appointments?
+    spec_version: "Reel System V3.3 — Format A"
+    latest_output: "dropbox:Projects/CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-A-IG-4444-001/final/CAE-REEL-A-IG-4444-001-V3-KARAOKE-NO-BG.mp4"
+    publication: approved_not_verified_live
   - episode_id: CAE-REEL-B-001
     slug: 200k-trust-leak-format-b
     title: "A PRACTICE CAN MAKE $200K A MONTH — AND STILL LOSE PATIENTS EVERY DAY."

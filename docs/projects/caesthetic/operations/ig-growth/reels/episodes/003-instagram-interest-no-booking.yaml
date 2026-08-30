@@ -1,0 +1,158 @@
+episode_id: CAE-REEL-A-IG-4444-001
+slug: instagram-interest-no-booking
+title: "YOUR INSTAGRAM GETS ENGAGEMENT — BUT NOT APPOINTMENTS."
+series: FORMAT A EVIDENCE REELS
+track: cold_reach
+status: accepted_reference_master
+
+format_system: "CAESTHETIC Reel System V3.3 — Format A"
+spec_ref: docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md#3b-founder-locked-format-a--nine-scene-evidence-journey
+compiled_against_git_sha: null
+topic: instagram-interest-no-booking
+objective: >-
+  Show an aesthetic-practice owner why visible Instagram engagement can fail to
+  produce appointments when the patient meets excess choice or contradictory
+  next steps across Instagram, Website, Reputation and Maps.
+thesis: >-
+  Instagram starts the journey. Align all four decision surfaces around one
+  booking action and destination so attention has a clear path to Inquiry.
+method: "4444 / Four Surfaces"
+cta:
+  action: "DM 4444 FOR A CROSS-SURFACE CHECK"
+  single_action: true
+  destination_account: "Instagram @caesthetic.growth"
+
+format:
+  class: Evidence Reel
+  canvas: {width: 1080, height: 1920, aspect_ratio: "9:16"}
+  frame_rate: 30
+  measured_duration_s: 78.166667
+  language: en-US
+
+spoken_script: |-
+  Your Instagram can look busy and successful while generating almost no appointments.
+  Watch the journey. A patient opens the profile, chooses among several links, chooses again, reaches pricing, and still cannot complete a booking. Every extra decision adds friction until they leave.
+  The problem is not the post. It is what happens after the post.
+  Patients may move from social to your website, then cross-check reviews and Maps before contacting you. Instagram starts the journey; the other surfaces either build confidence or break it.
+  So those four surfaces must operate as one connected decision system.
+  Here, each surface gives a different next step. The patient has to decide which instruction is true, and that uncertainty replaces trust.
+  The correction is not more content. It is one clear action everywhere.
+  Use the same booking language and destination across every channel. Then every route becomes shorter, easier to understand, and easier to complete.
+  The four-four-four-four method aligns the journey, removes unnecessary taps, and turns attention into a clear path to an appointment. Use the final prompt to request your cross-surface check.
+
+audio_master:
+  synthesis_scope: full_reel_single_master
+  provider: ElevenLabs
+  voice_id: lxYfHSkYm1EzQzGhdbfc
+  language: en-US
+  no_leading_silence: true
+  continuous_voice: true
+  per_scene_tts_allowed: false
+  hum_removed: true
+  measured_output:
+    final_codec: AAC
+    sample_rate_hz: 48000
+    channels: 2
+    integrated_mean_db: -16.3
+    peak_db: -1.5
+    no_silence_over_s: 1.0
+
+presenter:
+  identity: Valerie
+  provider: HeyGen
+  talking_head_scenes: [S01, S03, S05, S07]
+  continuity_lock:
+    face: same
+    hair: same
+    wardrobe: orange satin top
+    background_and_light: same universe
+    voice_source: audio_master
+  provider_must_not_resynthesize_voice: true
+
+captions:
+  mode: word_timed_karaoke
+  background: none
+  inactive: cream_or_white_with_thin_navy_outline_and_glyph_shadow
+  active: burgundy_or_crimson_with_cream_outline
+  placement: reels_safe_zone_dynamic_evidence_avoidance
+
+scenes:
+  - scene_id: S01
+    timing_s: {start: 0.0, end: 4.9695}
+    delivery_mode: on_camera
+    role: hook
+    spoken_text: "Your Instagram can look busy and successful while generating almost no appointments."
+    visual: "Valerie plus a moving lower slider of four real high-engagement Instagram examples."
+  - scene_id: S02
+    timing_s: {start: 4.9695, end: 19.4125}
+    delivery_mode: voice_over
+    role: failed_patient_journey_evidence
+    spoken_text: "Watch the journey. A patient opens the profile, chooses among several links, chooses again, reaches pricing, and still cannot complete a booking. Every extra decision adds friction until they leave."
+    visual: "Instagram post → bio/three links → Linktree/six buttons → website/pricing → no booking button → STOP/exit; searching question/arrow follows each choice."
+  - scene_id: S03
+    timing_s: {start: 19.4125, end: 24.0445}
+    delivery_mode: on_camera
+    role: diagnosis_bridge
+    spoken_text: "The problem is not the post. It is what happens after the post."
+    visual: "Valerie, same locked look as S01."
+  - scene_id: S04
+    timing_s: {start: 24.0445, end: 36.142}
+    delivery_mode: voice_over
+    role: four_surface_journey_evidence
+    spoken_text: "Patients may move from social to your website, then cross-check reviews and Maps before contacting you. Instagram starts the journey; the other surfaces either build confidence or break it."
+    visual: "Patient → ? → Inquiry; ? becomes red cross; then live path Patient → Instagram → Website → Reputation → Maps → Inquiry; central burgundy check settles last."
+  - scene_id: S05
+    timing_s: {start: 36.142, end: 41.0295}
+    delivery_mode: on_camera
+    role: system_bridge
+    spoken_text: "So those four surfaces must operate as one connected decision system."
+    visual: "Valerie, same locked look as S01."
+  - scene_id: S06
+    timing_s: {start: 41.0295, end: 50.0565}
+    delivery_mode: voice_over
+    role: disagreement_evidence
+    spoken_text: "Here, each surface gives a different next step. The patient has to decide which instruction is true, and that uncertainty replaces trust."
+    visual: "Conflicting surface actions collide at a central burgundy mismatch/alert; trust breaks and patient exits."
+  - scene_id: S07
+    timing_s: {start: 50.0565, end: 55.5595}
+    delivery_mode: on_camera
+    role: correction_bridge
+    spoken_text: "The correction is not more content. It is one clear action everywhere."
+    visual: "Valerie, same locked look as S01."
+  - scene_id: S08
+    timing_s: {start: 55.5595, end: 65.9795}
+    delivery_mode: voice_over
+    role: aligned_solution_evidence
+    spoken_text: "Use the same booking language and destination across every channel. Then every route becomes shorter, easier to understand, and easier to complete."
+    visual: "Same booking action on all four surfaces; short clean routes converge on Inquiry and a burgundy check."
+  - scene_id: S09
+    timing_s: {start: 65.9795, end: 78.158}
+    delivery_mode: voice_over
+    role: closing_card_and_cta
+    spoken_text: "The four-four-four-four method aligns the journey, removes unnecessary taps, and turns attention into a clear path to an appointment. Use the final prompt to request your cross-surface check."
+    visual: "Four surfaces converge on Inquiry; one closing CTA: DM 4444 for a cross-surface check."
+
+accepted_output:
+  dropbox_ref: "Projects/CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-A-IG-4444-001/final/CAE-REEL-A-IG-4444-001-V3-KARAOKE-NO-BG.mp4"
+  sha256: b213fbbff3193b04d8beb41ecb6cf203b5fd39aea0fdb0d4b0766749a3685da6
+  container: MP4
+  video: {codec: H.264, pixel_format: yuv420p, width: 1080, height: 1920, fps: 30}
+  audio: {codec: AAC, sample_rate_hz: 48000, channels: 2}
+  qa:
+    full_decode: passed
+    visual_contact_sheet: passed
+    hum_check: passed
+    silence_check: passed
+    subtitle_background: none
+
+publication:
+  status: approved_not_verified_live
+  destination: "Instagram @caesthetic.growth"
+  cross_post_allowed: false
+  rule: "A prepared upload is not publication; write the live URL only after final submission and platform verification."
+
+references:
+  - docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md
+  - docs/ssot/CAESTHETIC.md
+  - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
+  - docs/projects/caesthetic/operations/ig-growth/reels/episodes/003-instagram-interest-no-booking-publish.json

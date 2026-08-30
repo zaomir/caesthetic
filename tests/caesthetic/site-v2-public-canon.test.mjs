@@ -14,6 +14,8 @@ const sprint = read('sprint/index.html');
 const system = read('growth-system/index.html');
 const about = read('about/index.html');
 const support = read('support/index.html');
+const privacyAlias = read('privacy/index.html');
+const termsAlias = read('terms/index.html');
 const header = read('templates/header.html');
 const footer = read('templates/footer.html');
 const sitemap = read('sitemap.xml');
@@ -128,6 +130,21 @@ test('Customer Support publishes safe contact and legal details', () => {
   assert.match(header, /href="\/support\/"[^>]*data-nav="support"/);
   assert.match(footer, /href="\/support\/"/);
   assert.match(sitemap, /https:\/\/caesthetic\.com\/support\//);
+});
+
+test('Stripe-facing legal aliases resolve to canonical policies and publish company identity', () => {
+  assert.match(privacyAlias, /http-equiv="refresh" content="0; url=\/legal\/privacy\/"/);
+  assert.match(privacyAlias, /rel="canonical" href="https:\/\/caesthetic\.com\/legal\/privacy\/"/);
+  assert.match(termsAlias, /http-equiv="refresh" content="0; url=\/legal\/terms\/"/);
+  assert.match(termsAlias, /rel="canonical" href="https:\/\/caesthetic\.com\/legal\/terms\/"/);
+  for (const source of [privacyAlias, termsAlias, footer]) {
+    assert.match(source, /OXFORD PROJECTS LTD/);
+    assert.match(source, /16953799/);
+    assert.match(source, /128 City Road, London, United Kingdom, EC1V 2NX/);
+    assert.match(source, /info@caesthetic\.com/);
+  }
+  assert.match(privacyAlias + termsAlias, /noindex,follow/);
+  assert.doesNotMatch(sitemap, /https:\/\/caesthetic\.com\/(?:privacy|terms)\//);
 });
 
 test('public pricing artifact contains only public product prices and client-specific recurring terms', () => {

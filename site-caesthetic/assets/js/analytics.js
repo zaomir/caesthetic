@@ -8,6 +8,7 @@
 
   var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id"];
   var STORAGE_KEY = "caesthetic_utm";
+  var CONSENT_KEY = "caesthetic_analytics_consent";
   var DEBUG = new URLSearchParams(window.location.search).get("debug_analytics") === "1";
 
   window.dataLayer = window.dataLayer || [];
@@ -93,16 +94,85 @@
   function loadGa4(id) {
     if (!id || window.__caeGa4Loaded) return;
     window.__caeGa4Loaded = true;
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", id, { anonymize_ip: true, send_page_view: false });
     var s = document.createElement("script");
     s.async = true;
     s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
     document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () {
+  }
+
+  function analyticsConsent() {
+    try {
+      return window.localStorage.getItem(CONSENT_KEY) || "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function rememberAnalyticsConsent(value) {
+    try {
+      window.localStorage.setItem(CONSENT_KEY, value);
+    } catch (e) { /* ignore */ }
+  }
+
+  function setGoogleConsent(value) {
+    window.gtag = window.gtag || function () {
       window.dataLayer.push(arguments);
     };
-    window.gtag("js", new Date());
-    window.gtag("config", id, { anonymize_ip: true });
+    window.gtag("consent", "update", {
+      analytics_storage: value,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+  }
+
+  function setGoogleConsentDefault(value) {
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("consent", "default", {
+      analytics_storage: value,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+  }
+
+  function closeConsentBanner() {
+    var banner = document.querySelector("[data-cae-consent]");
+    if (banner) banner.remove();
+  }
+
+  function showConsentBanner() {
+    if (analyticsConsent() || document.querySelector("[data-cae-consent]")) return;
+    var banner = document.createElement("section");
+    banner.className = "cae-consent";
+    banner.setAttribute("data-cae-consent", "");
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-label", "Analytics preferences");
+    banner.innerHTML =
+      '<p>We use privacy-conscious analytics to understand site performance. Before acceptance, GA4 receives cookieless measurements only. No form answers or payment details are included. <a href="/legal/cookies/">Cookie Notice</a>.</p>' +
+      '<div class="cae-consent__actions">' +
+      '<button type="button" class="cae-btn cae-btn--ghost" data-cae-consent-reject>Reject analytics</button>' +
+      '<button type="button" class="cae-btn cae-btn--primary" data-cae-consent-accept>Accept analytics</button>' +
+      '</div>';
+    document.body.appendChild(banner);
+    banner.querySelector("[data-cae-consent-accept]").addEventListener("click", function () {
+      rememberAnalyticsConsent("granted");
+      setGoogleConsent("granted");
+      loadGa4(cfg().ga4MeasurementId);
+      closeConsentBanner();
+    });
+    banner.querySelector("[data-cae-consent-reject]").addEventListener("click", function () {
+      rememberAnalyticsConsent("denied");
+      setGoogleConsent("denied");
+      closeConsentBanner();
+    });
   }
 
   function loadMeta(id) {
@@ -130,8 +200,11 @@
 
   function bootPixels() {
     var c = cfg();
+    var consent = analyticsConsent();
+    setGoogleConsentDefault(consent === "granted" ? "granted" : "denied");
     if (c.ga4MeasurementId) loadGa4(c.ga4MeasurementId);
-    if (c.metaPixelId) loadMeta(c.metaPixelId);
+    if (consent === "granted" && c.metaPixelId) loadMeta(c.metaPixelId);
+    if (!consent) showConsentBanner();
   }
 
   function routeEvents() {

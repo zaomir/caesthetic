@@ -10,6 +10,7 @@ Read in order:
 7. Relevant detailed spec under `docs/caesthetic/`
 8. For public-site changes: `docs/ssot/WEBSITE_STUDIO_STANDARD.md` and `docs/ROUTER.md`
 9. For ship/deploy: `docs/ssot/CHATGPT_SERVER_OPS.md`
+10. For Reel automation, ElevenLabs/Kling access or “can we fully automate Reels”: `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (answer from §0)
 
 ## Invariants
 - `4444` and `Четверки` route only to the CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation.

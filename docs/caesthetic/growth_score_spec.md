@@ -1,10 +1,12 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 4.1
-updated: 2026-08-21
+version: 4.2
+updated: 2026-08-30
 scope: public intake, AI-assisted research, human approval, controlled learning, scoring and owner-cockpit contract
 parent: docs/ssot/CAESTHETIC.md
+related:
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 ---
 
 # CAESTHETIC Growth Score — detailed specification
@@ -330,6 +332,28 @@ Task volume must reflect the real evidence. Do not invent remediation to make th
 ## 6. Report content and renderer contract
 
 The renderer must accept both `reportKind=real` and `reportKind=demo`; it must not depend on a `demo-*` directory name.
+
+### 6.0 Canonical authoring template
+
+The single reusable schema-v4 authoring scaffold is `scripts/caesthetic/growth-score-report-template.mjs`, versioned by `GROWTH_SCORE_REPORT_TEMPLATE_VERSION`. Its metric sets are derived directly from the production `CANONICAL_METRICS` export; it is not a second metric catalogue and callers cannot supply weights.
+
+Running the module directly prints a fresh JSON scaffold. Every new real or demo report must start from that scaffold or consume `createGrowthScoreReportTemplate()` in its case builder. Never copy a prior practice's facts, scores, sources, reviewer, diagnosis or commercial language into a new report.
+
+The scaffold fails closed: `reportState=draft`; every metric has `raw_value=null`, `normalized_score=null` and `reviewer_status=pending`; named-human approval is absent; evidence references and case facts remain explicit placeholders. It cannot render or publish until case evidence, named-human approval, the applicable Competitive Decision Analysis and all evidence references pass the production gates and the report is promoted truthfully to `approved_report`.
+
+The Aesthetemed public-evidence report is the first production-approved example that consumes this template. It is an evaluation/example only; none of its facts, sources, findings or approval metadata are reusable defaults.
+
+The canonical implementation chain is:
+
+```text
+growth_score_spec.md
+→ growth-score-report-template.mjs
+→ case-specific builder/data
+→ growth-score-engine.mjs
+→ render-growth-score.mjs
+```
+
+There is no other reusable Growth Score report template, metric catalogue or renderer authority.
 
 ### 6.1 Canonical client-facing cockpit order
 

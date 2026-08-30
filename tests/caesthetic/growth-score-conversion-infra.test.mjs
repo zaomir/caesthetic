@@ -32,6 +32,19 @@ test("conversion analytics emit the canonical funnel events plus UTM persistence
   assert.match(growth, /referrer: document\.referrer/);
 });
 
+test("GA4 uses Advanced Consent Mode with denied storage by default", () => {
+  assert.match(analytics, /CONSENT_KEY = "caesthetic_analytics_consent"/);
+  assert.match(analytics, /setGoogleConsentDefault\(consent === "granted" \? "granted" : "denied"\)/);
+  assert.match(analytics, /if \(c\.ga4MeasurementId\) loadGa4\(c\.ga4MeasurementId\)/);
+  assert.match(analytics, /window\.gtag\("consent", "default"/);
+  assert.match(analytics, /window\.gtag\("consent", "update"/);
+  assert.match(analytics, /send_page_view: false/);
+  assert.match(analytics, /data-cae-consent-accept/);
+  assert.match(analytics, /data-cae-consent-reject/);
+  assert.match(analytics, /ad_storage: "denied"/);
+  assert.match(analytics, /ad_personalization: "denied"/);
+});
+
 test("Sprint public path does not invent Stripe checkout", () => {
   assert.match(sprint, /data-cae-sprint-inquiry/);
   assert.match(sprint, /data-cae-sprint-price/);

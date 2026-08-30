@@ -1,21 +1,21 @@
 ---
 owner: CAESTHETIC
 status: canonical
-version: 3.2
+version: 3.3
 created: 2026-08-16
-updated: 2026-08-18
-authority: DEC-838, amended by DEC-839 and DEC-840
+updated: 2026-08-22
+authority: DEC-838, amended by DEC-839, DEC-840 and founder-locked Format A production acceptance on 2026-08-22
 supersedes: V3.1 voice/audio orchestration and corresponding synthetic presenter ownership only
 ---
 
-# CAESTHETIC Reel System V3.2 — Daily Growth Note Video Pipeline
+# CAESTHETIC Reel System V3.3 — Daily Growth Note Video Pipeline
 
 ## 0. V3 FREEZE
 
-`V3.2` is the production authority from 2026-08-18. It is a narrow, versioned
-amendment to frozen `V3.1`: DEC-840 supersedes only voice/audio orchestration
-and the corresponding synthetic presenter ownership. All V3.1 evidence, CTA,
-Closing Card, measurement, privacy and brand-asset rules survive unchanged. A production batch
+`V3.3` is the production authority from 2026-08-22. It preserves the frozen
+V3.2 evidence, CTA, Closing Card, measurement, privacy and brand-asset rules
+and adds the founder-accepted Format A production contract in §3B. V3.2 remains
+the historical authority for batches compiled before this amendment. A production batch
 must record and use one spec version. Structure, timing, CTA route, Valerie role
 or evidence rules may change only through a versioned decision/change note; no
 silent edits during a batch. Production starts only after this freeze.
@@ -73,6 +73,12 @@ completion rate alone does not. The first comparable batch includes both:
 
 These are test ranges, not promises that one class will win. Business outcomes
 take precedence over completion rate.
+
+Founder-locked Format A episodes using the nine-scene evidence journey in §3B
+may run longer when the real screen journey requires inspection. The accepted
+reference implementation is `78.166667s`; this is a reference, not a new
+universal duration target. Never speed-read, remove evidence steps or insert
+silent filler merely to force a working range.
 
 ```text
 MOTION EDITORIAL HOOK
@@ -149,6 +155,10 @@ working budget is normally `15–25` spoken words for one thought. When an
 artifact needs inspection, use a silent evidence interval rather than filling
 it with speech.
 
+The preceding silent-interval option does **not** apply to founder-locked Format
+A §3B. In that contract, one continuous narration explains every evidence scene
+without restating the visible labels; there are no unvoiced evidence breaks.
+
 Evidence surfaces are clean editorial information surfaces, not Valerie cards.
 Use one short headline, at most 2–3 short lines of explanation and, only when
 useful, one real artifact. Crop for phone legibility. One card carries one
@@ -164,6 +174,108 @@ may be voiced by Valerie as voice-over.
 
 The conclusion is one decision implication. A single CTA seed may be spoken
 here before the final frame. It does not add Evidence.
+
+### 3B. Founder-locked Format A — nine-scene evidence journey
+
+This section is the final production contract for new Format A evidence Reels
+unless an episode explicitly pins an older version. It does not amend or
+replace Format B. The accepted reference episode is
+`CAE-REEL-A-IG-4444-001`, “Instagram engagement does not convert into
+appointments”. Its machine-readable scene, narration and output authority is
+`docs/projects/caesthetic/operations/ig-growth/reels/episodes/003-instagram-interest-no-booking.yaml`.
+
+#### Narrative logic
+
+```text
+observable gap → failed patient journey → diagnosis → four-surface journey
+→ inconsistency/trust break → one-action correction → aligned journey → CTA
+```
+
+Instagram is the cover/discovery surface, not the complete purchase journey.
+The patient may continue through Instagram, Website, Reputation / Reviews and
+Maps / Search before making an inquiry. These are the canonical Four Surfaces
+from `CAESTHETIC.md`; no fifth surface is invented. The Reel shows that
+contradictory information and excess taps create uncertainty, then shows one
+clear action and destination across all four surfaces. The method is `4444`.
+
+#### Scene order
+
+| Scene | Delivery | Required job and visual evidence |
+|---|---|---|
+| S01 | Valerie hook | State the observable gap: visible engagement without appointments. The lower strip continuously moves through four real/high-engagement Instagram examples; do not invent metrics. |
+| S02 | Evidence + VO | Show the actual mobile journey in order: strong Instagram post → bio with three links → Linktree with six buttons → website → pricing → no booking action → `STOP` / exit. A question/arrow searches among choices before each tap. |
+| S03 | Valerie bridge | Diagnose: the post is not the problem; the break happens after it. |
+| S04 | Evidence + VO | Ask how a patient reaches `INQUIRY`. First animate a tentative direct arrow with a question mark; replace the question with a red cross to show “not immediately”. Then draw the live path Patient → Instagram → Website → Reputation → Maps → Inquiry. Nodes appear and settle in order; finish with a central burgundy check. |
+| S05 | Valerie bridge | State that the four surfaces must operate as one connected decision system. |
+| S06 | Evidence + VO | Visualize disagreement: surfaces present conflicting answers/next steps, routes collide into a central burgundy mismatch/alert, trust breaks and the patient exits. Do not add invented conversion numbers. |
+| S07 | Valerie bridge | State the correction: not more content, one clear action everywhere. |
+| S08 | Evidence + VO | Show the same booking language and the same destination on Instagram, Website, Reputation and Maps; animate clean short paths converging on Inquiry with a burgundy check. |
+| S09 | Evidence closing card + VO | Summarize 4444 as one connected journey, show four surfaces converging into Inquiry, and present the sole CTA: DM `4444` for a cross-surface check. |
+
+Talking-head scenes are S01, S03, S05 and S07. Evidence scenes are S02, S04,
+S06, S08 and S09. Alternate these layers exactly; do not replace evidence with
+decorative B-roll.
+
+#### Voice, screen copy and synchronization
+
+- Generate one complete US-English ElevenLabs master in Valerie voice id
+  `lxYfHSkYm1EzQzGhdbfc`, with word timestamps. Speech begins at the opening
+  and continues through talking head, evidence and closing card; no silent
+  evidence interval or per-scene TTS.
+- Narration must explain the action currently visible. It must not read the
+  screen verbatim, narrate a later scene early or repeat the same thesis in two
+  scenes. In particular, “Instagram is only the cover” may appear once as a
+  visual thesis; the voice then explains what the patient checks next.
+- Scene boundaries derive from the narration timestamps. Evidence animation is
+  retimed to the spoken explanation, never the reverse by arbitrary hold.
+- Post-process the master before assembly: remove hum/room tone, preserve
+  natural speech, normalize the final mix and reject audible joins, clicks,
+  duplicated words or speech gaps longer than one second.
+
+#### Valerie continuity
+
+Use one locked Valerie identity and one locked look across S01/S03/S05/S07:
+same face, hair, orange satin top, background/light universe, crop family and
+voice. HeyGen is an approved speaking-plate/lip-sync path for this Format A
+contract when it uses the prepared ElevenLabs segment and does not generate or
+replace the voice. A provider change must not change Valerie's appearance.
+
+#### Deterministic evidence graphics
+
+- Master canvas is `1080×1920`, `9:16`, `30fps`; use CAESTHETIC cream/paper,
+  navy and burgundy/crimson.
+- Circles, arrows, question mark, cross, check, mismatch and CTA are
+  renderer-owned graphics. Draw arrows as live paths and reveal nodes in the
+  order the narration names them. Use restrained easing, scale settle and
+  subtle shadows; keep labels legible on a phone.
+- Never use blurred, mirrored, stretched or duplicate-filled side strips.
+  Never accept a Kling logo/watermark or generated app text/UI as evidence.
+
+#### Karaoke subtitles
+
+- Burn word-timed karaoke subtitles across the complete Reel, including
+  evidence and closing card. They have **no background rectangle, pill, panel
+  or blur**.
+- Inactive words are cream/white with a thin navy outline and restrained glyph
+  shadow. The active word is burgundy/crimson with a cream outline.
+- Keep subtitles in the Reels safe zone and dynamically avoid Valerie's face,
+  evidence labels, arrows, CTA and the booking path. A subtitle that obscures
+  evidence is a release blocker.
+
+#### Accepted reference master
+
+```text
+content_id: CAE-REEL-A-IG-4444-001
+dropbox: Projects/CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-A-IG-4444-001/final/CAE-REEL-A-IG-4444-001-V3-KARAOKE-NO-BG.mp4
+sha256: b213fbbff3193b04d8beb41ecb6cf203b5fd39aea0fdb0d4b0766749a3685da6
+duration: 78.166667s
+video: 1080×1920, 30fps, H.264, yuv420p
+audio: AAC, 48kHz, stereo
+```
+
+This master is the visual/audio acceptance reference, not permission to copy
+its topic or claims into another episode without a new episode manifest and
+evidence review.
 
 ## 4. Closing Card V1
 
@@ -353,6 +465,10 @@ required`.
 
 ## 14. Production ownership, storage and lineage
 
+Ops/target automation, vendor access and agent answers:
+`docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (DEC-854). This section stays the
+editorial ownership rule.
+
 CAESTHETIC Asset Worker creates editorial/motion, Evidence/Explanation, Pause
 Trigger and Closing Card layers. ElevenLabs creates one continuous voice
 master. Kling creates primary Valerie motion and capability-gated lip sync;
@@ -395,3 +511,13 @@ Git stores only contracts, references and lineage metadata. Final cards route to
 11. `voice_over` cards route the same master; no scene-level TTS is requested.
 12. Motion/lip sync passes its declared capability gate and never resynthesizes
     Valerie's voice.
+13. Founder-locked Format A uses the exact nine-scene alternation in §3B;
+    narration continues and remains synchronized through every Evidence scene.
+14. Valerie's face, hair, orange satin top, background/light and crop family
+    remain continuous across S01/S03/S05/S07.
+15. Karaoke subtitles have no background and obscure neither Evidence nor CTA.
+16. Full decode, frame/contact-sheet review, audio hum/silence check, final
+    metadata and SHA-256 verification pass before Dropbox delivery.
+17. Publication uses the exact approved file, caption, account and schedule.
+    A prepared upload is not a published Reel: verify the live post URL and
+    platform/account after the final publish action.

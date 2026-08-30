@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: canonical
-version: 1.0
+version: 1.1
 created: 2026-08-21
-updated: 2026-08-21
+updated: 2026-08-30
 authority: DEC-847
 scope: first-lead funnel, stage tooling, account/service audit, launch readiness and ownership allocation
 parents:
@@ -16,6 +16,7 @@ related:
   - docs/ssot/CAESTHETIC_IG_LOOKUP.md
   - docs/ssot/CAESTHETIC_IG_COMMENT_INBOUND_ROUTING.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - docs/ssot/CAESTHETIC_EVIDENCE_BANK.md
   - docs/projects/caesthetic/PROJECT_STATUS.md
   - docs/projects/caesthetic/operations/first-lead/README.md

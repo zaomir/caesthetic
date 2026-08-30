@@ -1,0 +1,59 @@
+{
+  "schema": "caesthetic-linkedin-master-audit/v1",
+  "observed_at": "2026-08-22T00:48:25.620723+00:00",
+  "writes_performed": false,
+  "linkedin_automation": "OFF",
+  "sources": [
+    {
+      "label": "1k Project Sheet1",
+      "file": "1k Project .xlsx",
+      "sheet": "Sheet1",
+      "rows": 985,
+      "sha256": "77460465f82f99ecdc05269eb821f6d207aee3b45009acd8b6eb7360ccc4c9d7"
+    },
+    {
+      "label": "1k Project Sheet2",
+      "file": "1k Project .xlsx",
+      "sheet": "Sheet2",
+      "rows": 1029,
+      "sha256": "77460465f82f99ecdc05269eb821f6d207aee3b45009acd8b6eb7360ccc4c9d7"
+    },
+    {
+      "label": "new usa project 1k 2.0",
+      "file": "new usa project 1k 2.0 .xlsx",
+      "sheet": "Sheet1",
+      "rows": 971,
+      "sha256": "f70c1f577d78b5a4456451c8d78b8c340bbd64a236b3112d4696ef74ba442f99"
+    },
+    {
+      "label": "Founder CEO Owner filtered",
+      "file": "Только эти позиции -Founder  CEO  Owner etc.xlsx",
+      "sheet": "Sheet1",
+      "rows": 827,
+      "sha256": "9fa75370670e7994fe3a49978f3acd5d500bb4aede1b7ab9e5a57448a517b164"
+    }
+  ],
+  "counts": {
+    "rows": 3812,
+    "unique_valid_person_profiles": 2687,
+    "unique_valid_company_pages": 1170,
+    "duplicate_person_rows": 1115,
+    "unique_us_person_profiles": 967,
+    "unique_us_health_decision_roles": 379
+  },
+  "lane_counts_us_unique_people": {
+    "CHANNEL_PARTNER": 368,
+    "PORTFOLIO_PLATFORM": 7,
+    "PRACTICE_DECISION_MAKER": 227,
+    "PRACTICE_PROVIDER": 365
+  },
+  "clinic_master_overlap": {
+    "clinic_rows": 1226,
+    "unique_linkedin_companies_matching_clinic_name_or_domain": 9,
+    "unique_linkedin_people_within_matching_companies": 16,
+    "master_file": "BOTOX_Audience_Deduplicated_Master.xlsx",
+    "sheet": "4_Maps_Clinics",
+    "sha256": "33cd752258a30c55bf3dc7f8ac128ede5eb7c2ec45cbc26b6011d5b838fbc2b7"
+  },
+  "privacy": "aggregate only; row-level names, profile URLs and contact data are excluded"
+}

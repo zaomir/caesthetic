@@ -1,0 +1,10 @@
+{
+  "content_id": "CAE-REEL-A-IG-4444-001",
+  "accepted_master_sha256": "b213fbbff3193b04d8beb41ecb6cf203b5fd39aea0fdb0d4b0766749a3685da6",
+  "source_manifest": "docs/projects/caesthetic/operations/ig-growth/reels/episodes/003-instagram-interest-no-booking.yaml",
+  "observed_structure": {
+    "journey_count": 1,
+    "surfaces": ["social", "website", "reputation", "search"],
+    "website_booking_action": "not_present_in_inspected_route"
+  }
+}

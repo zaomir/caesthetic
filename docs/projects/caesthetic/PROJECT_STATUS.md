@@ -1,7 +1,39 @@
 # CAESTHETIC — Project Status
 
-**Updated:** 2026-08-21
+**Updated:** 2026-08-30
 **Phase:** Phase 1 — proof + outbound readiness
+
+## Beauty Salons vertical — production (2026-08-28)
+
+Status: **live** as an isolated vertical adapter (footer only; not primary nav). DEC-856.
+
+Live routes (HTTP 200, reciprocal `hreflang`, self-canonical, no `noindex`):
+
+- https://caesthetic.com/beauty-salons/
+- https://caesthetic.com/es/salones-de-belleza/
+- https://caesthetic.com/ru/salony-krasoty/
+- https://caesthetic.com/fr/salons-de-beaute/
+
+Aliases keep safe query/UTM and 301 to `/beauty-salons/`: `/beauty/`, `/go/new-salon-launch/`, `/go/salon-growth/`.
+
+| Item | Value |
+|------|--------|
+| Merged SHA | `2180d31d030cc9433842cf5d6d30823aeceabe95` |
+| Deployed SHA | `70be5cfd8ae777b2943b503447057c2ca25c93f2` |
+| Site request | `deploy-caesthetic-beauty-salons-20260828T2205Z` |
+| Site result | `status=success`, `smoke.ok=true` |
+| Functions request | `deploy-functions-caesthetic-beauty-salon-intake-20260828T2150Z` |
+| Functions result | `status=success`, `smoke.ok=true` |
+| Fast checks | PASS (PR #1084) |
+| Independent prod smoke | PASS — four locales, sitemap, hreflang/canonical, language selector, pricing markers, synthetic disclosure, UTM-preserving redirects |
+| Growth Score intake | PASS — QA POST `ok=true`, `qa_test=true`, `next_action=qa_archived`, `lead_id=4c7af246-358d-46ca-ac44-0bcba2d1c5e3`, `score_case_id=2f42bea4-3e42-47a6-8b71-732dce303dd3`. Payload sent `vertical=beauty_salon`, `locale=en`, `source_page=/beauty-salons/`. QA lead must not remain a working prospect. |
+
+Known limits:
+
+- Beauty Salons is a vertical adapter, not a fifth product or a change to the medical-aesthetics primary funnel.
+- Internal CRM / reception / phones / chatbot / rebooking / staff operations stay **not assessed** without operational access.
+- Growth System commercial terms remain client-specific; no universal recurring fee is published.
+- This Cloud Agent environment could not query Supabase service-role to re-read `self_reported.vertical` after insert. Persistence code shipped in the functions deploy; intake HTTP contract returned QA-archived success.
 
 ## Agents satellite (DEC-829)
 
@@ -28,6 +60,8 @@
 - Growth System operating/automation and request/add-on classification authority: `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`.
 
 ## Completed in repo
+- Canonicalized `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md` as the single orchestration route from accepted Score case through research, named-human approval, private delivery and controlled learning. It delegates product, scoring, CDA, walkthrough and renderer rules to their existing authorities; runtime, scoring weights and renderer behaviour are unchanged.
+- Canonicalized the schema-v4 Growth Score authoring template at `scripts/caesthetic/growth-score-report-template.mjs`: exact engine-derived metric sets, fail-closed draft defaults, the current 13-section cockpit, exactly Top 3, Competitive Decision Analysis slots, complete Problem Inventory/remediation mappings, one Do Not Fund Yet, four implementation paths, a pending walkthrough and methodology/limitations. The Aesthetemed report is the first approved example/evaluation, not a source of reusable practice facts.
 - Published CAESTHETIC site v2 positioning, owner problems, diagnosis-led Sprint scope and a dedicated Growth System page with the Growth Budget allocation model, Client Growth Statement and evidence-gated initiative lifecycle.
 - Established Valerie Petra as the public CAESTHETIC business identity and removed the unverified legacy personal LinkedIn URL from public runtime and the active identity registry.
 - Registered CAESTHETIC as its own knowledge domain and `caesthetic` runtime across the machine registry, indexes and runtime map.

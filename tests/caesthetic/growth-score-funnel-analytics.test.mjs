@@ -69,11 +69,13 @@ test("emit function rejects email/name/phone/practice_name", async () => {
   }
 });
 
-test("analytics doc says IDs stay empty / consent", () => {
+test("analytics doc records approved GA4 and Advanced Consent Mode", () => {
   assert.match(ANALYTICS_DOC, /ga4MeasurementId/);
   assert.match(ANALYTICS_DOC, /metaPixelId/);
-  assert.match(ANALYTICS_DOC, /stay empty/i);
-  assert.match(ANALYTICS_DOC, /consent mode/i);
+  assert.match(ANALYTICS_DOC, /G-PNQB0W9YB2/);
+  assert.match(ANALYTICS_DOC, /denied` consent by default/i);
+  assert.match(ANALYTICS_DOC, /Advanced Consent Mode/i);
+  assert.match(ANALYTICS_DOC, /cookieless measurements/i);
   assert.match(ANALYTICS_DOC, /Never print PII|no PII|non-personal/i);
   assert.match(ANALYTICS_DOC, /sync-agents-bidirectional\.sh/);
   assert.match(ANALYTICS_DOC, /not a deploy source/);
@@ -95,9 +97,8 @@ test("parity guard script references SYNC_MANIFEST and grainee-v2 deploy authori
   );
 });
 
-test("caesthetic-config.js still has empty ga4MeasurementId and metaPixelId", () => {
-  assert.match(CONFIG, /ga4MeasurementId:\s*""/);
+test("caesthetic-config.js has the approved GA4 ID and keeps Meta disabled", () => {
+  assert.match(CONFIG, /ga4MeasurementId:\s*"G-PNQB0W9YB2"/);
   assert.match(CONFIG, /metaPixelId:\s*""/);
-  assert.doesNotMatch(CONFIG, /ga4MeasurementId:\s*"[^"]+/);
   assert.doesNotMatch(CONFIG, /metaPixelId:\s*"[^"]+/);
 });

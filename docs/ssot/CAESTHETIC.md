@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.15
-updated: 2026-08-21
+version: 3.16
+updated: 2026-08-29
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -13,6 +13,8 @@ related:
   - docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md
+  - docs/founder-notes/DEC-862_raim-smile-caesthetic-partnership-economics-and-vip-access.md
+  - docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md
 supersedes: docs/caesthetic/CAESTHETIC_SSOT.md
 ---
 
@@ -428,6 +430,14 @@ Reusable: post-visit feedback, star UX, non-generated review-writing guidance, p
 For CAESTHETIC this is primarily a **Reputation** Sprint module. Do not copy 4–5★ public / 1–3★ private routing blindly. Adapt each US implementation to current platform rules, law and healthcare/privacy requirements; prohibited review gating is forbidden.
 
 ## 10. Commercial integrity
+
+### RAIM SMILE client-specific partnership carve-out
+
+Under `DEC-862`, CAESTHETIC is the separate Partnership Network Operator and employer/compensation owner for the RAIM SMILE Partner & VIP Coordinator. This is a client-specific operating mandate, not a reusable public CAESTHETIC medical offer and not authority over diagnosis or treatment.
+
+For approved partner/VIP SmileCare 12 activations, the owner-approved model is 30% of actually collected/non-refunded membership revenue as a Partnership Distribution & Management Fee plus 100% of a separate Coordination Fee to CAESTHETIC, subject to legal/fiscal/labour counsel, signed schedules and max-use economics. CAESTHETIC/coordinator treatment revenue share is `0%`; diagnosis, `Perio` assignment, treatment-plan value/acceptance/collection are never compensation events. Exact authority: `docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md`.
+
+This carve-out does not change CAESTHETIC public pricing, Growth Score/Sprint/Growth System economics or public runtime.
 - Never manufacture unfinished work to force Month 2 or retainer.
 - Never guarantee rankings, patients or revenue.
 - No fake cases, logos or proof.

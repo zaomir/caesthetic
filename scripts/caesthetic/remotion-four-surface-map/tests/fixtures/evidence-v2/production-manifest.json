@@ -1,0 +1,121 @@
+{
+  "manifest_version": "cae-render-manifest@1.0.0",
+  "design_system_version": "caesthetic-reel@1.0.0",
+  "content_id": "CAE-4444-SYNTH-001",
+  "spec_version": "Reel System V3.2",
+  "render_purpose": "production",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration_in_frames": 180
+  },
+  "audio_timeline": {
+    "source": "elevenlabs_alignment",
+    "master_ref": "private://synthetic/audio/master.mp3",
+    "timestamps_ref": "private://synthetic/audio/alignment.json",
+    "master_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "timestamps_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "scenes": [
+    {
+      "scene_id": "S01",
+      "type": "four_surface_map",
+      "mode": "evidence_bound",
+      "locale": "en-US",
+      "start_frame": 0,
+      "end_frame": 180,
+      "headline": "WEBSITE BLOCKS GROWTH",
+      "practice_label": "YOUR PRACTICE",
+      "binding_constraint": {
+        "surface_id": "website"
+      },
+      "growth_score_return": {
+        "target_surface_id": "website"
+      },
+      "timeline_cues": [
+        {
+          "cue_id": "C01",
+          "event": "surface_introduced",
+          "surface_id": "search",
+          "at_frame": 30,
+          "alignment_ref": {
+            "segment_id": "AMS01",
+            "token_start_ms": 1000
+          }
+        },
+        {
+          "cue_id": "C02",
+          "event": "surface_introduced",
+          "surface_id": "website",
+          "at_frame": 45,
+          "alignment_ref": {
+            "segment_id": "AMS02",
+            "token_start_ms": 1500
+          }
+        },
+        {
+          "cue_id": "C03",
+          "event": "surface_introduced",
+          "surface_id": "social",
+          "at_frame": 70,
+          "alignment_ref": {
+            "segment_id": "AMS03",
+            "token_start_ms": 2333
+          }
+        },
+        {
+          "cue_id": "C04",
+          "event": "surface_introduced",
+          "surface_id": "reputation",
+          "at_frame": 95,
+          "alignment_ref": {
+            "segment_id": "AMS04",
+            "token_start_ms": 3167
+          }
+        },
+        {
+          "cue_id": "C05",
+          "event": "binding_constraint_selected",
+          "at_frame": 120,
+          "alignment_ref": {
+            "segment_id": "AMS05",
+            "token_start_ms": 4000
+          }
+        },
+        {
+          "cue_id": "C06",
+          "event": "growth_score_returned",
+          "at_frame": 145,
+          "alignment_ref": {
+            "segment_id": "AMS06",
+            "token_start_ms": 4833
+          }
+        }
+      ],
+      "evidence": {
+        "epistemic_label": "Observed",
+        "claim_bindings": [
+          {
+            "binding_id": "B01",
+            "claim_slot": "headline_text",
+            "evidence_unit_id": "SYNTH-EV-001",
+            "evidence_claim_id": "CL-HEADLINE"
+          },
+          {
+            "binding_id": "B02",
+            "claim_slot": "binding_constraint_surface",
+            "evidence_unit_id": "SYNTH-EV-001",
+            "evidence_claim_id": "CL-SURFACE"
+          },
+          {
+            "binding_id": "B03",
+            "claim_slot": "growth_score_target_surface",
+            "evidence_unit_id": "SYNTH-EV-001",
+            "evidence_claim_id": "CL-SURFACE"
+          }
+        ]
+      }
+    }
+  ]
+}
