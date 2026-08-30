@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 4.2
+version: 4.3
 updated: 2026-08-30
 scope: public intake, AI-assisted research, human approval, controlled learning, scoring and owner-cockpit contract
 parent: docs/ssot/CAESTHETIC.md
@@ -30,6 +30,38 @@ Do not ask for revenue, marketing budget, patient-level data or PHI, credentials
 Intake answers are context, not external evidence. They remain `self_reported` and do not become Class A or increase score coverage until independently verified. Funnel analytics may record stage completion such as `view`, `contact_continue`, `required_submit_success` and `optional_saved`, but event payloads must not contain PII or field answers.
 
 A proactive/outbound Score based only on public evidence remains a separate acquisition path. It must not be represented as a completed owner intake and follows the same evidence, human-review and private-delivery gates below.
+
+### 0.1 Report context: vertical and locale
+
+Growth Score remains one product, engine, report template and funnel. `reportContext` carries two independent adaptation dimensions; it does not create a vertical-specific Growth Score or change the CAESTHETIC product ladder:
+
+```json
+{
+  "reportContext": {
+    "vertical_context": "aesthetic_practice",
+    "report_locale": "en",
+    "vertical_source": "owner_intake",
+    "locale_source": "user_selected"
+  }
+}
+```
+
+| Field | Allowed values | Meaning |
+|---|---|---|
+| `vertical_context` | `aesthetic_practice`, `dental_practice`, `beauty_salon`; `unresolved` only before research-brief freeze | Context for evidence rubrics, service/treatment vocabulary, examples and the comparable patient/client-choice market. It is not evidence. No additional vertical is allowed without separate approval. |
+| `report_locale` | `en`, `ru`, `es`, `fr`, `uk` | Client-facing presentation and preferred walkthrough language. It is not evidence. |
+| `vertical_source` | `owner_intake`, `route`, `referral_context`, `human_resolved`, `public_evidence`; `null` while unresolved | Provenance of vertical resolution, retained as context rather than promoted to Class A. |
+| `locale_source` | `user_selected`, `route`, `campaign`, `human_resolved`; `null` only until a presentation locale is resolved | Provenance of the presentation-language decision. |
+
+New reports start with `vertical_context: "unresolved"` and must resolve it before the research brief is frozen. Do not infer a vertical from a business name, a single service or a route alone when the entity remains ambiguous; use the clarification path. Existing schema-v4 reports without `reportContext` remain valid and render with their existing English copy. They are not retroactively assigned a vertical, rescored or rewritten. Any later migration must resolve context from retained case evidence and record the change through the normal review trail.
+
+`vertical_context` changes only the interpretation context around the same canonical metric IDs. For example, `website.treatment_clarity` may examine injectables, laser, body and skin services for `aesthetic_practice`; implants, aligners, veneers, hygiene and emergency care for `dental_practice`; or hair, nails, brows, lashes, facials and packages for `beauty_salon`. These are illustrative vocabularies, not new metrics or required service catalogues. Competitors must come from the same patient/client-choice market and the same vertical and local geography where applicable. Facts, scores, competitors, benchmarks and conclusions may not be transferred between verticals, and vertical context alone cannot support a finding.
+
+`report_locale` may localize headings, surface display labels, explanatory copy and walkthrough narration. Canonical machine IDs, metric IDs, source URLs and source identifiers remain unchanged. Original evidence language and source text remain preserved; a translated or paraphrased evidence excerpt is labelled as a CAESTHETIC translation/paraphrase where needed. Translation may not change verified facts, evidence references, scores, binding constraint, Top 3 or Do Not Fund Yet. If a regulated or clinical term is uncertain, retain the source term beside cautious translated wording and do not invent a medical claim.
+
+The practice identity block may show the resolved type/context when useful, but never as a separate brand or product. Treatment/service examples and implementation-task nouns follow the resolved vertical while retaining the same task schema. Competitor Cards use the resolved comparable market. The optional Sprint CTA remains the same CAESTHETIC 30-Day Growth Sprint, not a vertical-specific commercial product.
+
+Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the 13-section cockpit order, the funnel or pricing. One approved fact set and human judgment remain the source of truth across every localized presentation; do not create 3 × 5 copies of the template.
 
 ## 1. Required owner outcome
 

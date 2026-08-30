@@ -58,6 +58,8 @@ If a required variable is unavailable, the sentence must be rewritten or omitted
 
 ## 4. Spoken-content rules
 
+The walkthrough follows the approved report's `reportContext`: narration and subtitles use `report_locale`, and service/treatment vocabulary follows the resolved `vertical_context`. Localization may adapt headings and nouns, but it cannot change the approved objective strength, binding constraint, Top 3, Do Not Fund Yet, evidence meaning or next action. Preserve uncertain regulated/clinical source terms and use cautious translated wording rather than inventing a claim. This is the same 3–8 minute Growth Score walkthrough, not a separate vertical/locale video product and not an additional-duration deliverable.
+
 Valerie must:
 
 1. mention the owner/practice, location and at least one approved clinic-specific detail within the first 20 seconds;
