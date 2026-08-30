@@ -2,7 +2,7 @@
 import { fileURLToPath } from "node:url";
 import { CANONICAL_METRICS } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
-export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/4.0.0";
+export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/4.1.0";
 
 const labels = Object.freeze({
   search: "Search",
@@ -139,6 +139,12 @@ export function createGrowthScoreReportTemplate() {
     verifiedFactSetVersion: "__VERIFIED_FACT_SET_VERSION__",
     reportKind: "real",
     templateVersion: GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
+    reportContext: {
+      vertical_context: "unresolved",
+      report_locale: "en",
+      vertical_source: null,
+      locale_source: null,
+    },
     disclosure: "__TRUTHFUL_PRIVACY_OR_TEST_DISCLOSURE__",
     practice: {
       name: "__PRACTICE_NAME__",

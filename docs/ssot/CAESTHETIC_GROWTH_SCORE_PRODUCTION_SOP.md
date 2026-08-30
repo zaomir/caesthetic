@@ -72,7 +72,7 @@ created
 
 No state name implies publication by itself. Only a valid `approved_report` may enter rendering and delivery.
 
-## 2. Identity resolution and research-brief freeze
+## 2. Identity, vertical and locale resolution; research-brief freeze
 
 Before collecting scored evidence, resolve the practice as a real public entity:
 
@@ -83,9 +83,11 @@ Before collecting scored evidence, resolve the practice as a real public entity:
 - relevant market/catchment;
 - owner-supplied competitors, if any, as unverified selection context.
 
+Then resolve `vertical_context` and `report_locale` under `growth_score_spec.md` before freezing the research brief. The required order is: **resolve practice identity → resolve `vertical_context` → resolve `report_locale` → freeze research brief**. If the vertical remains ambiguous, keep it explicitly `unresolved` and use the clarification path; do not begin scored research by guessing. Vertical changes evidence context and vocabulary; locale changes presentation. Neither may rewrite verified facts to fit the template.
+
 If two or more plausible entities remain, stop diagnosis and request one public identifier. Do not merge branches, ratings, review counts, social accounts or websites to manufacture a complete identity.
 
-Freeze a versioned research brief before substantive collection. It records the resolved identity, branch scope, priority-treatment/query family, geography, observation windows, collection methods, competitor-selection method, applicable permissions, exclusions and workflow/rubric versions. Changes after freeze require an append-only review event and a new brief version.
+Freeze a versioned research brief before substantive collection. It records the resolved identity, `reportContext` and its provenance, branch scope, priority-treatment/query family, geography, observation windows, collection methods, competitor-selection method, applicable permissions, exclusions and workflow/rubric versions. Changes after freeze require an append-only review event and a new brief version.
 
 ## 3. Evidence collection
 

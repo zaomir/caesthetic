@@ -60,6 +60,12 @@ test("canonical authoring template derives exact metrics and fails closed", () =
   assert.equal(report.templateVersion, GROWTH_SCORE_REPORT_TEMPLATE_VERSION);
   assert.equal(report.schemaVersion, 4);
   assert.equal(report.reportState, "draft");
+  assert.deepEqual(report.reportContext, {
+    vertical_context: "unresolved",
+    report_locale: "en",
+    vertical_source: null,
+    locale_source: null,
+  });
   assert.equal(report.humanDiagnosis.reviewer_status, "pending");
   assert.equal(report.humanDiagnosis.reviewer.name, null);
   assert.equal(report.humanDiagnosis.reviewer.approved_at, null);
@@ -85,6 +91,22 @@ test("canonical authoring template derives exact metrics and fails closed", () =
 
   assert.throws(() => scoreGrowthReport(report));
   assert.doesNotMatch(JSON.stringify(report), /Aesthetemed|Alex Goldman|aesthetemed\.com/i);
+});
+
+test("report context adapts vocabulary and presentation without splitting the product or scoring model", () => {
+  const spec = read("docs/caesthetic/growth_score_spec.md");
+  const sop = read("docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md");
+  const walkthrough = read("docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md");
+
+  assert.match(spec, /`vertical_context`/);
+  assert.match(spec, /`report_locale`/);
+  assert.match(spec, /`aesthetic_practice`, `dental_practice`, `beauty_salon`/);
+  assert.match(spec, /`en`, `ru`, `es`, `fr`, `uk`/);
+  assert.match(spec, /Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the 13-section cockpit order, the funnel or pricing/i);
+  assert.match(spec, /do not create 3 × 5 copies of the template/i);
+  assert.match(sop, /resolve practice identity → resolve `vertical_context` → resolve `report_locale` → freeze research brief/i);
+  assert.match(walkthrough, /narration and subtitles use `report_locale`/i);
+  assert.match(walkthrough, /cannot change the approved objective strength, binding constraint, Top 3, Do Not Fund Yet/i);
 });
 
 test("spec names one reusable template and keeps the approved report as example only", () => {
