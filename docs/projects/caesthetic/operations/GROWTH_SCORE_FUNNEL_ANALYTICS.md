@@ -14,21 +14,24 @@ Stored fields only: `event_name`, `source_class`, `utm_source`, `utm_medium`, `u
 
 **No-PII rule.** Do not store or print `name`, `email`, `phone`, or `practice_name` in `caesthetic_score_funnel_events`, the weekly report, or this analytics lane. SQL `emit_caesthetic_score_funnel_event` raises `funnel_event_pii_forbidden` when those keys are present. The report CLI groups only by `source_class` / `utm_source`.
 
-## Consent / legal — GA4 and Meta stay empty
+## Consent / legal — GA4 approved, Meta stays empty
 
 `site-caesthetic/assets/js/caesthetic-config.js` must keep:
 
 ```js
-ga4MeasurementId: "",
+ga4MeasurementId: "G-PNQB0W9YB2",
 metaPixelId: "",
 ```
 
-Browser pixels stay off until:
+The GA4 web stream was founder-approved on 2026-08-22. Browser measurement uses Google Advanced Consent Mode:
 
-1. Ads secrets exist on the grainee-v2 deploy host (not in git, not in the satellite).
-2. A documented consent mode is accepted (what is loaded before consent, what waits, who owns the IDs).
+1. The analytics script records `denied` consent by default.
+2. The GA4 tag loads before a choice and sends cookieless measurements while `analytics_storage` is denied.
+3. Accepting analytics updates `analytics_storage` to `granted`; rejecting persists the denied choice.
+4. Advertising storage, advertising user data and personalisation stay denied in every state.
+5. Form answers, payment details, email, phone and practice name remain forbidden event data.
 
-Until both exist, measurement is the server-side table plus this weekly report. Do not fill those IDs from this lane.
+Meta Pixel remains disabled until separately approved.
 
 ## How to run the weekly report
 

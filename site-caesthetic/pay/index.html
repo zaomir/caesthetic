@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-US" data-page="payment">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Secure payment — CAESTHETIC</title>
+  <meta name="description" content="Private CAESTHETIC payment request.">
+  <link rel="icon" href="/assets/brand/logo-square.png">
+  <link rel="stylesheet" href="/assets/css/caesthetic.css">
+  <link rel="stylesheet" href="/assets/css/growth.css">
+  <style>
+    .cae-payment-methods { display:grid; gap:1rem; margin-top:2rem; }
+    .cae-payment-method { border:1px solid var(--cae-color-border,#d9ded8); border-radius:1rem; padding:1.25rem; }
+    .cae-payment-method--recommended { border-color:var(--cae-color-ink,#18311b); }
+    .cae-payment-method__head { display:flex; justify-content:space-between; gap:1rem; align-items:baseline; }
+    .cae-payment-method__label { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; }
+    .cae-payment-method__copy { margin:.35rem 0 1rem; }
+    .cae-wise-qr { display:none; text-align:center; margin:1.25rem auto 0; }
+    .cae-wise-qr img { width:min(100%,16rem); border-radius:.75rem; }
+    @media (min-width: 760px) { .cae-wise-qr { display:block; } }
+  </style>
+</head>
+<body>
+<div id="cae-header-slot"></div>
+<main>
+  <section class="cae-hero-simple">
+    <div class="cae-wrap cae-wrap--narrow">
+      <p class="cae-kicker">Private payment request</p>
+      <h1 class="cae-h1">Review before you pay.</h1>
+      <p class="cae-lead" id="payment-status">Loading payment request…</p>
+    </div>
+  </section>
+
+  <section class="cae-section">
+    <div class="cae-wrap cae-wrap--narrow">
+      <div id="payment-error" hidden class="cae-disclaimer"></div>
+      <div id="payment-card" hidden>
+        <dl>
+          <dt>Practice</dt><dd id="pay-practice"></dd>
+          <dt>Service</dt><dd>CAESTHETIC 30-Day Growth Sprint</dd>
+          <dt>Invoice</dt><dd id="pay-invoice"></dd>
+          <dt>SOW</dt><dd id="pay-sow"></dd>
+          <dt>Seller</dt><dd>OXFORD PROJECTS LTD trading as CAESTHETIC</dd>
+        </dl>
+        <div class="cae-price-block" style="margin-top:var(--cae-space-6)">
+          <p class="cae-kicker">Exact amount due</p>
+          <p class="cae-price-block__amount" id="pay-amount"></p>
+          <p><strong>Use the exact amount shown here. CAESTHETIC confirms payment only after the provider credits the invoice.</strong></p>
+        </div>
+
+        <form id="payer-form" style="margin-top:var(--cae-space-6)">
+          <label>
+            Your full name
+            <input name="payer_name" autocomplete="name" required maxlength="160">
+          </label>
+          <label>
+            Your relationship to the practice
+            <select name="payer_relationship" required>
+              <option value="owner_or_officer">Owner or officer</option>
+              <option value="contracting_entity">Contracting entity</option>
+              <option value="authorized_third_party">Authorized third party</option>
+            </select>
+          </label>
+          <label>
+            Account you expect to use
+            <select name="payer_account_type" required>
+              <option value="individual">Personal / individual account</option>
+              <option value="company">Company / business account</option>
+              <option value="unknown">Not sure / provider decides</option>
+            </select>
+          </label>
+          <label style="display:flex;gap:.75rem;align-items:flex-start;margin-top:1rem">
+            <input type="checkbox" name="attest" required style="width:auto;margin-top:.3rem">
+            <span>I confirm that I control the account used for payment and am authorized to pay this invoice on behalf of the practice named above. A business or personal account that I control may be used.</span>
+          </label>
+          <p class="cae-disclaimer">CAESTHETIC records this authorization for the commercial payment record. We do not receive your card number, bank login, or online-banking credentials. Payment is completed with the payment provider.</p>
+          <div class="cae-payment-methods">
+            <section class="cae-payment-method cae-payment-method--recommended">
+              <div class="cae-payment-method__head"><strong>Pay from your US bank account</strong><span class="cae-payment-method__label">Recommended</span></div>
+              <p class="cae-payment-method__copy">Secure Stripe ACH checkout. Choose your bank and authorize the transfer without entering CAESTHETIC bank details.</p>
+              <button type="submit" class="cae-btn cae-btn--primary" id="stripe-pay-button" data-payment-action="authorize_stripe">Continue with ACH</button>
+            </section>
+            <section class="cae-payment-method">
+              <div class="cae-payment-method__head"><strong>Already use Wise?</strong><span class="cae-payment-method__label">Alternative</span></div>
+              <p class="cae-payment-method__copy">Open the reusable Wise payment link. The exact invoice amount and payer authorization remain recorded by CAESTHETIC.</p>
+              <button type="submit" class="cae-btn" id="wise-pay-button" data-payment-action="authorize_wise">Open Wise payment link</button>
+              <div class="cae-wise-qr">
+                <p><strong>Paying from another device?</strong><br>Scan this QR code with your phone to open the same Wise flow.</p>
+                <img src="/assets/img/wise-qr-code.png" alt="Wise payment QR code" width="800" height="800" loading="lazy">
+              </div>
+            </section>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="cae-footer-slot"></div>
+<script src="/assets/js/caesthetic-config.js"></script>
+<script src="/assets/js/caesthetic.js" defer></script>
+<script>
+(() => {
+  const params = new URLSearchParams(location.search);
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const token = params.get('token') || (pathParts[0] === 'pay' && pathParts[1] ? pathParts[1] : '');
+  const api = window.CAESTHETIC_API?.payment;
+  const contact = window.CAESTHETIC?.billingEmail || window.CAESTHETIC?.contactEmail || 'info@caesthetic.com';
+  const status = document.getElementById('payment-status');
+  const errorBox = document.getElementById('payment-error');
+  const card = document.getElementById('payment-card');
+  const form = document.getElementById('payer-form');
+  const buttons = [...document.querySelectorAll('[data-payment-action]')];
+
+  const fail = (message) => {
+    status.textContent = 'This payment request is not available.';
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+    card.hidden = true;
+  };
+
+  if (!token || !api) {
+    fail('The payment link is incomplete. Please use the private link sent by CAESTHETIC.');
+    return;
+  }
+
+  fetch(`${api}?token=${encodeURIComponent(token)}`, { headers: { Accept: 'application/json' } })
+    .then(async (r) => ({ ok: r.ok, status: r.status, data: await r.json().catch(() => ({})) }))
+    .then(({ ok, status: httpStatus, data }) => {
+      if (!ok) {
+        fail(httpStatus === 410 ? `This payment request has expired. Please contact ${contact}.` : `We could not load this payment request. Please contact ${contact}.`);
+        return;
+      }
+      if (['credited','delivery_started','refunded','returned'].includes(data.status)) {
+        fail(['credited','delivery_started'].includes(data.status) ? 'Payment for this request has already been received.' : 'This payment request is closed.');
+        return;
+      }
+      document.getElementById('pay-practice').textContent = data.practice_name || '—';
+      document.getElementById('pay-invoice').textContent = data.invoice_number || data.order_number || '—';
+      document.getElementById('pay-sow').textContent = data.sow_id || 'As stated in your written Order';
+      document.getElementById('pay-amount').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: data.currency || 'USD' }).format((data.amount_minor || 0) / 100) + ` ${data.currency || 'USD'}`;
+      status.textContent = 'Confirm the invoice and payer authorization before continuing.';
+      card.hidden = false;
+    })
+    .catch(() => fail(`We could not load this payment request. Please contact ${contact}.`));
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = event.submitter || document.getElementById('stripe-pay-button');
+    const action = button?.dataset?.paymentAction || 'authorize_stripe';
+    buttons.forEach((item) => { item.disabled = true; });
+    button.textContent = action === 'authorize_stripe' ? 'Preparing secure ACH…' : 'Opening Wise…';
+    const fd = new FormData(form);
+    try {
+      const response = await fetch(api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action,
+          token,
+          payer_name: String(fd.get('payer_name') || ''),
+          payer_relationship: String(fd.get('payer_relationship') || ''),
+          payer_account_type: String(fd.get('payer_account_type') || 'unknown'),
+          attestation_accepted: fd.get('attest') === 'on',
+        }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.redirect_url) {
+        if (data.error === 'payment_provider_not_configured') {
+          fail(`Payment setup is being finalized. Your order remains valid; CAESTHETIC will notify you when payment is enabled. Questions: ${contact}.`);
+        } else {
+          fail(`We could not continue to the payment provider. Please contact ${contact}.`);
+        }
+        return;
+      }
+      location.assign(data.redirect_url);
+    } catch {
+      fail(`We could not continue to the payment provider. Please contact ${contact}.`);
+    } finally {
+      buttons.forEach((item) => { item.disabled = false; });
+      button.textContent = action === 'authorize_stripe' ? 'Continue with ACH' : 'Open Wise payment link';
+    }
+  });
+})();
+</script>
+</body>
+</html>

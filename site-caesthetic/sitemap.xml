@@ -5,6 +5,10 @@
   <url><loc>https://caesthetic.com/sprint/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://caesthetic.com/growth-system/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://caesthetic.com/pricing/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caesthetic.com/beauty-salons/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caesthetic.com/es/salones-de-belleza/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caesthetic.com/ru/salony-krasoty/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://caesthetic.com/fr/salons-de-beaute/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://caesthetic.com/about/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://caesthetic.com/support/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://caesthetic.com/legal/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

@@ -28,6 +28,13 @@ Dropbox
   CAESTHETIC/CAESTHETIC MEDIA/Huck/{stories,reels,thumbnails,archive}/<request_id>/
 ```
 
+`Huck/reels` is the renderer output, not the Hooppy pickup location. After
+master QA and `APPROVED_SCRIPT`, the platform packager creates five versions in
+`SIMON_OPS/content/B_CAE_IG/{content_id}/{version}/{platform}/` and records them
+in SIMON_OPS `CAE_Creative_Pipeline`. See
+`scripts/caesthetic/hooppy-creative-pipeline.py` and
+`docs/ssot/HOOPPY_API.md`.
+
 Google Drive is **not** the write target. Client preview stays Drive if needed; production write is server + Dropbox mirror.
 
 ## ChatGPT (no SSH, no Dropbox tokens)

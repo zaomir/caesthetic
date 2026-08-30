@@ -1,0 +1,22 @@
+{
+  "content_id": "CAE-VIDEO-001",
+  "version": "v1",
+  "copy_id": "COPY-CAE-VIDEO-001",
+  "topic_id": "TOP-MKT-01A",
+  "pain_cluster": "replace with ranked pain cluster",
+  "master_asset_url": "dropbox:CAESTHETIC/CAESTHETIC MEDIA/Huck/reels/REQUEST_ID/master.mp4",
+  "approved_script": true,
+  "approved_publish": false,
+  "claims_ok": true,
+  "rights_ok": true,
+  "privacy_ok": true,
+  "scheduled_at": "2026-08-25T15:30:00+01:00",
+  "timezone": "Europe/London",
+  "captions": {
+    "instagram": "Instagram-specific approved caption",
+    "facebook": "Facebook-specific approved caption",
+    "tiktok": "TikTok-specific approved caption",
+    "youtube": "YouTube Shorts-specific approved title and description",
+    "linkedin": "LinkedIn-specific professional caption"
+  }
+}

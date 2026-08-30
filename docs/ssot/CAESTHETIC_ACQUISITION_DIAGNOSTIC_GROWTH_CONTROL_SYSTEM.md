@@ -1,10 +1,10 @@
 ---
 owner: CAESTHETIC
 status: canonical
-version: 1.0
+version: 1.1
 created: 2026-08-20
-updated: 2026-08-20
-authority: DEC-845
+updated: 2026-08-22
+authority: DEC-845 / DEC-849
 scope: universal acquisition, prospect intelligence, diagnostic, activation, conversion, growth-control and learning architecture; CAESTHETIC reference implementation
 parents:
   - docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -34,7 +34,7 @@ related:
 
 > **Универсальная система привлечения, диагностики и управления ростом на примере CAESTHETIC.**
 
-Этот документ объединяет в один непротиворечивый SSOT все решения из стратегического обсуждения CAESTHETIC до 20 августа 2026 включительно: каналы привлечения, account intelligence, 1,441-кандидатную базу, квалификацию, tiers, signals, Instagram, email, LinkedIn, Maps, Meta Ad Library, events, partners, referrals, website/SEO/paid, Growth Score, Sprint, Impact, Evidence Bank, AI/Дельфин, freelancers, stage gates и owner cockpit.
+Этот документ объединяет в один непротиворечивый SSOT все решения из стратегического обсуждения CAESTHETIC до 22 августа 2026 включительно: каналы привлечения, account intelligence, Instagram candidate/CURRENT, 1,886-кандидатную Instantly-проекцию, LinkedIn/partner registry, квалификацию, tiers, signals, Maps, Meta Ad Library, events, partners, referrals, website/SEO/paid, Growth Score, Sprint, Impact, Evidence Bank, AI/Дельфин, freelancers, stage gates и owner cockpit.
 
 Текущая каноническая очередность запуска, first cohort, Wave approval и deliberate deferrals: `docs/ssot/CAESTHETIC_LAUNCH_PRIORITIES.md`.
 
@@ -342,6 +342,30 @@ CURRENT.json
 ```
 
 Никакой candidate tag, dated export, chat memory или remembered count не заменяет CURRENT.
+
+## 7.1 Channel-separated activation universes — DEC-849
+
+The founder-confirmed first Instantly planning universe contains **1,886 US candidates**. This count applies only to Instantly enrichment and wave construction. It is not an approved send list and does not replace or modify Instagram `CURRENT`.
+
+```text
+shared master identity
+├─ Instantly projection: 1,886 US candidates → verify/suppress/approve
+├─ Instagram projection: protected CURRENT → existing social gates
+├─ LinkedIn projection: research + manual actions only
+├─ Partner projection: separate company/contact/campaign namespace
+└─ Meta / ManyChat / Dolphin: no silent reuse of the 1,886 rows
+```
+
+The following remain unchanged until their own governed transitions:
+
+```text
+Instagram CURRENT: r20260821T014534Z-qualified-646-contract
+execution_allowed: false
+release 660: historical only
+cold Instagram DM: OFF
+```
+
+Cross-channel identity resolution may link projections to the same canonical account/contact, but a row's presence in one projection never grants action authority in another.
 
 ---
 
@@ -937,6 +961,56 @@ IDENTIFY
 
 Use Sales Navigator for research/saved lists/signals; LinkedIn writes remain controlled by the registered social account / owner / Factory policy.
 
+DEC-850 supersedes the LinkedIn website-action lock from DEC-849 for the single
+registered Valerie Petra surface on Dolphin `833304152`. Research, list saves,
+DM and InMail execution are allowed only through the semantic Agent Factory
+adapter and the account policy below:
+
+```text
+ALLOWED TO AUTOMATE OFF LINKEDIN
+normalize URLs → dedupe → classify → current-role/public-source enrichment
+→ scoring → draft preparation → CRM/suppression updates → approval queue
+
+AGENT FACTORY ON LINKEDIN
+US work window 09:00–17:00 America/New_York
+→ pulse no more often than every 180–240 minutes
+→ Sales Navigator saved-search/list operations
+→ DM/InMail only from a suppression-clear APPROVED queue
+→ substantive reply stops automation and routes to Webb Trant
+```
+
+This exception does not grant generic browser authority. It does not allow
+arbitrary scraping, mass messaging, CAPTCHA/checkpoint bypass, unapproved copy,
+or reuse of the 1,886 Instantly universe. A logged-in session, Dolphin profile
+or Sales Navigator list alone is not action authority. Limits remain
+account-specific: DM `2/day, 10/week`; InMail `2/day, 10/week, 50/month`;
+Sales Navigator saves `25/day`. Cold Instagram DM remains off.
+
+Private LinkedIn rows are classified into one controlled lane:
+
+| Lane | Job |
+|---|---|
+| `PRACTICE_DECISION_MAKER` | role validation and account-level professional reinforcement |
+| `PRACTICE_PROVIDER` | provider identity/supporting evidence; not assumed buyer |
+| `CHANNEL_PARTNER` | device, product, software, academy, association or service distribution |
+| `PORTFOLIO_PLATFORM` | multi-practice operator/portfolio partnership |
+| `REJECT_STALE` | stale, irrelevant, duplicate or insufficient identity |
+
+Required enrichment fields are `current_company`, `current_title`, `verified_at`, normalized company/person URLs, company domain, lane, location/account scope, partner/program evidence, public work-email source, EmailVerifier result, score, next action, suppression/DNC state and evidence timestamp. Row-level PII remains outside Git.
+
+Snapshot audit on 2026-08-22:
+
+| Metric | Count |
+|---|---:|
+| Source rows | 3,812 |
+| Unique valid person profiles | 2,687 |
+| Unique company pages | 1,170 |
+| Duplicate person rows | 1,115 |
+| Unique US person profiles | 967 |
+| US health/aesthetics decision-role profiles | 379 |
+
+These counts are evidence about the current files, not evergreen targets. Regenerate them after any source change with `scripts/caesthetic/cae_linkedin_master_audit.py`.
+
 LinkedIn content becomes a distribution surface for:
 
 - CITY CHECK;
@@ -990,6 +1064,37 @@ Partner
 ```
 
 Device reps are especially relevant because a newly purchased device creates a capacity/utilization problem whose success matters to the rep as well as the clinic.
+
+## 20.1 Partner pilot and approval queue — DEC-849
+
+Partner priorities from the current master/public-source pass:
+
+```text
+Priority A: Geneo, Symplast, The Perfect Derma Peel
+Priority B: Adoreal, Advanced MedAesthetic Partners,
+            Aesthetic Partners, AAAM
+Lower priority: AMS Solutions
+```
+
+The company-level, fail-closed queue lives at `docs/projects/caesthetic/data/linkedin-partner-approval-queue.json`. It contains no named contact, profile URL or email.
+
+One partner pilot may offer no more than **three** complimentary Growth Scores, matching the confirmed capacity of **3 Growth Scores/week**. Start one partner at a time. The reply owner is **Webb Trant**.
+
+Partner execution path:
+
+```text
+company-level queue
+→ identify current partnerships/growth/operations decision function
+→ verify current role from public evidence
+→ discover public work email
+→ EmailVerifier
+→ global suppression + partner-conflict check
+→ human approval
+→ separate Instantly partner campaign OR manual LinkedIn touch
+→ substantive reply stops automation and routes to Webb Trant
+```
+
+Do not reuse clinic cold-email copy or the 1,886 Instantly clinic universe for partner outreach. Do not claim a leak/constraint before a requested Score. No partner campaign is approved merely because a company appears in the queue.
 
 Commercial revenue-share/fixed/barter models require separate approval/legal review; they are not assumed by this SSOT.
 

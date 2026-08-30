@@ -1,0 +1,24 @@
+{
+  "content_id": "CAE-REEL-A-IG-4444-001",
+  "version": "v3",
+  "copy_id": "COPY-CAE-IG-4444-001",
+  "topic_id": "TOP-CAE-FOUR-SURFACES-01",
+  "pain_cluster": "Instagram engagement does not convert into appointments",
+  "master_asset_url": "dropbox:Projects/CAESTHETIC/CAESTHETIC MEDIA/Production/reels/CAE-REEL-A-IG-4444-001/final/CAE-REEL-A-IG-4444-001-V3-KARAOKE-NO-BG.mp4",
+  "expected_master_sha256": "b213fbbff3193b04d8beb41ecb6cf203b5fd39aea0fdb0d4b0766749a3685da6",
+  "approved_script": true,
+  "approved_publish": true,
+  "claims_ok": true,
+  "rights_ok": true,
+  "privacy_ok": true,
+  "scheduled_at": "2026-08-22T03:35:00+01:00",
+  "timezone": "Europe/London",
+  "error_note": "Founder approval in CAESTHETIC task on 2026-08-22 is limited to Instagram @caesthetic.growth; do not cross-post this item.",
+  "captions": {
+    "instagram": "Your Instagram may be doing its job — and still not produce appointments.\n\nThe leak can happen after the click. A patient moves between Instagram, your website, reviews and Google Maps. If the offer, proof or next step changes between surfaces, every extra tap adds friction.\n\nThe fix is one clear path across all four surfaces.\n\nDM \"4444\" for a cross-surface check.\n\n#MedicalAesthetics #AestheticMarketing #ClinicGrowth #PatientJourney",
+    "facebook": "A busy Instagram does not guarantee appointments. Patients cross-check your website, reviews and Maps before they contact you. One inconsistent answer or unclear next step can break trust. Align all four surfaces around one booking path. Message \"4444\" for a cross-surface check.",
+    "tiktok": "Likes are not the booking journey. Instagram, website, reviews and Maps need one clear next step. DM \"4444\" for a cross-surface check. #MedicalAesthetics #ClinicGrowth",
+    "youtube": "Why Instagram engagement does not always become appointments | The 4444 Method\n\nPatients may check your website, reviews and Google Maps after seeing your Instagram. This short explains how to align all four surfaces around one clear booking path.",
+    "linkedin": "Instagram can create attention while the patient journey still loses the appointment. The constraint is often cross-surface consistency: social, website, reputation and Maps need to present the same offer, proof and next step. The 4444 Method turns those separate touchpoints into one decision path."
+  }
+}

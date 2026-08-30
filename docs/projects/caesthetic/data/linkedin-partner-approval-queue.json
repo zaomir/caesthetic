@@ -1,0 +1,78 @@
+{
+  "schema": "caesthetic-linkedin-partner-approval-queue/v1",
+  "as_of": "2026-08-22",
+  "status": "research_only_fail_closed",
+  "reply_owner": "Webb Trant",
+  "growth_score_capacity_per_week": 3,
+  "pilot_rule": "one partner at a time; maximum three participating practices",
+  "writes_allowed": false,
+  "linkedin_automation": "OFF",
+  "cold_ig_dm": "OFF",
+  "offer": "Complimentary independent Growth Score for up to three participating practices; no pre-Score leak claim.",
+  "queue": [
+    {
+      "company": "Geneo",
+      "priority": "A",
+      "partner_class": "device_provider",
+      "public_evidence_url": "https://glo2facial.geneo-us.com/become-a-provider",
+      "target_function": "partnerships, provider growth or sales leadership",
+      "status": "public_email_missing; needs_current_role_and_contact_enrichment"
+    },
+    {
+      "company": "Symplast",
+      "priority": "A",
+      "partner_class": "aesthetic_practice_software",
+      "public_evidence_url": "https://symplast.com/practice-management/",
+      "target_function": "growth, partnerships or revenue leadership",
+      "status": "public_email_candidate_found; needs_current_role_emailverifier_and_suppression"
+    },
+    {
+      "company": "The Perfect Derma Peel",
+      "priority": "A",
+      "partner_class": "professional_product_provider",
+      "public_evidence_url": "https://theperfectdermapeel.com/pages/about-us",
+      "target_function": "partnerships, sales, marketing or provider success leadership",
+      "status": "public_email_candidate_found; needs_current_role_emailverifier_and_suppression"
+    },
+    {
+      "company": "Adoreal",
+      "priority": "B",
+      "partner_class": "clinic_growth_platform",
+      "public_evidence_url": "https://www.adoreal.com/en/partnership",
+      "target_function": "partnerships or clinic growth leadership",
+      "status": "public_email_missing; needs_current_role_and_contact_enrichment"
+    },
+    {
+      "company": "Advanced MedAesthetic Partners",
+      "priority": "B",
+      "partner_class": "portfolio_platform",
+      "public_evidence_url": "https://www.weramp.com/",
+      "target_function": "growth, partnerships or operations leadership",
+      "status": "master_contact_not_role_fit; public_email_candidate_found; needs_role_enrichment_emailverifier_and_suppression"
+    },
+    {
+      "company": "Aesthetic Partners",
+      "priority": "B",
+      "partner_class": "portfolio_platform",
+      "public_evidence_url": "https://www.aestheticpartners.com/home/",
+      "target_function": "growth, partnerships or operations leadership",
+      "status": "public_email_candidate_found; needs_current_role_emailverifier_and_suppression"
+    },
+    {
+      "company": "American Academy of Aesthetic Medicine",
+      "priority": "B",
+      "partner_class": "academy_association",
+      "public_evidence_url": "https://www.aaamed.org/",
+      "target_function": "sponsorships, partnerships or member programs",
+      "status": "master_contact_not_role_fit; public_email_candidates_found; needs_role_enrichment_emailverifier_and_suppression"
+    },
+    {
+      "company": "AMS Solutions",
+      "priority": "C",
+      "partner_class": "practice_services",
+      "public_evidence_url": "https://www.ams-solutions.com/",
+      "target_function": "partnerships or executive leadership",
+      "status": "lower_priority_public_email_candidate_found; needs_emailverifier_and_suppression"
+    }
+  ]
+}

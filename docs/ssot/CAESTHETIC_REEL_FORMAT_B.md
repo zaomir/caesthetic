@@ -6,7 +6,7 @@ created: 2026-08-18
 updated: 2026-08-19
 authority: founder-approved parallel production format, amended by DEC-841
 applies_to: episodes explicitly declaring format_system CAESTHETIC Reel Format B v1.1 (v1.0 episodes, e.g. CAE-REEL-B-001, stay governed by the v1.0 rules recorded in §2-§7)
-does_not_supersede: CAESTHETIC Reel System V3.2 (Format A)
+does_not_supersede: CAESTHETIC Reel System V3.3 (Format A)
 ---
 
 # CAESTHETIC Reel Format B v1.1
@@ -15,7 +15,7 @@ does_not_supersede: CAESTHETIC Reel System V3.2 (Format A)
 
 Format B is a parallel production format. It does not replace, amend or
 recompile existing Format A episodes governed by
-`CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` V3.2. Use it only when an
+`CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md` V3.3. Use it only when an
 episode explicitly declares its Format B version.
 
 ```text

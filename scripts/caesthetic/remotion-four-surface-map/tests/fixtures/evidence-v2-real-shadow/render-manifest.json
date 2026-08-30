@@ -1,0 +1,103 @@
+{
+  "manifest_version": "cae-render-manifest@1.0.0",
+  "design_system_version": "caesthetic-reel@1.0.0",
+  "content_id": "CAE-4444-REAL-SHADOW-001",
+  "spec_version": "Reel System V3.2",
+  "render_purpose": "production",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration_in_frames": 180
+  },
+  "audio_timeline": {
+    "source": "elevenlabs_alignment",
+    "master_ref": "private://shadow-fixture/audio/master.mp3",
+    "timestamps_ref": "private://shadow-fixture/audio/alignment.json",
+    "master_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "timestamps_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "scenes": [
+    {
+      "scene_id": "S01",
+      "type": "four_surface_map",
+      "mode": "evidence_bound",
+      "locale": "en-US",
+      "start_frame": 0,
+      "end_frame": 180,
+      "headline": "4 SURFACES. 1 JOURNEY.",
+      "practice_label": "YOUR PRACTICE",
+      "binding_constraint": {
+        "surface_id": "website"
+      },
+      "growth_score_return": {
+        "target_surface_id": "website"
+      },
+      "timeline_cues": [
+        {
+          "cue_id": "RC01",
+          "event": "surface_introduced",
+          "surface_id": "social",
+          "at_frame": 30,
+          "alignment_ref": {"segment_id": "SH01", "token_start_ms": 1000}
+        },
+        {
+          "cue_id": "RC02",
+          "event": "surface_introduced",
+          "surface_id": "website",
+          "at_frame": 50,
+          "alignment_ref": {"segment_id": "SH02", "token_start_ms": 1667}
+        },
+        {
+          "cue_id": "RC03",
+          "event": "surface_introduced",
+          "surface_id": "reputation",
+          "at_frame": 70,
+          "alignment_ref": {"segment_id": "SH03", "token_start_ms": 2333}
+        },
+        {
+          "cue_id": "RC04",
+          "event": "surface_introduced",
+          "surface_id": "search",
+          "at_frame": 90,
+          "alignment_ref": {"segment_id": "SH04", "token_start_ms": 3000}
+        },
+        {
+          "cue_id": "RC05",
+          "event": "binding_constraint_selected",
+          "at_frame": 120,
+          "alignment_ref": {"segment_id": "SH05", "token_start_ms": 4000}
+        },
+        {
+          "cue_id": "RC06",
+          "event": "growth_score_returned",
+          "at_frame": 145,
+          "alignment_ref": {"segment_id": "SH06", "token_start_ms": 4833}
+        }
+      ],
+      "evidence": {
+        "epistemic_label": "Observed",
+        "claim_bindings": [
+          {
+            "binding_id": "RB01",
+            "claim_slot": "headline_text",
+            "evidence_unit_id": "CAE-EV-4444-001",
+            "evidence_claim_id": "CL-4444-HEADLINE"
+          },
+          {
+            "binding_id": "RB02",
+            "claim_slot": "binding_constraint_surface",
+            "evidence_unit_id": "CAE-EV-4444-001",
+            "evidence_claim_id": "CL-4444-WEBSITE"
+          },
+          {
+            "binding_id": "RB03",
+            "claim_slot": "growth_score_target_surface",
+            "evidence_unit_id": "CAE-EV-4444-001",
+            "evidence_claim_id": "CL-4444-WEBSITE"
+          }
+        ]
+      }
+    }
+  ]
+}

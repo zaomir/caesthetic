@@ -1,10 +1,11 @@
 /**
  * CAESTHETIC runtime config — US aesthetic growth funnel (Phase 1).
- * Set measurement and checkout IDs in deploy secrets / host override before go-live ads.
+ * Payment provider credentials and provider URLs remain server-side only.
  */
 window.CAESTHETIC_API = {
   supabaseFunctions: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1",
   submitScore: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/submit-caesthetic-growth-score",
+  payment: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/caesthetic-payment",
 };
 
 window.CAESTHETIC = {
@@ -14,6 +15,10 @@ window.CAESTHETIC = {
   currency: "USD",
   scoreTurnaround: "",
   contactEmail: "info@caesthetic.com",
+  billingEmail: "info@caesthetic.com",
+  /* Signed Order -> private CAESTHETIC payment request -> Wise execution rail.
+     No reusable Wise/Stripe payment URL is stored in public runtime. */
+  approvedSprintPaymentPolicy: "signed_order_then_controlled_payment_request",
   phoneDisplay: "",
   phoneE164: "",
   legalEntity: "OXFORD PROJECTS LTD",
@@ -23,8 +28,8 @@ window.CAESTHETIC = {
     linkedin: "",
     photo: "/assets/img/team/valerie-petra.svg",
   },
-  /* Set before Meta/Google ads. Empty = dataLayer only. */
-  ga4MeasurementId: "",
+  /* Approved GA4 web stream. Meta stays dataLayer-only until separately approved. */
+  ga4MeasurementId: "G-PNQB0W9YB2",
   metaPixelId: "",
 };
 

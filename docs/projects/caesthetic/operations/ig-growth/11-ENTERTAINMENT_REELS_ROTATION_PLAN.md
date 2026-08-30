@@ -213,3 +213,48 @@ reference_filename · reference_link · section · borrowed_mechanic · original
 ```
 
 No post goes live from this pool until the publish gate in `08-PUBLISH_COMPLIANCE_AND_MEASUREMENT_GATE.md` is GO.
+
+## 13. Permanent inbox and recurring rotation
+
+The permanent Dropbox intake folder is:
+
+```text
+dropbox:Projects/CAESTHETIC/CAESTHETIC MEDIA/Huck/reels/reels-inbox/top50_2026-08-19 2
+```
+
+Do not move files out of this folder. New `.mp4`, `.mov` and `.m4v` files are
+discovered by `scripts/caesthetic/entertainment-rotation.py` and appended to the
+SIMON_OPS tab `CAE_Entertainment_Rotation`. Addition to the folder is intake,
+not permission to publish.
+
+The folder name is historical: the 2026-08-22 inventory contained 47 videos,
+not 50. The founder will continue adding new entertainment videos to this same
+folder. The watcher must therefore treat it as a permanent append-only intake,
+not as a closed batch or a one-time import. Do not move the files merely to
+match a cleaner folder name; route the watcher to the actual founder-managed
+location.
+
+The ledger has a shared gate/rotation block and separate cells for Instagram,
+Facebook, TikTok, YouTube and LinkedIn:
+
+```text
+{platform}_asset_url · {platform}_caption · {platform}_status ·
+{platform}_hooppy_post_id · {platform}_scheduled_at ·
+{platform}_live_url · {platform}_published_at
+```
+
+Selection is fail-closed. A row is publishable only when rights, business-audio,
+privacy, claims and visual QA are `GO`, `approved_publish=TRUE`, and every
+platform package is present. New approved files receive their first exposure
+before any older item begins another cycle. Within a cycle use
+`sequence_position`; never repeat the most recently published item when another
+eligible item exists. `times_published` is the cycle counter: the minimum count
+wins, so after the pool is exhausted selection returns to the first eligible
+row. Respect `next_eligible_at`; no eligible row means skip, not bypass.
+
+Instagram entertainment remains at most the optional Tuesday extra feed slot
+and never replaces Wednesday informational content. Hooppy schedules only the
+exact approved platform bundles. Hooppy `published` is delivery evidence, not
+proof of a live post: write a platform live URL and `published_at` only after
+platform verification. Any media/caption change resets approval. Revoked or
+expired rights immediately set the row to `ARCHIVED` or `BLOCKED_RIGHTS_REVIEW`.

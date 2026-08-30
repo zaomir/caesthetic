@@ -1,0 +1,478 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caesthetic.com/schemas/drafts/evidence-unit-v2.schema.json",
+  "title": "CAESTHETIC Evidence Unit v2 — DRAFT, NON-AUTHORITATIVE",
+  "description": "Conceptual-review artifact derived from the proposed DEC-851 amendment. Not imported by runtime or CI.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_manifest_version",
+    "unit_id",
+    "unit_revision",
+    "source",
+    "capture_date",
+    "epistemic_label",
+    "verified_observation",
+    "method_scope",
+    "authorized_public_claims",
+    "rights_status",
+    "consent_ref",
+    "rights_valid_until",
+    "redaction_status",
+    "reviewer",
+    "reviewed_at",
+    "lifecycle_state",
+    "publishable_attestation_id",
+    "clean_artifacts",
+    "reuse",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "evidence_manifest_version": {
+      "const": "cae-evidence-unit@2.0.0"
+    },
+    "unit_id": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 80,
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "unit_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "supersedes_unit_id": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 80,
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "source": {
+      "$ref": "#/$defs/sourceProvenance"
+    },
+    "capture_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "epistemic_label": {
+      "enum": [
+        "Observed",
+        "Measured",
+        "Calculated",
+        "Benchmark",
+        "Estimated",
+        "Illustrative"
+      ]
+    },
+    "verified_observation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authorized_public_claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/authorizedPublicClaim"
+      },
+      "uniqueItems": true,
+      "$comment": "Runtime additionally enforces globally unique claim_id values and exact claim-binding use."
+    },
+    "rights_status": {
+      "enum": [
+        "public_source",
+        "anonymized_only",
+        "client_consented"
+      ]
+    },
+    "consent_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rights_valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "redaction_status": {
+      "enum": [
+        "pending",
+        "clean",
+        "not_applicable"
+      ]
+    },
+    "reviewer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reviewed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "lifecycle_state": {
+      "enum": [
+        "CAPTURED",
+        "PUBLISHABLE",
+        "USED"
+      ]
+    },
+    "publishable_attestation_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "clean_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cleanArtifact"
+      },
+      "uniqueItems": true,
+      "$comment": "Runtime additionally enforces unique artifact_id and relative_path values."
+    },
+    "reuse": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sourceProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "reference",
+        "captured_at"
+      ],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "public_url",
+            "private_reference",
+            "first_party_system",
+            "model_fixture"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "captured_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "$comment": "Runtime rejects secrets, signed URLs, raw artifact paths and source types incompatible with the epistemic label."
+    },
+    "claimId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "authorizedPublicClaim": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "claim_id",
+            "claim_type",
+            "locale",
+            "value"
+          ],
+          "properties": {
+            "claim_id": {
+              "$ref": "#/$defs/claimId"
+            },
+            "claim_type": {
+              "const": "text"
+            },
+            "locale": {
+              "const": "en-US"
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "claim_id",
+            "claim_type",
+            "value"
+          ],
+          "properties": {
+            "claim_id": {
+              "$ref": "#/$defs/claimId"
+            },
+            "claim_type": {
+              "const": "surface_id"
+            },
+            "value": {
+              "enum": [
+                "search",
+                "website",
+                "social",
+                "reputation"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "cleanRelativePath": {
+      "type": "string",
+      "allOf": [
+        {
+          "pattern": "^clean/[A-Za-z0-9][A-Za-z0-9._/-]*$"
+        },
+        {
+          "not": {
+            "pattern": "(?:^|/)\\.\\.?(?:/|$)"
+          }
+        },
+        {
+          "not": {
+            "pattern": "//"
+          }
+        }
+      ],
+      "$comment": "Runtime also rejects absolute paths, URLs, raw paths, symlinks, non-regular files and realpath escapes."
+    },
+    "cleanArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "relative_path",
+        "media_type",
+        "byte_size",
+        "sha256",
+        "created_at",
+        "expires_at"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9._-]+$"
+        },
+        "relative_path": {
+          "$ref": "#/$defs/cleanRelativePath"
+        },
+        "media_type": {
+          "type": "string",
+          "pattern": "^[a-z0-9.+-]+/[a-z0-9.+-]+$"
+        },
+        "byte_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "epistemic_label": {
+            "enum": [
+              "Calculated",
+              "Benchmark",
+              "Estimated"
+            ]
+          }
+        },
+        "required": [
+          "epistemic_label"
+        ]
+      },
+      "then": {
+        "properties": {
+          "method_scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "rights_status": {
+            "const": "client_consented"
+          }
+        },
+        "required": [
+          "rights_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "consent_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "epistemic_label": {
+            "const": "Illustrative"
+          }
+        },
+        "required": [
+          "epistemic_label"
+        ]
+      },
+      "then": {
+        "properties": {
+          "reviewer": {
+            "type": "null"
+          },
+          "reviewed_at": {
+            "type": "null"
+          },
+          "redaction_status": {
+            "const": "not_applicable"
+          },
+          "source": {
+            "properties": {
+              "source_type": {
+                "const": "model_fixture"
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "reviewer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "redaction_status": {
+            "enum": [
+              "pending",
+              "clean"
+            ]
+          },
+          "source": {
+            "properties": {
+              "source_type": {
+                "not": {
+                  "const": "model_fixture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lifecycle_state": {
+            "const": "CAPTURED"
+          }
+        },
+        "required": [
+          "lifecycle_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "publishable_attestation_id": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lifecycle_state": {
+            "enum": [
+              "PUBLISHABLE",
+              "USED"
+            ]
+          }
+        },
+        "required": [
+          "lifecycle_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authorized_public_claims": {
+            "minItems": 1
+          },
+          "clean_artifacts": {
+            "minItems": 1
+          },
+          "redaction_status": {
+            "enum": [
+              "clean",
+              "not_applicable"
+            ]
+          },
+          "publishable_attestation_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ],
+  "$comment": "Only the Resolver service identity may write PUBLISHABLE/USED revisions. Future-time checks, MIME sniffing, NFC normalization, ID uniqueness, filesystem containment, size/SHA verification, HMAC validation and promotion ownership are mandatory Resolver rules outside JSON Schema."
+}

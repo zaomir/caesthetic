@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createGrowthScoreReportTemplate } from "./growth-score-report-template.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const collectedAt = "2026-08-21";
@@ -130,6 +131,7 @@ const entries = [
 
 const decisionItem = (title, rationale, refs) => ({ title, rationale, evidence_refs: refs });
 const report = {
+  ...createGrowthScoreReportTemplate(),
   schemaVersion: 4, reportState: "approved_report", reportVersion: "aesthetemed-public-evidence-v1", verifiedFactSetVersion: "aesthetemed-public-evidence-2026-08-21-v1", reportKind: "real",
   disclosure: "Independent public-evidence diagnostic prepared as a CAESTHETIC test; no client relationship is implied.",
   practice: { name: "Aesthetemed Beauty & Wellness Clinic", location: "Hallandale Beach, Florida, United States", preparedAt: collectedAt, preparedFor: "Independent public-evidence test" },

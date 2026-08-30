@@ -5,10 +5,11 @@ status: canonical
 authority: CAESTHETIC / marketing
 owner: Marketing / platform
 created: 2026-08-14
-last_reviewed: 2026-08-20
+last_reviewed: 2026-08-22
 related:
   - docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md
   - docs/founder-notes/DEC-845.md
+  - docs/founder-notes/DEC-849.md
   - docs/ssot/CAESTHETIC_IG_GROWTH_PROGRAM.md
   - docs/ssot/CAESTHETIC_IG_REACH_PLAYBOOK.md
   - docs/ssot/CAESTHETIC_IG_CONTENT_PLACEMENT.md
@@ -45,6 +46,8 @@ Cold DM on Instagram remains **off**. Thanks DM after follow-back remains **on**
 
 This document is the SSOT for the Email→IG lane. It does **not** unlock Instantly send without founder GO + deliverability check + qualification/suppression gates.
 
+DEC-849 boundary: the first Instantly planning universe is **1,886 US candidates**. It is Instantly-only, not send authority, and must not be silently uploaded/reused as an Instagram, LinkedIn, Meta, ManyChat or Dolphin audience. Instagram `CURRENT`, `execution_allowed=false` and cold IG DM `OFF` remain unchanged.
+
 ## 1. Jobs of each channel
 
 | Channel | Job | Not the job |
@@ -58,6 +61,7 @@ This document is the SSOT for the Email→IG lane. It does **not** unlock Instan
 ## 2. Universe and identity
 
 - Candidate discovery data (including the current 1,441-account pool) is **research input, not send authority by itself**.
+- The 1,886 US Instantly candidate projection is also research/enrichment input until every row passes email verification, suppression, conflict and wave approval gates.
 - Email universe: only qualified accounts with a **verified owner/practice email** after enrichment. Username alone is not an email.
 - One company = one active opening narrative (`MARKETING_SYSTEM_STANDARD` / DEC-845).
 - Pre-Score qualification answers at minimum: US? patient-facing? independent/local? website? owner/decision-maker?
