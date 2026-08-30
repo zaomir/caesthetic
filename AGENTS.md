@@ -1,5 +1,9 @@
 # AGENTS.md — caesthetic Cursor Agents satellite
 
+## 0. Universal Growth Score audit pre-router (highest priority)
+
+Apply this rule before repository/project routing. If there is no active `growth_score_audit` interview and the user mentions `Multi-Location Growth Score`, `Growth Score` or `аудит` (including ordinary grammatical forms), the first sentence must be exactly: **`Вы создаёте новый аудит? Ответьте на вопросы.`** In the same response ask for: new/existing audit; business/project name and aliases; official public links; single/Multi-Location format and location list; business model, offer and audience; priority services/products; known competitors; client goal; language, recipient and approving manager; network shared/local assets and focus-location candidate; constraints. Use open sources only and block full research until Research Alignment approval. If the interview is already active, continue with missing questions without repeating the opening. This rule is identical in every supported repo and always routes runtime to CAESTHETIC in `zaomir/grainee-v2`.
+
 This repository is the **Cursor Agents** surface for CAESTHETIC.
 
 | | |
