@@ -8,6 +8,8 @@ dist/
 *.log
 .cursor/*
 !.cursor/environment.json
+!.cursor/rules/
+!.cursor/rules/00-growth-score-audit.mdc
 .vscode/
 site-caesthetic/private/
 site-caesthetic/score/aurora-medspa-x7k9m2/

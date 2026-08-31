@@ -4,11 +4,28 @@ status: active
 phase: 1
 
 read_first:
+  - AGENTS.md
+  - docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md
   - docs/projects/caesthetic/AGENTS.md
   - docs/ssot/CAESTHETIC.md
   - docs/projects/caesthetic/PROJECT_STATUS.md
 
 allowed_paths:
+  - AGENTS.md
+  - START.md
+  - .cursorrules
+  - CLAUDE.md
+  - GEMINI.md
+  - .github/copilot-instructions.md
+  - .cursor/rules/**
+  - .clinerules/**
+  - .roo/rules/**
+  - .windsurf/rules/**
+  - .windsurfrules
+  - .amazonq/rules/**
+  - .continue/rules/**
+  - .junie/**
+  - .aider.conf.yml
   - site-caesthetic/**
   - docs/projects/caesthetic/**
   - docs/caesthetic/**
@@ -17,6 +34,7 @@ allowed_paths:
   - docs/audits/caesthetic/**
   - scripts/caesthetic/**
   - tests/caesthetic/**
+  - tests/global-growth-score-audit-routing.test.mjs
 
 forbidden_paths:
   - site-raimovdental/**
@@ -50,6 +68,7 @@ commands:
   sync_bidirectional: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
   smoke: curl -fsS -o /dev/null -w '%{http_code}' https://caesthetic.com/
   test: node --test tests/caesthetic/growth-score-*.test.mjs
+  agent_policy_check: node --test tests/global-growth-score-audit-routing.test.mjs
   render_check: node scripts/caesthetic/render-growth-score.mjs --check
 
 deploy_target: caesthetic
@@ -59,6 +78,8 @@ agents_sync: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --comm
 agents_seed: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
 
 definition_of_done:
+  - AI-agent policy check passes with no canonical version/commit drift
+  - Audit full research remains blocked before named-manager Research Alignment approval
   - CAESTHETIC master SSOT remains authoritative
   - Four-surface model preserved across Growth Score, Sprint and Growth System
   - No fabricated proof or outcome guarantees

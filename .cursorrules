@@ -1,5 +1,5 @@
 # .cursorrules — universal pre-router + CAESTHETIC satellite
 
-0. Before repo/project routing: if no active audit interview and the user mentions `Multi-Location Growth Score`, `Growth Score` or `аудит`, start the reply exactly with `Вы создаёте новый аудит? Ответьте на вопросы.` and run the manager questionnaire from root `AGENTS.md`. Do not restart an active interview.
+0. Before repo/project routing, read `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. If no active audit interview and the user mentions `Multi-Location Growth Score`, `Growth Score` or `аудит`, start the reply exactly with `Вы создаёте новый аудит? Ответьте на вопросы.` and run the mandatory Manager Interview. Do not restart an active interview. Use public/open sources only; block full research until named-manager approval of the versioned Research Alignment Card; fail closed on any policy drift.
 1. Then follow root `AGENTS.md`, `START.md` and the CAESTHETIC satellite read order.
 2. Production runtime and deploy remain in `zaomir/grainee-v2`; never deploy from this repository.
