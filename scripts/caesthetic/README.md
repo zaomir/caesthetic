@@ -2,6 +2,8 @@
 
 | Script | Job |
 |--------|-----|
+| `install-continuous-sync.sh` | Installs the free VPS2402 systemd timer for bidirectional `grainee-v2` ↔ `caesthetic` reconciliation every 15 seconds. |
+| `sync-agents-bidirectional.sh` | One reconciliation pass; hashes both sides, propagates edits and deletions, records conflicts, commits and pushes when requested. |
 | `../sync-caesthetic-docs.sh` | One-way Dropbox → `docs/caesthetic/` (`dropbox:` remote on VDS; see `docs/caesthetic/README.md`) |
 | `seed-ig-students-w34.py` | **PHASE1_FAIL_CLOSE** — Seed `Audience_IG_Students` + W34 DRAFT (needs `CAE_PHASE0_STUDENT_VOC_ALLOW=1`) |
 | `render-ig-voc-batch.py` | **PHASE1_FAIL_CLOSE** — student VOC carousels `COPY-VOC-*` |

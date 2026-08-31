@@ -1,0 +1,22 @@
+[Unit]
+Description=CAESTHETIC bidirectional repository sync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/caesthetic-repo-sync/environment
+ExecStart=/opt/caesthetic-repo-sync/continuous-sync-runner.sh
+User=root
+Group=root
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/www/grainee-v2 /var/www/caesthetic /var/lib/caesthetic-repo-sync /run/lock /tmp
+TimeoutStartSec=120
+
+[Install]
+WantedBy=multi-user.target

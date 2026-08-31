@@ -14,6 +14,8 @@ ssot_globs:
   - docs/ssot/CAESTHETIC*.md
 extra_files:
   - agents/manifests/caesthetic.yaml
+  - deploy/systemd/caesthetic-repo-sync.service
+  - deploy/systemd/caesthetic-repo-sync.timer
 excludes:
   - node_modules
   - dist

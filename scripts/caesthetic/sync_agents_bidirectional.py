@@ -46,6 +46,8 @@ SSOT_GLOBS = [
 
 EXTRA_FILES = [
     "agents/manifests/caesthetic.yaml",
+    "deploy/systemd/caesthetic-repo-sync.service",
+    "deploy/systemd/caesthetic-repo-sync.timer",
 ]
 
 EXCLUDE_DIR_NAMES = {
@@ -59,6 +61,9 @@ EXCLUDE_DIR_NAMES = {
 EXCLUDE_FILE_PREFIXES = (".env",)
 EXCLUDE_FILE_SUFFIXES = (".pyc", ".pyo")
 EXCLUDE_REL_PREFIXES = (
+    # Audit-factory policy is canonical in grainee-v2; the public satellite has
+    # an intentionally different pointer at the same path.
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
     "site-caesthetic/private/",
     "site-caesthetic/score/aurora-medspa-x7k9m2/",
     "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
@@ -148,7 +153,10 @@ def expand_ssot(root: Path) -> List[str]:
     if not ssot.is_dir():
         return out
     for p in sorted(ssot.glob("CAESTHETIC*.md")):
-        out.append(str(p.relative_to(root)))
+        rel = str(p.relative_to(root))
+        if should_skip(rel, p.name, False):
+            continue
+        out.append(rel)
     return out
 
 
@@ -190,6 +198,7 @@ class Action:
     rel: str
     direction: str  # g2s | s2g
     reason: str
+    operation: str = "copy"  # copy | delete
 
 
 def decide(
@@ -203,17 +212,33 @@ def decide(
 
     if not g_exists and not s_exists:
         return None
+    prev = last.get(rel)
+
     if g_exists and not s_exists:
-        return Action(rel, "g2s", "only_in_grainee")
+        g_hash = sha256_file(g_path)
+        if prev is None:
+            return Action(rel, "g2s", "only_in_grainee")
+        if g_hash == prev:
+            return Action(rel, "s2g", "satellite_deleted", "delete")
+        # Modification and deletion raced. Preserve the modified file. Protected
+        # paths also remain grainee-authoritative.
+        return Action(rel, "g2s", "conflict_grainee_modified_satellite_deleted")
     if s_exists and not g_exists:
-        return Action(rel, "s2g", "only_in_satellite")
+        s_hash = sha256_file(s_path)
+        if prev is None:
+            return Action(rel, "s2g", "only_in_satellite")
+        if s_hash == prev:
+            return Action(rel, "g2s", "grainee_deleted", "delete")
+        if is_protected(rel):
+            return Action(rel, "g2s", "conflict_protected_grainee_deleted", "delete")
+        # Preserve a concurrently modified satellite file over a deletion.
+        return Action(rel, "s2g", "conflict_satellite_modified_grainee_deleted")
 
     g_hash = sha256_file(g_path)
     s_hash = sha256_file(s_path)
     if g_hash == s_hash:
         return None
 
-    prev = last.get(rel)
     g_changed = prev is None or g_hash != prev
     s_changed = prev is None or s_hash != prev
 
@@ -245,6 +270,11 @@ def copy_file(src: Path, dst: Path) -> None:
     shutil.copy2(src, dst)
 
 
+def delete_file(path: Path) -> None:
+    if path.is_file() or path.is_symlink():
+        path.unlink()
+
+
 def ensure_satellite(sat: Path) -> None:
     if not (sat / ".git").is_dir():
         run(["git", "clone", SAT_URL, str(sat)])
@@ -257,7 +287,19 @@ def ensure_satellite(sat: Path) -> None:
 def git_commit_push(repo: Path, message: str, paths: List[str], do_commit: bool, do_push: bool) -> None:
     if not do_commit:
         return
-    existing = [p for p in paths if (repo / p).exists()]
+    # Keep tracked deleted paths in the pathspec: `git add -A -- <path>` is what
+    # stages a propagated deletion. Ignore only paths that neither exist nor
+    # have ever been tracked (for example the optional conflicts report).
+    existing: List[str] = []
+    for p in paths:
+        tracked = subprocess.run(
+            ["git", "ls-files", "--error-unmatch", "--", p],
+            cwd=str(repo),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        ).returncode == 0
+        if (repo / p).exists() or tracked:
+            existing.append(p)
     for extra in (STATE_REL, MARKER_REL, CONFLICTS_REL):
         if (repo / extra).exists() and extra not in existing:
             existing.append(extra)
@@ -359,7 +401,7 @@ def main() -> int:
     s2g = [a for a in actions if a.direction == "s2g"]
     print(f"planned: grainee→sat={len(g2s)} sat→grainee={len(s2g)} conflicts={len(conflicts)}")
     for a in actions[:50]:
-        print(f"  {a.direction}\t{a.reason}\t{a.rel}")
+        print(f"  {a.direction}\t{a.operation}\t{a.reason}\t{a.rel}")
     if len(actions) > 50:
         print(f"  ... +{len(actions) - 50} more")
 
@@ -372,7 +414,10 @@ def main() -> int:
         return 0
 
     for a in actions:
-        if a.direction == "g2s":
+        if a.operation == "delete":
+            target = sat / a.rel if a.direction == "g2s" else grainee / a.rel
+            delete_file(target)
+        elif a.direction == "g2s":
             copy_file(grainee / a.rel, sat / a.rel)
         else:
             copy_file(sat / a.rel, grainee / a.rel)
@@ -420,7 +465,9 @@ def main() -> int:
     write_marker(grainee, sat, summary)
 
     mapped_files = sorted(
-        (collect_rels(grainee) | collect_rels(sat)) | {STATE_REL, MARKER_REL, CONFLICTS_REL}
+        (collect_rels(grainee) | collect_rels(sat))
+        | {a.rel for a in actions}
+        | {STATE_REL, MARKER_REL, CONFLICTS_REL}
     )
 
     if args.commit:
