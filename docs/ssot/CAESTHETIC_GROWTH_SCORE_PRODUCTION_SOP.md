@@ -1,250 +1,315 @@
 ---
 owner: CAESTHETIC
-status: canonical
-version: 1.0
+status: active
+version: 2.2
 created: 2026-08-30
 updated: 2026-08-30
-scope: Growth Score production orchestration from accepted case to private delivery and closeout
+scope: unified manager-assigned audit platform for any eligible public-facing project, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
 project_master: docs/ssot/CAESTHETIC.md
 related:
   - docs/caesthetic/growth_score_spec.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
-  - docs/caesthetic/competitive_decision_analysis.md
-  - docs/ssot/CAESTHETIC_FUNNEL_TOOLING_AND_LAUNCH_READINESS.md
+  - docs/ssot/CARD_NETWORK_EXECUTIVE_SNAPSHOT.md
 runtime_contracts:
-  - scripts/caesthetic/growth-score-workflow.mjs
+  - scripts/caesthetic/growth-score-intent-router.mjs
+  - scripts/caesthetic/growth-score-project-catalog.mjs
   - scripts/caesthetic/render-growth-score.mjs
 ---
 
-# CAESTHETIC — Growth Score Production SOP
+# CAESTHETIC — Growth Score Audit Factory SSOT
 
-> One controlled route from an accepted Growth Score case to an approved private owner cockpit, walkthrough, delivery record and closeout.
+> One controlled production method for **Growth Score v5**, **Multi-Location Growth Score** and **аудит**. These names resolve to one audit intent: manager assignment → mandatory manager interview → quick public reconnaissance → manager-approved research alignment → full public research → internal AI report → named-human Focus Selection → catalogued protected client pages on `caesthetic.com` → delivery.
 
-This file is an **orchestration/router authority only**. It does not redefine the CAESTHETIC product, Four Surfaces, scoring metrics or weights, evidence classes, Competitive Decision Analysis, the Valerie walkthrough, the report schema, renderer behaviour or Sprint scope.
+This file is the sole operating SSOT for creating both audit formats. It owns sequence, roles, gates, inputs, outputs and fail-closed behaviour. It does not redefine Four-Surface metrics, weights, evidence classes, the current schema-v5 location report, the Valerie walkthrough or Sprint pricing.
 
-When rules conflict, use the higher authority named below. Do not resolve a conflict by copying a specialist rule into this SOP.
+## 0. Non-negotiable decisions
 
-## 0. Authority map
+1. Both audit formats use **public/open sources only**.
+2. The robot starts every manager-assigned audit by interviewing the manager. It must not wait for the manager to remember what to provide.
+3. Before full research, the robot performs only quick public reconnaissance and presents a Research Alignment Card.
+4. Full research is blocked until the manager confirms or corrects the robot's understanding of the business, locations, scope and competitor set.
+5. The robot finds the complete Gap Inventory and proposes a risk order and candidate Focus Selection. That proposal is internal and non-publishable.
+6. A named manager manually selects the final one Primary Gap plus two or three Supporting Gaps.
+7. The selected 3–4 gaps appear first on the client page as the most dangerous approved gaps. All other verified, monitor and insufficient-evidence items remain lower in the Full Gap Inventory.
+8. Risk order is not the same as score order. The lowest surface score never automatically becomes the Primary Gap.
+9. Growth Score v5 remains the canonical detailed report for one location.
+10. Multi-Location Growth Score adds a parent network-analysis page and links to one full Growth Score v5 for the manager-selected focus location.
+11. A Multi-Location package has one shared final Focus Selection of 3–4 gaps total, not 3–4 network gaps plus another 3–4 location gaps.
+12. Real client pages require a simple package password validated server-side, plus unguessable routes and noindex controls.
+13. `Multi-Location Growth Score`, `Growth Score` and `аудит` are synonyms for the canonical `growth_score_audit` intent. Mentioning any synonym starts the same manager interview.
+14. Every approved audit is registered automatically in the internal project catalog. Public listing is separate and requires a synthetic report or explicit client permission.
+15. Every client audit page lives under `https://caesthetic.com/score/`; no satellite or third-party host is canonical.
+16. Audit-intent detection runs before repository/project routing. The connected repository cannot suppress the mandatory opening or redirect the audit into its own product context.
+
+## 1. Authority map
 
 | Question | Authority |
 |---|---|
-| Product, positioning, Four Surfaces, funnel and human-approval canon | `docs/ssot/CAESTHETIC.md` |
-| Metrics, weights, evidence, coverage, report schema and 13-section cockpit contract | `docs/caesthetic/growth_score_spec.md` |
-| Valerie Petra walkthrough content and production rules | `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md` |
-| Global competitive decision rules | `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md` |
-| CAESTHETIC competitor evidence adapter | `docs/caesthetic/competitive_decision_analysis.md` |
-| Intake, routing, tooling, capacity and launch readiness | `docs/ssot/CAESTHETIC_FUNNEL_TOOLING_AND_LAUNCH_READINESS.md` |
-| Runtime workflow records and validation | `scripts/caesthetic/growth-score-workflow.mjs` |
-| Client cockpit rendering | `scripts/caesthetic/render-growth-score.mjs` |
+| Product, Four Surfaces, funnel, human approval and owner promise | `docs/ssot/CAESTHETIC.md` |
+| Metrics, weights, evidence, coverage, schema v5 and 9-section location cockpit | `docs/caesthetic/growth_score_spec.md` |
+| Creation sequence for both audit formats | this file |
+| Valerie Petra walkthrough | `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md` |
+| Global competitor method | `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md` |
+| Runtime records and validation | `scripts/caesthetic/growth-score-workflow.mjs` |
+| Location report rendering | `scripts/caesthetic/render-growth-score.mjs` |
+| Synonym detection and mandatory interview response | `scripts/caesthetic/growth-score-intent-router.mjs` |
+| Approved-project discovery and safe catalog rendering | `scripts/caesthetic/growth-score-project-catalog.mjs` |
 
-Authority order:
+The Royal Petrol/CARD_NETWORK materials are reference prior art only. CAESTHETIC reuses the useful concepts of branch registry, declared-versus-reviewed coverage, branch competitor maps, confidence states and network-level repeated patterns. It does **not** inherit internal verified datasets, rating-only health labels, exact network claims not reproduced from current public evidence, CARD_NETWORK pricing or its product funnel.
+
+## 2. Two output formats, one factory
+
+The platform unit is an `audit_project`, not a clinic. Any public-facing business or project may enter the factory when its customer-choice journey has meaningful, publicly observable Search, Website, Social and Reputation surfaces. The Research Alignment Card must return `not_applicable` instead of inventing scores when those surfaces or a meaningful public decision journey do not exist.
+
+The generic project wrapper does not fork Growth Score v5. It maps the approved subject name and public geography into the existing schema-v5 `practice` compatibility object for the detailed single-location renderer; its generic identity, subject type and audit format live in the audit project/catalog layer.
+
+| Format | Internal research unit | Client deliverable |
+|---|---|---|
+| `single_location` | One resolved public business location | One protected Growth Score v5 page |
+| `multi_location` | One declared network, its reviewed locations, shared assets and local assets | One protected network-analysis page plus one linked protected Growth Score v5 page for the focus location |
+
+For Multi-Location:
+
+- the deliverable is one parent network-analysis page plus one linked protected Growth Score v5 page;
+- the network page is the delivery entry point;
+- its hero says how many locations were declared and how many were actually reviewed;
+- it explains shared versus location-specific gaps;
+- it shows repeated patterns and the best observed public-surface practices inside the network;
+- it names the manager-selected focus location;
+- it contains one navigation link: `View the full Growth Score for [Location]`;
+- the child location page links back to the network page;
+- both pages use the same approved fact set, Focus Selection and access group;
+- the link between pages is navigation, not a second commercial CTA;
+- there is no aggregate Network Score `/100`.
+
+Do not call a location the network's best or worst business performer. Public evidence supports only statements such as `strongest observed public Search surface among the reviewed locations` or `highest-risk observed public gap`.
+
+## 3. Roles and decision rights
+
+| Role | Must do | Must not do |
+|---|---|---|
+| Manager | assign the audit, answer the robot's intake, approve the Research Alignment Card, review evidence, select the focus location for Multi-Location, choose the final 3–4 Focus Gaps, approve the report and deliver it | rely on the robot's draft as final judgment; silently introduce unsupported facts |
+| Robot / AI | interview the manager, run quick reconnaissance, propose competitors and scope, collect public evidence, build the complete inventory, propose risk order and repair paths, compile approved pages | start full research before alignment approval; use closed data; make final Focus Selection; publish or deliver without human approval |
+| Method owner | approve global changes to rubrics, prompts, templates and learning releases | promote one client correction into global canon automatically |
+
+The manager's information is `self_reported` context until independently verified through public evidence. It may guide entity resolution and research questions, but it cannot increase score coverage or become Class A evidence by itself.
+
+## 4. Canonical gates and case progression
+
+The existing machine states remain authoritative. The following mandatory gates are stored inside the case/draft/review trail and do not invent new record types:
 
 ```text
-CAESTHETIC.md
-→ applicable specialist SSOT/spec
-→ runtime validator or renderer for its owned machine contract
-→ this production SOP
-→ working documents
-```
-
-## 1. Entry contract
-
-Production begins only from one of two valid triggers:
-
-1. `owner_intake` — the required Growth Score intake was accepted. Optional enrichment may be absent and remains self-reported context until independently verified.
-2. `public_evidence_outbound` — an explicitly authorised proactive path based on public evidence. It must never be represented as owner intake and must pass the same evidence, human-review, privacy and private-delivery gates.
-
-Create one `score_case` with a stable case id, source kind, intake/workflow versions, timestamps and self-reported context. Detect duplicate intake before research: link the duplicate to the existing active case, preserve the new receipt/audit event and do not create two competing reports.
-
-Canonical case progression:
-
-```text
-created
+score_case created
+→ Manager Interview complete
+→ Research Alignment approved
 → researching
-→ draft_review
-→ fact_set_frozen
-→ report_review
-→ approved
+→ Internal AI Report ready
+→ named-human evidence review
+→ named-human Focus Selection
+→ verified fact set frozen
+→ report review
+→ approved report
+→ protected route QA
 → delivered
 → closed
 ```
 
-No state name implies publication by itself. Only a valid `approved_report` may enter rendering and delivery.
+No later gate may compensate for a missing earlier gate. In particular:
 
-## 2. Identity, vertical and locale resolution; research-brief freeze
+- no full research before `research_alignment.status=approved`;
+- no final compilation before named-human Focus Selection;
+- no render publication before approved report;
+- no delivery before password/access QA.
 
-Before collecting scored evidence, resolve the practice as a real public entity:
+## 5. Gate 1 — mandatory Manager Interview
 
-- trading/practice name and known aliases;
-- exact location and branch scope;
-- website, GBP/Maps entity, public social profiles and booking destination;
-- priority treatments or service intent;
-- relevant market/catchment;
-- owner-supplied competitors, if any, as unverified selection context.
+Immediately after the manager assigns an audit, or whenever a user mentions `Multi-Location Growth Score`, `Growth Score` or `аудит`, the robot opens with the exact sentence: **`Вы создаёте новый аудит? Ответьте на вопросы.`** It then shows the structured interview. It must reuse facts already present in the assignment and ask only for missing information. It must continue with targeted follow-ups until the mandatory card is complete or explicitly blocked.
 
-Then resolve `vertical_context` and `report_locale` under `growth_score_spec.md` before freezing the research brief. The required order is: **resolve practice identity → resolve `vertical_context` → resolve `report_locale` → freeze research brief**. If the vertical remains ambiguous, keep it explicitly `unresolved` and use the clarification path; do not begin scored research by guessing. Vertical changes evidence context and vocabulary; locale changes presentation. Neither may rewrite verified facts to fit the template.
+### 5.1 Questions for both formats
 
-If two or more plausible entities remain, stop diagnosis and request one public identifier. Do not merge branches, ratings, review counts, social accounts or websites to manufacture a complete identity.
+The robot asks for:
 
-Freeze a versioned research brief before substantive collection. It records the resolved identity, `reportContext` and its provenance, branch scope, priority-treatment/query family, geography, observation windows, collection methods, competitor-selection method, applicable permissions, exclusions and workflow/rubric versions. Changes after freeze require an append-only review event and a new brief version.
+1. audit format: one location or multi-location;
+2. business/trading name and known aliases;
+3. official website and known public profiles;
+4. exact city/region/country and public address for the target location;
+5. what the business sells and how the manager understands its core offer;
+6. priority services/treatments/products to use as research context;
+7. target customer or patient-choice market as manager context;
+8. relevant languages and final report locale;
+9. known competitors and why the manager considers them relevant;
+10. the client's stated concern, request or reason for the audit;
+11. known rebrand, relocation, duplicate listing, closure or ownership ambiguity;
+12. intended recipient, delivery language and manager responsible for approval;
+13. any public URLs or prior public observations already collected;
+14. explicit exclusions or scope constraints.
 
-## 3. Evidence collection
+### 5.2 Additional Multi-Location questions
 
-Move the case to `researching` and collect candidate evidence across exactly:
+The robot also asks for:
+
+1. the expected complete location list;
+2. which locations are believed active, closed, moved or rebranded;
+3. which website, booking, social and reputation assets are shared;
+4. which assets are location-specific;
+5. whether different locations serve materially different markets or service mixes;
+6. any manager-suspected weak location, treated only as context;
+7. any location that must not be included and the reason.
+
+### 5.3 Forbidden intake
+
+The robot must not request or use as audit evidence:
+
+- CRM, EHR or patient records;
+- GA4, GSC, ad-account or vendor credentials;
+- revenue, profit, leads, bookings, conversion or show-rate data;
+- call, WhatsApp, email or reception transcripts;
+- internal staffing, training or workflow assertions;
+- mystery-shopper calls, messages, form submissions or appointment creation;
+- PHI or unnecessary personal data.
+
+If the manager volunteers such information, record only the minimum necessary self-reported context, exclude it from evidence and explain that the audit conclusion must be reproducible from public sources.
+
+### 5.4 Interview completion
+
+The robot returns a Manager Intake Card showing:
+
+- supplied fields;
+- robot-resolved public identifiers;
+- unanswered mandatory fields;
+- self-reported assumptions;
+- conflicts requiring clarification.
+
+The gate passes only when the business can be resolved to at least one unambiguous public identifier and the requested audit format and scope are clear.
+
+The context-resolution order remains: **resolve practice identity → resolve `vertical_context` → resolve `report_locale` → freeze research brief**. For Multi-Location, freeze also the approved branch scope and shared/local asset topology.
+
+## 6. Gate 2 — quick reconnaissance and Research Alignment Card
+
+After the interview, the robot performs a **quick**, non-scored public check. This is not the full audit.
+
+The quick check may inspect:
+
+- the official site and obvious service proposition;
+- Maps/GBP identity and visible location list;
+- public social-profile ownership;
+- obvious shared versus local assets;
+- branded search results;
+- candidate local competitors;
+- obvious ambiguity, duplicate or stale entities.
+
+The robot then sends the manager one Research Alignment Card containing:
+
+1. **Business understanding** — a plain-language statement of what the business is, what it sells, to whom and in which market.
+2. **Resolved entities** — business, target location or proposed network registry and public URLs.
+3. **Audit format** — single or Multi-Location and the exact deliverables.
+4. **Research scope** — Four Surfaces, separate Cross-Surface layer and public-only limitations.
+5. **Competitor proposal** — names, URLs, geography/type and why each is comparable.
+6. **Multi-Location topology** — declared, found and unresolved locations; shared and local assets.
+7. **Proposed comparison method** — query family, geography, observation windows, review sample and path checks.
+8. **Unknowns and exclusions** — what cannot yet be verified and what will remain `Insufficient evidence`.
+9. **Planned output** — what the robot will research and what the manager will later decide.
+
+### 6.1 Competitor proposal rules
+
+For one location, propose 3–5 competitors: relevant local alternatives plus a category or positioning reference only when useful.
+
+For Multi-Location:
+
+- identify a compact local comparison set for each reviewed location where geography materially changes customer choice;
+- propose the full 3–5 competitor CDA set for the likely focus-location candidates;
+- do not force one national competitor list onto every branch;
+- preserve comparable geography, query, review window and customer task;
+- public ads show visible strategy, not effectiveness.
+
+### 6.2 Manager confirmation
+
+The robot asks for one explicit decision:
+
+- `APPROVE` — the business understanding, location scope, competitor proposal and research plan are correct; or
+- `CLARIFY` — the manager supplies corrections.
+
+Each clarification creates a new alignment version. The robot repeats the corrected card. Full research starts only after a named manager approves a specific version with timestamp.
+
+## 7. Gate 3 — full public research
+
+After alignment approval, collect dated, reproducible evidence across exactly:
 
 1. Search / Google Business Profile;
 2. Website;
 3. Social;
-4. Reputation / Reviews.
+4. Reputation / Reviews;
+5. Cross-Surface Consistency as a separate, unweighted layer;
+6. Competitive Decision Analysis as a cross-cutting, unscored decision layer.
 
-Collect Cross-Surface Consistency separately; it is not a fifth surface and is excluded from the Overall calculation under the scoring spec.
+Every candidate evidence item retains:
 
-Each `candidate_evidence` record retains its canonical surface/metric, raw value, source reference or snapshot, collection date, method, workflow version, proposed evidence class, verification state and supersession link. Self-reported context cannot enter the verified fact set without independent verification.
+- business and location identity;
+- surface and canonical metric id where applicable;
+- source URL, screenshot/export reference or reproducible path;
+- collection date/time;
+- method and comparable window;
+- proposed Class A or labelled Class B status;
+- reviewer status;
+- limitations and supersession link.
 
-Normalize only through the metric/evidence contract in `growth_score_spec.md`. Unavailable, blocked, stale, ambiguous or non-comparable evidence remains unavailable and is stated as `Insufficient evidence — <reason>`; unknown values remain `null`. Never substitute an inference merely to complete a score.
+Unknown, inaccessible, stale, unsupported or contradictory evidence remains unavailable. Never convert missing evidence into zero.
 
-### 3.1 Competitive Decision Analysis
+### 7.1 Public-only boundaries
 
-Run Competitive Decision Analysis when the global standard says it is applicable. Use a disclosed 3–5 competitor set, comparable sources/windows/paths, all four CAESTHETIC surfaces, recurring review-theme rules, the Comparison Matrix, Competitor Cards, `Defend / Close / Differentiate / Do not copy`, and Market Practice Gap decision.
+Allowed:
 
-If no meaningful comparison set is applicable, record the durable reason. Lack of coverage is `insufficient_evidence`, not `not_applicable`, and creates a collection task. CDA informs the constraint and priorities but never becomes a fifth scored surface or composite competitor score.
+- public Maps/GBP, SERP, directories and reproducible public geo-grid evidence;
+- public website pages and measured PageSpeed/Lighthouse data;
+- public booking/enquiry navigation only up to non-submission;
+- public social profiles and dated content samples;
+- public ratings, reviews and owner responses under disclosed windows;
+- public competitor surfaces using the same comparison task.
 
-## 4. Internal AI draft — non-publishable
+Forbidden:
 
-AI may create a `draft` containing proposed scores, evidence normalization, objective strength, Problem Inventory, binding constraint, Top 3, Do Not Fund Yet, remediation tasks and narrative. The draft must remain explicitly non-publishable and must carry the workflow/model/template/rule versions used.
+- sending a form, message or test enquiry;
+- making a call or appointment;
+- claiming internal causes such as reception, CRM, staffing or training;
+- claiming revenue, patient, lead, conversion or operational impact;
+- presenting a public competitor's visible activity as proof of commercial effectiveness.
 
-The draft must propose:
+### 7.2 Multi-Location collection
 
-- at least one defensible objective strength; without one, fail the publishable ICP gate defined by the scoring spec;
-- the full evidence-backed Problem Inventory, including dependencies and unavailable areas;
-- one binding constraint derived from verified severity, dependencies, risk and owner decision impact—not automatically the lowest displayed score;
-- exactly three priorities in implementation order;
-- exactly one `Do Not Fund Yet`, with evidence-backed rationale and revisit conditions;
-- a complete remediation task for every mapped problem.
+For every declared location, record one of:
 
-Each remediation task must include at minimum:
+- `reviewed`;
+- `not_found`;
+- `ambiguous`;
+- `closed_or_moved_publicly_observed`;
+- `excluded_by_approved_scope`.
 
-```text
-problem reference
-→ task / intervention
-→ sequence
-→ dependencies
-→ accountable owner or required role/skill
-→ effort / complexity
-→ implementation risk
-→ acceptance evidence / done_when
-→ immediate next_action
-```
+Build:
 
-Do not diagnose internal CRM, telephony, reception, staffing, training or patient-operations causes without corresponding access and evidence. Record the internal layer as `Not assessed` or `Insufficient evidence — requires workflow/data access` when appropriate.
+- a branch registry;
+- a location × Four Surfaces comparison matrix;
+- a shared/local asset map;
+- repeated network patterns;
+- location-specific gaps;
+- best observed public-surface patterns inside the reviewed network;
+- a focus-location shortlist.
 
-## 5. Named-human review and fact-set freeze
+One shared-site or shared-social defect is one systemic gap, not a duplicate gap for every location. Use `Observed in N of M reviewed locations` unless every declared active location was actually reviewed.
 
-Move the case to `draft_review`. A named human reviewer must:
+## 8. Gate 4 — Internal AI Report and candidate danger order
 
-1. verify practice identity, source lineage, dates, collection method, branch scope and competitor selection;
-2. approve or reject every proposed Class A fact and every publishable metric score;
-3. review labelled Class B methods and assumptions;
-4. correct the objective strength, Problem Inventory, binding constraint, exact Top 3, exact one Do Not Fund Yet and all remediation-task fields;
-5. clear privacy, compliance, clinical-claim and client-boundary issues.
+The robot compiles an internal, non-publishable report containing:
 
-Every correction is an append-only `review_event` with before/after values, reviewer, reason code, timestamp and model/workflow/template/rule versions. Never overwrite the superseded draft as if it had always contained the approved decision.
-
-When review is complete, create a versioned `verified_fact_set` in `frozen` state, with approved candidate-evidence ids, a named human freezer and timestamp. Move the case to `fact_set_frozen`. No later narrative or score may introduce a new fact outside that frozen set; new evidence requires review, a new freeze version and reapproval.
-
-## 6. Final compilation and report approval
-
-Calculate scores deterministically from the frozen verified facts. Compile final narrative only from those facts and visibly labelled Class B items whose methods and assumptions passed review. Validate the current scoring spec in full, including coverage, Class A ratio, evidence references, Problem Inventory↔task completeness, applicable CDA, exact Top 3 and exact one Do Not Fund Yet.
-
-Move the case to `report_review`. Create a versioned report candidate and render it for visual QA. A named human must approve the final version, digest, verified-fact-set version, reviewer identity and timestamp. Only then create `approved_report` and move the case to `approved`.
-
-AI approval, an unnamed reviewer, a draft flag or a visually plausible render is never sufficient.
-
-## 7. Cockpit, private route and walkthrough
-
-Render through the shared `scripts/caesthetic/render-growth-score.mjs` authority. The owner cockpit follows the 13-section contract in `growth_score_spec.md`; this SOP does not restate or reorder those sections.
-
-A real report route must be:
-
-- `/score/<unguessable-slug>/`;
-- private by obscurity and not password-gated by default;
-- outside every sitemap;
-- emitted with `noindex,nofollow,noarchive,nosnippet`.
-
-Do not publish client packs, evidence bundles or real score routes to the CAESTHETIC satellite. DEC-829 exclusions remain binding.
-
-Produce the Valerie Petra walkthrough only from the approved report and frozen fact set, following `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`. That file alone owns duration, spoken sequence, presenter/screen mix, captions, CTA and production QA; do not duplicate those rules here.
-
-## 8. Delivery and closeout
-
-Deliver only after route QA and walkthrough readiness pass. Record delivery in the case audit/status history with case/report versions, private route, delivery channel, intended recipient, sender/operator, timestamp, walkthrough status and any acknowledged delivery failure. This is not a ninth logical machine-record type. Do not log PHI, credentials or unnecessary client data.
-
-Move the case to `delivered` only after the delivery attempt is recorded against the approved report. Resolve bounces, wrong-recipient risk or inaccessible assets before closeout. Move to `closed` when delivery is confirmed or the case is explicitly dispositioned with a reason and next-action owner.
-
-Historical approved reports remain immutable. Later implementation, Day-30 review or recurring review is a new business state and artifact, not a silent rewrite of the Free Growth Score.
-
-## 9. Controlled learning
-
-A case-specific correction may create only a de-identified `learning_candidate`; it must have `global_activation=false`. It does not change prompts, scoring, rubrics, templates, taxonomies, heuristics, examples, evals or model behaviour automatically.
-
-Only a named method owner may promote a candidate through a versioned, human-approved `rule_release` that records scope, approver, changelog, effective date, passed validation/eval result and rollback target. New cases resolve an approved bundle version. Raw client facts, contact data, credentials, PHI and case conclusions never transfer across clients.
-
-## 10. Exceptions and recovery
-
-| Exception | Fail-closed response |
-|---|---|
-| Ambiguous practice identity | Hold in `created`/`researching`; request one public identifier; do not combine entities. |
-| Insufficient surface or CDA coverage | Mark unavailable evidence explicitly, create collection tasks and do not publish until the scoring/evidence gates pass. |
-| No named reviewer | Keep in `draft_review` or `report_review`; no fact freeze, approval, render delivery or walkthrough publication. |
-| Renderer or visual-QA failure | Keep the approved data immutable, block delivery, repair/re-run the shared renderer and record the failure. |
-| Post-approval correction | Append a review event, supersede with a new draft/fact-set/report version, re-run all gates and reapprove; never edit the delivered artifact silently. Notify the recipient when the correction is material. |
-| Duplicate intake | Link to the active case, preserve receipt/audit history and avoid duplicate research/report delivery. If the prior case is closed and evidence is stale, open a new versioned case rather than mutating history. |
-
-## 11. Machine-record contract
-
-The current runtime validator confirms exactly these logical record types:
-
-```text
-score_case
-candidate_evidence
-verified_fact_set
-draft
-review_event
-approved_report
-learning_candidate
-rule_release
-```
-
-Their schemas and validation remain owned by `scripts/caesthetic/growth-score-workflow.mjs`. This list is descriptive routing, not a second machine schema. If runtime changes through an approved release, update this SOP to match rather than inventing an extra record type here.
-
-## 12. Production acceptance checklist
-
-A case is deliverable only when all are true:
-
-- valid trigger and resolved, non-duplicate practice identity;
-- frozen research brief and complete collection log;
-- Four Surfaces plus separate Cross-Surface handled under the scoring spec;
-- applicable CDA complete, or a valid documented `not_applicable` reason;
-- unavailable evidence stated as Insufficient Evidence rather than guessed;
-- named-human-approved objective strength, Problem Inventory, binding constraint, exactly Top 3 and exactly one Do Not Fund Yet;
-- every problem maps to a complete, dependency-aware remediation task;
-- frozen verified fact set and append-only review history exist;
-- current evidence/coverage/Class A/report-schema gates pass;
-- approved report renders through the shared 13-section cockpit and passes visual QA;
-- real route is unguessable, outside sitemap and carries the complete robots directive;
-- Valerie walkthrough follows its specialist SSOT;
-- delivery is logged; controlled learning remains separate and human-released.
-
-**Canonical operating loop:**
-
-```text
-Evidence
-→ Constraint
-→ Priority
-→ Decision
-→ Intervention
-→ Adoption
-→ Verified Impact
-→ Learning
-```
+- resolved scope and coverage;
+- one defensible objective strength;
+- complete candidate evidence;
+- proposed scores where coverage gates pass;
+- complete Gap Inventory;
+- proposed binding constraint;
+- proposed competitor decisions;
+- proposed `Do Not Fund Yet`;
+- Repair Plan for every verified gap;
+- candidate risk order;
+- candidate Primary Gap and 2–3 candidate Supporting Gaps;
+- for Multi-Location, a focus
