@@ -15,7 +15,7 @@ IOSchedulingPriority=7
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=full
-ReadWritePaths=/var/www/grainee-v2 /var/www/caesthetic /var/lib/caesthetic-repo-sync /run/lock /tmp
+ReadWritePaths=/var/lib/caesthetic-repo-sync /run/lock /tmp
 TimeoutStartSec=120
 
 [Install]
