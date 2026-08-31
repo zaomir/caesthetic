@@ -8,6 +8,7 @@ STATE="${CAESTHETIC_SYNC_REMOTE_STATE:-/var/lib/caesthetic-repo-sync/remote-head
 SATELLITE_URL="${CAESTHETIC_AGENTS_REPO_URL:-https://github.com/zaomir/caesthetic.git}"
 
 run_once() {
+  set -euo pipefail
   local g_remote s_remote current previous
   g_remote="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk 'NR == 1 {print $1}')"
   s_remote="$(git ls-remote "$SATELLITE_URL" refs/heads/main | awk 'NR == 1 {print $1}')"
@@ -22,7 +23,7 @@ run_once() {
   python3 "$INSTALL_ROOT/sync_agents_bidirectional.py" \
     --grainee "$ROOT" \
     --satellite "$SATELLITE" \
-    --apply --commit --push
+    --apply --commit --push || return $?
 
   # Capture post-push heads. A temporary file prevents a partial state write.
   g_remote="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk 'NR == 1 {print $1}')"
