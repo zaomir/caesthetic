@@ -4,7 +4,7 @@ status: mandatory_agent_adapter
 version: 2.2
 canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
-canonical_commit: 09b5cd09bbdbbd7574eced28f7082ae5d4349558
+canonical_commit: 974da420fc39b97560382df3d877f68f70c40634
 updated: 2026-08-31
 ---
 
