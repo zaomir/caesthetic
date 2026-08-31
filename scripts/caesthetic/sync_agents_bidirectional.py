@@ -275,13 +275,49 @@ def delete_file(path: Path) -> None:
         path.unlink()
 
 
+def sync_main_checkout(repo: Path) -> None:
+    """Bring a clean local main to origin/main without discarding local commits."""
+    run(["git", "fetch", "origin", "main", "-q"], cwd=repo)
+    run(["git", "checkout", "main"], cwd=repo)
+    dirty = run_out(["git", "status", "--porcelain"], cwd=repo)
+    if dirty:
+        raise RuntimeError(f"dirty_checkout:{repo}")
+
+    local = run_out(["git", "rev-parse", "HEAD"], cwd=repo)
+    remote = run_out(["git", "rev-parse", "origin/main"], cwd=repo)
+    if local == remote:
+        return
+
+    local_is_ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", local, remote], cwd=str(repo)
+    ).returncode == 0
+    if local_is_ancestor:
+        run(["git", "merge", "--ff-only", "origin/main"], cwd=repo)
+        return
+
+    remote_is_ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", remote, local], cwd=str(repo)
+    ).returncode == 0
+    if remote_is_ancestor:
+        # Preserve an earlier sync commit that was created locally but whose
+        # push was interrupted. This remains a normal fast-forward push.
+        run(["git", "push", "origin", "main"], cwd=repo)
+        return
+
+    # Both sides advanced. Rebase preserves local commits and obeys the repo's
+    # no-force policy; any conflict aborts and leaves the timer failed/visible.
+    try:
+        run(["git", "rebase", "origin/main"], cwd=repo)
+    except subprocess.CalledProcessError:
+        subprocess.run(["git", "rebase", "--abort"], cwd=str(repo), check=False)
+        raise RuntimeError(f"diverged_checkout_rebase_conflict:{repo}")
+
+
 def ensure_satellite(sat: Path) -> None:
     if not (sat / ".git").is_dir():
         run(["git", "clone", SAT_URL, str(sat)])
     else:
-        run(["git", "fetch", "origin", "-q"], cwd=sat)
-        run(["git", "checkout", "main"], cwd=sat)
-        run(["git", "pull", "--ff-only", "origin", "main"], cwd=sat)
+        sync_main_checkout(sat)
 
 
 def git_commit_push(repo: Path, message: str, paths: List[str], do_commit: bool, do_push: bool) -> None:
@@ -374,9 +410,7 @@ def main() -> int:
     print(f"satellite: {sat}")
     print(f"mode:      {'APPLY' if args.apply else 'DRY-RUN'}")
 
-    run(["git", "fetch", "origin", "main", "-q"], cwd=grainee)
-    run(["git", "checkout", "main"], cwd=grainee)
-    run(["git", "pull", "--ff-only", "origin", "main"], cwd=grainee)
+    sync_main_checkout(grainee)
     ensure_satellite(sat)
 
     last = load_state(grainee / STATE_REL)

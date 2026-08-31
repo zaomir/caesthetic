@@ -159,6 +159,58 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("CAESTHETIC_REPO_SYNC_IDLE", second.stdout)
         self.assertFalse(calls.exists())
 
+        Path(env["CAESTHETIC_SYNC_REMOTE_STATE"]).unlink()
+        fake.write_text("raise SystemExit(7)\n")
+        failed = subprocess.run(["bash", str(runner)], env=env,
+                                capture_output=True, text=True)
+        self.assertEqual(failed.returncode, 7)
+        self.assertNotIn("CAESTHETIC_REPO_SYNC_APPLIED", failed.stdout)
+        self.assertFalse(Path(env["CAESTHETIC_SYNC_REMOTE_STATE"]).exists())
+
+    def test_sync_main_checkout_fast_forwards_then_pushes_local_ahead(self):
+        root = Path(self.tmp.name)
+        bare = root / "remote.git"
+        a = root / "a"
+        b = root / "b"
+        subprocess.run(["git", "init", "--bare", "--initial-branch=main", str(bare)],
+                       check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "clone", str(bare), str(a)], check=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        for repo in (a,):
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=repo, check=True)
+            subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=repo,
+                           check=True)
+        (a / "history").write_text("one\n")
+        subprocess.run(["git", "add", "."], cwd=a, check=True)
+        subprocess.run(["git", "commit", "-m", "one"], cwd=a, check=True,
+                       stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=a, check=True,
+                       stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "clone", str(bare), str(b)], check=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "config", "user.name", "Test"], cwd=b, check=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=b,
+                       check=True)
+        (b / "history").write_text("one\ntwo\n")
+        subprocess.run(["git", "add", "."], cwd=b, check=True)
+        subprocess.run(["git", "commit", "-m", "two"], cwd=b, check=True,
+                       stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=b, check=True,
+                       stdout=subprocess.DEVNULL)
+
+        SYNC.sync_main_checkout(a)
+        self.assertEqual((a / "history").read_text(), "one\ntwo\n")
+        (a / "local").write_text("preserve")
+        subprocess.run(["git", "add", "."], cwd=a, check=True)
+        subprocess.run(["git", "commit", "-m", "local"], cwd=a, check=True,
+                       stdout=subprocess.DEVNULL)
+        SYNC.sync_main_checkout(a)
+        local = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=a,
+                                        text=True).strip()
+        remote = subprocess.check_output(["git", "ls-remote", str(bare),
+                                          "refs/heads/main"], text=True).split()[0]
+        self.assertEqual(local, remote)
+
 
 if __name__ == "__main__":
     unittest.main()

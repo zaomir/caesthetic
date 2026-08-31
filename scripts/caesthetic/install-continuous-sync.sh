@@ -42,11 +42,20 @@ install -d -m 755 /etc/caesthetic-repo-sync /var/lib/caesthetic-repo-sync
 } > /etc/caesthetic-repo-sync/environment
 chmod 600 /etc/caesthetic-repo-sync/environment
 
+# Force one reconciliation with the newly installed code. The state contains
+# only remote SHAs and is safe to recreate.
+rm -f /var/lib/caesthetic-repo-sync/remote-heads \
+  /var/lib/caesthetic-repo-sync/remote-heads.tmp
+
 # The old 10-minute cron and the timer must never run together.
 rm -f /etc/cron.d/caesthetic-agents-sync
 systemctl daemon-reload
 systemctl enable --now caesthetic-repo-sync.timer
-systemctl start caesthetic-repo-sync.service
+if ! systemctl start caesthetic-repo-sync.service; then
+  systemctl --no-pager --full status caesthetic-repo-sync.service || true
+  journalctl -u caesthetic-repo-sync.service -n 80 --no-pager || true
+  exit 1
+fi
 
 systemctl is-enabled --quiet caesthetic-repo-sync.timer
 systemctl is-active --quiet caesthetic-repo-sync.timer
