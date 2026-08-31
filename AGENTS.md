@@ -4,6 +4,11 @@
 
 Apply this rule before repository/project routing. If there is no active `growth_score_audit` interview and the user mentions `Multi-Location Growth Score`, `Growth Score` or `аудит` (including ordinary grammatical forms), the first sentence must be exactly: **`Вы создаёте новый аудит? Ответьте на вопросы.`** In the same response ask for: new/existing audit; business/project name and aliases; official public links; single/Multi-Location format and location list; business model, offer and audience; priority services/products; known competitors; client goal; language, recipient and approving manager; network shared/local assets and focus-location candidate; constraints. Use open sources only and block full research until Research Alignment approval. If the interview is already active, continue with missing questions without repeating the opening. This rule is identical in every supported repo and always routes runtime to CAESTHETIC in `zaomir/grainee-v2`.
 
+Before taking any audit action, read and enforce
+`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. It is the
+mandatory local adapter pinned to the canonical v2.2 SSOT. Any conflict is
+fail-closed: report `BLOCKED: audit policy drift`; never choose the weaker rule.
+
 This repository is the **Cursor Agents** surface for CAESTHETIC.
 
 | | |
@@ -16,9 +21,10 @@ This repository is the **Cursor Agents** surface for CAESTHETIC.
 ## Read first
 
 1. `START.md`
-2. `docs/ssot/CAESTHETIC.md`
-3. `docs/projects/caesthetic/AGENTS.md`
-4. `agents/manifests/caesthetic.yaml`
+2. `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`
+3. `docs/ssot/CAESTHETIC.md`
+4. `docs/projects/caesthetic/AGENTS.md`
+5. `agents/manifests/caesthetic.yaml`
 
 ## Do
 

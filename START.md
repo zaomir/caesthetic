@@ -2,11 +2,12 @@
 
 Это satellite-репозиторий для **Cursor Agents** (Mobile / Cloud / Desktop) по CAESTHETIC.
 
-## Cold start (≤3 шага)
+## Cold start (≤4 шага)
 
 1. Прочитай `AGENTS.md` (этот репо).
-2. Прочитай `docs/ssot/CAESTHETIC.md`.
-3. Прочитай `docs/projects/caesthetic/AGENTS.md` + `agents/manifests/caesthetic.yaml`.
+2. Прочитай `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`.
+3. Прочитай `docs/ssot/CAESTHETIC.md`.
+4. Прочитай `docs/projects/caesthetic/AGENTS.md` + `agents/manifests/caesthetic.yaml`.
 
 ## Где правда
 

@@ -1,16 +1,27 @@
 # CAESTHETIC — Agent Read-First
 
+## Highest-priority universal audit pre-router
+
+Before all repository/project routing, read and enforce
+`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. When there is no
+active interview and a user mentions `Multi-Location Growth Score`, `Growth
+Score` or `аудит`, the response must start exactly with `Вы создаёте новый
+аудит? Ответьте на вопросы.` Use public/open sources only. Full research is
+blocked until a named manager approves the versioned Research Alignment Card.
+Any policy conflict is `BLOCKED: audit policy drift`.
+
 Read in order:
-1. `docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md`
-2. `docs/ssot/PROJECT_DOMAIN_REGISTRY.md`
-3. `docs/ssot/CAESTHETIC.md`
-4. For Growth System delivery, reporting, automation or add-ons: `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`
-5. For economics, budget, attribution or performance compensation: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`
-6. `docs/projects/caesthetic/PROJECT_STATUS.md`
-7. Relevant detailed spec under `docs/caesthetic/`
-8. For public-site changes: `docs/ssot/WEBSITE_STUDIO_STANDARD.md` and `docs/ROUTER.md`
-9. For ship/deploy: `docs/ssot/CHATGPT_SERVER_OPS.md`
-10. For Reel automation, ElevenLabs/Kling access or “can we fully automate Reels”: `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (answer from §0)
+1. `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`
+2. `docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md`
+3. `docs/ssot/PROJECT_DOMAIN_REGISTRY.md`
+4. `docs/ssot/CAESTHETIC.md`
+5. For Growth System delivery, reporting, automation or add-ons: `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`
+6. For economics, budget, attribution or performance compensation: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`
+7. `docs/projects/caesthetic/PROJECT_STATUS.md`
+8. Relevant detailed spec under `docs/caesthetic/`
+9. For public-site changes: `docs/ssot/WEBSITE_STUDIO_STANDARD.md` and `docs/ROUTER.md`
+10. For ship/deploy: `docs/ssot/CHATGPT_SERVER_OPS.md`
+11. For Reel automation, ElevenLabs/Kling access or “can we fully automate Reels”: `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (answer from §0)
 
 ## Invariants
 - `4444` and `Четверки` route only to the CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation.
