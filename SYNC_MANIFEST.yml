@@ -23,12 +23,14 @@ excludes:
   - .git
   - .DS_Store
   - __pycache__
+  # Audit Factory policy is canonical only in grainee-v2. The satellite keeps
+  # a pointer file at this path so a second editable SSOT cannot drift again.
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - site-caesthetic/private/**
   - site-caesthetic/score/aurora-medspa-x7k9m2/**
   - site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/**
   - site-caesthetic/docs/website-studio/site-caesthetic-score-aesthetemed-public-evidence-7c3e91b4a8f26d50.md
   - docs/projects/caesthetic/operations/ig-growth/footage/**
-  - docs/projects/caesthetic/operations/ig-growth/daily-growth-note/footage/**
   - docs/projects/caesthetic/clients/**
   - docs/projects/caesthetic/operations/growth-score-board.jsonl
   - docs/projects/caesthetic/operations/ig-growth/editorial-story-card/_hex-mark-52.png
