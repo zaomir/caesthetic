@@ -104,6 +104,15 @@ class DecideDeletionTest(unittest.TestCase):
         ):
             self.write(self.g, rel, "unit")
             self.assertIn(rel, SYNC.collect_rels(self.g))
+        service = (ROOT / "deploy" / "systemd" / "caesthetic-repo-sync.service").read_text()
+        self.assertIn("ReadWritePaths=/var/lib/caesthetic-repo-sync", service)
+        self.assertNotIn("ReadWritePaths=/var/www", service)
+
+    def test_installer_uses_isolated_checkouts(self):
+        installer = (ROOT / "scripts" / "caesthetic" / "install-continuous-sync.sh").read_text()
+        self.assertIn("$DATA_ROOT/grainee", installer)
+        self.assertIn("$DATA_ROOT/satellite", installer)
+        self.assertIn("git clone --branch main --single-branch", installer)
 
     def test_runner_skips_full_reconcile_when_remote_heads_are_unchanged(self):
         root = Path(self.tmp.name)
