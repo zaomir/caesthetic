@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "reportState": "approved_report",
   "reportVersion": "demo-search-gap-v3.0",
   "verifiedFactSetVersion": "demo-search-gap-facts-v3.0",
@@ -437,62 +437,9 @@
         "cross.treatment_presence"
       ],
       "statement": "Local Search cannot reliably surface the treatment proof already present on Social. Geo-grid visibility and incomplete GBP treatment categories keep high-intent patients from encountering the practice beyond its immediate address.",
-      "demand_stage": "discovery"
+      "demand_stage": "discovery",
+      "gap_ref": "search-map-coverage"
     },
-    "top_priorities": [
-      {
-        "id": "priority-search-map",
-        "problem_refs": [
-          "search-map-coverage"
-        ],
-        "title": "Correct the priority-treatment local discovery gap.",
-        "evidence_refs": [
-          "search.map_visibility"
-        ],
-        "impact": "High-intent local demand is least likely to encounter the fictional practice beyond its immediate address.",
-        "why_now": "High-intent local demand is least likely to encounter the practice beyond its immediate address.",
-        "expected_effect": "A measured geo-grid baseline would show where discovery fails so later profile work is aimed at the actual leak, not a ranking guarantee.",
-        "complexity": "Medium",
-        "task_refs": [
-          "task-map-baseline"
-        ]
-      },
-      {
-        "id": "priority-gbp",
-        "problem_refs": [
-          "search-profile-taxonomy"
-        ],
-        "title": "Align GBP treatments and categories with the priority offer.",
-        "evidence_refs": [
-          "search.gbp_treatment_category_completeness"
-        ],
-        "impact": "A clearer profile taxonomy would connect the existing proof to matching search intent.",
-        "why_now": "The public profile still gives search platforms an incomplete view of the priority offer.",
-        "expected_effect": "Accurate GBP categories and services can connect existing proof to matching search intent, without promising a visibility outcome.",
-        "complexity": "Medium",
-        "task_refs": [
-          "task-gbp-taxonomy"
-        ]
-      },
-      {
-        "id": "priority-proof-continuity",
-        "problem_refs": [
-          "cross-proof-gap"
-        ],
-        "title": "Carry clinician proof into high-intent Search and Website decisions.",
-        "evidence_refs": [
-          "cross.proof_continuity",
-          "social.clinician_expertise"
-        ],
-        "impact": "The strongest evidence currently loses continuity before the booking decision.",
-        "why_now": "The strongest clinician evidence currently loses continuity before the booking decision.",
-        "expected_effect": "Carrying approved proof into high-intent pages would reduce the drop between attention and enquiry, without forecasting patient volume.",
-        "complexity": "High",
-        "task_refs": [
-          "task-proof-continuity"
-        ]
-      }
-    ],
     "do_not_do": {
       "title": "Do not increase paid traffic until local treatment discovery and proof continuity are corrected.",
       "evidence_refs": [
@@ -923,202 +870,6 @@
       "url": null,
       "placeholder": "Human walkthrough placeholder: omitted for this synthetic demo."
     },
-    "problem_inventory": [
-      {
-        "id": "search-map-coverage",
-        "surface": "search",
-        "title": "Geo-grid visibility collapses outside the immediate address area.",
-        "evidence_refs": [
-          "search.map_visibility"
-        ],
-        "impact": "Priority-treatment local discovery is materially weaker than the synthetic peer set.",
-        "task_refs": [
-          "task-map-baseline"
-        ],
-        "suggested_horizon": "Immediate",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "search-profile-taxonomy",
-        "surface": "search",
-        "title": "GBP categories and treatment inventory are incomplete.",
-        "evidence_refs": [
-          "search.gbp_treatment_category_completeness"
-        ],
-        "impact": "The profile gives search platforms and patients an incomplete view of the priority offer.",
-        "task_refs": [
-          "task-gbp-taxonomy"
-        ],
-        "suggested_horizon": "0–30 days",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "search-freshness",
-        "surface": "search",
-        "title": "Profile freshness is inconsistent.",
-        "evidence_refs": [
-          "search.freshness"
-        ],
-        "impact": "Intermittent activity weakens current-treatment confidence.",
-        "task_refs": [],
-        "suggested_horizon": "30–90 days",
-        "status": "monitor",
-        "status_reason": "Recheck freshness after the higher-impact discovery and taxonomy corrections are accepted.",
-        "priority": "Low",
-        "complexity": "Low"
-      },
-      {
-        "id": "cross-proof-gap",
-        "surface": "cross_surface",
-        "title": "Clinician proof does not continue into high-intent pages.",
-        "evidence_refs": [
-          "cross.proof_continuity",
-          "social.clinician_expertise"
-        ],
-        "impact": "Decision confidence drops between attention and booking.",
-        "task_refs": [
-          "task-proof-continuity"
-        ],
-        "suggested_horizon": "0–30 days",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "reputation-response-lag",
-        "surface": "reputation",
-        "title": "Review response speed trails the fictional peer set.",
-        "evidence_refs": [
-          "reputation.response_speed"
-        ],
-        "impact": "Slow acknowledgement makes otherwise credible reputation evidence feel less active.",
-        "task_refs": [],
-        "suggested_horizon": "30–90 days",
-        "status": "monitor",
-        "status_reason": "Monitor a fresh response sample before assigning implementation work.",
-        "priority": "Low",
-        "complexity": "Low"
-      }
-    ],
-    "remediation_tasks": [
-      {
-        "id": "task-map-baseline",
-        "problem_refs": [
-          "search-map-coverage"
-        ],
-        "outcome": "Priority-treatment visibility is measured from a reproducible geo-grid and the weakest cells have an evidence-backed correction plan.",
-        "steps": [
-          "Freeze the priority treatment, city query, grid centre, five-mile radius and named comparison set.",
-          "Export the 5×5 baseline and label the cells where the practice falls outside the useful local result set.",
-          "Check each weak cell against GBP category, treatment and entity evidence before documenting the corrective action.",
-          "Repeat the same grid after the accepted changes and compare like-for-like evidence."
-        ],
-        "evidence_refs": [
-          "search.map_visibility"
-        ],
-        "prerequisites_access": [
-          "Approved priority-treatment list",
-          "Public GBP and competitor URLs",
-          "Local geo-grid collection skill"
-        ],
-        "dependencies": [],
-        "sequence": {
-          "order": 1,
-          "rationale": "The baseline defines where discovery fails and prevents unrelated search work from being treated as the first fix."
-        },
-        "owner_role": "Local search specialist, with an owner approving the priority treatment and market",
-        "effort_complexity": "Medium — one controlled measurement set plus evidence review; coordination rises if entity records conflict.",
-        "implementation_risk": "Changing the profile from one grid snapshot can damage relevance; preserve the query method and require corroborating profile evidence.",
-        "horizon": "Baseline in days; observable local movement may require several weeks and is not guaranteed.",
-        "acceptance_evidence": [
-          "Dated 5×5 export with query, centre, radius and competitors",
-          "Cell-level issue log",
-          "Like-for-like post-change export"
-        ],
-        "next_action": "Approve the one priority treatment and exact local query for the baseline."
-      },
-      {
-        "id": "task-gbp-taxonomy",
-        "problem_refs": [
-          "search-profile-taxonomy"
-        ],
-        "outcome": "The public GBP categories and services accurately represent the approved priority treatments without stuffing or unsupported claims.",
-        "steps": [
-          "Export the current primary category, secondary categories and service inventory.",
-          "Compare that inventory with the approved treatment catalogue and the named local comparison set.",
-          "Draft the smallest accurate category and service changes, including owner review for naming and compliance.",
-          "Publish accepted changes and capture the live profile state."
-        ],
-        "evidence_refs": [
-          "search.gbp_treatment_category_completeness"
-        ],
-        "prerequisites_access": [
-          "GBP manager access for the chosen implementer",
-          "Approved treatment catalogue",
-          "Owner or compliance approval"
-        ],
-        "dependencies": [
-          "task-map-baseline"
-        ],
-        "sequence": {
-          "order": 2,
-          "rationale": "The geo-grid baseline fixes the comparison method before the GBP taxonomy changes are published."
-        },
-        "owner_role": "GBP/local search specialist with owner approval",
-        "effort_complexity": "Medium — straightforward configuration when access and naming are clean; higher if duplicates or category conflicts emerge.",
-        "implementation_risk": "Unsupported services, keyword stuffing or category churn can reduce trust; use only accurate public treatments and retain a before state.",
-        "horizon": "Implementation within days; indexing and visibility response can take longer.",
-        "acceptance_evidence": [
-          "Before-and-after GBP category export",
-          "Live service inventory screenshots",
-          "Owner approval record"
-        ],
-        "next_action": "Export the current GBP category and service inventory."
-      },
-      {
-        "id": "task-proof-continuity",
-        "problem_refs": [
-          "cross-proof-gap"
-        ],
-        "outcome": "The same verifiable clinician proof appears at the high-intent Search-to-Website decision points without adding unsupported claims.",
-        "steps": [
-          "Inventory the strongest approved clinician proof already visible on Social.",
-          "Map each proof item to the relevant treatment page and public profile destination.",
-          "Add attribution, clinician context and a clear next step at the chosen decision points.",
-          "Test the mobile journey from discovery to the proof and booking action."
-        ],
-        "evidence_refs": [
-          "cross.proof_continuity",
-          "social.clinician_expertise"
-        ],
-        "prerequisites_access": [
-          "Approved proof assets and usage permission",
-          "Website content access",
-          "Clinical/compliance review"
-        ],
-        "dependencies": [
-          "task-gbp-taxonomy"
-        ],
-        "sequence": {
-          "order": 3,
-          "rationale": "Proof is carried into the corrected treatment taxonomy after the discovery path has a stable destination."
-        },
-        "owner_role": "Content strategist and web implementer, with clinician/compliance acceptance",
-        "effort_complexity": "Medium to high — requires asset permissions, content adaptation, web changes and cross-surface QA.",
-        "implementation_risk": "Proof can become misleading when context or permission is lost; retain attribution and obtain approval before publication.",
-        "horizon": "One to three weeks depending on asset permission and website release cadence.",
-        "acceptance_evidence": [
-          "Approved proof inventory",
-          "Live treatment-page URLs",
-          "Mobile discovery-to-booking QA screenshots"
-        ],
-        "next_action": "Select the two strongest attributable clinician-proof assets for the priority treatment."
-      }
-    ],
     "current_state": {
       "strengths": [
         "Clinician-led Social proof is current and treatment-specific.",
@@ -1128,29 +879,181 @@
       "constraint_detail": "Priority-treatment discovery collapses outside the immediate address area.",
       "priority_line": "Fix before buying more traffic."
     },
-    "roadmap_preview": {
-      "weeks": [
-        {
-          "label": "WEEK 1",
-          "title": "Freeze the priority query and measure the geo-grid baseline"
-        },
-        {
-          "label": "WEEK 2",
-          "title": "Align GBP categories and services with the approved offer"
-        },
-        {
-          "label": "WEEKS 3–4",
-          "title": "Carry clinician proof into Search and Website destinations"
-        }
-      ],
-      "disclaimer": "Illustrative sequencing based on this diagnosis. Final Sprint scope is confirmed separately."
-    },
     "coordination_burden": {
       "diagnosed_issues": 5,
       "high_priority_fixes": 3,
       "systems_involved": 4,
       "dependencies": 11,
       "specialist_roles": 3
+    },
+    "gap_inventory": [
+      {
+        "id": "search-map-coverage",
+        "title": "Geo-grid visibility collapses outside the immediate address area.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "search"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "search.map_visibility"
+        ],
+        "why_it_matters": "Priority-treatment local discovery is materially weaker than the synthetic peer set.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Priority-treatment visibility is measured from a reproducible geo-grid and the weakest cells have an evidence-backed correction plan.",
+          "diy_steps": [
+            "Freeze the priority treatment, city query, grid centre, five-mile radius and named comparison set.",
+            "Export the 5×5 baseline and label the cells where the practice falls outside the useful local result set.",
+            "Check each weak cell against GBP category, treatment and entity evidence before documenting the corrective action.",
+            "Repeat the same grid after the accepted changes and compare like-for-like evidence."
+          ],
+          "dependencies": [],
+          "owner_role": "Local search specialist, with an owner approving the priority treatment and market",
+          "done_when": [
+            "Dated 5×5 export with query, centre, radius and competitors",
+            "Cell-level issue log",
+            "Like-for-like post-change export"
+          ]
+        }
+      },
+      {
+        "id": "search-profile-taxonomy",
+        "title": "GBP categories and treatment inventory are incomplete.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "search"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "search.gbp_treatment_category_completeness"
+        ],
+        "why_it_matters": "The profile gives search platforms and patients an incomplete view of the priority offer.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "The public GBP categories and services accurately represent the approved priority treatments without stuffing or unsupported claims.",
+          "diy_steps": [
+            "Export the current primary category, secondary categories and service inventory.",
+            "Compare that inventory with the approved treatment catalogue and the named local comparison set.",
+            "Draft the smallest accurate category and service changes, including owner review for naming and compliance.",
+            "Publish accepted changes and capture the live profile state."
+          ],
+          "dependencies": [
+            "task-map-baseline"
+          ],
+          "owner_role": "GBP/local search specialist with owner approval",
+          "done_when": [
+            "Before-and-after GBP category export",
+            "Live service inventory screenshots",
+            "Owner approval record"
+          ]
+        }
+      },
+      {
+        "id": "search-freshness",
+        "title": "Profile freshness is inconsistent.",
+        "diagnosis_state": "monitor",
+        "surfaces": [
+          "search"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "search.freshness"
+        ],
+        "why_it_matters": "Intermittent activity weakens current-treatment confidence.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Collect the missing public evidence before assigning a repair.",
+          "diy_steps": [
+            "Record the missing source, date and method.",
+            "Do not invent a fix until the evidence is approved."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or named operator",
+          "done_when": [
+            "A dated public observation exists."
+          ]
+        }
+      },
+      {
+        "id": "cross-proof-gap",
+        "title": "Clinician proof does not continue into high-intent pages.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "cross_surface"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "cross.proof_continuity",
+          "social.clinician_expertise"
+        ],
+        "why_it_matters": "Decision confidence drops between attention and booking.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "The same verifiable clinician proof appears at the high-intent Search-to-Website decision points without adding unsupported claims.",
+          "diy_steps": [
+            "Inventory the strongest approved clinician proof already visible on Social.",
+            "Map each proof item to the relevant treatment page and public profile destination.",
+            "Add attribution, clinician context and a clear next step at the chosen decision points.",
+            "Test the mobile journey from discovery to the proof and booking action."
+          ],
+          "dependencies": [
+            "task-gbp-taxonomy"
+          ],
+          "owner_role": "Content strategist and web implementer, with clinician/compliance acceptance",
+          "done_when": [
+            "Approved proof inventory",
+            "Live treatment-page URLs",
+            "Mobile discovery-to-booking QA screenshots"
+          ]
+        }
+      },
+      {
+        "id": "reputation-response-lag",
+        "title": "Review response speed trails the fictional peer set.",
+        "diagnosis_state": "monitor",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "reputation.response_speed"
+        ],
+        "why_it_matters": "Slow acknowledgement makes otherwise credible reputation evidence feel less active.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Collect the missing public evidence before assigning a repair.",
+          "diy_steps": [
+            "Record the missing source, date and method.",
+            "Do not invent a fix until the evidence is approved."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or named operator",
+          "done_when": [
+            "A dated public observation exists."
+          ]
+        }
+      }
+    ],
+    "focus_selection": {
+      "primary_gap_id": "search-map-coverage",
+      "supporting_gap_ids": [
+        "search-profile-taxonomy",
+        "cross-proof-gap"
+      ],
+      "selected_by": "Fictional Morgan Hale",
+      "selected_at": "2026-08-11T16:00:00Z",
+      "rationale": "The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs."
     }
   },
   "implementation_paths": {

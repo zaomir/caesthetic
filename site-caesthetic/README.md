@@ -11,6 +11,7 @@
 |-----|------|
 | `/` | Positioning → Growth Score |
 | `/growth-score/` | Score explainer + 4-field form |
+| `/audit/`, `/audits/`, `/multi-location-growth-score/` | Noindex synonym aliases to `/growth-score/` |
 | `/sprint/` | Diagnosis-led 30-Day Growth Sprint · generated fixed price · written scope/payment inquiry |
 | `/growth-system/` | Optional recurring ownership · client-specific Growth Budget with its Fixed Management Fee inside |
 | `/pricing/` | Public comparison using generated pricing artifacts |
@@ -18,6 +19,7 @@
 | `/legal/privacy/` | Privacy + CCPA/CPRA |
 | `/legal/terms/` | Terms |
 | `/score/[slug]/` | Private practice reports (`noindex`, not in sitemap) |
+| `/score/` | Public-safe, noindex audit catalog; private client entries never render here |
 | `/score/demo-*/` | Clearly labeled fictional, synthetic demonstrations (`noindex`, linked from `/growth-score/`) |
 
 Growth Score source data lives in each route's `report.json`. Render and verify semantic HTML with:
@@ -25,8 +27,12 @@ Growth Score source data lives in each route's `report.json`. Render and verify 
 ```bash
 node scripts/caesthetic/render-growth-score.mjs
 node scripts/caesthetic/render-growth-score.mjs --check
+node scripts/caesthetic/growth-score-project-catalog.mjs
+node scripts/caesthetic/growth-score-project-catalog.mjs --check
 node --test tests/caesthetic/growth-score-*.test.mjs
 ```
+
+Every approved `site-caesthetic/score/**/report.json` is discovered automatically. The complete generated registry lives at `docs/audits/caesthetic/growth-score-projects.generated.json`; `/score/catalog.json` and `/score/index.html` contain only synthetic demos or client cases with explicit public-listing approval. Real client reports default to private.
 
 ## Not in the public IA
 

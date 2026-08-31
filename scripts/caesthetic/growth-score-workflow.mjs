@@ -7,6 +7,9 @@
  */
 import {
   CANONICAL_METRICS,
+  GROWTH_SCORE_SCHEMA_VERSION,
+  isNamedHumanReviewer,
+  selectedFocusGapIds,
   validateGrowthScoreReport,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
@@ -16,6 +19,7 @@ export const WORKFLOW_RECORD_TYPES = Object.freeze([
   "verified_fact_set",
   "draft",
   "review_event",
+  "focus_selection",
   "approved_report",
   "learning_candidate",
   "rule_release",
@@ -26,6 +30,7 @@ const CASE_STATES = Object.freeze([
   "researching",
   "draft_review",
   "fact_set_frozen",
+  "gap_review",
   "report_review",
   "approved",
   "delivered",
@@ -34,7 +39,6 @@ const CASE_STATES = Object.freeze([
 const SURFACES = Object.freeze(Object.keys(CANONICAL_METRICS));
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const ISO_TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
-const NON_HUMAN = /\b(?:ai|assistant|automation|automated|bot|model|system|anonymous|unknown|pending|unassigned)\b/i;
 const SENSITIVE_LEARNING_KEYS = /^(?:email|phone|name|contact|patient|phi|credential|password|secret|token|api_key|address)$/i;
 const RESERVED_SELF_REPORTED_KEYS = new Set([
   "evidence_class",
@@ -78,8 +82,7 @@ function timestamp(value, label) {
 
 function namedHuman(value, label) {
   string(value, label);
-  invariant(!NON_HUMAN.test(value), `${label} must identify a named human`);
-  invariant(value.trim().split(/\s+/).length >= 2, `${label} must contain a named human's first and last name`);
+  invariant(isNamedHumanReviewer(value), `${label} must contain a named human's first and last name or a registered reviewer mononym`);
 }
 
 function jsonValue(value, label) {
@@ -221,11 +224,44 @@ export function validateReviewEventRecord(record) {
   return record;
 }
 
+export function validateFocusSelectionRecord(record) {
+  common(record, "focus_selection");
+  uuid(record.score_case_id, "focus_selection.score_case_id");
+  uuid(record.verified_fact_set_id, "focus_selection.verified_fact_set_id");
+  invariant(record.append_only === true, "focus_selection.append_only must be true");
+  namedHuman(record.selected_by, "focus_selection.selected_by");
+  timestamp(record.selected_at, "focus_selection.selected_at");
+  string(record.rationale, "focus_selection.rationale");
+  string(record.primary_gap_id, "focus_selection.primary_gap_id");
+  stringList(record.supporting_gap_ids, "focus_selection.supporting_gap_ids", { nonEmpty: true });
+  stringList(record.gap_ids, "focus_selection.gap_ids", { nonEmpty: true });
+  const selected = [record.primary_gap_id, ...record.supporting_gap_ids];
+  invariant(selected.length >= 3 && selected.length <= 4, "focus_selection must contain 3 or 4 unique gaps");
+  invariant(new Set(selected).size === selected.length, "focus_selection has duplicate selected gap ids");
+  invariant(
+    record.gap_ids.length >= selected.length,
+    "focus_selection.gap_ids must include the full inventory reviewed",
+  );
+  selected.forEach((id) => invariant(record.gap_ids.includes(id), `focus_selection.gap_ids is missing selected gap ${id}`));
+  if (record.report_json_focus) {
+    invariant(
+      record.report_json_focus.primary_gap_id === record.primary_gap_id,
+      "focus_selection does not match report focus_selection.primary_gap_id",
+    );
+    invariant(
+      selectedFocusGapIds(record.report_json_focus).join("|") === selected.join("|"),
+      "focus_selection does not match report focus_selection ids",
+    );
+  }
+  return record;
+}
+
 export function validateApprovedReportRecord(record) {
   common(record, "approved_report");
   uuid(record.score_case_id, "approved_report.score_case_id");
   uuid(record.draft_id, "approved_report.draft_id");
   uuid(record.verified_fact_set_id, "approved_report.verified_fact_set_id");
+  uuid(record.focus_selection_id, "approved_report.focus_selection_id");
   invariant(record.state === "approved", "approved_report.state must be approved");
   string(record.report_version, "approved_report.report_version");
   string(record.verified_fact_set_version, "approved_report.verified_fact_set_version");
@@ -234,6 +270,7 @@ export function validateApprovedReportRecord(record) {
   timestamp(record.approved_at, "approved_report.approved_at");
   object(record.report_json, "approved_report.report_json");
   validateGrowthScoreReport(record.report_json);
+  invariant(record.report_json.schemaVersion === GROWTH_SCORE_SCHEMA_VERSION, "new approved reports require schemaVersion=5");
   invariant(record.report_json.reportVersion === record.report_version, "approved_report report version does not match report_json");
   invariant(
     record.report_json.verifiedFactSetVersion === record.verified_fact_set_version,
@@ -299,6 +336,7 @@ export function validateWorkflowRecord(record) {
     verified_fact_set: validateVerifiedFactSetRecord,
     draft: validateDraftRecord,
     review_event: validateReviewEventRecord,
+    focus_selection: validateFocusSelectionRecord,
     approved_report: validateApprovedReportRecord,
     learning_candidate: validateLearningCandidateRecord,
     rule_release: validateRuleReleaseRecord,

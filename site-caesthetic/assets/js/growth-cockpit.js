@@ -1,12 +1,11 @@
 /**
- * CAESTHETIC Growth Score cockpit — inventory filters + sticky Sprint CTA.
+ * CAESTHETIC Growth Score cockpit — inventory filters, DIY disclosure, Gap Map links.
  * Vanilla JS; no PII; respects prefers-reduced-motion.
  */
 (function initGrowthCockpit() {
   "use strict";
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SURFACE_FILTERS = new Set(["search", "website", "social", "reputation"]);
 
   function initInventoryFilters() {
     const filterBar = document.querySelector(".cae-report-filters");
@@ -18,14 +17,7 @@
 
     function problemMatchesFilter(problem, filter) {
       if (filter === "all") return true;
-      if (filter === "high") {
-        const priority = (problem.dataset.priority || "").toLowerCase();
-        return priority === "high";
-      }
-      if (SURFACE_FILTERS.has(filter)) {
-        return (problem.dataset.surface || "").toLowerCase() === filter;
-      }
-      return true;
+      return (problem.dataset.filterGroup || "") === filter;
     }
 
     function setActiveButton(active) {
@@ -61,9 +53,21 @@
     applyFilter("all");
   }
 
+  function initGapMapLinks() {
+    document.querySelectorAll(".cae-gap-map__mark").forEach((link) => {
+      link.addEventListener("click", () => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        target.setAttribute("tabindex", "-1");
+        if (!reducedMotion) target.focus({ preventScroll: false });
+        else target.focus({ preventScroll: true });
+      });
+    });
+  }
+
   function initStickySprint() {
     const sticky = document.querySelector(".cae-sticky-sprint");
-    const diagnosis = document.getElementById("human-diagnosis");
+    const diagnosis = document.getElementById("focus-gaps") || document.getElementById("gap-map");
     if (!sticky || !diagnosis) return;
 
     sticky.hidden = true;
@@ -107,10 +111,12 @@
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       initInventoryFilters();
+      initGapMapLinks();
       initStickySprint();
     });
   } else {
     initInventoryFilters();
+    initGapMapLinks();
     initStickySprint();
   }
 })();

@@ -1,0 +1,272 @@
+#!/usr/bin/env node
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { createGrowthScoreReportTemplate } from "./growth-score-report-template.mjs";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const slug = "nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8";
+const collectedAt = "2026-08-31";
+const approvedAt = "2026-08-31T00:03:52+01:00";
+
+const urls = Object.freeze({
+  maps: "https://maps.app.goo.gl/nrJCfzy3DT5CTip19",
+  domain: "https://nogyvruky.com.ua/",
+  oldAbout: "https://nogyvruky.com.ua/ru/o-nas/",
+  oldContact: "https://nogyvruky.com.ua/ru/contact/",
+  sitemap: "https://nogyvruky.com.ua/sitemap_index.xml",
+  instagramSalon: "https://www.instagram.com/nogy_v_ruky_/",
+  instagramMedical: "https://www.instagram.com/nogy_v_ruky_medical/",
+  shineMaps: "https://www.google.com/maps/search/?api=1&query=SHINE%20BRIGHT%20Lyustdorfska%2055k%20Odesa",
+  nsMaps: "https://www.google.com/maps/search/?api=1&query=NS%20Beauty%20Studio%20Lyustdorfska%2055%2F6%20Odesa",
+  moxieMaps: "https://www.google.com/maps/search/?api=1&query=Moxie%20Beauty%20Studio%20Odesa",
+  podoplexMaps: "https://www.google.com/maps/search/?api=1&query=PodoPlex%20Odesa",
+  podoplex: "https://podoplex.com.ua/",
+  podoplexReviews: "https://barb.ua/odessa/salon/podoplex/comments",
+});
+
+const unavailable = (metric_id, label, reason) => ({
+  metric_id,
+  label,
+  raw_value: null,
+  normalized_score: null,
+  evidence_class: "A",
+  source: null,
+  collected_at: null,
+  reviewer_status: "pending",
+  unavailable_reason: reason,
+});
+
+const approved = (metric_id, label, raw_value, normalized_score, source, finding) => ({
+  metric_id,
+  label,
+  raw_value,
+  normalized_score,
+  evidence_class: "A",
+  source,
+  collected_at: collectedAt,
+  reviewer_status: "approved",
+  finding,
+});
+
+const surfaces = [
+  {
+    id: "search",
+    summary: "Филиал находится в Google с рейтингом 5,0, но карточка относится к категории Medical Center, а поля Website и Booking ведут в один и тот же Instagram-профиль.",
+    owner_card: {
+      strength: "Точный филиал легко находится и имеет рейтинг 5,0 по 35 отзывам.",
+      problem: "Карточка не даёт контролируемого salon-first сайта или отдельного маршрута записи.",
+      priority: "HIGH",
+    },
+    metrics: [
+      unavailable("map_visibility", "Видимость на карте", "Сопоставимая geo-grid 5×5 по утверждённой группе локальных запросов не собиралась."),
+      approved("gbp_treatment_category_completeness", "Полнота категории и услуг GBP", { primary_category: "Medical Center", public_services_observed: false, vertical_context: "beauty_salon — human resolved" }, 20, urls.maps, "Google показывает филиал как Medical Center; публичный каталог салонных услуг в проверенной карточке не наблюдался."),
+      approved("entity_integrity", "Целостность сущности", { maps_name: "Nohy V Ruky / Ноги в Руки", maps_category: "Medical Center", owned_domain_state: "посторонний новостной сайт 24.Storycle", social_identity: ["салон/подология/курсы", "многопрофильная клиника"] }, 20, `${urls.maps}; ${urls.domain}; ${urls.instagramSalon}; ${urls.instagramMedical}`, "Google, собственный домен и два активных Instagram-профиля не описывают одну согласованную salon-first сущность."),
+      approved("gbp_conversion_readiness", "Готовность GBP к конверсии", { website_destination: urls.instagramMedical, booking_destination: urls.instagramMedical, separate_service_or_booking_route: false }, 30, urls.maps, "Website и Booking ведут в один Instagram-профиль вместо отдельных контролируемых путей к услугам и записи."),
+      unavailable("freshness", "Свежесть Search", "Полная датированная выборка фото, публикаций и изменений услуг GBP не собиралась."),
+      approved("branded_search_control", "Контроль брендового поиска", { owned_domain_http_status: 200, owned_domain_content: "посторонний англоязычный финансово-новостной шаблон", legacy_business_pages: 404, sitemap_state: "индексирует посторонний контент" }, 5, `${urls.domain}; ${urls.oldAbout}; ${urls.oldContact}; ${urls.sitemap}`, "Собственный домен отдаёт посторонний индексируемый контент, а прежние бизнес-страницы возвращают 404."),
+    ],
+  },
+  {
+    id: "website",
+    summary: "Собственный домен больше не работает как сайт бизнеса: он отдаёт посторонний англоязычный финансово-новостной контент, а прежние бизнес-страницы возвращают 404.",
+    owner_card: {
+      strength: "Брендовый домен всё ещё открывается и потенциально может быть восстановлен или перенаправлен после подтверждения контроля.",
+      problem: "На домене нет контролируемого salon-first пути к услугам, доказательствам и записи.",
+      priority: "HIGH",
+    },
+    metrics: [
+      approved("booking_friction", "Трение при записи", { business_booking_action_on_domain: false, business_service_path_on_domain: false }, 0, urls.domain, "Собственный домен не предоставляет пути к салонной услуге или записи."),
+      approved("treatment_clarity", "Ясность услуг", { salon_services_present: false, unrelated_sections: ["Commodities", "Stocks", "Economics"] }, 0, urls.domain, "Домен не объясняет услуги салона, ногтевого сервиса, педикюра или подологии."),
+      unavailable("mobile_performance", "Мобильная производительность", "Результат Lighthouse не сохранялся; производительность постороннего контента не даёт полезной оценки салонного пути."),
+      approved("above_fold_conversion", "Конверсия первого экрана", { business_identity_present: false, business_cta_present: false }, 0, urls.domain, "Первый экран не идентифицирует Nohy V Ruky и не предлагает релевантный следующий шаг."),
+      approved("clinician_trust_proof", "Доказательства специалистов и доверия", { business_specialists_present: false, business_credentials_present: false }, 0, urls.domain, "На текущем домене нет доказательств специалистов, квалификации или услуг бизнеса."),
+      unavailable("mystery_shopper", "Mystery Shopper", "Не проводился: форма, сообщение, звонок или запись не создавались."),
+      approved("technical_booking_integrity", "Техническая целостность записи", { business_booking_path_exists: false, legacy_about_status: 404, legacy_contact_status: 404 }, 0, `${urls.domain}; ${urls.oldAbout}; ${urls.oldContact}`, "На домене нет маршрута записи, а проверенные прежние бизнес-страницы возвращают 404."),
+    ],
+  },
+  {
+    id: "social",
+    summary: "Оба Instagram-профиля активны и имеют заметную накопленную аудиторию, но их роли и назначения смешивают салон, медицину, обучение и Тенерифе.",
+    owner_card: {
+      strength: "Два активных профиля сохраняют существенную аудиторию и недавнюю публикационную активность.",
+      problem: "Ни один профиль не объясняет однозначную salon-first роль в Одессе и единый путь от профиля к записи.",
+      priority: "HIGH",
+    },
+    metrics: [
+      approved("priority_treatment_presence", "Наличие приоритетных услуг", { observed_topics: ["подология", "педикюр", "маникюр", "хирургия", "диабетическая стопа", "курсы"] }, 55, `${urls.instagramSalon}; ${urls.instagramMedical}`, "Темы подологии, педикюра и ногтевого сервиса видимы, но смешаны с медицинскими и образовательными предложениями."),
+      approved("clinician_expertise", "Экспертность специалистов", { named_or_visible_specialists: true, role_separation: false }, 60, `${urls.instagramSalon}; ${urls.instagramMedical}`, "Контент со специалистами видим, но салонная и медицинская роли не разведены в понятный клиентский путь."),
+      approved("proof_quality", "Качество доказательств", { active_content: true, service_line_proof: "сильнее всего вокруг подологии/педикюра", salon_breadth_proof: "неравномерно" }, 55, `${urls.instagramSalon}; ${urls.instagramMedical}`, "Видимые доказательства сильнее всего вокруг подологии и педикюра и не полностью объясняют более широкое предложение салона."),
+      approved("recency", "Свежесть Social", { active_in_august_2026: true, inspected_accounts: 2 }, 90, `${urls.instagramSalon}; ${urls.instagramMedical}`, "Оба профиля публиковали актуальный контент в проверенном окне августа 2026 года."),
+      approved("profile_to_booking", "Непрерывность от профиля к записи", { main_destinations: ["другой Instagram-профиль", "Direct", "телефон"], owned_service_booking_route: false }, 25, `${urls.instagramSalon}; ${urls.instagramMedical}`, "Профили опираются на другой Instagram-профиль, Direct или телефон вместо одного контролируемого маршрута услуга → локация → запись."),
+      approved("local_offer_clarity", "Ясность локального предложения", { geographies: ["Одесса", "Тенерифе"], identities: ["салон", "подолог", "курсы", "сеть медицинских центров", "многопрофильная клиника"] }, 20, `${urls.instagramSalon}; ${urls.instagramMedical}`, "Одесса, Тенерифе, салон, курсы и медицинское позиционирование появляются без ясной иерархии ролей аккаунтов."),
+    ],
+  },
+  {
+    id: "reputation",
+    summary: "Филиал имеет сильную базу Google 5,0/35 и доказательства по специалистам, но сопоставимое 90-дневное окно ответов остаётся неполным.",
+    owner_card: {
+      strength: "Филиал имеет рейтинг 5,0 по 35 отзывам, включая 34 пятизвёздочные оценки.",
+      problem: "Только три новейших отзыва попали примерно в проверенное 90-дневное окно, а покрытие ответами полностью не наблюдалось.",
+      priority: "MEDIUM",
+    },
+    metrics: [
+      approved("review_velocity_90d", "Темп отзывов за 90 дней", { visible_new_reviews_approximately_90d: 3, comparison: "у Moxie видно не менее 8 отзывов за последний месяц" }, 30, `${urls.maps}; ${urls.moxieMaps}`, "В приблизительном 90-дневном окне объекта видны три отзыва; у выбранного beauty-бенчмарка за последний месяц видно не менее восьми."),
+      approved("rating", "Публичный рейтинг", { rating: 5.0, review_count: 35, five_star_count: 34 }, 100, urls.maps, "Филиал имеет рейтинг Google 5,0 по 35 отзывам, включая 34 пятизвёздочные оценки."),
+      approved("review_depth", "Глубина отзывов", { repeated_topics: ["специалисты", "педикюр/подология", "забота", "внимание"] }, 75, urls.maps, "Видимые отзывы содержат детали о специалистах и педикюре/подологии, способные поддержать доверие."),
+      approved("recency", "Свежесть отзывов", { newest_visible_window: "три отзыва примерно за 90 дней", next_visible_review: "около пяти месяцев ранее" }, 45, urls.maps, "В новейшей видимой выборке есть три недавних отзыва, после которых следует разрыв примерно в пять месяцев."),
+      unavailable("response_coverage", "Покрытие ответами", "Полное сопоставимое окно отзывов и ответов недоступно; доля ответов не публикуется."),
+      unavailable("response_speed", "Скорость ответов", "Сопоставимые временные метки отзывов и ответов владельца недоступны."),
+      unavailable("negative_review_handling", "Работа с негативными отзывами", "Достаточная филиальная выборка ответов на негативные отзывы недоступна."),
+      approved("treatment_clinician_proof", "Доказательства услуг и специалистов", { strongest_proof: ["подология", "педикюр", "названные специалисты"], broader_beauty_proof: "ограничено" }, 70, urls.maps, "Доказательства из отзывов сильнее всего вокруг подологии, педикюра и специалистов, а не полного предложения салона."),
+    ],
+  },
+];
+
+const crossSurface = {
+  summary: "Публичные поверхности описывают разные версии бизнеса и не сходятся в одном salon-first маршруте услуга → локация → запись.",
+  metrics: [
+    approved("treatment_presence", "Наличие услуг", { search: "медицинский центр", website: "посторонние новости", social: "салон, подология, медицина, курсы", reputation: "преимущественно подология/педикюр" }, 25, `${urls.maps}; ${urls.domain}; ${urls.instagramSalon}; ${urls.instagramMedical}`, "Наличие услуг фрагментировано между четырьмя наблюдаемыми поверхностями."),
+    approved("positioning_coherence", "Согласованность позиционирования", { positions: ["салон красоты — human resolved", "Medical Center", "многопрофильная клиника", "подолог/курсы/маникюр", "посторонний новостной сайт"] }, 5, `${urls.maps}; ${urls.domain}; ${urls.instagramSalon}; ${urls.instagramMedical}`, "Google, Instagram и домен не представляют одно согласованное публичное предложение."),
+    approved("proof_continuity", "Непрерывность доказательств", { strongest_proof: "подология/педикюр", website_business_proof: false, broader_salon_continuity: false }, 20, `${urls.domain}; ${urls.instagramSalon}; ${urls.instagramMedical}; ${urls.maps}`, "Полезные доказательства специалистов не продолжаются через собственный сайт и более широкое решение о записи в салон."),
+    approved("conversion_continuity", "Непрерывность конверсии", { gbp_destinations: "один Instagram-профиль", social_destinations: "Instagram/Direct/телефон", owned_booking_route: false }, 10, `${urls.maps}; ${urls.domain}; ${urls.instagramSalon}; ${urls.instagramMedical}`, "Поверхности обнаружения не приводят к одному контролируемому пути услуга → локация → запись."),
+    approved("identity_coherence", "Согласованность идентичности", { names: ["Nohy V Ruky", "Ноги в Руки"], public_types: ["Medical Center", "клиника", "салон/подология/курсы"], owned_domain_relevant: false }, 10, `${urls.maps}; ${urls.domain}; ${urls.instagramSalon}; ${urls.instagramMedical}`, "Названия относятся к одному бренду, но категория, роль и контроль назначения остаются несогласованными."),
+  ],
+};
+
+const gap = ({ id, title, diagnosis_state = "verified_gap", surfaces: gapSurfaces, journey_stage, evidence_refs = [], why_it_matters, sprint_fit = "close_in_30_days", outcome, steps, dependencies = [], owner_role, done_when, day_30_outcome, beyond_day_30 }) => ({
+  id,
+  title,
+  diagnosis_state,
+  surfaces: gapSurfaces,
+  journey_stage,
+  evidence_refs,
+  why_it_matters,
+  sprint_fit: { mode: sprint_fit },
+  repair_plan: {
+    outcome,
+    diy_steps: steps,
+    dependencies,
+    owner_role,
+    done_when,
+    ...(sprint_fit === "start_in_30_days" ? { day_30_outcome, beyond_day_30 } : {}),
+  },
+});
+
+const gapInventory = [
+  gap({ id: "NVR-26-01", title: "Нет контролируемого salon-first сайта или источника истины", surfaces: ["website", "cross_surface"], journey_stage: "enquiry", evidence_refs: ["website.booking_friction", "website.treatment_clarity", "cross.conversion_continuity"], why_it_matters: "Собственный домен не может объяснить салон, доказать услуги или перевести посетителя к релевантному следующему шагу.", outcome: "Контролируемый salon-first destination объясняет услуги, специалистов, локацию и следующий шаг без постороннего индексируемого контента.", steps: ["Подтвердить контроль домена, DNS, хостинга и CMS до изменения публичного контента.", "Удалить или изолировать посторонний контент и опубликовать mobile-first структуру услуг, специалистов, локации и записи.", "Восстановить или перенаправить прежние бизнес-URL, затем проверить canonical, sitemap, robots и пять мобильных входных путей."], dependencies: ["Подтверждённый доступ к домену и хостингу", "Утверждённый владельцем реестр салонной сущности", "Юридическая проверка медицинских и лицензионных утверждений"], owner_role: "Владелец бизнеса, web-исполнитель и квалифицированный reviewer claims", done_when: ["Домен идентифицирует Nohy V Ruky как утверждённый salon-first бизнес и даёт рабочий следующий шаг от услуги к локации.", "Прежние бизнес-URL разрешаются намеренно, а посторонний контент отсутствует в sitemap бизнеса."] }),
+  gap({ id: "NVR-26-02", title: "Категория и назначения GBP конфликтуют с контекстом салона", surfaces: ["search", "cross_surface"], journey_stage: "discovery", evidence_refs: ["search.gbp_treatment_category_completeness", "search.gbp_conversion_readiness", "cross.identity_coherence"], why_it_matters: "Google показывает медицинскую сущность и дублирует один Instagram-URL в Website и Booking вместо ясного пути от обнаружения салона к обращению.", outcome: "GBP использует утверждённые владельцем категории и услуги, а Website и Appointment ведут в разные работающие назначения.", steps: ["Зафиксировать утверждённые название бизнеса, категорию салона, список услуг, адрес и телефон.", "Обновлять категории и услуги только после проверки владельцем и юридического review утверждений о подологии и медицине.", "Направить Website и Appointment в разные работающие собственные назначения и зафиксировать live-поля."], dependencies: ["NVR-26-01", "Контроль GBP", "Утверждение владельцем и юридическая проверка категорий и услуг"], owner_role: "Владелец GBP с опытом локальных карточек", done_when: ["Live-поля GBP совпадают с утверждённым реестром сущности.", "Website и Appointment открывают разные, релевантные и работающие назначения."] }),
+  gap({ id: "NVR-26-03", title: "Два активных Instagram-профиля смешивают салон, медицину, обучение и Тенерифе", surfaces: ["social", "cross_surface"], journey_stage: "enquiry", evidence_refs: ["social.profile_to_booking", "social.local_offer_clarity", "cross.positioning_coherence"], why_it_matters: "Посетитель вынужден сам угадывать, какой профиль, география и предложение относятся к нему до следующего шага.", outcome: "У каждого профиля одна явная роль, и оба направляют спрос одесского салона в один контролируемый путь записи.", steps: ["Утвердить роль каждого аккаунта: одесский salon-first, доказанная service line, обучение или Тенерифе.", "Обновить имя, bio, highlights, закреплённое объяснение и link destination, по умолчанию не удаляя накопленную аудиторию.", "Протестировать каждый публичный профиль через выбор услуги и локации до одного утверждённого следующего шага."], dependencies: ["NVR-26-01", "Утверждённая владельцем матрица ролей аккаунтов", "Подтверждённый доступ к аккаунтам"], owner_role: "Владелец Social-аккаунтов и conversion-content editor", done_when: ["Оба bio и закреплённые объяснения называют роль и географию.", "Оба профиля достигают утверждённого одесского пути услуга/локация без Instagram-loop."] }),
+  gap({ id: "NVR-26-04", title: "Темп отзывов филиала и evidence ответов отстают от сильнейшего beauty-бенчмарка", surfaces: ["reputation"], journey_stage: "trust", evidence_refs: ["reputation.review_velocity_90d", "reputation.rating", "reputation.treatment_clinician_proof"], why_it_matters: "Рейтинг силён, но свежих доказательств мало, и они сосредоточены на подологии/педикюре, а не более широком предложении салона.", sprint_fit: "start_in_30_days", outcome: "Работает нейтральный филиальный цикл отзывов и ответов с воспроизводимой базой и без review gating.", steps: ["Зафиксировать филиальную ссылку Google для отзывов и раскрытую 90-дневную базу.", "Определить одно объективное событие eligibility, чтобы каждый подходящий клиент получал одинаковый нейтральный запрос без фильтрации по настроению и стимулов.", "Использовать privacy-safe шаблоны ответов и 30 дней учитывать отправки, ответы и исключения."], dependencies: ["Правильная филиальная ссылка для отзывов", "Утверждённое владельцем правило eligibility", "Privacy-safe политика ответов"], owner_role: "Владелец бизнеса и оператор процесса Reputation", done_when: ["Датированная база фиксирует число и свежесть отзывов и наблюдаемое покрытие ответами.", "Журнал eligibility и запросов показывает нейтральное применение без review gating."], day_30_outcome: "База, филиальная ссылка, нейтральный запрос и процесс ответов работают; объём результата сообщается без гарантии.", beyond_day_30: "Темп отзывов и дисциплина ответов требуют дальнейшего наблюдения и не могут быть обещаны за один месяц." }),
+  gap({ id: "NVR-26-05", title: "Сильный рейтинг и доказательства специалистов нужно защитить", diagnosis_state: "monitor", surfaces: ["reputation"], journey_stage: "trust", evidence_refs: ["reputation.rating", "reputation.review_depth"], why_it_matters: "Текущая репутация 5,0/35 — актив, который нельзя размывать несогласованной идентичностью или небезопасными практиками ответов.", sprint_fit: "backlog", outcome: "Сохранить подтверждённый рейтинг и доказательства специалистов во время исправления приоритетного пути.", steps: ["Сохранить датированную базу рейтинга.", "Наблюдать новые темы отзывов без стимулов и селективной маршрутизации."], owner_role: "Владелец процесса Reputation", done_when: ["Датированная база и правило наблюдения остаются доступными."] }),
+  gap({ id: "NVR-26-06", title: "Небрендовая видимость на локальной карте не измерена", diagnosis_state: "insufficient_evidence", surfaces: ["search"], journey_stage: "discovery", why_it_matters: "Без сопоставимой geo-grid нельзя подтверждать разрыв или движение ranking.", sprint_fit: "backlog", outcome: "Собрать воспроизводимую geo-grid 5×5 по утверждённой семье локальных запросов.", steps: ["Утвердить семью запросов и центр филиала.", "Собрать и сохранить grid 5×5, радиус, дату и конкурентов."], owner_role: "Аналитик локального поиска", done_when: ["Grid воспроизводится по сохранённым запросу, центру, радиусу и дате."] }),
+  gap({ id: "NVR-26-07", title: "Полные 90-дневные покрытие и скорость ответов не измерены", diagnosis_state: "insufficient_evidence", surfaces: ["reputation"], journey_stage: "trust", why_it_matters: "Проверенная новейшая выборка не поддерживает полный вывод о доле или скорости ответов.", sprint_fit: "backlog", outcome: "Создать сопоставимую базу ответов для объекта и выбранных бенчмарков.", steps: ["Использовать одно раскрытое 90-дневное окно.", "Единообразно считать подходящие отзывы, ответы и наблюдаемую задержку."], owner_role: "Аналитик Reputation", done_when: ["Размер выборки, окно и расчёты сохранены."] }),
+  gap({ id: "NVR-26-08", title: "Внутренний conversion и patient-operations layer не оценивался", diagnosis_state: "insufficient_evidence", surfaces: ["cross_surface"], journey_stage: "booking", why_it_matters: "Публичные evidence не могут установить причины в CRM, телефонии, администраторах, capacity, пациентах или выручке.", sprint_fit: "backlog", outcome: "Не включать внутренние причины в этот отчёт по публичным evidence без отдельно разрешённых данных.", steps: ["Не выводить внутренние причины из публичных симптомов.", "Если будущий письменный scope разрешит доступ, создать отдельную evidence-запись."], owner_role: "Владелец бизнеса и квалифицированный operations reviewer", done_when: ["Отчёт не содержит неподтверждённой внутренней диагностики."] }),
+];
+
+const source = (url_or_snapshot, source_type, sample_note) => ({ url_or_snapshot, source_type, collected_at: collectedAt, sample_note });
+const observed = (finding, evidence_refs) => ({ status: "observed", finding, evidence_refs });
+const insufficient = (finding, limitation) => ({ status: "insufficient_evidence", finding, evidence_refs: [], limitation });
+const theme = (themeTitle, mentions, sample_size, window, evidence_refs) => ({ theme: themeTitle, mentions, sample_size, window, evidence_refs });
+
+const competitor = ({ id, name, competitor_type = "local", reason, branch_scope, search, website, social, reputation, strengths, risks, choice, advantage, gapText, repeat, improve, doNotCopy, sources, positive = [], negative = [], refs }) => ({
+  id,
+  name,
+  competitor_type,
+  selection_reason: reason,
+  branch_scope,
+  patient_choice_reason: choice,
+  observable_advantage: advantage,
+  observable_gap: gapText,
+  repeat,
+  improve,
+  do_not_copy: doNotCopy,
+  strategic_implication: "Использовать сравнение для прояснения salon-first пути без копирования неподтверждённых claims или общей активности.",
+  constraint_effect: "Сравнение подтверждает, что основной недостаток — непрерывность назначения и идентичности, а не нехватка активности в Social.",
+  priority_effect: "Поддерживает NVR-26-01–NVR-26-04 в утверждённом порядке зависимостей.",
+  modernization_implication: "Оценить более ясную архитектуру услуг и записи; клиническое или коммерческое превосходство не предполагается.",
+  strengths,
+  weaknesses_or_risks: risks,
+  limitations: "Только публичная выборка; недоступные ячейки остаются insufficient evidence, а видимая активность не доказывает эффективность.",
+  sources,
+  surface_evidence: { search, website, social, reputation },
+  repeated_positive_themes: positive,
+  repeated_negative_themes: negative,
+  evidence_refs: refs,
+});
+
+const competitors = [
+  competitor({ id: "shine-bright", name: "SHINE BRIGHT", reason: "Гиперлокальная beauty-альтернатива в том же комплексе на Люстдорфской, 55.", branch_scope: "Люстдорфская дорога, 55к, Одесса", search: observed("Google показал 4,9/12; новейшему видимому отзыву около 11 месяцев.", ["reputation.rating"]), website: observed("Поле Website ведёт в Instagram, а не на собственный сайт услуг.", ["website.booking_friction"]), social: observed("Публичная идентичность явно beauty-led, но аудитория меньше, а видимые доказательства старее.", ["social.local_offer_clarity"]), reputation: observed("Видимая выборка повторяет темы мастера, персонала и атмосферы, но она старая.", ["reputation.review_depth"]), strengths: ["Ясная beauty-категория", "Гиперлокальное удобство"], risks: ["Малая и устаревшая база отзывов", "Зависимость destination от Instagram"], choice: "Ближайший клиент может выбрать салон за близость и однозначную beauty-идентичность.", advantage: "Более ясная beauty-категория, чем у Nohy V Ruky.", gapText: "Более слабая свежая репутация и не более сильный собственный conversion path.", repeat: "Повторить ясность категории и сигналы близости.", improve: "Соединить ту же ясность с собственным маршрутом услуг и записи.", doNotCopy: "Не копировать зависимость destination только от Instagram.", sources: [source(urls.shineMaps, "maps", "Публичная карточка Maps и выборка новейших отзывов")], positive: [theme("Мастер, персонал или атмосфера", 2, 3, "Видимая публичная выборка проверена 2026-08-31", ["reputation.review_depth"])], refs: ["social.local_offer_clarity", "reputation.rating", "reputation.review_depth"] }),
+  competitor({ id: "ns-beauty-studio", name: "NS Beauty Studio", reason: "Ближайшая названная beauty-альтернатива по адресу Люстдорфская, 55/6.", branch_scope: "Люстдорфская дорога, 55/6, Одесса", search: observed("Google показал 4,5/4 и указал, что карточка не подтверждена владельцем.", ["reputation.rating"]), website: insufficient("Недостаточно evidence — контролируемый сайт не найден.", "Публичный путь ведут каталоги."), social: insufficient("Недостаточно evidence — актуальный официальный профиль надёжно не найден.", "Нет репрезентативной публичной выборки."), reputation: observed("Новейшему видимому отзыву около восьми месяцев; выборка слишком мала для повторяющихся негативных тем.", ["reputation.recency"]), strengths: ["Крайне близкая локальная альтернатива"], risks: ["Только четыре отзыва", "Сигнал неподтверждённой карточки", "Нет более сильного собственного пути"], choice: "Ближайший клиент может выбрать салон главным образом из-за удобства.", advantage: "Физическая близость.", gapText: "У Nohy V Ruky уже существенно больше рейтингового объёма и публичных доказательств.", repeat: "Сохранять видимым локальное удобство.", improve: "Соединить близость с контролируемым destination и более сильными доказательствами.", doNotCopy: "Не копировать неподтверждённую карточку или путь через каталоги.", sources: [source(urls.nsMaps, "maps", "Публичная карточка Maps и ограниченная выборка отзывов")], positive: [theme("Маникюр или персонал", 2, 4, "Видимая публичная выборка проверена 2026-08-31", ["reputation.review_depth"])], refs: ["reputation.rating", "reputation.recency"] }),
+  competitor({ id: "moxie-beauty-studio", name: "Moxie Beauty Studio", reason: "Более сильный одесский beauty-бенчмарк по прямой записи и свежести отзывов.", branch_scope: "Beauty-рынок Одессы", search: observed("Google показал 4,7/97 и не менее восьми видимых отзывов за последний месяц.", ["reputation.review_velocity_90d", "reputation.rating"]), website: observed("Назначение GBP ведёт прямо к услугам и записи Altegio.", ["website.booking_friction"]), social: insufficient("Недостаточно evidence — полное сопоставимое окно Social не сохранялось.", "Эффективность Social не предполагается."), reputation: observed("Темы Google повторяют маникюр, педикюр, чистоту, уют и стойкое покрытие; распределение рейтинга включает пять однозвёздочных оценок.", ["reputation.review_depth", "reputation.rating"]), strengths: ["Прямой destination услуг/записи", "Более высокий видимый темп свежих отзывов"], risks: ["Пять однозвёздочных оценок в публичном распределении", "Полный review негативных тем не проводился"], choice: "Клиент может выбрать салон за прямой список услуг, видимую доступность и свежие beauty-доказательства.", advantage: "Более ясная непрерывность записи и более сильный видимый темп отзывов.", gapText: "Полное сравнение Social и негативных отзывов остаётся незавершённым.", repeat: "Повторить прямую непрерывность от услуг к записи и свежие beauty-доказательства.", improve: "Сохранить более сильное доверие Nohy V Ruky в подологии, расширяя доказательства салона.", doNotCopy: "Не гнаться за объёмом отзывов без нейтральной политики и дисциплины ответов.", sources: [source(urls.moxieMaps, "maps", "Публичные Maps, destination записи и ограниченная выборка новейших отзывов")], positive: [theme("Маникюр, педикюр, чистота или уют", 2, 8, "Видимая выборка последнего месяца проверена 2026-08-31", ["reputation.review_depth"])], refs: ["website.booking_friction", "reputation.review_velocity_90d", "reputation.rating"] }),
+  competitor({ id: "podoplex", name: "PodoPlex", competitor_type: "other", reason: "Утверждённый менеджером service-line benchmark по подологии с большой одесской репутационной базой.", branch_scope: "Сеть в Одессе; ближайший сравниваемый филиал на Люстдорфской, 63/2", search: observed("Одесская карточка показала 4,8/388; ближайший филиал на Люстдорфской, 63/2 — 4,9/217.", ["reputation.rating"]), website: observed("Публичный сайт показывает услуги, специалистов, CTA и две локации в Одессе.", ["website.treatment_clarity", "website.booking_friction"]), social: insufficient("Недостаточно evidence — сопоставимая репрезентативная выборка Social не сохранялась.", "Бенчмарк используется для доказательств подологии, а не общей beauty-идентичности."), reputation: observed("Раскрытая выборка Barb повторяет профессионализм, объяснения, стерильность и заботу; одна жалоба на диагностику/документ остаётся единичным эпизодом.", ["reputation.review_depth", "reputation.treatment_clinician_proof"]), strengths: ["Большая репутационная база по подологии", "Структура услуг и специалистов", "Доказательства двух локаций"], risks: ["Медицинские claims требуют квалифицированного review", "Один негативный эпизод не устанавливает повторяющуюся слабость"], choice: "Клиент по подологии может выбрать его за специализированные доказательства, структуру услуг и объём репутации.", advantage: "Более сильные сайт и репутационные доказательства именно по подологии.", gapText: "Это не сопоставимая модель для полной идентичности салона красоты.", repeat: "Повторить атрибутированные доказательства специалистов и стерильности/процесса там, где они подтверждены.", improve: "Интегрировать подологию как отдельную service line внутри salon-first архитектуры.", doNotCopy: "Не копировать медицинские гарантии, неподтверждённые claims или незавершённые разделы шаблона.", sources: [source(urls.podoplexMaps, "maps", "Публичный snapshot одесской и ближайшей карточек"), source(urls.podoplex, "website", "Публичные услуги, специалисты и локации"), source(urls.podoplexReviews, "review_platform", "Ограниченная выборка отзывов Barb")], positive: [theme("Профессионализм, объяснения, стерильность или забота", 2, 5, "Ограниченная публичная выборка Barb проверена 2026-08-31", ["reputation.review_depth", "reputation.treatment_clinician_proof"])], refs: ["website.treatment_clarity", "website.booking_friction", "reputation.rating", "reputation.review_depth"] }),
+];
+
+const decision = (title, rationale, evidence_refs) => ({ title, rationale, evidence_refs });
+const template = createGrowthScoreReportTemplate();
+const report = {
+  ...template,
+  schemaVersion: 5,
+  reportState: "approved_report",
+  reportVersion: "nohy-v-ruky-odesa-public-evidence/1.0.0",
+  verifiedFactSetVersion: "nohy-v-ruky-odesa-2026-08-31/1.0.0",
+  reportKind: "real",
+  reportContext: { vertical_context: "beauty_salon", report_locale: "ru", vertical_source: "human_resolved", locale_source: "user_selected" },
+  audit: { project_id: "nohy-v-ruky-odesa-2026", subject_type: "beauty_salon", format: "single_location", package_role: "standalone", access_group_id: "nvr-odesa-2026-08-31" },
+  catalog: { visibility: "private", public_listing_approved: false },
+  disclosure: "Независимый outside-in Growth Score по открытым источникам. Контекст «салон красоты» предоставлен и разрешён менеджером; он не считается Class A доказательством. Клиентские отношения, внутренние операции и результаты не предполагаются.",
+  practice: { name: "Nohy V Ruky / Ноги в Руки", location: "Люстдорфская дорога, 55/2, корпус 5, Одесса, Украина", preparedAt: collectedAt, preparedFor: "Travis Warner" },
+  executiveSummary: "Сильный рейтинг, активная аудитория и накопленный podology proof уже существуют. Binding constraint — отсутствие единой salon-first сущности и контролируемого пути от Google и Instagram к услуге, локации и записи.",
+  surfaces,
+  crossSurface,
+  humanDiagnosis: {
+    reviewer_status: "approved",
+    reviewer: { name: "Travis Warner", approved_at: approvedAt },
+    objective_strength: { title: "Высокий Google-рейтинг, активные социальные профили и доказуемая подологическая экспертиза уже создают базу доверия.", evidence_refs: ["reputation.rating", "social.recency", "reputation.treatment_clinician_proof"] },
+    strongest_surface: "reputation",
+    binding_constraint: { title: "Нет единой salon-first сущности и контролируемого пути записи", statement: "Google, текущий домен и два Instagram-профиля описывают разные версии бизнеса и не сходятся в одном маршруте услуга → локация → следующий шаг.", demand_stage: "enquiry", evidence_refs: ["website.booking_friction", "cross.positioning_coherence", "cross.conversion_continuity"], gap_ref: "NVR-26-01" },
+    current_state: { strengths: ["Google 5,0 / 35, включая 34 пятизвёздочные оценки.", "Два активных Instagram-профиля и сильный specialist proof по подологии/педикюру."], constraint_label: "Непрерывность идентичности и назначения", constraint_detail: "Сигналы салона, медицины, обучения, Тенерифе и постороннего домена не сходятся в одном одесском пути записи.", priority_line: "Сначала вернуть контролируемый salon-first destination, затем синхронизировать Google, Instagram и review cycle." },
+    gap_inventory: gapInventory,
+    focus_selection: { primary_gap_id: "NVR-26-01", supporting_gap_ids: ["NVR-26-02", "NVR-26-03", "NVR-26-04"], selected_by: "Travis Warner", selected_at: approvedAt, rationale: "Website/source of truth — binding dependency. GBP и Instagram должны сходиться на нём; процесс Reputation можно начать в первый месяц, но ему нужен более длинный горизонт наблюдения." },
+    do_not_do: { title: "Не финансировать усиление трафика или гонку за отзывами до восстановления единого salon-first маршрута", rationale: "Paid traffic, SEO/link building, увеличение объёма контента или гонка за числом отзывов направят больше внимания в ту же нерешённую систему идентичности и назначения.", evidence_refs: ["website.booking_friction", "search.entity_integrity", "cross.conversion_continuity"], revisit_after: ["Контролируемый salon-first сайт работает и релевантен", "Website и Appointment в GBP ведут в разные работающие назначения", "Обе роли Instagram направляют в утверждённый одесский путь", "Нейтральная филиальная база отзывов и цикл запросов работают"] },
+    competitors: {
+      status: "applicable",
+      selection_method: "Две гиперлокальные beauty-альтернативы, один более сильный одесский бенчмарк записи/репутации и утверждённый менеджером PodoPlex как service-line benchmark по подологии.",
+      sample_limitations: "Ограниченные публичные выборки. Сопоставимая geo-grid, полное окно Social, полный корпус негативных отзывов и полное окно скорости ответов не сохранялись.",
+      comparison_window: { start: "2026-06-01", end: collectedAt },
+      review_sample_rule: "Используется одинаковый видимый публичный контекст платформы, где он доступен; повторяющаяся тема требует не менее двух подходящих наблюдений. Единичные сообщения остаются эпизодами.",
+      branch_scope: "Nohy V Ruky на Люстдорфской дороге, 55/2, корпус 5; сетевые активы проверены только там, где влияют на этот филиал.",
+      entries: competitors,
+      comparison_matrix: {
+        subject_name: "Nohy V Ruky / Ноги в Руки",
+        rows: [
+          { entity_ref: "subject", entity_name: "Nohy V Ruky / Ноги в Руки", entity_type: "subject", search: "5,0/35; Medical Center; Website и Booking ведут в Instagram.", website: "Собственный домен отдаёт посторонний индексируемый новостной контент; прежние бизнес-страницы возвращают 404.", social: "Две активные, но конфликтующие идентичности салон/медицина/обучение/Тенерифе.", reputation: "Сильные 5,0/35 и proof подологии; три видимых отзыва в приблизительном 90-дневном окне.", evidence_refs: ["search.entity_integrity", "website.booking_friction", "social.local_offer_clarity", "reputation.rating"] },
+          ...competitors.map((entry) => ({ entity_ref: entry.id, entity_name: entry.name, entity_type: "competitor", search: entry.surface_evidence.search.finding, website: entry.surface_evidence.website.finding, social: entry.surface_evidence.social.finding, reputation: entry.surface_evidence.reputation.finding, evidence_refs: entry.evidence_refs })),
+        ],
+      },
+      decision_summary: {
+        defend: [decision("Защитить накопленное доверие", "Сохранить рейтинг 5,0/35, активную аудиторию и доказательства специалистов во время исправления публичных идентичностей.", ["reputation.rating", "social.recency", "reputation.treatment_clinician_proof"])],
+        close: [decision("Закрыть разрыв собственного destination и непрерывности записи", "Moxie и PodoPlex показывают более ясные пути услуг/записи, тогда как домен Nohy V Ruky посторонний, а GBP зацикливает путь на Instagram.", ["website.booking_friction", "search.gbp_conversion_readiness", "cross.conversion_continuity"])],
+        differentiate: [decision("Закрепить salon-first предложение с отдельно доказанной service line подологии", "Бизнес может сохранить авторитет в подологии, не позволяя медицинской идентичности определять каждую поверхность.", ["social.priority_treatment_presence", "reputation.treatment_clinician_proof", "cross.positioning_coherence"])],
+        do_not_copy: [decision("Не копировать медицинские гарантии, инфраструктуру только на Instagram или тактики гонки за отзывами", "Claims требуют квалифицированной проверки, а активность не исправляет непрерывность назначения.", ["website.treatment_clarity", "search.entity_integrity", "reputation.review_velocity_90d"])],
+      },
+      market_practice_gap: { status: "applicable", reason: "На выбранном рынке наблюдаются прямой путь от услуг к записи и свежие beauty-specific репутационные доказательства.", recommendations: [{ title: "Пилот одной salon-архитектуры услуга → локация → запись", current_state: "Google и Instagram не достигают собственного салонного пути услуг/записи.", market_shift: "Moxie показывает прямой маршрут услуг/доступности; PodoPlex — структурированные доказательства услуг, специалистов и локаций.", evidence_scope: "Публичные сайт, Maps и ограниченные наблюдения отзывов, собранные 2026-08-30–2026-08-31.", business_implication: "Контролируемый маршрут может убрать наблюдаемую неоднозначность идентичности и следующего шага; влияние на conversion не прогнозируется.", transition_economics: "Использовать минимальный контролируемый destination и валидировать его до более широких затрат на сайт или трафик.", dependencies: ["Контроль домена/хостинга", "Утверждённый владельцем реестр салонной сущности", "Квалифицированный review медицинских/лицензионных claims"], decision: "pilot", specialist_validation: "Квалифицированный юридический/медицинский reviewer должен утвердить любые медицинские, лицензионные, аппаратные claims или claims результатов до публикации.", evidence_refs: ["website.booking_friction", "search.gbp_conversion_readiness", "cross.conversion_continuity"], limitations: "Это сравнение публичного маркетингового пути, а не доказательство клинического или коммерческого превосходства." }] },
+    },
+    walkthrough: { status: "pending", url: null, placeholder: "Видеоразбор Valerie Petra ожидается. Запись или delivery не предполагаются, пока утверждённое видео длительностью 3–8 минут не пройдёт QA." },
+    coordination_burden: { diagnosed_issues: 8, high_priority_fixes: 4, systems_involved: 4, dependencies: 6, specialist_roles: 5 },
+  },
+  implementation_paths: { diy: "Использовать полные шаги фокусных разрывов и acceptance evidence своей внутренней командой.", other_provider: "Передать собственный отчёт и планы исправления другому квалифицированному подрядчику.", defer: "Сохранить evidence-базу и не увеличивать спрос в нерешённый путь.", caesthetic: "Попросить CAESTHETIC отдельно письменно определить scope только выбранных фокусных разрывов в 30-Day Sprint." },
+  why_caesthetic: { evidence_advantage: "Публичные evidence, решения по конкурентам, ограничения и порядок зависимостей уже собраны.", coordination_advantage: "Главное исправление связывает восстановление домена, поля GBP, роли двух Instagram и нейтральный процесс Reputation.", sprint_boundary: "Ни один разрыв не включается автоматически; письменный scope 30-Day Sprint подтверждается отдельно.", ownership: "Отчёт, evidence и планы исправления принадлежат клиенту и могут использоваться без CAESTHETIC." },
+  methodology: { sources: Object.values(urls), collectedAt, competitorSelection: "Гиперлокальные beauty-альтернативы плюс более сильный beauty conversion benchmark и утверждённый менеджером PodoPlex как service-line benchmark по подологии.", limitations: "Не использовались geo-grid 5×5, измерение Lighthouse, форма/сообщение/звонок, полный 90-дневный корпус скорости ответов, данные внутренних процессов, данные пациентов, данные выручки или клиническая/лицензионная верификация. Предоставленный менеджером контекст салона не является evidence Class A. Публичные числа подписчиков и отзывов — датированные snapshots и могут измениться." },
+  estimates: [],
+};
+
+export { report, slug };
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  const directory = path.join(root, "site-caesthetic/score", slug);
+  fs.mkdirSync(directory, { recursive: true });
+  const reportPath = path.join(directory, "report.json");
+  fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+  console.log(reportPath);
+}

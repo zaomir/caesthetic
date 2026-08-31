@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "authority": "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
+  "generated_from": "approved site-caesthetic/score/**/report.json files",
+  "counts": {
+    "total": 5,
+    "private": 2,
+    "listed": 3
+  },
+  "projects": [
+    {
+      "project_id": "aesthetemed-public-evidence-7c3e91b4a8f26d50",
+      "display_name": "Aesthetemed Beauty & Wellness Clinic",
+      "location": "Hallandale Beach, Florida, United States",
+      "subject_type": "public_business",
+      "audit_format": "single_location",
+      "package_role": "standalone",
+      "report_kind": "real",
+      "report_state": "approved_report",
+      "schema_version": 4,
+      "prepared_at": "2026-08-21",
+      "catalog_visibility": "private",
+      "listed_name": null,
+      "listed_location": null,
+      "access_group_id": null,
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "canonical_url": "https://caesthetic.com/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "source_path": "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/report.json",
+      "report_refs": [
+        {
+          "role": "standalone",
+          "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+          "canonical_url": "https://caesthetic.com/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+          "schema_version": 4,
+          "source_path": "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/report.json"
+        }
+      ]
+    },
+    {
+      "project_id": "demo-aesthetics-clinic-reputation-gap",
+      "display_name": "Fictional Sable Aesthetics Clinic",
+      "location": "Fictional Sun Belt market",
+      "subject_type": "public_business",
+      "audit_format": "single_location",
+      "package_role": "standalone",
+      "report_kind": "demo",
+      "report_state": "approved_report",
+      "schema_version": 5,
+      "prepared_at": "2026-08-11",
+      "catalog_visibility": "synthetic",
+      "listed_name": "Fictional Sable Aesthetics Clinic",
+      "listed_location": "Fictional Sun Belt market",
+      "access_group_id": null,
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "canonical_url": "https://caesthetic.com/score/demo-aesthetics-clinic-reputation-gap/",
+      "source_path": "site-caesthetic/score/demo-aesthetics-clinic-reputation-gap/report.json",
+      "report_refs": [
+        {
+          "role": "standalone",
+          "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+          "canonical_url": "https://caesthetic.com/score/demo-aesthetics-clinic-reputation-gap/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/demo-aesthetics-clinic-reputation-gap/report.json"
+        }
+      ]
+    },
+    {
+      "project_id": "demo-injector-practice-booking-friction",
+      "display_name": "Fictional Lumen Injector Practice",
+      "location": "Fictional Southeast market",
+      "subject_type": "public_business",
+      "audit_format": "single_location",
+      "package_role": "standalone",
+      "report_kind": "demo",
+      "report_state": "approved_report",
+      "schema_version": 5,
+      "prepared_at": "2026-08-11",
+      "catalog_visibility": "synthetic",
+      "listed_name": "Fictional Lumen Injector Practice",
+      "listed_location": "Fictional Southeast market",
+      "access_group_id": null,
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "canonical_url": "https://caesthetic.com/score/demo-injector-practice-booking-friction/",
+      "source_path": "site-caesthetic/score/demo-injector-practice-booking-friction/report.json",
+      "report_refs": [
+        {
+          "role": "standalone",
+          "route": "/score/demo-injector-practice-booking-friction/",
+          "canonical_url": "https://caesthetic.com/score/demo-injector-practice-booking-friction/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/demo-injector-practice-booking-friction/report.json"
+        }
+      ]
+    },
+    {
+      "project_id": "demo-medical-aesthetics-search-gap",
+      "display_name": "Fictional Meridian Med Spa",
+      "location": "Fictional Southwest market",
+      "subject_type": "public_business",
+      "audit_format": "single_location",
+      "package_role": "standalone",
+      "report_kind": "demo",
+      "report_state": "approved_report",
+      "schema_version": 5,
+      "prepared_at": "2026-08-11",
+      "catalog_visibility": "synthetic",
+      "listed_name": "Fictional Meridian Med Spa",
+      "listed_location": "Fictional Southwest market",
+      "access_group_id": null,
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "canonical_url": "https://caesthetic.com/score/demo-medical-aesthetics-search-gap/",
+      "source_path": "site-caesthetic/score/demo-medical-aesthetics-search-gap/report.json",
+      "report_refs": [
+        {
+          "role": "standalone",
+          "route": "/score/demo-medical-aesthetics-search-gap/",
+          "canonical_url": "https://caesthetic.com/score/demo-medical-aesthetics-search-gap/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/demo-medical-aesthetics-search-gap/report.json"
+        }
+      ]
+    },
+    {
+      "project_id": "nohy-v-ruky-odesa-2026",
+      "display_name": "Nohy V Ruky / Ноги в Руки",
+      "location": "Люстдорфская дорога, 55/2, корпус 5, Одесса, Украина",
+      "subject_type": "beauty_salon",
+      "audit_format": "single_location",
+      "package_role": "standalone",
+      "report_kind": "real",
+      "report_state": "approved_report",
+      "schema_version": 5,
+      "prepared_at": "2026-08-31",
+      "catalog_visibility": "private",
+      "listed_name": null,
+      "listed_location": null,
+      "access_group_id": "nvr-odesa-2026-08-31",
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "canonical_url": "https://caesthetic.com/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "source_path": "site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/report.json",
+      "report_refs": [
+        {
+          "role": "standalone",
+          "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+          "canonical_url": "https://caesthetic.com/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/report.json"
+        }
+      ]
+    }
+  ]
+}

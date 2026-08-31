@@ -40,6 +40,9 @@ test("SLA and next actions encode same-day triage plus backlog hold", () => {
   assert.equal(sla.triage_due_at, "2026-08-21T20:00:00.000Z");
   assert.equal(nextActionForState("created", { qa: true }), "qa_archived");
   assert.equal(nextActionForState("created", { backlogged: true }), "capacity_hold_triage");
+  assert.equal(nextActionForState("fact_set_frozen"), "assemble_gap_inventory");
+  assert.equal(nextActionForState("gap_review"), "select_focus_gaps");
+  assert.equal(nextActionForState("report_review"), "approve_schema_v5");
 });
 
 test("CORS allowlist is origin-restricted and idempotency fingerprint changes with clinic", () => {

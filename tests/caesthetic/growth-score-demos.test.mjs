@@ -19,7 +19,7 @@ test("retired demo route directories do not remain as duplicate canonical URLs",
   assert.equal(fs.existsSync(path.join(scoreRoot, "demo-beauty-studio-reputation-gap")), false);
 });
 
-test("publishes three clearly synthetic v4 demos through the same approved-report contract", () => {
+test("publishes three clearly synthetic v5 demos through the same approved-report contract", () => {
   const hub = fs.readFileSync(path.join(root, "site-caesthetic/growth-score/index.html"), "utf8");
   const sitemap = fs.readFileSync(path.join(root, "site-caesthetic/sitemap.xml"), "utf8");
   assert.match(reports[0].practice.name, /Med Spa/);
@@ -30,7 +30,7 @@ test("publishes three clearly synthetic v4 demos through the same approved-repor
     const route = routes[index];
     const html = fs.readFileSync(path.join(scoreRoot, route, "index.html"), "utf8");
     const result = scoreGrowthReport(report);
-    assert.equal(report.schemaVersion, 4);
+    assert.equal(report.schemaVersion, 5);
     assert.equal(report.reportKind, "demo");
     assert.equal(report.reportState, "approved_report");
     assert.ok(report.reportVersion);
@@ -41,9 +41,13 @@ test("publishes three clearly synthetic v4 demos through the same approved-repor
     assert.match(report.humanDiagnosis.reviewer.name, /^Fictional\s+\S+\s+\S+/);
     assert.match(report.humanDiagnosis.reviewer.approved_at, /T.*Z$/);
     assert.equal(report.humanDiagnosis.reviewer_status, "approved");
-    assert.equal(report.humanDiagnosis.top_priorities.length, 3);
-    assert.ok(report.humanDiagnosis.problem_inventory.length > 0);
-    assert.ok(report.humanDiagnosis.remediation_tasks.length > 0);
+    assert.ok(report.humanDiagnosis.gap_inventory.length >= 4);
+    assert.equal(typeof report.humanDiagnosis.focus_selection.primary_gap_id, "string");
+    assert.ok(report.humanDiagnosis.focus_selection.supporting_gap_ids.length >= 2);
+    assert.ok(report.humanDiagnosis.focus_selection.supporting_gap_ids.length <= 3);
+    assert.equal("top_priorities" in report.humanDiagnosis, false);
+    assert.equal("problem_inventory" in report.humanDiagnosis, false);
+    assert.equal("remediation_tasks" in report.humanDiagnosis, false);
     assert.ok(result.evidence.classARatio >= 0.8);
     assert.match(html, /noindex,nofollow,noarchive,nosnippet/);
     assert.match(html, /SYNTHETIC DEMO/);
@@ -58,10 +62,11 @@ test("publishes three clearly synthetic v4 demos through the same approved-repor
     assert.match(html, /Differentiate/);
     assert.match(html, /Do not copy/);
     assert.match(html, /Market Practice Gap/);
-    assert.match(html, /Complete remediation plan/);
+    assert.match(html, /Gap Map/);
+    assert.match(html, /Focus Gaps/);
     assert.match(html, /Approximate \/ secondary navigation/);
     assert.match(html, /Cross-Surface Consistency/);
-    assert.match(html, /Full Problem Inventory/);
+    assert.match(html, /Full Gap Inventory/);
     assert.match(html, /Do it in-house/);
     assert.match(html, /Use another provider/);
     assert.match(html, /no (?:exclusive method or )?lock-in|without CAESTHETIC/i);
@@ -104,28 +109,18 @@ test("demo metrics use the exact canonical ids and no caller weights", () => {
   }
 });
 
-test("every actionable problem and remediation task maps in both directions", () => {
+test("every Focus Gap has DIY repair evidence and leftover holes stay visible", () => {
   for (const report of reports) {
     const diagnosis = report.humanDiagnosis;
-    const problems = new Map(diagnosis.problem_inventory.map((problem) => [problem.id, problem]));
-    const tasks = new Map(diagnosis.remediation_tasks.map((task) => [task.id, task]));
-
-    for (const priority of diagnosis.top_priorities) {
-      assert.ok(priority.problem_refs.length > 0);
-      assert.ok(priority.problem_refs.every((problemId) => problems.has(problemId)));
-      assert.ok(priority.why_now);
-      assert.ok(priority.expected_effect);
-      assert.match(priority.complexity, /^(High|Medium|Low)$/);
-      assert.ok(priority.task_refs.length > 0);
-      assert.ok(priority.task_refs.every((taskId) => tasks.has(taskId)));
-    }
+    const gaps = new Map(diagnosis.gap_inventory.map((gap) => [gap.id, gap]));
+    const selected = [diagnosis.focus_selection.primary_gap_id, ...diagnosis.focus_selection.supporting_gap_ids];
+    assert.ok(selected.length >= 3 && selected.length <= 4);
+    assert.ok(diagnosis.binding_constraint.gap_ref === diagnosis.focus_selection.primary_gap_id);
     assert.ok(diagnosis.binding_constraint.statement);
     assert.match(diagnosis.binding_constraint.demand_stage, /^(discovery|trust|enquiry|booking|treatment)$/);
     assert.ok(diagnosis.current_state.strengths.length >= 1 && diagnosis.current_state.strengths.length <= 2);
     assert.ok(diagnosis.do_not_do.rationale);
     assert.ok(diagnosis.do_not_do.revisit_after.length >= 2);
-    assert.equal(diagnosis.roadmap_preview.weeks.length, 3);
-    assert.match(diagnosis.roadmap_preview.disclaimer, /Illustrative sequencing/);
     assert.equal(diagnosis.walkthrough.status, "pending");
     assert.equal("duration" in diagnosis.walkthrough, false);
     for (const field of ["diagnosed_issues", "high_priority_fixes", "systems_involved", "dependencies", "specialist_roles"]) {
@@ -137,25 +132,17 @@ test("every actionable problem and remediation task maps in both directions", ()
       assert.ok(surface.owner_card.problem);
     }
     assert.equal("owner_card" in report.crossSurface, false);
-    for (const problem of problems.values()) {
-      if (problem.status === "diagnosed") assert.ok(problem.task_refs.length > 0);
-      assert.ok(problem.task_refs.every((taskId) => tasks.get(taskId)?.problem_refs.includes(problem.id)));
+    for (const gapId of selected) {
+      const gap = gaps.get(gapId);
+      assert.ok(gap, `selected gap ${gapId} must exist`);
+      assert.equal(gap.diagnosis_state, "verified_gap");
+      assert.ok(gap.repair_plan.diy_steps.length > 0);
+      assert.ok(gap.repair_plan.done_when.length > 0);
+      assert.ok(gap.repair_plan.owner_role);
+      assert.ok(gap.evidence_refs.length > 0);
+      assert.match(gap.sprint_fit.mode, /^(close_in_30_days|start_in_30_days)$/);
     }
-    for (const task of tasks.values()) {
-      assert.ok(task.problem_refs.length > 0);
-      assert.ok(task.problem_refs.every((problemId) => problems.get(problemId)?.task_refs.includes(task.id)));
-      assert.ok(task.steps.length > 0);
-      assert.ok(task.evidence_refs.length > 0);
-      assert.ok(task.prerequisites_access.length > 0);
-      assert.ok(Number.isInteger(task.sequence.order) && task.sequence.order > 0);
-      assert.ok(task.sequence.rationale);
-      assert.ok(task.owner_role);
-      assert.ok(task.effort_complexity);
-      assert.ok(task.implementation_risk);
-      assert.ok(task.horizon);
-      assert.ok(task.acceptance_evidence.length > 0);
-      assert.ok(task.next_action);
-    }
+    assert.ok(diagnosis.gap_inventory.some((gap) => !selected.includes(gap.id)), "unselected holes must remain visible");
   }
 });
 
@@ -226,6 +213,8 @@ test("deploy and Agent API smoke markers still match the public demo hub", () =>
   for (const source of [productionSmoke, allowlist]) {
     assert.match(source, /Four surfaces\. One separate consistency check\./);
     assert.match(source, /SYNTHETIC DEMO/);
+    assert.match(source, /Gap Map/);
+    assert.match(source, /Focus Gaps/);
     assert.doesNotMatch(source, /Four surfaces\. Fixed weights\./);
   }
   assert.match(deployScript, /SYNTHETIC DEMO/);

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "canonical_url": "https://caesthetic.com/score/",
+  "listing_policy": "synthetic demos and explicitly approved public cases only",
+  "projects": [
+    {
+      "project_id": "demo-aesthetics-clinic-reputation-gap",
+      "display_name": "Fictional Sable Aesthetics Clinic",
+      "location": "Fictional Sun Belt market",
+      "audit_format": "single_location",
+      "report_kind": "demo",
+      "schema_version": 5,
+      "prepared_at": "2026-08-11",
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/"
+    },
+    {
+      "project_id": "demo-injector-practice-booking-friction",
+      "display_name": "Fictional Lumen Injector Practice",
+      "location": "Fictional Southeast market",
+      "audit_format": "single_location",
+      "report_kind": "demo",
+      "schema_version": 5,
+      "prepared_at": "2026-08-11",
+      "route": "/score/demo-injector-practice-booking-friction/"
+    },
+    {
+      "project_id": "demo-medical-aesthetics-search-gap",
+      "display_name": "Fictional Meridian Med Spa",
+      "location": "Fictional Southwest market",
+      "audit_format": "single_location",
+      "report_kind": "demo",
+      "schema_version": 5,
+      "prepared_at": "2026-08-11",
+      "route": "/score/demo-medical-aesthetics-search-gap/"
+    }
+  ]
+}

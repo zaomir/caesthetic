@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.16
-updated: 2026-08-29
+version: 3.17
+updated: 2026-08-30
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -217,13 +217,11 @@ The canonical inbound route is `/growth-score/`, presented as three stages:
 
 Stage 3 abandonment or `Skip` remains a successful submission. Optional answers never become a hidden eligibility gate. Do not ask for revenue, budget, patient-level data/PHI, credentials or account/vendor access in the free intake. If the practice is ambiguous, ask for one public identifier later by email rather than increasing mandatory friction. A proactive/outbound Score built from public evidence is a separate acquisition path and must not be represented as owner-submitted intake.
 
-### AI-assisted research and human approval
+### Manager-assigned audit factory
 
-1. Intake/context creates a versioned case. Client assertions remain self-reported context until independently verified.
-2. AI-assisted research resolves the practice and gathers date-stamped candidate evidence across Search, Website, Social and Reputation; Cross-Surface Consistency stays separate.
-3. AI normalizes and compares evidence and drafts pre-scores, diagnosis, binding constraint, Competitive Decision Analysis, full Problem Inventory, Top priorities and remediation tasks with proposed sequence/dependencies.
-4. A named human verifies every proposed Class A fact and its source/date/method, approves or rejects metric judgments, checks competitor selection, comparable windows/samples and review-theme recurrence, corrects priorities/language/tasks and freezes the verified fact set.
-5. Deterministic scores and the final narrative compile only from the verified fact set and explicitly labelled Class B items. A named human approves the versioned report before publication. No autonomous AI final diagnosis.
+The sole operating sequence for creating both Growth Score formats is `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md`. After a manager assigns an audit, the robot must interview the manager for all missing business, identity, location, competitor and delivery context; run only quick public reconnaissance; and return a Research Alignment Card explaining its understanding of the business, proposed scope, competitor set, method, unknowns and deliverables. Full research is blocked until a named manager approves or corrects that card.
+
+After approval, AI-assisted research gathers public evidence and produces a non-publishable Internal AI Report with the complete Gap Inventory, candidate risk order, candidate Focus Selection and repair paths. A named manager verifies the evidence and manually selects one Primary Gap plus two or three Supporting Gaps. Those approved 3–4 highest-risk gaps appear first on the client page; every other verified, monitor or insufficient-evidence hole remains lower in the Full Gap Inventory. The robot may recommend and rank candidates, but it does not make the final publication decision or choose Sprint scope.
 
 Reviewer identity is fail-closed. The normal form is a first and last name. The exact registered human-reviewer mononym **`Валерия`** is also canonical and must render exactly as written; it may not be expanded to a surname, translated to `Valerie`, or replaced by the Valerie Petra brand persona. Any other one-word reviewer value fails publication until explicitly added to canon and validator tests.
 
@@ -248,19 +246,24 @@ The private owner cockpit's primary product is the human-approved, evidence-back
 - objective strength and strongest surface;
 - binding constraint and named-competitor evidence where applicable;
 - Competitive Decision Analysis across Search, Website, Social and Reputation — Comparison Matrix, Competitor Cards, `Defend / Close / Differentiate / Do not copy` and a Market Practice Gap decision (`Keep / Evaluate / Pilot / Replace / Do not adopt`) where relevant; this is a cross-cutting decision layer, not a fifth surface;
-- full Problem Inventory, not only a Top 3 summary;
-- exactly three Top priorities and one `do not do`;
-- concrete remediation tasks mapped to problems, with steps, sequence, dependencies, required access/skills, accountable role, honest effort/complexity, implementation risk, horizon, next action and acceptance evidence;
-- clear `Insufficient evidence` and verification actions where a task cannot yet be justified; and
+- full Gap Inventory of confirmed, deferred and unproven holes, not a Sprint backlog;
+- one Primary Gap, two or three Supporting Gaps, and one `do not do`;
+- a 30-day Repair Plan for each Focus Gap with DIY steps, dependencies, owner role, Day-30 result and `done_when`;
+- clear `Insufficient evidence` and verification actions where a hole cannot yet be confirmed; and
 - methodology, source dates, limitations and explicit Class B assumptions.
 
-For an applicable market, competitor coverage is fail-closed. The report must disclose a useful 3–5 competitor set by default, selection reason/type, branch scope where relevant, comparable query/path/review windows, sample sizes, repeated positive and negative themes, why a patient may choose each competitor, observable advantage/gap, what to repeat/improve/not copy, and the effect on the binding constraint and exactly three priorities. It must also test whether relevant local/global practice has materially shifted in technology, product/material, protocol, price/offer architecture or delivery model. A surface without comparable evidence remains visible as `insufficient_evidence`. One review is an episode; it cannot establish a weakness. Medical/drug/device/protocol modernization remains a market signal until qualified clinical and regulatory review approves any clinical conclusion or change.
+For an applicable market, competitor coverage is fail-closed. The report must disclose a useful 3–5 competitor set by default, selection reason/type, branch scope where relevant, comparable query/path/review windows, sample sizes, repeated positive and negative themes, why a patient may choose each competitor, observable advantage/gap, what to repeat/improve/not copy, and the effect on the binding constraint and the selected Focus Gaps. It must also test whether relevant local/global practice has materially shifted in technology, product/material, protocol, price/offer architecture or delivery model. A surface without comparable evidence remains visible as `insufficient_evidence`. One review is an episode; it cannot establish a weakness. Medical/drug/device/protocol modernization remains a market signal until qualified clinical and regulatory review approves any clinical conclusion or change.
+
+### Two Growth Score delivery formats
+
+- **Growth Score:** one protected schema-v5 cockpit for one resolved location.
+- **Multi-Location Growth Score:** one protected parent network-analysis page plus one linked full schema-v5 Growth Score for the manager-selected focus location. The package has one shared final selection of 3–4 Focus Gaps total, one access group and no aggregate Network Score.
 
 The cockpit must be self-contained enough for the owner to implement the plan internally or with another provider. Do not hide instructions to create sales dependency. The client owns the delivered report, evidence pack, task plan and completed outputs; there is no lock-in.
 
 The honest `Why CAESTHETIC / Why the 30-Day Sprint` block explains convenience, not exclusivity: CAESTHETIC has already assembled the evidence and diagnosis, knows the dependency order and can implement, coordinate and accept the selected changes inside a separately confirmed written 30-day scope. It must show real workload, specialist needs, dependencies, coordination cost and implementation risks without implying that every Score task is included. After the Sprint the client may continue in-house, use another provider, choose an optional CAESTHETIC path or stop.
 
-Delivery: private/noindex `/score/<unguessable-slug>/` owner cockpit plus a **3–8 minute Valerie Petra recorded walkthrough**. The route stays outside the sitemap and is not password-gated by default. Walkthrough content and production authority remain exclusively in `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; the detailed report spec may reference but not override it.
+Delivery: a password-protected, private/noindex `/score/<unguessable-slug>/` owner cockpit plus a **3–8 minute Valerie Petra recorded walkthrough**. The route stays outside the sitemap; the simple package password is validated server-side and never embedded in client HTML, JavaScript, report JSON or the repository. Walkthrough content and production authority remain exclusively in `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; the detailed report spec may reference but not override it.
 
 A successful form is not a finished Score. Every accepted request must have a `score_case_id`, a named owner, a next action, same-day triage SLA and a durable notification outbox. Status changes only through the allowlisted transition contract in `docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md` (DEC-848). Safe weekly capacity is 2–3 Scores until measured; backlog extends delivery SLA and does not reject a valid owner request.
 

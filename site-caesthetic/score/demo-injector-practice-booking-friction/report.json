@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "reportState": "approved_report",
   "reportVersion": "demo-booking-friction-v3.0",
   "verifiedFactSetVersion": "demo-booking-friction-facts-v3.0",
@@ -434,63 +434,9 @@
         "cross.conversion_continuity"
       ],
       "statement": "The booking handoff interrupts otherwise credible treatment demand. Visitors who already found the practice lose treatment context across repeated mobile steps before a confirmed enquiry.",
-      "demand_stage": "booking"
+      "demand_stage": "booking",
+      "gap_ref": "booking-step-friction"
     },
-    "top_priorities": [
-      {
-        "id": "priority-booking-steps",
-        "problem_refs": [
-          "booking-step-friction"
-        ],
-        "title": "Reduce the mobile path from treatment page to confirmed enquiry.",
-        "evidence_refs": [
-          "website.booking_friction"
-        ],
-        "impact": "Fewer repeated steps would protect high-intent visitors at the measured point of loss.",
-        "why_now": "High-intent treatment visitors face avoidable abandonment at the measured point of loss.",
-        "expected_effect": "A shorter mobile path would protect more of the demand that already reaches the site, without guaranteeing enquiry volume.",
-        "complexity": "Medium",
-        "task_refs": [
-          "task-booking-path"
-        ]
-      },
-      {
-        "id": "priority-context-handoff",
-        "problem_refs": [
-          "booking-context-loss",
-          "cross-conversion-gap"
-        ],
-        "title": "Preserve selected treatment context through the scheduler.",
-        "evidence_refs": [
-          "website.technical_booking_integrity",
-          "cross.conversion_continuity"
-        ],
-        "impact": "The practice can respond to the actual treatment intent instead of a generic enquiry.",
-        "why_now": "The scheduler currently receives a generic enquiry instead of the selected treatment.",
-        "expected_effect": "Preserving treatment context would let the practice respond to the actual intent, not a guaranteed conversion lift.",
-        "complexity": "High",
-        "task_refs": [
-          "task-context-handoff"
-        ]
-      },
-      {
-        "id": "priority-response-loop",
-        "problem_refs": [
-          "mystery-shopper-gap"
-        ],
-        "title": "Close the mystery-shopper response loop.",
-        "evidence_refs": [
-          "website.mystery_shopper"
-        ],
-        "impact": "A clear, timely next step would reduce uncertainty after submission.",
-        "why_now": "The follow-up experience does not match the credibility built before submission.",
-        "expected_effect": "A timely, treatment-relevant next step would reduce post-submit uncertainty; response speed is not a patient forecast.",
-        "complexity": "Medium",
-        "task_refs": [
-          "task-response-loop"
-        ]
-      }
-    ],
     "do_not_do": {
       "title": "Do not buy more traffic into a booking path that drops treatment intent.",
       "evidence_refs": [
@@ -925,205 +871,6 @@
       "url": null,
       "placeholder": "Human walkthrough placeholder: omitted for this synthetic demo."
     },
-    "problem_inventory": [
-      {
-        "id": "booking-step-friction",
-        "surface": "website",
-        "title": "The mobile booking path requires repeated context and too many steps.",
-        "evidence_refs": [
-          "website.booking_friction"
-        ],
-        "impact": "High-intent treatment visitors face avoidable abandonment risk.",
-        "task_refs": [
-          "task-booking-path"
-        ],
-        "suggested_horizon": "Immediate",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "booking-context-loss",
-        "surface": "website",
-        "title": "Selected treatment context is lost at the booking handoff.",
-        "evidence_refs": [
-          "website.technical_booking_integrity"
-        ],
-        "impact": "Generic enquiries create extra work and a less relevant first response.",
-        "task_refs": [
-          "task-context-handoff"
-        ],
-        "suggested_horizon": "Immediate",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "High"
-      },
-      {
-        "id": "mystery-shopper-gap",
-        "surface": "website",
-        "title": "The synthetic enquiry did not receive a clear treatment-specific next step.",
-        "evidence_refs": [
-          "website.mystery_shopper"
-        ],
-        "impact": "The follow-up experience does not match the credibility built before submission.",
-        "task_refs": [
-          "task-response-loop"
-        ],
-        "suggested_horizon": "0–30 days",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "cross-conversion-gap",
-        "surface": "cross_surface",
-        "title": "Conversion continuity breaks between Website and scheduler.",
-        "evidence_refs": [
-          "cross.conversion_continuity"
-        ],
-        "impact": "Treatment intent weakens across the final decision handoff.",
-        "task_refs": [
-          "task-context-handoff"
-        ],
-        "suggested_horizon": "0–30 days",
-        "status": "diagnosed",
-        "priority": "Medium",
-        "complexity": "Medium"
-      },
-      {
-        "id": "social-evidence-gap",
-        "surface": "social",
-        "title": "Approved Social evidence covers only 60% of canonical weight.",
-        "evidence_refs": [
-          "social.priority_treatment_presence",
-          "social.clinician_expertise",
-          "social.proof_quality"
-        ],
-        "impact": "No defensible Social score or overall score can be published until the missing evidence is collected.",
-        "task_refs": [],
-        "suggested_horizon": "Before next score",
-        "status": "not_actionable",
-        "status_reason": "This is a research gap, not an implementation defect; collect the missing approved Social evidence before prescribing a fix.",
-        "priority": "Low",
-        "complexity": "Low"
-      }
-    ],
-    "remediation_tasks": [
-      {
-        "id": "task-booking-path",
-        "problem_refs": [
-          "booking-step-friction"
-        ],
-        "outcome": "A priority-treatment visitor can reach a confirmed mobile enquiry without repeated choices or unnecessary fields.",
-        "steps": [
-          "Record the current mobile path from treatment entry page to acknowledgement, including every tap, required field and dead end.",
-          "Remove duplicated service/location choices and defer nonessential questions until after the enquiry is accepted.",
-          "Keep one persistent primary action and a truthful explanation of what happens after submission.",
-          "Retest on current iOS and Android viewport sizes and record the final path."
-        ],
-        "evidence_refs": [
-          "website.booking_friction"
-        ],
-        "prerequisites_access": [
-          "Website and scheduler configuration access for the chosen implementer",
-          "Approved minimum enquiry fields",
-          "Mobile QA capability"
-        ],
-        "dependencies": [],
-        "sequence": {
-          "order": 1,
-          "rationale": "The path structure must be simplified before preserving context or rewriting follow-up logic."
-        },
-        "owner_role": "Conversion-focused web implementer with practice operations acceptance",
-        "effort_complexity": "Medium — several systems may own the handoff even when the visible edit is small.",
-        "implementation_risk": "Removing a required operational field can break scheduling; agree the minimum data set and retain a rollback path.",
-        "horizon": "Several days to two weeks depending on scheduler constraints.",
-        "acceptance_evidence": [
-          "Before-and-after mobile path recording",
-          "Final click and required-field count",
-          "Successful test acknowledgement on two mobile viewport sizes"
-        ],
-        "next_action": "Record one complete mobile booking path and label every repeated decision."
-      },
-      {
-        "id": "task-context-handoff",
-        "problem_refs": [
-          "booking-context-loss",
-          "cross-conversion-gap"
-        ],
-        "outcome": "The selected treatment and practice context survive the Website-to-scheduler handoff and appear in the received enquiry.",
-        "steps": [
-          "Define the treatment and location values that must pass from each entry page.",
-          "Map those values to supported scheduler fields or a safe query/hidden-field mechanism.",
-          "Verify the received staff notification and confirmation copy contain the intended non-clinical context.",
-          "Test direct, back-button and expired-session paths without creating an unwanted appointment."
-        ],
-        "evidence_refs": [
-          "website.technical_booking_integrity",
-          "cross.conversion_continuity"
-        ],
-        "prerequisites_access": [
-          "Website and booking-system configuration access",
-          "Scheduler field documentation",
-          "Monitored test inbox"
-        ],
-        "dependencies": [
-          "task-booking-path"
-        ],
-        "sequence": {
-          "order": 2,
-          "rationale": "Context mapping is implemented against the accepted shorter path rather than the retired journey."
-        },
-        "owner_role": "Web integration specialist with front-desk workflow acceptance",
-        "effort_complexity": "Medium to high — complexity depends on scheduler field support and cross-domain handoff controls.",
-        "implementation_risk": "Passing clinical or sensitive detail through URLs would create privacy risk; restrict the handoff to treatment and location context.",
-        "horizon": "One to three weeks when vendor support or cross-domain testing is needed.",
-        "acceptance_evidence": [
-          "Field-mapping record",
-          "Received test enquiry with correct non-clinical context",
-          "Mobile QA evidence for direct and recovery paths"
-        ],
-        "next_action": "List the exact non-clinical context fields the front desk needs in the first notification."
-      },
-      {
-        "id": "task-response-loop",
-        "problem_refs": [
-          "mystery-shopper-gap"
-        ],
-        "outcome": "A permitted truthful test enquiry receives a treatment-relevant acknowledgement and owned next step within the documented service window.",
-        "steps": [
-          "Set the acknowledgement, routing owner and escalation window for public treatment enquiries.",
-          "Write a privacy-safe response template that answers the next-step question without clinical advice.",
-          "Route a truthful non-clinical test through the accepted path using a monitored inbox.",
-          "Record submission and response timestamps at the agreed 24/48/72-hour checks."
-        ],
-        "evidence_refs": [
-          "website.mystery_shopper"
-        ],
-        "prerequisites_access": [
-          "Explicit mystery-shopper permission",
-          "Monitored test inbox",
-          "Front-desk owner and escalation rule"
-        ],
-        "dependencies": [
-          "task-context-handoff"
-        ],
-        "sequence": {
-          "order": 3,
-          "rationale": "Response handling is accepted only after the live enquiry carries the intended context."
-        },
-        "owner_role": "Practice operations lead with front-desk staff and web QA support",
-        "effort_complexity": "Medium — template work is light, but routing ownership and reliable testing require coordination.",
-        "implementation_risk": "Tests must not impersonate an urgent patient, provide clinical detail or create an unwanted appointment; use truthful non-clinical wording.",
-        "horizon": "Workflow setup in days; response reliability should be monitored over several real operating days.",
-        "acceptance_evidence": [
-          "Approved response and escalation standard",
-          "Dated test submission receipt",
-          "Timestamped treatment-relevant response"
-        ],
-        "next_action": "Name the front-desk owner and the maximum acknowledgement window."
-      }
-    ],
     "current_state": {
       "strengths": [
         "Reputation carries recent, treatment-specific injector proof.",
@@ -1133,29 +880,192 @@
       "constraint_detail": "Repeated steps and a dropped treatment handoff interrupt high-intent visitors.",
       "priority_line": "Fix before buying more traffic."
     },
-    "roadmap_preview": {
-      "weeks": [
-        {
-          "label": "WEEK 1",
-          "title": "Record and shorten the mobile booking path"
-        },
-        {
-          "label": "WEEK 2",
-          "title": "Preserve treatment context through the scheduler"
-        },
-        {
-          "label": "WEEKS 3–4",
-          "title": "Close the mystery-shopper response loop"
-        }
-      ],
-      "disclaimer": "Illustrative sequencing based on this diagnosis. Final Sprint scope is confirmed separately."
-    },
     "coordination_burden": {
       "diagnosed_issues": 5,
       "high_priority_fixes": 3,
       "systems_involved": 3,
       "dependencies": 11,
       "specialist_roles": 3
+    },
+    "gap_inventory": [
+      {
+        "id": "booking-step-friction",
+        "title": "The mobile booking path requires repeated context and too many steps.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website"
+        ],
+        "journey_stage": "booking",
+        "evidence_refs": [
+          "website.booking_friction"
+        ],
+        "why_it_matters": "High-intent treatment visitors face avoidable abandonment risk.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "A priority-treatment visitor can reach a confirmed mobile enquiry without repeated choices or unnecessary fields.",
+          "diy_steps": [
+            "Record the current mobile path from treatment entry page to acknowledgement, including every tap, required field and dead end.",
+            "Remove duplicated service/location choices and defer nonessential questions until after the enquiry is accepted.",
+            "Keep one persistent primary action and a truthful explanation of what happens after submission.",
+            "Retest on current iOS and Android viewport sizes and record the final path."
+          ],
+          "dependencies": [],
+          "owner_role": "Conversion-focused web implementer with practice operations acceptance",
+          "done_when": [
+            "Before-and-after mobile path recording",
+            "Final click and required-field count",
+            "Successful test acknowledgement on two mobile viewport sizes"
+          ]
+        }
+      },
+      {
+        "id": "booking-context-loss",
+        "title": "Selected treatment context is lost at the booking handoff.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website"
+        ],
+        "journey_stage": "booking",
+        "evidence_refs": [
+          "website.technical_booking_integrity"
+        ],
+        "why_it_matters": "Generic enquiries create extra work and a less relevant first response.",
+        "sprint_fit": {
+          "mode": "start_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "The selected treatment and practice context survive the Website-to-scheduler handoff and appear in the received enquiry.",
+          "diy_steps": [
+            "Define the treatment and location values that must pass from each entry page.",
+            "Map those values to supported scheduler fields or a safe query/hidden-field mechanism.",
+            "Verify the received staff notification and confirmation copy contain the intended non-clinical context.",
+            "Test direct, back-button and expired-session paths without creating an unwanted appointment."
+          ],
+          "dependencies": [
+            "task-booking-path"
+          ],
+          "owner_role": "Web integration specialist with front-desk workflow acceptance",
+          "done_when": [
+            "Field-mapping record",
+            "Received test enquiry with correct non-clinical context",
+            "Mobile QA evidence for direct and recovery paths"
+          ],
+          "day_30_outcome": "The first approved public correction is live and the remaining work is scoped.",
+          "beyond_day_30": "Continue the remaining public-path work after Day 30; it is not Sprint scope by default."
+        }
+      },
+      {
+        "id": "mystery-shopper-gap",
+        "title": "The synthetic enquiry did not receive a clear treatment-specific next step.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website"
+        ],
+        "journey_stage": "booking",
+        "evidence_refs": [
+          "website.mystery_shopper"
+        ],
+        "why_it_matters": "The follow-up experience does not match the credibility built before submission.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "A permitted truthful test enquiry receives a treatment-relevant acknowledgement and owned next step within the documented service window.",
+          "diy_steps": [
+            "Set the acknowledgement, routing owner and escalation window for public treatment enquiries.",
+            "Write a privacy-safe response template that answers the next-step question without clinical advice.",
+            "Route a truthful non-clinical test through the accepted path using a monitored inbox.",
+            "Record submission and response timestamps at the agreed 24/48/72-hour checks."
+          ],
+          "dependencies": [
+            "task-context-handoff"
+          ],
+          "owner_role": "Practice operations lead with front-desk staff and web QA support",
+          "done_when": [
+            "Approved response and escalation standard",
+            "Dated test submission receipt",
+            "Timestamped treatment-relevant response"
+          ]
+        }
+      },
+      {
+        "id": "cross-conversion-gap",
+        "title": "Conversion continuity breaks between Website and scheduler.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "cross_surface"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "cross.conversion_continuity"
+        ],
+        "why_it_matters": "Treatment intent weakens across the final decision handoff.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "The selected treatment and practice context survive the Website-to-scheduler handoff and appear in the received enquiry.",
+          "diy_steps": [
+            "Define the treatment and location values that must pass from each entry page.",
+            "Map those values to supported scheduler fields or a safe query/hidden-field mechanism.",
+            "Verify the received staff notification and confirmation copy contain the intended non-clinical context.",
+            "Test direct, back-button and expired-session paths without creating an unwanted appointment."
+          ],
+          "dependencies": [
+            "task-booking-path"
+          ],
+          "owner_role": "Web integration specialist with front-desk workflow acceptance",
+          "done_when": [
+            "Field-mapping record",
+            "Received test enquiry with correct non-clinical context",
+            "Mobile QA evidence for direct and recovery paths"
+          ],
+          "day_30_outcome": "The first approved public correction is live and the remaining work is scoped.",
+          "beyond_day_30": "Continue the remaining public-path work after Day 30; it is not Sprint scope by default."
+        }
+      },
+      {
+        "id": "social-evidence-gap",
+        "title": "Approved Social evidence covers only 60% of canonical weight.",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "social"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "social.priority_treatment_presence",
+          "social.clinician_expertise",
+          "social.proof_quality"
+        ],
+        "why_it_matters": "No defensible Social score or overall score can be published until the missing evidence is collected.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Collect the missing public evidence before assigning a repair.",
+          "diy_steps": [
+            "Record the missing source, date and method.",
+            "Do not invent a fix until the evidence is approved."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or named operator",
+          "done_when": [
+            "A dated public observation exists."
+          ]
+        }
+      }
+    ],
+    "focus_selection": {
+      "primary_gap_id": "booking-step-friction",
+      "supporting_gap_ids": [
+        "mystery-shopper-gap",
+        "booking-context-loss"
+      ],
+      "selected_by": "Fictional Taylor Rowan",
+      "selected_at": "2026-08-11T16:15:00Z",
+      "rationale": "The named reviewer selected The mobile booking path requires repeated context and too many steps. as the binding hole and the related 30-day repairs."
     }
   },
   "implementation_paths": {

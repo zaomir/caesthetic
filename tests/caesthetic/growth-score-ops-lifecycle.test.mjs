@@ -9,10 +9,10 @@ import {
 } from "../../scripts/caesthetic/growth-score-ops-contract.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const lifecycleSql = fs.readFileSync(
-  path.join(root, "supabase/migrations/20260821191000_caesthetic_growth_score_queue_lifecycle.sql"),
-  "utf8",
-);
+const lifecycleSql = [
+  fs.readFileSync(path.join(root, "supabase/migrations/20260821191000_caesthetic_growth_score_queue_lifecycle.sql"), "utf8"),
+  fs.readFileSync(path.join(root, "supabase/migrations/20260830190000_caesthetic_growth_score_gap_map_v5.sql"), "utf8"),
+].join("\n");
 const opsCli = fs.readFileSync(path.join(root, "scripts/caesthetic/growth-score-ops.mjs"), "utf8");
 const runbook = fs.readFileSync(
   path.join(root, "docs/projects/caesthetic/operations/GROWTH_SCORE_OPERATOR_RUNBOOK.md"),

@@ -2,7 +2,7 @@
 owner: CAESTHETIC
 status: active
 project: caesthetic
-updated: 2026-08-28
+updated: 2026-08-30
 standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 ---
 
@@ -12,6 +12,7 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 |---|---|---|---|---|---|
 | `/` | Positioning and entry | Understand the offer | Four-Surface model | Get Growth Score | index |
 | `/growth-score/` | Explain diagnosis and show examples | Evaluate method | Three labeled demos | Request Growth Score | index |
+| `/audit/` · `/audits/` · `/multi-location-growth-score/` | Synonym compatibility aliases | Reach the canonical audit product | Canonical handoff | Continue to `/growth-score/` | noindex |
 | `/sprint/` | Explain finite implementation | Evaluate paid next step | Scope and fixed pricing | Request scope and payment instructions | index |
 | `/growth-system/` | Explain recurring operating ownership | Evaluate optional ongoing work | Growth Budget parts, minimum scope and evidence maturity | Discuss Growth System | index |
 | `/pricing/` | Compare the public product ladder | Understand commercial model | Generated public-stage pricing and client-specific recurring boundaries | Choose a stage | index |
@@ -24,6 +25,7 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 | `/privacy/` | Compatibility alias for external merchant profiles | Reach the canonical Privacy Policy | Canonical redirect to `/legal/privacy/` | Continue to policy | noindex |
 | `/terms/` | Compatibility alias for external merchant profiles | Reach the canonical Terms of Use | Canonical redirect to `/legal/terms/` | Continue to terms | noindex |
 | `/legal/cookies/` | Disclose measurement state | Understand tracking | Conditional analytics and no replay | Contact | index |
+| `/score/` | Safe project catalog | Inspect publishable examples | Synthetic or explicitly approved public cases only | Request Growth Score | noindex |
 | `/score/demo-medical-aesthetics-search-gap/` | Demonstrate the full written score structure | Inspect report structure | Synthetic evidence ledger | View all demos | noindex |
 | `/score/demo-injector-practice-booking-friction/` | Demonstrate insufficient evidence | Inspect publication threshold | Synthetic evidence ledger | View all demos | noindex |
 | `/score/demo-aesthetics-clinic-reputation-gap/` | Demonstrate safe reputation diagnosis | Inspect review policy | Synthetic evidence ledger | View all demos | noindex |
@@ -32,8 +34,8 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 
 - `/` links to `/growth-score/` and `/growth-system/`; primary navigation remains focused on the aesthetic-practice funnel.
 - The global footer links the isolated `/beauty-salons/` vertical; each salon locale links all four locale routes directly.
-- `/growth-score/` links to every demo and the request form. `/pricing/` links to every public product stage.
-- Every demo links back to the demo index. Demo routes stay out of the sitemap.
+- `/growth-score/` links to every demo, the safe `/score/` catalog and the request form. `/pricing/` links to every public product stage.
+- Every demo links back to the demo index. `/score/`, demos and all real report routes stay out of the sitemap.
 
 ## Locale contract
 
@@ -41,7 +43,7 @@ The salon routes are standalone static documents with reciprocal `hreflang` valu
 
 ## Redirects and legacy
 
-The retired Aurora sample remains a noindex explanation page and links to the labeled demos. `/privacy/` and `/terms/` are noindex compatibility aliases for external merchant settings and immediately hand off to the canonical `/legal/` routes.
+The retired Aurora sample remains a noindex explanation page and links to the labeled demos. `/privacy/` and `/terms/` are noindex compatibility aliases for external merchant settings and immediately hand off to the canonical `/legal/` routes. `/audit/`, `/audits/` and `/multi-location-growth-score/` preserve safe query/hash data and hand off to the canonical `/growth-score/` product route.
 
 Salon aliases keep safe query/UTM and 301 to the English Beauty Salons route:
 
@@ -61,6 +63,6 @@ Salon aliases keep safe query/UTM and 301 to the English Beauty Salons route:
 
 ## Excluded routes
 
-Private client reports and `/private/` assets are not public navigation surfaces. Demo routes are crawlable only so their `noindex` directive can be applied.
+Private client reports and `/private/` assets are not public navigation surfaces. The `/score/` catalog generator excludes private client names, locations and unguessable routes. Catalog/demo routes are crawlable only so their `noindex` directive can be applied.
 
 The production header, footer, favicon and Open Graph metadata use the canonical assets under `/assets/brand/`.

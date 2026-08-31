@@ -16,26 +16,28 @@ const demoRoutes = [
   "demo-aesthetics-clinic-reputation-gap",
 ];
 const orderedSections = [
-  "report-overview",
-  "human-diagnosis",
-  "top-priorities",
-  "remediation-plan",
-  "score-navigator",
-  "evidence-drilldown",
-  "problem-inventory",
+  "gap-map",
+  "focus-gaps",
+  "sprint-fit",
+  "repair-paths",
   "do-not-fund",
-  "implementation-paths",
-  "why-caesthetic",
-  "roadmap-preview",
+  "gap-inventory",
+  "evidence-and-competitors",
+  "scores-and-methodology",
   "next-step",
-  "methodology",
 ];
 
 function loadDemo(route) {
   return JSON.parse(fs.readFileSync(path.join(root, "site-caesthetic/score", route, "report.json"), "utf8"));
 }
 
-test("owner cockpit renders the canonical decision order with remediation before scores", () => {
+function heroHtml(html) {
+  const start = html.indexOf('id="report-overview"');
+  const end = html.indexOf('id="gap-map"');
+  return html.slice(start, end);
+}
+
+test("owner cockpit renders Gap Map → Focus Gaps before scores", () => {
   const html = renderGrowthReport(fixture);
   let previousIndex = -1;
   orderedSections.forEach((sectionId, index) => {
@@ -43,33 +45,31 @@ test("owner cockpit renders the canonical decision order with remediation before
     assert.ok(sectionIndex > previousIndex, `${sectionId} must follow the prior cockpit section`);
     previousIndex = sectionIndex;
   });
-  assert.ok(html.indexOf("id=\"remediation-plan\"") < html.indexOf("id=\"score-navigator\""));
-  assert.ok(html.indexOf("Complete remediation plan") < html.indexOf("Approximate / secondary navigation"));
-  assert.ok(html.indexOf("Decisive named-competitor evidence") < html.indexOf("Exactly three priorities"));
-  assert.equal((html.match(/class="cae-report-task"/g) || []).length, fixture.humanDiagnosis.remediation_tasks.length);
-  assert.equal((html.match(/class="cae-report-priority"/g) || []).length, 3);
+  assert.ok(html.indexOf("id=\"gap-map\"") < html.indexOf("id=\"focus-gaps\""));
+  assert.ok(html.indexOf("id=\"focus-gaps\"") < html.indexOf("id=\"scores-and-methodology\""));
+  const selectedCount = 1 + fixture.humanDiagnosis.focus_selection.supporting_gap_ids.length;
+  assert.ok(selectedCount >= 3 && selectedCount <= 4);
+  assert.equal((html.match(/class="cae-focus-gap"/g) || []).length, selectedCount);
+  assert.equal((html.match(/class="cae-gap-map"/g) || []).length, 1);
   assert.equal((html.match(/class="cae-report-do-not-do"/g) || []).length, 1);
-  assert.match(html, /Implementation steps|STEPS/);
-  assert.match(html, /Prerequisites \/ access|NEEDS/);
-  assert.match(html, /Owner role|WHO CAN DO THIS/);
-  assert.match(html, /Implementation risk|RISK/);
-  assert.match(html, /Acceptance evidence|DONE WHEN/);
-  assert.match(html, /NEXT ACTION|next action/i);
-  assert.match(html, /client|owner/i);
+  assert.match(html, /DIY instruction/);
+  assert.match(html, /Done when/);
+  assert.match(html, /Who can do this/);
+  assert.match(html, /Close in 30 days|Start in 30 days/);
+  assert.doesNotMatch(html, /class="cae-report-priority"/);
+  assert.doesNotMatch(heroHtml(html), /\/100/);
 });
 
 test("score navigation is compact, four-surface, approximate and secondary", () => {
   const html = renderGrowthReport(fixture);
   const navStart = html.indexOf('class="cae-report-score-nav"');
-  const navEnd = html.indexOf("id=\"evidence-drilldown\"", navStart);
+  const navEnd = html.indexOf("id=\"next-step\"", navStart);
   const nav = html.slice(navStart, navEnd);
   assert.match(html, /Approximate \/ secondary navigation/);
   assert.match(nav, /SEARCH/);
   assert.match(nav, /WEBSITE/);
   assert.match(nav, /SOCIAL/);
   assert.match(nav, /REPUTATION/);
-  assert.match(nav, /Secondary navigator only/);
-  assert.match(html, /Score is a guide, not the goal/);
   assert.match(html, /do not determine Sprint scope/i);
 });
 
@@ -87,11 +87,10 @@ test("demo HTML is exact output of the reportKind-independent renderer", () => {
 test("the same renderer accepts an approved real report and enforces private route rules", () => {
   const real = structuredClone(fixture);
   real.reportKind = "real";
-  real.disclosure = "Independent public-evidence diagnostic prepared as a CAESTHETIC test; no client relationship is implied.";
+  real.disclosure = "Synthetic private-route contract fixture. No client relationship or real practice is represented.";
   real.practice.name = "Synthetic Private Route Test";
   real.humanDiagnosis.competitors.comparison_matrix.subject_name = real.practice.name;
   real.humanDiagnosis.competitors.comparison_matrix.rows.find((row) => row.entity_ref === "subject").entity_name = real.practice.name;
-  real.disclosure = "Synthetic private-route contract fixture. No client relationship or real practice is represented.";
   real.humanDiagnosis.reviewer = {
     name: "Alex Contract Reviewer",
     approved_at: "2026-08-11T17:00:00Z",
@@ -127,6 +126,22 @@ test("the same renderer accepts an approved real report and enforces private rou
   }
 });
 
+test("Russian real reports render a Russian cockpit without changing English demos", () => {
+  const route = "nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8";
+  const report = JSON.parse(fs.readFileSync(path.join(root, "site-caesthetic/score", route, "report.json"), "utf8"));
+  const html = renderGrowthReport(report);
+
+  assert.match(html, /<html lang="ru"/);
+  assert.match(html, /Закрытый Growth Score/);
+  assert.match(html, /Карта разрывов/);
+  assert.match(html, /Фокусные разрывы/);
+  assert.match(html, /Баллы и методология/);
+  assert.match(html, /Поручить CAESTHETIC выбранные фокусные разрывы/);
+  assert.doesNotMatch(html, />Private Growth Score</);
+  assert.doesNotMatch(html, />Gap Map</);
+  assert.doesNotMatch(html, />Focus Gaps</);
+});
+
 test("real reports omit coordination counts that cannot be derived", () => {
   const real = structuredClone(fixture);
   real.reportKind = "real";
@@ -136,7 +151,7 @@ test("real reports omit coordination counts that cannot be derived", () => {
   real.humanDiagnosis.competitors.comparison_matrix.rows.find((row) => row.entity_ref === "subject").entity_name = real.practice.name;
   real.humanDiagnosis.reviewer = { name: "Alex Contract Reviewer", approved_at: "2026-08-21T12:00:00Z" };
   real.humanDiagnosis.coordination_burden = {
-    diagnosed_issues: real.humanDiagnosis.problem_inventory.length,
+    diagnosed_issues: real.humanDiagnosis.gap_inventory.length,
     high_priority_fixes: 3,
     systems_involved: null,
     dependencies: null,
@@ -147,12 +162,13 @@ test("real reports omit coordination counts that cannot be derived", () => {
   assert.doesNotMatch(html, /systems involved|specialist roles/);
 });
 
-test("Aesthetemed public-evidence test stays private, evidence-limited and reproducible", () => {
+test("Aesthetemed public-evidence test stays v4 historical, private and evidence-limited", () => {
   const route = "aesthetemed-public-evidence-7c3e91b4a8f26d50";
   const directory = path.join(root, "site-caesthetic/score", route);
   const report = JSON.parse(fs.readFileSync(path.join(directory, "report.json"), "utf8"));
   const html = fs.readFileSync(path.join(directory, "index.html"), "utf8");
 
+  assert.equal(report.schemaVersion, 4);
   assert.equal(report.reportKind, "real");
   assert.equal(report.practice.name, "Aesthetemed Beauty & Wellness Clinic");
   assert.equal(report.humanDiagnosis.reviewer.name, "Alex Goldman");
@@ -161,7 +177,8 @@ test("Aesthetemed public-evidence test stays private, evidence-limited and repro
   assert.equal(report.humanDiagnosis.walkthrough.status, "pending");
   assert.equal(report.surfaces.find(({ id }) => id === "search").metrics.find(({ metric_id }) => metric_id === "map_visibility").normalized_score, null);
   assert.equal(report.surfaces.find(({ id }) => id === "website").metrics.find(({ metric_id }) => metric_id === "above_fold_conversion").normalized_score, null);
-  assert.equal(html, renderGrowthReport(report));
+  assert.equal(renderReportFile(path.join(directory, "report.json"), { check: true }), true);
+  assert.throws(() => renderGrowthReport(report), /schemaVersion must be 5/);
   assert.match(html, /noindex,nofollow,noarchive,nosnippet/);
   assert.match(html, /no client relationship is implied/);
   assert.match(html, /Insufficient evidence/);
@@ -204,7 +221,7 @@ test("demo banner, Valerie Petra, single Sprint CTA, DIY link and Class A/B labe
   assert.match(html, /CAESTHETIC Growth Advisor/);
   assert.equal((html.match(/href="\/sprint\/"/g) || []).length, 1);
   assert.match(html, /class="cae-sticky-sprint" href="#next-step"/);
-  assert.match(html, /href="#remediation-plan"/);
+  assert.match(html, /href="#focus-gaps"/);
   assert.match(html, /CLASS A · VERIFIED|Class A/);
   assert.match(html, /CLASS B|Class B/);
 });

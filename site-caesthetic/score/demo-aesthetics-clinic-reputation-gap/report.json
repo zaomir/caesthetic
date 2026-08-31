@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "reportState": "approved_report",
   "reportVersion": "demo-reputation-gap-v3.0",
   "verifiedFactSetVersion": "demo-reputation-gap-facts-v3.0",
@@ -437,66 +437,9 @@
         "reputation.response_coverage"
       ],
       "statement": "Reputation does not accumulate or respond to enough recent treatment evidence. Prospective patients who reach the clinic see weaker current proof than the fictional comparison set, so trust stalls before enquiry.",
-      "demand_stage": "trust"
+      "demand_stage": "trust",
+      "gap_ref": "review-velocity-gap"
     },
-    "top_priorities": [
-      {
-        "id": "priority-neutral-review-request",
-        "problem_refs": [
-          "review-velocity-gap",
-          "review-recency-gap"
-        ],
-        "title": "Create a neutral, universal review-request workflow.",
-        "evidence_refs": [
-          "reputation.review_velocity_90d"
-        ],
-        "impact": "A consistent invitation to every eligible patient can address low velocity without selective routing.",
-        "why_now": "The practice presents less current patient evidence than every named comparator in the same 90-day window.",
-        "expected_effect": "A neutral invitation to every eligible patient can address low velocity without selective routing; it does not guarantee review volume.",
-        "complexity": "Medium",
-        "task_refs": [
-          "task-neutral-review-workflow"
-        ]
-      },
-      {
-        "id": "priority-response-standard",
-        "problem_refs": [
-          "response-coverage-gap",
-          "response-speed-gap"
-        ],
-        "title": "Respond consistently and privacy-safely.",
-        "evidence_refs": [
-          "reputation.response_coverage",
-          "reputation.response_speed"
-        ],
-        "impact": "Broader and faster acknowledgement would make the reputation surface visibly active.",
-        "why_now": "Most synthetic reviews receive no timely acknowledgement, so the surface looks inactive.",
-        "expected_effect": "Broader, privacy-safe responses would make reputation look attended; coverage is not a rating or patient forecast.",
-        "complexity": "Medium",
-        "task_refs": [
-          "task-response-standard"
-        ]
-      },
-      {
-        "id": "priority-proof-themes",
-        "problem_refs": [
-          "review-depth-gap",
-          "cross-proof-gap"
-        ],
-        "title": "Use recurring treatment themes to improve operations and proof continuity.",
-        "evidence_refs": [
-          "reputation.review_depth",
-          "cross.proof_continuity"
-        ],
-        "impact": "Better decision detail can reveal operational themes and connect real feedback to other surfaces.",
-        "why_now": "Reviews rarely name treatments or clinicians, so decision proof stays on Social only.",
-        "expected_effect": "Theme work can improve operations and proof continuity without scripting sentiment or promising review depth.",
-        "complexity": "High",
-        "task_refs": [
-          "task-proof-themes"
-        ]
-      }
-    ],
     "do_not_do": {
       "title": "Do not use incentives, sentiment filtering, selective routing, or any form of review gating.",
       "evidence_refs": [
@@ -931,229 +874,6 @@
       "url": null,
       "placeholder": "Human walkthrough placeholder: omitted for this synthetic demo."
     },
-    "problem_inventory": [
-      {
-        "id": "review-velocity-gap",
-        "surface": "reputation",
-        "title": "The 90-day review velocity trails every fictional comparator.",
-        "evidence_refs": [
-          "reputation.review_velocity_90d"
-        ],
-        "impact": "The practice presents less current patient evidence at a key decision point.",
-        "task_refs": [
-          "task-neutral-review-workflow"
-        ],
-        "suggested_horizon": "Immediate",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "review-recency-gap",
-        "surface": "reputation",
-        "title": "Recent review evidence is sparse.",
-        "evidence_refs": [
-          "reputation.recency"
-        ],
-        "impact": "Older evidence gives weaker reassurance about the current patient experience.",
-        "task_refs": [
-          "task-neutral-review-workflow"
-        ],
-        "suggested_horizon": "0–30 days",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "response-coverage-gap",
-        "surface": "reputation",
-        "title": "Most synthetic reviews receive no response.",
-        "evidence_refs": [
-          "reputation.response_coverage"
-        ],
-        "impact": "The practice appears less attentive than the fictional comparison set.",
-        "task_refs": [
-          "task-response-standard"
-        ],
-        "suggested_horizon": "Immediate",
-        "status": "diagnosed",
-        "priority": "High",
-        "complexity": "Medium"
-      },
-      {
-        "id": "response-speed-gap",
-        "surface": "reputation",
-        "title": "Review responses arrive slowly.",
-        "evidence_refs": [
-          "reputation.response_speed"
-        ],
-        "impact": "Delayed acknowledgement weakens the sense of an active practice.",
-        "task_refs": [
-          "task-response-standard"
-        ],
-        "suggested_horizon": "30–90 days",
-        "status": "monitor",
-        "priority": "Medium",
-        "complexity": "Medium"
-      },
-      {
-        "id": "review-depth-gap",
-        "surface": "reputation",
-        "title": "Reviews rarely name treatments, clinicians or decision detail.",
-        "evidence_refs": [
-          "reputation.review_depth",
-          "reputation.treatment_clinician_proof"
-        ],
-        "impact": "Prospective patients receive limited proof for the choices they are evaluating.",
-        "task_refs": [
-          "task-proof-themes"
-        ],
-        "suggested_horizon": "30–90 days",
-        "status": "diagnosed",
-        "priority": "Medium",
-        "complexity": "Medium"
-      },
-      {
-        "id": "cross-proof-gap",
-        "surface": "cross_surface",
-        "title": "Current Social proof does not continue into Reputation.",
-        "evidence_refs": [
-          "cross.proof_continuity",
-          "social.proof_quality"
-        ],
-        "impact": "The strongest visible evidence is not reinforced at the review decision surface.",
-        "task_refs": [
-          "task-proof-themes"
-        ],
-        "suggested_horizon": "30–90 days",
-        "status": "monitor",
-        "priority": "Low",
-        "complexity": "Medium"
-      }
-    ],
-    "remediation_tasks": [
-      {
-        "id": "task-neutral-review-workflow",
-        "problem_refs": [
-          "review-velocity-gap",
-          "review-recency-gap"
-        ],
-        "outcome": "Every eligible patient receives the same neutral review invitation through a documented, platform-compliant workflow.",
-        "steps": [
-          "Define the same objective eligibility event for every patient without using sentiment, rating or complaint status.",
-          "Choose the permitted invitation channel and write neutral copy that allows any honest feedback.",
-          "Configure one universal trigger, suppression rule for duplicate sends and an operational owner.",
-          "Audit a disclosed sample for invitation coverage and retain the workflow evidence."
-        ],
-        "evidence_refs": [
-          "reputation.review_velocity_90d",
-          "reputation.recency"
-        ],
-        "prerequisites_access": [
-          "Current platform-policy review",
-          "Practice messaging-system access for the chosen implementer",
-          "Objective eligible-patient event",
-          "Privacy/compliance approval"
-        ],
-        "dependencies": [],
-        "sequence": {
-          "order": 1,
-          "rationale": "A neutral invitation process addresses the measured recency and velocity gap without prohibited selection."
-        },
-        "owner_role": "Practice operations lead with privacy/compliance acceptance",
-        "effort_complexity": "Medium — copy is simple, but trigger design, platform rules and unbiased coverage require careful operations work.",
-        "implementation_risk": "Sentiment filtering, incentives or selective routing can become prohibited review gating; use one neutral rule for every eligible patient.",
-        "horizon": "Workflow setup within one to two weeks; review recency develops over a longer window without a volume guarantee.",
-        "acceptance_evidence": [
-          "Approved neutral invitation copy",
-          "Documented eligibility and suppression rules",
-          "Sample invitation-coverage audit"
-        ],
-        "next_action": "Approve one objective eligibility event that applies equally to every patient."
-      },
-      {
-        "id": "task-response-standard",
-        "problem_refs": [
-          "response-coverage-gap",
-          "response-speed-gap"
-        ],
-        "outcome": "Eligible reviews receive timely, privacy-safe acknowledgement under one owned response standard.",
-        "steps": [
-          "Define the response owner, daily review check and escalation path for sensitive or negative content.",
-          "Create short response patterns that acknowledge feedback without confirming treatment or patient status.",
-          "Backfill only the selected recent sample, starting with unresolved negative reviews under privacy review.",
-          "Measure response coverage and observable response delay over the next disclosed sample window."
-        ],
-        "evidence_refs": [
-          "reputation.response_coverage",
-          "reputation.response_speed"
-        ],
-        "prerequisites_access": [
-          "GBP response access for the chosen responder",
-          "Privacy-safe escalation policy",
-          "Named daily workflow owner"
-        ],
-        "dependencies": [
-          "task-neutral-review-workflow"
-        ],
-        "sequence": {
-          "order": 2,
-          "rationale": "Response ownership follows the invitation standard so one operator can manage both current-review workflows consistently."
-        },
-        "owner_role": "Trained reputation responder with practice/privacy escalation support",
-        "effort_complexity": "Medium and ongoing — initial standards are bounded, while daily coverage creates continuing operating load.",
-        "implementation_risk": "A response can expose protected or clinical information or become argumentative; prohibit confirmation of patient status and escalate sensitive cases.",
-        "horizon": "Initial standard in days; coverage and speed should be assessed over at least one documented review window.",
-        "acceptance_evidence": [
-          "Approved response and escalation guide",
-          "Named daily owner",
-          "Dated response-coverage and response-delay sample"
-        ],
-        "next_action": "Name the daily response owner and privacy escalation reviewer."
-      },
-      {
-        "id": "task-proof-themes",
-        "problem_refs": [
-          "review-depth-gap",
-          "cross-proof-gap"
-        ],
-        "outcome": "Recurring public feedback themes inform operations and are reflected across surfaces without scripting, prompting for positive sentiment or copying patient claims.",
-        "steps": [
-          "Code a disclosed review sample by treatment, clinician, process and experience themes without identifying patients.",
-          "Separate operational gaps from reusable public proof and send sensitive themes to the internal owner only.",
-          "Use aggregate, truthful themes to improve treatment-page questions and clinician education content.",
-          "Recheck review depth and Cross-Surface proof continuity using the same rubric."
-        ],
-        "evidence_refs": [
-          "reputation.review_depth",
-          "reputation.treatment_clinician_proof",
-          "cross.proof_continuity",
-          "social.proof_quality"
-        ],
-        "prerequisites_access": [
-          "Dated public review sample",
-          "Privacy-safe theme-coding method",
-          "Content and clinical/compliance reviewers"
-        ],
-        "dependencies": [
-          "task-response-standard"
-        ],
-        "sequence": {
-          "order": 3,
-          "rationale": "Theme work follows the neutral invitation and response standards so proof continuity never drives selective collection."
-        },
-        "owner_role": "Research/content strategist with operations and clinical/compliance acceptance",
-        "effort_complexity": "Medium to high — requires consistent coding, privacy review and coordinated content changes across more than one surface.",
-        "implementation_risk": "Cherry-picking positive comments or reproducing identifiable claims would distort evidence; use disclosed samples and aggregate themes only.",
-        "horizon": "Initial theme set in two to four weeks; deeper public evidence matures over multiple review cycles.",
-        "acceptance_evidence": [
-          "De-identified theme ledger with disclosed sample",
-          "Approved operational action log",
-          "Live aggregate-theme content and repeat rubric check"
-        ],
-        "next_action": "Select the first dated review sample and approve the de-identification rules."
-      }
-    ],
     "current_state": {
       "strengths": [
         "Current Social proof is treatment-specific and decision-useful.",
@@ -1163,29 +883,229 @@
       "constraint_detail": "90-day review evidence and owner responses trail every fictional comparator.",
       "priority_line": "Fix before funding new acquisition."
     },
-    "roadmap_preview": {
-      "weeks": [
-        {
-          "label": "WEEK 1",
-          "title": "Stand up the neutral review-request workflow"
-        },
-        {
-          "label": "WEEK 2",
-          "title": "Own daily privacy-safe review responses"
-        },
-        {
-          "label": "WEEKS 3–4",
-          "title": "Code review themes into operations and proof continuity"
-        }
-      ],
-      "disclaimer": "Illustrative sequencing based on this diagnosis. Final Sprint scope is confirmed separately."
-    },
     "coordination_burden": {
       "diagnosed_issues": 6,
       "high_priority_fixes": 3,
       "systems_involved": 4,
       "dependencies": 12,
       "specialist_roles": 3
+    },
+    "gap_inventory": [
+      {
+        "id": "review-velocity-gap",
+        "title": "The 90-day review velocity trails every fictional comparator.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "reputation.review_velocity_90d"
+        ],
+        "why_it_matters": "The practice presents less current patient evidence at a key decision point.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Every eligible patient receives the same neutral review invitation through a documented, platform-compliant workflow.",
+          "diy_steps": [
+            "Define the same objective eligibility event for every patient without using sentiment, rating or complaint status.",
+            "Choose the permitted invitation channel and write neutral copy that allows any honest feedback.",
+            "Configure one universal trigger, suppression rule for duplicate sends and an operational owner.",
+            "Audit a disclosed sample for invitation coverage and retain the workflow evidence."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice operations lead with privacy/compliance acceptance",
+          "done_when": [
+            "Approved neutral invitation copy",
+            "Documented eligibility and suppression rules",
+            "Sample invitation-coverage audit"
+          ]
+        }
+      },
+      {
+        "id": "review-recency-gap",
+        "title": "Recent review evidence is sparse.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "reputation.recency"
+        ],
+        "why_it_matters": "Older evidence gives weaker reassurance about the current patient experience.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Every eligible patient receives the same neutral review invitation through a documented, platform-compliant workflow.",
+          "diy_steps": [
+            "Define the same objective eligibility event for every patient without using sentiment, rating or complaint status.",
+            "Choose the permitted invitation channel and write neutral copy that allows any honest feedback.",
+            "Configure one universal trigger, suppression rule for duplicate sends and an operational owner.",
+            "Audit a disclosed sample for invitation coverage and retain the workflow evidence."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice operations lead with privacy/compliance acceptance",
+          "done_when": [
+            "Approved neutral invitation copy",
+            "Documented eligibility and suppression rules",
+            "Sample invitation-coverage audit"
+          ]
+        }
+      },
+      {
+        "id": "response-coverage-gap",
+        "title": "Most synthetic reviews receive no response.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "reputation.response_coverage"
+        ],
+        "why_it_matters": "The practice appears less attentive than the fictional comparison set.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Eligible reviews receive timely, privacy-safe acknowledgement under one owned response standard.",
+          "diy_steps": [
+            "Define the response owner, daily review check and escalation path for sensitive or negative content.",
+            "Create short response patterns that acknowledge feedback without confirming treatment or patient status.",
+            "Backfill only the selected recent sample, starting with unresolved negative reviews under privacy review.",
+            "Measure response coverage and observable response delay over the next disclosed sample window."
+          ],
+          "dependencies": [
+            "task-neutral-review-workflow"
+          ],
+          "owner_role": "Trained reputation responder with practice/privacy escalation support",
+          "done_when": [
+            "Approved response and escalation guide",
+            "Named daily owner",
+            "Dated response-coverage and response-delay sample"
+          ]
+        }
+      },
+      {
+        "id": "response-speed-gap",
+        "title": "Review responses arrive slowly.",
+        "diagnosis_state": "monitor",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "reputation.response_speed"
+        ],
+        "why_it_matters": "Delayed acknowledgement weakens the sense of an active practice.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Eligible reviews receive timely, privacy-safe acknowledgement under one owned response standard.",
+          "diy_steps": [
+            "Define the response owner, daily review check and escalation path for sensitive or negative content.",
+            "Create short response patterns that acknowledge feedback without confirming treatment or patient status.",
+            "Backfill only the selected recent sample, starting with unresolved negative reviews under privacy review.",
+            "Measure response coverage and observable response delay over the next disclosed sample window."
+          ],
+          "dependencies": [
+            "task-neutral-review-workflow"
+          ],
+          "owner_role": "Trained reputation responder with practice/privacy escalation support",
+          "done_when": [
+            "Approved response and escalation guide",
+            "Named daily owner",
+            "Dated response-coverage and response-delay sample"
+          ]
+        }
+      },
+      {
+        "id": "review-depth-gap",
+        "title": "Reviews rarely name treatments, clinicians or decision detail.",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "reputation.review_depth",
+          "reputation.treatment_clinician_proof"
+        ],
+        "why_it_matters": "Prospective patients receive limited proof for the choices they are evaluating.",
+        "sprint_fit": {
+          "mode": "start_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Recurring public feedback themes inform operations and are reflected across surfaces without scripting, prompting for positive sentiment or copying patient claims.",
+          "diy_steps": [
+            "Code a disclosed review sample by treatment, clinician, process and experience themes without identifying patients.",
+            "Separate operational gaps from reusable public proof and send sensitive themes to the internal owner only.",
+            "Use aggregate, truthful themes to improve treatment-page questions and clinician education content.",
+            "Recheck review depth and Cross-Surface proof continuity using the same rubric."
+          ],
+          "dependencies": [
+            "task-response-standard"
+          ],
+          "owner_role": "Research/content strategist with operations and clinical/compliance acceptance",
+          "done_when": [
+            "De-identified theme ledger with disclosed sample",
+            "Approved operational action log",
+            "Live aggregate-theme content and repeat rubric check"
+          ],
+          "day_30_outcome": "The first approved public correction is live and the remaining work is scoped.",
+          "beyond_day_30": "Continue the remaining public-path work after Day 30; it is not Sprint scope by default."
+        }
+      },
+      {
+        "id": "cross-proof-gap",
+        "title": "Current Social proof does not continue into Reputation.",
+        "diagnosis_state": "monitor",
+        "surfaces": [
+          "cross_surface"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "cross.proof_continuity",
+          "social.proof_quality"
+        ],
+        "why_it_matters": "The strongest visible evidence is not reinforced at the review decision surface.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Recurring public feedback themes inform operations and are reflected across surfaces without scripting, prompting for positive sentiment or copying patient claims.",
+          "diy_steps": [
+            "Code a disclosed review sample by treatment, clinician, process and experience themes without identifying patients.",
+            "Separate operational gaps from reusable public proof and send sensitive themes to the internal owner only.",
+            "Use aggregate, truthful themes to improve treatment-page questions and clinician education content.",
+            "Recheck review depth and Cross-Surface proof continuity using the same rubric."
+          ],
+          "dependencies": [
+            "task-response-standard"
+          ],
+          "owner_role": "Research/content strategist with operations and clinical/compliance acceptance",
+          "done_when": [
+            "De-identified theme ledger with disclosed sample",
+            "Approved operational action log",
+            "Live aggregate-theme content and repeat rubric check"
+          ]
+        }
+      }
+    ],
+    "focus_selection": {
+      "primary_gap_id": "review-velocity-gap",
+      "supporting_gap_ids": [
+        "review-recency-gap",
+        "response-coverage-gap",
+        "review-depth-gap"
+      ],
+      "selected_by": "Fictional Jordan Ellis",
+      "selected_at": "2026-08-11T16:30:00Z",
+      "rationale": "The named reviewer selected The 90-day review velocity trails every fictional comparator. as the binding hole and the related 30-day repairs."
     }
   },
   "implementation_paths": {

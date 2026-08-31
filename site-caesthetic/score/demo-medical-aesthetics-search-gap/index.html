@@ -14,7 +14,7 @@
 <div class="cae-demo-banner" role="note">SYNTHETIC DEMO — Demonstration only. Fictional practice, synthetic data, no client relationship, and no reported client outcome.</div>
 <div id="cae-header-slot"></div>
 <main>
-  <section class="cae-report-hero" id="report-overview" data-cockpit-order="1">
+  <section class="cae-report-hero" id="report-overview">
     <div class="cae-wrap">
       <header class="cae-report-header">
         <p class="cae-kicker">SYNTHETIC DEMO</p>
@@ -24,11 +24,14 @@
         <p class="cae-report-meta">Approved · Fictional Morgan Hale · 2026-08-11T16:00:00Z</p>
       </header>
       <div class="cae-report-hero__grid">
-        <article class="cae-report-score-card">
-          <p class="cae-kicker">Growth Score</p>
-          <strong>64/100</strong>
-          <p>Score is a guide, not the goal.</p>
-          <p class="cae-report-note">Approximate diagnostic navigator. Priorities are based on verified problems, dependencies and human review.</p>
+        <article class="cae-report-state">
+          <p class="cae-kicker">Primary constraint</p>
+          <h2 class="cae-h2">Local Search cannot reliably surface the treatment proof already present elsewhere.</h2>
+          <ul><li>✓ Clinician-led Social proof is current and treatment-specific.</li><li>✓ The website booking path is short and technically intact.</li></ul>
+          <p><strong>⚠ Main constraint:</strong> Local search visibility</p>
+          <p>Priority-treatment discovery collapses outside the immediate address area.</p>
+          <p><strong>Start with:</strong> Fix before buying more traffic.</p>
+          <p class="cae-report-note">Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.</p>
         </article>
         <div class="cae-report-walkthrough" role="note">
       <img src="/assets/img/team/valerie-petra.svg" alt="Valerie Petra" width="72" height="72">
@@ -36,23 +39,16 @@
       <strong>Valerie Petra</strong>
       <p>CAESTHETIC Growth Advisor</p>
       <p>4–6 min</p><p>Human walkthrough placeholder: omitted for this synthetic demo.</p></div>
-        <article class="cae-report-state">
-          <ul><li>✓ Clinician-led Social proof is current and treatment-specific.</li><li>✓ The website booking path is short and technically intact.</li></ul>
-          <p><strong>⚠ Main constraint:</strong> Local search visibility</p>
-          <p>Priority-treatment discovery collapses outside the immediate address area.</p>
-          <p><strong>Priority:</strong> Fix before buying more traffic.</p>
-        </article>
       </div>
     </div>
   </section>
 
-  <section class="cae-section" id="human-diagnosis" data-cockpit-order="2">
+  <section class="cae-section" id="gap-map" data-cockpit-order="1">
     <div class="cae-wrap">
-      <p class="cae-kicker">Human-approved diagnosis</p>
-      <h2 class="cae-h2">Binding constraint and demand leak</h2>
-      <div class="cae-report-diagnosis">
-        <div class="cae-report-diagnosis__statement">Local Search cannot reliably surface the treatment proof already present on Social. Geo-grid visibility and incomplete GBP treatment categories keep high-intent patients from encountering the practice beyond its immediate address.</div>
-        
+      <p class="cae-kicker">Gap Map</p>
+      <h2 class="cae-h2">Every confirmed hole. Only 3 selected to start.</h2>
+      <p>Local Search cannot reliably surface the treatment proof already present on Social. Geo-grid visibility and incomplete GBP treatment categories keep high-intent patients from encountering the practice beyond its immediate address.</p>
+      
         <div class="cae-report-demand" aria-label="Demand System">
           <p class="cae-kicker">Demand System</p>
           <ol>
@@ -73,11 +69,229 @@
             </li>
           </ol>
         </div>
+      <div class="cae-gap-map__legend" aria-label="Gap Map legend">
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
-      <div class="cae-report-diagnosis__facts">
-        <p><strong>Objective strength:</strong> Clinician-led Social proof is current, treatment-specific and decision-useful. <small>Evidence: social.clinician_expertise, social.proof_quality</small></p>
-        <p><strong>Strongest surface:</strong> Social</p>
+      
+        <ol class="cae-gap-map" aria-label="Gap Map">
+          <li>
+            <a class="cae-gap-map__mark cae-gap-map__mark--primary" href="#gap-search-map-coverage" aria-label="Primary Gap: Geo-grid visibility collapses outside the immediate address area.. Surface Search. Journey discovery.">
+              <span class="cae-gap-map__symbol" aria-hidden="true">1</span>
+              <span class="cae-gap-map__copy">
+                <strong>Geo-grid visibility collapses outside the immediate address area.</strong>
+                <small>Search · Discovery · Primary Gap</small>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="cae-gap-map__mark cae-gap-map__mark--supporting" href="#gap-search-profile-taxonomy" aria-label="Supporting Gap 2: GBP categories and treatment inventory are incomplete.. Surface Search. Journey discovery.">
+              <span class="cae-gap-map__symbol" aria-hidden="true">2</span>
+              <span class="cae-gap-map__copy">
+                <strong>GBP categories and treatment inventory are incomplete.</strong>
+                <small>Search · Discovery · Supporting Gap 2</small>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="cae-gap-map__mark cae-gap-map__mark--backlog" href="#gap-search-freshness" aria-label="Verified backlog: Profile freshness is inconsistent.. Surface Search. Journey discovery.">
+              <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
+              <span class="cae-gap-map__copy">
+                <strong>Profile freshness is inconsistent.</strong>
+                <small>Search · Discovery · Verified backlog</small>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="cae-gap-map__mark cae-gap-map__mark--supporting" href="#gap-cross-proof-gap" aria-label="Supporting Gap 3: Clinician proof does not continue into high-intent pages.. Surface Cross-Surface. Journey discovery.">
+              <span class="cae-gap-map__symbol" aria-hidden="true">3</span>
+              <span class="cae-gap-map__copy">
+                <strong>Clinician proof does not continue into high-intent pages.</strong>
+                <small>Cross-Surface · Discovery · Supporting Gap 3</small>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="cae-gap-map__mark cae-gap-map__mark--backlog" href="#gap-reputation-response-lag" aria-label="Verified backlog: Review response speed trails the fictional peer set.. Surface Reputation. Journey trust.">
+              <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
+              <span class="cae-gap-map__copy">
+                <strong>Review response speed trails the fictional peer set.</strong>
+                <small>Reputation · Trust · Verified backlog</small>
+              </span>
+            </a>
+          </li>
+        </ol>
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="2">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Focus Gaps</p>
+      <h2 class="cae-h2">3 holes chosen by Fictional Morgan Hale</h2>
+      <p>The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
+      <div class="cae-focus-gaps">
+          <article class="cae-focus-gap" id="gap-search-map-coverage" data-gap-role="primary">
+            <p class="cae-focus-gap__rank" aria-label="Primary Gap">1 · Primary Gap</p>
+            <h3>Geo-grid visibility collapses outside the immediate address area.</h3>
+            <p><strong>Found on:</strong> Search · Discovery</p>
+            <p><strong>Evidence → Explanation:</strong> search.map_visibility. Priority-treatment local discovery is materially weaker than the synthetic peer set.</p>
+            <p><strong>Why now:</strong> The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
+            <p><strong>Primary dependency:</strong> This is the Primary Gap. Supporting repairs depend on it.</p>
+            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Reachable result:</strong> Priority-treatment visibility is measured from a reproducible geo-grid and the weakest cells have an evidence-backed correction plan.</p>
+            <p><strong>Done when:</strong></p>
+            <ul><li>Dated 5×5 export with query, centre, radius and competitors</li><li>Cell-level issue log</li><li>Like-for-like post-change export</li></ul>
+            <p><strong>Who can do this:</strong> Local search specialist, with an owner approving the priority treatment and market</p>
+            <details class="cae-focus-gap__diy">
+              <summary>DIY instruction</summary>
+              <ol><li>Freeze the priority treatment, city query, grid centre, five-mile radius and named comparison set.</li><li>Export the 5×5 baseline and label the cells where the practice falls outside the useful local result set.</li><li>Check each weak cell against GBP category, treatment and entity evidence before documenting the corrective action.</li><li>Repeat the same grid after the accepted changes and compare like-for-like evidence.</li></ol>
+            </details>
+            <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
+          </article>
+          <article class="cae-focus-gap" id="gap-search-profile-taxonomy" data-gap-role="supporting">
+            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 2">2 · Supporting Gap 2</p>
+            <h3>GBP categories and treatment inventory are incomplete.</h3>
+            <p><strong>Found on:</strong> Search · Discovery</p>
+            <p><strong>Evidence → Explanation:</strong> search.gbp_treatment_category_completeness. The profile gives search platforms and patients an incomplete view of the priority offer.</p>
+            <p><strong>Why now:</strong> The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
+            <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
+            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Reachable result:</strong> The public GBP categories and services accurately represent the approved priority treatments without stuffing or unsupported claims.</p>
+            <p><strong>Done when:</strong></p>
+            <ul><li>Before-and-after GBP category export</li><li>Live service inventory screenshots</li><li>Owner approval record</li></ul>
+            <p><strong>Who can do this:</strong> GBP/local search specialist with owner approval</p>
+            <details class="cae-focus-gap__diy">
+              <summary>DIY instruction</summary>
+              <ol><li>Export the current primary category, secondary categories and service inventory.</li><li>Compare that inventory with the approved treatment catalogue and the named local comparison set.</li><li>Draft the smallest accurate category and service changes, including owner review for naming and compliance.</li><li>Publish accepted changes and capture the live profile state.</li></ol>
+            </details>
+            <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
+          </article>
+          <article class="cae-focus-gap" id="gap-cross-proof-gap" data-gap-role="supporting">
+            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 3">3 · Supporting Gap 3</p>
+            <h3>Clinician proof does not continue into high-intent pages.</h3>
+            <p><strong>Found on:</strong> Cross-Surface · Discovery</p>
+            <p><strong>Evidence → Explanation:</strong> cross.proof_continuity, social.clinician_expertise. Decision confidence drops between attention and booking.</p>
+            <p><strong>Why now:</strong> The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
+            <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
+            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Reachable result:</strong> The same verifiable clinician proof appears at the high-intent Search-to-Website decision points without adding unsupported claims.</p>
+            <p><strong>Done when:</strong></p>
+            <ul><li>Approved proof inventory</li><li>Live treatment-page URLs</li><li>Mobile discovery-to-booking QA screenshots</li></ul>
+            <p><strong>Who can do this:</strong> Content strategist and web implementer, with clinician/compliance acceptance</p>
+            <details class="cae-focus-gap__diy">
+              <summary>DIY instruction</summary>
+              <ol><li>Inventory the strongest approved clinician proof already visible on Social.</li><li>Map each proof item to the relevant treatment page and public profile destination.</li><li>Add attribution, clinician context and a clear next step at the chosen decision points.</li><li>Test the mobile journey from discovery to the proof and booking action.</li></ol>
+            </details>
+            <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
+          </article></div>
+    </div>
+  </section>
+
+  <section class="cae-section" id="sprint-fit" data-cockpit-order="3">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Sprint Fit</p>
+      <h2 class="cae-h2">What can honestly close, start, or wait</h2>
+      
+        <div class="cae-sprint-fit">
+          <article><p class="cae-kicker">Close in 30 days</p><ul><li><a href="#gap-search-map-coverage">Geo-grid visibility collapses outside the immediate address area.</a></li><li><a href="#gap-search-profile-taxonomy">GBP categories and treatment inventory are incomplete.</a></li><li><a href="#gap-cross-proof-gap">Clinician proof does not continue into high-intent pages.</a></li></ul></article>
+          <article><p class="cae-kicker">Start in 30 days</p><p class="cae-report-note">No long initiative was started.</p></article>
+          <article><p class="cae-kicker">Not now</p><ul><li><a href="#gap-search-freshness">Profile freshness is inconsistent.</a></li><li><a href="#gap-reputation-response-lag">Review response speed trails the fictional peer set.</a></li></ul></article>
+        </div>
+        <p class="cae-report-note">This roadmap is generated from Sprint Fit. It is not purchased scope, a delivery promise or a results guarantee.</p>
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="repair-paths" data-cockpit-order="4">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Repair paths</p>
+      <h2 class="cae-h2">Four valid ways forward</h2>
+      <p>Want to implement the selected Focus Gaps yourself? You can.</p>
+      <p><a class="cae-report-inline-link" href="#focus-gaps">View Focus Gap DIY steps</a></p>
+      <div class="cae-report-paths">
+        <article><span>Do it in-house</span><p>Assign the listed owner roles internally, follow task sequence 1–3 and retain every acceptance artifact in one shared evidence folder.</p></article>
+        <article><span>Use another provider</span><p>Give another local-search and web team this report, the metric evidence and task IDs; require them to return the same acceptance evidence without re-hiding the method.</p></article>
+        <article><span>Defer</span><p>Preserve the dated baseline, monitor the two lower-priority items and repeat the same collection method before making a later decision.</p></article>
+        <article><span>Ask CAESTHETIC</span><p>Ask CAESTHETIC to scope only the selected tasks, access, owners and acceptance checks in a separate written Sprint agreement.</p></article>
       </div>
+      <div class="cae-report-why">
+        <p><strong>Sprint boundary:</strong> The Growth Score is not purchased Sprint scope. A 30-Day Sprint includes only tasks, dependencies and acceptance evidence confirmed later in writing, with no ranking, enquiry or revenue guarantee.</p>
+        <p><strong>Ownership:</strong> The owner keeps the report, evidence pack and complete task plan and may implement it in-house, use another provider, defer it or stop. There is no lock-in.</p>
+        <div class="cae-report-burden"><p><strong>5</strong> diagnosed issues</p><p><strong>3</strong> high-priority fixes</p><p><strong>4</strong> systems involved</p><p><strong>11</strong> dependencies</p><p><strong>3</strong> specialist roles</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cae-section" id="do-not-fund" data-cockpit-order="5">
+    <div class="cae-wrap cae-wrap--narrow">
+      <article class="cae-report-do-not-do">
+        <p class="cae-kicker">NOT YET</p>
+        <h2 class="cae-h2">Do not increase paid traffic until local treatment discovery and proof continuity are corrected.</h2>
+        <p>Paid ads and extra traffic would send more people into a market where the practice is not discoverable for priority treatments, amplifying the same search-visibility leak.</p>
+        <p><strong>Revisit after:</strong></p>
+        <ul><li>✓ Priority-treatment geo-grid cells recover to a useful local result set</li><li>✓ GBP categories and services match the approved treatment catalogue</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="6">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Full Gap Inventory</p>
+      <h2 class="cae-h2">5 holes reviewed</h2>
+      <div class="cae-report-filters" role="toolbar" aria-label="Filter gaps">
+        <button type="button" data-filter="all">All</button>
+        <button type="button" data-filter="fix-now">Fix now</button>
+        <button type="button" data-filter="fix-next">Fix next</button>
+        <button type="button" data-filter="monitor">Monitor</button>
+        <button type="button" data-filter="insufficient">Insufficient evidence</button>
+      </div>
+      <div class="cae-report-problems">
+          <article class="cae-report-problem" id="inventory-search-map-coverage" data-filter-group="fix-now" data-surface="search">
+            <p class="cae-kicker">search-map-coverage · Search · Primary Gap</p>
+            <h3>Geo-grid visibility collapses outside the immediate address area.</h3>
+            <p>Priority-treatment local discovery is materially weaker than the synthetic peer set.</p>
+            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><a class="cae-report-inline-link" href="#gap-search-map-coverage">Open Focus Gap card</a></p>
+          </article>
+          <article class="cae-report-problem" id="inventory-search-profile-taxonomy" data-filter-group="fix-now" data-surface="search">
+            <p class="cae-kicker">search-profile-taxonomy · Search · Supporting Gap 2</p>
+            <h3>GBP categories and treatment inventory are incomplete.</h3>
+            <p>The profile gives search platforms and patients an incomplete view of the priority offer.</p>
+            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><a class="cae-report-inline-link" href="#gap-search-profile-taxonomy">Open Focus Gap card</a></p>
+          </article>
+          <article class="cae-report-problem" id="inventory-search-freshness" data-filter-group="monitor" data-surface="search">
+            <p class="cae-kicker">search-freshness · Search · Verified backlog</p>
+            <h3>Profile freshness is inconsistent.</h3>
+            <p>Intermittent activity weakens current-treatment confidence.</p>
+            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p class="cae-report-note">Not now.</p>
+          </article>
+          <article class="cae-report-problem" id="inventory-cross-proof-gap" data-filter-group="fix-now" data-surface="cross_surface">
+            <p class="cae-kicker">cross-proof-gap · Cross-Surface · Supporting Gap 3</p>
+            <h3>Clinician proof does not continue into high-intent pages.</h3>
+            <p>Decision confidence drops between attention and booking.</p>
+            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><a class="cae-report-inline-link" href="#gap-cross-proof-gap">Open Focus Gap card</a></p>
+          </article>
+          <article class="cae-report-problem" id="inventory-reputation-response-lag" data-filter-group="monitor" data-surface="reputation">
+            <p class="cae-kicker">reputation-response-lag · Reputation · Verified backlog</p>
+            <h3>Review response speed trails the fictional peer set.</h3>
+            <p>Slow acknowledgement makes otherwise credible reputation evidence feel less active.</p>
+            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p class="cae-report-note">Not now.</p>
+          </article></div>
+    </div>
+  </section>
+
+  <section class="cae-section" id="evidence-and-competitors" data-cockpit-order="7">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Evidence and competitors</p>
+      <h2 class="cae-h2">Why the selected holes are real</h2>
+      <p><strong>Objective strength:</strong> Clinician-led Social proof is current, treatment-specific and decision-useful. <small>Evidence: social.clinician_expertise, social.proof_quality</small></p>
+      <p><strong>Strongest surface:</strong> Social</p>
       <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
 
         <p class="cae-report-note"><strong>Selection method:</strong> Three fictional nearby aesthetic practices offering the same priority treatments within the synthetic geo-grid.<br>
@@ -215,176 +429,7 @@
             </article>
           </div>
         </div>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="top-priorities" data-cockpit-order="3">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Exactly three priorities</p>
-      <h2 class="cae-h2">Fix these in this order</h2>
-      <div class="cae-report-priorities">
-          <article class="cae-report-priority">
-            <p class="cae-report-priority__rank">01 FIX FIRST</p>
-            <h3>Correct the priority-treatment local discovery gap.</h3>
-            <p><strong>Why now:</strong> High-intent local demand is least likely to encounter the practice beyond its immediate address.</p>
-            <p><strong>Expected effect:</strong> A measured geo-grid baseline would show where discovery fails so later profile work is aimed at the actual leak, not a ranking guarantee.</p>
-            <p><strong>Complexity:</strong> Medium</p>
-            <p><strong>Impact:</strong> High-intent local demand is least likely to encounter the fictional practice beyond its immediate address.</p>
-            <a class="cae-report-inline-link" href="#task-map-baseline">See implementation</a>
-          </article>
-          <article class="cae-report-priority">
-            <p class="cae-report-priority__rank">02 NEXT</p>
-            <h3>Align GBP treatments and categories with the priority offer.</h3>
-            <p><strong>Why now:</strong> The public profile still gives search platforms an incomplete view of the priority offer.</p>
-            <p><strong>Expected effect:</strong> Accurate GBP categories and services can connect existing proof to matching search intent, without promising a visibility outcome.</p>
-            <p><strong>Complexity:</strong> Medium</p>
-            <p><strong>Impact:</strong> A clearer profile taxonomy would connect the existing proof to matching search intent.</p>
-            <a class="cae-report-inline-link" href="#task-gbp-taxonomy">See implementation</a>
-          </article>
-          <article class="cae-report-priority">
-            <p class="cae-report-priority__rank">03 THEN</p>
-            <h3>Carry clinician proof into high-intent Search and Website decisions.</h3>
-            <p><strong>Why now:</strong> The strongest clinician evidence currently loses continuity before the booking decision.</p>
-            <p><strong>Expected effect:</strong> Carrying approved proof into high-intent pages would reduce the drop between attention and enquiry, without forecasting patient volume.</p>
-            <p><strong>Complexity:</strong> High</p>
-            <p><strong>Impact:</strong> The strongest evidence currently loses continuity before the booking decision.</p>
-            <a class="cae-report-inline-link" href="#task-proof-continuity">See implementation</a>
-          </article></div>
-    </div>
-  </section>
-
-  <section class="cae-section" id="remediation-plan" data-cockpit-order="4">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Complete remediation plan</p>
-      <h2 class="cae-h2">A plan you can implement with us, in-house or with another provider</h2>
-      <div class="cae-report-tasks">
-        <article class="cae-report-task" id="task-map-baseline">
-          <p class="cae-kicker">TASK task-map-baseline</p>
-          <h3>Priority-treatment visibility is measured from a reproducible geo-grid and the weakest cells have an evidence-backed correction plan.</h3>
-          <p><strong>WHY</strong> The baseline defines where discovery fails and prevents unrelated search work from being treated as the first fix.</p>
-          <div>
-            <p><strong>STEPS</strong></p>
-            <ol><li>Freeze the priority treatment, city query, grid centre, five-mile radius and named comparison set.</li><li>Export the 5×5 baseline and label the cells where the practice falls outside the useful local result set.</li><li>Check each weak cell against GBP category, treatment and entity evidence before documenting the corrective action.</li><li>Repeat the same grid after the accepted changes and compare like-for-like evidence.</li></ol>
-          </div>
-          <p><strong>NEEDS</strong></p>
-          <ul><li>Approved priority-treatment list</li><li>Public GBP and competitor URLs</li><li>Local geo-grid collection skill</li></ul>
-          <p><strong>DEPENDENCIES</strong> None</p>
-          <p><strong>WHO CAN DO THIS</strong> Local search specialist, with an owner approving the priority treatment and market</p>
-          <p><strong>COMPLEXITY</strong> Medium — one controlled measurement set plus evidence review; coordination rises if entity records conflict.</p>
-          <p><strong>RISK</strong> Changing the profile from one grid snapshot can damage relevance; preserve the query method and require corroborating profile evidence.</p>
-          <p><strong>DONE WHEN</strong></p>
-          <ul><li>Dated 5×5 export with query, centre, radius and competitors</li><li>Cell-level issue log</li><li>Like-for-like post-change export</li></ul>
-          <p><strong>NEXT ACTION</strong> Approve the one priority treatment and exact local query for the baseline.</p>
-        </article>
-        <article class="cae-report-task" id="task-gbp-taxonomy">
-          <p class="cae-kicker">TASK task-gbp-taxonomy</p>
-          <h3>The public GBP categories and services accurately represent the approved priority treatments without stuffing or unsupported claims.</h3>
-          <p><strong>WHY</strong> The geo-grid baseline fixes the comparison method before the GBP taxonomy changes are published.</p>
-          <div>
-            <p><strong>STEPS</strong></p>
-            <ol><li>Export the current primary category, secondary categories and service inventory.</li><li>Compare that inventory with the approved treatment catalogue and the named local comparison set.</li><li>Draft the smallest accurate category and service changes, including owner review for naming and compliance.</li><li>Publish accepted changes and capture the live profile state.</li></ol>
-          </div>
-          <p><strong>NEEDS</strong></p>
-          <ul><li>GBP manager access for the chosen implementer</li><li>Approved treatment catalogue</li><li>Owner or compliance approval</li></ul>
-          <p><strong>DEPENDENCIES</strong> task-map-baseline</p>
-          <p><strong>WHO CAN DO THIS</strong> GBP/local search specialist with owner approval</p>
-          <p><strong>COMPLEXITY</strong> Medium — straightforward configuration when access and naming are clean; higher if duplicates or category conflicts emerge.</p>
-          <p><strong>RISK</strong> Unsupported services, keyword stuffing or category churn can reduce trust; use only accurate public treatments and retain a before state.</p>
-          <p><strong>DONE WHEN</strong></p>
-          <ul><li>Before-and-after GBP category export</li><li>Live service inventory screenshots</li><li>Owner approval record</li></ul>
-          <p><strong>NEXT ACTION</strong> Export the current GBP category and service inventory.</p>
-        </article>
-        <article class="cae-report-task" id="task-proof-continuity">
-          <p class="cae-kicker">TASK task-proof-continuity</p>
-          <h3>The same verifiable clinician proof appears at the high-intent Search-to-Website decision points without adding unsupported claims.</h3>
-          <p><strong>WHY</strong> Proof is carried into the corrected treatment taxonomy after the discovery path has a stable destination.</p>
-          <div>
-            <p><strong>STEPS</strong></p>
-            <ol><li>Inventory the strongest approved clinician proof already visible on Social.</li><li>Map each proof item to the relevant treatment page and public profile destination.</li><li>Add attribution, clinician context and a clear next step at the chosen decision points.</li><li>Test the mobile journey from discovery to the proof and booking action.</li></ol>
-          </div>
-          <p><strong>NEEDS</strong></p>
-          <ul><li>Approved proof assets and usage permission</li><li>Website content access</li><li>Clinical/compliance review</li></ul>
-          <p><strong>DEPENDENCIES</strong> task-gbp-taxonomy</p>
-          <p><strong>WHO CAN DO THIS</strong> Content strategist and web implementer, with clinician/compliance acceptance</p>
-          <p><strong>COMPLEXITY</strong> Medium to high — requires asset permissions, content adaptation, web changes and cross-surface QA.</p>
-          <p><strong>RISK</strong> Proof can become misleading when context or permission is lost; retain attribution and obtain approval before publication.</p>
-          <p><strong>DONE WHEN</strong></p>
-          <ul><li>Approved proof inventory</li><li>Live treatment-page URLs</li><li>Mobile discovery-to-booking QA screenshots</li></ul>
-          <p><strong>NEXT ACTION</strong> Select the two strongest attributable clinician-proof assets for the priority treatment.</p>
-        </article></div>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="score-navigator" data-cockpit-order="5">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Approximate / secondary navigation</p>
-      <h2 class="cae-h2">Four surfaces and overall</h2>
-      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
-      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">
-          <article class="cae-report-surface-card">
-            <header>
-              <span>SEARCH</span>
-              <strong>39/100</strong>
-            </header>
-            <p><strong>Strength:</strong> Core identity fields stay consistent across most synthetic citations.</p>
-            <p><strong>Problem:</strong> Geo-grid visibility collapses outside the immediate address area.</p>
-            <p><strong>Priority:</strong> HIGH</p>
-            <a class="cae-report-inline-link" href="#surface-search">View evidence</a>
-          </article>
-          <article class="cae-report-surface-card">
-            <header>
-              <span>WEBSITE</span>
-              <strong>75/100</strong>
-            </header>
-            <p><strong>Strength:</strong> The synthetic booking journey remains short and technically intact.</p>
-            <p><strong>Problem:</strong> Mystery-shopper response is usable but slower than the rest of the path.</p>
-            <p><strong>Priority:</strong> LOW</p>
-            <a class="cae-report-inline-link" href="#surface-website">View evidence</a>
-          </article>
-          <article class="cae-report-surface-card">
-            <header>
-              <span>SOCIAL</span>
-              <strong>83/100</strong>
-            </header>
-            <p><strong>Strength:</strong> Clinician-led education and proof are current and treatment-specific.</p>
-            <p><strong>Problem:</strong> Strong social proof is only partly carried into Search and Website.</p>
-            <p><strong>Priority:</strong> LOW</p>
-            <a class="cae-report-inline-link" href="#surface-social">View evidence</a>
-          </article>
-          <article class="cae-report-surface-card">
-            <header>
-              <span>REPUTATION</span>
-              <strong>70/100</strong>
-            </header>
-            <p><strong>Strength:</strong> The synthetic rating remains strong and reviews name treatments.</p>
-            <p><strong>Problem:</strong> Review response speed trails the fictional peer set.</p>
-            <p><strong>Priority:</strong> MEDIUM</p>
-            <a class="cae-report-inline-link" href="#surface-reputation">View evidence</a>
-          </article>
-          <article class="cae-report-surface-card cae-report-surface-card--cross">
-            <header>
-              <span>CROSS-SURFACE</span>
-              <strong>50/100</strong>
-            </header>
-            <p>Treatment language and proof do not carry consistently from Social into Search and Website.</p>
-            <p class="cae-report-note">Separate diagnostic · excluded from Overall</p>
-            <a class="cae-report-inline-link" href="#surface-cross">View evidence</a>
-          </article>
-          <article class="cae-report-surface-card cae-report-surface-card--overall">
-            <header>
-              <span>OVERALL</span>
-              <strong>64/100</strong>
-            </header>
-            <p class="cae-report-note">Secondary navigator only</p>
-            <a class="cae-report-inline-link" href="#evidence-drilldown">View evidence</a>
-          </article></div>
-    </div>
-  </section>
-
-  <section class="cae-section" id="evidence-drilldown" data-cockpit-order="6">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Verified evidence drill-down</p>
-      <h2 class="cae-h2">Why each score is available—or withheld</h2>
+      <h3 class="cae-report-subhead">Metric drill-down</h3>
       
         <details class="cae-report-evidence" id="surface-search">
           <summary>Search · 39/100</summary>
@@ -703,142 +748,73 @@
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="problem-inventory" data-cockpit-order="7">
+  <section class="cae-section cae-section--soft" id="scores-and-methodology" data-cockpit-order="8">
     <div class="cae-wrap">
-      <p class="cae-kicker">Full Problem Inventory</p>
-      <h2 class="cae-h2">5 problems identified</h2>
-      <div class="cae-report-filters" role="toolbar" aria-label="Filter problems">
-        <button type="button" data-filter="all">All</button>
-        <button type="button" data-filter="high">High priority</button>
-        <button type="button" data-filter="search">Search</button>
-        <button type="button" data-filter="website">Website</button>
-        <button type="button" data-filter="social">Social</button>
-        <button type="button" data-filter="reputation">Reputation</button>
-      </div>
-      <div class="cae-report-problems">
-          <article class="cae-report-problem" id="problem-search-map-coverage" data-surface="search" data-priority="high">
-            <p class="cae-kicker">search-map-coverage · Search · diagnosed</p>
-            <h3>Geo-grid visibility collapses outside the immediate address area.</h3>
-            <p><strong>Impact:</strong> Priority-treatment local discovery is materially weaker than the synthetic peer set.</p>
-            <p><strong>Priority:</strong> high</p>
-            <p><strong>Complexity:</strong> Medium</p>
+      <p class="cae-kicker">Approximate / secondary navigation</p>
+      <h2 class="cae-h2">Scores and methodology</h2>
+      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
+      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">
+          <article class="cae-report-surface-card">
+            <header>
+              <span>SEARCH</span>
+              <strong>39/100</strong>
+            </header>
+            <p><strong>Strength:</strong> Core identity fields stay consistent across most synthetic citations.</p>
+            <p><strong>Problem:</strong> Geo-grid visibility collapses outside the immediate address area.</p>
+            <p><strong>Priority:</strong> HIGH</p>
+            <a class="cae-report-inline-link" href="#surface-search">View evidence</a>
           </article>
-          <article class="cae-report-problem" id="problem-search-profile-taxonomy" data-surface="search" data-priority="high">
-            <p class="cae-kicker">search-profile-taxonomy · Search · diagnosed</p>
-            <h3>GBP categories and treatment inventory are incomplete.</h3>
-            <p><strong>Impact:</strong> The profile gives search platforms and patients an incomplete view of the priority offer.</p>
-            <p><strong>Priority:</strong> high</p>
-            <p><strong>Complexity:</strong> Medium</p>
+          <article class="cae-report-surface-card">
+            <header>
+              <span>WEBSITE</span>
+              <strong>75/100</strong>
+            </header>
+            <p><strong>Strength:</strong> The synthetic booking journey remains short and technically intact.</p>
+            <p><strong>Problem:</strong> Mystery-shopper response is usable but slower than the rest of the path.</p>
+            <p><strong>Priority:</strong> LOW</p>
+            <a class="cae-report-inline-link" href="#surface-website">View evidence</a>
           </article>
-          <article class="cae-report-problem" id="problem-search-freshness" data-surface="search" data-priority="low">
-            <p class="cae-kicker">search-freshness · Search · monitor</p>
-            <h3>Profile freshness is inconsistent.</h3>
-            <p><strong>Impact:</strong> Intermittent activity weakens current-treatment confidence.</p>
-            <p><strong>Priority:</strong> low</p>
-            <p><strong>Complexity:</strong> Low</p>
+          <article class="cae-report-surface-card">
+            <header>
+              <span>SOCIAL</span>
+              <strong>83/100</strong>
+            </header>
+            <p><strong>Strength:</strong> Clinician-led education and proof are current and treatment-specific.</p>
+            <p><strong>Problem:</strong> Strong social proof is only partly carried into Search and Website.</p>
+            <p><strong>Priority:</strong> LOW</p>
+            <a class="cae-report-inline-link" href="#surface-social">View evidence</a>
           </article>
-          <article class="cae-report-problem" id="problem-cross-proof-gap" data-surface="cross_surface" data-priority="high">
-            <p class="cae-kicker">cross-proof-gap · Cross-Surface · diagnosed</p>
-            <h3>Clinician proof does not continue into high-intent pages.</h3>
-            <p><strong>Impact:</strong> Decision confidence drops between attention and booking.</p>
-            <p><strong>Priority:</strong> high</p>
-            <p><strong>Complexity:</strong> Medium</p>
+          <article class="cae-report-surface-card">
+            <header>
+              <span>REPUTATION</span>
+              <strong>70/100</strong>
+            </header>
+            <p><strong>Strength:</strong> The synthetic rating remains strong and reviews name treatments.</p>
+            <p><strong>Problem:</strong> Review response speed trails the fictional peer set.</p>
+            <p><strong>Priority:</strong> MEDIUM</p>
+            <a class="cae-report-inline-link" href="#surface-reputation">View evidence</a>
           </article>
-          <article class="cae-report-problem" id="problem-reputation-response-lag" data-surface="reputation" data-priority="low">
-            <p class="cae-kicker">reputation-response-lag · Reputation · monitor</p>
-            <h3>Review response speed trails the fictional peer set.</h3>
-            <p><strong>Impact:</strong> Slow acknowledgement makes otherwise credible reputation evidence feel less active.</p>
-            <p><strong>Priority:</strong> low</p>
-            <p><strong>Complexity:</strong> Low</p>
+          <article class="cae-report-surface-card cae-report-surface-card--cross">
+            <header>
+              <span>CROSS-SURFACE</span>
+              <strong>50/100</strong>
+            </header>
+            <p>Treatment language and proof do not carry consistently from Social into Search and Website.</p>
+            <p class="cae-report-note">Separate diagnostic · excluded from Overall</p>
+            <a class="cae-report-inline-link" href="#surface-cross">View evidence</a>
+          </article>
+          <article class="cae-report-surface-card cae-report-surface-card--overall">
+            <header>
+              <span>OVERALL</span>
+              <strong>64/100</strong>
+            </header>
+            <p class="cae-report-note">Secondary navigator only</p>
+            <a class="cae-report-inline-link" href="#evidence-drilldown">View evidence</a>
           </article></div>
-    </div>
-  </section>
-
-  <section class="cae-section" id="do-not-fund" data-cockpit-order="8">
-    <div class="cae-wrap cae-wrap--narrow">
-      <article class="cae-report-do-not-do">
-        <p class="cae-kicker">DO NOT FUND YET</p>
-        <h2 class="cae-h2">Do not increase paid traffic until local treatment discovery and proof continuity are corrected.</h2>
-        <p>Paid ads and extra traffic would send more people into a market where the practice is not discoverable for priority treatments, amplifying the same search-visibility leak.</p>
-        <p><strong>Revisit after:</strong></p>
-        <ul><li>✓ Priority-treatment geo-grid cells recover to a useful local result set</li><li>✓ GBP categories and services match the approved treatment catalogue</li></ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="implementation-paths" data-cockpit-order="9">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Immediate next actions</p>
-      <h2 class="cae-h2">Four valid ways forward</h2>
-      <p>Want to implement this yourself? You can.</p>
-      <p><a class="cae-report-inline-link" href="#remediation-plan">Download / View implementation tasks</a></p>
-      <div class="cae-report-paths">
-        <article><span>Do it in-house</span><p>Assign the listed owner roles internally, follow task sequence 1–3 and retain every acceptance artifact in one shared evidence folder.</p></article>
-        <article><span>Use another provider</span><p>Give another local-search and web team this report, the metric evidence and task IDs; require them to return the same acceptance evidence without re-hiding the method.</p></article>
-        <article><span>Defer</span><p>Preserve the dated baseline, monitor the two lower-priority items and repeat the same collection method before making a later decision.</p></article>
-        <article><span>Ask CAESTHETIC</span><p>Ask CAESTHETIC to scope only the selected tasks, access, owners and acceptance checks in a separate written Sprint agreement.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="cae-section" id="why-caesthetic" data-cockpit-order="10">
-    <div class="cae-wrap cae-wrap--narrow cae-report-why">
-      <p class="cae-kicker">Why CAESTHETIC / Why the 30-Day Sprint</p>
-      <h2 class="cae-h2">YOU CAN IMPLEMENT THIS YOURSELF. The hard part is coordinating it.</h2>
-      <div class="cae-report-burden">
-        <p><strong>5</strong> diagnosed issues</p><p><strong>3</strong> high-priority fixes</p><p><strong>4</strong> systems involved</p><p><strong>11</strong> dependencies</p><p><strong>3</strong> specialist roles</p>
-      </div>
-      <h3 class="cae-report-subhead">CAESTHETIC already knows:</h3>
-      <ul>
-        <li>✓ CAESTHETIC has already assembled the synthetic case method, evidence references and dependency order, so a real-case team would not need to restart diagnosis.</li>
-        <li>✓ The work crosses local search, content, web implementation and compliance acceptance; one coordinator can reduce handoff cost while keeping specialist accountability visible.</li>
-        <li>✓ The Growth Score is not purchased Sprint scope. A 30-Day Sprint includes only tasks, dependencies and acceptance evidence confirmed later in writing, with no ranking, enquiry or revenue guarantee.</li>
-        <li>✓ The owner keeps the report, evidence pack and complete task plan and may implement it in-house, use another provider, defer it or stop. There is no lock-in.</li>
-      </ul>
-      <p><strong>Sprint boundary:</strong> The Growth Score is not purchased Sprint scope. A 30-Day Sprint includes only tasks, dependencies and acceptance evidence confirmed later in writing, with no ranking, enquiry or revenue guarantee.</p>
-      <p><strong>Ownership:</strong> The owner keeps the report, evidence pack and complete task plan and may implement it in-house, use another provider, defer it or stop. There is no lock-in.</p>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="roadmap-preview" data-cockpit-order="11">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Illustrative roadmap</p>
-      <h2 class="cae-h2">30-day sequencing preview</h2>
-      <div class="cae-report-roadmap">
-        <article>
-          <p class="cae-kicker">WEEK 1</p>
-          <h3>Freeze the priority query and measure the geo-grid baseline</h3>
-        </article>
-        <article>
-          <p class="cae-kicker">WEEK 2</p>
-          <h3>Align GBP categories and services with the approved offer</h3>
-        </article>
-        <article>
-          <p class="cae-kicker">WEEKS 3–4</p>
-          <h3>Carry clinician proof into Search and Website destinations</h3>
-        </article>
-      </div>
-      <p class="cae-report-note">Illustrative sequencing based on this diagnosis. Final Sprint scope is confirmed separately.</p>
-    </div>
-  </section>
-
-  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="12">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Optional next step</p>
-      <h2 class="cae-h2">If you want one team to coordinate the selected work</h2>
-      <p>Sprint scope is confirmed separately around the highest-value executable priorities.</p>
-      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
-    </div>
-  </section>
-
-  <section class="cae-section cae-report-method" id="methodology" data-cockpit-order="13">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Methodology, evidence classes and limitations</p>
-      <h2 class="cae-h2">Observable evidence first. Human judgment explicit.</h2>
       <div class="cae-report-method__grid">
         <div>
           <p><strong>Class A:</strong> directly observable and approved. <strong>Class B:</strong> an explicit estimate or inference with its method and assumptions disclosed.</p>
-          <p><strong>Class A ratio:</strong> 43/44 published findings (98%).</p>
+          <p><strong>Class A ratio:</strong> 40/41 published findings (98%).</p>
           <p><strong>Collected:</strong> 2026-08-11</p>
           <p><strong>Sources:</strong> Synthetic Local Falcon-style geo-grid, Synthetic GBP review, Synthetic website and mobile review, Synthetic social and 90-day reputation sample</p>
           <p><strong>Comparison method:</strong> Three named fictional aesthetic practices sharing the same synthetic market and priority treatments.</p>
@@ -854,6 +830,15 @@
           </article></div>
       </div>
       <p><a class="cae-report-inline-link" href="/growth-score/#demo-growth-scores">View all synthetic demos</a></p>
+    </div>
+  </section>
+
+  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="9">
+    <div class="cae-wrap cae-wrap--narrow">
+      <p class="cae-kicker">Optional next step</p>
+      <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
+      <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
+      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
     </div>
   </section>
 </main>

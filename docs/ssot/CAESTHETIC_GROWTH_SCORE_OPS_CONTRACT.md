@@ -51,13 +51,14 @@ Only via `transition_caesthetic_score_case` RPC / `scripts/caesthetic/growth-sco
 created → researching | closed
 researching → draft_review | closed
 draft_review → fact_set_frozen | researching | closed
-fact_set_frozen → report_review | draft_review | closed
-report_review → approved | fact_set_frozen | closed
+fact_set_frozen → gap_review | draft_review | closed
+gap_review → report_review | fact_set_frozen | closed
+report_review → approved | gap_review | closed
 approved → delivered | closed
 delivered → closed
 ```
 
-Human-gated edges (`fact_set_frozen`, `approved`, `delivered`) require a named human actor and reason. QA auto-close is `created → closed` with reason `qa_archive`.
+Human-gated edges (`fact_set_frozen`, `gap_review`, `approved`, `delivered`) require a named human actor and reason. QA auto-close is `created → closed` with reason `qa_archive`. Focus Selection is recorded in append-only `caesthetic_score_focus_selections` before any new `schemaVersion=5` approved report.
 
 ## Notifications
 

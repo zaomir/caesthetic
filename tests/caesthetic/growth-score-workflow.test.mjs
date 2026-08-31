@@ -3,11 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { CANONICAL_METRICS } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 import {
   validateApprovedReportRecord,
   validateCandidateEvidenceRecord,
   validateDraftRecord,
+  validateFocusSelectionRecord,
   validateLearningCandidateRecord,
   validateLearningPromotion,
   validateReviewEventRecord,
@@ -16,6 +16,7 @@ import {
   validateVerifiedFactSetRecord,
   validateWorkflowRecord,
 } from "../../scripts/caesthetic/growth-score-workflow.mjs";
+import { createV5Report } from "./helpers/growth-score-v5-fixture.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const ids = {
@@ -24,23 +25,13 @@ const ids = {
   facts: "33333333-3333-4333-8333-333333333333",
   draft: "44444444-4444-4444-8444-444444444444",
   event: "55555555-5555-4555-8555-555555555555",
+  focus: "99999999-9999-4999-8999-999999999999",
   report: "66666666-6666-4666-8666-666666666666",
   learning: "77777777-7777-4777-8777-777777777777",
   release: "88888888-8888-4888-8888-888888888888",
 };
 const createdAt = "2026-08-14T12:10:00Z";
 const approvedAt = "2026-08-14T12:00:00Z";
-
-const metrics = (surface) => Object.keys(CANONICAL_METRICS[surface]).map((metric_id) => ({
-  metric_id,
-  raw_value: `observed:${metric_id}`,
-  normalized_score: 70,
-  evidence_class: "A",
-  source: `fixture://${surface}/${metric_id}`,
-  collected_at: "2026-08-14T10:00:00Z",
-  reviewer_status: "approved",
-  finding: `${metric_id} fixture finding`,
-}));
 
 function competitiveFixture(subjectName) {
   const evidence = ["search.map_visibility", "website.booking_friction", "social.proof_quality", "reputation.rating"];
@@ -53,7 +44,7 @@ function competitiveFixture(subjectName) {
     repeated_negative_themes: [{ theme: "Price uncertainty", mentions: 2, sample_size: 10, window: "2026-05-14 to 2026-08-11", evidence_refs: ["reputation.rating"] }],
     patient_choice_reason: "Clearer next step.", observable_advantage: "Clearer continuity.", observable_gap: "No verified outcome superiority.",
     repeat: "Repeat clear explanation.", improve: "Connect proof to booking.", do_not_copy: "Avoid unsupported claims.",
-    strategic_implication: "Close the path gap first.", constraint_effect: "Confirms discovery constraint.", priority_effect: "Confirms Top 3.",
+    strategic_implication: "Close the path gap first.", constraint_effect: "Confirms discovery constraint.", priority_effect: "Confirms Focus Gaps.",
     modernization_implication: "Pilot the path without inferring clinical superiority.", evidence_refs: evidence,
     limitations: "Synthetic fixture; no real business conclusion.",
   };
@@ -71,77 +62,14 @@ function competitiveFixture(subjectName) {
 }
 
 function report() {
-  return {
-    schemaVersion: 4,
-    reportState: "approved_report",
-    reportVersion: "case-report/1.0.0",
-    verifiedFactSetVersion: "case-facts/1.0.0",
-    reportKind: "demo",
-    practice: { name: "Workflow Fixture Practice" },
-    disclosure: "Synthetic fixture; no client relationship.",
-    surfaces: ["search", "website", "social", "reputation"].map((id) => ({ id, metrics: metrics(id) })),
-    crossSurface: { metrics: metrics("cross") },
-    humanDiagnosis: {
-      reviewer_status: "approved",
-      reviewer: { name: "Morgan Reed", approved_at: approvedAt },
-      objective_strength: { title: "Observed reputation strength", evidence_refs: ["reputation.rating"] },
-      strongest_surface: "reputation",
-      binding_constraint: { title: "Observed discovery constraint", evidence_refs: ["search.map_visibility"] },
-      top_priorities: [
-        { id: "p1", problem_refs: ["problem-1"], title: "Correct discovery", evidence_refs: ["search.map_visibility"], impact: "Restore a usable discovery path." },
-        { id: "p2", problem_refs: ["problem-1"], title: "Verify booking", evidence_refs: ["website.booking_friction"], impact: "Remove observed booking friction." },
-        { id: "p3", problem_refs: ["problem-1"], title: "Align proof", evidence_refs: ["social.proof_quality"], impact: "Make observed proof coherent." },
-      ],
-      do_not_do: { title: "Do not add spend before the measured constraint is fixed.", evidence_refs: ["search.map_visibility"] },
-      competitors: competitiveFixture("Workflow Fixture Practice"),
-      walkthrough: { status: "pending", url: null, placeholder: "Valerie Petra walkthrough pending." },
-      problem_inventory: [{
-        id: "problem-1",
-        surface: "search",
-        title: "Discovery gap",
-        evidence_refs: ["search.map_visibility"],
-        impact: "Relevant demand may not find the practice.",
-        task_refs: ["task-1"],
-        suggested_horizon: "Immediate",
-        status: "diagnosed",
-      }],
-      remediation_tasks: [{
-        id: "task-1",
-        problem_refs: ["problem-1"],
-        outcome: "Correct priority-treatment discovery fields.",
-        steps: ["Capture the before state.", "Apply the owner-approved correction."],
-        evidence_refs: ["search.map_visibility"],
-        prerequisites_access: ["Owner approval"],
-        dependencies: [],
-        sequence: { order: 1, rationale: "Discovery is the binding constraint." },
-        owner_role: "Local-search operator",
-        effort_complexity: "Medium — requires profile review and coordination.",
-        implementation_risk: "Reverification may be triggered; preserve access and snapshots.",
-        horizon: "One to two weeks to implement; outcomes are not guaranteed.",
-        acceptance_evidence: ["Live profile state", "Dated follow-up export"],
-        next_action: "Capture the current category and service export.",
-      }],
-    },
-    implementation_paths: {
-      diy: "The owner can execute the complete steps internally.",
-      other_provider: "The owner can give the evidence and task plan to another provider.",
-      defer: "The owner can preserve the baseline and defer selected work.",
-      caesthetic: "CAESTHETIC can separately scope selected tasks.",
-    },
-    why_caesthetic: {
-      evidence_advantage: "The reviewed evidence is already assembled.",
-      coordination_advantage: "The dependency order and acceptance checks are already mapped.",
-      sprint_boundary: "A written 30-day scope is separate and does not include every task automatically.",
-      ownership: "The client owns the report, evidence and task plan without lock-in.",
-    },
-    estimates: [],
-    methodology: {
-      sources: ["Synthetic source"],
-      collectedAt: "2026-08-14T10:00:00Z",
-      competitorSelection: "Same market and treatment.",
-      limitations: "Synthetic data; no outcome guarantee.",
-    },
-  };
+  const value = createV5Report();
+  value.reportVersion = "case-report/1.0.0";
+  value.verifiedFactSetVersion = "case-facts/1.0.0";
+  value.practice.name = "Workflow Fixture Practice";
+  value.humanDiagnosis.reviewer.approved_at = approvedAt;
+  value.humanDiagnosis.focus_selection.selected_at = approvedAt;
+  value.humanDiagnosis.competitors = competitiveFixture("Workflow Fixture Practice");
+  return value;
 }
 
 const scoreCase = () => ({
@@ -285,6 +213,7 @@ test("AI drafts are never publishable and approved reports bind named approval t
     score_case_id: ids.case,
     draft_id: ids.draft,
     verified_fact_set_id: ids.facts,
+    focus_selection_id: ids.focus,
     state: "approved",
     report_version: "case-report/1.0.0",
     verified_fact_set_version: "case-facts/1.0.0",
@@ -371,4 +300,43 @@ test("schema-v4 migration preserves historical rows and gates new approved repor
   assert.match(migration, /schema_v4_check/);
   assert.match(migration, /report_json ->> 'schemaVersion' = '4'/);
   assert.match(migration, /NOT VALID/);
+});
+
+test("focus_selection records are append-only and named-human gated", () => {
+  const record = {
+    record_type: "focus_selection",
+    id: ids.focus,
+    score_case_id: ids.case,
+    verified_fact_set_id: ids.facts,
+    created_at: createdAt,
+    append_only: true,
+    gap_ids: report().humanDiagnosis.gap_inventory.map((gap) => gap.id),
+    primary_gap_id: "search-gap",
+    supporting_gap_ids: ["booking-gap", "proof-gap"],
+    selected_by: "Morgan Reed",
+    selected_at: approvedAt,
+    rationale: "Discovery is the binding leak.",
+  };
+  assert.equal(validateFocusSelectionRecord(record).append_only, true);
+  assert.equal(validateWorkflowRecord(record).record_type, "focus_selection");
+
+  const two = { ...record, supporting_gap_ids: ["booking-gap"] };
+  assert.throws(() => validateFocusSelectionRecord(two), /3 or 4 unique gaps/);
+
+  const bot = { ...record, selected_by: "Review Bot" };
+  assert.throws(() => validateFocusSelectionRecord(bot), /named human/);
+});
+
+test("schema-v5 migration adds gap_review, append-only focus selections and new-report gates", () => {
+  const migration = fs.readFileSync(
+    path.join(root, "supabase/migrations/20260830190000_caesthetic_growth_score_gap_map_v5.sql"),
+    "utf8",
+  );
+  assert.match(migration, /CREATE TABLE public\.caesthetic_score_focus_selections/);
+  assert.match(migration, /caesthetic_score_focus_selections is append-only/);
+  assert.match(migration, /caesthetic_is_named_human_reviewer/);
+  assert.match(migration, /focus_selection_id/);
+  assert.match(migration, /schemaVersion' = '5'/);
+  assert.match(migration, /v_from = 'fact_set_frozen' AND p_to_state IN \('gap_review'/);
+  assert.match(migration, /v_from = 'gap_review' AND p_to_state IN \('report_review'/);
 });

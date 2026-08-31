@@ -90,12 +90,42 @@ export const HUMAN_REVIEW_METRICS = Object.freeze(Object.fromEntries(
 ));
 
 export const REGISTERED_HUMAN_REVIEWER_MONONYMS = Object.freeze(["Валерия"]);
+export const GROWTH_SCORE_SCHEMA_VERSION = 5;
+export const DIAGNOSIS_STATES = Object.freeze([
+  "working",
+  "verified_gap",
+  "monitor",
+  "insufficient_evidence",
+]);
+export const SPRINT_FIT_MODES = Object.freeze([
+  "close_in_30_days",
+  "start_in_30_days",
+  "backlog",
+]);
+export const JOURNEY_STAGES = Object.freeze([
+  "discovery",
+  "trust",
+  "enquiry",
+  "booking",
+  "treatment",
+]);
+export const FOCUS_SELECTION_MIN = 3;
+export const FOCUS_SELECTION_MAX = 4;
+export const MIN_CLOSE_IN_30_DAYS = 2;
+export const MAX_START_IN_30_DAYS = 1;
 
 const REVIEWER_STATUSES = Object.freeze(["approved", "pending", "ai_draft", "rejected"]);
 const EVIDENCE_CLASSES = Object.freeze(["A", "B"]);
-const PROBLEM_SURFACES = Object.freeze([...REQUIRED_SURFACES, "cross_surface"]);
-const PROBLEM_STATUSES = Object.freeze(["diagnosed", "monitor", "not_actionable"]);
+const GAP_SURFACES = Object.freeze([...REQUIRED_SURFACES, "cross_surface"]);
 const NON_HUMAN_REVIEWER = /\b(?:ai|assistant|automation|automated|bot|model|system|anonymous|unknown|pending|unassigned)\b/i;
+
+export class EvidenceIncompleteError extends TypeError {
+  constructor(message = "evidence_incomplete: fewer than 3 verified gaps; missing gaps must not be invented") {
+    super(message);
+    this.name = "EvidenceIncompleteError";
+    this.code = "evidence_incomplete";
+  }
+}
 
 function invariant(condition, message) {
   if (!condition) throw new TypeError(message);
@@ -137,15 +167,47 @@ function validTimestamp(value, label) {
   );
 }
 
+export function isNamedHumanReviewer(value) {
+  if (typeof value !== "string" || !value.trim()) return false;
+  const canonicalName = value.trim().normalize("NFC");
+  if (NON_HUMAN_REVIEWER.test(canonicalName)) return false;
+  return canonicalName.split(/\s+/).length >= 2
+    || REGISTERED_HUMAN_REVIEWER_MONONYMS.includes(canonicalName);
+}
+
 function namedHuman(value, label) {
   nonEmptyString(value, label);
-  const canonicalName = value.trim().normalize("NFC");
-  invariant(!NON_HUMAN_REVIEWER.test(canonicalName), `${label} must identify a named human reviewer`);
-  const isRegisteredMononym = REGISTERED_HUMAN_REVIEWER_MONONYMS.includes(canonicalName);
-  invariant(
-    canonicalName.split(/\s+/).length >= 2 || isRegisteredMononym,
-    `${label} must contain a named human's first and last name or a registered reviewer mononym`,
-  );
+  invariant(isNamedHumanReviewer(value), `${label} must contain a named human's first and last name or a registered reviewer mononym`);
+}
+
+export function selectedFocusGapIds(focus) {
+  if (!focus || typeof focus !== "object" || Array.isArray(focus)) return [];
+  return [focus.primary_gap_id, ...(Array.isArray(focus.supporting_gap_ids) ? focus.supporting_gap_ids : [])]
+    .filter((id) => typeof id === "string" && id.trim());
+}
+
+export function isSelectedForRepair(gapId, focus) {
+  return selectedFocusGapIds(focus).includes(gapId);
+}
+
+export function assessGapInventory(report) {
+  const gaps = report?.humanDiagnosis?.gap_inventory;
+  const verified = Array.isArray(gaps)
+    ? gaps.filter((gap) => gap?.diagnosis_state === "verified_gap")
+    : [];
+  if (verified.length < FOCUS_SELECTION_MIN) {
+    return Object.freeze({
+      status: "evidence_incomplete",
+      verified_count: verified.length,
+      selected_count: selectedFocusGapIds(report?.humanDiagnosis?.focus_selection).length,
+    });
+  }
+  const selected = selectedFocusGapIds(report?.humanDiagnosis?.focus_selection);
+  return Object.freeze({
+    status: selected.length ? "focus_selected" : "ready_for_focus_selection",
+    verified_count: verified.length,
+    selected_count: selected.length,
+  });
 }
 
 function validRawValue(value, label) {
@@ -350,111 +412,119 @@ function validateEvidenceBackedClaim(claim, context, evidenceIndex) {
   return evidenceClass;
 }
 
-function validatePriority(priority, context, evidenceIndex) {
-  invariant(priority && typeof priority === "object" && !Array.isArray(priority), `${context} must be an object`);
-  nonEmptyString(priority.id, `${context}.id`);
-  nonEmptyString(priority.title, `${context}.title`);
-  validateEvidenceRefs(priority.evidence_refs, context, evidenceIndex);
-  nonEmptyString(priority.impact, `${context}.impact`);
-  const evidenceClass = resolveClaimEvidenceClass(priority, context, evidenceIndex);
-  if (evidenceClass === "B") validateClassBDisclosure({ ...priority, evidence_class: evidenceClass }, context);
-  return evidenceClass;
-}
-
-function validateReferenceIds(refs, context, knownIds, { nonEmpty = false } = {}) {
-  validateStringArray(refs, context, { nonEmpty });
-  const seen = new Set();
-  for (const ref of refs) {
-    invariant(!seen.has(ref), `${context} has duplicate reference ${ref}`);
-    invariant(knownIds.has(ref), `${context} has unknown reference ${ref}`);
-    seen.add(ref);
+function validateRepairPlan(plan, context, { longWork }) {
+  invariant(plan && typeof plan === "object" && !Array.isArray(plan), `${context} must be an object`);
+  nonEmptyString(plan.outcome, `${context}.outcome`);
+  validateStringArray(plan.diy_steps, `${context}.diy_steps`, { nonEmpty: true });
+  validateStringArray(plan.dependencies, `${context}.dependencies`);
+  nonEmptyString(plan.owner_role, `${context}.owner_role`);
+  validateStringArray(plan.done_when, `${context}.done_when`, { nonEmpty: true });
+  if (longWork) {
+    nonEmptyString(plan.day_30_outcome, `${context}.day_30_outcome`);
+    nonEmptyString(plan.beyond_day_30, `${context}.beyond_day_30`);
   }
 }
 
-function validateSequence(sequence, context) {
-  invariant(sequence && typeof sequence === "object" && !Array.isArray(sequence), `${context} must be an object`);
-  invariant(Number.isInteger(sequence.order) && sequence.order > 0, `${context}.order must be a positive integer`);
-  nonEmptyString(sequence.rationale, `${context}.rationale`);
+function hasApprovedClassAEvidence(refs, evidenceIndex) {
+  return refs.some((ref) => evidenceIndex.get(ref)?.evidence_class === "A");
 }
 
-function validateRemediationTasks(tasks, problems, evidenceIndex) {
-  invariant(Array.isArray(tasks) && tasks.length > 0, "humanDiagnosis.remediation_tasks must be a non-empty array");
-  const problemById = new Map(problems.map((problem) => [problem.id, problem]));
-  const taskById = new Map();
-
-  tasks.forEach((task, index) => {
-    const context = `humanDiagnosis.remediation_tasks[${index}]`;
-    invariant(task && typeof task === "object" && !Array.isArray(task), `${context} must be an object`);
-    nonEmptyString(task.id, `${context}.id`);
-    invariant(!taskById.has(task.id), `humanDiagnosis.remediation_tasks has duplicate id ${task.id}`);
-    taskById.set(task.id, task);
-    validateReferenceIds(task.problem_refs, `${context}.problem_refs`, new Set(problemById.keys()), { nonEmpty: true });
-    nonEmptyString(task.outcome, `${context}.outcome`);
-    validateStringArray(task.steps, `${context}.steps`, { nonEmpty: true });
-    validateEvidenceRefs(task.evidence_refs, context, evidenceIndex);
-    validateStringArray(task.prerequisites_access, `${context}.prerequisites_access`, { nonEmpty: true });
-    invariant(Array.isArray(task.dependencies), `${context}.dependencies must be an array`);
-    validateSequence(task.sequence, `${context}.sequence`);
-    for (const field of [
-      "owner_role",
-      "effort_complexity",
-      "implementation_risk",
-      "horizon",
-      "next_action",
-    ]) nonEmptyString(task[field], `${context}.${field}`);
-    validateStringArray(task.acceptance_evidence, `${context}.acceptance_evidence`, { nonEmpty: true });
-  });
-
-  const knownTaskIds = new Set(taskById.keys());
-  tasks.forEach((task, index) => {
-    const context = `humanDiagnosis.remediation_tasks[${index}]`;
-    validateReferenceIds(task.dependencies, `${context}.dependencies`, knownTaskIds);
-    invariant(!task.dependencies.includes(task.id), `${context}.dependencies must not reference itself`);
-    for (const problemId of task.problem_refs) {
-      invariant(
-        problemById.get(problemId).task_refs.includes(task.id),
-        `${context} is not referenced by problem ${problemId}.task_refs`,
-      );
-    }
-  });
-
-  for (const problem of problems) {
-    validateReferenceIds(
-      problem.task_refs,
-      `humanDiagnosis.problem_inventory.${problem.id}.task_refs`,
-      knownTaskIds,
-      { nonEmpty: problem.status === "diagnosed" },
+function validateGapInventory(gaps, evidenceIndex) {
+  invariant(Array.isArray(gaps) && gaps.length > 0, "humanDiagnosis.gap_inventory must be a non-empty array");
+  const gapById = new Map();
+  const classes = gaps.map((gap, index) => {
+    const context = `humanDiagnosis.gap_inventory[${index}]`;
+    invariant(gap && typeof gap === "object" && !Array.isArray(gap), `${context} must be an object`);
+    nonEmptyString(gap.id, `${context}.id`);
+    invariant(!gapById.has(gap.id), `humanDiagnosis.gap_inventory has duplicate id ${gap.id}`);
+    invariant(DIAGNOSIS_STATES.includes(gap.diagnosis_state), `${context}.diagnosis_state is invalid`);
+    validateStringArray(gap.surfaces, `${context}.surfaces`, { nonEmpty: true });
+    gap.surfaces.forEach((surface, surfaceIndex) => {
+      invariant(GAP_SURFACES.includes(surface), `${context}.surfaces[${surfaceIndex}] is invalid`);
+    });
+    invariant(JOURNEY_STAGES.includes(gap.journey_stage), `${context}.journey_stage is invalid`);
+    nonEmptyString(gap.title, `${context}.title`);
+    nonEmptyString(gap.why_it_matters, `${context}.why_it_matters`);
+    invariant(
+      gap.sprint_fit && typeof gap.sprint_fit === "object" && !Array.isArray(gap.sprint_fit),
+      `${context}.sprint_fit must be an object`,
     );
-    if (problem.task_refs.length === 0) {
-      invariant(
-        ["monitor", "not_actionable"].includes(problem.status),
-        `humanDiagnosis.problem_inventory.${problem.id}.task_refs must not be empty for an actionable problem`,
-      );
-      nonEmptyString(problem.status_reason, `humanDiagnosis.problem_inventory.${problem.id}.status_reason`);
+    invariant(SPRINT_FIT_MODES.includes(gap.sprint_fit.mode), `${context}.sprint_fit.mode is invalid`);
+
+    if (gap.diagnosis_state === "insufficient_evidence") {
+      invariant(Array.isArray(gap.evidence_refs), `${context}.evidence_refs must be an array`);
+      if (gap.evidence_refs.length > 0) validateEvidenceRefs(gap.evidence_refs, context, evidenceIndex);
+      invariant(gap.sprint_fit.mode === "backlog", `${context}.sprint_fit.mode must be backlog when evidence is insufficient`);
+    } else {
+      validateEvidenceRefs(gap.evidence_refs, context, evidenceIndex);
     }
-    for (const taskId of problem.task_refs) {
-      invariant(
-        taskById.get(taskId).problem_refs.includes(problem.id),
-        `humanDiagnosis.problem_inventory.${problem.id}.task_refs has no reverse problem_refs mapping in ${taskId}`,
-      );
-    }
+
+    const longWork = gap.sprint_fit.mode === "start_in_30_days";
+    validateRepairPlan(gap.repair_plan, `${context}.repair_plan`, { longWork });
+    gapById.set(gap.id, gap);
+
+    if (gap.diagnosis_state === "insufficient_evidence" && gap.evidence_refs.length === 0) return "A";
+    const evidenceClass = resolveClaimEvidenceClass(gap, context, evidenceIndex);
+    if (evidenceClass === "B") validateClassBDisclosure({ ...gap, evidence_class: evidenceClass }, context);
+    return evidenceClass;
+  });
+  return { gapById, classes };
+}
+
+export function validateFocusSelectionContract(diagnosis, evidenceIndex) {
+  const assessment = assessGapInventory({ humanDiagnosis: diagnosis });
+  if (assessment.status === "evidence_incomplete") {
+    throw new EvidenceIncompleteError();
   }
 
-  const visiting = new Set();
-  const visited = new Set();
-  const visit = (taskId) => {
-    if (visited.has(taskId)) return;
-    invariant(!visiting.has(taskId), `humanDiagnosis.remediation_tasks contains a dependency cycle at ${taskId}`);
-    visiting.add(taskId);
-    taskById.get(taskId).dependencies.forEach(visit);
-    visiting.delete(taskId);
-    visited.add(taskId);
-  };
-  knownTaskIds.forEach(visit);
+  const focus = diagnosis.focus_selection;
+  invariant(focus && typeof focus === "object" && !Array.isArray(focus), "humanDiagnosis.focus_selection must be an object");
+  nonEmptyString(focus.primary_gap_id, "humanDiagnosis.focus_selection.primary_gap_id");
+  invariant(
+    Array.isArray(focus.supporting_gap_ids) && focus.supporting_gap_ids.length >= 2 && focus.supporting_gap_ids.length <= 3,
+    "humanDiagnosis.focus_selection.supporting_gap_ids must contain 2 or 3 items",
+  );
+  namedHuman(focus.selected_by, "humanDiagnosis.focus_selection.selected_by");
+  validTimestamp(focus.selected_at, "humanDiagnosis.focus_selection.selected_at");
+  nonEmptyString(focus.rationale, "humanDiagnosis.focus_selection.rationale");
 
-  const orders = tasks.map((task) => task.sequence.order);
-  invariant(new Set(orders).size === orders.length, "humanDiagnosis.remediation_tasks sequence.order values must be unique");
-  return taskById;
+  const selectedIds = selectedFocusGapIds(focus);
+  invariant(
+    selectedIds.length >= FOCUS_SELECTION_MIN && selectedIds.length <= FOCUS_SELECTION_MAX,
+    "humanDiagnosis.focus_selection must contain exactly 3 or 4 unique gaps",
+  );
+  invariant(new Set(selectedIds).size === selectedIds.length, "humanDiagnosis.focus_selection has duplicate gap ids");
+  invariant(!focus.supporting_gap_ids.includes(focus.primary_gap_id), "supporting gaps must not repeat the Primary Gap");
+
+  const gapById = new Map((diagnosis.gap_inventory || []).map((gap) => [gap.id, gap]));
+  for (const gapId of selectedIds) {
+    invariant(gapById.has(gapId), `humanDiagnosis.focus_selection references unknown gap ${gapId}`);
+    const gap = gapById.get(gapId);
+    const context = `humanDiagnosis.gap_inventory.${gapId}`;
+    invariant(gap.diagnosis_state === "verified_gap", `${context} cannot be selected unless diagnosis_state is verified_gap`);
+    invariant(
+      !["insufficient_evidence", "monitor", "working"].includes(gap.diagnosis_state),
+      `${context} diagnosis_state cannot enter Focus Selection`,
+    );
+    invariant(gap.sprint_fit.mode !== "backlog", `${context} with sprint_fit.mode=backlog cannot enter Focus Selection`);
+    invariant(
+      hasApprovedClassAEvidence(gap.evidence_refs, evidenceIndex),
+      `${context} must include at least one final approved Class A evidence reference`,
+    );
+  }
+
+  const selectedGaps = selectedIds.map((id) => gapById.get(id));
+  const closeCount = selectedGaps.filter((gap) => gap.sprint_fit.mode === "close_in_30_days").length;
+  const startCount = selectedGaps.filter((gap) => gap.sprint_fit.mode === "start_in_30_days").length;
+  invariant(closeCount >= MIN_CLOSE_IN_30_DAYS, "Focus Selection requires at least two close_in_30_days gaps");
+  invariant(startCount <= MAX_START_IN_30_DAYS, "Focus Selection allows at most one start_in_30_days gap");
+
+  invariant(
+    diagnosis.binding_constraint?.gap_ref === focus.primary_gap_id,
+    "humanDiagnosis.binding_constraint.gap_ref must equal focus_selection.primary_gap_id",
+  );
+
+  return selectedGaps;
 }
 
 function validateOwnerExecutionContract(report) {
@@ -640,6 +710,7 @@ function validateHumanDiagnosis(report, evidenceIndex) {
     "humanDiagnosis.binding_constraint",
     evidenceIndex,
   );
+  nonEmptyString(diagnosis.binding_constraint.gap_ref, "humanDiagnosis.binding_constraint.gap_ref");
   validateCompetitiveDecisionAnalysis(diagnosis.competitors, report, evidenceIndex);
 
   invariant(
@@ -662,51 +733,31 @@ function validateHumanDiagnosis(report, evidenceIndex) {
   }
 
   invariant(
-    Array.isArray(diagnosis.problem_inventory) && diagnosis.problem_inventory.length > 0,
-    "humanDiagnosis.problem_inventory must be a non-empty array",
+    !hasOwn(diagnosis, "top_priorities"),
+    "humanDiagnosis.top_priorities is removed in schema v5; use focus_selection",
   );
-  const problemIds = new Set();
-  const problems = diagnosis.problem_inventory;
-  const problemClasses = problems.map((problem, index) => {
-    const context = `humanDiagnosis.problem_inventory[${index}]`;
-    invariant(problem && typeof problem === "object" && !Array.isArray(problem), `${context} must be an object`);
-    nonEmptyString(problem.id, `${context}.id`);
-    invariant(!problemIds.has(problem.id), `humanDiagnosis.problem_inventory has duplicate id ${problem.id}`);
-    problemIds.add(problem.id);
-    invariant(PROBLEM_SURFACES.includes(problem.surface), `${context}.surface is invalid`);
-    nonEmptyString(problem.title, `${context}.title`);
-    validateEvidenceRefs(problem.evidence_refs, context, evidenceIndex);
-    nonEmptyString(problem.impact, `${context}.impact`);
-    invariant(Array.isArray(problem.task_refs), `${context}.task_refs must be an array`);
-    nonEmptyString(problem.suggested_horizon, `${context}.suggested_horizon`);
-    invariant(PROBLEM_STATUSES.includes(problem.status), `${context}.status is invalid`);
-    const evidenceClass = resolveClaimEvidenceClass(problem, context, evidenceIndex);
-    if (evidenceClass === "B") validateClassBDisclosure({ ...problem, evidence_class: evidenceClass }, context);
-    return evidenceClass;
-  });
-
-  validateRemediationTasks(diagnosis.remediation_tasks, problems, evidenceIndex);
-
   invariant(
-    Array.isArray(diagnosis.top_priorities) && diagnosis.top_priorities.length === 3,
-    "humanDiagnosis.top_priorities must contain exactly 3 items",
+    !hasOwn(diagnosis, "problem_inventory"),
+    "humanDiagnosis.problem_inventory is removed in schema v5; use gap_inventory",
   );
-  const priorityIds = new Set();
-  const priorityClasses = diagnosis.top_priorities.map((priority, index) => {
-    const context = `humanDiagnosis.top_priorities[${index}]`;
-    const evidenceClass = validatePriority(priority, context, evidenceIndex);
-    invariant(!priorityIds.has(priority.id), `humanDiagnosis.top_priorities has duplicate id ${priority.id}`);
-    priorityIds.add(priority.id);
-    validateReferenceIds(priority.problem_refs, `${context}.problem_refs`, problemIds, { nonEmpty: true });
-    return evidenceClass;
-  });
+  invariant(
+    !hasOwn(diagnosis, "remediation_tasks"),
+    "humanDiagnosis.remediation_tasks is removed in schema v5; use gap repair_plan",
+  );
+  invariant(
+    !hasOwn(diagnosis, "selected_for_repair"),
+    "selected_for_repair is derived from focus_selection and must not be stored",
+  );
+
+  const { classes: gapClasses } = validateGapInventory(diagnosis.gap_inventory, evidenceIndex);
+  validateFocusSelectionContract(diagnosis, evidenceIndex);
   const doNotDoClass = validateEvidenceBackedClaim(
     diagnosis.do_not_do,
     "humanDiagnosis.do_not_do",
     evidenceIndex,
   );
 
-  return { objectiveClass, bindingClass, priorityClasses, doNotDoClass, problemClasses };
+  return { objectiveClass, bindingClass, doNotDoClass, gapClasses };
 }
 
 function validateEstimates(estimates) {
@@ -816,9 +867,8 @@ function validatePublishedEvidence(report, diagnosisClasses) {
   classes.push(
     diagnosisClasses.objectiveClass,
     diagnosisClasses.bindingClass,
-    ...diagnosisClasses.priorityClasses,
     diagnosisClasses.doNotDoClass,
-    ...diagnosisClasses.problemClasses,
+    ...diagnosisClasses.gapClasses,
   );
   classes.push(...validateEstimates(report.estimates));
 
@@ -846,7 +896,7 @@ function validateMethodology(methodology) {
 
 export function scoreGrowthReport(report) {
   invariant(report && typeof report === "object" && !Array.isArray(report), "report must be an object");
-  invariant(report.schemaVersion === 4, "schemaVersion must be 4");
+  invariant(report.schemaVersion === GROWTH_SCORE_SCHEMA_VERSION, "schemaVersion must be 5");
   invariant(report.reportState === "approved_report", "reportState must be approved_report; drafts cannot publish");
   nonEmptyString(report.reportVersion, "reportVersion");
   nonEmptyString(report.verifiedFactSetVersion, "verifiedFactSetVersion");

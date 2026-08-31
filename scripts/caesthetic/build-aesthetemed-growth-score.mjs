@@ -2,7 +2,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { EvidenceIncompleteError } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 import { createGrowthScoreReportTemplate } from "./growth-score-report-template.mjs";
+
+export function convertAesthetemedToSchemaV5() {
+  throw new EvidenceIncompleteError(
+    "Aesthetemed public-evidence facts do not yet contain three verified gaps for schema v5 Focus Selection. The existing v4 report remains a historical read-only record until a named human re-audits.",
+  );
+}
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const collectedAt = "2026-08-21";
@@ -130,8 +137,11 @@ const entries = [
 ];
 
 const decisionItem = (title, rationale, refs) => ({ title, rationale, evidence_refs: refs });
+const template = createGrowthScoreReportTemplate();
+delete template.humanDiagnosis.gap_inventory;
+delete template.humanDiagnosis.focus_selection;
 const report = {
-  ...createGrowthScoreReportTemplate(),
+  ...template,
   schemaVersion: 4, reportState: "approved_report", reportVersion: "aesthetemed-public-evidence-v1", verifiedFactSetVersion: "aesthetemed-public-evidence-2026-08-21-v1", reportKind: "real",
   disclosure: "Independent public-evidence diagnostic prepared as a CAESTHETIC test; no client relationship is implied.",
   practice: { name: "Aesthetemed Beauty & Wellness Clinic", location: "Hallandale Beach, Florida, United States", preparedAt: collectedAt, preparedFor: "Independent public-evidence test" },
@@ -176,7 +186,10 @@ const report = {
   estimates: [],
 };
 
-const directory = path.join(root, "site-caesthetic/score", slug);
-fs.mkdirSync(directory, { recursive: true });
-fs.writeFileSync(path.join(directory, "report.json"), `${JSON.stringify(report, null, 2)}\n`);
-console.log(path.join(directory, "report.json"));
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  if (process.argv.includes("--schema-v5")) convertAesthetemedToSchemaV5();
+  const directory = path.join(root, "site-caesthetic/score", slug);
+  fs.mkdirSync(directory, { recursive: true });
+  fs.writeFileSync(path.join(directory, "report.json"), `${JSON.stringify(report, null, 2)}\n`);
+  console.log(path.join(directory, "report.json"));
+}

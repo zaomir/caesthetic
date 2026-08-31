@@ -2,7 +2,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { displayScore, scoreGrowthReport } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import {
+  displayScore,
+  isSelectedForRepair,
+  scoreGrowthReport,
+  selectedFocusGapIds,
+} from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");
@@ -27,7 +32,7 @@ const surfaceLabels = Object.freeze({
   reputation: "Reputation",
   cross_surface: "Cross-Surface",
 });
-const PRIORITY_RANKS = Object.freeze(["01 FIX FIRST", "02 NEXT", "03 THEN"]);
+const FOCUS_RANKS = Object.freeze(["1", "2", "3", "4"]);
 const VALERIE = Object.freeze({
   name: "Valerie Petra",
   role: "CAESTHETIC Growth Advisor",
@@ -60,7 +65,7 @@ function requireArray(value, label, { min = 1, max = Infinity } = {}) {
 
 function requireReportContent(report) {
   const diagnosis = report.humanDiagnosis;
-  if (report.schemaVersion !== 4) throw new TypeError("schemaVersion must be 4");
+  if (report.schemaVersion !== 5) throw new TypeError("schemaVersion must be 5");
   if (report.reportKind === "real") {
     requireNonEmptyString(report.disclosure, "disclosure");
   }
@@ -68,11 +73,12 @@ function requireReportContent(report) {
     throw new TypeError("humanDiagnosis.reviewer requires a named human and approval timestamp");
   }
   requireNonEmptyString(diagnosis.reviewer_status, "humanDiagnosis.reviewer_status");
-  if (diagnosis.top_priorities?.length !== 3) {
-    throw new TypeError("humanDiagnosis.top_priorities must contain exactly 3 items");
+  if (!Array.isArray(diagnosis.gap_inventory) || diagnosis.gap_inventory.length === 0) {
+    throw new TypeError("humanDiagnosis.gap_inventory must be a non-empty array");
   }
-  if (!Array.isArray(diagnosis.remediation_tasks) || diagnosis.remediation_tasks.length === 0) {
-    throw new TypeError("humanDiagnosis.remediation_tasks must be a non-empty array");
+  const selectedIds = selectedFocusGapIds(diagnosis.focus_selection);
+  if (selectedIds.length < 3 || selectedIds.length > 4) {
+    throw new TypeError("humanDiagnosis.focus_selection must contain 3 or 4 unique gaps");
   }
   for (const pathId of ["diy", "other_provider", "defer", "caesthetic"]) {
     if (!report.implementation_paths?.[pathId]) throw new TypeError(`implementation_paths.${pathId} is required`);
@@ -98,24 +104,30 @@ function requireReportContent(report) {
   requireNonEmptyString(currentState?.constraint_detail, "humanDiagnosis.current_state.constraint_detail");
   requireNonEmptyString(currentState?.priority_line, "humanDiagnosis.current_state.priority_line");
 
-  diagnosis.top_priorities.forEach((priority, index) => {
-    for (const field of ["why_now", "expected_effect", "complexity", "impact"]) {
-      requireNonEmptyString(priority[field], `humanDiagnosis.top_priorities[${index}].${field}`);
-    }
-    requireArray(priority.task_refs, `humanDiagnosis.top_priorities[${index}].task_refs`);
+  diagnosis.gap_inventory.forEach((gap, index) => {
+    requireNonEmptyString(gap.id, `humanDiagnosis.gap_inventory[${index}].id`);
+    requireNonEmptyString(gap.title, `humanDiagnosis.gap_inventory[${index}].title`);
+    requireNonEmptyString(gap.diagnosis_state, `humanDiagnosis.gap_inventory[${index}].diagnosis_state`);
+    requireNonEmptyString(gap.journey_stage, `humanDiagnosis.gap_inventory[${index}].journey_stage`);
+    requireNonEmptyString(gap.why_it_matters, `humanDiagnosis.gap_inventory[${index}].why_it_matters`);
+    requireArray(gap.surfaces, `humanDiagnosis.gap_inventory[${index}].surfaces`);
+    requireNonEmptyString(gap.sprint_fit?.mode, `humanDiagnosis.gap_inventory[${index}].sprint_fit.mode`);
+    requireNonEmptyString(gap.repair_plan?.outcome, `humanDiagnosis.gap_inventory[${index}].repair_plan.outcome`);
+    requireArray(gap.repair_plan?.diy_steps, `humanDiagnosis.gap_inventory[${index}].repair_plan.diy_steps`);
+    requireArray(gap.repair_plan?.done_when, `humanDiagnosis.gap_inventory[${index}].repair_plan.done_when`);
+    requireNonEmptyString(gap.repair_plan?.owner_role, `humanDiagnosis.gap_inventory[${index}].repair_plan.owner_role`);
   });
+  requireNonEmptyString(diagnosis.focus_selection?.primary_gap_id, "humanDiagnosis.focus_selection.primary_gap_id");
+  requireArray(diagnosis.focus_selection?.supporting_gap_ids, "humanDiagnosis.focus_selection.supporting_gap_ids", { min: 2, max: 3 });
+  requireNonEmptyString(diagnosis.focus_selection?.selected_by, "humanDiagnosis.focus_selection.selected_by");
+  requireNonEmptyString(diagnosis.focus_selection?.selected_at, "humanDiagnosis.focus_selection.selected_at");
+  requireNonEmptyString(diagnosis.focus_selection?.rationale, "humanDiagnosis.focus_selection.rationale");
+  requireNonEmptyString(diagnosis.binding_constraint?.gap_ref, "humanDiagnosis.binding_constraint.gap_ref");
 
   requireNonEmptyString(diagnosis.do_not_do?.title, "humanDiagnosis.do_not_do.title");
   requireArray(diagnosis.do_not_do?.evidence_refs, "humanDiagnosis.do_not_do.evidence_refs");
   requireNonEmptyString(diagnosis.do_not_do?.rationale, "humanDiagnosis.do_not_do.rationale");
   requireArray(diagnosis.do_not_do?.revisit_after, "humanDiagnosis.do_not_do.revisit_after");
-
-  requireArray(diagnosis.roadmap_preview?.weeks, "humanDiagnosis.roadmap_preview.weeks");
-  diagnosis.roadmap_preview.weeks.forEach((week, index) => {
-    requireNonEmptyString(week.label, `humanDiagnosis.roadmap_preview.weeks[${index}].label`);
-    requireNonEmptyString(week.title, `humanDiagnosis.roadmap_preview.weeks[${index}].title`);
-  });
-  requireNonEmptyString(diagnosis.roadmap_preview?.disclaimer, "humanDiagnosis.roadmap_preview.disclaimer");
 
   if (!diagnosis.coordination_burden || typeof diagnosis.coordination_burden !== "object") {
     throw new TypeError("humanDiagnosis.coordination_burden is required");
@@ -140,10 +152,6 @@ function requireReportContent(report) {
     requireNonEmptyString(diagnosis.walkthrough.placeholder, "humanDiagnosis.walkthrough.placeholder");
   }
 
-  if (!Array.isArray(diagnosis.problem_inventory) || diagnosis.problem_inventory.length === 0) {
-    throw new TypeError("humanDiagnosis.problem_inventory must be a non-empty array");
-  }
-
   for (const surface of report.surfaces ?? []) {
     const card = surface.owner_card;
     if (!card) throw new TypeError(`surfaces.${surface.id}.owner_card is required`);
@@ -153,13 +161,6 @@ function requireReportContent(report) {
       throw new TypeError(`surfaces.${surface.id}.owner_card.priority must be HIGH|MEDIUM|LOW`);
     }
   }
-}
-
-function problemPriority(problem) {
-  if (problem.priority) return String(problem.priority).toLowerCase();
-  const impact = String(problem.impact ?? "");
-  if (/^High/i.test(impact) || /\bHigh\b/.test(impact)) return "high";
-  return "medium";
 }
 
 function metricClassLabel(metric) {
@@ -309,42 +310,98 @@ ${DEMAND_STAGES.map((stage) => {
         </div>`;
 }
 
-function priorityCards(priorities) {
-  return priorities.map((priority, index) => {
-    const firstTaskRef = priority.task_refs[0];
+function gapMarkerKind(gap, focus) {
+  if (gap.id === focus.primary_gap_id) return { kind: "primary", mark: "1", label: "Primary Gap" };
+  const supportIndex = focus.supporting_gap_ids.indexOf(gap.id);
+  if (supportIndex >= 0) return { kind: "supporting", mark: String(supportIndex + 2), label: `Supporting Gap ${supportIndex + 2}` };
+  if (gap.diagnosis_state === "insufficient_evidence") return { kind: "insufficient", mark: "?", label: "Insufficient evidence" };
+  if (gap.diagnosis_state === "working") return { kind: "working", mark: "✓", label: "Working / defend" };
+  return { kind: "backlog", mark: "•", label: "Verified backlog" };
+}
+
+function sprintFitLabel(mode) {
+  if (mode === "close_in_30_days") return "Close in 30 days";
+  if (mode === "start_in_30_days") return "Start in 30 days";
+  return "Backlog — not now";
+}
+
+function inventoryFilter(gap, focus) {
+  if (gap.diagnosis_state === "insufficient_evidence") return "insufficient";
+  if (gap.diagnosis_state === "monitor") return "monitor";
+  if (gap.sprint_fit?.mode === "close_in_30_days" && isSelectedForRepair(gap.id, focus)) return "fix-now";
+  if (gap.sprint_fit?.mode === "start_in_30_days" && isSelectedForRepair(gap.id, focus)) return "fix-next";
+  return "monitor";
+}
+
+function gapMapHtml(gaps, focus) {
+  return `
+        <ol class="cae-gap-map" aria-label="Gap Map">
+${gaps.map((gap) => {
+    const marker = gapMarkerKind(gap, focus);
+    const surfaces = gap.surfaces.map((surface) => surfaceLabels[surface] || surface).join(", ");
+    return `          <li>
+            <a class="cae-gap-map__mark cae-gap-map__mark--${marker.kind}" href="#gap-${escapeHtml(gap.id)}" aria-label="${escapeHtml(marker.label)}: ${escapeHtml(gap.title)}. Surface ${escapeHtml(surfaces)}. Journey ${escapeHtml(gap.journey_stage)}.">
+              <span class="cae-gap-map__symbol" aria-hidden="true">${escapeHtml(marker.mark)}</span>
+              <span class="cae-gap-map__copy">
+                <strong>${escapeHtml(gap.title)}</strong>
+                <small>${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))} · ${escapeHtml(marker.label)}</small>
+              </span>
+            </a>
+          </li>`;
+  }).join("\n")}
+        </ol>`;
+}
+
+function focusGapCards(gaps, focus) {
+  const selected = selectedFocusGapIds(focus)
+    .map((id) => gaps.find((gap) => gap.id === id))
+    .filter(Boolean);
+  return selected.map((gap, index) => {
+    const marker = gapMarkerKind(gap, focus);
+    const surfaces = gap.surfaces.map((surface) => surfaceLabels[surface] || surface).join(", ");
+    const longWork = gap.sprint_fit.mode === "start_in_30_days"
+      ? `<p><strong>Day-30 result:</strong> ${escapeHtml(gap.repair_plan.day_30_outcome)}</p><p><strong>After Day 30:</strong> ${escapeHtml(gap.repair_plan.beyond_day_30)}</p>`
+      : `<p><strong>Reachable result:</strong> ${escapeHtml(gap.repair_plan.outcome)}</p>`;
+    const dependency = gap.id === focus.primary_gap_id
+      ? "This is the Primary Gap. Supporting repairs depend on it."
+      : `Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.`;
     return `
-          <article class="cae-report-priority">
-            <p class="cae-report-priority__rank">${PRIORITY_RANKS[index]}</p>
-            <h3>${escapeHtml(priority.title)}</h3>
-            <p><strong>Why now:</strong> ${escapeHtml(priority.why_now)}</p>
-            <p><strong>Expected effect:</strong> ${escapeHtml(priority.expected_effect)}</p>
-            <p><strong>Complexity:</strong> ${escapeHtml(priority.complexity)}</p>
-            <p><strong>Impact:</strong> ${escapeHtml(priority.impact)}</p>
-            <a class="cae-report-inline-link" href="#${escapeHtml(firstTaskRef)}">See implementation</a>
+          <article class="cae-focus-gap" id="gap-${escapeHtml(gap.id)}" data-gap-role="${marker.kind}">
+            <p class="cae-focus-gap__rank" aria-label="${escapeHtml(marker.label)}">${FOCUS_RANKS[index]} · ${escapeHtml(marker.label)}</p>
+            <h3>${escapeHtml(gap.title)}</h3>
+            <p><strong>Found on:</strong> ${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))}</p>
+            <p><strong>Evidence → Explanation:</strong> ${refs(gap.evidence_refs)}. ${escapeHtml(gap.why_it_matters)}</p>
+            <p><strong>Why now:</strong> ${escapeHtml(focus.rationale)}</p>
+            <p><strong>Primary dependency:</strong> ${escapeHtml(dependency)}</p>
+            <p><strong>Sprint Fit:</strong> ${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</p>
+            ${longWork}
+            <p><strong>Done when:</strong></p>
+            <ul>${stringList(gap.repair_plan.done_when)}</ul>
+            <p><strong>Who can do this:</strong> ${escapeHtml(gap.repair_plan.owner_role)}</p>
+            <details class="cae-focus-gap__diy">
+              <summary>DIY instruction</summary>
+              <ol>${stringList(gap.repair_plan.diy_steps)}</ol>
+            </details>
+            <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
           </article>`;
   }).join("");
 }
 
-function remediationRows(tasks) {
-  return tasks.map((task) => `
-        <article class="cae-report-task" id="${escapeHtml(task.id)}">
-          <p class="cae-kicker">TASK ${escapeHtml(task.id)}</p>
-          <h3>${escapeHtml(task.outcome)}</h3>
-          <p><strong>WHY</strong> ${escapeHtml(task.sequence.rationale)}</p>
-          <div>
-            <p><strong>STEPS</strong></p>
-            <ol>${stringList(task.steps)}</ol>
-          </div>
-          <p><strong>NEEDS</strong></p>
-          <ul>${stringList(task.prerequisites_access)}</ul>
-          <p><strong>DEPENDENCIES</strong> ${task.dependencies.length ? refs(task.dependencies) : "None"}</p>
-          <p><strong>WHO CAN DO THIS</strong> ${escapeHtml(task.owner_role)}</p>
-          <p><strong>COMPLEXITY</strong> ${escapeHtml(task.effort_complexity)}</p>
-          <p><strong>RISK</strong> ${escapeHtml(task.implementation_risk)}</p>
-          <p><strong>DONE WHEN</strong></p>
-          <ul>${stringList(task.acceptance_evidence)}</ul>
-          <p><strong>NEXT ACTION</strong> ${escapeHtml(task.next_action)}</p>
-        </article>`).join("");
+function sprintFitHtml(gaps, focus) {
+  const selected = selectedFocusGapIds(focus).map((id) => gaps.find((gap) => gap.id === id)).filter(Boolean);
+  const close = selected.filter((gap) => gap.sprint_fit.mode === "close_in_30_days");
+  const start = selected.filter((gap) => gap.sprint_fit.mode === "start_in_30_days");
+  const backlog = gaps.filter((gap) => !isSelectedForRepair(gap.id, focus));
+  const row = (items, empty) => items.length
+    ? `<ul>${items.map((gap) => `<li><a href="#gap-${escapeHtml(gap.id)}">${escapeHtml(gap.title)}</a></li>`).join("")}</ul>`
+    : `<p class="cae-report-note">${empty}</p>`;
+  return `
+        <div class="cae-sprint-fit">
+          <article><p class="cae-kicker">Close in 30 days</p>${row(close, "None selected.")}</article>
+          <article><p class="cae-kicker">Start in 30 days</p>${row(start, "No long initiative was started.")}</article>
+          <article><p class="cae-kicker">Not now</p>${row(backlog, "No backlog holes.")}</article>
+        </div>
+        <p class="cae-report-note">This roadmap is generated from Sprint Fit. It is not purchased scope, a delivery promise or a results guarantee.</p>`;
 }
 
 function surfaceNavigatorCards(report, result) {
@@ -412,17 +469,17 @@ function evidenceAccordion(report, result) {
   return surfaceBlocks + crossBlock;
 }
 
-function inventoryRows(inventory) {
-  return inventory.map((problem) => {
-    const priority = problemPriority(problem);
-    const complexity = problem.complexity ? `<p><strong>Complexity:</strong> ${escapeHtml(problem.complexity)}</p>` : "";
+function inventoryRows(inventory, focus) {
+  return inventory.map((gap) => {
+    const marker = gapMarkerKind(gap, focus);
+    const surfaces = gap.surfaces.map((surface) => surfaceLabels[surface] || surface).join(", ");
     return `
-          <article class="cae-report-problem" id="problem-${escapeHtml(problem.id)}" data-surface="${escapeHtml(problem.surface)}" data-priority="${escapeHtml(priority)}">
-            <p class="cae-kicker">${escapeHtml(problem.id)} · ${escapeHtml(surfaceLabels[problem.surface])} · ${escapeHtml(problem.status)}</p>
-            <h3>${escapeHtml(problem.title)}</h3>
-            <p><strong>Impact:</strong> ${escapeHtml(problem.impact)}</p>
-            <p><strong>Priority:</strong> ${escapeHtml(priority)}</p>
-            ${complexity}
+          <article class="cae-report-problem" id="inventory-${escapeHtml(gap.id)}" data-filter-group="${inventoryFilter(gap, focus)}" data-surface="${escapeHtml(gap.surfaces[0] || "")}">
+            <p class="cae-kicker">${escapeHtml(gap.id)} · ${escapeHtml(surfaces)} · ${escapeHtml(marker.label)}</p>
+            <h3>${escapeHtml(gap.title)}</h3>
+            <p>${escapeHtml(gap.why_it_matters)}</p>
+            <p><strong>Sprint Fit:</strong> ${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</p>
+            ${isSelectedForRepair(gap.id, focus) ? `<p><a class="cae-report-inline-link" href="#gap-${escapeHtml(gap.id)}">Open Focus Gap card</a></p>` : "<p class=\"cae-report-note\">Not now.</p>"}
           </article>`;
   }).join("");
 }
@@ -461,6 +518,185 @@ function reviewerStatusLabel(status) {
   return sentenceCase(status);
 }
 
+function localizeReportHtml(html, locale) {
+  if (locale !== "ru") return html;
+
+  const replacements = [
+    ["Private Growth Score", "Закрытый Growth Score"],
+    ["Prepared by ", "Подготовила: "],
+    ["Prepared ", "Подготовлено: "],
+    [">Approved ·", ">Утверждено ·"],
+    ["Primary constraint", "Главное ограничение"],
+    ["⚠ Main constraint:", "⚠ Главное ограничение:"],
+    ["Start with:", "Начать с:"],
+    ["Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.", "Баллы — вспомогательная навигация ниже на странице. Они не определяют фокусные разрывы."],
+    ["Your Growth Review", "Ваш разбор Growth Score"],
+    ["CAESTHETIC Growth Advisor", "Growth Advisor CAESTHETIC"],
+    ["Watch your review →", "Смотреть разбор →"],
+    ["Your human-reviewed walkthrough is being prepared.", "Видеоразбор после human review готовится."],
+    ["Gap Map", "Карта разрывов"],
+    ["Every confirmed hole. Only ", "Все подтверждённые разрывы. Для старта выбрано только "],
+    [" selected to start.", "."],
+    ["Demand System", "Путь спроса"],
+    [">Discovery<", ">Обнаружение<"],
+    [">Trust<", ">Доверие<"],
+    [">Enquiry<", ">Обращение<"],
+    [">Booking<", ">Запись<"],
+    [">Treatment<", ">Услуга<"],
+    ["LEAK HERE ↓", "УТЕЧКА ЗДЕСЬ ↓"],
+    ["Primary Gap", "Главный разрыв"],
+    ["Supporting Gaps", "Поддерживающие разрывы"],
+    ["Supporting Gap ", "Поддерживающий разрыв "],
+    ["Verified backlog", "Подтверждённый backlog"],
+    ["Insufficient evidence", "Недостаточно evidence"],
+    ["Working / defend", "Работает / сохранить"],
+    ["Found on:", "Обнаружено на:"],
+    ["Evidence → Explanation:", "Evidence → объяснение:"],
+    ["Why now:", "Почему сейчас:"],
+    ["Primary dependency:", "Главная зависимость:"],
+    ["This is the Главный разрыв. Supporting repairs depend on it.", "Это главный разрыв. Поддерживающие исправления зависят от него."],
+    ["Depends on the Главный разрыв: it should not be treated as a separate Sprint commitment.", "Зависит от главного разрыва и не должно считаться отдельным обязательством Sprint."],
+    ["Reachable result:", "Достижимый результат:"],
+    ["Day-30 result:", "Результат к 30-му дню:"],
+    ["After Day 30:", "После 30-го дня:"],
+    ["Done when:", "Готово, когда:"],
+    ["Who can do this:", "Кто может выполнить:"],
+    ["DIY instruction", "Инструкция для самостоятельной работы"],
+    ["CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.", "CAESTHETIC может отдельно письменно подтвердить scope Sprint для выбранных фокусных разрывов. Эти самостоятельные шаги не являются обязательствами Sprint."],
+    ["Backlog — not now", "Backlog — не сейчас"],
+    [" · Enquiry ·", " · Обращение ·"],
+    [" · Discovery ·", " · Обнаружение ·"],
+    [" · Trust ·", " · Доверие ·"],
+    [" · Booking ·", " · Запись ·"],
+    [" · Enquiry<", " · Обращение<"],
+    [" · Discovery<", " · Обнаружение<"],
+    [" · Trust<", " · Доверие<"],
+    [" · Booking<", " · Запись<"],
+    ["Focus Gaps", "Фокусные разрывы"],
+    [" holes chosen by ", " разрыва выбрал "],
+    ["Sprint Fit", "Пригодность для Sprint"],
+    ["What can honestly close, start, or wait", "Что реально закрыть, начать или отложить"],
+    ["Close in 30 days", "Закрыть за 30 дней"],
+    ["Start in 30 days", "Начать за 30 дней"],
+    ["Not now", "Не сейчас"],
+    ["This roadmap is generated from Пригодность для Sprint. It is not purchased scope, a delivery promise or a results guarantee.", "Эта дорожная карта сформирована по Sprint Fit. Это не оплаченный scope, не обещание поставки и не гарантия результата."],
+    ["Repair paths", "Пути исправления"],
+    ["Four valid ways forward", "Четыре допустимых пути"],
+    ["Want to implement the selected Фокусные разрывы yourself? You can.", "Выбранные фокусные разрывы можно исправить самостоятельно."],
+    ["View Focus Gap DIY steps", "Открыть шаги для самостоятельной работы"],
+    ["Do it in-house", "Сделать внутри команды"],
+    ["Use another provider", "Привлечь другого подрядчика"],
+    [">Defer<", ">Отложить<"],
+    ["Ask CAESTHETIC", "Поручить CAESTHETIC"],
+    ["Sprint boundary:", "Граница Sprint:"],
+    ["Ownership:", "Ответственность:"],
+    ["diagnosed issues", "диагностированных проблем"],
+    ["high-priority fixes", "приоритетных исправления"],
+    ["systems involved", "затронутых поверхности"],
+    ["dependencies", "зависимостей"],
+    ["specialist roles", "ролей специалистов"],
+    ["NOT YET", "ПОКА НЕ ФИНАНСИРОВАТЬ"],
+    ["Revisit after:", "Вернуться после:"],
+    ["Full Gap Inventory", "Полный реестр разрывов"],
+    [" holes reviewed", " разрыва проверено"],
+    ["Filter gaps", "Фильтр разрывов"],
+    [">All<", ">Все<"],
+    [">Fix now<", ">Исправить сейчас<"],
+    [">Fix next<", ">Исправить далее<"],
+    [">Monitor<", ">Наблюдать<"],
+    ["Evidence and competitors", "Evidence и конкуренты"],
+    ["Why the selected holes are real", "Почему выбранные разрывы подтверждены"],
+    ["Objective strength:", "Объективная сильная сторона:"],
+    ["Strongest surface:", "Самая сильная поверхность:"],
+    ["Competitive Decision Analysis", "Конкурентный анализ решений"],
+    ["Metric drill-down", "Детализация метрик"],
+    ["Approximate / secondary navigation", "Приблизительная / вспомогательная навигация"],
+    ["Scores and methodology", "Баллы и методология"],
+    ["Scores do not determine Sprint scope.", "Баллы не определяют scope Sprint."],
+    ["Strength:", "Сильная сторона:"],
+    ["Problem:", "Проблема:"],
+    ["Priority:", "Приоритет:"],
+    ["View evidence", "Открыть evidence"],
+    ["Separate diagnostic · excluded from Overall", "Отдельная диагностика · не входит в Overall"],
+    ["Secondary navigator only", "Только вспомогательная навигация"],
+    ["CLASS A · VERIFIED", "CLASS A · ПОДТВЕРЖДЕНО"],
+    ["ESTIMATE · CLASS B", "ОЦЕНКА · CLASS B"],
+    ["Insufficient evidence for a surface score. Available and unavailable metric states are shown below.", "Недостаточно evidence для оценки поверхности. Ниже показаны доступные и недоступные состояния метрик."],
+    ["Not collected", "Не собрано"],
+    ["No published finding for this metric.", "По этой метрике нет опубликованного вывода."],
+    ["Недостаточно evidence for a surface score. Available and unavailable metric states are shown below.", "Недостаточно evidence для оценки поверхности. Ниже показаны доступные и недоступные состояния метрик."],
+    ["No source: unavailable", "Источник отсутствует: недоступно"],
+    ["No collection date", "Дата сбора отсутствует"],
+    ["Source:", "Источник:"],
+    ["Collected:", "Собрано:"],
+    ["Raw:", "Исходное значение:"],
+    ["Approved Class A coverage:", "Покрытие утверждёнными Class A:"],
+    ["Excluded from Overall.", "Не входит в Overall."],
+    ["Selection method:", "Метод отбора:"],
+    ["Window:", "Период:"],
+    ["Branch scope:", "Scope филиала:"],
+    ["Review sample rule:", "Правило выборки отзывов:"],
+    ["Sample limitations:", "Ограничения выборки:"],
+    ["eligible reviews", "подходящих отзывов"],
+    ["Evidence:", "Evidence:"],
+    ["Comparison Matrix — subject and named alternatives across the same Four Surfaces", "Матрица сравнения — объект и выбранные альтернативы по тем же четырём поверхностям"],
+    [">Business<", ">Бизнес<"],
+    [" <small>Subject</small>", " <small>Объект</small>"],
+    ["Competitor Card", "Карточка конкурента"],
+    ["Why included:", "Почему включён:"],
+    ["Why a patient may choose it:", "Почему клиент может выбрать:"],
+    ["Observed strengths:", "Наблюдаемые сильные стороны:"],
+    ["Weaknesses / risks:", "Слабости / риски:"],
+    ["Repeated positive themes", "Повторяющиеся позитивные темы"],
+    ["Repeated negative themes", "Повторяющиеся негативные темы"],
+    ["Observable advantage", "Наблюдаемое преимущество"],
+    ["Observable gap", "Наблюдаемый разрыв"],
+    [">Repeat<", ">Повторить<"],
+    [">Improve<", ">Улучшить<"],
+    ["Do not copy", "Не копировать"],
+    ["Strategic implication", "Стратегическое следствие"],
+    ["Constraint effect", "Влияние на constraint"],
+    ["Priority effect", "Влияние на приоритет"],
+    ["Modernization implication", "Следствие для модернизации"],
+    ["Limitations:", "Ограничения:"],
+    ["Sources:", "Источники:"],
+    [">Defend<", ">Защитить<"],
+    [">Close<", ">Закрыть<"],
+    [">Differentiate<", ">Дифференцировать<"],
+    ["Market Practice Gap · Strategic Modernization", "Разрыв с рыночной практикой · стратегическая модернизация"],
+    ["Newer is not automatically better. Test the decision and validation gates.", "Новее не означает автоматически лучше. Нужно проверить решение и validation gates."],
+    ["Current:", "Текущее состояние:"],
+    ["Observed shift:", "Наблюдаемый сдвиг:"],
+    ["Scope:", "Scope:"],
+    ["Business implication:", "Следствие для бизнеса:"],
+    ["Transition economics:", "Экономика перехода:"],
+    ["Dependencies:", "Зависимости:"],
+    ["Validation gate:", "Validation gate:"],
+    ["No Class B estimates are used in this report.", "В этом отчёте нет оценок Class B."],
+    ["Class B assumptions", "Допущения Class B"],
+    ["Class A:</strong> directly observable and approved.", "Class A:</strong> наблюдается напрямую и утверждено."],
+    ["Class B:</strong> an explicit estimate or inference with its method and assumptions disclosed.", "Class B:</strong> явная оценка или inference с раскрытыми методом и допущениями."],
+    ["Class A ratio:", "Доля Class A:"],
+    ["published findings", "опубликованных выводов"],
+    ["Comparison method:", "Метод сравнения:"],
+    ["Scores use heuristic diagnostic weights. They do not determine Sprint scope automatically.", "Баллы используют эвристические диагностические веса и не определяют scope Sprint автоматически."],
+    ["Optional next step", "Необязательный следующий шаг"],
+    ["Поручить CAESTHETIC to take the selected Фокусные разрывы", "Поручить CAESTHETIC выбранные фокусные разрывы"],
+    ["Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.", "Scope Sprint отдельно подтверждается письменно. Ни один фокусный разрыв или самостоятельный шаг не входит в работу до такого подтверждения."],
+    ["Start the 30-Day Growth Sprint", "Запустить 30-Day Growth Sprint"],
+    ["View Sprint", "Открыть Sprint"],
+    ["</strong> HIGH", "</strong> ВЫСОКИЙ"],
+    ["</strong> MEDIUM", "</strong> СРЕДНИЙ"],
+    ["</strong> LOW", "</strong> НИЗКИЙ"],
+    ["Open Focus Gap card", "Открыть карточку фокусного разрыва"],
+    ["Not now.", "Не сейчас."],
+  ];
+
+  return replacements
+    .reduce((localized, [source, target]) => localized.replaceAll(source, target), html)
+    .replace(/[ \t]+$/gm, "");
+}
+
 export function renderGrowthReport(report) {
   requireReportContent(report);
   const result = scoreGrowthReport(report);
@@ -485,10 +721,12 @@ export function renderGrowthReport(report) {
     .filter(([field]) => Number.isInteger(burden[field]))
     .map(([field, label]) => `<p><strong>${escapeHtml(burden[field])}</strong> ${label}</p>`)
     .join("");
-  const inventoryCount = diagnosis.problem_inventory.length;
+  const inventoryCount = diagnosis.gap_inventory.length;
+  const focus = diagnosis.focus_selection;
+  const focusCount = selectedFocusGapIds(focus).length;
 
-  return `<!doctype html>
-<html lang="en-US" data-page="growth-score-report" data-report-kind="${escapeHtml(report.reportKind)}">
+  const html = `<!doctype html>
+<html lang="${report.reportContext?.report_locale === "ru" ? "ru" : "en-US"}" data-page="growth-score-report" data-report-kind="${escapeHtml(report.reportKind)}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -503,7 +741,7 @@ export function renderGrowthReport(report) {
 ${disclosure}
 <div id="cae-header-slot"></div>
 <main>
-  <section class="cae-report-hero" id="report-overview" data-cockpit-order="1">
+  <section class="cae-report-hero" id="report-overview">
     <div class="cae-wrap">
       <header class="cae-report-header">
         <p class="cae-kicker">${escapeHtml(kicker)}</p>
@@ -513,93 +751,78 @@ ${disclosure}
         <p class="cae-report-meta">${escapeHtml(reviewerStatusLabel(diagnosis.reviewer_status))} · ${escapeHtml(diagnosis.reviewer.name)} · ${escapeHtml(diagnosis.reviewer.approved_at)}</p>
       </header>
       <div class="cae-report-hero__grid">
-        <article class="cae-report-score-card">
-          <p class="cae-kicker">Growth Score</p>
-          <strong>${displayScore(result.overall.rawScore)}</strong>
-          <p>Score is a guide, not the goal.</p>
-          <p class="cae-report-note">Approximate diagnostic navigator. Priorities are based on verified problems, dependencies and human review.</p>
-        </article>
-        ${walkthroughHeroCard(diagnosis.walkthrough, isDemo)}
         <article class="cae-report-state">
+          <p class="cae-kicker">Primary constraint</p>
+          <h2 class="cae-h2">${escapeHtml(diagnosis.binding_constraint.title)}</h2>
           <ul>${strengths.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
           <p><strong>⚠ Main constraint:</strong> ${escapeHtml(diagnosis.current_state.constraint_label)}</p>
           <p>${escapeHtml(diagnosis.current_state.constraint_detail)}</p>
-          <p><strong>Priority:</strong> ${escapeHtml(diagnosis.current_state.priority_line)}</p>
+          <p><strong>Start with:</strong> ${escapeHtml(diagnosis.current_state.priority_line)}</p>
+          <p class="cae-report-note">Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.</p>
         </article>
+        ${walkthroughHeroCard(diagnosis.walkthrough, isDemo)}
       </div>
     </div>
   </section>
 
-  <section class="cae-section" id="human-diagnosis" data-cockpit-order="2">
+  <section class="cae-section" id="gap-map" data-cockpit-order="1">
     <div class="cae-wrap">
-      <p class="cae-kicker">Human-approved diagnosis</p>
-      <h2 class="cae-h2">Binding constraint and demand leak</h2>
-      <div class="cae-report-diagnosis">
-        <div class="cae-report-diagnosis__statement">${escapeHtml(diagnosis.binding_constraint.statement)}</div>
-        ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
+      <p class="cae-kicker">Gap Map</p>
+      <h2 class="cae-h2">Every confirmed hole. Only ${focusCount} selected to start.</h2>
+      <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
+      ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
+      <div class="cae-gap-map__legend" aria-label="Gap Map legend">
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
+        <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
-      <div class="cae-report-diagnosis__facts">
-        <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
-        <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
+      ${gapMapHtml(diagnosis.gap_inventory, focus)}
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="2">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Focus Gaps</p>
+      <h2 class="cae-h2">${focusCount} holes chosen by ${escapeHtml(focus.selected_by)}</h2>
+      <p>${escapeHtml(focus.rationale)}</p>
+      <div class="cae-focus-gaps">${focusGapCards(diagnosis.gap_inventory, focus)}</div>
+    </div>
+  </section>
+
+  <section class="cae-section" id="sprint-fit" data-cockpit-order="3">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Sprint Fit</p>
+      <h2 class="cae-h2">What can honestly close, start, or wait</h2>
+      ${sprintFitHtml(diagnosis.gap_inventory, focus)}
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="repair-paths" data-cockpit-order="4">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Repair paths</p>
+      <h2 class="cae-h2">Four valid ways forward</h2>
+      <p>Want to implement the selected Focus Gaps yourself? You can.</p>
+      <p><a class="cae-report-inline-link" href="#focus-gaps">View Focus Gap DIY steps</a></p>
+      <div class="cae-report-paths">
+        <article><span>Do it in-house</span><p>${escapeHtml(report.implementation_paths.diy)}</p></article>
+        <article><span>Use another provider</span><p>${escapeHtml(report.implementation_paths.other_provider)}</p></article>
+        <article><span>Defer</span><p>${escapeHtml(report.implementation_paths.defer)}</p></article>
+        <article><span>Ask CAESTHETIC</span><p>${escapeHtml(report.implementation_paths.caesthetic)}</p></article>
       </div>
-      <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
-${competitorRows(diagnosis.competitors)}
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="top-priorities" data-cockpit-order="3">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Exactly three priorities</p>
-      <h2 class="cae-h2">Fix these in this order</h2>
-      <div class="cae-report-priorities">${priorityCards(diagnosis.top_priorities)}</div>
-    </div>
-  </section>
-
-  <section class="cae-section" id="remediation-plan" data-cockpit-order="4">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Complete remediation plan</p>
-      <h2 class="cae-h2">A plan you can implement with us, in-house or with another provider</h2>
-      <div class="cae-report-tasks">${remediationRows(diagnosis.remediation_tasks)}</div>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="score-navigator" data-cockpit-order="5">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Approximate / secondary navigation</p>
-      <h2 class="cae-h2">Four surfaces and overall</h2>
-      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
-      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>
-    </div>
-  </section>
-
-  <section class="cae-section" id="evidence-drilldown" data-cockpit-order="6">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Verified evidence drill-down</p>
-      <h2 class="cae-h2">Why each score is available—or withheld</h2>
-      ${evidenceAccordion(report, result)}
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="problem-inventory" data-cockpit-order="7">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Full Problem Inventory</p>
-      <h2 class="cae-h2">${inventoryCount} problems identified</h2>
-      <div class="cae-report-filters" role="toolbar" aria-label="Filter problems">
-        <button type="button" data-filter="all">All</button>
-        <button type="button" data-filter="high">High priority</button>
-        <button type="button" data-filter="search">Search</button>
-        <button type="button" data-filter="website">Website</button>
-        <button type="button" data-filter="social">Social</button>
-        <button type="button" data-filter="reputation">Reputation</button>
+      <div class="cae-report-why">
+        <p><strong>Sprint boundary:</strong> ${escapeHtml(report.why_caesthetic.sprint_boundary)}</p>
+        <p><strong>Ownership:</strong> ${escapeHtml(report.why_caesthetic.ownership)}</p>
+        <div class="cae-report-burden">${burdenRows}</div>
       </div>
-      <div class="cae-report-problems">${inventoryRows(diagnosis.problem_inventory)}</div>
     </div>
   </section>
 
-  <section class="cae-section" id="do-not-fund" data-cockpit-order="8">
+  <section class="cae-section" id="do-not-fund" data-cockpit-order="5">
     <div class="cae-wrap cae-wrap--narrow">
       <article class="cae-report-do-not-do">
-        <p class="cae-kicker">DO NOT FUND YET</p>
+        <p class="cae-kicker">NOT YET</p>
         <h2 class="cae-h2">${escapeHtml(diagnosis.do_not_do.title)}</h2>
         <p>${escapeHtml(diagnosis.do_not_do.rationale)}</p>
         <p><strong>Revisit after:</strong></p>
@@ -608,67 +831,40 @@ ${competitorRows(diagnosis.competitors)}
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="implementation-paths" data-cockpit-order="9">
+  <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="6">
     <div class="cae-wrap">
-      <p class="cae-kicker">Immediate next actions</p>
-      <h2 class="cae-h2">Four valid ways forward</h2>
-      <p>Want to implement this yourself? You can.</p>
-      <p><a class="cae-report-inline-link" href="#remediation-plan">Download / View implementation tasks</a></p>
-      <div class="cae-report-paths">
-        <article><span>Do it in-house</span><p>${escapeHtml(report.implementation_paths.diy)}</p></article>
-        <article><span>Use another provider</span><p>${escapeHtml(report.implementation_paths.other_provider)}</p></article>
-        <article><span>Defer</span><p>${escapeHtml(report.implementation_paths.defer)}</p></article>
-        <article><span>Ask CAESTHETIC</span><p>${escapeHtml(report.implementation_paths.caesthetic)}</p></article>
+      <p class="cae-kicker">Full Gap Inventory</p>
+      <h2 class="cae-h2">${inventoryCount} holes reviewed</h2>
+      <div class="cae-report-filters" role="toolbar" aria-label="Filter gaps">
+        <button type="button" data-filter="all">All</button>
+        <button type="button" data-filter="fix-now">Fix now</button>
+        <button type="button" data-filter="fix-next">Fix next</button>
+        <button type="button" data-filter="monitor">Monitor</button>
+        <button type="button" data-filter="insufficient">Insufficient evidence</button>
       </div>
+      <div class="cae-report-problems">${inventoryRows(diagnosis.gap_inventory, focus)}</div>
     </div>
   </section>
 
-  <section class="cae-section" id="why-caesthetic" data-cockpit-order="10">
-    <div class="cae-wrap cae-wrap--narrow cae-report-why">
-      <p class="cae-kicker">Why CAESTHETIC / Why the 30-Day Sprint</p>
-      <h2 class="cae-h2">YOU CAN IMPLEMENT THIS YOURSELF. The hard part is coordinating it.</h2>
-      <div class="cae-report-burden">
-        ${burdenRows}
-      </div>
-      <h3 class="cae-report-subhead">CAESTHETIC already knows:</h3>
-      <ul>
-        <li>✓ ${escapeHtml(report.why_caesthetic.evidence_advantage)}</li>
-        <li>✓ ${escapeHtml(report.why_caesthetic.coordination_advantage)}</li>
-        <li>✓ ${escapeHtml(report.why_caesthetic.sprint_boundary)}</li>
-        <li>✓ ${escapeHtml(report.why_caesthetic.ownership)}</li>
-      </ul>
-      <p><strong>Sprint boundary:</strong> ${escapeHtml(report.why_caesthetic.sprint_boundary)}</p>
-      <p><strong>Ownership:</strong> ${escapeHtml(report.why_caesthetic.ownership)}</p>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="roadmap-preview" data-cockpit-order="11">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Illustrative roadmap</p>
-      <h2 class="cae-h2">30-day sequencing preview</h2>
-      <div class="cae-report-roadmap">
-${diagnosis.roadmap_preview.weeks.map((week) => `        <article>
-          <p class="cae-kicker">${escapeHtml(week.label)}</p>
-          <h3>${escapeHtml(week.title)}</h3>
-        </article>`).join("\n")}
-      </div>
-      <p class="cae-report-note">${escapeHtml(diagnosis.roadmap_preview.disclaimer)}</p>
-    </div>
-  </section>
-
-  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="12">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Optional next step</p>
-      <h2 class="cae-h2">If you want one team to coordinate the selected work</h2>
-      <p>Sprint scope is confirmed separately around the highest-value executable priorities.</p>
-      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
-    </div>
-  </section>
-
-  <section class="cae-section cae-report-method" id="methodology" data-cockpit-order="13">
+  <section class="cae-section" id="evidence-and-competitors" data-cockpit-order="7">
     <div class="cae-wrap">
-      <p class="cae-kicker">Methodology, evidence classes and limitations</p>
-      <h2 class="cae-h2">Observable evidence first. Human judgment explicit.</h2>
+      <p class="cae-kicker">Evidence and competitors</p>
+      <h2 class="cae-h2">Why the selected holes are real</h2>
+      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
+      <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
+      <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
+${competitorRows(diagnosis.competitors)}
+      <h3 class="cae-report-subhead">Metric drill-down</h3>
+      ${evidenceAccordion(report, result)}
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="scores-and-methodology" data-cockpit-order="8">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Approximate / secondary navigation</p>
+      <h2 class="cae-h2">Scores and methodology</h2>
+      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
+      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>
       <div class="cae-report-method__grid">
         <div>
           <p><strong>Class A:</strong> directly observable and approved. <strong>Class B:</strong> an explicit estimate or inference with its method and assumptions disclosed.</p>
@@ -684,6 +880,15 @@ ${diagnosis.roadmap_preview.weeks.map((week) => `        <article>
       ${isDemo ? '<p><a class="cae-report-inline-link" href="/growth-score/#demo-growth-scores">View all synthetic demos</a></p>' : ""}
     </div>
   </section>
+
+  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="9">
+    <div class="cae-wrap cae-wrap--narrow">
+      <p class="cae-kicker">Optional next step</p>
+      <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
+      <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
+      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
+    </div>
+  </section>
 </main>
 <a class="cae-sticky-sprint" href="#next-step" hidden>View Sprint</a>
 <div id="cae-footer-slot"></div>
@@ -694,6 +899,7 @@ ${diagnosis.roadmap_preview.weeks.map((week) => `        <article>
 </body>
 </html>
 `;
+  return localizeReportHtml(html, report.reportContext?.report_locale);
 }
 
 export function isUnguessableScoreSlug(slug) {
@@ -717,6 +923,10 @@ function findReportPaths(root) {
 
 export function renderReportFile(reportPath, { outputPath = path.join(path.dirname(reportPath), "index.html"), check = false } = {}) {
   const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
+  if (report.schemaVersion !== 5) {
+    if (check) return true;
+    return null;
+  }
   if (report.reportKind === "real" && !isUnguessableScoreSlug(path.basename(path.dirname(outputPath)))) {
     throw new TypeError("Real Growth Score output must use an unguessable /score/<slug>/ directory");
   }
@@ -742,8 +952,8 @@ function runCli() {
         drift = true;
       }
     } else {
-      renderReportFile(reportPath, { outputPath });
-      console.log(`Rendered ${path.relative(repoRoot, outputPath)}`);
+      const rendered = renderReportFile(reportPath, { outputPath });
+      if (rendered) console.log(`Rendered ${path.relative(repoRoot, outputPath)}`);
     }
   }
   if (!reportPaths.length) throw new Error(`No report.json files found under ${scoreRoot}`);

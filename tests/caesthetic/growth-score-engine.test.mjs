@@ -3,14 +3,17 @@ import test from "node:test";
 import {
   CANONICAL_METRICS,
   CANONICAL_METRIC_WEIGHTS,
+  EvidenceIncompleteError,
   HUMAN_REVIEW_METRICS,
   REGISTERED_HUMAN_REVIEWER_MONONYMS,
   resolveGrowthEconomics,
   scoreGrowthReport,
   SURFACE_WEIGHTS,
+  validateFocusSelectionContract,
   validateGrowthEconomicsContract,
   validateGrowthScoreReport,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import { createGap, createV5Report } from "./helpers/growth-score-v5-fixture.mjs";
 
 const metricInput = (metric_id, normalized_score = 50, overrides = {}) => ({
   metric_id,
@@ -100,78 +103,7 @@ function competitiveFixture(subjectName, competitorName = "Named Competitor A") 
 }
 
 function report(scores = { search: 40, website: 60, social: 80, reputation: 100, cross: 5 }) {
-  const surfaces = Object.keys(SURFACE_WEIGHTS).map((id) => ({ id, metrics: metricSet(id, scores[id]) }));
-  return {
-    schemaVersion: 4,
-    reportState: "approved_report",
-    reportVersion: "fixture-report/1.0.0",
-    verifiedFactSetVersion: "fixture-facts/1.0.0",
-    reportKind: "demo",
-    practice: { name: "Fixture Practice" },
-    surfaces,
-    crossSurface: { metrics: metricSet("cross", scores.cross) },
-    humanDiagnosis: {
-      reviewer_status: "approved",
-      reviewer: { name: "Morgan Reed", approved_at: "2026-08-11T13:00:00Z" },
-      objective_strength: { title: "Strong reputation proof", evidence_refs: ["reputation.rating"] },
-      strongest_surface: "reputation",
-      binding_constraint: { title: "Search constraint", evidence_refs: ["search.map_visibility"] },
-      top_priorities: [
-        { id: "priority-search", title: "Fix discovery", problem_refs: ["search-gap"], evidence_refs: ["search.map_visibility"], impact: "Recover discovery demand." },
-        { id: "priority-booking", title: "Reduce booking friction", problem_refs: ["search-gap"], evidence_refs: ["website.booking_friction"], impact: "Improve enquiry completion." },
-        { id: "priority-proof", title: "Unify proof", problem_refs: ["search-gap"], evidence_refs: ["social.proof_quality"], impact: "Strengthen decision confidence." },
-      ],
-      do_not_do: { title: "Do not increase paid media before fixing the measured constraint.", evidence_refs: ["search.map_visibility"] },
-      competitors: competitiveFixture("Fixture Practice"),
-      walkthrough: { status: "pending", url: null, placeholder: "Human walkthrough recording pending." },
-      problem_inventory: [{
-        id: "search-gap",
-        surface: "search",
-        title: "Weak local discovery",
-        evidence_refs: ["search.map_visibility"],
-        impact: "Priority-treatment demand is missed.",
-        task_refs: ["task-search-gap"],
-        suggested_horizon: "0-30 days",
-        status: "diagnosed",
-      }],
-      remediation_tasks: [{
-        id: "task-search-gap",
-        problem_refs: ["search-gap"],
-        outcome: "The practice is accurately represented for priority-treatment searches.",
-        steps: ["Verify the current GBP category and services.", "Correct the approved public profile fields."],
-        evidence_refs: ["search.map_visibility"],
-        prerequisites_access: ["GBP manager access", "Owner approval"],
-        dependencies: [],
-        sequence: { order: 1, rationale: "Resolve discovery before adding acquisition spend." },
-        owner_role: "Local-search operator with owner approval",
-        effort_complexity: "Medium — profile changes and verification may require coordination.",
-        implementation_risk: "Platform edits can trigger reverification; preserve a before snapshot and owner access.",
-        horizon: "Implementation in 1–2 weeks; visibility maturation is not guaranteed.",
-        acceptance_evidence: ["Live GBP screenshot", "Dated follow-up geo-grid export"],
-        next_action: "Export current GBP fields and confirm the owner-approved category set.",
-      }],
-    },
-    implementation_paths: {
-      diy: "Use the complete task steps and acceptance evidence with the internal team.",
-      other_provider: "Share the owned evidence pack and task plan with another qualified provider.",
-      defer: "Defer lower-priority work while preserving the evidence baseline.",
-      caesthetic: "Ask CAESTHETIC to scope selected tasks separately; no work is pre-purchased.",
-    },
-    why_caesthetic: {
-      evidence_advantage: "CAESTHETIC already understands the reviewed evidence and problem map.",
-      coordination_advantage: "CAESTHETIC can coordinate the dependency order and acceptance checks.",
-      sprint_boundary: "Any 30-Day Sprint scope is confirmed separately and cannot include every Score task by default.",
-      ownership: "The client owns the report, evidence and task plan and may use another provider without lock-in.",
-    },
-    estimates: [],
-    disclosure: "Fictional practice, synthetic data, no client relationship.",
-    methodology: {
-      sources: ["Synthetic fixture"],
-      collectedAt: "2026-08-11T12:00:00Z",
-      competitorSelection: "Nearest fictional peers offering the same priority treatment.",
-      limitations: "Synthetic data; no client outcome or guarantee.",
-    },
-  };
+  return createV5Report(scores);
 }
 
 function getSurface(value, id) {
@@ -398,7 +330,7 @@ test("still requires the report-level human diagnosis approval", () => {
   assert.throws(() => scoreGrowthReport(diagnosedByAi), /reviewer_status must be approved/);
 });
 
-test("publication is v4 approved-report only with named human and frozen fact-set versions", () => {
+test("publication is v5 approved-report only with named human and frozen fact-set versions", () => {
   const valid = report();
   assert.equal(validateGrowthScoreReport(valid).overall.sufficient, true);
 
@@ -407,12 +339,12 @@ test("publication is v4 approved-report only with named human and frozen fact-se
   assert.throws(() => scoreGrowthReport(draft), /drafts cannot publish/);
 
   const oldSchema = report();
-  oldSchema.schemaVersion = 3;
-  assert.throws(() => scoreGrowthReport(oldSchema), /schemaVersion must be 4/);
+  oldSchema.schemaVersion = 4;
+  assert.throws(() => scoreGrowthReport(oldSchema), /schemaVersion must be 5/);
 
   const unnamed = report();
   unnamed.humanDiagnosis.reviewer.name = "AI assistant";
-  assert.throws(() => scoreGrowthReport(unnamed), /named human reviewer/);
+  assert.throws(() => scoreGrowthReport(unnamed), /named human/);
 
   assert.deepEqual(REGISTERED_HUMAN_REVIEWER_MONONYMS, ["Валерия"]);
 
@@ -500,7 +432,7 @@ test("enforces at least 80% Class A across outward published findings", () => {
   // ratio falls below 80% without first changing diagnosis claim classes.
   const classBMetrics = [
     ...value.crossSurface.metrics,
-    ...getSurface(value, "reputation").metrics.filter((item) => item.metric_id !== "rating").slice(0, 3),
+    ...getSurface(value, "reputation").metrics.filter((item) => item.metric_id !== "rating").slice(0, 4),
   ];
   for (const item of classBMetrics) {
     Object.assign(item, {
@@ -525,23 +457,6 @@ test("accepts the inclusive exactly-80% Class A publication boundary", () => {
     method: "Anchored fixture rubric",
     assumptions: ["Synthetic input remains representative"],
   }));
-  value.humanDiagnosis.problem_inventory.push({
-    id: "booking-gap",
-    surface: "website",
-    title: "Booking path gap",
-    evidence_refs: ["website.booking_friction"],
-    impact: "The observed path adds avoidable friction.",
-    task_refs: ["task-booking-gap"],
-    suggested_horizon: "Immediate",
-    status: "diagnosed",
-  });
-  value.humanDiagnosis.remediation_tasks.push({
-    ...structuredClone(value.humanDiagnosis.remediation_tasks[0]),
-    id: "task-booking-gap",
-    problem_refs: ["booking-gap"],
-    dependencies: ["task-search-gap"],
-    sequence: { order: 2, rationale: "Follow the discovery correction with conversion-path repair." },
-  });
   const scored = scoreGrowthReport(value);
   assert.equal(scored.evidence.publishedFindingCount, 40);
   assert.equal(scored.evidence.classACount, 32);
@@ -568,71 +483,51 @@ test("does not allow an outward claim to downgrade Class B evidence to Class A",
   assert.throws(() => scoreGrowthReport(value), /cannot be A when an evidence reference is Class B/);
 });
 
-test("requires exactly three top priorities and one do-not-do", () => {
-  const two = report();
-  two.humanDiagnosis.top_priorities.pop();
-  assert.throws(() => scoreGrowthReport(two), /exactly 3/);
-
+test("requires one do-not-do and rejects leftover v4 diagnosis fields", () => {
   const noGuardrail = report();
   noGuardrail.humanDiagnosis.do_not_do = null;
   assert.throws(() => scoreGrowthReport(noGuardrail), /do_not_do must be an object/);
+
+  const leftover = report();
+  leftover.humanDiagnosis.top_priorities = [];
+  assert.throws(() => scoreGrowthReport(leftover), /top_priorities is removed/);
 });
 
-test("validates the full problem inventory and all evidence references", () => {
+test("validates the full gap inventory and all evidence references", () => {
   const missingField = report();
-  delete missingField.humanDiagnosis.problem_inventory[0].suggested_horizon;
-  assert.throws(() => scoreGrowthReport(missingField), /suggested_horizon is required/);
+  delete missingField.humanDiagnosis.gap_inventory[0].why_it_matters;
+  assert.throws(() => scoreGrowthReport(missingField), /why_it_matters is required/);
 
   const badRef = report();
-  badRef.humanDiagnosis.problem_inventory[0].evidence_refs = ["search.not_canonical"];
+  badRef.humanDiagnosis.gap_inventory[0].evidence_refs = ["search.not_canonical"];
   assert.throws(() => scoreGrowthReport(badRef), /unknown evidence reference/);
 
-  const noProblems = report();
-  noProblems.humanDiagnosis.problem_inventory = [];
-  assert.throws(() => scoreGrowthReport(noProblems), /non-empty array/);
+  const noGaps = report();
+  noGaps.humanDiagnosis.gap_inventory = [];
+  assert.throws(() => scoreGrowthReport(noGaps), /evidence_incomplete|non-empty array/);
 
   const crossSurface = report();
-  crossSurface.humanDiagnosis.problem_inventory[0].surface = "cross_surface";
-  crossSurface.humanDiagnosis.problem_inventory[0].evidence_refs = ["cross.treatment_presence"];
+  crossSurface.humanDiagnosis.gap_inventory[0].surfaces = ["cross_surface"];
+  crossSurface.humanDiagnosis.gap_inventory[0].evidence_refs = ["cross.treatment_presence"];
   assert.equal(scoreGrowthReport(crossSurface).overall.sufficient, true);
 
   const wrongCrossName = report();
-  wrongCrossName.humanDiagnosis.problem_inventory[0].surface = "cross";
-  assert.throws(() => scoreGrowthReport(wrongCrossName), /surface is invalid/);
+  wrongCrossName.humanDiagnosis.gap_inventory[0].surfaces = ["cross"];
+  assert.throws(() => scoreGrowthReport(wrongCrossName), /surfaces\[0\] is invalid/);
 });
 
-test("requires complete bidirectional remediation mappings and auditable execution fields", () => {
-  const noTasks = report();
-  noTasks.humanDiagnosis.remediation_tasks = [];
-  assert.throws(() => scoreGrowthReport(noTasks), /remediation_tasks must be a non-empty array/);
+test("requires Focus Gap DIY steps, done_when and binding-constraint alignment", () => {
+  const noDiy = report();
+  noDiy.humanDiagnosis.gap_inventory[0].repair_plan.diy_steps = [];
+  assert.throws(() => scoreGrowthReport(noDiy), /diy_steps must not be empty/);
 
-  const missingField = report();
-  delete missingField.humanDiagnosis.remediation_tasks[0].acceptance_evidence;
-  assert.throws(() => scoreGrowthReport(missingField), /acceptance_evidence must be an array/);
+  const noDone = report();
+  delete noDone.humanDiagnosis.gap_inventory[0].repair_plan.done_when;
+  assert.throws(() => scoreGrowthReport(noDone), /done_when must be an array/);
 
-  const badProblemRef = report();
-  badProblemRef.humanDiagnosis.remediation_tasks[0].problem_refs = ["not-a-problem"];
-  assert.throws(() => scoreGrowthReport(badProblemRef), /unknown reference not-a-problem/);
-
-  const oneWay = report();
-  oneWay.humanDiagnosis.problem_inventory[0].task_refs = ["task-search-gap"];
-  oneWay.humanDiagnosis.remediation_tasks[0].problem_refs = [];
-  assert.throws(() => scoreGrowthReport(oneWay), /problem_refs must not be empty/);
-
-  const cycle = report();
-  const second = structuredClone(cycle.humanDiagnosis.remediation_tasks[0]);
-  second.id = "task-proof";
-  second.sequence = { order: 2, rationale: "Follow the discovery correction." };
-  second.dependencies = ["task-search-gap"];
-  second.problem_refs = ["search-gap"];
-  cycle.humanDiagnosis.remediation_tasks[0].dependencies = ["task-proof"];
-  cycle.humanDiagnosis.remediation_tasks.push(second);
-  cycle.humanDiagnosis.problem_inventory[0].task_refs.push("task-proof");
-  assert.throws(() => scoreGrowthReport(cycle), /dependency cycle/);
-
-  const badPriority = report();
-  badPriority.humanDiagnosis.top_priorities[0].problem_refs = ["missing-problem"];
-  assert.throws(() => scoreGrowthReport(badPriority), /unknown reference missing-problem/);
+  const mismatch = report();
+  mismatch.humanDiagnosis.binding_constraint.gap_ref = "booking-gap";
+  assert.throws(() => scoreGrowthReport(mismatch), /gap_ref must equal focus_selection.primary_gap_id/);
 });
 
 test("requires complete DIY, alternative-provider and honest CAESTHETIC execution paths", () => {
@@ -780,4 +675,75 @@ test("resolves Growth Economics without changing Growth Score thresholds", () =>
   assert.equal(approved.attribution.status, "complete");
   assert.equal(approved.attribution.evidenceClass, "A");
   assert.deepEqual(approved.attribution.sources, ["fixture://economics-review"]);
+});
+
+test("Focus Selection rejects two, five, unproven, backlog and two long initiatives", () => {
+  const two = report();
+  two.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap"];
+  assert.throws(() => scoreGrowthReport(two), /2 or 3 items|exactly 3 or 4/);
+
+  const five = report();
+  five.humanDiagnosis.gap_inventory.push(createGap({
+    id: "extra-verified",
+    title: "Extra verified gap",
+    surfaces: ["website"],
+    journey_stage: "enquiry",
+    evidence_refs: ["website.treatment_clarity"],
+    why_it_matters: "Extra verified finding.",
+  }));
+  five.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap", "proof-gap", "response-backlog", "extra-verified"];
+  assert.throws(() => scoreGrowthReport(five), /2 or 3 items|exactly 3 or 4/);
+
+  const unproven = report();
+  unproven.humanDiagnosis.gap_inventory[0].diagnosis_state = "insufficient_evidence";
+  unproven.humanDiagnosis.gap_inventory[0].sprint_fit.mode = "backlog";
+  assert.throws(() => scoreGrowthReport(unproven), /verified_gap|evidence_incomplete|cannot be selected/);
+
+  const backlogFocus = report();
+  backlogFocus.humanDiagnosis.gap_inventory[1].sprint_fit.mode = "backlog";
+  assert.throws(() => scoreGrowthReport(backlogFocus), /backlog cannot enter Focus Selection/);
+
+  const twoLong = report();
+  twoLong.humanDiagnosis.gap_inventory.push(createGap({
+    id: "extra-close",
+    title: "Extra closeable gap",
+    surfaces: ["website"],
+    journey_stage: "enquiry",
+    evidence_refs: ["website.treatment_clarity"],
+    why_it_matters: "Extra closeable finding.",
+  }));
+  twoLong.humanDiagnosis.gap_inventory[0].sprint_fit.mode = "start_in_30_days";
+  twoLong.humanDiagnosis.gap_inventory[0].repair_plan.day_30_outcome = "Baseline exists.";
+  twoLong.humanDiagnosis.gap_inventory[0].repair_plan.beyond_day_30 = "Continue later.";
+  twoLong.humanDiagnosis.gap_inventory[1].sprint_fit.mode = "start_in_30_days";
+  twoLong.humanDiagnosis.gap_inventory[1].repair_plan.day_30_outcome = "First page ships.";
+  twoLong.humanDiagnosis.gap_inventory[1].repair_plan.beyond_day_30 = "Continue later.";
+  twoLong.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap", "proof-gap", "extra-close"];
+  assert.throws(() => scoreGrowthReport(twoLong), /at most one start_in_30_days/);
+});
+
+test("score does not automatically choose Focus Gaps", () => {
+  const lowScore = report({ search: 10, website: 90, social: 90, reputation: 90, cross: 80 });
+  const highSearch = report({ search: 90, website: 10, social: 10, reputation: 10, cross: 10 });
+  assert.deepEqual(
+    lowScore.humanDiagnosis.focus_selection,
+    highSearch.humanDiagnosis.focus_selection,
+  );
+  assert.equal(scoreGrowthReport(lowScore).surfaces.search.rawScore < scoreGrowthReport(highSearch).surfaces.search.rawScore, true);
+  const evidenceIndex = new Map([
+    ["search.map_visibility", { evidence_class: "A", raw_value: "x", normalized_score: 10, reviewer_status: "approved" }],
+    ["website.booking_friction", { evidence_class: "A", raw_value: "x", normalized_score: 90, reviewer_status: "approved" }],
+    ["social.proof_quality", { evidence_class: "A", raw_value: "x", normalized_score: 90, reviewer_status: "approved" }],
+    ["search.freshness", { evidence_class: "A", raw_value: "x", normalized_score: 40, reviewer_status: "approved" }],
+    ["reputation.response_speed", { evidence_class: "A", raw_value: "x", normalized_score: 40, reviewer_status: "approved" }],
+  ]);
+  assert.doesNotThrow(() => validateFocusSelectionContract(lowScore.humanDiagnosis, evidenceIndex));
+});
+
+test("fewer than three verified gaps is evidence_incomplete and cannot be approved", () => {
+  const incomplete = report();
+  incomplete.humanDiagnosis.gap_inventory = incomplete.humanDiagnosis.gap_inventory.slice(0, 2);
+  incomplete.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap"];
+  assert.throws(() => scoreGrowthReport(incomplete), EvidenceIncompleteError);
+  assert.throws(() => scoreGrowthReport(incomplete), /evidence_incomplete/);
 });
