@@ -112,7 +112,9 @@ class DecideDeletionTest(unittest.TestCase):
         installer = (ROOT / "scripts" / "caesthetic" / "install-continuous-sync.sh").read_text()
         self.assertIn("$DATA_ROOT/grainee", installer)
         self.assertIn("$DATA_ROOT/satellite", installer)
-        self.assertIn("git clone --branch main --single-branch", installer)
+        self.assertIn("git clone --shared --no-checkout", installer)
+        self.assertIn("sparse-checkout set", installer)
+        self.assertIn("copy_git_auth_config", installer)
 
     def test_runner_skips_full_reconcile_when_remote_heads_are_unchanged(self):
         root = Path(self.tmp.name)
