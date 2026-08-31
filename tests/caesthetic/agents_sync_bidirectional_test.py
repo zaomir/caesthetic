@@ -115,6 +115,8 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("git clone --shared --no-checkout", installer)
         self.assertIn("sparse-checkout set", installer)
         self.assertIn("copy_git_auth_config", installer)
+        self.assertIn("push --dry-run", installer)
+        self.assertIn("git@github.com:zaomir/grainee-v2.git", installer)
 
     def test_runner_skips_full_reconcile_when_remote_heads_are_unchanged(self):
         root = Path(self.tmp.name)

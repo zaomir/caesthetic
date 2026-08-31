@@ -60,8 +60,21 @@ copy_git_auth_config() {
   chmod 600 "$target_repo/.git/config"
 }
 
+select_authenticated_remote() {
+  local target_repo="$1" https_url="$2" ssh_url="$3" candidate
+  for candidate in "$ssh_url" "$https_url"; do
+    if GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND='ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new' \
+      git -C "$target_repo" push --dry-run "$candidate" main:main >/dev/null 2>&1; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done
+  echo "ERROR: no non-interactive GitHub push credential for $https_url" >&2
+  return 1
+}
+
 prepare_isolated_clone() {
-  local source_repo="$1" target_repo="$2" remote_url="$3"
+  local source_repo="$1" target_repo="$2" remote_url="$3" ssh_url="$4" authenticated_url
   if [[ ! -d "$target_repo/.git" ]]; then
     if [[ -d "$target_repo" ]]; then
       [[ -z "$(find "$target_repo" -mindepth 1 -maxdepth 1 -print -quit)" ]] || {
@@ -78,12 +91,15 @@ prepare_isolated_clone() {
       agents/manifests deploy/systemd
     git -C "$target_repo" checkout main
   fi
-  git -C "$target_repo" remote set-url origin "$remote_url"
   copy_git_auth_config "$source_repo" "$target_repo"
+  authenticated_url="$(select_authenticated_remote "$target_repo" "$remote_url" "$ssh_url")"
+  git -C "$target_repo" remote set-url origin "$authenticated_url"
 }
 
-prepare_isolated_clone "$LIVE_GRAINEE_ROOT" "$GRAINEE_ROOT" "$GRAINEE_ORIGIN"
-prepare_isolated_clone "$SATELLITE_LIVE_ROOT" "$SATELLITE_ROOT" "$SATELLITE_ORIGIN"
+prepare_isolated_clone "$LIVE_GRAINEE_ROOT" "$GRAINEE_ROOT" "$GRAINEE_ORIGIN" \
+  "git@github.com:zaomir/grainee-v2.git"
+prepare_isolated_clone "$SATELLITE_LIVE_ROOT" "$SATELLITE_ROOT" "$SATELLITE_ORIGIN" \
+  "git@github.com:zaomir/caesthetic.git"
 
 install -d -m 755 /etc/caesthetic-repo-sync
 {
