@@ -105,6 +105,60 @@ class DecideDeletionTest(unittest.TestCase):
             self.write(self.g, rel, "unit")
             self.assertIn(rel, SYNC.collect_rels(self.g))
 
+    def test_runner_skips_full_reconcile_when_remote_heads_are_unchanged(self):
+        root = Path(self.tmp.name)
+        bare_g = root / "g.git"
+        bare_s = root / "s.git"
+        work_g = root / "work-g"
+        install_root = root / "install"
+        install_root.mkdir()
+        for bare in (bare_g, bare_s):
+            subprocess.run(["git", "init", "--bare", "--initial-branch=main", str(bare)],
+                           check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "clone", str(bare_g), str(work_g)], check=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "config", "user.name", "Test"], cwd=work_g, check=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=work_g, check=True)
+        (work_g / "seed").write_text("g")
+        subprocess.run(["git", "add", "."], cwd=work_g, check=True)
+        subprocess.run(["git", "commit", "-m", "seed"], cwd=work_g, check=True,
+                       stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=work_g, check=True,
+                       stdout=subprocess.DEVNULL)
+        seed_s = root / "seed-s"
+        subprocess.run(["git", "clone", str(bare_s), str(seed_s)], check=True,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "config", "user.name", "Test"], cwd=seed_s, check=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=seed_s, check=True)
+        (seed_s / "seed").write_text("s")
+        subprocess.run(["git", "add", "."], cwd=seed_s, check=True)
+        subprocess.run(["git", "commit", "-m", "seed"], cwd=seed_s, check=True,
+                       stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=seed_s, check=True,
+                       stdout=subprocess.DEVNULL)
+
+        calls = root / "calls"
+        fake = install_root / "sync_agents_bidirectional.py"
+        fake.write_text(f"from pathlib import Path\nPath({str(calls)!r}).write_text('called')\n")
+        env = {
+            **dict(__import__("os").environ),
+            "CAESTHETIC_SYNC_INSTALL_ROOT": str(install_root),
+            "GRAINEE_ROOT": str(work_g),
+            "CAESTHETIC_AGENTS_DIR": str(root / "satellite"),
+            "CAESTHETIC_AGENTS_REPO_URL": str(bare_s),
+            "CAESTHETIC_SYNC_LOCK": str(root / "lock"),
+            "CAESTHETIC_SYNC_REMOTE_STATE": str(root / "remote-heads"),
+        }
+        runner = ROOT / "scripts" / "caesthetic" / "continuous-sync-runner.sh"
+        first = subprocess.run(["bash", str(runner)], env=env, check=True,
+                               capture_output=True, text=True)
+        self.assertIn("CAESTHETIC_REPO_SYNC_APPLIED", first.stdout)
+        calls.unlink()
+        second = subprocess.run(["bash", str(runner)], env=env, check=True,
+                                capture_output=True, text=True)
+        self.assertIn("CAESTHETIC_REPO_SYNC_IDLE", second.stdout)
+        self.assertFalse(calls.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

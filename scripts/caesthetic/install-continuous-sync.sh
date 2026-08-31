@@ -33,11 +33,12 @@ install -m 644 "$SOURCE_ROOT/deploy/systemd/caesthetic-repo-sync.service" \
 install -m 644 "$SOURCE_ROOT/deploy/systemd/caesthetic-repo-sync.timer" \
   "$SYSTEMD_ROOT/caesthetic-repo-sync.timer"
 
-install -d -m 755 /etc/caesthetic-repo-sync
+install -d -m 755 /etc/caesthetic-repo-sync /var/lib/caesthetic-repo-sync
 {
   printf 'GRAINEE_ROOT=%q\n' "$GRAINEE_ROOT"
   printf 'CAESTHETIC_AGENTS_DIR=%q\n' "$SATELLITE_ROOT"
   printf 'CAESTHETIC_SYNC_LOCK=%q\n' "/run/lock/caesthetic-repo-sync.lock"
+  printf 'CAESTHETIC_SYNC_REMOTE_STATE=%q\n' "/var/lib/caesthetic-repo-sync/remote-heads"
 } > /etc/caesthetic-repo-sync/environment
 chmod 600 /etc/caesthetic-repo-sync/environment
 
@@ -51,4 +52,4 @@ systemctl is-enabled --quiet caesthetic-repo-sync.timer
 systemctl is-active --quiet caesthetic-repo-sync.timer
 systemctl --no-pager --full status caesthetic-repo-sync.timer | sed -n '1,12p'
 systemctl --no-pager --full status caesthetic-repo-sync.service | sed -n '1,18p' || true
-echo "CAESTHETIC_REPO_SYNC_INSTALL_PASS interval=15s github_actions=disabled"
+echo "CAESTHETIC_REPO_SYNC_INSTALL_PASS interval=15s remote_head_gate=enabled github_actions=disabled"
