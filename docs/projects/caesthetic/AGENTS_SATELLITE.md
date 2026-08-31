@@ -26,7 +26,7 @@ bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
 bash scripts/caesthetic/install-continuous-sync.sh                   # VPS2402: systemd timer, 15 s
 ```
 
-Runtime canon: `caesthetic-repo-sync.timer` + `caesthetic-repo-sync.service` (15 seconds, `flock /run/lock/caesthetic-repo-sync.lock`). The installer removes the retired 10-minute cron so the two schedulers cannot race.
+Runtime canon: `caesthetic-repo-sync.timer` + `caesthetic-repo-sync.service` (15 seconds, `flock /run/lock/caesthetic-repo-sync.lock`). Reconciliation uses isolated checkouts under `/var/lib/caesthetic-repo-sync/`, never the production checkout. The installer removes the retired 10-minute cron so the two schedulers cannot race.
 
 Policy: per-file hash vs last state; one-side change wins; true conflicts → protected paths prefer grainee, else newer mtime. See DEC-829.
 
