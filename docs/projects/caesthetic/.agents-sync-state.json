@@ -352,6 +352,7 @@
     "docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md": "da7ab03712d57706785086e8c59c67e65f63d011a0be0c487a730da2f5b09d89",
     "docs/ssot/CAESTHETIC_DEC_851_EVIDENCE_UNIT_V2_AMENDMENT_PROPOSAL.md": "7905c1368dd293d8a1ba728b17b6fdcf7fc2c8edeba0ebda80089c78b8ca9093",
     "docs/ssot/CAESTHETIC_DELIVERY_AND_COMMUNICATION.md": "d0e5ec6865c68c8a2a2a6adb5d0b3471649a94c9e7bd6c5e4e31d1a9e3f48763",
+    "docs/ssot/CAESTHETIC_DOLPHIN_833304152_AUTONOMY.md": "27efb85c5f173a45afa8e48d40058877233c99a4699261e897a6d844365f95dd",
     "docs/ssot/CAESTHETIC_EMAIL_TO_IG.md": "b1872ed4768f4ee0f4288bf9cef35d5191a15a01ce56dfb9e5d60d02742bf1f1",
     "docs/ssot/CAESTHETIC_ENTERTAINMENT_REELS_REFERENCE_MAP.md": "2f3a6d7b850340e91ecad1389db3f971d5c4835809ff30119b083d977d80babe",
     "docs/ssot/CAESTHETIC_ENTERTAINMENT_VOC_TOPIC_BANK.md": "1ada083a317d9d3678505de2e74609263d4055408e55fe1e8455c52255c2bd0f",
@@ -406,7 +407,7 @@
     "scripts/caesthetic/cae_ig_qualify_candidate_pool.py": "e9b32ceb2f4b5ddc008a6993ec989255c0677b42f647eee261d56a2a4d0944d2",
     "scripts/caesthetic/cae_ig_qualify_enrich.py": "ae81ba3dda764a6a3aa7512d9366142991362f8868112643514f33b0d56f82c6",
     "scripts/caesthetic/cae_ig_run_coverage_day.sh": "d98b4fab697065f8c3c4ec557702068f05982f6a08736e10639e8d191cc1290c",
-    "scripts/caesthetic/cae_ig_run_coverage_day_guarded.sh": "3ae4cc3642da2cf236afacc1b124ab09c26cf17791699368dd96f86453514aa0",
+    "scripts/caesthetic/cae_ig_run_coverage_day_guarded.sh": "361d108c5fc46d8153a5d53f611ab8a2560b141e3b9f21f722015fbdd58e90c8",
     "scripts/caesthetic/cae_linkedin_master_audit.py": "91f1e3a4152db8b804071f6099eb0dadc782042bc6cdd1ffe890ec82f355efc3",
     "scripts/caesthetic/cae_wave1_no_write.py": "d311df4ac4f54d112eb8efc7614c5dcccca2d70192febe39d4629c0b01ec7c0c",
     "scripts/caesthetic/cae_wave1_public_enrich.py": "62bcf4db20bd0766082a77570e50052268273634f4ce069c48abfde45252ff3b",
@@ -672,6 +673,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "60cb2f597cfbe900acd27e5e9bbd2bd26c3633cd89ad9d0f8fc29b357f13c1f5"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-08-31T01:55:23Z",
+  "updated_at_utc": "2026-08-31T15:58:34Z",
   "version": 1
 }
