@@ -56,7 +56,7 @@ test("the local adapter is pinned to canonical v2.2 and contains every mandatory
   const policy = read(enforcementPath);
   const pointer = read("docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md");
   assert.match(policy, /version: 2\.2/);
-  assert.match(policy, /canonical_commit: 09b5cd09bbdbbd7574eced28f7082ae5d4349558/);
+  assert.match(policy, /canonical_commit: 974da420fc39b97560382df3d877f68f70c40634/);
   const policyVersion = policy.match(/^version:\s*(\S+)/m)?.[1];
   const pointerVersion = pointer.match(/^version:\s*(\S+)/m)?.[1];
   const policyCommit = policy.match(/^canonical_commit:\s*(\S+)/m)?.[1];
