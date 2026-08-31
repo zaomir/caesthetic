@@ -25,7 +25,8 @@ test -d "$LIVE_GRAINEE_ROOT/.git" || {
   exit 1
 }
 
-install -d -m 755 "$INSTALL_ROOT" "$SYSTEMD_ROOT" "$DATA_ROOT"
+install -d -m 755 "$INSTALL_ROOT" "$SYSTEMD_ROOT"
+install -d -m 700 "$DATA_ROOT"
 install -m 755 "$SOURCE_ROOT/scripts/caesthetic/sync_agents_bidirectional.py" \
   "$INSTALL_ROOT/sync_agents_bidirectional.py"
 install -m 755 "$SOURCE_ROOT/scripts/caesthetic/continuous-sync-runner.sh" \
@@ -35,20 +36,56 @@ install -m 644 "$SOURCE_ROOT/deploy/systemd/caesthetic-repo-sync.service" \
 install -m 644 "$SOURCE_ROOT/deploy/systemd/caesthetic-repo-sync.timer" \
   "$SYSTEMD_ROOT/caesthetic-repo-sync.timer"
 
+SATELLITE_LIVE_ROOT="${CAESTHETIC_SYNC_SOURCE_SATELLITE_ROOT:-/var/www/caesthetic}"
 GRAINEE_ORIGIN="$(git -C "$LIVE_GRAINEE_ROOT" remote get-url origin)"
+SATELLITE_ORIGIN="${CAESTHETIC_AGENTS_REPO_URL:-https://github.com/zaomir/caesthetic.git}"
 test -n "$GRAINEE_ORIGIN"
-if [[ ! -d "$GRAINEE_ROOT/.git" ]]; then
-  git clone --branch main --single-branch "$GRAINEE_ORIGIN" "$GRAINEE_ROOT"
-else
-  git -C "$GRAINEE_ROOT" remote set-url origin "$GRAINEE_ORIGIN"
-fi
-if [[ ! -d "$SATELLITE_ROOT/.git" ]]; then
-  git clone --branch main --single-branch \
-    "${CAESTHETIC_AGENTS_REPO_URL:-https://github.com/zaomir/caesthetic.git}" \
-    "$SATELLITE_ROOT"
-fi
+test -d "$SATELLITE_LIVE_ROOT/.git" || {
+  echo "ERROR: missing satellite checkout: $SATELLITE_LIVE_ROOT" >&2
+  exit 1
+}
 
-install -d -m 755 /etc/caesthetic-repo-sync "$DATA_ROOT"
+copy_git_auth_config() {
+  local source_repo="$1" target_repo="$2" key value line
+  while IFS= read -r line; do
+    [[ -n "$line" ]] || continue
+    key="${line%% *}"
+    value="${line#* }"
+    git -C "$target_repo" config --local "$key" "$value"
+  done < <(
+    git -C "$source_repo" config --local --get-regexp \
+      '^(credential\.|http\..*\.extraheader$|core\.sshcommand$|url\..*\.insteadof$)' \
+      2>/dev/null || true
+  )
+  chmod 600 "$target_repo/.git/config"
+}
+
+prepare_isolated_clone() {
+  local source_repo="$1" target_repo="$2" remote_url="$3"
+  if [[ ! -d "$target_repo/.git" ]]; then
+    if [[ -d "$target_repo" ]]; then
+      [[ -z "$(find "$target_repo" -mindepth 1 -maxdepth 1 -print -quit)" ]] || {
+        echo "ERROR: non-empty incomplete sync checkout: $target_repo" >&2
+        exit 1
+      }
+      rmdir "$target_repo"
+    fi
+    git clone --shared --no-checkout "$source_repo" "$target_repo"
+    git -C "$target_repo" sparse-checkout init --cone
+    git -C "$target_repo" sparse-checkout set \
+      site-caesthetic docs/projects/caesthetic docs/caesthetic \
+      docs/audits/caesthetic scripts/caesthetic tests/caesthetic docs/ssot \
+      agents/manifests deploy/systemd
+    git -C "$target_repo" checkout main
+  fi
+  git -C "$target_repo" remote set-url origin "$remote_url"
+  copy_git_auth_config "$source_repo" "$target_repo"
+}
+
+prepare_isolated_clone "$LIVE_GRAINEE_ROOT" "$GRAINEE_ROOT" "$GRAINEE_ORIGIN"
+prepare_isolated_clone "$SATELLITE_LIVE_ROOT" "$SATELLITE_ROOT" "$SATELLITE_ORIGIN"
+
+install -d -m 755 /etc/caesthetic-repo-sync
 {
   printf 'GRAINEE_ROOT=%q\n' "$GRAINEE_ROOT"
   printf 'CAESTHETIC_AGENTS_DIR=%q\n' "$SATELLITE_ROOT"
