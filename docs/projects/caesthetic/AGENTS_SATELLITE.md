@@ -17,16 +17,16 @@
 
 ## Sync (bidirectional)
 
-Updates flow **both ways**. Edit in either repo — cron (every 10 min on VDS) or manual sync keeps them aligned.
+Updates flow **both ways**. Edit in either repo — the VPS2402 systemd timer detects remote changes within 15 seconds and reconciles them without GitHub Actions.
 
 ```bash
 cd /var/www/grainee-v2
 bash scripts/caesthetic/sync-agents-bidirectional.sh                 # dry-run
 bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
-bash scripts/caesthetic/install-agents-sync-cron.sh                  # VDS: /etc/cron.d/caesthetic-agents-sync
+bash scripts/caesthetic/install-continuous-sync.sh                   # VPS2402: systemd timer, 15 s
 ```
 
-Cron canon: `deploy/cron.d/caesthetic-agents-sync` (every 10 min, `flock /tmp/caesthetic-agents-sync.lock`, log `/var/log/caesthetic-agents-sync.log`).
+Runtime canon: `caesthetic-repo-sync.timer` + `caesthetic-repo-sync.service` (15 seconds, `flock /run/lock/caesthetic-repo-sync.lock`). The installer removes the retired 10-minute cron so the two schedulers cannot race.
 
 Policy: per-file hash vs last state; one-side change wins; true conflicts → protected paths prefer grainee, else newer mtime. See DEC-829.
 
@@ -37,5 +37,5 @@ Not mirrored (public-safe exclusions): `site-caesthetic/private/`, unlisted real
 1. Agents / Mobile: project **caesthetic**
    Desktop IDE: `caesthetic.code-workspace` or the Agents repo folder
 2. Commit in that repo (or in grainee under CAESTHETIC paths)
-3. Wait for cron **or** run the sync command above
+3. Wait up to 15 seconds **or** run the sync command above
 4. Deploy **only** from grainee-v2

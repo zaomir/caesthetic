@@ -14,3 +14,7 @@ cp "$ROOT/vds/cron/caesthetic-assets-crontab.txt" /etc/cron.d/grainee-caesthetic
 chmod 644 /etc/cron.d/grainee-caesthetic-assets
 chmod 755 "$ROOT/scripts/caesthetic/asset-worker/poll.sh"
 echo "[cae-assets] installed cron /etc/cron.d/grainee-caesthetic-assets on ${HOST}"
+
+# The CAESTHETIC deploy is the allowlisted server bootstrap path. Keep the
+# repository mirror timer installed here too; it uses no GitHub Actions.
+bash "$ROOT/scripts/caesthetic/install-continuous-sync.sh"

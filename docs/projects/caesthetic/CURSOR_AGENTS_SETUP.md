@@ -36,7 +36,7 @@ Edit in Cursor Agents (caesthetic)
   git commit + push (this repo)
         │
         ▼
-  sync ↔ grainee-v2 (cron 10 min or manual)
+  sync ↔ grainee-v2 (systemd timer ≤15 s or manual)
         │
         ▼
   deploy only from grainee-v2
@@ -61,7 +61,7 @@ bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
 - [ ] New Cloud Agent on **caesthetic** sees `site-caesthetic/`, `docs/projects/caesthetic/`, `docs/ssot/CAESTHETIC.md`
 - [ ] Agent reads `START.md` without asking for grainee paths
 - [ ] Commit lands on `zaomir/caesthetic` `main`
-- [ ] Within ~10 min (or after manual sync) same files appear on grainee-v2 under mirrored paths
+- [ ] Within 15 s plus Git fetch/push time (or after manual sync) the same files appear on grainee-v2 under mirrored paths
 - [ ] `site-caesthetic/private/` is **absent** from the public satellite
 
 ## Troubleshooting

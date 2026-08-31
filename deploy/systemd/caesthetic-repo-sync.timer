@@ -1,0 +1,13 @@
+[Unit]
+Description=Run CAESTHETIC repository sync every 15 seconds
+
+[Timer]
+OnBootSec=10s
+OnUnitActiveSec=15s
+AccuracySec=1s
+RandomizedDelaySec=0
+Persistent=false
+Unit=caesthetic-repo-sync.service
+
+[Install]
+WantedBy=timers.target
