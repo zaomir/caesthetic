@@ -43,12 +43,41 @@ Production root: `site-caesthetic/`
 Deploy target: `caesthetic`  
 Public domain: `caesthetic.com`
 
-## Cursor Agents satellite (DEC-829)
+## Agents satellite (DEC-829)
 
-- Agents GitHub project: `zaomir/caesthetic` (local `/var/www/caesthetic`)
-- Bidirectional sync: `bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push`
-- Do not deploy from the Agents satellite
-- Setup: `docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md`
+- Agents GitHub project: `zaomir/caesthetic` (local `/var/www/caesthetic`).
+- Bidirectional sync: `bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push`.
+- Do not deploy from the Agents satellite. Production deploy authority remains `zaomir/grainee-v2`.
+- Setup: `docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md`.
+
+### Growth Score authoring from satellite — explicitly allowed
+
+An agent that has access **only** to `zaomir/caesthetic` is allowed to edit the current Growth Score audit/template implementation in this repository. The satellite is a valid authoring surface; it is not read-only.
+
+Authorable Growth Score paths include:
+
+- `docs/caesthetic/growth_score_spec.md`
+- `docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md`
+- `docs/ssot/CAESTHETIC*.md` except files intentionally excluded by the DEC-829 manifest
+- `scripts/caesthetic/growth-score-report-template.mjs`
+- `scripts/caesthetic/render-growth-score.mjs`
+- `scripts/caesthetic/growth-score-*.mjs`
+- `site-caesthetic/assets/js/growth-score-engine.mjs`
+- `site-caesthetic/assets/js/growth-cockpit.js`
+- `site-caesthetic/assets/css/growth-report*.css`
+- `tests/caesthetic/growth-score-*.test.mjs`
+
+Rules for a satellite-only agent:
+
+1. Pull `zaomir/caesthetic/main` before editing.
+2. Read the current SSOT/spec in this repository before changing the template.
+3. Edit and commit/push to `zaomir/caesthetic` normally.
+4. DEC-829 bidirectional sync treats a **satellite-only change as authoritative for that sync cycle** and propagates it `satellite → grainee-v2`, including protected Growth Score paths. `protected` means only that `grainee-v2` wins if **both repositories changed the same protected file since the last sync**; it does not make the satellite file read-only.
+5. Never edit excluded private client routes/packs in the satellite; those intentionally do not sync.
+6. Never deploy from `zaomir/caesthetic`. After the change reaches `grainee-v2`, canonical tests/deploy/smoke run from `grainee-v2`.
+7. If the same protected file changed concurrently in both repos, stop and report the conflict instead of trying to force satellite content over `grainee-v2`.
+
+The executable guard for this contract is `tests/caesthetic/satellite-growth-score-authoring.test.py`.
 
 ## Outreach audience (Phase-1 IG)
 
