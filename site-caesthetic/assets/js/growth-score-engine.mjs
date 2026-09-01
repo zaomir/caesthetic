@@ -91,7 +91,7 @@ export const HUMAN_REVIEW_METRICS = Object.freeze(Object.fromEntries(
 
 export const REGISTERED_HUMAN_REVIEWER_MONONYMS = Object.freeze(["Валерия"]);
 export const GROWTH_SCORE_SCHEMA_VERSION = 5;
-export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/5.1.0";
+export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/5.2.0";
 export const GROWTH_SCORE_VERTICAL_CONTEXTS = Object.freeze([
   "aesthetic_practice",
   "dental_practice",

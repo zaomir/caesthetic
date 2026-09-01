@@ -11,7 +11,7 @@ standards: [docs/ssot/WEBSITE_STUDIO_STANDARD.md, docs/ssot/IMPECCABLE_WEBSITE_A
 
 ## Design discovery
 
-**DESIGN DISCOVERY:** The route is a private Russian-language Growth Score v5 for one Odessa beauty-salon location. It reuses the canonical evidence-first renderer. It must preserve honest `Insufficient evidence`, show the human-selected Gap Map before scores, avoid medical or commercial guarantees and remain unavailable without server-side package authentication.
+**DESIGN DISCOVERY:** The route is a password-protected, noindex Russian-language Growth Score v5 for one Odessa beauty-salon location. It reuses the canonical evidence-first renderer. It must preserve honest `Insufficient evidence`, show the human-selected Gap Map before scores, avoid medical or commercial guarantees and remain outside search indexes, the sitemap and the public case catalogue.
 
 ## Impeccable execution
 
@@ -25,12 +25,12 @@ standards: [docs/ssot/WEBSITE_STUDIO_STANDARD.md, docs/ssot/IMPECCABLE_WEBSITE_A
 - The manager-resolved `beauty_salon` context is visibly separated from Class A public evidence.
 - Focus Selection is `NVR-26-01` primary with `NVR-26-02`, `NVR-26-03` and `NVR-26-04` supporting, selected by Travis Warner.
 - Walkthrough remains explicitly pending; no recording or delivery is implied.
-- The route requires the Worker-side access group `nvr-odesa-2026-08-31`; password material is absent from HTML, JavaScript, report JSON and git.
+- The named 2026-09-01 founder release removes the Worker-side password from this route only; no password field, access cookie or access-group dependency may remain.
 
 ## Release decision
 
-Local repository QA passed: schema-v5 validation, deterministic rendering, Cloudflare typecheck, mobile/desktop visual inspection and sitemap exclusion. Production delivery remains blocked until server-side password/session and production smoke pass.
+Local repository QA passed: schema-v5 validation, deterministic rendering, Cloudflare typecheck, mobile/desktop visual inspection and sitemap exclusion. Production delivery requires server-side password enforcement, an authenticated live render, full noindex headers and sitemap/catalog exclusion smoke.
 
-**IMPECCABLE PASS:** final `/impeccable polish` and `/impeccable audit` checked Russian copy, canonical schema-v5 hierarchy, 390 px and 1440 px rendering, no horizontal page overflow, pending-walkthrough disclosure, noindex and private-route boundaries.
+**IMPECCABLE PASS:** final `/impeccable polish` and `/impeccable audit` checked Russian copy, canonical schema-v5 hierarchy, 390 px and 1440 px rendering, no horizontal page overflow, pending-walkthrough disclosure and protected/noindex boundaries.
 
 **DETECTOR EVIDENCE:** browser snapshots confirmed `lang=ru`, the Russian title and Gap Map, `documentElement.scrollWidth === clientWidth` at 390 px, and readable mobile/desktop hero and diagnosis surfaces. The deterministic renderer, catalog guard, sitemap exclusion tests and Cloudflare typecheck passed locally.

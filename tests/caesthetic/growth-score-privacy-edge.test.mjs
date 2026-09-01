@@ -7,14 +7,25 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 
-test("CAESTHETIC score access is fail-closed except catalogue and synthetic demos", () => {
+test("CAESTHETIC score access is fail-closed and Nohy remains server-side protected", () => {
   const router = read("infra/cloudflare/router/src/index.ts");
+  const manifest = JSON.parse(read("infra/cloudflare/brands/caesthetic.manifest.json"));
+  const cutover = read("scripts/cf-caesthetic-cutover.sh");
   assert.match(router, /env\.BRAND !== 'caesthetic' \|\| !pathname\.startsWith\('\/score\/'\)/);
   assert.match(router, /pathname === '\/score\/'/);
   assert.match(router, /pathname === '\/score\/catalog\.json'/);
   assert.match(router, /pathname\.startsWith\('\/score\/demo-'\)/);
+  assert.match(router, /isConfiguredPublicScorePath\(env\.SCORE_PUBLIC_PATHS, pathname\)/);
+  assert.match(router, /X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet'/);
   assert.match(router, /This private Growth Score is not available/);
   assert.match(router, /protectedResponse\([\s\S]*404/);
+  assert.deepEqual(manifest.scoreProtectedPaths, [{
+    prefix: "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+    accessGroupId: "nvr-odesa-2026-08-31",
+  }]);
+  assert.deepEqual(manifest.scorePublicPaths, []);
+  assert.match(cutover, /SCORE_PROTECTED_PATHS/);
+  assert.match(cutover, /SCORE_PUBLIC_PATHS/);
 });
 test("DEC-829 excludes client score artifacts and protects canonical Growth Score authorities", () => {
   const manifest = read("docs/projects/caesthetic/SYNC_MANIFEST.yml");
