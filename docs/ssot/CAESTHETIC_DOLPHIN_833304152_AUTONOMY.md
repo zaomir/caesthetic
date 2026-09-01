@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE SSOT  
 **Effective:** 2026-08-31  
-**Authority:** founder directives “отмени все запреты” + “InMail нужно как можно больше” + `DEC-870` + `DEC-871` + `DEC-872`  
+**Authority:** founder directives “отмени все запреты” + “InMail нужно как можно больше” + `DEC-870` + `DEC-871` + `DEC-872` + `DEC-873`  
 **Runtime:** `zaomir/grainee-v2` → VPS2402 → Dolphin profile `833304152`  
 **Volume parent:** `docs/ssot/OUTBOUND_VOLUME_AND_LIMIT_GOVERNANCE.md`
 
@@ -48,7 +48,7 @@ A higher stale manifest value never overrides a lower active runtime guard. `0` 
 | Action class | Canonical effective policy | Limit class | Interpretation |
 |---|---|---|---|
 | LinkedIn inbound replies | no numeric count cap | verified-inbound policy | Process all verified unread threads. Acknowledgements may need no reply. Substantive commercial, pricing, complaint, legal, medical, mandate or scope-changing replies escalate to a named human owner. The manifest value `linkedin_replies=20` is legacy/non-binding and must not be reported as an effective limit. |
-| Protected InMail | no internal daily / weekly / monthly count cap | platform entitlement + qualification + time budget | Drain every qualified protected-queue row until live InMail credits, platform stop, challenge/login/identity failure, empty qualified inventory or the pulse wall-clock budget ends. The next pulse continues. `DEC-870` is binding. |
+| Protected InMail | no internal daily / weekly / monthly count cap | **LinkedIn limits only** (`DEC-873`) + time budget | Drain every protected-queue `ready` row from accepted Sales Navigator saves until live InMail credits, platform stop, challenge/login/identity/suppression failure, empty inventory or the pulse wall-clock budget ends. ICP/aesthetic/US/role research gates must not reject queue entry. `DEC-870` + `DEC-873` are binding. |
 | LinkedIn comments | up to `7/day` | provisional public-action risk ceiling | Maximum, not target. Use only relevant fresh-author inventory; thin qualified inventory correctly produces fewer or zero comments. No increase is approved by this review. |
 | Sales Navigator saves | up to `25/day` | research/downstream-capacity ceiling | Private research throughput. Accepted saves now feed the qualification pipeline; the save itself is still not send authority. |
 | Connection requests | up to `5/day`, `25/week`, maximum `2/tick` | provisional public-action risk ceiling | Warm/relevant candidates only. Review acceptance, replies, ignored invitations, warnings and qualified dialogue before any increase. These are internal values, not claimed LinkedIn limits. |
@@ -62,38 +62,34 @@ A higher stale manifest value never overrides a lower active runtime guard. `0` 
 | Approved content publishing | `2/run` | batch cap | Publish only approved due content. This is not a requirement to create filler or publish twice. |
 | Work window / pulse | weekdays `09:00–17:00 America/New_York`; randomized every `150–210 min` | schedule/time budget | Founder cadence from `DEC-872`. The daemon randomizes `9000–12600` seconds after each completed tick; it is not a fixed cron. |
 
-For InMail specifically, old `2/day`, `10/week`, `50/month` values are superseded. They were internal conservative defaults, not LinkedIn limits. InMail throughput must maximize use of the account's actual available credits while preserving recipient qualification, suppression, idempotency, evidence and accepted-state verification.
+For InMail specifically, old `2/day`, `10/week`, `50/month` values are superseded. They were internal conservative defaults, not LinkedIn limits. Under `DEC-873`, InMail throughput must maximize use of the account's actual available LinkedIn credits. Internal ICP filters are forbidden as volume gates. Suppression, send-time recipient confirmation, idempotency and accepted-state verification remain.
 
-## 4. Saved lead → qualified protected queue
+## 4. Saved lead → protected InMail queue (`DEC-873`)
 
-Accepted Sales Navigator saves now feed a persistent qualification backlog. A saved name alone is never send authority.
+Accepted Sales Navigator saves feed a persistent backlog and then the protected InMail queue. A saved name alone is never send authority; an exact `/sales/lead/` URL is the send target.
 
 The executable path is:
 
 ```text
 accepted Sales Navigator save
-→ exact person match
-→ current decision-role verification
-→ US-location verification
-→ aesthetic-practice relevance verification
-→ exact LinkedIn /in/ profile resolution
+→ exact /sales/lead/ recipient target
 → local + available master suppression checks
 → deterministic first-touch Growth Score copy
-→ protected InMail queue
-→ DEC-870 InMail drain
+→ protected InMail queue (ready)
+→ DEC-870 / DEC-873 InMail drain until LinkedIn limits stop it
 ```
 
-A row is not added when identity is ambiguous, the decision role cannot be verified, the practice/aesthetics relevance is insufficient, US location cannot be verified, the `/in/` profile cannot be resolved or suppression is hit.
+ICP-style gates (decision-role, US-location, aesthetic-practice, public `/in/` resolution) must **not** reject queue entry. A row is not added only when the Sales Navigator lead target is missing/ambiguous, suppression is hit, or a LinkedIn safety/session blocker prevents verification.
 
 Protected host-only state:
 
 - `/var/lib/social-fleet/protected/caesthetic-sn-qualification-backlog.json` — saved-lead backlog and qualification state;
 - `/var/lib/social-fleet/protected/caesthetic-linkedin-suppression.json` — CAESTHETIC LinkedIn channel suppression registry;
-- `/var/lib/social-fleet/protected/caesthetic-inmail-production-queue.json` — send-capable qualified rows.
+- `/var/lib/social-fleet/protected/caesthetic-inmail-production-queue.json` — send-capable rows.
 
 Names, profile URLs and message copy in these files remain private and must not be committed or emitted into public evidence. Reports expose counts, hashed references and stop reasons only.
 
-The deterministic initial InMail uses only verified role/company context, offers the free human-verified Growth Score and one CTA, and does not diagnose a leak or promise ranking, patients, revenue, ROI or growth.
+The deterministic initial InMail uses available role/company context when present, offers the free human-verified Growth Score and one CTA, and does not diagnose a leak or promise ranking, patients, revenue, ROI or growth.
 
 ## 5. Non-negotiable stops
 
@@ -140,8 +136,8 @@ The autonomy decision is implemented only when:
 1. production config contains no artificial InMail `2/day`, `10/week`, `50/month` execution cap;
 2. the autonomous pulse runs on randomized `150–210 minute` cadence inside the approved work window;
 3. recent accepted Sales Navigator saves are automatically ingested into the qualification backlog;
-4. only evidence-qualified, suppression-clear saved leads reach the protected InMail queue;
-5. the autonomous pulse drains qualified protected InMail rows until live credits/platform state/time budget stops it;
+4. Sales Navigator saved leads with an exact `/sales/lead/` target and clear suppression reach the protected InMail queue; ICP/aesthetic/US/role gates must not reject entry (`DEC-873`);
+5. the autonomous pulse drains protected InMail `ready` rows until live LinkedIn credits/platform state/time budget stops it;
 6. invite-cap is disabled for eligible connections;
 7. inbound LinkedIn reply, saved-lead qualification and protected InMail workers are part of the live cycle;
 8. Facebook engagement and approved-content workers are part of the live cycle;
