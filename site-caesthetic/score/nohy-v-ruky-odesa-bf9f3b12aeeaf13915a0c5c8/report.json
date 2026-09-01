@@ -4,7 +4,7 @@
   "reportVersion": "nohy-v-ruky-odesa-public-evidence/1.0.0",
   "verifiedFactSetVersion": "nohy-v-ruky-odesa-2026-08-31/1.0.0",
   "reportKind": "real",
-  "templateVersion": "growth-score-report-template/5.1.0",
+  "templateVersion": "growth-score-report-template/5.2.0",
   "reportContext": {
     "vertical_context": "beauty_salon",
     "report_locale": "ru",

@@ -72,11 +72,13 @@ test("publishes three clearly synthetic v5 demos through the same approved-repor
     assert.match(html, /Differentiate/);
     assert.match(html, /Do not copy/);
     assert.match(html, /Market Practice Gap/);
-    assert.match(html, /Human-approved diagnosis/);
+    assert.match(html, /Gap Map · Human-approved diagnosis/);
     assert.match(html, /Focus Gaps/);
     assert.match(html, /Approximate \/ secondary navigation/);
     assert.match(html, /Cross-Surface Consistency/);
     assert.match(html, /Full Problem \/ Gap Inventory/);
+    assert.match(html, /YOUR GROWTH SCORE · HOW TO READ THIS REPORT/);
+    assert.equal((html.match(/data-cockpit-order=/g) || []).length, 9);
     assert.match(html, /Do it in-house/);
     assert.match(html, /Use another provider/);
     assert.match(html, /no (?:exclusive method or )?lock-in|without CAESTHETIC/i);

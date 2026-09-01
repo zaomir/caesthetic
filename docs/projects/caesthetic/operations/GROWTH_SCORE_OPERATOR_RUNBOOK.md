@@ -76,7 +76,7 @@ Human-gated edges (`fact_set_frozen`, `approved`, `delivered`) require a named h
 Typical operator flow:
 
 1. **created → researching** — same-day triage complete; owner assigned
-2. **researching → draft_review → fact_set_frozen → report_review → approved** — evidence review, complete schema-v5 Gap Inventory, append-only named-human Focus Selection, then `growth-score-report-template/5.0.0` report review
+2. **researching → draft_review → fact_set_frozen → report_review → approved** — evidence review, complete schema-v5 Gap Inventory, append-only named-human Focus Selection, then `growth-score-report-template/5.2.0` report review with one unnumbered Intro before the exact nine-section cockpit
 3. **deliver** — record private path and walkthrough readiness:
 
 ```bash

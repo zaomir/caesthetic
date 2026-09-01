@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "templateVersion": "growth-score-report-template/5.1.0",
+  "templateVersion": "growth-score-report-template/5.2.0",
   "reportState": "approved_report",
   "reportVersion": "demo-reputation-gap-v3.0",
   "verifiedFactSetVersion": "demo-reputation-gap-facts-v3.0",

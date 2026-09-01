@@ -17,19 +17,15 @@ const demoRoutes = [
   "demo-aesthetics-clinic-reputation-gap",
 ];
 const orderedSections = [
-  "executive-overview",
-  "human-approved-diagnosis",
+  "gap-map",
   "focus-gaps",
-  "remediation-plan",
-  "score-navigator",
-  "evidence-drilldown",
-  "gap-inventory",
-  "do-not-fund",
-  "implementation-paths",
-  "why-caesthetic",
   "sprint-fit",
+  "repair-paths",
+  "do-not-fund",
+  "gap-inventory",
+  "evidence-and-competitors",
+  "scores-and-methodology",
   "next-step",
-  "methodology-and-limitations",
 ];
 
 function loadDemo(route) {
@@ -37,21 +33,33 @@ function loadDemo(route) {
 }
 
 function heroHtml(html) {
-  const start = html.indexOf('id="executive-overview"');
-  const end = html.indexOf('id="human-approved-diagnosis"');
+  const start = html.indexOf('id="report-overview"');
+  const end = html.indexOf('id="report-intro"');
   return html.slice(start, end);
 }
 
-test("owner cockpit renders the exact 13-section order with Top 3 before scores", () => {
+test("owner cockpit renders an unnumbered Intro followed by the exact 9-section order", () => {
   const html = renderGrowthReport(fixture);
+  const introIndex = html.indexOf('id="report-intro" data-report-intro');
+  assert.ok(introIndex > html.indexOf('id="report-overview"'));
+  assert.ok(introIndex < html.indexOf('id="gap-map" data-cockpit-order="1"'));
+  assert.doesNotMatch(html.slice(introIndex, html.indexOf("</section>", introIndex)), /data-cockpit-order/);
+  assert.match(html, /YOUR GROWTH SCORE · HOW TO READ THIS REPORT/);
+  assert.match(html, /01 UNDERSTAND/);
+  assert.match(html, /02 PRIORITIZE/);
+  assert.match(html, /03 ACT/);
   let previousIndex = -1;
   orderedSections.forEach((sectionId, index) => {
     const sectionIndex = html.indexOf(`id="${sectionId}" data-cockpit-order="${index + 1}"`);
     assert.ok(sectionIndex > previousIndex, `${sectionId} must follow the prior cockpit section`);
     previousIndex = sectionIndex;
   });
-  assert.ok(html.indexOf("id=\"human-approved-diagnosis\"") < html.indexOf("id=\"focus-gaps\""));
-  assert.ok(html.indexOf("id=\"focus-gaps\"") < html.indexOf("id=\"score-navigator\""));
+  assert.equal((html.match(/data-cockpit-order=/g) || []).length, 9);
+  assert.ok(html.indexOf("id=\"gap-map\"") < html.indexOf("id=\"focus-gaps\""));
+  assert.ok(html.indexOf("id=\"focus-gaps\"") < html.indexOf("id=\"scores-and-methodology\""));
+  for (const retiredId of ["executive-overview", "human-approved-diagnosis", "remediation-plan", "score-navigator", "evidence-drilldown", "implementation-paths", "why-caesthetic", "methodology-and-limitations"]) {
+    assert.doesNotMatch(html, new RegExp(`id="${retiredId}"`));
+  }
   const selectedCount = 1 + fixture.humanDiagnosis.focus_selection.supporting_gap_ids.length;
   assert.equal(selectedCount, 3);
   assert.equal((html.match(/class="cae-focus-gap"/g) || []).length, selectedCount);
@@ -145,10 +153,13 @@ test("Russian real reports render a Russian cockpit without changing English dem
     locale_source: "user_selected",
   });
   assert.match(html, /<html lang="ru"/);
+  assert.match(html, /Краткий обзор · Закрытый Growth Score/);
+  assert.match(html, /Private CAESTHETIC Four-Surface Growth Score/);
   assert.match(html, /Закрытый Growth Score/);
-  assert.match(html, /Диагноз, утверждённый человеком/);
-  assert.match(html, /Ровно 3 фокусных разрыва/);
-  assert.match(html, /Методология и ограничения/);
+  assert.match(html, /ВАШ GROWTH SCORE · КАК ЧИТАТЬ ОТЧЁТ/);
+  assert.match(html, /Карта разрывов · Диагноз, утверждённый человеком/);
+  assert.match(html, /Фокусные разрывы · Ровно 3/);
+  assert.match(html, /Баллы и методология/);
   assert.match(html, /Поручить CAESTHETIC выбранные фокусные разрывы/);
   assert.doesNotMatch(html, />Private Growth Score</);
   assert.doesNotMatch(html, />Human-approved diagnosis</);
@@ -163,6 +174,13 @@ test("all five locales use one renderer and never translate source evidence", ()
     fr: "Synthèse",
     uk: "Короткий огляд",
   };
+  const introKickers = {
+    en: "YOUR GROWTH SCORE · HOW TO READ THIS REPORT",
+    ru: "ВАШ GROWTH SCORE · КАК ЧИТАТЬ ОТЧЁТ",
+    es: "TU GROWTH SCORE · CÓMO LEER ESTE INFORME",
+    fr: "VOTRE GROWTH SCORE · COMMENT LIRE CE RAPPORT",
+    uk: "ВАШ GROWTH SCORE · ЯК ЧИТАТИ ЦЕЙ ЗВІТ",
+  };
   for (const [locale, heading] of Object.entries(headings)) {
     const localized = structuredClone(fixture);
     localized.reportContext.report_locale = locale;
@@ -171,8 +189,23 @@ test("all five locales use one renderer and never translate source evidence", ()
     const html = renderGrowthReport(localized);
     assert.match(html, new RegExp(`<html lang="${locale === "en" ? "en-US" : locale}"`));
     assert.ok(html.includes(heading));
+    assert.ok(html.includes(introKickers[locale]));
     assert.ok(html.includes("Private Growth Score — исходный evidence факт"));
   }
+});
+
+test("deterministic Intro adapts vertical and Multi-Location nouns without changing report facts", () => {
+  const dental = structuredClone(fixture);
+  dental.reportContext.vertical_context = "dental_practice";
+  const dentalHtml = renderGrowthReport(dental);
+  assert.match(dentalHtml, /public journey for this dental practice/);
+  assert.equal(dental.humanDiagnosis.binding_constraint.statement, fixture.humanDiagnosis.binding_constraint.statement);
+
+  const network = structuredClone(fixture);
+  network.audit = { format: "multi_location" };
+  const networkHtml = renderGrowthReport(network);
+  assert.match(networkHtml, /public journey for this practice network and its locations/);
+  assert.equal(network.humanDiagnosis.focus_selection.primary_gap_id, fixture.humanDiagnosis.focus_selection.primary_gap_id);
 });
 
 test("real reports omit coordination counts that cannot be derived", () => {

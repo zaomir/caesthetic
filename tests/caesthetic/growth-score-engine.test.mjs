@@ -345,11 +345,11 @@ test("publication is v5 approved-report only with named human and frozen fact-se
 
   const missingTemplate = report();
   delete missingTemplate.templateVersion;
-  assert.throws(() => scoreGrowthReport(missingTemplate), /templateVersion must be growth-score-report-template\/5\.1\.0/);
+  assert.throws(() => scoreGrowthReport(missingTemplate), /templateVersion must be growth-score-report-template\/5\.2\.0/);
 
   const mismatchedTemplate = report();
   mismatchedTemplate.templateVersion = "growth-score-report-template/4.1.0";
-  assert.throws(() => scoreGrowthReport(mismatchedTemplate), /templateVersion must be growth-score-report-template\/5\.1\.0/);
+  assert.throws(() => scoreGrowthReport(mismatchedTemplate), /templateVersion must be growth-score-report-template\/5\.2\.0/);
 
   assert.equal(valid.templateVersion, GROWTH_SCORE_REPORT_TEMPLATE_VERSION);
 

@@ -457,7 +457,7 @@ function surfaceNavigatorCards(report, result) {
               <strong>${displayScore(result.overall.rawScore)}</strong>
             </header>
             <p class="cae-report-note">Secondary navigator only</p>
-            <a class="cae-report-inline-link" href="#evidence-drilldown">View evidence</a>
+            <a class="cae-report-inline-link" href="#evidence-and-competitors">View evidence</a>
           </article>`;
 
   return cards + cross + overall;
@@ -526,13 +526,157 @@ function walkthroughHeroCard(walkthrough, isDemo) {
   }
 
   const pendingCopy = isDemo
-    ? walkthrough.placeholder
+    ? escapeHtml(walkthrough.placeholder)
     : "Your human-reviewed walkthrough is being prepared.";
-  return `<div class="cae-report-walkthrough" role="note">${body}<p>${escapeHtml(pendingCopy)}</p></div>`;
+  return `<div class="cae-report-walkthrough" role="note">${body}<p>${pendingCopy}</p></div>`;
 }
 
 function reviewerStatusLabel(status) {
   return sentenceCase(status);
+}
+
+function growthScoreIntroHtml(report) {
+  const locale = report.reportContext?.report_locale || "en";
+  const vertical = report.reportContext?.vertical_context || "aesthetic_practice";
+  const isMultiLocation = report.audit?.format === "multi_location";
+  const subjects = {
+    en: {
+      aesthetic_practice: "aesthetic practice",
+      dental_practice: "dental practice",
+      beauty_salon: "beauty salon",
+      network: "practice network and its locations",
+    },
+    ru: {
+      aesthetic_practice: "эстетической практики",
+      dental_practice: "стоматологической практики",
+      beauty_salon: "салона красоты",
+      network: "сети практик и её локаций",
+    },
+    es: {
+      aesthetic_practice: "práctica estética",
+      dental_practice: "clínica dental",
+      beauty_salon: "salón de belleza",
+      network: "red de centros y sus ubicaciones",
+    },
+    fr: {
+      aesthetic_practice: "cabinet esthétique",
+      dental_practice: "cabinet dentaire",
+      beauty_salon: "salon de beauté",
+      network: "réseau de cabinets et ses sites",
+    },
+    uk: {
+      aesthetic_practice: "естетичної практики",
+      dental_practice: "стоматологічної практики",
+      beauty_salon: "салону краси",
+      network: "мережі практик та її локацій",
+    },
+  };
+  const subject = isMultiLocation
+    ? subjects[locale]?.network || subjects.en.network
+    : subjects[locale]?.[vertical] || subjects.en[vertical] || subjects.en.aesthetic_practice;
+  const copy = {
+    en: {
+      kicker: "YOUR GROWTH SCORE · HOW TO READ THIS REPORT",
+      title: "Use this report to make one clear growth decision",
+      reviewed: `We reviewed the public journey for this ${subject} across Search, Website, Social and Reputation.`,
+      definition: "Growth Score is not another marketing grade or a menu of services.",
+      answers: "It shows what works, what limits growth, what to fix first and what not to fund yet.",
+      read: "Start with the Primary Constraint and Focus Gaps. Then use the Gap Inventory and Repair Paths to understand the work. Scores are secondary navigation.",
+      next: "You can implement in-house, use another provider, defer the work or ask CAESTHETIC. The report creates no automatic service commitment.",
+      cards: [
+        ["01", "UNDERSTAND", "Find the constraint"],
+        ["02", "PRIORITIZE", "See what to fix first"],
+        ["03", "ACT", "Choose how to implement it"],
+      ],
+    },
+    ru: {
+      kicker: "ВАШ GROWTH SCORE · КАК ЧИТАТЬ ОТЧЁТ",
+      title: "Используйте отчёт, чтобы принять одно ясное решение о росте",
+      reviewed: `Мы проверили публичный путь клиента для ${subject} по Search, Website, Social и Reputation.`,
+      definition: "Growth Score — не очередная маркетинговая оценка и не меню услуг.",
+      answers: "Он показывает, что работает, что ограничивает рост, что исправлять первым и что пока не финансировать.",
+      read: "Начните с главного ограничения и фокусных разрывов. Затем изучите полный реестр разрывов и пути исправления. Баллы — только вспомогательная навигация.",
+      next: "Можно внедрить изменения внутри команды, привлечь другого подрядчика, отложить работу или обратиться к CAESTHETIC. Отчёт не создаёт автоматического обязательства по услугам.",
+      cards: [
+        ["01", "ПОНЯТЬ", "Найти ограничение"],
+        ["02", "ВЫБРАТЬ ПРИОРИТЕТ", "Увидеть, что исправлять первым"],
+        ["03", "ДЕЙСТВОВАТЬ", "Выбрать способ внедрения"],
+      ],
+    },
+    es: {
+      kicker: "TU GROWTH SCORE · CÓMO LEER ESTE INFORME",
+      title: "Usa este informe para tomar una decisión clara de crecimiento",
+      reviewed: `Revisamos el recorrido público de esta ${subject} en Search, Website, Social y Reputation.`,
+      definition: "Growth Score no es otra nota de marketing ni un menú de servicios.",
+      answers: "Muestra qué funciona, qué limita el crecimiento, qué corregir primero y qué no financiar todavía.",
+      read: "Empieza por la restricción principal y las brechas prioritarias. Después revisa el inventario de brechas y las vías de corrección. Las puntuaciones son navegación secundaria.",
+      next: "Puedes implementarlo internamente, usar otro proveedor, aplazarlo o pedir ayuda a CAESTHETIC. El informe no crea ningún compromiso automático de servicio.",
+      cards: [
+        ["01", "COMPRENDER", "Encontrar la restricción"],
+        ["02", "PRIORIZAR", "Ver qué corregir primero"],
+        ["03", "ACTUAR", "Elegir cómo implementarlo"],
+      ],
+    },
+    fr: {
+      kicker: "VOTRE GROWTH SCORE · COMMENT LIRE CE RAPPORT",
+      title: "Utilisez ce rapport pour prendre une décision de croissance claire",
+      reviewed: `Nous avons examiné le parcours public de ce ${subject} sur Search, Website, Social et Reputation.`,
+      definition: "Growth Score n'est ni une nouvelle note marketing ni un catalogue de services.",
+      answers: "Il montre ce qui fonctionne, ce qui limite la croissance, quoi corriger d'abord et quoi ne pas financer pour l'instant.",
+      read: "Commencez par la contrainte principale et les écarts prioritaires. Consultez ensuite l'inventaire des écarts et les voies de correction. Les scores ne sont qu'une navigation secondaire.",
+      next: "Vous pouvez mettre en œuvre en interne, choisir un autre prestataire, différer ou demander à CAESTHETIC. Le rapport ne crée aucun engagement de service automatique.",
+      cards: [
+        ["01", "COMPRENDRE", "Trouver la contrainte"],
+        ["02", "PRIORISER", "Voir quoi corriger d'abord"],
+        ["03", "AGIR", "Choisir comment mettre en œuvre"],
+      ],
+    },
+    uk: {
+      kicker: "ВАШ GROWTH SCORE · ЯК ЧИТАТИ ЦЕЙ ЗВІТ",
+      title: "Використайте звіт, щоб ухвалити одне чітке рішення щодо зростання",
+      reviewed: `Ми перевірили публічний шлях клієнта для ${subject} у Search, Website, Social та Reputation.`,
+      definition: "Growth Score — не чергова маркетингова оцінка і не меню послуг.",
+      answers: "Він показує, що працює, що обмежує зростання, що виправляти першим і що поки не фінансувати.",
+      read: "Почніть із головного обмеження та пріоритетних розривів. Потім перегляньте повний реєстр розривів і шляхи виправлення. Бали — лише допоміжна навігація.",
+      next: "Можна впровадити зміни всередині команди, залучити іншого підрядника, відкласти роботу або звернутися до CAESTHETIC. Звіт не створює автоматичного зобов'язання щодо послуг.",
+      cards: [
+        ["01", "ЗРОЗУМІТИ", "Знайти обмеження"],
+        ["02", "РОЗСТАВИТИ ПРІОРИТЕТИ", "Побачити, що виправляти першим"],
+        ["03", "ДІЯТИ", "Обрати спосіб впровадження"],
+      ],
+    },
+  }[locale] || null;
+  const resolved = copy || {
+    kicker: "YOUR GROWTH SCORE · HOW TO READ THIS REPORT",
+    title: "Use this report to make one clear growth decision",
+    reviewed: `We reviewed the public journey for this ${subject} across Search, Website, Social and Reputation.`,
+    definition: "Growth Score is not another marketing grade or a menu of services.",
+    answers: "It shows what works, what limits growth, what to fix first and what not to fund yet.",
+    read: "Start with the Primary Constraint and Focus Gaps. Then use the Gap Inventory and Repair Paths to understand the work. Scores are secondary navigation.",
+    next: "You can implement in-house, use another provider, defer the work or ask CAESTHETIC. The report creates no automatic service commitment.",
+    cards: [["01", "UNDERSTAND", "Find the constraint"], ["02", "PRIORITIZE", "See what to fix first"], ["03", "ACT", "Choose how to implement it"]],
+  };
+
+  return `
+  <section class="cae-section cae-section--soft" id="report-intro" data-report-intro>
+    <div class="cae-wrap">
+      <p class="cae-kicker">${escapeHtml(resolved.kicker)}</p>
+      <h2 class="cae-h2">${escapeHtml(resolved.title)}</h2>
+      <div class="cae-report-method__grid">
+        <div>
+          <p>${escapeHtml(resolved.reviewed)}</p>
+          <p><strong>${escapeHtml(resolved.definition)}</strong> ${escapeHtml(resolved.answers)}</p>
+        </div>
+        <div>
+          <p>${escapeHtml(resolved.read)}</p>
+          <p>${escapeHtml(resolved.next)}</p>
+        </div>
+      </div>
+      <div class="cae-report-paths" aria-label="Growth Score orientation">
+${resolved.cards.map(([number, label, detail]) => `        <article><span>${escapeHtml(number)} ${escapeHtml(label)}</span><p>${escapeHtml(detail)}</p></article>`).join("\n")}
+      </div>
+    </div>
+  </section>`;
 }
 
 function localizeReportHtml(html, locale) {
@@ -555,6 +699,7 @@ function localizeReportHtml(html, locale) {
       ["Methodology and limitations", "Metodología y limitaciones"],
       ["Start the 30-Day Growth Sprint", "Iniciar el Growth Sprint de 30 días"],
       ["Private Growth Score", "Growth Score privado"],
+      ["Exactly Top 3", "Exactamente 3"],
     ],
     fr: [
       ["Executive Overview", "Synthèse"],
@@ -572,6 +717,7 @@ function localizeReportHtml(html, locale) {
       ["Methodology and limitations", "Méthodologie et limites"],
       ["Start the 30-Day Growth Sprint", "Démarrer le Growth Sprint de 30 jours"],
       ["Private Growth Score", "Growth Score privé"],
+      ["Exactly Top 3", "Exactement 3"],
     ],
     uk: [
       ["Executive Overview", "Короткий огляд"],
@@ -589,6 +735,7 @@ function localizeReportHtml(html, locale) {
       ["Methodology and limitations", "Методологія та обмеження"],
       ["Start the 30-Day Growth Sprint", "Розпочати 30-денний Growth Sprint"],
       ["Private Growth Score", "Приватний Growth Score"],
+      ["Exactly Top 3", "Рівно 3"],
     ],
   };
 
@@ -602,6 +749,7 @@ function localizeReportHtml(html, locale) {
     ["Executive Overview", "Краткий обзор"],
     ["Human-approved diagnosis", "Диагноз, утверждённый человеком"],
     ["Exactly Top 3 Focus Gaps", "Ровно 3 фокусных разрыва"],
+    ["Exactly Top 3", "Ровно 3"],
     ["Complete Remediation Plan", "Полный план исправления"],
     ["Four-Surface score navigator", "Навигатор по четырём поверхностям"],
     ["Evidence drill-down", "Детализация evidence"],
@@ -794,8 +942,9 @@ export function renderGrowthReport(report) {
   const diagnosis = report.humanDiagnosis;
   const methodology = report.methodology;
   protectedRenderValues = [];
-  const kicker = isDemo ? "SYNTHETIC DEMO" : "Private Growth Score";
-  const pageTitle = `${isDemo ? "Growth Score" : "Private Growth Score"} — ${escapeHtml(report.practice.name)} | CAESTHETIC`;
+  const reportLabel = isDemo ? "Growth Score" : "Private Growth Score";
+  const kicker = isDemo ? "SYNTHETIC DEMO" : reportLabel;
+  const pageTitle = `${reportLabel} — ${escapeHtml(report.practice.name)} | CAESTHETIC`;
   const disclosure = isDemo
     ? `<div class="cae-demo-banner" role="note">SYNTHETIC DEMO — ${escapeHtml(report.disclosure)}</div>`
     : `<div class="cae-report-disclosure" role="note">${escapeHtml(report.disclosure)}</div>`;
@@ -832,7 +981,7 @@ export function renderGrowthReport(report) {
 ${disclosure}
 <div id="cae-header-slot"></div>
 <main>
-  <section class="cae-report-hero" id="executive-overview" data-cockpit-order="1">
+  <section class="cae-report-hero" id="report-overview">
     <div class="cae-wrap">
       <header class="cae-report-header">
         <p class="cae-kicker">Executive Overview · ${kicker}</p>
@@ -856,9 +1005,11 @@ ${disclosure}
     </div>
   </section>
 
-  <section class="cae-section" id="human-approved-diagnosis" data-cockpit-order="2">
+${growthScoreIntroHtml(report)}
+
+  <section class="cae-section" id="gap-map" data-cockpit-order="1">
     <div class="cae-wrap">
-      <p class="cae-kicker">Human-approved diagnosis</p>
+      <p class="cae-kicker">Gap Map · Human-approved diagnosis</p>
       <h2 class="cae-h2">Every confirmed hole. Only ${focusCount} selected to start.</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
@@ -870,48 +1021,62 @@ ${disclosure}
         <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
       ${gapMapHtml(diagnosis.gap_inventory, focus)}
-      <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
-${competitorRows(diagnosis.competitors)}
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="3">
+  <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="2">
     <div class="cae-wrap">
-      <p class="cae-kicker">Exactly Top 3 Focus Gaps</p>
+      <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
       <h2 class="cae-h2">Exactly three holes chosen by ${escapeHtml(focus.selected_by)}</h2>
       <p>${escapeHtml(focus.rationale)}</p>
       <ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>
-    </div>
-  </section>
-
-  <section class="cae-section" id="remediation-plan" data-cockpit-order="4">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Complete Remediation Plan</p>
-      <h2 class="cae-h2">Outcome, steps, dependencies and acceptance evidence</h2>
       <div class="cae-focus-gaps">${focusGapCards(diagnosis.gap_inventory, focus)}</div>
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="score-navigator" data-cockpit-order="5">
+  <section class="cae-section" id="sprint-fit" data-cockpit-order="3">
     <div class="cae-wrap">
-      <p class="cae-kicker">Approximate / secondary navigation</p>
-      <h2 class="cae-h2">Four-Surface score navigator</h2>
-      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
-      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>
+      <p class="cae-kicker">Sprint Fit</p>
+      <h2 class="cae-h2">What can honestly close, start, or wait</h2>
+      ${sprintFitHtml(diagnosis.gap_inventory, focus)}
     </div>
   </section>
 
-  <section class="cae-section" id="evidence-drilldown" data-cockpit-order="6">
+  <section class="cae-section cae-section--soft" id="repair-paths" data-cockpit-order="4">
     <div class="cae-wrap">
-      <p class="cae-kicker">Evidence drill-down</p>
-      <h2 class="cae-h2">Original sources, observations and approval state</h2>
-      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
-      <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
-      ${evidenceAccordion(report, result)}
+      <p class="cae-kicker">Repair paths</p>
+      <h2 class="cae-h2">Four valid ways forward</h2>
+      <p>Want to implement the selected Focus Gaps yourself? You can.</p>
+      <p><a class="cae-report-inline-link" href="#focus-gaps">View Focus Gap DIY steps</a></p>
+      <div class="cae-report-paths">
+        <article><span>Do it in-house</span><p>${escapeHtml(report.implementation_paths.diy)}</p></article>
+        <article><span>Use another provider</span><p>${escapeHtml(report.implementation_paths.other_provider)}</p></article>
+        <article><span>Defer</span><p>${escapeHtml(report.implementation_paths.defer)}</p></article>
+        <article><span>Ask CAESTHETIC</span><p>${escapeHtml(report.implementation_paths.caesthetic)}</p></article>
+      </div>
+      <div class="cae-report-why">
+        <p><strong>Why CAESTHETIC:</strong> ${escapeHtml(report.why_caesthetic.evidence_advantage)}</p>
+        <p>${escapeHtml(report.why_caesthetic.coordination_advantage)}</p>
+        <p><strong>Sprint boundary:</strong> ${escapeHtml(report.why_caesthetic.sprint_boundary)}</p>
+        <p><strong>Ownership:</strong> ${escapeHtml(report.why_caesthetic.ownership)}</p>
+        <div class="cae-report-burden">${burdenRows}</div>
+      </div>
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="7">
+  <section class="cae-section" id="do-not-fund" data-cockpit-order="5">
+    <div class="cae-wrap cae-wrap--narrow">
+      <article class="cae-report-do-not-do">
+        <p class="cae-kicker">Do Not Fund Yet</p>
+        <h2 class="cae-h2">${escapeHtml(diagnosis.do_not_do.title)}</h2>
+        <p>${escapeHtml(diagnosis.do_not_do.rationale)}</p>
+        <p><strong>Revisit after:</strong></p>
+        <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="6">
     <div class="cae-wrap">
       <p class="cae-kicker">Full Problem / Gap Inventory</p>
       <h2 class="cae-h2">${inventoryCount} holes reviewed</h2>
@@ -926,64 +1091,25 @@ ${competitorRows(diagnosis.competitors)}
     </div>
   </section>
 
-  <section class="cae-section" id="do-not-fund" data-cockpit-order="8">
-    <div class="cae-wrap cae-wrap--narrow">
-      <article class="cae-report-do-not-do">
-        <p class="cae-kicker">Do Not Fund Yet</p>
-        <h2 class="cae-h2">${escapeHtml(diagnosis.do_not_do.title)}</h2>
-        <p>${escapeHtml(diagnosis.do_not_do.rationale)}</p>
-        <p><strong>Revisit after:</strong></p>
-        <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="implementation-paths" data-cockpit-order="9">
+  <section class="cae-section" id="evidence-and-competitors" data-cockpit-order="7">
     <div class="cae-wrap">
-      <p class="cae-kicker">Four implementation paths</p>
-      <h2 class="cae-h2">Four valid ways forward</h2>
-      <div class="cae-report-paths">
-        <article><span>Do it in-house</span><p>${escapeHtml(report.implementation_paths.diy)}</p></article>
-        <article><span>Use another provider</span><p>${escapeHtml(report.implementation_paths.other_provider)}</p></article>
-        <article><span>Defer</span><p>${escapeHtml(report.implementation_paths.defer)}</p></article>
-        <article><span>Ask CAESTHETIC</span><p>${escapeHtml(report.implementation_paths.caesthetic)}</p></article>
-      </div>
+      <p class="cae-kicker">Evidence and competitors</p>
+      <h2 class="cae-h2">Why the selected holes are real</h2>
+      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
+      <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
+      <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
+${competitorRows(diagnosis.competitors)}
+      <h3 class="cae-report-subhead">Metric drill-down</h3>
+      ${evidenceAccordion(report, result)}
     </div>
   </section>
 
-  <section class="cae-section" id="why-caesthetic" data-cockpit-order="10">
+  <section class="cae-section cae-section--soft" id="scores-and-methodology" data-cockpit-order="8">
     <div class="cae-wrap">
-      <p class="cae-kicker">Why CAESTHETIC / coordination burden</p>
-      <h2 class="cae-h2">Evidence ownership and coordinated implementation</h2>
-      <p>${escapeHtml(report.why_caesthetic.evidence_advantage)}</p>
-      <p>${escapeHtml(report.why_caesthetic.coordination_advantage)}</p>
-      <p><strong>Sprint boundary:</strong> ${escapeHtml(report.why_caesthetic.sprint_boundary)}</p>
-      <p><strong>Ownership:</strong> ${escapeHtml(report.why_caesthetic.ownership)}</p>
-      <div class="cae-report-burden">${burdenRows}</div>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="sprint-fit" data-cockpit-order="11">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Illustrative 30-day sequencing preview</p>
-      <h2 class="cae-h2">What can honestly close, start, or wait</h2>
-      ${sprintFitHtml(diagnosis.gap_inventory, focus)}
-    </div>
-  </section>
-
-  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="12">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Optional Sprint CTA</p>
-      <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
-      <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
-      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="methodology-and-limitations" data-cockpit-order="13">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Methodology and limitations</p>
-      <h2 class="cae-h2">Evidence classes, sources and constraints</h2>
+      <p class="cae-kicker">Approximate / secondary navigation</p>
+      <h2 class="cae-h2">Scores and methodology</h2>
+      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
+      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>
       <div class="cae-report-method__grid">
         <div>
           <p><strong>Class A:</strong> directly observable and approved. <strong>Class B:</strong> an explicit estimate or inference with its method and assumptions disclosed.</p>
@@ -999,6 +1125,16 @@ ${competitorRows(diagnosis.competitors)}
       ${isDemo ? '<p><a class="cae-report-inline-link" href="/growth-score/#demo-growth-scores">View all synthetic demos</a></p>' : ""}
     </div>
   </section>
+
+  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="9">
+    <div class="cae-wrap cae-wrap--narrow">
+      <p class="cae-kicker">Optional Sprint CTA</p>
+      <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
+      <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
+      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
+    </div>
+  </section>
+
 </main>
 <a class="cae-sticky-sprint" href="#next-step" hidden>View Sprint</a>
 <div id="cae-footer-slot"></div>

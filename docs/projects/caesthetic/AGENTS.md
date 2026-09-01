@@ -29,7 +29,7 @@ Read in order:
 - Cross-Surface Consistency is not a fifth surface.
 - Growth Score: one schema-v5 engine/template/renderer for `aesthetic_practice`, `dental_practice` and `beauty_salon`; `report_locale` is `en`, `ru`, `es`, `fr` or `uk` and changes presentation only.
 - AI researches/pre-scores/drafts; a named human verifies Class A facts, selects exactly one Primary plus exactly two Supporting Gaps, and approves the binding constraint, Top 3, Do Not Fund Yet and final report.
-- Growth Score numbers are secondary navigation; the full Problem/Gap Inventory, binding constraint, exactly Top 3 and dependency-aware Repair Plans are the primary decision layer in the 13-section cockpit.
+- Growth Score numbers are secondary navigation; the full Problem/Gap Inventory, binding constraint, exactly Top 3 and dependency-aware Repair Plans are the primary decision layer in the exact nine-section cockpit, preceded by one unnumbered shared Intro.
 - Score corrections improve later cases only through approved versioned rules/templates/rubrics/evals; never through uncontrolled model/chat memory.
 - Public paid entry: 30-Day Growth Sprint, $2,500.
 - Sprint Extension is $2,500 per additional 30 days, optional/unpublished and only offered after Day 30 for justified finite implementation.

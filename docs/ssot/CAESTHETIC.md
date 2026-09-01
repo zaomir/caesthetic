@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.18
+version: 3.19
 updated: 2026-09-01
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
@@ -264,6 +264,8 @@ The cockpit must be self-contained enough for the owner to implement the plan in
 The honest `Why CAESTHETIC / Why the 30-Day Sprint` block explains convenience, not exclusivity: CAESTHETIC has already assembled the evidence and diagnosis, knows the dependency order and can implement, coordinate and accept the selected changes inside a separately confirmed written 30-day scope. It must show real workload, specialist needs, dependencies, coordination cost and implementation risks without implying that every Score task is included. After the Sprint the client may continue in-house, use another provider, choose an optional CAESTHETIC path or stop.
 
 Delivery: a password-protected, private/noindex `/score/<unguessable-slug>/` owner cockpit plus a **3–8 minute Valerie Petra recorded walkthrough**. The route stays outside the sitemap; the simple package password is validated server-side and never embedded in client HTML, JavaScript, report JSON or the repository. Walkthrough content and production authority remain exclusively in `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; the detailed report spec may reference but not override it.
+
+The approved Nohy V Ruky report at `/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/` follows the standard real-report contract: server-side password protection, `noindex,nofollow,noarchive,nosnippet`, an unguessable route, sitemap exclusion and no public case-catalogue listing.
 
 A successful form is not a finished Score. Every accepted request must have a `score_case_id`, a named owner, a next action, same-day triage SLA and a durable notification outbox. Status changes only through the allowlisted transition contract in `docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md` (DEC-848). Safe weekly capacity is 2–3 Scores until measured; backlog extends delivery SLA and does not reject a valid owner request.
 
