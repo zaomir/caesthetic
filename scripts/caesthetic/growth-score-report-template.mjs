@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 import { fileURLToPath } from "node:url";
-import { CANONICAL_METRICS } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import {
+  CANONICAL_METRICS,
+  GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
+  GROWTH_SCORE_SCHEMA_VERSION,
+} from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
-export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/4.1.0";
+export { GROWTH_SCORE_REPORT_TEMPLATE_VERSION };
+export const LEGACY_GROWTH_SCORE_V4_TEMPLATE_VERSION = "growth-score-report-template/4.0.0";
 
 const labels = Object.freeze({
   search: "Search",
@@ -130,7 +135,25 @@ const createTaskSlot = (number) => ({
   next_action: "__NEXT_ACTION__",
 });
 
-export function createGrowthScoreReportTemplate() {
+const createGapSlot = (number) => ({
+  id: `G${number}`,
+  title: `__GAP_${number}_TITLE__`,
+  diagnosis_state: "insufficient_evidence",
+  surfaces: ["__SEARCH_WEBSITE_SOCIAL_REPUTATION_OR_CROSS_SURFACE__"],
+  journey_stage: "__DISCOVERY_TRUST_ENQUIRY_BOOKING_OR_TREATMENT__",
+  evidence_refs: [],
+  why_it_matters: "Insufficient evidence — replace only after the relevant public evidence is approved.",
+  sprint_fit: { mode: "backlog" },
+  repair_plan: {
+    outcome: `__GAP_${number}_OBSERVABLE_OUTCOME__`,
+    diy_steps: ["__DIY_STEP_1__", "__DIY_STEP_2__"],
+    dependencies: [],
+    owner_role: "__OWNER_ROLE__",
+    done_when: ["__ACCEPTANCE_EVIDENCE__"],
+  },
+});
+
+export function createLegacyGrowthScoreV4ReportTemplate() {
   const competitors = [1, 2, 3].map(createCompetitorSlot);
   return {
     schemaVersion: 4,
@@ -138,7 +161,7 @@ export function createGrowthScoreReportTemplate() {
     reportVersion: "__REPORT_VERSION__",
     verifiedFactSetVersion: "__VERIFIED_FACT_SET_VERSION__",
     reportKind: "real",
-    templateVersion: GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
+    templateVersion: LEGACY_GROWTH_SCORE_V4_TEMPLATE_VERSION,
     reportContext: {
       vertical_context: "unresolved",
       report_locale: "en",
@@ -249,6 +272,26 @@ export function createGrowthScoreReportTemplate() {
     },
     estimates: [],
   };
+}
+
+export function createGrowthScoreReportTemplate() {
+  const report = createLegacyGrowthScoreV4ReportTemplate();
+  report.schemaVersion = GROWTH_SCORE_SCHEMA_VERSION;
+  report.templateVersion = GROWTH_SCORE_REPORT_TEMPLATE_VERSION;
+  report.humanDiagnosis.binding_constraint.gap_ref = "__PRIMARY_GAP_ID__";
+  delete report.humanDiagnosis.top_priorities;
+  delete report.humanDiagnosis.problem_inventory;
+  delete report.humanDiagnosis.remediation_tasks;
+  delete report.humanDiagnosis.roadmap_preview;
+  report.humanDiagnosis.gap_inventory = [1, 2, 3].map(createGapSlot);
+  report.humanDiagnosis.focus_selection = {
+    primary_gap_id: null,
+    supporting_gap_ids: [],
+    selected_by: null,
+    selected_at: null,
+    rationale: "Pending named-human Focus Selection after the complete Gap Inventory is reviewed.",
+  };
+  return report;
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

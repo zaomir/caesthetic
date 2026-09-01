@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.2
-updated: 2026-08-14
+version: 1.3
+updated: 2026-09-01
 scope: Growth Score walkthrough speaker, script, scene, approval and lifecycle canon
 parent: docs/ssot/CAESTHETIC.md
 related:
@@ -31,9 +31,9 @@ Target owner takeaway:
 - Valerie is always the walkthrough presenter for the US Growth Score flow.
 - Visual identity: one consistent premium-office look; do not vary rooms/outfits as a content gimmick.
 - Tone: calm expert, precise, non-defensive, non-salesy.
-- Language: English only for the US product.
+- Language: the approved report's `report_locale` (`en`, `ru`, `es`, `fr` or `uk`). Locale changes narration, subtitles and presentation only; it does not create a separate video product or change approved evidence or decisions.
 - Video mix target: approximately 20–30% Valerie on screen and 70–80% cockpit/evidence.
-- English subtitles are mandatory.
+- Subtitles in the approved `report_locale` are mandatory; an additional English subtitle track is optional when it helps delivery and does not alter meaning.
 - The free Growth Score walkthrough is a one-time snapshot. A later Sprint/Day-30/monthly review is a new video artifact, not an edit of the original walkthrough.
 
 ## 3. Evidence gate
@@ -43,8 +43,9 @@ A script may be compiled only from approved state:
 - `approved_report`;
 - `verified_fact_set`;
 - `humanDiagnosis`;
-- approved `problem_inventory`;
-- approved `remediation_tasks`;
+- approved `gap_inventory`;
+- named-human `focus_selection`;
+- the embedded `repair_plan` for every spoken Focus Gap;
 - approved Competitive Decision Analysis, including named-competitor evidence and Market Practice Gap decisions where applicable.
 
 Forbidden as spoken facts:
@@ -58,7 +59,9 @@ If a required variable is unavailable, the sentence must be rewritten or omitted
 
 ## 4. Spoken-content rules
 
-The walkthrough follows the approved report's `reportContext`: narration and subtitles use `report_locale`, and service/treatment vocabulary follows the resolved `vertical_context`. Localization may adapt headings and nouns, but it cannot change the approved objective strength, binding constraint, Top 3, Do Not Fund Yet, evidence meaning or next action. Preserve uncertain regulated/clinical source terms and use cautious translated wording rather than inventing a claim. This is the same 3–8 minute Growth Score walkthrough, not a separate vertical/locale video product and not an additional-duration deliverable.
+The walkthrough follows the approved report's `reportContext`: narration and subtitles use `report_locale`, and service/treatment vocabulary follows the resolved `vertical_context`. Localization may adapt headings and nouns, but it cannot change the approved objective strength, binding constraint, spoken Top 3 derived from the named-human Focus Selection, Do Not Fund Yet, evidence meaning or next action. Preserve uncertain regulated/clinical source terms and use cautious translated wording rather than inventing a claim. This is the same 3–8 minute Growth Score walkthrough, not a separate vertical/locale video product and not an additional-duration deliverable.
+
+The schema-v5 report may contain one Primary plus two or three Supporting Focus Gaps. The spoken Top 3 are derived without re-ranking from the Primary Gap and the first two ordered Supporting Gaps. If a third Supporting Gap exists, it remains fully visible in the cockpit and may be acknowledged briefly, but localization cannot replace it, promote it above the approved Top 3 or invent a different priority.
 
 Valerie must:
 

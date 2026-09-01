@@ -1,7 +1,12 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { resolve } from "node:path";
 import test from "node:test";
+import {
+  collectMirroredRels,
+  parseSyncManifest,
+} from "../../scripts/caesthetic/dec829-parity-guard.mjs";
 import { FUNNEL_EVENTS } from "../../scripts/caesthetic/growth-score-ops-contract.mjs";
 import {
   emitFunnelEvent,
@@ -19,6 +24,10 @@ const ANALYTICS_DOC = readFileSync(
 );
 const PARITY_GUARD = readFileSync(
   resolve(REPO, "scripts/caesthetic/dec829-parity-guard.mjs"),
+  "utf8",
+);
+const SYNC_MANIFEST = readFileSync(
+  resolve(REPO, "docs/projects/caesthetic/SYNC_MANIFEST.yml"),
   "utf8",
 );
 const REPORT = readFileSync(
@@ -95,6 +104,28 @@ test("parity guard script references SYNC_MANIFEST and grainee-v2 deploy authori
     PARITY_GUARD,
     /sync-agents-bidirectional\.sh --apply --commit --push/,
   );
+});
+
+test("parity guard honors the manifest SOP exclusion and systemd extras", (t) => {
+  const root = mkdtempSync(resolve(tmpdir(), "caesthetic-parity-manifest-"));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  const write = (rel, value = rel) => {
+    const path = resolve(root, rel);
+    mkdirSync(resolve(path, ".."), { recursive: true });
+    writeFileSync(path, value);
+  };
+  write("docs/ssot/CAESTHETIC.md");
+  write("docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md");
+  write("deploy/systemd/caesthetic-repo-sync.service");
+  write("deploy/systemd/caesthetic-repo-sync.timer");
+  write("scripts/caesthetic/ignored.pyc");
+
+  const rels = collectMirroredRels(root, parseSyncManifest(SYNC_MANIFEST));
+  assert.ok(rels.has("docs/ssot/CAESTHETIC.md"));
+  assert.ok(!rels.has("docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md"));
+  assert.ok(rels.has("deploy/systemd/caesthetic-repo-sync.service"));
+  assert.ok(rels.has("deploy/systemd/caesthetic-repo-sync.timer"));
+  assert.ok(!rels.has("scripts/caesthetic/ignored.pyc"));
 });
 
 test("caesthetic-config.js has the approved GA4 ID and keeps Meta disabled", () => {

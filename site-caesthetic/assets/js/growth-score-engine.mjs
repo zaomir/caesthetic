@@ -91,6 +91,26 @@ export const HUMAN_REVIEW_METRICS = Object.freeze(Object.fromEntries(
 
 export const REGISTERED_HUMAN_REVIEWER_MONONYMS = Object.freeze(["Валерия"]);
 export const GROWTH_SCORE_SCHEMA_VERSION = 5;
+export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/5.0.0";
+export const GROWTH_SCORE_VERTICAL_CONTEXTS = Object.freeze([
+  "aesthetic_practice",
+  "dental_practice",
+  "beauty_salon",
+]);
+export const GROWTH_SCORE_REPORT_LOCALES = Object.freeze(["en", "ru", "es", "fr", "uk"]);
+export const GROWTH_SCORE_VERTICAL_SOURCES = Object.freeze([
+  "owner_intake",
+  "route",
+  "referral_context",
+  "human_resolved",
+  "public_evidence",
+]);
+export const GROWTH_SCORE_LOCALE_SOURCES = Object.freeze([
+  "user_selected",
+  "route",
+  "campaign",
+  "human_resolved",
+]);
 export const DIAGNOSIS_STATES = Object.freeze([
   "working",
   "verified_gap",
@@ -894,9 +914,35 @@ function validateMethodology(methodology) {
   nonEmptyString(methodology.limitations, "methodology.limitations");
 }
 
+function validateCurrentReportContract(report) {
+  invariant(
+    report.templateVersion === GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
+    `templateVersion must be ${GROWTH_SCORE_REPORT_TEMPLATE_VERSION} for schemaVersion 5`,
+  );
+  const context = report.reportContext;
+  invariant(context && typeof context === "object" && !Array.isArray(context), "reportContext is required for schemaVersion 5");
+  invariant(
+    GROWTH_SCORE_VERTICAL_CONTEXTS.includes(context.vertical_context),
+    `reportContext.vertical_context must be ${GROWTH_SCORE_VERTICAL_CONTEXTS.join("|")}`,
+  );
+  invariant(
+    GROWTH_SCORE_REPORT_LOCALES.includes(context.report_locale),
+    `reportContext.report_locale must be ${GROWTH_SCORE_REPORT_LOCALES.join("|")}`,
+  );
+  invariant(
+    GROWTH_SCORE_VERTICAL_SOURCES.includes(context.vertical_source),
+    `reportContext.vertical_source must be ${GROWTH_SCORE_VERTICAL_SOURCES.join("|")}`,
+  );
+  invariant(
+    GROWTH_SCORE_LOCALE_SOURCES.includes(context.locale_source),
+    `reportContext.locale_source must be ${GROWTH_SCORE_LOCALE_SOURCES.join("|")}`,
+  );
+}
+
 export function scoreGrowthReport(report) {
   invariant(report && typeof report === "object" && !Array.isArray(report), "report must be an object");
   invariant(report.schemaVersion === GROWTH_SCORE_SCHEMA_VERSION, "schemaVersion must be 5");
+  validateCurrentReportContract(report);
   invariant(report.reportState === "approved_report", "reportState must be approved_report; drafts cannot publish");
   nonEmptyString(report.reportVersion, "reportVersion");
   nonEmptyString(report.verifiedFactSetVersion, "verifiedFactSetVersion");

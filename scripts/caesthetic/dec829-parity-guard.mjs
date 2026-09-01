@@ -88,12 +88,17 @@ export function loadSyncManifest(root = ROOT) {
 
 function excludeMatchers(excludes) {
   const names = new Set();
+  const suffixes = new Set();
   const prefixes = [];
   const exact = new Set();
   for (const raw of excludes) {
-    const rule = normRel(raw);
+    const rule = normRel(raw).replace(/^['"]|['"]$/g, "");
     if (rule.endsWith("/**")) {
       prefixes.push(rule.slice(0, -3).replace(/\/?$/, "/"));
+      continue;
+    }
+    if (rule.startsWith("*.")) {
+      suffixes.add(rule.slice(1));
       continue;
     }
     if (rule === ".env.*" || rule.endsWith(".*")) {
@@ -106,13 +111,16 @@ function excludeMatchers(excludes) {
     }
     exact.add(rule);
   }
-  return { names, prefixes, exact };
+  return { names, suffixes, prefixes, exact };
 }
 
 function shouldSkip(rel, name, excludes) {
-  const { names, prefixes, exact } = excludeMatchers(excludes);
+  const { names, suffixes, prefixes, exact } = excludeMatchers(excludes);
   if (names.has(name)) return true;
   if (name.startsWith(".env")) return true;
+  for (const suffix of suffixes) {
+    if (name.endsWith(suffix)) return true;
+  }
   const relN = normRel(rel);
   if (exact.has(relN)) return true;
   for (const prefix of prefixes) {
@@ -177,9 +185,16 @@ export function collectMirroredRels(root, manifest) {
   for (const tree of manifest.trees) {
     for (const rel of walkFiles(root, tree, manifest.excludes)) rels.add(rel);
   }
-  for (const rel of expandSsotGlobs(root, manifest.ssot_globs)) rels.add(rel);
+  for (const rel of expandSsotGlobs(root, manifest.ssot_globs)) {
+    const name = rel.split("/").pop();
+    if (!shouldSkip(rel, name, manifest.excludes)) rels.add(rel);
+  }
   for (const rel of manifest.extra_files) {
-    if (existsSync(join(root, rel))) rels.add(normRel(rel));
+    const normalized = normRel(rel);
+    const name = normalized.split("/").pop();
+    if (existsSync(join(root, normalized)) && !shouldSkip(normalized, name, manifest.excludes)) {
+      rels.add(normalized);
+    }
   }
   for (const rel of REQUIRED_PARITY_FILES) rels.add(rel);
   return rels;

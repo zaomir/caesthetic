@@ -1,9 +1,16 @@
 {
   "schemaVersion": 5,
+  "templateVersion": "growth-score-report-template/5.0.0",
   "reportState": "approved_report",
   "reportVersion": "demo-booking-friction-v3.0",
   "verifiedFactSetVersion": "demo-booking-friction-facts-v3.0",
   "reportKind": "demo",
+  "reportContext": {
+    "vertical_context": "aesthetic_practice",
+    "report_locale": "en",
+    "vertical_source": "human_resolved",
+    "locale_source": "user_selected"
+  },
   "disclosure": "Demonstration only. Fictional practice, synthetic data, no client relationship, and no reported client outcome.",
   "practice": {
     "name": "Fictional Lumen Injector Practice",

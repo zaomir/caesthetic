@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-updated: 2026-08-21
+updated: 2026-09-01
 scope: Growth Score operator queue, SLA, transitions, delivery
 related:
   - docs/founder-notes/DEC-848.md
@@ -76,7 +76,7 @@ Human-gated edges (`fact_set_frozen`, `approved`, `delivered`) require a named h
 Typical operator flow:
 
 1. **created → researching** — same-day triage complete; owner assigned
-2. **researching → draft_review → fact_set_frozen → report_review → approved** — evidence and schema-v4 review
+2. **researching → draft_review → fact_set_frozen → report_review → approved** — evidence review, complete schema-v5 Gap Inventory, append-only named-human Focus Selection, then `growth-score-report-template/5.0.0` report review
 3. **deliver** — record private path and walkthrough readiness:
 
 ```bash

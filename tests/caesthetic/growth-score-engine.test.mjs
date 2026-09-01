@@ -4,6 +4,7 @@ import {
   CANONICAL_METRICS,
   CANONICAL_METRIC_WEIGHTS,
   EvidenceIncompleteError,
+  GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
   HUMAN_REVIEW_METRICS,
   REGISTERED_HUMAN_REVIEWER_MONONYMS,
   resolveGrowthEconomics,
@@ -341,6 +342,32 @@ test("publication is v5 approved-report only with named human and frozen fact-se
   const oldSchema = report();
   oldSchema.schemaVersion = 4;
   assert.throws(() => scoreGrowthReport(oldSchema), /schemaVersion must be 5/);
+
+  const missingTemplate = report();
+  delete missingTemplate.templateVersion;
+  assert.throws(() => scoreGrowthReport(missingTemplate), /templateVersion must be growth-score-report-template\/5\.0\.0/);
+
+  const mismatchedTemplate = report();
+  mismatchedTemplate.templateVersion = "growth-score-report-template/4.1.0";
+  assert.throws(() => scoreGrowthReport(mismatchedTemplate), /templateVersion must be growth-score-report-template\/5\.0\.0/);
+
+  assert.equal(valid.templateVersion, GROWTH_SCORE_REPORT_TEMPLATE_VERSION);
+
+  const missingContext = report();
+  delete missingContext.reportContext;
+  assert.throws(() => scoreGrowthReport(missingContext), /reportContext is required/);
+
+  const unresolvedVertical = report();
+  unresolvedVertical.reportContext.vertical_context = "unresolved";
+  assert.throws(() => scoreGrowthReport(unresolvedVertical), /reportContext\.vertical_context/);
+
+  const unapprovedVertical = report();
+  unapprovedVertical.reportContext.vertical_context = "generic_public_business";
+  assert.throws(() => scoreGrowthReport(unapprovedVertical), /reportContext\.vertical_context/);
+
+  const unsupportedLocale = report();
+  unsupportedLocale.reportContext.report_locale = "de";
+  assert.throws(() => scoreGrowthReport(unsupportedLocale), /reportContext\.report_locale/);
 
   const unnamed = report();
   unnamed.humanDiagnosis.reviewer.name = "AI assistant";

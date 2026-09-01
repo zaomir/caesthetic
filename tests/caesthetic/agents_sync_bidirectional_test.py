@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MODULE_PATH = ROOT / "scripts" / "caesthetic" / "sync_agents_bidirectional.py"
+MANIFEST_PATH = ROOT / "docs" / "projects" / "caesthetic" / "SYNC_MANIFEST.yml"
 SPEC = importlib.util.spec_from_file_location("caesthetic_repo_sync", MODULE_PATH)
 SYNC = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader
@@ -18,6 +19,26 @@ SPEC.loader.exec_module(SYNC)
 
 def digest(value: str) -> str:
     return hashlib.sha256(value.encode()).hexdigest()
+
+
+def manifest_list(key: str):
+    values = []
+    active = False
+    for line in MANIFEST_PATH.read_text().splitlines():
+        if active and line and not line[0].isspace():
+            break
+        if line == f"{key}:":
+            active = True
+            continue
+        if active:
+            stripped = line.strip()
+            if stripped.startswith("- "):
+                values.append(stripped[2:].strip().strip("\"'"))
+    return values
+
+
+def normalize_manifest_prefix(value: str) -> str:
+    return value[:-2] if value.endswith("**") else value
 
 
 class DecideDeletionTest(unittest.TestCase):
@@ -108,6 +129,41 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("ReadWritePaths=/var/lib/caesthetic-repo-sync", service)
         self.assertNotIn("ReadWritePaths=/var/www", service)
 
+    def test_sync_tool_contract_matches_manifest(self):
+        self.assertEqual(SYNC.TREES, manifest_list("trees"))
+        self.assertEqual(SYNC.SSOT_GLOBS, manifest_list("ssot_globs"))
+        self.assertEqual(SYNC.EXTRA_FILES, manifest_list("extra_files"))
+
+        manifest_path_excludes = [
+            normalize_manifest_prefix(value)
+            for value in manifest_list("excludes")
+            if "/" in value
+        ]
+        self.assertEqual(list(SYNC.EXCLUDE_REL_PREFIXES), manifest_path_excludes)
+
+        manifest_name_excludes = {
+            value for value in manifest_list("excludes") if "/" not in value
+        }
+        self.assertEqual(
+            manifest_name_excludes,
+            set(SYNC.EXCLUDE_DIR_NAMES) | {".env", ".env.*", "*.pyc", "*.pyo"},
+        )
+        self.assertEqual(SYNC.EXCLUDE_FILE_PREFIXES, (".env",))
+        self.assertEqual(SYNC.EXCLUDE_FILE_SUFFIXES, (".pyc", ".pyo"))
+
+        protected = [
+            normalize_manifest_prefix(value)
+            for value in manifest_list("protected_in_target")
+        ]
+        self.assertEqual(list(SYNC.PROTECTED_PREFIXES), protected)
+
+    def test_retired_cron_installer_routes_to_continuous_timer(self):
+        wrapper = (ROOT / "scripts" / "caesthetic" / "install-agents-sync-cron.sh").read_text()
+        self.assertIn("install-continuous-sync.sh", wrapper)
+        self.assertIn("exec bash", wrapper)
+        self.assertNotIn("deploy/cron.d/caesthetic-agents-sync", wrapper)
+        self.assertNotIn("install -m 644", wrapper)
+
     def test_installer_uses_isolated_checkouts(self):
         installer = (ROOT / "scripts" / "caesthetic" / "install-continuous-sync.sh").read_text()
         self.assertIn("$DATA_ROOT/grainee", installer)
@@ -153,8 +209,19 @@ class DecideDeletionTest(unittest.TestCase):
         calls = root / "calls"
         fake = install_root / "sync_agents_bidirectional.py"
         fake.write_text(f"from pathlib import Path\nPath({str(calls)!r}).write_text('called')\n")
+        test_bin = root / "bin"
+        test_bin.mkdir()
+        fake_flock = test_bin / "flock"
+        fake_flock.write_text(
+            "#!/bin/sh\n"
+            "[ \"$1\" = \"-n\" ] && shift\n"
+            "shift\n"
+            "exec \"$@\"\n"
+        )
+        fake_flock.chmod(0o755)
         env = {
             **dict(__import__("os").environ),
+            "PATH": f"{test_bin}:{__import__('os').environ.get('PATH', '')}",
             "CAESTHETIC_SYNC_INSTALL_ROOT": str(install_root),
             "GRAINEE_ROOT": str(work_g),
             "CAESTHETIC_AGENTS_DIR": str(root / "satellite"),

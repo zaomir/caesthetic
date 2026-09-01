@@ -1,5 +1,6 @@
 import {
   CANONICAL_METRICS,
+  GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
   SURFACE_WEIGHTS,
 } from "../../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
@@ -199,10 +200,17 @@ export function createV5Report(scores = { search: 40, website: 60, social: 80, r
   }));
   return {
     schemaVersion: 5,
+    templateVersion: GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
     reportState: "approved_report",
     reportVersion: "fixture-report/1.0.0",
     verifiedFactSetVersion: "fixture-facts/1.0.0",
     reportKind: "demo",
+    reportContext: {
+      vertical_context: "aesthetic_practice",
+      report_locale: "en",
+      vertical_source: "human_resolved",
+      locale_source: "user_selected",
+    },
     practice: { name: practiceName, location: "Fictional market", preparedAt: "2026-08-11", preparedFor: "Fixture" },
     executiveSummary: "Fixture diagnosis for schema v5 publication gates.",
     surfaces,
