@@ -154,8 +154,9 @@ test("generated catalog, site aliases and SSOT routing stay in sync", () => {
   assert.match(sop, /canonical `growth_score_audit` intent/i);
   assert.match(sop, /Вы создаёте новый аудит\? Ответьте на вопросы\./);
   assert.match(sop, /recursively discovers every `approved_report`/i);
-  assert.match(sop, /Any public-facing business or project may enter the factory/i);
-  assert.match(agents, /Mandatory audit-intent routing/i);
+  assert.match(sop, /production eligibility is limited to `aesthetic_practice`, `dental_practice` and `beauty_salon`/i);
+  assert.match(sop, /generic audit wrapper cannot add a fourth vertical or a second product contract/i);
+  assert.match(agents, /Highest-priority universal audit pre-router/i);
   for (const route of ["audit", "audits", "multi-location-growth-score"]) {
     const html = read(`site-caesthetic/${route}/index.html`);
     assert.match(html, /canonical" href="https:\/\/caesthetic\.com\/growth-score\/"/);

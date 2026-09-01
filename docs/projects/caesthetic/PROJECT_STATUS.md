@@ -1,6 +1,6 @@
 # CAESTHETIC — Project Status
 
-**Updated:** 2026-08-30
+**Updated:** 2026-09-01
 **Phase:** Phase 1 — proof + outbound readiness
 
 ## Beauty Salons vertical — production (2026-08-28)
@@ -38,7 +38,7 @@ Known limits:
 ## Agents satellite (DEC-829)
 
 - Public GitHub project: [`zaomir/caesthetic`](https://github.com/zaomir/caesthetic) at `/var/www/caesthetic`.
-- Bidirectional sync with grainee-v2 every 10 min (`scripts/caesthetic/sync-agents-bidirectional.sh`).
+- Bidirectional sync with grainee-v2 uses the isolated `caesthetic-repo-sync.timer` every 15 seconds; the retired 10-minute cron must not be installed.
 - Deploy remains grainee-only. `site-caesthetic/private/` is not mirrored.
 
 
@@ -50,7 +50,7 @@ Known limits:
 - Agent card: `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md`.
 
 ## Canonical product state
-- Growth Score: free; 3-stage minimal intake; AI-assisted four-surface research and draft; named-human-approved evidence, diagnosis and remediation plan; private owner cockpit plus Valerie Petra walkthrough.
+- Growth Score: free; one schema-v5 engine/template (`growth-score-report-template/5.0.0`); 3-stage minimal intake; AI-assisted four-surface research and draft; named-human-approved evidence, Gap Inventory, Focus Selection and Repair Plans; private nine-section owner cockpit plus Valerie Petra walkthrough.
 - Sprint 1: $2,500 / 30 days; finite scoped implementation + longer-horizon processes started.
 - Sprint Extension: $2,500 per additional 30 days; optional, unpublished, post-Day-30 finite implementation continuation.
 - Growth System: optional recurring operating ownership under one client-specific Growth Budget; the visible Fixed Management Fee sits inside the budget, variable inputs use the remaining approved funds, and any legally available Performance Fee is separate above it. No reusable recurring amount, rate or cap.
@@ -61,7 +61,7 @@ Known limits:
 
 ## Completed in repo
 - Canonicalized `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md` as the single orchestration route from accepted Score case through research, named-human approval, private delivery and controlled learning. It delegates product, scoring, CDA, walkthrough and renderer rules to their existing authorities; runtime, scoring weights and renderer behaviour are unchanged.
-- Canonicalized the schema-v4 Growth Score authoring template at `scripts/caesthetic/growth-score-report-template.mjs`: exact engine-derived metric sets, fail-closed draft defaults, the current 13-section cockpit, exactly Top 3, Competitive Decision Analysis slots, complete Problem Inventory/remediation mappings, one Do Not Fund Yet, four implementation paths, a pending walkthrough and methodology/limitations. The Aesthetemed report is the first approved example/evaluation, not a source of reusable practice facts.
+- Canonicalized the schema-v5 Growth Score authoring template at `scripts/caesthetic/growth-score-report-template.mjs`: exact engine-derived metric sets, fail-closed draft defaults, the current nine-section cockpit, named-human Focus Selection, complete Gap Inventory with embedded Repair Plans, one Do Not Fund Yet, four implementation paths, a pending walkthrough and methodology/limitations. Aesthetemed remains a historical schema-v4 read-only artifact, not a source of reusable practice facts or a current renderer contract.
 - Published CAESTHETIC site v2 positioning, owner problems, diagnosis-led Sprint scope and a dedicated Growth System page with the Growth Budget allocation model, Client Growth Statement and evidence-gated initiative lifecycle.
 - Established Valerie Petra as the public CAESTHETIC business identity and removed the unverified legacy personal LinkedIn URL from public runtime and the active identity registry.
 - Registered CAESTHETIC as its own knowledge domain and `caesthetic` runtime across the machine registry, indexes and runtime map.
@@ -69,12 +69,12 @@ Known limits:
 - Published the Four-Surface Growth Score landing-page explanation with fixed 30/25/15/30 outer weights and separate Cross-Surface Consistency.
 - Consolidated Growth Score onto one reusable production scoring authority plus a thin CLI, with the exact canonical component IDs/weights, human approval for every final metric score, ≥70% surface coverage, all-four Overall policy and the ≥80% Class A publication gate.
 - Published three clearly labeled Phase-1 synthetic demo routes from the same validated schema and renderer used for private real reports; real routes remain unguessable/noindex and demos disclose synthetic data and no client relationship.
-- Separated exactly three `humanDiagnosis.top_priorities`, the full evidence-backed `humanDiagnosis.problem_inventory` and one `humanDiagnosis.do_not_do` without promising Sprint scope before purchase.
+- Separated named-human `humanDiagnosis.focus_selection` from the complete evidence-backed `humanDiagnosis.gap_inventory`, with embedded Repair Plans and one `humanDiagnosis.do_not_do`, without promising Sprint scope before purchase.
 - Replaced School-era deploy smoke with Growth Score demo smoke.
 
 ## Growth Score correction gate — complete
 
-The detailed subordinate specification now defines the exact component metrics/weights, metric-level evidence schema, human approval gate, ≥80% Class A publication gate, full Problem Inventory and shared real/demo renderer contract. The master authority remains `docs/ssot/CAESTHETIC.md`.
+The detailed subordinate specification now defines the exact component metrics/weights, metric-level evidence schema, human approval gate, ≥80% Class A publication gate, full Gap Inventory and shared real/demo renderer contract. The master authority remains `docs/ssot/CAESTHETIC.md`.
 
 Release evidence:
 
@@ -130,21 +130,24 @@ Full addresses and sender-role rules are canonical in `docs/ssot/CAESTHETIC.md`.
 - Growth Score conclusions remain human-approved.
 - No public Sprint 2 offer.
 
-## Growth Score owner-cockpit runtime — aligned
+## Growth Score owner-cockpit runtime — current v5 contract
 
-The approved 2026-08-14 owner-cockpit canon is implemented in runtime:
+TASK-858 superseded the schema-v4/13-section presentation contract for every new approved report. Current runtime authority is:
 
 - `/growth-score/` is a mobile-first three-stage intake. The required case persists after the four contact/practice fields and before optional enrichment; Skip, optional-save failure and optional-stage abandonment preserve the successful request. Optional answers remain `self_reported`, permission is explicit, and stage analytics contain no PII or answers.
 - Supabase storage separates versioned intake, score case, candidate evidence, frozen verified facts, AI draft, append-only review events, approved report, de-identified learning candidate and explicit rule release. Drafts are non-publishable; reviewer corrections never activate global memory, fine-tuning or rules automatically.
-- Report schema v4 requires a named human approver and timestamp, complete Problem Inventory↔remediation-task mapping, full implementation fields, exact three priorities, owner implementation paths and honest Sprint/no-lock-in language. Applicable reports now fail closed without Competitive Decision Analysis: four-surface Comparison Matrix, Competitor Cards, repeated-review themes, `Defend / Close / Differentiate / Do not copy`, binding-constraint/priority effects and an evidence-gated Market Practice Gap decision. Deterministic scoring still uses the canonical metric IDs/weights, Class A-only coverage, the inclusive 70% surface gate, all-four Overall and Cross-Surface exclusion; publication remains fail-closed below 80% Class A.
-- TASK-821 / DEC-828 owner cockpit: header + Valerie walkthrough + current state, binding-constraint statement and Demand System leak, Top 3, full remediation tasks, then compact Four-Surface navigator, evidence, inventory, one Do Not Fund, DIY, Why CAESTHETIC, illustrative roadmap, one Sprint CTA, methodology. Score remains secondary. All real and demo reports emit noindex; real output requires an unguessable slug; demos stay explicitly synthetic.
-- All three public synthetic demos are schema-v4 fixtures rendered deterministically through the same production authority. The retired private placeholder remains noindex and outside the sitemap.
-- 2026-08-21 docs cleanup removed the conflicting legacy 12-block report contract, restored the referenced CAESTHETIC Competitive Decision Analysis adapter and aligned active product docs to the renderer's 13-section cockpit plus the 3–8 minute walkthrough SSOT. Runtime and scoring logic were unchanged.
+- Every new approved report is `schemaVersion=5` with canonical `templateVersion=growth-score-report-template/5.0.0`. The schema requires a complete `gap_inventory`, embedded `repair_plan` per gap and named-human `focus_selection`; it rejects the former `top_priorities`, `problem_inventory`, `remediation_tasks` and stored `selected_for_repair` fields.
+- The renderer contract is exactly nine sections: Gap Map, Focus Gaps, Sprint Fit, Repair Paths, Do Not Fund Yet, Full Gap Inventory, Evidence and competitors, Scores and methodology, Next step. Score remains secondary and there is one Sprint CTA.
+- Deterministic scoring still uses the canonical metric IDs/weights, Class A-only coverage, the inclusive 70% surface gate, all-four Overall and Cross-Surface exclusion; publication remains fail-closed below 80% Class A and without applicable Competitive Decision Analysis.
+- The three public synthetic demos and the protected Nohy V Ruky Beauty/RU example use schema v5 and the same renderer authority. Aesthetemed is retained only as a historical schema-v4 pre-rendered artifact; the current renderer rejects raw v4 and does not let it masquerade as v5.
+- All real and demo reports emit noindex; real output requires an unguessable slug and server-side access protection. The 3–8 minute walkthrough follows `report_locale` without creating another video product.
 
 ## Reusable implementation asset
 Raimov feedback capture may be adapted as a Reputation module only as a neutral request to every eligible client, subject to US platform/legal/privacy review. Incentives, sentiment filtering, selective public/private routing and review gating are prohibited.
 
-## «Ноги в Руки» Growth Score — decision package ready, publication gated
+## «Ноги в Руки» Growth Score — current v5 example and historical decision trail
+
+Current repository artifact: the protected Beauty/RU report uses `schemaVersion=5`, `templateVersion=growth-score-report-template/5.0.0`, `vertical_context=beauty_salon`, `report_locale=ru`, the complete Gap Inventory and named-human Focus Selection. The entries below preserve the 2026-08-14 pre-v5 decision history; they are superseded as current contract/readiness statements.
 
 As of 2026-08-14:
 
@@ -153,22 +156,22 @@ As of 2026-08-14:
 - Live Maps evidence is frozen in `docs/agent-api/results/nogi-v-ruki-growth-score-20260814.json`. Google ratings/counts remain platform-specific and preserve match confidence.
 - The proposed binding constraint is cross-surface medical-entity consistency plus booking continuity, not a generic lack of reviews.
 - The client working set lives in `docs/projects/caesthetic/clients/nogi-v-ruki/`: completion plan, full review draft, Competitive Decision Analysis and Denis Valerievich conversation script.
-- Global canon now requires the Competitive Decision Analysis defined in `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`; `docs/caesthetic/competitive_decision_analysis.md` is the CAESTHETIC adapter. The report schema v4, engine, renderer, demo fixtures and tests enforce the expanded contract.
+- At that time, the report used the then-current schema-v4 Competitive Decision Analysis contract. Current authority is schema v5 under `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`, `docs/caesthetic/competitive_decision_analysis.md` and `docs/caesthetic/growth_score_spec.md`.
 - The current Maps-led client draft remains explicitly partial until comparable fresh-review samples, website/booking paths, social, offers/prices and Market Practice Gap evidence are collected for each branch-relevant competitor.
-- Publication remains fail-closed until a named human reviewer approves the objective strength, binding constraint, exactly three priorities and `Do not fund yet`. The unguessable noindex report route and 3–8 minute Valerie Petra walkthrough are therefore not yet released.
+- At that time, publication remained fail-closed until a named human reviewer approved the objective strength, binding constraint, exactly three priorities and `Do not fund yet`; this is historical gate state, not the current v5 report status.
 
 
 ### «Ноги в Руки» approval update — 2026-08-14
 
 - User approved the proposed objective strength, binding constraint, exact Top 3 and `Do not fund yet`.
 - The decision approval is recorded in the client draft and the Valerie Petra walkthrough brief is ready; final production follows the current 3–8 minute walkthrough SSOT.
-- Publication remains fail-closed until the reviewer provides a real name for the canonical approval record. No private route or production deploy has been released.
+- At that time, publication remained fail-closed until the reviewer provided a real name for the canonical approval record. This historical blocker was later superseded.
 
 
 ### Registered human-reviewer mononym — 2026-08-14
 
 - Canonical reviewer display identity for the approved Nogi v Ruki decision is exactly `Валерия`.
-- Growth Score spec v4.1 and CAESTHETIC master v3.10 allow this exact registered mononym while keeping ordinary first+last validation and rejecting every unregistered one-word value.
+- The then-current Growth Score spec v4.1 and CAESTHETIC master v3.10 allowed this exact registered mononym while keeping ordinary first+last validation and rejecting every unregistered one-word value; current schema-v5 validation preserves the accepted identity rule.
 - Runtime validator and tests are updated. Valerie Petra remains the Growth Advisor/walkthrough presenter, not an inferred reviewer surname or alias.
 
 

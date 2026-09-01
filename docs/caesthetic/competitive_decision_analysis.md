@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.0
-updated: 2026-08-14
+version: 2.1
+updated: 2026-09-01
 scope: Growth Score competitive evidence and owner decisions
 parent: docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
 product_parent: docs/ssot/CAESTHETIC.md
@@ -53,7 +53,7 @@ Review analysis reports patterns in the reviewed sample, not adjudicated facts a
 
 ## Required report contract
 
-The machine-enforced schema-v4 contract is owned by `docs/caesthetic/growth_score_spec.md` §5.2.1. This adapter adds the CAESTHETIC source fields that make each public comparison reproducible. When `humanDiagnosis.competitors.status` is `applicable`, the diagnosis contains at least:
+The machine-enforced schema-v5 contract is owned by `docs/caesthetic/growth_score_spec.md` §5.2.1. This adapter adds the CAESTHETIC source fields that make each public comparison reproducible. When `humanDiagnosis.competitors.status` is `applicable`, the diagnosis contains at least:
 
 ```text
 selection_method: non-empty string
@@ -83,16 +83,16 @@ comparison_matrix: subject plus every competitor across the Four Surfaces
 market_practice_gap: applicable | no_material_gap | insufficient_evidence
 ```
 
-The four decision-summary lists and Market Practice Gap recommendations are decision context, not extra scored findings. Each statement must be traceable to the named source set and the verified Problem Inventory. Any drug, device, material or clinical-protocol implication requires qualified clinical and regulatory validation before a practice change.
+The four decision-summary lists and Market Practice Gap recommendations are decision context, not extra scored findings. Each statement must be traceable to the named source set and the verified Gap Inventory. Any drug, device, material or clinical-protocol implication requires qualified clinical and regulatory validation before a practice change.
 
 ## Presentation order
 
-Show the layer after the objective strength and binding constraint and before the Top Three priorities:
+Show the layer in the schema-v5 `Evidence and competitors` section, with its decisions linked to the approved Focus Selection:
 
 1. compact comparison matrix;
 2. one short evidence card per named competitor;
 3. `Defend / Close / Differentiate / Do not copy` decision summary;
-4. explicit link from those decisions to the binding constraint, Problem Inventory and remediation tasks.
+4. explicit link from those decisions to the binding constraint, complete Gap Inventory, named-human Focus Selection and embedded Repair Plans.
 
 ## Acceptance gate
 
@@ -106,4 +106,4 @@ A competitor section fails publication when it:
 - produces no owner decision or no link to remediation;
 - treats competitive analysis as a fifth scored surface.
 
-Engine, renderer, demos and tests fail closed on this contract under report schema v4.
+Engine, renderer, current reports, demos and tests fail closed on this contract under report schema v5. Historical schema-v4 artifacts remain read-only and cannot be relabelled as current reports.

@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { EvidenceIncompleteError } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
-import { createGrowthScoreReportTemplate } from "./growth-score-report-template.mjs";
+import { createLegacyGrowthScoreV4ReportTemplate } from "./growth-score-report-template.mjs";
 
 export function convertAesthetemedToSchemaV5() {
   throw new EvidenceIncompleteError(
@@ -137,9 +137,7 @@ const entries = [
 ];
 
 const decisionItem = (title, rationale, refs) => ({ title, rationale, evidence_refs: refs });
-const template = createGrowthScoreReportTemplate();
-delete template.humanDiagnosis.gap_inventory;
-delete template.humanDiagnosis.focus_selection;
+const template = createLegacyGrowthScoreV4ReportTemplate();
 const report = {
   ...template,
   schemaVersion: 4, reportState: "approved_report", reportVersion: "aesthetemed-public-evidence-v1", verifiedFactSetVersion: "aesthetemed-public-evidence-2026-08-21-v1", reportKind: "real",

@@ -14,6 +14,8 @@ ssot_globs:
   - docs/ssot/CAESTHETIC*.md
 extra_files:
   - agents/manifests/caesthetic.yaml
+  - deploy/systemd/caesthetic-repo-sync.service
+  - deploy/systemd/caesthetic-repo-sync.timer
 excludes:
   - node_modules
   - dist
@@ -23,10 +25,18 @@ excludes:
   - .git
   - .DS_Store
   - __pycache__
+  - "*.pyc"
+  - "*.pyo"
+  # The public satellite intentionally keeps a canonical pointer here instead
+  # of duplicating the production operating SSOT from grainee-v2.
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - site-caesthetic/private/**
   - site-caesthetic/score/aurora-medspa-x7k9m2/**
   - site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/**
   - site-caesthetic/docs/website-studio/site-caesthetic-score-aesthetemed-public-evidence-7c3e91b4a8f26d50.md
+  # Client-specific manager previews remain in the production repository only.
+  - site-caesthetic/score/prestige-ru-preview-20260901-a7f3d9/**
+  - site-caesthetic/score/prestige-ru-manager-preview-20260901-b4c2e7/**
   - docs/projects/caesthetic/operations/ig-growth/footage/**
   - docs/projects/caesthetic/operations/ig-growth/daily-growth-note/footage/**
   - docs/projects/caesthetic/clients/**

@@ -68,6 +68,8 @@ EXCLUDE_REL_PREFIXES = (
     "site-caesthetic/score/aurora-medspa-x7k9m2/",
     "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
     "site-caesthetic/docs/website-studio/site-caesthetic-score-aesthetemed-public-evidence-7c3e91b4a8f26d50.md",
+    "site-caesthetic/score/prestige-ru-preview-20260901-a7f3d9/",
+    "site-caesthetic/score/prestige-ru-manager-preview-20260901-b4c2e7/",
     "docs/projects/caesthetic/operations/ig-growth/footage/",
     "docs/projects/caesthetic/operations/ig-growth/daily-growth-note/footage/",
     "docs/projects/caesthetic/clients/",

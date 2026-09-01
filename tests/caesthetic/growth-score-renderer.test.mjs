@@ -5,6 +5,7 @@ import path from "node:path";
 import test from "node:test";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { GROWTH_SCORE_REPORT_TEMPLATE_VERSION } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 import { isUnguessableScoreSlug, renderGrowthReport, renderReportFile } from "../../scripts/caesthetic/render-growth-score.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -131,6 +132,14 @@ test("Russian real reports render a Russian cockpit without changing English dem
   const report = JSON.parse(fs.readFileSync(path.join(root, "site-caesthetic/score", route, "report.json"), "utf8"));
   const html = renderGrowthReport(report);
 
+  assert.equal(report.templateVersion, GROWTH_SCORE_REPORT_TEMPLATE_VERSION);
+  assert.equal(report.schemaVersion, 5);
+  assert.deepEqual(report.reportContext, {
+    vertical_context: "beauty_salon",
+    report_locale: "ru",
+    vertical_source: "human_resolved",
+    locale_source: "user_selected",
+  });
   assert.match(html, /<html lang="ru"/);
   assert.match(html, /Закрытый Growth Score/);
   assert.match(html, /Карта разрывов/);

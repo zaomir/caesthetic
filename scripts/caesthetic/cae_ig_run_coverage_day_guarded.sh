@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Guarded CAESTHETIC IG coverage day — for systemd timers.
-# - flock so AM/PM never overlap
-# - bounded cooldown after a real platform block
-# - drain, pause and restore social-fleet without interrupting an accepted-state write
-# - fact-gated comments enabled; the runner still stops on challenge/restriction
+# InMail/LinkedIn owns priority on shared Dolphin profile 833304152:
+# - if the canonical profile lease is busy, IG skips immediately;
+# - IG never places a global HOLD while waiting for an active LinkedIn action;
+# - once an idle slot is acquired, the exclusive IG block is short and bounded;
+# - fact-gated comments remain enabled and the runner stops on challenge/restriction.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
@@ -14,9 +15,9 @@ STATE_DIR="${CAE_IG_STATE_DIR:-$ROOT/tmp/cae-ig-queue}"
 FLEET_STATE_DIR="${SBO_FLEET_STATE_DIR:-/var/lib/social-fleet}"
 FLEET_HOLD="$FLEET_STATE_DIR/HOLD"
 PROFILE_LEASE="$FLEET_STATE_DIR/leases/profile_833304152.json"
-LEASE_DRAIN_SECONDS="${CAE_IG_LEASE_DRAIN_SECONDS:-1200}"
 BLOCK="${CAE_IG_BLOCK:-full}"
 BLOCK_COOLDOWN_HOURS="${CAE_IG_BLOCK_COOLDOWN_HOURS:-6}"
+RACE_GUARD_SECONDS="${CAE_IG_RACE_GUARD_SECONDS:-8}"
 mkdir -p "$LOCK_DIR" "$STATE_DIR" /var/log/cae-ig
 
 exec 9>"$LOCK_FILE"
@@ -28,6 +29,14 @@ fi
 # A founder/deploy HOLD stops every social writer, including this timer.
 if [[ -f "$FLEET_HOLD" ]]; then
   echo "[cae-ig-day] SKIP global social-fleet HOLD active" | tee -a /var/log/cae-ig/coverage.log
+  exit 0
+fi
+
+# LinkedIn/InMail has priority. Do not freeze future fleet jobs while waiting for
+# an active action to finish; simply give up this optional Instagram slot.
+if [[ -f "$PROFILE_LEASE" ]]; then
+  echo "[cae-ig-day] SKIP profile 833304152 busy; LinkedIn/InMail keeps priority" \
+    | tee -a /var/log/cae-ig/coverage.log
   exit 0
 fi
 
@@ -86,52 +95,56 @@ if systemctl is-active --quiet social-fleet.service; then
   FLEET_WAS_ACTIVE=1
 fi
 
-# Prevent a new fleet job, let an already-running verified action finish, then
-# stop the idle daemon. Never kill the fleet in the middle of an InMail/reply.
+# Claim a short idle window. The HOLD is installed only after the initial busy
+# check. A small race guard catches a fleet job that acquired the lease at the
+# same instant; in that case IG yields and the trap removes our HOLD.
 printf '%s\n' "$HOLD_TOKEN" > "$FLEET_HOLD"
 TEMP_HOLD_CREATED=1
-deadline=$(( $(date +%s) + LEASE_DRAIN_SECONDS ))
-while [[ -f "$PROFILE_LEASE" ]]; do
-  if (( $(date +%s) >= deadline )); then
-    echo "[cae-ig-day] SKIP profile lease did not drain within ${LEASE_DRAIN_SECONDS}s" \
+for ((i=0; i<RACE_GUARD_SECONDS; i++)); do
+  if [[ -f "$PROFILE_LEASE" ]]; then
+    echo "[cae-ig-day] SKIP lease appeared during race guard; yielding to LinkedIn/InMail" \
       | tee -a /var/log/cae-ig/coverage.log
     exit 0
   fi
-  sleep 15
+  sleep 1
 done
 
 if [[ "$FLEET_WAS_ACTIVE" -eq 1 ]]; then
-  echo "[cae-ig-day] pausing idle social-fleet for exclusive profile 833304152 lease" \
+  echo "[cae-ig-day] borrowing idle profile 833304152 for a short IG maintenance block" \
     | tee -a /var/log/cae-ig/coverage.log
   systemctl stop social-fleet.service
 fi
 
+# Instagram is maintained, but it no longer owns multi-hour exclusive windows.
+# Each scheduled block gets at most 20 minutes, so LinkedIn/InMail loses at most
+# 40 minutes per weekday even if both IG windows obtain an idle lease.
 case "$BLOCK" in
   am)
-    export CAE_IG_STORY_LIMIT="${CAE_IG_STORY_LIMIT:-70}"
-    export CAE_IG_LIKE_LIMIT="${CAE_IG_LIKE_LIMIT:-15}"
-    export CAE_IG_FOLLOW_LIMIT="${CAE_IG_FOLLOW_LIMIT:-2}"
-    export CAE_IG_FOLLOW_BACK_LIMIT="${CAE_IG_FOLLOW_BACK_LIMIT:-3}"
-    export CAE_IG_COMMENT_DRAFT_LIMIT="${CAE_IG_COMMENT_DRAFT_LIMIT:-2}"
-    export CAE_IG_COMMENT_SEND="${CAE_IG_COMMENT_SEND:-1}"
-    export CAE_IG_MAX_RUNTIME_MS="${CAE_IG_MAX_RUNTIME_MS:-7200000}"
-    ;;
-  pm)
-    export CAE_IG_STORY_LIMIT="${CAE_IG_STORY_LIMIT:-50}"
-    export CAE_IG_LIKE_LIMIT="${CAE_IG_LIKE_LIMIT:-15}"
-    export CAE_IG_FOLLOW_LIMIT="${CAE_IG_FOLLOW_LIMIT:-3}"
-    export CAE_IG_FOLLOW_BACK_LIMIT="${CAE_IG_FOLLOW_BACK_LIMIT:-2}"
+    export CAE_IG_STORY_LIMIT="${CAE_IG_STORY_LIMIT:-12}"
+    export CAE_IG_LIKE_LIMIT="${CAE_IG_LIKE_LIMIT:-4}"
+    export CAE_IG_FOLLOW_LIMIT="${CAE_IG_FOLLOW_LIMIT:-1}"
+    export CAE_IG_FOLLOW_BACK_LIMIT="${CAE_IG_FOLLOW_BACK_LIMIT:-1}"
     export CAE_IG_COMMENT_DRAFT_LIMIT="${CAE_IG_COMMENT_DRAFT_LIMIT:-1}"
     export CAE_IG_COMMENT_SEND="${CAE_IG_COMMENT_SEND:-1}"
-    export CAE_IG_MAX_RUNTIME_MS="${CAE_IG_MAX_RUNTIME_MS:-7200000}"
+    export CAE_IG_MAX_RUNTIME_MS="${CAE_IG_MAX_RUNTIME_MS:-1200000}"
+    ;;
+  pm)
+    export CAE_IG_STORY_LIMIT="${CAE_IG_STORY_LIMIT:-8}"
+    export CAE_IG_LIKE_LIMIT="${CAE_IG_LIKE_LIMIT:-3}"
+    export CAE_IG_FOLLOW_LIMIT="${CAE_IG_FOLLOW_LIMIT:-1}"
+    export CAE_IG_FOLLOW_BACK_LIMIT="${CAE_IG_FOLLOW_BACK_LIMIT:-1}"
+    export CAE_IG_COMMENT_DRAFT_LIMIT="${CAE_IG_COMMENT_DRAFT_LIMIT:-1}"
+    export CAE_IG_COMMENT_SEND="${CAE_IG_COMMENT_SEND:-1}"
+    export CAE_IG_MAX_RUNTIME_MS="${CAE_IG_MAX_RUNTIME_MS:-1200000}"
     ;;
   *)
-    export CAE_IG_STORY_LIMIT="${CAE_IG_STORY_LIMIT:-120}"
-    export CAE_IG_LIKE_LIMIT="${CAE_IG_LIKE_LIMIT:-30}"
-    export CAE_IG_FOLLOW_LIMIT="${CAE_IG_FOLLOW_LIMIT:-5}"
-    export CAE_IG_FOLLOW_BACK_LIMIT="${CAE_IG_FOLLOW_BACK_LIMIT:-5}"
-    export CAE_IG_COMMENT_DRAFT_LIMIT="${CAE_IG_COMMENT_DRAFT_LIMIT:-3}"
+    export CAE_IG_STORY_LIMIT="${CAE_IG_STORY_LIMIT:-20}"
+    export CAE_IG_LIKE_LIMIT="${CAE_IG_LIKE_LIMIT:-6}"
+    export CAE_IG_FOLLOW_LIMIT="${CAE_IG_FOLLOW_LIMIT:-2}"
+    export CAE_IG_FOLLOW_BACK_LIMIT="${CAE_IG_FOLLOW_BACK_LIMIT:-2}"
+    export CAE_IG_COMMENT_DRAFT_LIMIT="${CAE_IG_COMMENT_DRAFT_LIMIT:-2}"
     export CAE_IG_COMMENT_SEND="${CAE_IG_COMMENT_SEND:-1}"
+    export CAE_IG_MAX_RUNTIME_MS="${CAE_IG_MAX_RUNTIME_MS:-1200000}"
     ;;
 esac
 
@@ -139,7 +152,7 @@ export CAE_IG_QUEUE="${CAE_IG_QUEUE:-$STATE_DIR/queue.txt}"
 export CAE_IG_STATE="${CAE_IG_STATE:-$STATE_DIR/state.json}"
 export CAE_IG_COMMENT_DRAFTS="${CAE_IG_COMMENT_DRAFTS:-$STATE_DIR/comment_drafts.json}"
 
-echo "[cae-ig-day] start block=$BLOCK story=$CAE_IG_STORY_LIMIT like=$CAE_IG_LIKE_LIMIT follow=$CAE_IG_FOLLOW_LIMIT follow_back=$CAE_IG_FOLLOW_BACK_LIMIT comment=$CAE_IG_COMMENT_DRAFT_LIMIT send=$CAE_IG_COMMENT_SEND" \
+echo "[cae-ig-day] start block=$BLOCK story=$CAE_IG_STORY_LIMIT like=$CAE_IG_LIKE_LIMIT follow=$CAE_IG_FOLLOW_LIMIT follow_back=$CAE_IG_FOLLOW_BACK_LIMIT comment=$CAE_IG_COMMENT_DRAFT_LIMIT send=$CAE_IG_COMMENT_SEND runtime_ms=$CAE_IG_MAX_RUNTIME_MS" \
   | tee -a /var/log/cae-ig/coverage.log
 
 bash "$ROOT/scripts/caesthetic/cae_ig_run_coverage_day.sh" 2>&1 | tee -a /var/log/cae-ig/coverage.log

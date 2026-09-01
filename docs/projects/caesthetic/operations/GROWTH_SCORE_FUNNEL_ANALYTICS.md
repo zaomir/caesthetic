@@ -78,7 +78,7 @@ cd /var/www/grainee-v2
 bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
 ```
 
-Do not run `--apply` from this analytics lane while hashes already differ and parent ship is not finished. Cron `/etc/cron.d/caesthetic-agents-sync` is the same command on a 10-minute timer.
+Do not run `--apply` from this analytics lane while hashes already differ and parent ship is not finished. Runtime reconciliation uses the isolated `caesthetic-repo-sync.timer` every 15 seconds; the retired `/etc/cron.d/caesthetic-agents-sync` job must not coexist with it.
 
 ## Read-only satellite drift audit (2026-08-21)
 

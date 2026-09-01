@@ -3,7 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { CANONICAL_METRICS, scoreGrowthReport } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import {
+  CANONICAL_METRICS,
+  GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
+  scoreGrowthReport,
+} from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(root, "site-caesthetic/score");
@@ -31,6 +35,13 @@ test("publishes three clearly synthetic v5 demos through the same approved-repor
     const html = fs.readFileSync(path.join(scoreRoot, route, "index.html"), "utf8");
     const result = scoreGrowthReport(report);
     assert.equal(report.schemaVersion, 5);
+    assert.equal(report.templateVersion, GROWTH_SCORE_REPORT_TEMPLATE_VERSION);
+    assert.deepEqual(report.reportContext, {
+      vertical_context: "aesthetic_practice",
+      report_locale: "en",
+      vertical_source: "human_resolved",
+      locale_source: "user_selected",
+    });
     assert.equal(report.reportKind, "demo");
     assert.equal(report.reportState, "approved_report");
     assert.ok(report.reportVersion);

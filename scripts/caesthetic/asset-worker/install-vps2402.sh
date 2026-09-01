@@ -17,4 +17,8 @@ echo "[cae-assets] installed cron /etc/cron.d/grainee-caesthetic-assets on ${HOS
 
 # The CAESTHETIC deploy is the allowlisted server bootstrap path. Keep the
 # repository mirror timer installed here too; it uses no GitHub Actions.
-bash "$ROOT/scripts/caesthetic/install-continuous-sync.sh"
+# A dirty isolated satellite checkout is an independent sync-ops condition and
+# must not turn an otherwise successful website deploy into a release failure.
+if ! bash "$ROOT/scripts/caesthetic/install-continuous-sync.sh"; then
+  echo "[cae-assets] WARN: repository mirror bootstrap failed; continuing website deploy" >&2
+fi

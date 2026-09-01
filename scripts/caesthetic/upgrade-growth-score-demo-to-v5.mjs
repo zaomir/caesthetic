@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { GROWTH_SCORE_REPORT_TEMPLATE_VERSION } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -72,6 +73,13 @@ function upgrade(report) {
 
   const next = structuredClone(report);
   next.schemaVersion = 5;
+  next.templateVersion = GROWTH_SCORE_REPORT_TEMPLATE_VERSION;
+  next.reportContext ??= {
+    vertical_context: "aesthetic_practice",
+    report_locale: "en",
+    vertical_source: "human_resolved",
+    locale_source: "user_selected",
+  };
   next.humanDiagnosis = {
     ...diagnosis,
     binding_constraint: {
