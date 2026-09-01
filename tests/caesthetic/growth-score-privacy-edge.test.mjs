@@ -16,6 +16,8 @@ test("CAESTHETIC score access is fail-closed and Nohy remains server-side protec
   assert.match(router, /pathname === '\/score\/catalog\.json'/);
   assert.match(router, /pathname\.startsWith\('\/score\/demo-'\)/);
   assert.match(router, /isConfiguredPublicScorePath\(env\.SCORE_PUBLIC_PATHS, pathname\)/);
+  assert.match(router, /isConfiguredProtectedScorePath\(env\.SCORE_PROTECTED_PATHS, url\.pathname\)/);
+  assert.match(router, /isConfiguredPublicScorePath\(env\.SCORE_PUBLIC_PATHS, url\.pathname\)[\s\S]*isConfiguredProtectedScorePath\(env\.SCORE_PROTECTED_PATHS, url\.pathname\)[\s\S]*headers\.set\('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet'\)/);
   assert.match(router, /X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet'/);
   assert.match(router, /This private Growth Score is not available/);
   assert.match(router, /protectedResponse\([\s\S]*404/);
