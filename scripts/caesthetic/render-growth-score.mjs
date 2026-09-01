@@ -352,7 +352,7 @@ ${gaps.map((gap) => {
               <span class="cae-gap-map__symbol" aria-hidden="true">${escapeHtml(marker.mark)}</span>
               <span class="cae-gap-map__copy">
                 <strong>${escapeHtml(gap.title)}</strong>
-                <small>${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))} · ${escapeHtml(marker.label)}</small>
+                <small>${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))} · <span class="cae-status-pill">${escapeHtml(marker.label)}</span></small>
               </span>
             </a>
           </li>`;
@@ -375,13 +375,13 @@ function focusGapCards(gaps, focus) {
       : `Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.`;
     return `
           <article class="cae-focus-gap" id="gap-${escapeHtml(gap.id)}" data-gap-role="${marker.kind}">
-            <p class="cae-focus-gap__rank" aria-label="${escapeHtml(marker.label)}">${FOCUS_RANKS[index]} · ${escapeHtml(marker.label)}</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="${escapeHtml(marker.label)}">${FOCUS_RANKS[index]} · ${escapeHtml(marker.label)}</p>
             <h3>${escapeHtml(gap.title)}</h3>
             <p><strong>Found on:</strong> ${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))}</p>
             <p><strong>Evidence → Explanation:</strong> ${refs(gap.evidence_refs)}. ${escapeHtml(gap.why_it_matters)}</p>
             <p><strong>Why now:</strong> ${escapeHtml(focus.rationale)}</p>
             <p><strong>Primary dependency:</strong> ${escapeHtml(dependency)}</p>
-            <p><strong>Sprint Fit:</strong> ${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></p>
             ${longWork}
             <p><strong>Done when:</strong></p>
             <ul>${stringList(gap.repair_plan.done_when)}</ul>
@@ -400,7 +400,7 @@ function focusGapSummary(gaps, focus) {
     const gap = gaps.find((item) => item.id === id);
     if (!gap) return "";
     const role = index === 0 ? "Primary Gap" : `Supporting Gap ${index + 1}`;
-    return `<li><a href="#gap-${escapeHtml(gap.id)}"><strong>${index + 1}. ${escapeHtml(gap.title)}</strong><span>${role} · ${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></a></li>`;
+    return `<li><a href="#gap-${escapeHtml(gap.id)}"><strong>${index + 1}. ${escapeHtml(gap.title)}</strong><span class="cae-status-pill">${role} · ${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></a></li>`;
   }).join("");
 }
 
@@ -414,9 +414,9 @@ function sprintFitHtml(gaps, focus) {
     : `<p class="cae-report-note">${empty}</p>`;
   return `
         <div class="cae-sprint-fit">
-          <article><p class="cae-kicker">Close in 30 days</p>${row(close, "None selected.")}</article>
-          <article><p class="cae-kicker">Start in 30 days</p>${row(start, "No long initiative was started.")}</article>
-          <article><p class="cae-kicker">Not now</p>${row(backlog, "No backlog holes.")}</article>
+          <article><p class="cae-kicker cae-status-pill">Close in 30 days</p>${row(close, "None selected.")}</article>
+          <article><p class="cae-kicker cae-status-pill">Start in 30 days</p>${row(start, "No long initiative was started.")}</article>
+          <article><p class="cae-kicker cae-status-pill">Not now</p>${row(backlog, "No backlog holes.")}</article>
         </div>
         <p class="cae-report-note">This roadmap is generated from Sprint Fit. It is not purchased scope, a delivery promise or a results guarantee.</p>`;
 }
@@ -492,10 +492,10 @@ function inventoryRows(inventory, focus) {
     const surfaces = gap.surfaces.map((surface) => surfaceLabels[surface] || surface).join(", ");
     return `
           <article class="cae-report-problem" id="inventory-${escapeHtml(gap.id)}" data-filter-group="${inventoryFilter(gap, focus)}" data-surface="${escapeHtml(gap.surfaces[0] || "")}">
-            <p class="cae-kicker">${escapeHtml(gap.id)} · ${escapeHtml(surfaces)} · ${escapeHtml(marker.label)}</p>
+            <p class="cae-kicker">${escapeHtml(gap.id)} · ${escapeHtml(surfaces)} · <span class="cae-status-pill">${escapeHtml(marker.label)}</span></p>
             <h3>${escapeHtml(gap.title)}</h3>
             <p>${escapeHtml(gap.why_it_matters)}</p>
-            <p><strong>Sprint Fit:</strong> ${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></p>
             ${isSelectedForRepair(gap.id, focus) ? `<p><a class="cae-report-inline-link" href="#gap-${escapeHtml(gap.id)}">Open Focus Gap card</a></p>` : "<p class=\"cae-report-note\">Not now.</p>"}
           </article>`;
   }).join("");
@@ -1014,11 +1014,11 @@ ${growthScoreIntroHtml(report)}
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
       ${gapMapHtml(diagnosis.gap_inventory, focus)}
     </div>

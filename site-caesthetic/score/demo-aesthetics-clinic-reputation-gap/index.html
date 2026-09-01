@@ -93,11 +93,11 @@
           </ol>
         </div>
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
 
         <ol class="cae-gap-map" aria-label="Gap Map">
@@ -106,7 +106,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">1</span>
               <span class="cae-gap-map__copy">
                 <strong>The 90-day review velocity trails every fictional comparator.</strong>
-                <small>Reputation · Trust · Primary Gap</small>
+                <small>Reputation · Trust · <span class="cae-status-pill">Primary Gap</span></small>
               </span>
             </a>
           </li>
@@ -115,7 +115,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">2</span>
               <span class="cae-gap-map__copy">
                 <strong>Recent review evidence is sparse.</strong>
-                <small>Reputation · Trust · Supporting Gap 2</small>
+                <small>Reputation · Trust · <span class="cae-status-pill">Supporting Gap 2</span></small>
               </span>
             </a>
           </li>
@@ -124,7 +124,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">3</span>
               <span class="cae-gap-map__copy">
                 <strong>Most synthetic reviews receive no response.</strong>
-                <small>Reputation · Trust · Supporting Gap 3</small>
+                <small>Reputation · Trust · <span class="cae-status-pill">Supporting Gap 3</span></small>
               </span>
             </a>
           </li>
@@ -133,7 +133,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
               <span class="cae-gap-map__copy">
                 <strong>Review responses arrive slowly.</strong>
-                <small>Reputation · Trust · Verified backlog</small>
+                <small>Reputation · Trust · <span class="cae-status-pill">Verified backlog</span></small>
               </span>
             </a>
           </li>
@@ -142,7 +142,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
               <span class="cae-gap-map__copy">
                 <strong>Reviews rarely name treatments, clinicians or decision detail.</strong>
-                <small>Reputation · Trust · Verified backlog</small>
+                <small>Reputation · Trust · <span class="cae-status-pill">Verified backlog</span></small>
               </span>
             </a>
           </li>
@@ -151,7 +151,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
               <span class="cae-gap-map__copy">
                 <strong>Current Social proof does not continue into Reputation.</strong>
-                <small>Cross-Surface · Discovery · Verified backlog</small>
+                <small>Cross-Surface · Discovery · <span class="cae-status-pill">Verified backlog</span></small>
               </span>
             </a>
           </li>
@@ -164,16 +164,16 @@
       <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
       <h2 class="cae-h2">Exactly three holes chosen by Fictional Jordan Ellis</h2>
       <p>The named reviewer selected The 90-day review velocity trails every fictional comparator. as the binding hole and the related 30-day repairs.</p>
-      <ol class="cae-focus-summary"><li><a href="#gap-review-velocity-gap"><strong>1. The 90-day review velocity trails every fictional comparator.</strong><span>Primary Gap · Close in 30 days</span></a></li><li><a href="#gap-review-recency-gap"><strong>2. Recent review evidence is sparse.</strong><span>Supporting Gap 2 · Close in 30 days</span></a></li><li><a href="#gap-response-coverage-gap"><strong>3. Most synthetic reviews receive no response.</strong><span>Supporting Gap 3 · Close in 30 days</span></a></li></ol>
+      <ol class="cae-focus-summary"><li><a href="#gap-review-velocity-gap"><strong>1. The 90-day review velocity trails every fictional comparator.</strong><span class="cae-status-pill">Primary Gap · Close in 30 days</span></a></li><li><a href="#gap-review-recency-gap"><strong>2. Recent review evidence is sparse.</strong><span class="cae-status-pill">Supporting Gap 2 · Close in 30 days</span></a></li><li><a href="#gap-response-coverage-gap"><strong>3. Most synthetic reviews receive no response.</strong><span class="cae-status-pill">Supporting Gap 3 · Close in 30 days</span></a></li></ol>
       <div class="cae-focus-gaps">
           <article class="cae-focus-gap" id="gap-review-velocity-gap" data-gap-role="primary">
-            <p class="cae-focus-gap__rank" aria-label="Primary Gap">1 · Primary Gap</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Primary Gap">1 · Primary Gap</p>
             <h3>The 90-day review velocity trails every fictional comparator.</h3>
             <p><strong>Found on:</strong> Reputation · Trust</p>
             <p><strong>Evidence → Explanation:</strong> reputation.review_velocity_90d. The practice presents less current patient evidence at a key decision point.</p>
             <p><strong>Why now:</strong> The named reviewer selected The 90-day review velocity trails every fictional comparator. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> This is the Primary Gap. Supporting repairs depend on it.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> Every eligible patient receives the same neutral review invitation through a documented, platform-compliant workflow.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Approved neutral invitation copy</li><li>Documented eligibility and suppression rules</li><li>Sample invitation-coverage audit</li></ul>
@@ -185,13 +185,13 @@
             <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
           </article>
           <article class="cae-focus-gap" id="gap-review-recency-gap" data-gap-role="supporting">
-            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 2">2 · Supporting Gap 2</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Supporting Gap 2">2 · Supporting Gap 2</p>
             <h3>Recent review evidence is sparse.</h3>
             <p><strong>Found on:</strong> Reputation · Trust</p>
             <p><strong>Evidence → Explanation:</strong> reputation.recency. Older evidence gives weaker reassurance about the current patient experience.</p>
             <p><strong>Why now:</strong> The named reviewer selected The 90-day review velocity trails every fictional comparator. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> Every eligible patient receives the same neutral review invitation through a documented, platform-compliant workflow.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Approved neutral invitation copy</li><li>Documented eligibility and suppression rules</li><li>Sample invitation-coverage audit</li></ul>
@@ -203,13 +203,13 @@
             <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
           </article>
           <article class="cae-focus-gap" id="gap-response-coverage-gap" data-gap-role="supporting">
-            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 3">3 · Supporting Gap 3</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Supporting Gap 3">3 · Supporting Gap 3</p>
             <h3>Most synthetic reviews receive no response.</h3>
             <p><strong>Found on:</strong> Reputation · Trust</p>
             <p><strong>Evidence → Explanation:</strong> reputation.response_coverage. The practice appears less attentive than the fictional comparison set.</p>
             <p><strong>Why now:</strong> The named reviewer selected The 90-day review velocity trails every fictional comparator. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> Eligible reviews receive timely, privacy-safe acknowledgement under one owned response standard.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Approved response and escalation guide</li><li>Named daily owner</li><li>Dated response-coverage and response-delay sample</li></ul>
@@ -229,9 +229,9 @@
       <h2 class="cae-h2">What can honestly close, start, or wait</h2>
 
         <div class="cae-sprint-fit">
-          <article><p class="cae-kicker">Close in 30 days</p><ul><li><a href="#gap-review-velocity-gap">The 90-day review velocity trails every fictional comparator.</a></li><li><a href="#gap-review-recency-gap">Recent review evidence is sparse.</a></li><li><a href="#gap-response-coverage-gap">Most synthetic reviews receive no response.</a></li></ul></article>
-          <article><p class="cae-kicker">Start in 30 days</p><p class="cae-report-note">No long initiative was started.</p></article>
-          <article><p class="cae-kicker">Not now</p><ul><li><a href="#gap-response-speed-gap">Review responses arrive slowly.</a></li><li><a href="#gap-review-depth-gap">Reviews rarely name treatments, clinicians or decision detail.</a></li><li><a href="#gap-cross-proof-gap">Current Social proof does not continue into Reputation.</a></li></ul></article>
+          <article><p class="cae-kicker cae-status-pill">Close in 30 days</p><ul><li><a href="#gap-review-velocity-gap">The 90-day review velocity trails every fictional comparator.</a></li><li><a href="#gap-review-recency-gap">Recent review evidence is sparse.</a></li><li><a href="#gap-response-coverage-gap">Most synthetic reviews receive no response.</a></li></ul></article>
+          <article><p class="cae-kicker cae-status-pill">Start in 30 days</p><p class="cae-report-note">No long initiative was started.</p></article>
+          <article><p class="cae-kicker cae-status-pill">Not now</p><ul><li><a href="#gap-response-speed-gap">Review responses arrive slowly.</a></li><li><a href="#gap-review-depth-gap">Reviews rarely name treatments, clinicians or decision detail.</a></li><li><a href="#gap-cross-proof-gap">Current Social proof does not continue into Reputation.</a></li></ul></article>
         </div>
         <p class="cae-report-note">This roadmap is generated from Sprint Fit. It is not purchased scope, a delivery promise or a results guarantee.</p>
     </div>
@@ -284,45 +284,45 @@
       </div>
       <div class="cae-report-problems">
           <article class="cae-report-problem" id="inventory-review-velocity-gap" data-filter-group="fix-now" data-surface="reputation">
-            <p class="cae-kicker">review-velocity-gap · Reputation · Primary Gap</p>
+            <p class="cae-kicker">review-velocity-gap · Reputation · <span class="cae-status-pill">Primary Gap</span></p>
             <h3>The 90-day review velocity trails every fictional comparator.</h3>
             <p>The practice presents less current patient evidence at a key decision point.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-review-velocity-gap">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-review-recency-gap" data-filter-group="fix-now" data-surface="reputation">
-            <p class="cae-kicker">review-recency-gap · Reputation · Supporting Gap 2</p>
+            <p class="cae-kicker">review-recency-gap · Reputation · <span class="cae-status-pill">Supporting Gap 2</span></p>
             <h3>Recent review evidence is sparse.</h3>
             <p>Older evidence gives weaker reassurance about the current patient experience.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-review-recency-gap">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-response-coverage-gap" data-filter-group="fix-now" data-surface="reputation">
-            <p class="cae-kicker">response-coverage-gap · Reputation · Supporting Gap 3</p>
+            <p class="cae-kicker">response-coverage-gap · Reputation · <span class="cae-status-pill">Supporting Gap 3</span></p>
             <h3>Most synthetic reviews receive no response.</h3>
             <p>The practice appears less attentive than the fictional comparison set.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-response-coverage-gap">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-response-speed-gap" data-filter-group="monitor" data-surface="reputation">
-            <p class="cae-kicker">response-speed-gap · Reputation · Verified backlog</p>
+            <p class="cae-kicker">response-speed-gap · Reputation · <span class="cae-status-pill">Verified backlog</span></p>
             <h3>Review responses arrive slowly.</h3>
             <p>Delayed acknowledgement weakens the sense of an active practice.</p>
-            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Backlog — not now</span></p>
             <p class="cae-report-note">Not now.</p>
           </article>
           <article class="cae-report-problem" id="inventory-review-depth-gap" data-filter-group="monitor" data-surface="reputation">
-            <p class="cae-kicker">review-depth-gap · Reputation · Verified backlog</p>
+            <p class="cae-kicker">review-depth-gap · Reputation · <span class="cae-status-pill">Verified backlog</span></p>
             <h3>Reviews rarely name treatments, clinicians or decision detail.</h3>
             <p>Prospective patients receive limited proof for the choices they are evaluating.</p>
-            <p><strong>Sprint Fit:</strong> Start in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Start in 30 days</span></p>
             <p class="cae-report-note">Not now.</p>
           </article>
           <article class="cae-report-problem" id="inventory-cross-proof-gap" data-filter-group="monitor" data-surface="cross_surface">
-            <p class="cae-kicker">cross-proof-gap · Cross-Surface · Verified backlog</p>
+            <p class="cae-kicker">cross-proof-gap · Cross-Surface · <span class="cae-status-pill">Verified backlog</span></p>
             <h3>Current Social proof does not continue into Reputation.</h3>
             <p>The strongest visible evidence is not reinforced at the review decision surface.</p>
-            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Backlog — not now</span></p>
             <p class="cae-report-note">Not now.</p>
           </article></div>
     </div>

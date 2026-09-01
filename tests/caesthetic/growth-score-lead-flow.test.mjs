@@ -123,7 +123,8 @@ test("E2E submit returns lead_id and preserves UTM on growth-score links", { ski
     assert.ok(captured[0].idempotency_key);
 
     const duplicate = await page.evaluate(async () => {
-      const key = window.sessionStorage.getItem("caesthetic_growth_score_idem");
+      const stored = window.sessionStorage.getItem("caesthetic_growth_score_idem");
+      const key = stored && stored.startsWith("{") ? JSON.parse(stored).key : stored;
       const payload = {
         practice_name: "Sunset Med Spa",
         city_state: "Scottsdale, AZ",
@@ -244,7 +245,7 @@ test("negative success flag, invalid lead_id and API failure keep success hidden
 
     await page.click("[data-cae-required-submit]");
     await page.waitForSelector(".cae-form-error:not([hidden])");
-    assert.match((await page.locator(".cae-form-error").textContent()) || "", /not_recorded/);
+    assert.match((await page.locator("[data-cae-required-error]").textContent()) || "", /not_recorded/);
     assert.equal(await page.locator(".cae-form-success").isHidden(), true);
     assert.equal(await page.locator("[data-cae-required-submit]").isEnabled(), true);
 

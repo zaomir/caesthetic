@@ -1,12 +1,23 @@
 /* CAESTHETIC Growth Score owner cockpit — clinical editorial intelligence brief. */
 
 .cae-score-report {
+  --cae-bg: #F0EDE6;
+  --cae-bg-2: #E7E2D9;
+  --cae-accent: #0B2438;
+  --cae-signal: #7B244B;
+  --cae-border: #C9C3B8;
+  --cae-report-section-space: 72px;
+  --cae-report-card-bg: rgba(255, 255, 255, 0.52);
   background: var(--cae-bg);
   color: var(--cae-text);
 }
 
 .cae-score-report .cae-wrap {
-  width: var(--cae-wrap-wide);
+  width: min(1120px, calc(100% - 48px));
+}
+
+.cae-score-report .cae-wrap.cae-wrap--narrow {
+  width: min(880px, calc(100% - 48px));
 }
 
 .cae-score-report .cae-section--soft {
@@ -15,6 +26,37 @@
 
 .cae-score-report.cae-score-report--sticky-sprint {
   padding-bottom: calc(var(--cae-space-16) + 5.5rem);
+}
+
+.cae-score-report .cae-section {
+  position: relative;
+  padding: var(--cae-report-section-space) 0;
+}
+
+.cae-score-report .cae-section[data-cockpit-order]::before {
+  position: absolute;
+  top: var(--cae-report-section-space);
+  left: max(24px, calc((100% - 1120px) / 2));
+  color: var(--cae-signal);
+  content: attr(data-cockpit-order) " ·";
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+.cae-score-report .cae-section[data-cockpit-order] > .cae-wrap > .cae-kicker:first-child {
+  min-height: 1em;
+  padding-left: 2.5rem;
+}
+
+.cae-score-report .cae-section .cae-h2 {
+  max-width: 24ch;
+}
+
+.cae-score-report .cae-section > .cae-wrap > p:not(.cae-kicker) {
+  max-width: 70ch;
 }
 
 /* ─── Synthetic demo disclosure ─── */
@@ -118,17 +160,18 @@
 
 .cae-report-hero__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: start;
   margin-top: var(--cae-space-8);
-  background: var(--cae-border);
-  border: 1px solid var(--cae-border-strong);
+  background: transparent;
+  border: 0;
 }
 
 .cae-report-hero__grid > * {
   min-width: 0;
   padding: var(--cae-space-6);
-  background: var(--cae-bg);
+  background: var(--cae-report-card-bg);
 }
 
 .cae-report-hero h1 {
@@ -221,8 +264,9 @@
   gap: var(--cae-space-4);
   align-items: start;
   padding: var(--cae-space-6);
-  border: 1px solid var(--cae-border-strong);
-  background: var(--cae-bg);
+  border: 1px solid var(--cae-border);
+  border-radius: 14px;
+  background: var(--cae-report-card-bg);
   color: inherit;
   text-decoration: none;
 }
@@ -279,7 +323,11 @@ a.cae-report-walkthrough:hover {
 
 .cae-report-state {
   display: grid;
+  grid-row: span 2;
   gap: var(--cae-space-4);
+  border: 1px solid var(--cae-border);
+  border-radius: 14px;
+  background: var(--cae-report-card-bg);
 }
 
 .cae-report-state__label {
@@ -406,6 +454,7 @@ a.cae-report-walkthrough:hover {
 .cae-report-comparison-wrap {
   margin-top: var(--cae-space-6);
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid var(--cae-border-strong);
   background: var(--cae-bg);
 }
@@ -440,9 +489,25 @@ a.cae-report-walkthrough:hover {
 
 .cae-report-comparison-matrix thead th {
   color: var(--cae-accent);
+  border-bottom: 2px solid var(--cae-border-strong);
+  background: var(--cae-bg-2);
   font-family: var(--cae-font-mono);
   font-size: var(--cae-text-xs);
   text-transform: uppercase;
+}
+
+.cae-report-comparison-matrix th:first-child,
+.cae-report-comparison-matrix td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--cae-bg);
+  box-shadow: 1px 0 0 var(--cae-border-strong);
+}
+
+.cae-report-comparison-matrix thead th:first-child {
+  z-index: 2;
+  background: var(--cae-bg-2);
 }
 
 .cae-report-comparison-matrix tbody th {
@@ -605,7 +670,7 @@ a.cae-report-walkthrough:hover {
 
 .cae-report-demand__stage.is-leak {
   background: var(--cae-signal-light);
-  border-left: 3px solid var(--cae-signal);
+  box-shadow: inset 0 3px 0 var(--cae-signal);
 }
 
 .cae-report-demand__stage.is-leak .cae-report-demand__stage-title,
@@ -1307,6 +1372,10 @@ a.cae-report-walkthrough:hover {
     grid-template-columns: 1fr;
   }
 
+  .cae-report-state {
+    grid-row: auto;
+  }
+
   .cae-report-burden,
   .cae-report-roadmap {
     grid-template-columns: 1fr;
@@ -1359,8 +1428,20 @@ a.cae-report-walkthrough:hover {
 }
 
 @media (max-width: 520px) {
+  .cae-score-report {
+    --cae-report-section-space: 48px;
+  }
+
   .cae-score-report .cae-wrap {
-    width: min(100% - 32px, var(--cae-wrap-wide));
+    width: min(1120px, calc(100% - 32px));
+  }
+
+  .cae-score-report .cae-wrap.cae-wrap--narrow {
+    width: min(880px, calc(100% - 32px));
+  }
+
+  .cae-score-report .cae-section[data-cockpit-order]::before {
+    left: 16px;
   }
 
   .cae-report-paths,
@@ -1405,13 +1486,11 @@ a.cae-report-walkthrough:hover {
   }
 
   .cae-sticky-sprint {
-    flex-direction: column;
-    align-items: stretch;
+    display: none !important;
   }
 
-  .cae-sticky-sprint .cae-btn {
-    width: 100%;
-    justify-content: center;
+  .cae-score-report.cae-score-report--sticky-sprint {
+    padding-bottom: 0;
   }
 }
 
@@ -1511,7 +1590,7 @@ a.cae-report-walkthrough:hover {
 .cae-focus-gaps,
 .cae-sprint-fit {
   display: grid;
-  gap: var(--cae-space-5);
+  gap: 20px;
   margin-top: var(--cae-space-6);
 }
 
@@ -1545,7 +1624,8 @@ a.cae-report-walkthrough:hover {
 .cae-sprint-fit article {
   padding: var(--cae-space-5);
   border: 1px solid var(--cae-border);
-  background: var(--cae-bg);
+  border-radius: 14px;
+  background: var(--cae-report-card-bg);
 }
 
 .cae-focus-gap__rank {
@@ -1559,6 +1639,41 @@ a.cae-report-walkthrough:hover {
 
 .cae-focus-gap[data-gap-role="supporting"] .cae-focus-gap__rank {
   color: var(--cae-data-warning);
+}
+
+.cae-status-pill {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+  color: var(--cae-signal);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.cae-gap-map__legend .cae-status-pill {
+  padding: 0.25rem 0.65rem 0.25rem 0.3rem;
+}
+
+.cae-gap-map__legend .cae-status-pill .cae-gap-map__symbol {
+  min-width: 1.45rem;
+  min-height: 1.45rem;
+  font-size: 0.7rem;
+}
+
+.cae-focus-gap__rank.cae-status-pill,
+.cae-sprint-fit .cae-kicker.cae-status-pill {
+  margin-bottom: var(--cae-space-3);
 }
 
 .cae-focus-gap__diy {

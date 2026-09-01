@@ -27,6 +27,7 @@ const orderedSections = [
   "scores-and-methodology",
   "next-step",
 ];
+const allReportSections = ["report-overview", "report-intro", ...orderedSections];
 
 function loadDemo(route) {
   return JSON.parse(fs.readFileSync(path.join(root, "site-caesthetic/score", route, "report.json"), "utf8"));
@@ -38,8 +39,19 @@ function heroHtml(html) {
   return html.slice(start, end);
 }
 
+function sectionOpeningTags(html) {
+  return [...html.matchAll(/<section\b[^>]*\bid="([^"]+)"[^>]*>/g)].map((match) => ({
+    id: match[1],
+    tag: match[0],
+  }));
+}
+
 test("owner cockpit renders an unnumbered Intro followed by the exact 9-section order", () => {
   const html = renderGrowthReport(fixture);
+  const sections = sectionOpeningTags(html);
+  assert.deepEqual(sections.map(({ id }) => id), allReportSections);
+  assert.doesNotMatch(sections[0].tag, /data-cockpit-order/);
+  assert.doesNotMatch(sections[1].tag, /data-cockpit-order/);
   const introIndex = html.indexOf('id="report-intro" data-report-intro');
   assert.ok(introIndex > html.indexOf('id="report-overview"'));
   assert.ok(introIndex < html.indexOf('id="gap-map" data-cockpit-order="1"'));
@@ -71,6 +83,35 @@ test("owner cockpit renders an unnumbered Intro followed by the exact 9-section 
   assert.match(html, /Close in 30 days|Start in 30 days/);
   assert.doesNotMatch(html, /class="cae-report-priority"/);
   assert.doesNotMatch(heroHtml(html), /\/100/);
+});
+
+test("numbered cockpit sections expose one visible number derived from their canonical order", () => {
+  const html = renderGrowthReport(fixture);
+  const css = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report.css"), "utf8");
+  const sections = sectionOpeningTags(html);
+
+  sections.slice(2).forEach(({ id, tag }, index) => {
+    assert.match(tag, new RegExp(`data-cockpit-order="${index + 1}"`), `${id} must retain its canonical order attribute`);
+  });
+
+  assert.match(
+    css,
+    /\.cae-score-report\s+\.cae-section\[data-cockpit-order\]::before\s*\{[\s\S]*?content:\s*attr\(data-cockpit-order\)\s*"\s*·"\s*;/,
+    "section numbering must be visibly derived from data-cockpit-order rather than duplicated in report data",
+  );
+});
+
+test("Focus Selection remains exactly one Primary and two Supporting gaps", () => {
+  const html = renderGrowthReport(fixture);
+  const focus = fixture.humanDiagnosis.focus_selection;
+  const selectedIds = [focus.primary_gap_id, ...focus.supporting_gap_ids];
+
+  assert.equal(focus.supporting_gap_ids.length, 2);
+  assert.equal(new Set(selectedIds).size, 3);
+  assert.ok(selectedIds.every((id) => fixture.humanDiagnosis.gap_inventory.some((gap) => gap.id === id)));
+  assert.equal((html.match(/class="cae-focus-gap"[^>]*data-gap-role="primary"/g) || []).length, 1);
+  assert.equal((html.match(/class="cae-focus-gap"[^>]*data-gap-role="supporting"/g) || []).length, 2);
+  assert.equal((html.match(/class="cae-focus-gap"/g) || []).length, 3);
 });
 
 test("score navigation is compact, four-surface, approximate and secondary", () => {
@@ -139,9 +180,14 @@ test("the same renderer accepts an approved real report and enforces private rou
   }
 });
 
-test("Russian real reports render a Russian cockpit without changing English demos", () => {
+test("Russian real reports render a Russian cockpit without changing English demos", (t) => {
   const route = "nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8";
-  const report = JSON.parse(fs.readFileSync(path.join(root, "site-caesthetic/score", route, "report.json"), "utf8"));
+  const reportPath = path.join(root, "site-caesthetic/score", route, "report.json");
+  if (!fs.existsSync(reportPath)) {
+    t.skip("private Nohy fixture is intentionally absent from the public satellite repository");
+    return;
+  }
+  const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
   const html = renderGrowthReport(report);
 
   assert.equal(report.templateVersion, GROWTH_SCORE_REPORT_TEMPLATE_VERSION);
