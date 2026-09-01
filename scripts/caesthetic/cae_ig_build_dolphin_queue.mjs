@@ -64,6 +64,20 @@ function rcloneCat(remote) {
   return r.stdout || "";
 }
 
+function readSourceText(remote, localFallbacks = []) {
+  try {
+    return { text: rcloneCat(remote), source: remote };
+  } catch (err) {
+    for (const local of localFallbacks) {
+      if (existsSync(local)) {
+        console.error(`[warn] using local fallback for ${remote}: ${local}`);
+        return { text: readFileSync(local, "utf8"), source: `file://${local}` };
+      }
+    }
+    throw err;
+  }
+}
+
 function rcloneCopyto(local, remote) {
   const r = spawnSync("rclone", ["copyto", local, remote, "-q"], {
     encoding: "utf8",
@@ -210,11 +224,23 @@ Prints aggregate counts only.`);
   const outDir = args.outDir;
   mkdirSync(outDir, { recursive: true });
 
-  const candidateText = rcloneCat(CANDIDATE_USERNAMES);
-  const currentText = rcloneCat(CURRENT_POINTER);
+  const candidate = readSourceText(CANDIDATE_USERNAMES, [
+    join(REPO, "tmp/cae-ig-queue/usernames.txt"),
+    join(REPO, "tmp/cae-medspa-ig-selection-v1/usernames.txt"),
+  ]);
+  const current = readSourceText(CURRENT_POINTER, [
+    join(REPO, "tmp/cae-ig-queue/CURRENT.json"),
+  ]);
+  const candidateText = candidate.text;
+  const currentText = current.text;
   let task814Csv = "";
+  let task814Source = TASK814_MASTER;
   try {
-    task814Csv = rcloneCat(TASK814_MASTER);
+    const task814 = readSourceText(TASK814_MASTER, [
+      join(REPO, "tmp/cae-ig-queue/_task814_master.csv"),
+    ]);
+    task814Csv = task814.text;
+    task814Source = task814.source;
   } catch (err) {
     console.error(`[warn] TASK-814 master unavailable; ranking without priority: ${err.message}`);
   }
@@ -253,9 +279,9 @@ Prints aggregate counts only.`);
     selection_id: "CAE_MEDSPA_IG_V1",
     status: "NON-EXECUTION_QUEUE_FOR_COVERAGE",
     note: "Coverage/follow queue for SBO day runners. Not CURRENT.json / CAE_MEDSPA_IG_FINAL_V1. Do not commit usernames.",
-    source_candidate: CANDIDATE_USERNAMES,
-    source_deny: CURRENT_POINTER,
-    source_priority: TASK814_MASTER,
+    source_candidate: candidate.source,
+    source_deny: current.source,
+    source_priority: task814Source,
     agent_card: "docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md",
     builder: "scripts/caesthetic/cae_ig_build_dolphin_queue.mjs",
     runner: "services/social-browser-operator/scripts/run-cae-ig-869-day1-833304152.mjs",

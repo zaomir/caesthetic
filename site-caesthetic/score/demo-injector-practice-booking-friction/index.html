@@ -93,11 +93,11 @@
           </ol>
         </div>
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
 
         <ol class="cae-gap-map" aria-label="Gap Map">
@@ -106,7 +106,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">1</span>
               <span class="cae-gap-map__copy">
                 <strong>The mobile booking path requires repeated context and too many steps.</strong>
-                <small>Website · Booking · Primary Gap</small>
+                <small>Website · Booking · <span class="cae-status-pill">Primary Gap</span></small>
               </span>
             </a>
           </li>
@@ -115,7 +115,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">3</span>
               <span class="cae-gap-map__copy">
                 <strong>Selected treatment context is lost at the booking handoff.</strong>
-                <small>Website · Booking · Supporting Gap 3</small>
+                <small>Website · Booking · <span class="cae-status-pill">Supporting Gap 3</span></small>
               </span>
             </a>
           </li>
@@ -124,7 +124,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">2</span>
               <span class="cae-gap-map__copy">
                 <strong>The synthetic enquiry did not receive a clear treatment-specific next step.</strong>
-                <small>Website · Booking · Supporting Gap 2</small>
+                <small>Website · Booking · <span class="cae-status-pill">Supporting Gap 2</span></small>
               </span>
             </a>
           </li>
@@ -133,7 +133,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
               <span class="cae-gap-map__copy">
                 <strong>Conversion continuity breaks between Website and scheduler.</strong>
-                <small>Cross-Surface · Discovery · Verified backlog</small>
+                <small>Cross-Surface · Discovery · <span class="cae-status-pill">Verified backlog</span></small>
               </span>
             </a>
           </li>
@@ -142,7 +142,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">?</span>
               <span class="cae-gap-map__copy">
                 <strong>Approved Social evidence covers only 60% of canonical weight.</strong>
-                <small>Social · Discovery · Insufficient evidence</small>
+                <small>Social · Discovery · <span class="cae-status-pill">Insufficient evidence</span></small>
               </span>
             </a>
           </li>
@@ -155,16 +155,16 @@
       <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
       <h2 class="cae-h2">Exactly three holes chosen by Fictional Taylor Rowan</h2>
       <p>The named reviewer selected The mobile booking path requires repeated context and too many steps. as the binding hole and the related 30-day repairs.</p>
-      <ol class="cae-focus-summary"><li><a href="#gap-booking-step-friction"><strong>1. The mobile booking path requires repeated context and too many steps.</strong><span>Primary Gap · Close in 30 days</span></a></li><li><a href="#gap-mystery-shopper-gap"><strong>2. The synthetic enquiry did not receive a clear treatment-specific next step.</strong><span>Supporting Gap 2 · Close in 30 days</span></a></li><li><a href="#gap-booking-context-loss"><strong>3. Selected treatment context is lost at the booking handoff.</strong><span>Supporting Gap 3 · Start in 30 days</span></a></li></ol>
+      <ol class="cae-focus-summary"><li><a href="#gap-booking-step-friction"><strong>1. The mobile booking path requires repeated context and too many steps.</strong><span class="cae-status-pill">Primary Gap · Close in 30 days</span></a></li><li><a href="#gap-mystery-shopper-gap"><strong>2. The synthetic enquiry did not receive a clear treatment-specific next step.</strong><span class="cae-status-pill">Supporting Gap 2 · Close in 30 days</span></a></li><li><a href="#gap-booking-context-loss"><strong>3. Selected treatment context is lost at the booking handoff.</strong><span class="cae-status-pill">Supporting Gap 3 · Start in 30 days</span></a></li></ol>
       <div class="cae-focus-gaps">
           <article class="cae-focus-gap" id="gap-booking-step-friction" data-gap-role="primary">
-            <p class="cae-focus-gap__rank" aria-label="Primary Gap">1 · Primary Gap</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Primary Gap">1 · Primary Gap</p>
             <h3>The mobile booking path requires repeated context and too many steps.</h3>
             <p><strong>Found on:</strong> Website · Booking</p>
             <p><strong>Evidence → Explanation:</strong> website.booking_friction. High-intent treatment visitors face avoidable abandonment risk.</p>
             <p><strong>Why now:</strong> The named reviewer selected The mobile booking path requires repeated context and too many steps. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> This is the Primary Gap. Supporting repairs depend on it.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> A priority-treatment visitor can reach a confirmed mobile enquiry without repeated choices or unnecessary fields.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Before-and-after mobile path recording</li><li>Final click and required-field count</li><li>Successful test acknowledgement on two mobile viewport sizes</li></ul>
@@ -176,13 +176,13 @@
             <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
           </article>
           <article class="cae-focus-gap" id="gap-mystery-shopper-gap" data-gap-role="supporting">
-            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 2">2 · Supporting Gap 2</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Supporting Gap 2">2 · Supporting Gap 2</p>
             <h3>The synthetic enquiry did not receive a clear treatment-specific next step.</h3>
             <p><strong>Found on:</strong> Website · Booking</p>
             <p><strong>Evidence → Explanation:</strong> website.mystery_shopper. The follow-up experience does not match the credibility built before submission.</p>
             <p><strong>Why now:</strong> The named reviewer selected The mobile booking path requires repeated context and too many steps. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> A permitted truthful test enquiry receives a treatment-relevant acknowledgement and owned next step within the documented service window.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Approved response and escalation standard</li><li>Dated test submission receipt</li><li>Timestamped treatment-relevant response</li></ul>
@@ -194,13 +194,13 @@
             <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
           </article>
           <article class="cae-focus-gap" id="gap-booking-context-loss" data-gap-role="supporting">
-            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 3">3 · Supporting Gap 3</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Supporting Gap 3">3 · Supporting Gap 3</p>
             <h3>Selected treatment context is lost at the booking handoff.</h3>
             <p><strong>Found on:</strong> Website · Booking</p>
             <p><strong>Evidence → Explanation:</strong> website.technical_booking_integrity. Generic enquiries create extra work and a less relevant first response.</p>
             <p><strong>Why now:</strong> The named reviewer selected The mobile booking path requires repeated context and too many steps. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
-            <p><strong>Sprint Fit:</strong> Start in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Start in 30 days</span></p>
             <p><strong>Day-30 result:</strong> The first approved public correction is live and the remaining work is scoped.</p><p><strong>After Day 30:</strong> Continue the remaining public-path work after Day 30; it is not Sprint scope by default.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Field-mapping record</li><li>Received test enquiry with correct non-clinical context</li><li>Mobile QA evidence for direct and recovery paths</li></ul>
@@ -220,9 +220,9 @@
       <h2 class="cae-h2">What can honestly close, start, or wait</h2>
 
         <div class="cae-sprint-fit">
-          <article><p class="cae-kicker">Close in 30 days</p><ul><li><a href="#gap-booking-step-friction">The mobile booking path requires repeated context and too many steps.</a></li><li><a href="#gap-mystery-shopper-gap">The synthetic enquiry did not receive a clear treatment-specific next step.</a></li></ul></article>
-          <article><p class="cae-kicker">Start in 30 days</p><ul><li><a href="#gap-booking-context-loss">Selected treatment context is lost at the booking handoff.</a></li></ul></article>
-          <article><p class="cae-kicker">Not now</p><ul><li><a href="#gap-cross-conversion-gap">Conversion continuity breaks between Website and scheduler.</a></li><li><a href="#gap-social-evidence-gap">Approved Social evidence covers only 60% of canonical weight.</a></li></ul></article>
+          <article><p class="cae-kicker cae-status-pill">Close in 30 days</p><ul><li><a href="#gap-booking-step-friction">The mobile booking path requires repeated context and too many steps.</a></li><li><a href="#gap-mystery-shopper-gap">The synthetic enquiry did not receive a clear treatment-specific next step.</a></li></ul></article>
+          <article><p class="cae-kicker cae-status-pill">Start in 30 days</p><ul><li><a href="#gap-booking-context-loss">Selected treatment context is lost at the booking handoff.</a></li></ul></article>
+          <article><p class="cae-kicker cae-status-pill">Not now</p><ul><li><a href="#gap-cross-conversion-gap">Conversion continuity breaks between Website and scheduler.</a></li><li><a href="#gap-social-evidence-gap">Approved Social evidence covers only 60% of canonical weight.</a></li></ul></article>
         </div>
         <p class="cae-report-note">This roadmap is generated from Sprint Fit. It is not purchased scope, a delivery promise or a results guarantee.</p>
     </div>
@@ -275,38 +275,38 @@
       </div>
       <div class="cae-report-problems">
           <article class="cae-report-problem" id="inventory-booking-step-friction" data-filter-group="fix-now" data-surface="website">
-            <p class="cae-kicker">booking-step-friction · Website · Primary Gap</p>
+            <p class="cae-kicker">booking-step-friction · Website · <span class="cae-status-pill">Primary Gap</span></p>
             <h3>The mobile booking path requires repeated context and too many steps.</h3>
             <p>High-intent treatment visitors face avoidable abandonment risk.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-booking-step-friction">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-booking-context-loss" data-filter-group="fix-next" data-surface="website">
-            <p class="cae-kicker">booking-context-loss · Website · Supporting Gap 3</p>
+            <p class="cae-kicker">booking-context-loss · Website · <span class="cae-status-pill">Supporting Gap 3</span></p>
             <h3>Selected treatment context is lost at the booking handoff.</h3>
             <p>Generic enquiries create extra work and a less relevant first response.</p>
-            <p><strong>Sprint Fit:</strong> Start in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Start in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-booking-context-loss">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-mystery-shopper-gap" data-filter-group="fix-now" data-surface="website">
-            <p class="cae-kicker">mystery-shopper-gap · Website · Supporting Gap 2</p>
+            <p class="cae-kicker">mystery-shopper-gap · Website · <span class="cae-status-pill">Supporting Gap 2</span></p>
             <h3>The synthetic enquiry did not receive a clear treatment-specific next step.</h3>
             <p>The follow-up experience does not match the credibility built before submission.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-mystery-shopper-gap">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-cross-conversion-gap" data-filter-group="monitor" data-surface="cross_surface">
-            <p class="cae-kicker">cross-conversion-gap · Cross-Surface · Verified backlog</p>
+            <p class="cae-kicker">cross-conversion-gap · Cross-Surface · <span class="cae-status-pill">Verified backlog</span></p>
             <h3>Conversion continuity breaks between Website and scheduler.</h3>
             <p>Treatment intent weakens across the final decision handoff.</p>
-            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Backlog — not now</span></p>
             <p class="cae-report-note">Not now.</p>
           </article>
           <article class="cae-report-problem" id="inventory-social-evidence-gap" data-filter-group="insufficient" data-surface="social">
-            <p class="cae-kicker">social-evidence-gap · Social · Insufficient evidence</p>
+            <p class="cae-kicker">social-evidence-gap · Social · <span class="cae-status-pill">Insufficient evidence</span></p>
             <h3>Approved Social evidence covers only 60% of canonical weight.</h3>
             <p>No defensible Social score or overall score can be published until the missing evidence is collected.</p>
-            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Backlog — not now</span></p>
             <p class="cae-report-note">Not now.</p>
           </article></div>
     </div>

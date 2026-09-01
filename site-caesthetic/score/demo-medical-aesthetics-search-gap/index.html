@@ -93,11 +93,11 @@
           </ol>
         </div>
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
-        <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
+        <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
 
         <ol class="cae-gap-map" aria-label="Gap Map">
@@ -106,7 +106,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">1</span>
               <span class="cae-gap-map__copy">
                 <strong>Geo-grid visibility collapses outside the immediate address area.</strong>
-                <small>Search · Discovery · Primary Gap</small>
+                <small>Search · Discovery · <span class="cae-status-pill">Primary Gap</span></small>
               </span>
             </a>
           </li>
@@ -115,7 +115,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">2</span>
               <span class="cae-gap-map__copy">
                 <strong>GBP categories and treatment inventory are incomplete.</strong>
-                <small>Search · Discovery · Supporting Gap 2</small>
+                <small>Search · Discovery · <span class="cae-status-pill">Supporting Gap 2</span></small>
               </span>
             </a>
           </li>
@@ -124,7 +124,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
               <span class="cae-gap-map__copy">
                 <strong>Profile freshness is inconsistent.</strong>
-                <small>Search · Discovery · Verified backlog</small>
+                <small>Search · Discovery · <span class="cae-status-pill">Verified backlog</span></small>
               </span>
             </a>
           </li>
@@ -133,7 +133,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">3</span>
               <span class="cae-gap-map__copy">
                 <strong>Clinician proof does not continue into high-intent pages.</strong>
-                <small>Cross-Surface · Discovery · Supporting Gap 3</small>
+                <small>Cross-Surface · Discovery · <span class="cae-status-pill">Supporting Gap 3</span></small>
               </span>
             </a>
           </li>
@@ -142,7 +142,7 @@
               <span class="cae-gap-map__symbol" aria-hidden="true">•</span>
               <span class="cae-gap-map__copy">
                 <strong>Review response speed trails the fictional peer set.</strong>
-                <small>Reputation · Trust · Verified backlog</small>
+                <small>Reputation · Trust · <span class="cae-status-pill">Verified backlog</span></small>
               </span>
             </a>
           </li>
@@ -155,16 +155,16 @@
       <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
       <h2 class="cae-h2">Exactly three holes chosen by Fictional Morgan Hale</h2>
       <p>The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
-      <ol class="cae-focus-summary"><li><a href="#gap-search-map-coverage"><strong>1. Geo-grid visibility collapses outside the immediate address area.</strong><span>Primary Gap · Close in 30 days</span></a></li><li><a href="#gap-search-profile-taxonomy"><strong>2. GBP categories and treatment inventory are incomplete.</strong><span>Supporting Gap 2 · Close in 30 days</span></a></li><li><a href="#gap-cross-proof-gap"><strong>3. Clinician proof does not continue into high-intent pages.</strong><span>Supporting Gap 3 · Close in 30 days</span></a></li></ol>
+      <ol class="cae-focus-summary"><li><a href="#gap-search-map-coverage"><strong>1. Geo-grid visibility collapses outside the immediate address area.</strong><span class="cae-status-pill">Primary Gap · Close in 30 days</span></a></li><li><a href="#gap-search-profile-taxonomy"><strong>2. GBP categories and treatment inventory are incomplete.</strong><span class="cae-status-pill">Supporting Gap 2 · Close in 30 days</span></a></li><li><a href="#gap-cross-proof-gap"><strong>3. Clinician proof does not continue into high-intent pages.</strong><span class="cae-status-pill">Supporting Gap 3 · Close in 30 days</span></a></li></ol>
       <div class="cae-focus-gaps">
           <article class="cae-focus-gap" id="gap-search-map-coverage" data-gap-role="primary">
-            <p class="cae-focus-gap__rank" aria-label="Primary Gap">1 · Primary Gap</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Primary Gap">1 · Primary Gap</p>
             <h3>Geo-grid visibility collapses outside the immediate address area.</h3>
             <p><strong>Found on:</strong> Search · Discovery</p>
             <p><strong>Evidence → Explanation:</strong> search.map_visibility. Priority-treatment local discovery is materially weaker than the synthetic peer set.</p>
             <p><strong>Why now:</strong> The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> This is the Primary Gap. Supporting repairs depend on it.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> Priority-treatment visibility is measured from a reproducible geo-grid and the weakest cells have an evidence-backed correction plan.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Dated 5×5 export with query, centre, radius and competitors</li><li>Cell-level issue log</li><li>Like-for-like post-change export</li></ul>
@@ -176,13 +176,13 @@
             <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
           </article>
           <article class="cae-focus-gap" id="gap-search-profile-taxonomy" data-gap-role="supporting">
-            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 2">2 · Supporting Gap 2</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Supporting Gap 2">2 · Supporting Gap 2</p>
             <h3>GBP categories and treatment inventory are incomplete.</h3>
             <p><strong>Found on:</strong> Search · Discovery</p>
             <p><strong>Evidence → Explanation:</strong> search.gbp_treatment_category_completeness. The profile gives search platforms and patients an incomplete view of the priority offer.</p>
             <p><strong>Why now:</strong> The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> The public GBP categories and services accurately represent the approved priority treatments without stuffing or unsupported claims.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Before-and-after GBP category export</li><li>Live service inventory screenshots</li><li>Owner approval record</li></ul>
@@ -194,13 +194,13 @@
             <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
           </article>
           <article class="cae-focus-gap" id="gap-cross-proof-gap" data-gap-role="supporting">
-            <p class="cae-focus-gap__rank" aria-label="Supporting Gap 3">3 · Supporting Gap 3</p>
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="Supporting Gap 3">3 · Supporting Gap 3</p>
             <h3>Clinician proof does not continue into high-intent pages.</h3>
             <p><strong>Found on:</strong> Cross-Surface · Discovery</p>
             <p><strong>Evidence → Explanation:</strong> cross.proof_continuity, social.clinician_expertise. Decision confidence drops between attention and booking.</p>
             <p><strong>Why now:</strong> The named reviewer selected Geo-grid visibility collapses outside the immediate address area. as the binding hole and the related 30-day repairs.</p>
             <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><strong>Reachable result:</strong> The same verifiable clinician proof appears at the high-intent Search-to-Website decision points without adding unsupported claims.</p>
             <p><strong>Done when:</strong></p>
             <ul><li>Approved proof inventory</li><li>Live treatment-page URLs</li><li>Mobile discovery-to-booking QA screenshots</li></ul>
@@ -220,9 +220,9 @@
       <h2 class="cae-h2">What can honestly close, start, or wait</h2>
 
         <div class="cae-sprint-fit">
-          <article><p class="cae-kicker">Close in 30 days</p><ul><li><a href="#gap-search-map-coverage">Geo-grid visibility collapses outside the immediate address area.</a></li><li><a href="#gap-search-profile-taxonomy">GBP categories and treatment inventory are incomplete.</a></li><li><a href="#gap-cross-proof-gap">Clinician proof does not continue into high-intent pages.</a></li></ul></article>
-          <article><p class="cae-kicker">Start in 30 days</p><p class="cae-report-note">No long initiative was started.</p></article>
-          <article><p class="cae-kicker">Not now</p><ul><li><a href="#gap-search-freshness">Profile freshness is inconsistent.</a></li><li><a href="#gap-reputation-response-lag">Review response speed trails the fictional peer set.</a></li></ul></article>
+          <article><p class="cae-kicker cae-status-pill">Close in 30 days</p><ul><li><a href="#gap-search-map-coverage">Geo-grid visibility collapses outside the immediate address area.</a></li><li><a href="#gap-search-profile-taxonomy">GBP categories and treatment inventory are incomplete.</a></li><li><a href="#gap-cross-proof-gap">Clinician proof does not continue into high-intent pages.</a></li></ul></article>
+          <article><p class="cae-kicker cae-status-pill">Start in 30 days</p><p class="cae-report-note">No long initiative was started.</p></article>
+          <article><p class="cae-kicker cae-status-pill">Not now</p><ul><li><a href="#gap-search-freshness">Profile freshness is inconsistent.</a></li><li><a href="#gap-reputation-response-lag">Review response speed trails the fictional peer set.</a></li></ul></article>
         </div>
         <p class="cae-report-note">This roadmap is generated from Sprint Fit. It is not purchased scope, a delivery promise or a results guarantee.</p>
     </div>
@@ -275,38 +275,38 @@
       </div>
       <div class="cae-report-problems">
           <article class="cae-report-problem" id="inventory-search-map-coverage" data-filter-group="fix-now" data-surface="search">
-            <p class="cae-kicker">search-map-coverage · Search · Primary Gap</p>
+            <p class="cae-kicker">search-map-coverage · Search · <span class="cae-status-pill">Primary Gap</span></p>
             <h3>Geo-grid visibility collapses outside the immediate address area.</h3>
             <p>Priority-treatment local discovery is materially weaker than the synthetic peer set.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-search-map-coverage">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-search-profile-taxonomy" data-filter-group="fix-now" data-surface="search">
-            <p class="cae-kicker">search-profile-taxonomy · Search · Supporting Gap 2</p>
+            <p class="cae-kicker">search-profile-taxonomy · Search · <span class="cae-status-pill">Supporting Gap 2</span></p>
             <h3>GBP categories and treatment inventory are incomplete.</h3>
             <p>The profile gives search platforms and patients an incomplete view of the priority offer.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-search-profile-taxonomy">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-search-freshness" data-filter-group="monitor" data-surface="search">
-            <p class="cae-kicker">search-freshness · Search · Verified backlog</p>
+            <p class="cae-kicker">search-freshness · Search · <span class="cae-status-pill">Verified backlog</span></p>
             <h3>Profile freshness is inconsistent.</h3>
             <p>Intermittent activity weakens current-treatment confidence.</p>
-            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Backlog — not now</span></p>
             <p class="cae-report-note">Not now.</p>
           </article>
           <article class="cae-report-problem" id="inventory-cross-proof-gap" data-filter-group="fix-now" data-surface="cross_surface">
-            <p class="cae-kicker">cross-proof-gap · Cross-Surface · Supporting Gap 3</p>
+            <p class="cae-kicker">cross-proof-gap · Cross-Surface · <span class="cae-status-pill">Supporting Gap 3</span></p>
             <h3>Clinician proof does not continue into high-intent pages.</h3>
             <p>Decision confidence drops between attention and booking.</p>
-            <p><strong>Sprint Fit:</strong> Close in 30 days</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
             <p><a class="cae-report-inline-link" href="#gap-cross-proof-gap">Open Focus Gap card</a></p>
           </article>
           <article class="cae-report-problem" id="inventory-reputation-response-lag" data-filter-group="monitor" data-surface="reputation">
-            <p class="cae-kicker">reputation-response-lag · Reputation · Verified backlog</p>
+            <p class="cae-kicker">reputation-response-lag · Reputation · <span class="cae-status-pill">Verified backlog</span></p>
             <h3>Review response speed trails the fictional peer set.</h3>
             <p>Slow acknowledgement makes otherwise credible reputation evidence feel less active.</p>
-            <p><strong>Sprint Fit:</strong> Backlog — not now</p>
+            <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Backlog — not now</span></p>
             <p class="cae-report-note">Not now.</p>
           </article></div>
     </div>
