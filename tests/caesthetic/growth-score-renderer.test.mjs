@@ -17,15 +17,19 @@ const demoRoutes = [
   "demo-aesthetics-clinic-reputation-gap",
 ];
 const orderedSections = [
-  "gap-map",
+  "executive-overview",
+  "human-approved-diagnosis",
   "focus-gaps",
-  "sprint-fit",
-  "repair-paths",
-  "do-not-fund",
+  "remediation-plan",
+  "score-navigator",
+  "evidence-drilldown",
   "gap-inventory",
-  "evidence-and-competitors",
-  "scores-and-methodology",
+  "do-not-fund",
+  "implementation-paths",
+  "why-caesthetic",
+  "sprint-fit",
   "next-step",
+  "methodology-and-limitations",
 ];
 
 function loadDemo(route) {
@@ -33,12 +37,12 @@ function loadDemo(route) {
 }
 
 function heroHtml(html) {
-  const start = html.indexOf('id="report-overview"');
-  const end = html.indexOf('id="gap-map"');
+  const start = html.indexOf('id="executive-overview"');
+  const end = html.indexOf('id="human-approved-diagnosis"');
   return html.slice(start, end);
 }
 
-test("owner cockpit renders Gap Map → Focus Gaps before scores", () => {
+test("owner cockpit renders the exact 13-section order with Top 3 before scores", () => {
   const html = renderGrowthReport(fixture);
   let previousIndex = -1;
   orderedSections.forEach((sectionId, index) => {
@@ -46,10 +50,10 @@ test("owner cockpit renders Gap Map → Focus Gaps before scores", () => {
     assert.ok(sectionIndex > previousIndex, `${sectionId} must follow the prior cockpit section`);
     previousIndex = sectionIndex;
   });
-  assert.ok(html.indexOf("id=\"gap-map\"") < html.indexOf("id=\"focus-gaps\""));
-  assert.ok(html.indexOf("id=\"focus-gaps\"") < html.indexOf("id=\"scores-and-methodology\""));
+  assert.ok(html.indexOf("id=\"human-approved-diagnosis\"") < html.indexOf("id=\"focus-gaps\""));
+  assert.ok(html.indexOf("id=\"focus-gaps\"") < html.indexOf("id=\"score-navigator\""));
   const selectedCount = 1 + fixture.humanDiagnosis.focus_selection.supporting_gap_ids.length;
-  assert.ok(selectedCount >= 3 && selectedCount <= 4);
+  assert.equal(selectedCount, 3);
   assert.equal((html.match(/class="cae-focus-gap"/g) || []).length, selectedCount);
   assert.equal((html.match(/class="cae-gap-map"/g) || []).length, 1);
   assert.equal((html.match(/class="cae-report-do-not-do"/g) || []).length, 1);
@@ -142,13 +146,33 @@ test("Russian real reports render a Russian cockpit without changing English dem
   });
   assert.match(html, /<html lang="ru"/);
   assert.match(html, /Закрытый Growth Score/);
-  assert.match(html, /Карта разрывов/);
-  assert.match(html, /Фокусные разрывы/);
-  assert.match(html, /Баллы и методология/);
+  assert.match(html, /Диагноз, утверждённый человеком/);
+  assert.match(html, /Ровно 3 фокусных разрыва/);
+  assert.match(html, /Методология и ограничения/);
   assert.match(html, /Поручить CAESTHETIC выбранные фокусные разрывы/);
   assert.doesNotMatch(html, />Private Growth Score</);
-  assert.doesNotMatch(html, />Gap Map</);
-  assert.doesNotMatch(html, />Focus Gaps</);
+  assert.doesNotMatch(html, />Human-approved diagnosis</);
+  assert.doesNotMatch(html, />Exactly Top 3 Focus Gaps</);
+});
+
+test("all five locales use one renderer and never translate source evidence", () => {
+  const headings = {
+    en: "Executive Overview",
+    ru: "Краткий обзор",
+    es: "Resumen ejecutivo",
+    fr: "Synthèse",
+    uk: "Короткий огляд",
+  };
+  for (const [locale, heading] of Object.entries(headings)) {
+    const localized = structuredClone(fixture);
+    localized.reportContext.report_locale = locale;
+    localized.reportContext.locale_source = "human_resolved";
+    localized.surfaces[0].metrics[0].finding = "Private Growth Score — исходный evidence факт";
+    const html = renderGrowthReport(localized);
+    assert.match(html, new RegExp(`<html lang="${locale === "en" ? "en-US" : locale}"`));
+    assert.ok(html.includes(heading));
+    assert.ok(html.includes("Private Growth Score — исходный evidence факт"));
+  }
 });
 
 test("real reports omit coordination counts that cannot be derived", () => {
@@ -230,7 +254,7 @@ test("demo banner, Valerie Petra, single Sprint CTA, DIY link and Class A/B labe
   assert.match(html, /CAESTHETIC Growth Advisor/);
   assert.equal((html.match(/href="\/sprint\/"/g) || []).length, 1);
   assert.match(html, /class="cae-sticky-sprint" href="#next-step"/);
-  assert.match(html, /href="#focus-gaps"/);
+  assert.match(html, /href="#gap-/);
   assert.match(html, /CLASS A · VERIFIED|Class A/);
   assert.match(html, /CLASS B|Class B/);
 });

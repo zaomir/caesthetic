@@ -32,19 +32,27 @@ const surfaceLabels = Object.freeze({
   reputation: "Reputation",
   cross_surface: "Cross-Surface",
 });
-const FOCUS_RANKS = Object.freeze(["1", "2", "3", "4"]);
+const FOCUS_RANKS = Object.freeze(["1", "2", "3"]);
+export const GROWTH_SCORE_WALKTHROUGH_DURATION = "3–8 min";
 const VALERIE = Object.freeze({
   name: "Valerie Petra",
   role: "CAESTHETIC Growth Advisor",
   photo: "/assets/img/team/valerie-petra.svg",
 });
 
-const escapeHtml = (value) => String(value ?? "")
-  .replaceAll("&", "&amp;")
-  .replaceAll("<", "&lt;")
-  .replaceAll(">", "&gt;")
-  .replaceAll('"', "&quot;")
-  .replaceAll("'", "&#39;");
+let protectedRenderValues = null;
+const escapeHtml = (value) => {
+  const escaped = String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+  if (!protectedRenderValues) return escaped;
+  const token = `@@CAE_REPORT_VALUE_${protectedRenderValues.length}@@`;
+  protectedRenderValues.push([token, escaped]);
+  return token;
+};
 
 const sentenceCase = (value) => String(value ?? "")
   .replaceAll("_", " ")
@@ -77,8 +85,8 @@ function requireReportContent(report) {
     throw new TypeError("humanDiagnosis.gap_inventory must be a non-empty array");
   }
   const selectedIds = selectedFocusGapIds(diagnosis.focus_selection);
-  if (selectedIds.length < 3 || selectedIds.length > 4) {
-    throw new TypeError("humanDiagnosis.focus_selection must contain 3 or 4 unique gaps");
+  if (selectedIds.length !== 3) {
+    throw new TypeError("humanDiagnosis.focus_selection must contain exactly 3 unique gaps");
   }
   for (const pathId of ["diy", "other_provider", "defer", "caesthetic"]) {
     if (!report.implementation_paths?.[pathId]) throw new TypeError(`implementation_paths.${pathId} is required`);
@@ -118,7 +126,7 @@ function requireReportContent(report) {
     requireNonEmptyString(gap.repair_plan?.owner_role, `humanDiagnosis.gap_inventory[${index}].repair_plan.owner_role`);
   });
   requireNonEmptyString(diagnosis.focus_selection?.primary_gap_id, "humanDiagnosis.focus_selection.primary_gap_id");
-  requireArray(diagnosis.focus_selection?.supporting_gap_ids, "humanDiagnosis.focus_selection.supporting_gap_ids", { min: 2, max: 3 });
+  requireArray(diagnosis.focus_selection?.supporting_gap_ids, "humanDiagnosis.focus_selection.supporting_gap_ids", { min: 2, max: 2 });
   requireNonEmptyString(diagnosis.focus_selection?.selected_by, "humanDiagnosis.focus_selection.selected_by");
   requireNonEmptyString(diagnosis.focus_selection?.selected_at, "humanDiagnosis.focus_selection.selected_at");
   requireNonEmptyString(diagnosis.focus_selection?.rationale, "humanDiagnosis.focus_selection.rationale");
@@ -387,6 +395,15 @@ function focusGapCards(gaps, focus) {
   }).join("");
 }
 
+function focusGapSummary(gaps, focus) {
+  return selectedFocusGapIds(focus).map((id, index) => {
+    const gap = gaps.find((item) => item.id === id);
+    if (!gap) return "";
+    const role = index === 0 ? "Primary Gap" : `Supporting Gap ${index + 1}`;
+    return `<li><a href="#gap-${escapeHtml(gap.id)}"><strong>${index + 1}. ${escapeHtml(gap.title)}</strong><span>${role} · ${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></a></li>`;
+  }).join("");
+}
+
 function sprintFitHtml(gaps, focus) {
   const selected = selectedFocusGapIds(focus).map((id) => gaps.find((gap) => gap.id === id)).filter(Boolean);
   const close = selected.filter((gap) => gap.sprint_fit.mode === "close_in_30_days");
@@ -496,12 +513,12 @@ function estimateRows(estimates = []) {
 }
 
 function walkthroughHeroCard(walkthrough, isDemo) {
-  const duration = walkthrough.duration ? escapeHtml(walkthrough.duration) : "4–6 min";
+  const duration = GROWTH_SCORE_WALKTHROUGH_DURATION;
   const body = `
       <img src="${VALERIE.photo}" alt="${escapeHtml(VALERIE.name)}" width="72" height="72">
       <p class="cae-kicker">Your Growth Review</p>
       <strong>${escapeHtml(VALERIE.name)}</strong>
-      <p>${escapeHtml(VALERIE.role)}</p>
+      <p>${VALERIE.role}</p>
       <p>${duration}</p>`;
 
   if (walkthrough.status === "available") {
@@ -519,9 +536,82 @@ function reviewerStatusLabel(status) {
 }
 
 function localizeReportHtml(html, locale) {
-  if (locale !== "ru") return html;
+  if (!locale || locale === "en") return html;
+
+  const presentationTranslations = {
+    es: [
+      ["Executive Overview", "Resumen ejecutivo"],
+      ["Human-approved diagnosis", "Diagnóstico aprobado por una persona"],
+      ["Exactly Top 3 Focus Gaps", "Exactamente 3 brechas prioritarias"],
+      ["Complete Remediation Plan", "Plan completo de corrección"],
+      ["Four-Surface score navigator", "Navegador de las cuatro superficies"],
+      ["Evidence drill-down", "Detalle de evidencias"],
+      ["Full Problem / Gap Inventory", "Inventario completo de problemas y brechas"],
+      ["Do Not Fund Yet", "No financiar todavía"],
+      ["Four implementation paths", "Cuatro vías de implementación"],
+      ["Why CAESTHETIC / coordination burden", "Por qué CAESTHETIC y la carga de coordinación"],
+      ["Illustrative 30-day sequencing preview", "Secuencia ilustrativa de 30 días"],
+      ["Optional Sprint CTA", "Siguiente paso opcional"],
+      ["Methodology and limitations", "Metodología y limitaciones"],
+      ["Start the 30-Day Growth Sprint", "Iniciar el Growth Sprint de 30 días"],
+      ["Private Growth Score", "Growth Score privado"],
+    ],
+    fr: [
+      ["Executive Overview", "Synthèse"],
+      ["Human-approved diagnosis", "Diagnostic approuvé par une personne"],
+      ["Exactly Top 3 Focus Gaps", "Exactement 3 écarts prioritaires"],
+      ["Complete Remediation Plan", "Plan de correction complet"],
+      ["Four-Surface score navigator", "Navigation sur les quatre surfaces"],
+      ["Evidence drill-down", "Détail des preuves"],
+      ["Full Problem / Gap Inventory", "Inventaire complet des problèmes et écarts"],
+      ["Do Not Fund Yet", "Ne pas financer pour l'instant"],
+      ["Four implementation paths", "Quatre voies de mise en œuvre"],
+      ["Why CAESTHETIC / coordination burden", "Pourquoi CAESTHETIC et la coordination"],
+      ["Illustrative 30-day sequencing preview", "Séquence indicative sur 30 jours"],
+      ["Optional Sprint CTA", "Étape suivante facultative"],
+      ["Methodology and limitations", "Méthodologie et limites"],
+      ["Start the 30-Day Growth Sprint", "Démarrer le Growth Sprint de 30 jours"],
+      ["Private Growth Score", "Growth Score privé"],
+    ],
+    uk: [
+      ["Executive Overview", "Короткий огляд"],
+      ["Human-approved diagnosis", "Діагноз, затверджений людиною"],
+      ["Exactly Top 3 Focus Gaps", "Рівно 3 пріоритетні розриви"],
+      ["Complete Remediation Plan", "Повний план виправлення"],
+      ["Four-Surface score navigator", "Навігація чотирма поверхнями"],
+      ["Evidence drill-down", "Деталізація доказів"],
+      ["Full Problem / Gap Inventory", "Повний реєстр проблем і розривів"],
+      ["Do Not Fund Yet", "Поки не фінансувати"],
+      ["Four implementation paths", "Чотири шляхи впровадження"],
+      ["Why CAESTHETIC / coordination burden", "Навіщо CAESTHETIC і координаційне навантаження"],
+      ["Illustrative 30-day sequencing preview", "Орієнтовна послідовність на 30 днів"],
+      ["Optional Sprint CTA", "Необов'язковий наступний крок"],
+      ["Methodology and limitations", "Методологія та обмеження"],
+      ["Start the 30-Day Growth Sprint", "Розпочати 30-денний Growth Sprint"],
+      ["Private Growth Score", "Приватний Growth Score"],
+    ],
+  };
+
+  if (locale !== "ru") {
+    return (presentationTranslations[locale] || [])
+      .reduce((localized, [source, target]) => localized.replaceAll(source, target), html)
+      .replace(/[ \t]+$/gm, "");
+  }
 
   const replacements = [
+    ["Executive Overview", "Краткий обзор"],
+    ["Human-approved diagnosis", "Диагноз, утверждённый человеком"],
+    ["Exactly Top 3 Focus Gaps", "Ровно 3 фокусных разрыва"],
+    ["Complete Remediation Plan", "Полный план исправления"],
+    ["Four-Surface score navigator", "Навигатор по четырём поверхностям"],
+    ["Evidence drill-down", "Детализация evidence"],
+    ["Full Problem / Gap Inventory", "Полный реестр проблем и разрывов"],
+    ["Do Not Fund Yet", "Пока не финансировать"],
+    ["Four implementation paths", "Четыре пути внедрения"],
+    ["Why CAESTHETIC / coordination burden", "Зачем CAESTHETIC и нагрузка координации"],
+    ["Illustrative 30-day sequencing preview", "Ориентировочная последовательность на 30 дней"],
+    ["Optional Sprint CTA", "Необязательный следующий шаг"],
+    ["Methodology and limitations", "Методология и ограничения"],
     ["Private Growth Score", "Закрытый Growth Score"],
     ["Prepared by ", "Подготовила: "],
     ["Prepared ", "Подготовлено: "],
@@ -703,6 +793,7 @@ export function renderGrowthReport(report) {
   const isDemo = report.reportKind === "demo";
   const diagnosis = report.humanDiagnosis;
   const methodology = report.methodology;
+  protectedRenderValues = [];
   const kicker = isDemo ? "SYNTHETIC DEMO" : "Private Growth Score";
   const pageTitle = `${isDemo ? "Growth Score" : "Private Growth Score"} — ${escapeHtml(report.practice.name)} | CAESTHETIC`;
   const disclosure = isDemo
@@ -726,7 +817,7 @@ export function renderGrowthReport(report) {
   const focusCount = selectedFocusGapIds(focus).length;
 
   const html = `<!doctype html>
-<html lang="${report.reportContext?.report_locale === "ru" ? "ru" : "en-US"}" data-page="growth-score-report" data-report-kind="${escapeHtml(report.reportKind)}">
+<html lang="${report.reportContext?.report_locale === "en" ? "en-US" : report.reportContext?.report_locale}" data-page="growth-score-report" data-report-kind="${escapeHtml(report.reportKind)}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -741,14 +832,14 @@ export function renderGrowthReport(report) {
 ${disclosure}
 <div id="cae-header-slot"></div>
 <main>
-  <section class="cae-report-hero" id="report-overview">
+  <section class="cae-report-hero" id="executive-overview" data-cockpit-order="1">
     <div class="cae-wrap">
       <header class="cae-report-header">
-        <p class="cae-kicker">${escapeHtml(kicker)}</p>
+        <p class="cae-kicker">Executive Overview · ${kicker}</p>
         <h1>${escapeHtml(report.practice.name)}</h1>
         <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Prepared ${escapeHtml(report.practice.preparedAt)}</p>
-        <p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${escapeHtml(VALERIE.role)}</p>
-        <p class="cae-report-meta">${escapeHtml(reviewerStatusLabel(diagnosis.reviewer_status))} · ${escapeHtml(diagnosis.reviewer.name)} · ${escapeHtml(diagnosis.reviewer.approved_at)}</p>
+        <p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${VALERIE.role}</p>
+        <p class="cae-report-meta">${reviewerStatusLabel(diagnosis.reviewer_status)} · ${escapeHtml(diagnosis.reviewer.name)} · ${escapeHtml(diagnosis.reviewer.approved_at)}</p>
       </header>
       <div class="cae-report-hero__grid">
         <article class="cae-report-state">
@@ -765,9 +856,9 @@ ${disclosure}
     </div>
   </section>
 
-  <section class="cae-section" id="gap-map" data-cockpit-order="1">
+  <section class="cae-section" id="human-approved-diagnosis" data-cockpit-order="2">
     <div class="cae-wrap">
-      <p class="cae-kicker">Gap Map</p>
+      <p class="cae-kicker">Human-approved diagnosis</p>
       <h2 class="cae-h2">Every confirmed hole. Only ${focusCount} selected to start.</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
@@ -779,61 +870,50 @@ ${disclosure}
         <span><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
       ${gapMapHtml(diagnosis.gap_inventory, focus)}
+      <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
+${competitorRows(diagnosis.competitors)}
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="2">
+  <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="3">
     <div class="cae-wrap">
-      <p class="cae-kicker">Focus Gaps</p>
-      <h2 class="cae-h2">${focusCount} holes chosen by ${escapeHtml(focus.selected_by)}</h2>
+      <p class="cae-kicker">Exactly Top 3 Focus Gaps</p>
+      <h2 class="cae-h2">Exactly three holes chosen by ${escapeHtml(focus.selected_by)}</h2>
       <p>${escapeHtml(focus.rationale)}</p>
+      <ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>
+    </div>
+  </section>
+
+  <section class="cae-section" id="remediation-plan" data-cockpit-order="4">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Complete Remediation Plan</p>
+      <h2 class="cae-h2">Outcome, steps, dependencies and acceptance evidence</h2>
       <div class="cae-focus-gaps">${focusGapCards(diagnosis.gap_inventory, focus)}</div>
     </div>
   </section>
 
-  <section class="cae-section" id="sprint-fit" data-cockpit-order="3">
+  <section class="cae-section cae-section--soft" id="score-navigator" data-cockpit-order="5">
     <div class="cae-wrap">
-      <p class="cae-kicker">Sprint Fit</p>
-      <h2 class="cae-h2">What can honestly close, start, or wait</h2>
-      ${sprintFitHtml(diagnosis.gap_inventory, focus)}
+      <p class="cae-kicker">Approximate / secondary navigation</p>
+      <h2 class="cae-h2">Four-Surface score navigator</h2>
+      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
+      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="repair-paths" data-cockpit-order="4">
+  <section class="cae-section" id="evidence-drilldown" data-cockpit-order="6">
     <div class="cae-wrap">
-      <p class="cae-kicker">Repair paths</p>
-      <h2 class="cae-h2">Four valid ways forward</h2>
-      <p>Want to implement the selected Focus Gaps yourself? You can.</p>
-      <p><a class="cae-report-inline-link" href="#focus-gaps">View Focus Gap DIY steps</a></p>
-      <div class="cae-report-paths">
-        <article><span>Do it in-house</span><p>${escapeHtml(report.implementation_paths.diy)}</p></article>
-        <article><span>Use another provider</span><p>${escapeHtml(report.implementation_paths.other_provider)}</p></article>
-        <article><span>Defer</span><p>${escapeHtml(report.implementation_paths.defer)}</p></article>
-        <article><span>Ask CAESTHETIC</span><p>${escapeHtml(report.implementation_paths.caesthetic)}</p></article>
-      </div>
-      <div class="cae-report-why">
-        <p><strong>Sprint boundary:</strong> ${escapeHtml(report.why_caesthetic.sprint_boundary)}</p>
-        <p><strong>Ownership:</strong> ${escapeHtml(report.why_caesthetic.ownership)}</p>
-        <div class="cae-report-burden">${burdenRows}</div>
-      </div>
+      <p class="cae-kicker">Evidence drill-down</p>
+      <h2 class="cae-h2">Original sources, observations and approval state</h2>
+      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
+      <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
+      ${evidenceAccordion(report, result)}
     </div>
   </section>
 
-  <section class="cae-section" id="do-not-fund" data-cockpit-order="5">
-    <div class="cae-wrap cae-wrap--narrow">
-      <article class="cae-report-do-not-do">
-        <p class="cae-kicker">NOT YET</p>
-        <h2 class="cae-h2">${escapeHtml(diagnosis.do_not_do.title)}</h2>
-        <p>${escapeHtml(diagnosis.do_not_do.rationale)}</p>
-        <p><strong>Revisit after:</strong></p>
-        <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="6">
+  <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="7">
     <div class="cae-wrap">
-      <p class="cae-kicker">Full Gap Inventory</p>
+      <p class="cae-kicker">Full Problem / Gap Inventory</p>
       <h2 class="cae-h2">${inventoryCount} holes reviewed</h2>
       <div class="cae-report-filters" role="toolbar" aria-label="Filter gaps">
         <button type="button" data-filter="all">All</button>
@@ -846,25 +926,64 @@ ${disclosure}
     </div>
   </section>
 
-  <section class="cae-section" id="evidence-and-competitors" data-cockpit-order="7">
-    <div class="cae-wrap">
-      <p class="cae-kicker">Evidence and competitors</p>
-      <h2 class="cae-h2">Why the selected holes are real</h2>
-      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
-      <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
-      <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
-${competitorRows(diagnosis.competitors)}
-      <h3 class="cae-report-subhead">Metric drill-down</h3>
-      ${evidenceAccordion(report, result)}
+  <section class="cae-section" id="do-not-fund" data-cockpit-order="8">
+    <div class="cae-wrap cae-wrap--narrow">
+      <article class="cae-report-do-not-do">
+        <p class="cae-kicker">Do Not Fund Yet</p>
+        <h2 class="cae-h2">${escapeHtml(diagnosis.do_not_do.title)}</h2>
+        <p>${escapeHtml(diagnosis.do_not_do.rationale)}</p>
+        <p><strong>Revisit after:</strong></p>
+        <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
+      </article>
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft" id="scores-and-methodology" data-cockpit-order="8">
+  <section class="cae-section cae-section--soft" id="implementation-paths" data-cockpit-order="9">
     <div class="cae-wrap">
-      <p class="cae-kicker">Approximate / secondary navigation</p>
-      <h2 class="cae-h2">Scores and methodology</h2>
-      <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
-      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>
+      <p class="cae-kicker">Four implementation paths</p>
+      <h2 class="cae-h2">Four valid ways forward</h2>
+      <div class="cae-report-paths">
+        <article><span>Do it in-house</span><p>${escapeHtml(report.implementation_paths.diy)}</p></article>
+        <article><span>Use another provider</span><p>${escapeHtml(report.implementation_paths.other_provider)}</p></article>
+        <article><span>Defer</span><p>${escapeHtml(report.implementation_paths.defer)}</p></article>
+        <article><span>Ask CAESTHETIC</span><p>${escapeHtml(report.implementation_paths.caesthetic)}</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cae-section" id="why-caesthetic" data-cockpit-order="10">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Why CAESTHETIC / coordination burden</p>
+      <h2 class="cae-h2">Evidence ownership and coordinated implementation</h2>
+      <p>${escapeHtml(report.why_caesthetic.evidence_advantage)}</p>
+      <p>${escapeHtml(report.why_caesthetic.coordination_advantage)}</p>
+      <p><strong>Sprint boundary:</strong> ${escapeHtml(report.why_caesthetic.sprint_boundary)}</p>
+      <p><strong>Ownership:</strong> ${escapeHtml(report.why_caesthetic.ownership)}</p>
+      <div class="cae-report-burden">${burdenRows}</div>
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="sprint-fit" data-cockpit-order="11">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Illustrative 30-day sequencing preview</p>
+      <h2 class="cae-h2">What can honestly close, start, or wait</h2>
+      ${sprintFitHtml(diagnosis.gap_inventory, focus)}
+    </div>
+  </section>
+
+  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="12">
+    <div class="cae-wrap cae-wrap--narrow">
+      <p class="cae-kicker">Optional Sprint CTA</p>
+      <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
+      <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
+      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
+    </div>
+  </section>
+
+  <section class="cae-section cae-section--soft" id="methodology-and-limitations" data-cockpit-order="13">
+    <div class="cae-wrap">
+      <p class="cae-kicker">Methodology and limitations</p>
+      <h2 class="cae-h2">Evidence classes, sources and constraints</h2>
       <div class="cae-report-method__grid">
         <div>
           <p><strong>Class A:</strong> directly observable and approved. <strong>Class B:</strong> an explicit estimate or inference with its method and assumptions disclosed.</p>
@@ -880,15 +999,6 @@ ${competitorRows(diagnosis.competitors)}
       ${isDemo ? '<p><a class="cae-report-inline-link" href="/growth-score/#demo-growth-scores">View all synthetic demos</a></p>' : ""}
     </div>
   </section>
-
-  <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="9">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Optional next step</p>
-      <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
-      <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
-      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
-    </div>
-  </section>
 </main>
 <a class="cae-sticky-sprint" href="#next-step" hidden>View Sprint</a>
 <div id="cae-footer-slot"></div>
@@ -899,7 +1009,12 @@ ${competitorRows(diagnosis.competitors)}
 </body>
 </html>
 `;
-  return localizeReportHtml(html, report.reportContext?.report_locale);
+  const values = protectedRenderValues;
+  protectedRenderValues = null;
+  return values.reduce(
+    (rendered, [token, value]) => rendered.replaceAll(token, value),
+    localizeReportHtml(html, report.reportContext?.report_locale),
+  ).replace(/[ \t]+$/gm, "");
 }
 
 export function isUnguessableScoreSlug(slug) {

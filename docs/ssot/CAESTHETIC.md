@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.17
-updated: 2026-08-30
+version: 3.18
+updated: 2026-09-01
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -221,7 +221,7 @@ Stage 3 abandonment or `Skip` remains a successful submission. Optional answers 
 
 The sole operating sequence for creating both Growth Score formats is `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md`. After a manager assigns an audit, the robot must interview the manager for all missing business, identity, location, competitor and delivery context; run only quick public reconnaissance; and return a Research Alignment Card explaining its understanding of the business, proposed scope, competitor set, method, unknowns and deliverables. Full research is blocked until a named manager approves or corrects that card.
 
-After approval, AI-assisted research gathers public evidence and produces a non-publishable Internal AI Report with the complete Gap Inventory, candidate risk order, candidate Focus Selection and repair paths. A named manager verifies the evidence and manually selects one Primary Gap plus two or three Supporting Gaps. Those approved 3–4 highest-risk gaps appear first on the client page; every other verified, monitor or insufficient-evidence hole remains lower in the Full Gap Inventory. The robot may recommend and rank candidates, but it does not make the final publication decision or choose Sprint scope.
+After approval, AI-assisted research gathers public evidence and produces a non-publishable Internal AI Report with the complete Gap Inventory, candidate risk order, candidate Focus Selection and repair paths. A named manager verifies the evidence and manually selects exactly one Primary Gap plus exactly two Supporting Gaps. Those approved Top 3 highest-risk gaps appear first on the client page; every other verified, monitor or insufficient-evidence hole remains lower in the Full Gap Inventory. The robot may recommend and rank candidates, but it does not make the final publication decision or choose Sprint scope.
 
 Reviewer identity is fail-closed. The normal form is a first and last name. The exact registered human-reviewer mononym **`Валерия`** is also canonical and must render exactly as written; it may not be expanded to a surname, translated to `Valerie`, or replaced by the Valerie Petra brand persona. Any other one-word reviewer value fails publication until explicitly added to canon and validator tests.
 
@@ -247,7 +247,7 @@ The private owner cockpit's primary product is the human-approved, evidence-back
 - binding constraint and named-competitor evidence where applicable;
 - Competitive Decision Analysis across Search, Website, Social and Reputation — Comparison Matrix, Competitor Cards, `Defend / Close / Differentiate / Do not copy` and a Market Practice Gap decision (`Keep / Evaluate / Pilot / Replace / Do not adopt`) where relevant; this is a cross-cutting decision layer, not a fifth surface;
 - full Gap Inventory of confirmed, deferred and unproven holes, not a Sprint backlog;
-- one Primary Gap, two or three Supporting Gaps, and one `do not do`;
+- one Primary Gap, exactly two Supporting Gaps, and one `do not do`;
 - a 30-day Repair Plan for each Focus Gap with DIY steps, dependencies, owner role, Day-30 result and `done_when`;
 - clear `Insufficient evidence` and verification actions where a hole cannot yet be confirmed; and
 - methodology, source dates, limitations and explicit Class B assumptions.
@@ -257,7 +257,7 @@ For an applicable market, competitor coverage is fail-closed. The report must di
 ### Two Growth Score delivery formats
 
 - **Growth Score:** one protected schema-v5 cockpit for one resolved location.
-- **Multi-Location Growth Score:** one protected parent network-analysis page plus one linked full schema-v5 Growth Score for the manager-selected focus location. The package has one shared final selection of 3–4 Focus Gaps total, one access group and no aggregate Network Score.
+- **Multi-Location Growth Score:** one protected parent network-analysis page plus one linked full schema-v5 Growth Score for the manager-selected focus location. The package has one shared final Top 3 Focus Selection total, one access group and no aggregate Network Score.
 
 The cockpit must be self-contained enough for the owner to implement the plan internally or with another provider. Do not hide instructions to create sales dependency. The client owns the delivered report, evidence pack, task plan and completed outputs; there is no lock-in.
 

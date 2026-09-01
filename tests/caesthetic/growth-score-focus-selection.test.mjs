@@ -15,27 +15,27 @@ import { renderGrowthReport } from "../../scripts/caesthetic/render-growth-score
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const fixturePath = path.join(root, "tests/fixtures/caesthetic/growth-score-focus-selection-16-to-4.json");
 
-test("16 found holes collapse to 4 human-selected Focus Gaps", () => {
+test("16 found holes collapse to exactly 3 human-selected Focus Gaps", () => {
   const report = JSON.parse(fs.readFileSync(fixturePath, "utf8"));
   assert.equal(report.humanDiagnosis.gap_inventory.length, 16);
   const selected = [
     report.humanDiagnosis.focus_selection.primary_gap_id,
     ...report.humanDiagnosis.focus_selection.supporting_gap_ids,
   ];
-  assert.equal(selected.length, 4);
-  assert.equal(new Set(selected).size, 4);
+  assert.equal(selected.length, 3);
+  assert.equal(new Set(selected).size, 3);
   const selectedGaps = report.humanDiagnosis.gap_inventory.filter((gap) => selected.includes(gap.id));
   const deferred = report.humanDiagnosis.gap_inventory.filter((gap) => !selected.includes(gap.id));
-  assert.equal(deferred.length, 12);
+  assert.equal(deferred.length, 13);
   assert.equal(selectedGaps.filter((gap) => gap.sprint_fit.mode === "close_in_30_days").length, 3);
-  assert.equal(selectedGaps.filter((gap) => gap.sprint_fit.mode === "start_in_30_days").length, 1);
+  assert.equal(selectedGaps.filter((gap) => gap.sprint_fit.mode === "start_in_30_days").length, 0);
   assert.equal("remediation_tasks" in report.humanDiagnosis, false);
   assert.equal("top_priorities" in report.humanDiagnosis, false);
   assert.ok(!report.humanDiagnosis.gap_inventory.some((gap) => gap.selected_for_repair === true));
   const scored = scoreGrowthReport(report);
   assert.equal(scored.overall.sufficient, true);
   const html = renderGrowthReport(report);
-  assert.equal((html.match(/class="cae-focus-gap"/g) || []).length, 4);
+  assert.equal((html.match(/class="cae-focus-gap"/g) || []).length, 3);
   assert.match(html, /Not now/);
   assert.doesNotMatch(html, /automatically included|auto-included Sprint/i);
 });
@@ -79,7 +79,7 @@ test("Focus Selection CLI stops on two, five or unproven gaps", () => {
       selectedAt: "2026-08-30T12:00:00Z",
       rationale: "Too few.",
     }),
-    /2|3 or 4/,
+    /received 2|exactly 3/,
   );
   assert.throws(
     () => applyHumanFocusSelection({
@@ -90,7 +90,7 @@ test("Focus Selection CLI stops on two, five or unproven gaps", () => {
       selectedAt: "2026-08-30T12:00:00Z",
       rationale: "Too many.",
     }),
-    /5|3 or 4/,
+    /received 5|exactly 3/,
   );
 
   const unproven = createV5Report();
@@ -113,5 +113,5 @@ test("Aesthetemed is not mechanically converted to schema v5", () => {
   assert.throws(() => convertAesthetemedToSchemaV5(), EvidenceIncompleteError);
   const generated = createSixteenToFourReport();
   assert.equal(generated.humanDiagnosis.gap_inventory.length, 16);
-  assert.equal(generated.humanDiagnosis.focus_selection.supporting_gap_ids.length, 3);
+  assert.equal(generated.humanDiagnosis.focus_selection.supporting_gap_ids.length, 2);
 });

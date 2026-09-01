@@ -79,7 +79,18 @@ EXCLUDE_REL_PREFIXES = (
 
 PROTECTED_PREFIXES = (
     "site-caesthetic/",
-    "site-caesthetic/src/config/pricing.ts",
+    "docs/ssot/CAESTHETIC.md",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md",
+    "docs/caesthetic/growth_score_spec.md",
+    "docs/caesthetic/competitive_decision_analysis.md",
+    "docs/projects/caesthetic/ROUTER.md",
+    "scripts/caesthetic/growth-score-report-template.mjs",
+    "scripts/caesthetic/growth-score-select-focus.mjs",
+    "scripts/caesthetic/growth-score-workflow.mjs",
+    "scripts/caesthetic/render-growth-score.mjs",
+    "tests/caesthetic/growth-score-engine.test.mjs",
+    "tests/caesthetic/growth-score-renderer.test.mjs",
+    "tests/caesthetic/growth-score-spec-canon.test.mjs",
 )
 
 STATE_REL = "docs/projects/caesthetic/.agents-sync-state.json"

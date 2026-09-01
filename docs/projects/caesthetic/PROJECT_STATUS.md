@@ -50,7 +50,7 @@ Known limits:
 - Agent card: `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md`.
 
 ## Canonical product state
-- Growth Score: free; one schema-v5 engine/template (`growth-score-report-template/5.0.0`); 3-stage minimal intake; AI-assisted four-surface research and draft; named-human-approved evidence, Gap Inventory, Focus Selection and Repair Plans; private nine-section owner cockpit plus Valerie Petra walkthrough.
+- Growth Score: free; one schema-v5 engine/template (`growth-score-report-template/5.1.0`); 3-stage minimal intake; AI-assisted four-surface research and draft; named-human-approved evidence, Gap Inventory, exact Top 3 Focus Selection and Repair Plans; private 13-section owner cockpit plus Valerie Petra walkthrough.
 - Sprint 1: $2,500 / 30 days; finite scoped implementation + longer-horizon processes started.
 - Sprint Extension: $2,500 per additional 30 days; optional, unpublished, post-Day-30 finite implementation continuation.
 - Growth System: optional recurring operating ownership under one client-specific Growth Budget; the visible Fixed Management Fee sits inside the budget, variable inputs use the remaining approved funds, and any legally available Performance Fee is separate above it. No reusable recurring amount, rate or cap.
@@ -61,7 +61,7 @@ Known limits:
 
 ## Completed in repo
 - Canonicalized `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md` as the single orchestration route from accepted Score case through research, named-human approval, private delivery and controlled learning. It delegates product, scoring, CDA, walkthrough and renderer rules to their existing authorities; runtime, scoring weights and renderer behaviour are unchanged.
-- Canonicalized the schema-v5 Growth Score authoring template at `scripts/caesthetic/growth-score-report-template.mjs`: exact engine-derived metric sets, fail-closed draft defaults, the current nine-section cockpit, named-human Focus Selection, complete Gap Inventory with embedded Repair Plans, one Do Not Fund Yet, four implementation paths, a pending walkthrough and methodology/limitations. Aesthetemed remains a historical schema-v4 read-only artifact, not a source of reusable practice facts or a current renderer contract.
+- Canonicalized the schema-v5 Growth Score authoring template at `scripts/caesthetic/growth-score-report-template.mjs`: exact engine-derived metric sets, fail-closed draft defaults, the current 13-section cockpit, named-human exact Top 3 Focus Selection, complete Gap Inventory with embedded Repair Plans, one Do Not Fund Yet, four implementation paths, a pending walkthrough and methodology/limitations. Aesthetemed remains a historical schema-v4 read-only artifact, not a source of reusable practice facts or a current renderer contract.
 - Published CAESTHETIC site v2 positioning, owner problems, diagnosis-led Sprint scope and a dedicated Growth System page with the Growth Budget allocation model, Client Growth Statement and evidence-gated initiative lifecycle.
 - Established Valerie Petra as the public CAESTHETIC business identity and removed the unverified legacy personal LinkedIn URL from public runtime and the active identity registry.
 - Registered CAESTHETIC as its own knowledge domain and `caesthetic` runtime across the machine registry, indexes and runtime map.
@@ -136,8 +136,8 @@ TASK-858 superseded the schema-v4/13-section presentation contract for every new
 
 - `/growth-score/` is a mobile-first three-stage intake. The required case persists after the four contact/practice fields and before optional enrichment; Skip, optional-save failure and optional-stage abandonment preserve the successful request. Optional answers remain `self_reported`, permission is explicit, and stage analytics contain no PII or answers.
 - Supabase storage separates versioned intake, score case, candidate evidence, frozen verified facts, AI draft, append-only review events, approved report, de-identified learning candidate and explicit rule release. Drafts are non-publishable; reviewer corrections never activate global memory, fine-tuning or rules automatically.
-- Every new approved report is `schemaVersion=5` with canonical `templateVersion=growth-score-report-template/5.0.0`. The schema requires a complete `gap_inventory`, embedded `repair_plan` per gap and named-human `focus_selection`; it rejects the former `top_priorities`, `problem_inventory`, `remediation_tasks` and stored `selected_for_repair` fields.
-- The renderer contract is exactly nine sections: Gap Map, Focus Gaps, Sprint Fit, Repair Paths, Do Not Fund Yet, Full Gap Inventory, Evidence and competitors, Scores and methodology, Next step. Score remains secondary and there is one Sprint CTA.
+- Every new approved report is `schemaVersion=5` with canonical `templateVersion=growth-score-report-template/5.1.0`. The schema requires a complete `gap_inventory`, embedded `repair_plan` per gap and named-human exact Top 3 `focus_selection`; it rejects the former `top_priorities`, `problem_inventory`, `remediation_tasks` and stored `selected_for_repair` fields.
+- The renderer contract is exactly 13 sections: Executive Overview, Human-approved diagnosis, Exactly Top 3 Focus Gaps, Complete Remediation Plan, Four-Surface score navigator, Evidence drill-down, Full Problem / Gap Inventory, Do Not Fund Yet, Four implementation paths, Why CAESTHETIC, Sprint Fit, Next step, Methodology and limitations. Score remains secondary and there is one Sprint CTA.
 - Deterministic scoring still uses the canonical metric IDs/weights, Class A-only coverage, the inclusive 70% surface gate, all-four Overall and Cross-Surface exclusion; publication remains fail-closed below 80% Class A and without applicable Competitive Decision Analysis.
 - The three public synthetic demos and the protected Nohy V Ruky Beauty/RU example use schema v5 and the same renderer authority. Aesthetemed is retained only as a historical schema-v4 pre-rendered artifact; the current renderer rejects raw v4 and does not let it masquerade as v5.
 - All real and demo reports emit noindex; real output requires an unguessable slug and server-side access protection. The 3–8 minute walkthrough follows `report_locale` without creating another video product.
@@ -147,7 +147,7 @@ Raimov feedback capture may be adapted as a Reputation module only as a neutral 
 
 ## «Ноги в Руки» Growth Score — current v5 example and historical decision trail
 
-Current repository artifact: the protected Beauty/RU report uses `schemaVersion=5`, `templateVersion=growth-score-report-template/5.0.0`, `vertical_context=beauty_salon`, `report_locale=ru`, the complete Gap Inventory and named-human Focus Selection. The entries below preserve the 2026-08-14 pre-v5 decision history; they are superseded as current contract/readiness statements.
+Current repository artifact: the protected Beauty/RU report uses `schemaVersion=5`, `templateVersion=growth-score-report-template/5.1.0`, `vertical_context=beauty_salon`, `report_locale=ru`, the complete Gap Inventory and named-human exact Top 3 Focus Selection. The entries below preserve the 2026-08-14 pre-v5 decision history; they are superseded as current contract/readiness statements.
 
 As of 2026-08-14:
 

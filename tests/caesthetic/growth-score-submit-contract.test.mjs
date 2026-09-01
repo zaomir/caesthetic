@@ -65,11 +65,11 @@ test("skip and abandonment need no state-changing backend call", () => {
   assert.match(migration, /intake_state IN \('required_complete', 'optional_saved'\)/);
 });
 
-test("beauty salon required intake persists vertical and locale without overwriting optional fields", () => {
-  assert.match(source, /clip\(body\.vertical, 40\) === "beauty_salon"/);
-  assert.match(source, /\["en", "es", "ru", "fr"\]\.includes\(clip\(body\.locale, 8\)\)/);
-  assert.match(source, /mergedSelfReported\.vertical = existingMeta\.vertical/);
-  assert.match(source, /mergedSelfReported\.locale = existingMeta\.locale/);
+test("required intake persists canonical vertical and locale without overwriting optional fields", () => {
+  assert.match(source, /VERTICAL_CONTEXTS = new Set\(\["aesthetic_practice", "dental_practice", "beauty_salon"\]\)/);
+  assert.match(source, /REPORT_LOCALES = new Set\(\["en", "ru", "es", "fr", "uk"\]\)/);
+  assert.match(source, /mergedSelfReported\.vertical_context = existingMeta\.vertical_context/);
+  assert.match(source, /mergedSelfReported\.report_locale = existingMeta\.report_locale/);
 });
 
 test("required intake creates an owner_intake score case and TEST marker prefixes notifications", () => {

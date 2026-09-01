@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "templateVersion": "growth-score-report-template/5.0.0",
+  "templateVersion": "growth-score-report-template/5.1.0",
   "reportState": "approved_report",
   "reportVersion": "demo-reputation-gap-v3.0",
   "verifiedFactSetVersion": "demo-reputation-gap-facts-v3.0",
@@ -1107,8 +1107,7 @@
       "primary_gap_id": "review-velocity-gap",
       "supporting_gap_ids": [
         "review-recency-gap",
-        "response-coverage-gap",
-        "review-depth-gap"
+        "response-coverage-gap"
       ],
       "selected_by": "Fictional Jordan Ellis",
       "selected_at": "2026-08-11T16:30:00Z",

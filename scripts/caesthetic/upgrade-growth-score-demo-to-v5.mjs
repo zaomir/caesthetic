@@ -52,7 +52,7 @@ function upgrade(report) {
 
   const close = verified.filter((gap) => gap.sprint_fit.mode === "close_in_30_days");
   const start = verified.filter((gap) => gap.sprint_fit.mode === "start_in_30_days");
-  const selected = [...close.slice(0, 3), ...start.slice(0, close.length >= 2 ? 1 : 0)].slice(0, 4);
+  const selected = [...close.slice(0, 2), ...start.slice(0, close.length >= 2 ? 1 : 0)].slice(0, 3);
   while (selected.length < 3) {
     const extra = verified.find((gap) => !selected.includes(gap));
     if (!extra) break;

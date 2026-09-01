@@ -1515,6 +1515,32 @@ a.cae-report-walkthrough:hover {
   margin-top: var(--cae-space-6);
 }
 
+.cae-focus-summary {
+  display: grid;
+  gap: var(--cae-space-3);
+  margin: var(--cae-space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cae-focus-summary a {
+  display: grid;
+  gap: var(--cae-space-2);
+  padding: var(--cae-space-4);
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cae-focus-summary span {
+  color: var(--cae-muted);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .cae-focus-gap,
 .cae-sprint-fit article {
   padding: var(--cae-space-5);
@@ -1551,6 +1577,7 @@ a.cae-report-walkthrough:hover {
 
 @media (min-width: 48rem) {
   .cae-gap-map,
+  .cae-focus-summary,
   .cae-focus-gaps,
   .cae-sprint-fit {
     grid-template-columns: repeat(2, minmax(0, 1fr));

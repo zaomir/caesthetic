@@ -66,7 +66,7 @@ Do not pin L4–L9 unless a pin slot frees; priority is keeping L1–L3 pinned t
 3. AI gathers; human verifies  
 4. Class A ≥80% rule  
 5. Owner outcomes list (strongest / binding / do-not-do)  
-6. Walkthrough 4–6 min human video  
+6. Walkthrough 3–8 min human video under the walkthrough SSOT
 7. CTA — Request Growth Score  
 
 **Forbidden:** invented client scores presented as real without permission/label  

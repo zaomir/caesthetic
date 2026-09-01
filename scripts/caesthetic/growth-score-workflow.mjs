@@ -236,7 +236,7 @@ export function validateFocusSelectionRecord(record) {
   stringList(record.supporting_gap_ids, "focus_selection.supporting_gap_ids", { nonEmpty: true });
   stringList(record.gap_ids, "focus_selection.gap_ids", { nonEmpty: true });
   const selected = [record.primary_gap_id, ...record.supporting_gap_ids];
-  invariant(selected.length >= 3 && selected.length <= 4, "focus_selection must contain 3 or 4 unique gaps");
+  invariant(selected.length === 3, "focus_selection must contain exactly 3 unique gaps");
   invariant(new Set(selected).size === selected.length, "focus_selection has duplicate selected gap ids");
   invariant(
     record.gap_ids.length >= selected.length,

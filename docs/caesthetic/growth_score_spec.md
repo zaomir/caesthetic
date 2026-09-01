@@ -1,12 +1,12 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.0
+version: 5.1
 updated: 2026-09-01
-scope: public intake, AI-assisted research, named-human Focus Selection, controlled learning, scoring and nine-section owner-cockpit contract
+scope: public intake, AI-assisted research, named-human Focus Selection, controlled learning, scoring and 13-section owner-cockpit contract
 schema_contract: 5
-template_contract: growth-score-report-template/5.0.0
-cockpit_sections: 9
+template_contract: growth-score-report-template/5.1.0
+cockpit_sections: 13
 parent: docs/ssot/CAESTHETIC.md
 related:
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
@@ -64,7 +64,7 @@ New reports start with `vertical_context: "unresolved"` and must resolve it befo
 
 The practice identity block may show the resolved type/context when useful, but never as a separate brand or product. Treatment/service examples and implementation-task nouns follow the resolved vertical while retaining the same task schema. Competitor Cards use the resolved comparable market. The optional Sprint CTA remains the same CAESTHETIC 30-Day Growth Sprint, not a vertical-specific commercial product.
 
-Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the nine-section cockpit order, the funnel or pricing. One approved fact set and human judgment remain the source of truth across every localized presentation; do not create 3 × 5 copies of the template.
+Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the 13-section cockpit order, the funnel or pricing. One approved fact set and human judgment remain the source of truth across every localized presentation; do not create 3 × 5 copies of the template.
 
 ## 1. Required owner outcome
 
@@ -77,7 +77,7 @@ Every publishable owner cockpit must make these items explicit:
 - strongest surface;
 - binding constraint;
 - named competitors and their evidence where comparison is applicable;
-- three or four named-human-approved Focus Gaps: exactly one Primary and two or three Supporting;
+- exactly three named-human-approved Focus Gaps: exactly one Primary and exactly two Supporting;
 - at least two selected gaps classified `close_in_30_days`, with no more than one `start_in_30_days`;
 - one `do_not_do` recommendation;
 - the full evidence-backed Gap Inventory, including every reviewed gap and every `insufficient_evidence` state;
@@ -307,7 +307,7 @@ The report separates human synthesis from mechanical scoring. Required fields/se
 - `strongest_surface`: a string containing one of `search`, `website`, `social`, `reputation`, supported by scores and human context;
 - `binding_constraint`: `{ title, evidence_refs, gap_ref }`, the principal limiting problem, its non-empty evidence reference list and a `gap_ref` equal to the Primary Focus Gap;
 - `gap_inventory`: the complete diagnostic array specified in §5.3;
-- `focus_selection`: `{ primary_gap_id, supporting_gap_ids, selected_by, selected_at, rationale }`; publication requires exactly one Primary plus two or three Supporting gaps selected by a named human;
+- `focus_selection`: `{ primary_gap_id, supporting_gap_ids, selected_by, selected_at, rationale }`; publication requires exactly one Primary plus exactly two Supporting gaps selected by a named human;
 - `do_not_do`: exactly one `{ title, evidence_refs }` recommendation;
 - `competitors`: the Competitive Decision Analysis object below, or `{ status: "not_applicable", reason }` with a durable reason;
 - `walkthrough`: either `{ status: "available", url }` with a valid URL, or `{ status: "pending", url: null, placeholder }`.
@@ -364,7 +364,7 @@ The renderer must accept both `reportKind=real` and `reportKind=demo`; it must n
 
 ### 6.0 Canonical authoring and schema compatibility
 
-The single production contract for every new approved report is **schema v5** with `templateVersion: "growth-score-report-template/5.0.0"`: `gap_inventory`, named-human `focus_selection`, an embedded `repair_plan` per gap, and the nine-section renderer below. `site-caesthetic/assets/js/growth-score-engine.mjs` owns the metric/scoring, schema version, template version and schema-v5 validation authority; `scripts/caesthetic/render-growth-score.mjs` owns the client-facing presentation contract.
+The single production contract for every new approved report is **schema v5** with `templateVersion: "growth-score-report-template/5.1.0"`: `gap_inventory`, named-human `focus_selection`, an embedded `repair_plan` per gap, and the 13-section renderer below. `site-caesthetic/assets/js/growth-score-engine.mjs` owns the metric/scoring, schema version, template version and schema-v5 validation authority; `scripts/caesthetic/render-growth-score.mjs` owns the client-facing presentation contract.
 
 `scripts/caesthetic/growth-score-report-template.mjs` is the fail-closed **canonical schema-v5 authoring template**. It imports and re-exports the engine-owned version constant; current builders and fixtures must import or derive that shared constant instead of hardcoding a divergent string. Its metric sets are derived directly from the production `CANONICAL_METRICS` export; it is not a second metric catalogue and callers cannot supply weights. The current template contains `gap_inventory`, `focus_selection` and embedded `repair_plan` fields and must not emit `top_priorities`, `problem_inventory`, `remediation_tasks` or stored `selected_for_repair`.
 
@@ -385,17 +385,21 @@ There is no other metric catalogue, scoring authority or renderer authority. A c
 
 ### 6.1 Canonical client-facing cockpit order
 
-The current renderer is the presentation contract. It uses exactly these sections and IDs in this order; this is not a legacy `Block 0–12` or 13-section model:
+The current renderer is the presentation contract. It uses exactly these sections and IDs in this order; legacy 9-section, 12-block and copied vertical/locale layouts are superseded:
 
-1. **Gap Map** (`gap-map`) — the complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct; no focus is implied by placement alone.
-2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and two or three Supporting gaps, visibly attributed to the named human who selected them, with rationale and binding-constraint link.
-3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can be closed within 30 days, what can only be started, and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`.
-4. **Repair Paths** (`repair-paths`) — complete DIY-capable plans for every selected gap: outcome, steps, dependencies, accountable role and observable `done_when`. A `start_in_30_days` item separates Day-30 outcome from beyond-Day-30 work.
-5. **Do Not Fund Yet** (`do-not-fund`) — exactly one named-human-approved recommendation, its evidence-backed rationale and explicit conditions for revisiting it.
-6. **Full Gap Inventory** (`gap-inventory`) — every reviewed gap, including unselected, backlog and insufficient-evidence items, with stable evidence and repair links.
-7. **Evidence and competitors** (`evidence-and-competitors`) — metric evidence, Class A/B state, collection dates, comparison matrix, competitor cards and Competitive Decision Analysis where applicable. Paid Ads remain a Demand Layer, not a fifth surface.
-8. **Scores and methodology** (`scores-and-methodology`) — Search, Website, Social and Reputation with 30/25/15/30 heuristic display weights; Cross-Surface remains separate; Overall appears only with sufficient coverage. Sources, windows, limitations, unavailable evidence and Class A ratio are disclosed here.
-9. **Next step** (`next-step`) — owner can implement in-house, use another provider, defer or ask CAESTHETIC to scope a 30-Day Growth Sprint. The report and instructions belong to the client; there is no lock-in, purchased scope or results guarantee.
+1. **Executive Overview** (`executive-overview`).
+2. **Human-approved diagnosis** (`human-approved-diagnosis`) — Gap Map, binding constraint and competitive decision context.
+3. **Exactly Top 3 Focus Gaps** (`focus-gaps`) — one Primary and exactly two Supporting gaps.
+4. **Complete Remediation Plan** (`remediation-plan`) — Sprint Fit and executable Repair Plans for the selected gaps.
+5. **Four-Surface score navigator** (`score-navigator`) — secondary Search, Website, Social and Reputation navigation; Cross-Surface remains separate.
+6. **Evidence drill-down** (`evidence-drilldown`) — sources, dates, Class A/B state and limitations.
+7. **Full Problem / Gap Inventory** (`gap-inventory`) — every reviewed gap, including backlog and `insufficient_evidence`.
+8. **Do Not Fund Yet** (`do-not-fund`) — exactly one evidence-backed recommendation.
+9. **Four implementation paths** (`implementation-paths`) — DIY, another provider, defer, or separately scoped CAESTHETIC work.
+10. **Why CAESTHETIC / coordination burden** (`why-caesthetic`) — honest coordination value without withholding instructions.
+11. **Sprint Fit** (`sprint-fit`) — illustrative 30-day sequencing, not purchased scope.
+12. **Next step** (`next-step`) — one optional Sprint CTA.
+13. **Methodology and limitations** (`methodology-and-limitations`).
 
 Surface sections should carry the useful diagnostic evidence from the former long-form template:
 
@@ -440,10 +444,10 @@ Logical records are `score_case`, `candidate_evidence`, `verified_fact_set`, `dr
 2. Resolve the practice, priority treatments, market and named competitor-selection rule.
 3. AI-assisted research collects all obtainable external evidence across Search, Website, Social and Reputation; Cross-Surface remains separate. Each candidate retains surface/metric, source URL or snapshot/reference, collection date, method/workflow version, proposed evidence class, verification state and supersession link. Unknowns remain `null`.
 4. AI may propose pre-scores, objective strength, binding constraint, the full Gap Inventory, candidate Focus Gaps, Repair Plans, sequencing and draft language. This is an internal candidate only and cannot be compiled as a final report.
-5. A named human reviewer checks source lineage, dates, method and competitor selection; verifies every proposed Class A fact; approves/rejects metric scores and anchored judgments; corrects the inventory, Repair Plans and wording; selects exactly one Primary plus two or three Supporting gaps; approves the binding constraint and exactly one Do Not Fund Yet; and clears privacy/compliance issues. Focus Selection records the reviewer's name, timestamp and rationale.
+5. A named human reviewer checks source lineage, dates, method and competitor selection; verifies every proposed Class A fact; approves/rejects metric scores and anchored judgments; corrects the inventory, Repair Plans and wording; selects exactly one Primary plus exactly two Supporting gaps; approves the binding constraint and exactly one Do Not Fund Yet; and clears privacy/compliance issues. Focus Selection records the reviewer's name, timestamp and rationale.
 6. Freeze the verified fact set and append-only Focus Selection. Final scores are calculated deterministically, and final narrative is compiled only from verified facts plus visibly labelled Class B items with method and assumptions.
 7. Validate `≥80%` Class A published findings, the surface coverage rules, Focus Selection composition and every evidence reference. Pre-review AI content, an unnamed selection or a binding constraint that does not reference the Primary gap is a hard publication failure.
-8. Render and visually verify all nine sections. A named human approves a versioned report with reviewer and timestamp before the protected private link is delivered.
+8. Render and visually verify all 13 sections. A named human approves a versioned report with reviewer and timestamp before the protected private link is delivered.
 9. Configure server-side access, verify unauthenticated denial and authenticated success, and only then deliver the report. Valerie Petra records the 3–8 minute walkthrough under `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`. That SSOT alone owns the spoken sequence, presenter/screen mix, subtitles and production rules; this detailed report spec must not duplicate or override them. The walkthrough may explain why the 30-Day Sprint is convenient, but may not imply guaranteed or already-purchased scope.
 
 ### 7.1 Controlled learning layer
@@ -499,10 +503,10 @@ Growth Score is not complete until production tests prove all of the following:
 - hard failure below 80% Class A findings;
 - 30/25/15/30 overall math only when all four surfaces are sufficient;
 - Cross-Surface excluded from overall;
-- a complete Gap Inventory and a named-human Focus Selection containing exactly one Primary plus two or three Supporting gaps;
+- a complete Gap Inventory and a named-human Focus Selection containing exactly one Primary plus exactly two Supporting gaps;
 - at least two selected gaps are `close_in_30_days`, no more than one is `start_in_30_days`, and every selected gap is verified and actionable;
 - every gap contains an executable Repair Plan; Day-30 and beyond-Day-30 outcomes are separated for `start_in_30_days` work;
-- the exact nine-section order and IDs render, while Overall/surface scores remain a labelled approximate navigator;
+- the exact 13-section order and IDs render, while Overall/surface scores remain a labelled approximate navigator;
 - one `do_not_do`;
 - DIY/alternative-provider use, client ownership, no lock-in and honest `Why CAESTHETIC / Why Sprint` language;
 - real and demo rendering through the same authority;

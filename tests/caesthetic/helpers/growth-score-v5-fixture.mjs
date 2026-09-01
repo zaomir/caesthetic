@@ -287,17 +287,17 @@ export function createSixteenToFourReport() {
   const report = createV5Report();
   report.reportVersion = "focus-selection-16-to-4/1.0.0";
   report.verifiedFactSetVersion = "focus-selection-16-to-4-facts/1.0.0";
-  report.executiveSummary = "Sixteen confirmed or deferred holes; a named reviewer selected four.";
+  report.executiveSummary = "Sixteen confirmed or deferred holes; a named reviewer selected exactly three.";
   report.humanDiagnosis.gap_inventory = SIXTEEN_GAP_SPECS.map((spec) => createGap(spec));
   report.humanDiagnosis.focus_selection = defaultFocusSelection({
     primary_gap_id: "search-map-coverage",
-    supporting_gap_ids: ["booking-step-friction", "proof-continuity-gap", "identity-rebuild"],
-    rationale: "Discovery is the binding leak; booking and proof can close in 30 days; identity only starts.",
+    supporting_gap_ids: ["booking-step-friction", "proof-continuity-gap"],
+    rationale: "Discovery is the binding leak; booking and proof are the two supporting repairs that can close in 30 days.",
   });
   report.humanDiagnosis.binding_constraint.gap_ref = "search-map-coverage";
   report.humanDiagnosis.coordination_burden = {
     diagnosed_issues: 16,
-    high_priority_fixes: 4,
+    high_priority_fixes: 3,
     systems_involved: 4,
     dependencies: 3,
     specialist_roles: 3,

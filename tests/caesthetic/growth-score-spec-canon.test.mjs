@@ -17,18 +17,22 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 
-test("detailed spec follows the current nine-section schema-v5 cockpit", () => {
+test("detailed spec follows the current 13-section schema-v5 cockpit", () => {
   const spec = read("docs/caesthetic/growth_score_spec.md");
   const sections = [
-    "Gap Map",
-    "Focus Gaps",
-    "Sprint Fit",
-    "Repair Paths",
+    "Executive Overview",
+    "Human-approved diagnosis",
+    "Exactly Top 3 Focus Gaps",
+    "Complete Remediation Plan",
+    "Four-Surface score navigator",
+    "Evidence drill-down",
+    "Full Problem / Gap Inventory",
     "Do Not Fund Yet",
-    "Full Gap Inventory",
-    "Evidence and competitors",
-    "Scores and methodology",
+    "Four implementation paths",
+    "Why CAESTHETIC / coordination burden",
+    "Sprint Fit",
     "Next step",
+    "Methodology and limitations",
   ];
 
   let cursor = -1;
@@ -40,7 +44,7 @@ test("detailed spec follows the current nine-section schema-v5 cockpit", () => {
 
   assert.doesNotMatch(spec, /12 \u043e\u0441\u043d\u043e\u0432\u043d\u044b\u0445|\u0411\u043b\u043e\u043a 10|Block 10|\u043f\u043e\u0440\u044f\u0434\u043e\u043a \u0431\u043b\u043e\u043a\u043e\u0432 \u043d\u0435 \u043f\u0435\u0440\u0435\u0441\u0442\u0430\u0432\u043b\u044f\u0442\u044c/i);
   assert.doesNotMatch(spec, /The first two items above are what the 30-Day Sprint covers/i);
-  assert.match(spec, /exactly one Primary and two or three Supporting/i);
+  assert.match(spec, /exactly one Primary and exactly two Supporting/i);
   assert.match(spec, /at least two.*`close_in_30_days`/i);
   assert.match(spec, /no more than one.*`start_in_30_days`/i);
 });
@@ -134,7 +138,7 @@ test("report context adapts vocabulary and presentation without splitting the pr
   assert.match(spec, /`report_locale`/);
   assert.match(spec, /`aesthetic_practice`, `dental_practice`, `beauty_salon`/);
   assert.match(spec, /`en`, `ru`, `es`, `fr`, `uk`/);
-  assert.match(spec, /Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the nine-section cockpit order, the funnel or pricing/i);
+  assert.match(spec, /Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the 13-section cockpit order, the funnel or pricing/i);
   assert.match(spec, /do not create 3 × 5 copies of the template/i);
   assert.match(sop, /resolve practice identity → resolve `vertical_context` → resolve `report_locale` → freeze research brief/i);
   assert.match(walkthrough, /narration and subtitles use `report_locale`/i);
@@ -144,7 +148,7 @@ test("report context adapts vocabulary and presentation without splitting the pr
 test("spec makes schema v5 authoritative and keeps v4 as historical read-only compatibility", () => {
   const spec = read("docs/caesthetic/growth_score_spec.md");
   assert.match(spec, /production contract for every new approved report is \*\*schema v5\*\*/i);
-  assert.match(spec, /growth-score-report-template\/5\.0\.0/i);
+  assert.match(spec, /growth-score-report-template\/5\.1\.0/i);
   assert.match(spec, /historical(?:,|\/|-)?\s*read-only/i);
   assert.match(spec, /must not emit `top_priorities`, `problem_inventory`, `remediation_tasks` or stored `selected_for_repair`/i);
   assert.match(spec, /protected Nohy V Ruky report is the current production-approved schema-v5 example/i);

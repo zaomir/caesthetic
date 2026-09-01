@@ -54,8 +54,7 @@ test("publishes three clearly synthetic v5 demos through the same approved-repor
     assert.equal(report.humanDiagnosis.reviewer_status, "approved");
     assert.ok(report.humanDiagnosis.gap_inventory.length >= 4);
     assert.equal(typeof report.humanDiagnosis.focus_selection.primary_gap_id, "string");
-    assert.ok(report.humanDiagnosis.focus_selection.supporting_gap_ids.length >= 2);
-    assert.ok(report.humanDiagnosis.focus_selection.supporting_gap_ids.length <= 3);
+    assert.equal(report.humanDiagnosis.focus_selection.supporting_gap_ids.length, 2);
     assert.equal("top_priorities" in report.humanDiagnosis, false);
     assert.equal("problem_inventory" in report.humanDiagnosis, false);
     assert.equal("remediation_tasks" in report.humanDiagnosis, false);
@@ -73,11 +72,11 @@ test("publishes three clearly synthetic v5 demos through the same approved-repor
     assert.match(html, /Differentiate/);
     assert.match(html, /Do not copy/);
     assert.match(html, /Market Practice Gap/);
-    assert.match(html, /Gap Map/);
+    assert.match(html, /Human-approved diagnosis/);
     assert.match(html, /Focus Gaps/);
     assert.match(html, /Approximate \/ secondary navigation/);
     assert.match(html, /Cross-Surface Consistency/);
-    assert.match(html, /Full Gap Inventory/);
+    assert.match(html, /Full Problem \/ Gap Inventory/);
     assert.match(html, /Do it in-house/);
     assert.match(html, /Use another provider/);
     assert.match(html, /no (?:exclusive method or )?lock-in|without CAESTHETIC/i);

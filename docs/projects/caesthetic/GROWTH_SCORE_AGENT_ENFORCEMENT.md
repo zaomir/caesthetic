@@ -1,11 +1,11 @@
 ---
 owner: CAESTHETIC
 status: mandatory_agent_adapter
-version: 2.2
+version: 2.3
 canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
-canonical_commit: 974da420fc39b97560382df3d877f68f70c40634
-updated: 2026-08-31
+canonical_ref: zaomir/grainee-v2 origin/main resolved at run start
+updated: 2026-09-01
 ---
 
 # Growth Score audit — mandatory AI-agent enforcement
@@ -114,10 +114,10 @@ AI may build the complete Gap Inventory, candidate risk order, draft binding
 constraint, Repair Plans and candidate Focus Selection. All remain internal and
 non-publishable.
 
-A named human must verify evidence and manually select one Primary Gap plus
-2–3 Supporting Gaps. The lowest surface score never automatically becomes the
-Primary Gap. For Multi-Location there is one shared final selection of 3–4
-gaps total and one named focus location.
+A named human must verify evidence and manually select exactly one Primary Gap
+plus exactly two Supporting Gaps. The lowest surface score never automatically
+becomes the Primary Gap. For Multi-Location there is one shared final Top 3
+selection total and one named focus location.
 
 No compilation before human Focus Selection; no publication before report
 approval; no delivery before server-side password/access QA. Real reports live

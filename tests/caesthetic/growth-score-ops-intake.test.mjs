@@ -47,3 +47,12 @@ test("QA leads auto-close and skip customer acknowledgement", () => {
   assert.match(migration, /reason, payload\s+\) VALUES \(\s+v_case_id, 'created', 'closed', 'system:qa', 'qa_archive'/);
   assert.match(submit, /customer_ack_sent/);
 });
+
+test("intake preserves the canonical vertical and locale adapters", () => {
+  assert.match(submit, /aesthetic_practice.*dental_practice.*beauty_salon/s);
+  assert.match(submit, /"en", "ru", "es", "fr", "uk"/);
+  assert.match(submit, /body\.vertical_context \?\? body\.vertical/);
+  assert.match(submit, /body\.report_locale \?\? body\.locale/);
+  assert.match(submit, /vertical_context: verticalContext/);
+  assert.match(submit, /report_locale: reportLocale/);
+});

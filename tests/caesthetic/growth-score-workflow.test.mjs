@@ -321,7 +321,7 @@ test("focus_selection records are append-only and named-human gated", () => {
   assert.equal(validateWorkflowRecord(record).record_type, "focus_selection");
 
   const two = { ...record, supporting_gap_ids: ["booking-gap"] };
-  assert.throws(() => validateFocusSelectionRecord(two), /3 or 4 unique gaps/);
+  assert.throws(() => validateFocusSelectionRecord(two), /exactly 3 unique gaps/);
 
   const bot = { ...record, selected_by: "Review Bot" };
   assert.throws(() => validateFocusSelectionRecord(bot), /named human/);
@@ -332,11 +332,21 @@ test("schema-v5 migration adds gap_review, append-only focus selections and new-
     path.join(root, "supabase/migrations/20260830190000_caesthetic_growth_score_gap_map_v5.sql"),
     "utf8",
   );
-  assert.match(migration, /CREATE TABLE public\.caesthetic_score_focus_selections/);
+  assert.match(migration, /CREATE TABLE(?: IF NOT EXISTS)? public\.caesthetic_score_focus_selections/);
   assert.match(migration, /caesthetic_score_focus_selections is append-only/);
   assert.match(migration, /caesthetic_is_named_human_reviewer/);
   assert.match(migration, /focus_selection_id/);
   assert.match(migration, /schemaVersion' = '5'/);
   assert.match(migration, /v_from = 'fact_set_frozen' AND p_to_state IN \('gap_review'/);
   assert.match(migration, /v_from = 'gap_review' AND p_to_state IN \('report_review'/);
+});
+
+test("new database Focus Selections are exactly Top 3 without mutating history", () => {
+  const migration = fs.readFileSync(
+    path.join(root, "supabase/migrations/20260901134000_caesthetic_growth_score_exact_top3.sql"),
+    "utf8",
+  );
+  assert.match(migration, /BEFORE INSERT ON public\.caesthetic_score_focus_selections/);
+  assert.match(migration, /cardinality\(NEW\.supporting_gap_ids\) <> 2/);
+  assert.doesNotMatch(migration, /UPDATE public\.caesthetic_score_focus_selections/);
 });

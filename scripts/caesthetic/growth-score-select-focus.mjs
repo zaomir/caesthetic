@@ -38,7 +38,7 @@ function parseList(value) {
 }
 
 function usage() {
-  console.error("Usage: growth-score-select-focus.mjs --report <draft.json> --primary <id> --supporting <id,id[,id]> --selected-by \"First Last\" --rationale \"...\"");
+  console.error("Usage: growth-score-select-focus.mjs --report <draft.json> --primary <id> --supporting <id,id> --selected-by \"First Last\" --rationale \"...\"");
   process.exit(2);
 }
 
@@ -72,8 +72,8 @@ export function applyHumanFocusSelection({
   }
 
   const selected = [primaryGapId, ...supportingGapIds].filter(Boolean);
-  if (selected.length === 2 || selected.length >= 5) {
-    throw new TypeError(`Focus Selection must contain 3 or 4 unique gaps; received ${selected.length}`);
+  if (selected.length !== 3) {
+    throw new TypeError(`Focus Selection must contain exactly 3 unique gaps; received ${selected.length}`);
   }
 
   const diagnosis = {

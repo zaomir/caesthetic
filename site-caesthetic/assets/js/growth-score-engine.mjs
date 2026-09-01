@@ -91,13 +91,15 @@ export const HUMAN_REVIEW_METRICS = Object.freeze(Object.fromEntries(
 
 export const REGISTERED_HUMAN_REVIEWER_MONONYMS = Object.freeze(["Валерия"]);
 export const GROWTH_SCORE_SCHEMA_VERSION = 5;
-export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/5.0.0";
+export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/5.1.0";
 export const GROWTH_SCORE_VERTICAL_CONTEXTS = Object.freeze([
   "aesthetic_practice",
   "dental_practice",
   "beauty_salon",
 ]);
 export const GROWTH_SCORE_REPORT_LOCALES = Object.freeze(["en", "ru", "es", "fr", "uk"]);
+export const VERTICAL_CONTEXTS = GROWTH_SCORE_VERTICAL_CONTEXTS;
+export const REPORT_LOCALES = GROWTH_SCORE_REPORT_LOCALES;
 export const GROWTH_SCORE_VERTICAL_SOURCES = Object.freeze([
   "owner_intake",
   "route",
@@ -129,8 +131,9 @@ export const JOURNEY_STAGES = Object.freeze([
   "booking",
   "treatment",
 ]);
-export const FOCUS_SELECTION_MIN = 3;
-export const FOCUS_SELECTION_MAX = 4;
+export const FOCUS_SELECTION_COUNT = 3;
+export const FOCUS_SELECTION_MIN = FOCUS_SELECTION_COUNT;
+export const FOCUS_SELECTION_MAX = FOCUS_SELECTION_COUNT;
 export const MIN_CLOSE_IN_30_DAYS = 2;
 export const MAX_START_IN_30_DAYS = 1;
 
@@ -274,6 +277,16 @@ function validateMetric(metricInput, definition, context) {
   invariant(hasOwn(metricInput, "collected_at"), `${context}.collected_at is required`);
   invariant(REVIEWER_STATUSES.includes(metricInput.reviewer_status), `${context}.reviewer_status is invalid`);
   validateExplicitWeight(metricInput, definition.weight, context);
+  if (hasOwn(metricInput, "original_text")) {
+    nonEmptyString(metricInput.original_text, `${context}.original_text`);
+    nonEmptyString(metricInput.source_language, `${context}.source_language`);
+  }
+  if (hasOwn(metricInput, "translated_text")) {
+    nonEmptyString(metricInput.translated_text, `${context}.translated_text`);
+    nonEmptyString(metricInput.original_text, `${context}.original_text`);
+    nonEmptyString(metricInput.source_language, `${context}.source_language`);
+    nonEmptyString(metricInput.translation_note, `${context}.translation_note`);
+  }
 
   if (metricInput.normalized_score !== null) {
     invariant(
@@ -501,8 +514,8 @@ export function validateFocusSelectionContract(diagnosis, evidenceIndex) {
   invariant(focus && typeof focus === "object" && !Array.isArray(focus), "humanDiagnosis.focus_selection must be an object");
   nonEmptyString(focus.primary_gap_id, "humanDiagnosis.focus_selection.primary_gap_id");
   invariant(
-    Array.isArray(focus.supporting_gap_ids) && focus.supporting_gap_ids.length >= 2 && focus.supporting_gap_ids.length <= 3,
-    "humanDiagnosis.focus_selection.supporting_gap_ids must contain 2 or 3 items",
+    Array.isArray(focus.supporting_gap_ids) && focus.supporting_gap_ids.length === 2,
+    "humanDiagnosis.focus_selection.supporting_gap_ids must contain exactly 2 items",
   );
   namedHuman(focus.selected_by, "humanDiagnosis.focus_selection.selected_by");
   validTimestamp(focus.selected_at, "humanDiagnosis.focus_selection.selected_at");
@@ -510,8 +523,8 @@ export function validateFocusSelectionContract(diagnosis, evidenceIndex) {
 
   const selectedIds = selectedFocusGapIds(focus);
   invariant(
-    selectedIds.length >= FOCUS_SELECTION_MIN && selectedIds.length <= FOCUS_SELECTION_MAX,
-    "humanDiagnosis.focus_selection must contain exactly 3 or 4 unique gaps",
+    selectedIds.length === FOCUS_SELECTION_COUNT,
+    "humanDiagnosis.focus_selection must contain exactly 3 unique gaps",
   );
   invariant(new Set(selectedIds).size === selectedIds.length, "humanDiagnosis.focus_selection has duplicate gap ids");
   invariant(!focus.supporting_gap_ids.includes(focus.primary_gap_id), "supporting gaps must not repeat the Primary Gap");
@@ -923,11 +936,11 @@ function validateCurrentReportContract(report) {
   invariant(context && typeof context === "object" && !Array.isArray(context), "reportContext is required for schemaVersion 5");
   invariant(
     GROWTH_SCORE_VERTICAL_CONTEXTS.includes(context.vertical_context),
-    `reportContext.vertical_context must be ${GROWTH_SCORE_VERTICAL_CONTEXTS.join("|")}`,
+    `reportContext.vertical_context must be one of ${GROWTH_SCORE_VERTICAL_CONTEXTS.join("|")}`,
   );
   invariant(
     GROWTH_SCORE_REPORT_LOCALES.includes(context.report_locale),
-    `reportContext.report_locale must be ${GROWTH_SCORE_REPORT_LOCALES.join("|")}`,
+    `reportContext.report_locale must be one of ${GROWTH_SCORE_REPORT_LOCALES.join("|")}`,
   );
   invariant(
     GROWTH_SCORE_VERTICAL_SOURCES.includes(context.vertical_source),
@@ -936,6 +949,26 @@ function validateCurrentReportContract(report) {
   invariant(
     GROWTH_SCORE_LOCALE_SOURCES.includes(context.locale_source),
     `reportContext.locale_source must be ${GROWTH_SCORE_LOCALE_SOURCES.join("|")}`,
+  );
+}
+
+function validatePublicationLanguage(report) {
+  const strings = [];
+  const visit = (value) => {
+    if (typeof value === "string") strings.push(value);
+    else if (Array.isArray(value)) value.forEach(visit);
+    else if (value && typeof value === "object") Object.values(value).forEach(visit);
+  };
+  visit(report);
+  const publicationText = strings.join("\n");
+  const prohibited = [
+    /\b(?:we\s+)?guarantee(?:d|s)?\s+(?:growth|ranking|rankings|patients?|revenue|roi)\b/i,
+    /\b(?:only|send)\s+(?:happy|satisfied)\s+(?:clients?|patients?|customers?)\s+(?:to|for)\s+(?:google|public)\s+reviews?\b/i,
+    /\b[1-3]\s*(?:star|stars).*\bprivate\b.*\b[4-5]\s*(?:star|stars).*\bpublic\b/i,
+  ];
+  invariant(
+    prohibited.every((pattern) => !pattern.test(publicationText)),
+    "report contains prohibited guarantee or selective review-routing language",
   );
 }
 
@@ -948,6 +981,7 @@ export function scoreGrowthReport(report) {
   nonEmptyString(report.verifiedFactSetVersion, "verifiedFactSetVersion");
   invariant(["demo", "real"].includes(report.reportKind), "reportKind must be demo or real");
   if (report.reportKind === "demo") nonEmptyString(report.disclosure, "disclosure");
+  validatePublicationLanguage(report);
   validateMethodology(report.methodology);
   if (hasOwn(report, "economics")) validateGrowthEconomicsContract(report.economics);
   invariant(Array.isArray(report.surfaces), "surfaces must be an array");

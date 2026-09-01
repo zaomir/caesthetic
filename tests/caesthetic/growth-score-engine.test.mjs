@@ -345,11 +345,11 @@ test("publication is v5 approved-report only with named human and frozen fact-se
 
   const missingTemplate = report();
   delete missingTemplate.templateVersion;
-  assert.throws(() => scoreGrowthReport(missingTemplate), /templateVersion must be growth-score-report-template\/5\.0\.0/);
+  assert.throws(() => scoreGrowthReport(missingTemplate), /templateVersion must be growth-score-report-template\/5\.1\.0/);
 
   const mismatchedTemplate = report();
   mismatchedTemplate.templateVersion = "growth-score-report-template/4.1.0";
-  assert.throws(() => scoreGrowthReport(mismatchedTemplate), /templateVersion must be growth-score-report-template\/5\.0\.0/);
+  assert.throws(() => scoreGrowthReport(mismatchedTemplate), /templateVersion must be growth-score-report-template\/5\.1\.0/);
 
   assert.equal(valid.templateVersion, GROWTH_SCORE_REPORT_TEMPLATE_VERSION);
 
@@ -586,6 +586,43 @@ test("accepts both real and demo report kinds and rejects any other kind", () =>
   assert.throws(() => scoreGrowthReport(invalid), /demo or real/);
 });
 
+test("requires canonical vertical_context and report_locale values", () => {
+  const valid = report();
+  assert.doesNotThrow(() => scoreGrowthReport(valid));
+
+  const badVertical = report();
+  badVertical.reportContext.vertical_context = "medical_spa_copy";
+  assert.throws(() => scoreGrowthReport(badVertical), /vertical_context must be one of/);
+
+  const badLocale = report();
+  badLocale.reportContext.report_locale = "de";
+  assert.throws(() => scoreGrowthReport(badLocale), /report_locale must be one of/);
+});
+
+test("translated evidence preserves original text, source language and translation label", () => {
+  const valid = report();
+  const metric = valid.surfaces[0].metrics[0];
+  metric.original_text = "Оригінальний текст джерела";
+  metric.source_language = "uk";
+  metric.translated_text = "Original source text";
+  metric.translation_note = "CAESTHETIC translation; original retained.";
+  assert.doesNotThrow(() => scoreGrowthReport(valid));
+
+  const missingOriginal = report();
+  missingOriginal.surfaces[0].metrics[0].translated_text = "Translated only";
+  assert.throws(() => scoreGrowthReport(missingOriginal), /original_text is required/);
+});
+
+test("publication rejects guarantees and selective review routing", () => {
+  const guaranteed = report();
+  guaranteed.executiveSummary = "We guarantee revenue.";
+  assert.throws(() => scoreGrowthReport(guaranteed), /prohibited guarantee or selective review-routing/);
+
+  const gated = report();
+  gated.implementation_paths.diy = "Send only happy patients to Google reviews.";
+  assert.throws(() => scoreGrowthReport(gated), /prohibited guarantee or selective review-routing/);
+});
+
 test("validates named competitors and real-report walkthrough state", () => {
   const noCompetitorEvidence = report();
   noCompetitorEvidence.humanDiagnosis.competitors.entries[0].evidence_refs = [];
@@ -707,7 +744,7 @@ test("resolves Growth Economics without changing Growth Score thresholds", () =>
 test("Focus Selection rejects two, five, unproven, backlog and two long initiatives", () => {
   const two = report();
   two.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap"];
-  assert.throws(() => scoreGrowthReport(two), /2 or 3 items|exactly 3 or 4/);
+  assert.throws(() => scoreGrowthReport(two), /exactly 2 items|exactly 3/);
 
   const five = report();
   five.humanDiagnosis.gap_inventory.push(createGap({
@@ -719,7 +756,7 @@ test("Focus Selection rejects two, five, unproven, backlog and two long initiati
     why_it_matters: "Extra verified finding.",
   }));
   five.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap", "proof-gap", "response-backlog", "extra-verified"];
-  assert.throws(() => scoreGrowthReport(five), /2 or 3 items|exactly 3 or 4/);
+  assert.throws(() => scoreGrowthReport(five), /exactly 2 items|exactly 3/);
 
   const unproven = report();
   unproven.humanDiagnosis.gap_inventory[0].diagnosis_state = "insufficient_evidence";
@@ -745,8 +782,8 @@ test("Focus Selection rejects two, five, unproven, backlog and two long initiati
   twoLong.humanDiagnosis.gap_inventory[1].sprint_fit.mode = "start_in_30_days";
   twoLong.humanDiagnosis.gap_inventory[1].repair_plan.day_30_outcome = "First page ships.";
   twoLong.humanDiagnosis.gap_inventory[1].repair_plan.beyond_day_30 = "Continue later.";
-  twoLong.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap", "proof-gap", "extra-close"];
-  assert.throws(() => scoreGrowthReport(twoLong), /at most one start_in_30_days/);
+  twoLong.humanDiagnosis.focus_selection.supporting_gap_ids = ["booking-gap", "proof-gap"];
+  assert.throws(() => scoreGrowthReport(twoLong), /at least two close_in_30_days|at most one start_in_30_days/);
 });
 
 test("score does not automatically choose Focus Gaps", () => {

@@ -1,6 +1,6 @@
 # CAESTHETIC — Agent Read-First
 
-## Highest-priority universal audit pre-router
+## Highest-priority universal audit pre-router — mandatory audit-intent routing
 
 Before all repository/project routing, read and enforce
 `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. When there is no
@@ -27,8 +27,9 @@ Read in order:
 - `4444` and `Четверки` route only to the CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation.
 - Paid Ads is the Demand Layer that directs demand into 4444, not a fifth surface; scale it only when the verified binding constraint is insufficient qualified demand and the four surfaces, capacity and economics are ready.
 - Cross-Surface Consistency is not a fifth surface.
-- Growth Score: public 3-stage intake; AI researches/pre-scores/drafts; a named human verifies Class A facts, corrects tasks/priorities and approves the final report.
-- Growth Score numbers are secondary navigation; the Problem Inventory, binding constraint, priorities and dependency-aware remediation tasks are the primary decision layer.
+- Growth Score: one schema-v5 engine/template/renderer for `aesthetic_practice`, `dental_practice` and `beauty_salon`; `report_locale` is `en`, `ru`, `es`, `fr` or `uk` and changes presentation only.
+- AI researches/pre-scores/drafts; a named human verifies Class A facts, selects exactly one Primary plus exactly two Supporting Gaps, and approves the binding constraint, Top 3, Do Not Fund Yet and final report.
+- Growth Score numbers are secondary navigation; the full Problem/Gap Inventory, binding constraint, exactly Top 3 and dependency-aware Repair Plans are the primary decision layer in the 13-section cockpit.
 - Score corrections improve later cases only through approved versioned rules/templates/rubrics/evals; never through uncontrolled model/chat memory.
 - Public paid entry: 30-Day Growth Sprint, $2,500.
 - Sprint Extension is $2,500 per additional 30 days, optional/unpublished and only offered after Day 30 for justified finite implementation.

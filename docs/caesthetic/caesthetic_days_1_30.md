@@ -126,7 +126,7 @@ Unsubscribe: [link]
 ### Дожим — три касания за 10 дней
 
 - **День +3:** одна новая деталь, не напоминание. *«One more thing I noticed: your booking flow takes four clicks from the homepage. The two practices above you take one.»*
-- **День +7:** видеоразбор 4–6 минут, запись экрана с их отчётом
+- **День +7:** видеоразбор 3–8 минут по `CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`, запись экрана с их отчётом
 - **День +10:** закрывающее. *«I'll leave it here — the page stays up if you ever want it.»*
 
 Дальше не пишите. Эта аудитория помнит навязчивых.
