@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1
+version: 1.2
 updated: 2026-09-02
-scope: client-facing Growth Score report presentation, approval/translation, competitive decision layer, walkthrough separation, commercial choice framing, privacy and production acceptance
+scope: client-facing Growth Score report presentation, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph presentation, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
 implementation_spec: docs/caesthetic/growth_score_spec.md
 related:
@@ -12,18 +12,20 @@ related:
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
+  - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
 supersedes_scope:
   - client-visible reviewer/walkthrough requirements in older Growth Score report specs
   - report-presentation decisions that conflict with this standard
+  - the proposed/next-version visual order in earlier Growth Score working material
 ---
 
 # CAESTHETIC Growth Score — Client Report Standard
 
-This is the active SSOT for the **client-facing Growth Score report**. It consolidates the approved report, mobile UX, competitive-analysis and delivery decisions without changing the CAESTHETIC product model.
+This is the active SSOT for the **client-facing Growth Score report**. It consolidates the approved report, mobile UX, competitive-analysis, Cross-Surface Journey Graph, final visual narrative and delivery decisions without changing the CAESTHETIC product model.
 
 Authority order remains:
 
-`active global/master SSOT → this standard → detailed Growth Score spec → working docs / historical artifacts`.
+`active global/master SSOT → this standard → detailed Growth Score spec → active implementation profile → working docs / historical artifacts`.
 
 If this document conflicts with `docs/ssot/CAESTHETIC.md`, the master SSOT wins. Evidence, clinical/regulatory, privacy and commercial rules may only be tightened here, never weakened.
 
@@ -47,6 +49,12 @@ The narrative follows the canonical loop:
 `Evidence → Constraint → Priority → Decision → Intervention → Adoption → Verified Impact → Learning`.
 
 Use progressive disclosure: **decision first, evidence and methodology drill-down later**. Do not force the owner to read raw evidence tables before understanding the decision.
+
+The canonical visual story is:
+
+`Owner tension → Client Journey Map → Four-Surface snapshot → Broken Connections Map → Top 3 → competitor decision → system synthesis → implementation decision → internal-conversion boundary → next path → founder note`.
+
+This visual story is mapped inside the immutable machine contract below. It does not create a second report structure.
 
 ## 2. Immutable report structure
 
@@ -105,10 +113,10 @@ The **Cross-Surface Journey Graph** is the canonical machine-readable evidence a
 
 Every newly approved or republished report uses one `journeyGraph` artifact under `cross-surface-journey-graph/1.0.0`. Frozen v5.2 reports created before 2026-09-02 may remain unchanged for deterministic historical rendering. New authoring may publish the artifact as reviewed `not_assessed` when evidence is unavailable; it may not omit the artifact or convert missing evidence to red.
 
-The same artifact renders two views inside the existing nine-section machine contract:
+The same artifact renders two client-facing views inside the existing nine-section machine contract:
 
-1. **Hero Client Journey Map** inside `gap-map`: fixed centre and Lead Intake ring, four fixed orbital coordinates, up to three fixed prospect entries and no more than three representative evidence-backed paths. The renderer automatically evaluates all 24 assignments of Search / Maps, Website, Social and Reviews to the orbital coordinates and chooses the deterministic lowest-cost layout by crossings, route geometry and canonical-orientation deviation.
-2. **Broken Connections Map** inside `evidence-and-competitors`: fixed canonical surface order for comparable system inspection. Aggregate arrows link the four surfaces and Lead Intake; every shown edge drills down to source, destination, observed behavior, why it matters, evidence/date and repair implication.
+1. **Hero Client Journey Map** inside `gap-map`: fixed client-logo centre and Lead Intake ring, four fixed orbital coordinates, up to three fixed prospect entries and no more than three representative evidence-backed paths. The renderer automatically evaluates all 24 assignments of Search / Maps, Website, Social and Reviews to the orbital coordinates and chooses the deterministic lowest-cost layout by crossings, label collisions, route geometry and canonical-orientation deviation.
+2. **Broken Connections Map** also inside the visual `gap-map` chapter, after the Four-Surface snapshot and before the Focus Gaps presentation. It uses one fixed canonical surface order for report-to-report comparability. Detailed source/destination/evidence drill-down remains in section 7 `evidence-and-competitors`. Aggregate arrows link the four surfaces and Lead Intake; every shown assessed edge resolves to source, destination, observed behavior, why it matters, evidence/date and repair implication.
 
 Both views use one state system: green `clean`, amber `friction`, red `broken`, gray `not_assessed`. An absent optional cross-link is not drawn as a defect. Red requires either an observed technical/context/next-action failure or a human-approved route expectation whose absence was confirmed.
 
@@ -117,6 +125,27 @@ The artifact retains asset nodes, edges, `technical_integrity`, `context_integri
 Graph-to-metric links are `evidence_only` and may reference only existing `gbp_conversion_readiness`, `entity_integrity`, `booking_friction`, `technical_booking_integrity`, `profile_to_booking`, `conversion_continuity`, `identity_coherence`, `positioning_coherence` and `proof_continuity`. No graph output changes a score, coverage, weight, Primary Constraint or Top 3 automatically. Any later scoring change requires separate explicit SSOT approval.
 
 Before publication, a named human must approve entity/location resolution, expectation rules, semantic integrity and edge severity. Reviewer identity remains in the internal artifact and is not rendered to the client.
+
+### 3.2 Lead Intake boundary and Lead-to-Revenue Map
+
+`Lead Intake` is a **boundary node**, not a fifth surface. In the Free Growth Score it is gray / `NOT ASSESSED` unless valid evidence exists for a specific observable public enquiry-path fact.
+
+The lower-page **Lead-to-Revenue Map** is the canonical internal-conversion visual branch. It uses the stages:
+
+`LEAD RECEIVED → RESPONSE → QUALIFICATION → BOOKING → CONFIRMATION → SHOW → CONSULTATION → PAYMENT`.
+
+Optional post-payment `FOLLOW-UP / RETURN` may appear as a secondary tail when the report context requires it; it is not part of the required eight-stage spine.
+
+State system:
+
+- green `WORKING` — evidence supports a functioning stage;
+- amber `FRICTION` — evidence supports material process friction;
+- red `CONFIRMED LEAK` — evidence supports an actual drop-off/break at that stage;
+- gray `NOT ASSESSED` — valid evidence is unavailable.
+
+A red upstream stage does **not** automatically make downstream stages red. Downstream stages remain gray when they were not reached or assessed. The map must not infer a weak receptionist, broken CRM, poor training or other internal cause from a no-response or drop-off fact alone.
+
+In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. Any price for a separate Lead-to-Revenue Check remains configuration governed by pricing authority; the visual must not hardcode `$500` until pricing SSOT explicitly approves it.
 
 ## 4. Client-visible human attribution and walkthrough separation
 
@@ -146,6 +175,8 @@ When a comparable market exists, Competitive Decision Analysis is integrated ins
 
 Default useful comparison set: **3–5 named competitors**, unless the evidence or market structure justifies fewer/more under the global standard.
 
+The owner-facing question is: **Why might a patient/client choose them instead of you?** The comparison is not introduced as a ranking or score.
+
 The report must disclose, where applicable:
 
 - why each competitor was included;
@@ -159,7 +190,9 @@ The report must disclose, where applicable:
 - why a patient may choose that competitor;
 - observable advantage;
 - observable gap / risk;
+- where the subject practice is stronger;
 - what is worth repeating or adapting;
+- what should be improved beyond the competitor rather than copied literally;
 - what should not be copied;
 - effect on the existing binding constraint and Top 3.
 
@@ -182,7 +215,7 @@ Allowed owner statuses:
 
 - **Protect** — evidence shows the surface is currently strong;
 - **Watch** — evidence shows a material monitoring/risk need;
-- **Fix** — evidence supports a verified gap;
+- **Fix / Fix now** — evidence supports a verified gap;
 - **Needs verification** — evidence is insufficient.
 
 Prominence does not force either surface into the Top 3. A strong surface must not be labelled a leak merely because it is strategically important. Focus Selection still follows evidence, dependency and named-human judgment.
@@ -209,7 +242,7 @@ Rules:
 
 Vertical context and locale remain independent. Locale never changes metric IDs, scoring, evidence class, constraint or Focus Selection.
 
-## 8. Mobile-first presentation and visual precedence
+## 8. Mobile-first presentation and final visual canon
 
 The report is designed for an owner reading first on mobile, while remaining fully usable on desktop.
 
@@ -221,7 +254,7 @@ Presentation rules:
 - long implementation and evidence content uses progressive disclosure / accordions where appropriate;
 - evidence tables must remain readable and use contained horizontal overflow rather than causing body overflow;
 - the body must not horizontally overflow at the production mobile acceptance width;
-- the single commercial CTA appears late, after the owner has seen Sprint Fit; canonical action resolves through section 9 `next-step`;
+- the single commercial CTA appears late, after the owner has seen the diagnosis, competitor evidence and system synthesis; canonical action resolves through section 9 `next-step`;
 - do not duplicate Sprint CTAs across sections;
 - a sticky CTA may be used only late in the report when it does not interrupt reading; disable it on mobile when it degrades the decision flow.
 
@@ -230,14 +263,85 @@ Approved visual grammar:
 - warm background `#F0EDE6`;
 - navy `#0B2438`;
 - burgundy signal/accent `#7B244B`;
+- green/amber/red/gray reserved for diagnostic state, with text/icon duplication so color is never the only signal;
 - Source Serif 4 / IBM Plex family pairing;
 - content width approximately `1120px`;
 - compact outlined status pills;
 - editorial decision cards with restrained radius;
 - strict rectangular evidence tables;
-- Primary constraint visually outweighs supporting context.
+- Primary Constraint visually outweighs supporting context;
+- deterministic HTML/SVG for diagnostic maps; AI-generated raster art is not the production diagnostic renderer.
 
 Visual refinement must never alter the machine contract, Four Surfaces, evidence, Focus Selection or commercial truthfulness.
+
+### 8.1 Canonical owner-facing visual sequence
+
+The final client-facing visual sequence is canonical even though it is composed inside the nine-section machine contract:
+
+1. **Owner-first Hero + Client Journey Map.** Use the resolved client logo when provenance is reliable; otherwise use a neutral wordmark/initial fallback. The preferred owner tension is investment-first, e.g. `You have already invested in your practice. The question is: is that investment working as hard as it should?`. A stronger occupancy statement such as `why is it not filled with clients?` is allowed only when supported by owner-supplied context or evidence; it must not be fabricated from outside-in observation.
+2. **Four-Surface snapshot.** Four cards summarize Search / Maps, Website, Social and Reviews with `Protect / Watch / Fix now / Needs verification` and one owner-language sentence each.
+3. **Broken Connections Map.** Show technical and semantic route integrity between the four surfaces and Lead Intake from the canonical Journey Graph; do not require a complete 4×4 mesh.
+4. **Top 3 leaks.** Exactly one Primary + two Supporting. Primary is open by default; Supporting are collapsed by default. Closed state already states the problem and owner consequence. Expanded state includes `What we found`, `Why it matters`, `What it affects`, `Evidence`, and the repair path/DIY detail at the next disclosure level.
+5. **Competitive decision.** Lead with why a patient/client may choose another practice, then expose the deeper comparison matrix. End with `Defend / Close / Differentiate / Do not copy`.
+6. **Final system synthesis.** After evidence and competitors, before the commercial decision, state whether the findings represent isolated issues or one connected patient-decision system. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
+7. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The CAESTHETIC option is the 30-Day Growth Sprint at the canonical `$2,500` price. Any retail-equivalent comparison must pass §9.1.
+8. **Lead-to-Revenue Map.** Lower-page internal-conversion visual showing what is and is not assessed after enquiry. It is a boundary/diagnostic branch, not a fifth surface or automatic upsell.
+9. **What happens next + founder note.** Show a branching continuation rather than a forced ladder, then close with a short real-founder note. Valerie Petra may be shown only in a truthful approved role; no fabricated biography or handwritten signature.
+
+### 8.2 Mapping to the immutable nine-section machine contract
+
+The visual sequence above does not reorder or add machine sections:
+
+- `gap-map` contains owner-first hero, Hero Client Journey Map, Four-Surface snapshot and Broken Connections Map;
+- `focus-gaps` contains the Top 3 Focus Gaps;
+- `sprint-fit` explains whether the verified Primary/Supporting work is suitable for a 30-day finite implementation without claiming purchase or results;
+- `repair-paths` contains complete DIY/implementation paths and coordination burden;
+- `do-not-fund` contains the canonical one `Do Not Fund Yet` decision;
+- `gap-inventory` contains the exhaustive inventory; an earlier compact summary/link may point to it but does not replace it;
+- `evidence-and-competitors` contains evidence drill-down, Journey Graph edge details and Competitive Decision Analysis;
+- `scores-and-methodology` keeps scores/methodology secondary;
+- `next-step` begins with the final system synthesis, may restate the Do Not Fund decision compactly, then presents implementation choices, one Sprint CTA, Lead-to-Revenue Map, branching continuation and founder note.
+
+This mapping is the authoritative way to preserve both the owner-story order and the schema-v5 machine contract.
+
+### 8.3 Review-mode anchors 1101–1109
+
+Internal Russian review mode may display small low-emphasis review anchors at the lower edge of major visual blocks:
+
+- `1101` — Hero / Client Journey Map;
+- `1102` — Four-Surface snapshot / Broken Connections Map;
+- `1103` — Top 3 Focus Gaps;
+- `1104` — Competitive Decision Analysis;
+- `1105` — Final system synthesis / Do Not Fund reminder;
+- `1106` — Implementation decision / Sprint choice;
+- `1107` — Lead-to-Revenue Map;
+- `1108` — What happens next;
+- `1109` — Founder note.
+
+These are internal review anchors only. They are not cockpit numbers, are not stored as business evidence and must disappear after `APPROVE` from final client presentation/source.
+
+### 8.4 Mobile behavior
+
+At approximately `360–430px`:
+
+- the hero does not shrink the desktop graph mechanically; it uses the same data with a mobile composition;
+- only one representative journey is emphasized at a time, defaulting to the Primary Constraint path; switching journeys is progressive enhancement and the Primary path remains visible without JS;
+- Four-Surface cards stack one per row;
+- Broken Connections Map uses a mobile graph layout while preserving edge identity/state;
+- Primary Focus Gap is open; Supporting are closed;
+- competitor tabs may horizontal-scroll inside their own container;
+- tables scroll inside contained wrappers rather than the body;
+- Lead-to-Revenue Map becomes a vertical pipeline;
+- touch targets are at least `44px`;
+- no early sticky commercial CTA obscures diagnosis.
+
+### 8.5 Founder note
+
+The report may close with a short, mostly editorial/italic founder note after the decision path. The purpose is reassurance and owner agency, not another sales pitch. The note may express the approved principle:
+
+`We are not asking you to spend more. We are helping you decide what deserves funding next.`
+
+Use a real approved founder identity/signature presentation only. Do not fabricate handwriting, identity or biography. Valerie Petra may appear separately only in her truthful approved role.
 
 ## 9. Implementation choice and commercial decision story
 
@@ -287,6 +391,18 @@ There is **no universal `$1,500/month Sprint Alumni` fee in the current canon**.
 
 The owner keeps the delivered report, evidence pack, task plan and completed outputs and may continue in-house, with another provider, with CAESTHETIC or stop. No lock-in framing is allowed.
 
+### 9.4 Branching continuation
+
+The client-facing continuation is a decision tree, not an automatic sales ladder:
+
+- if the outside-in external constraint is verified and finite → optional 30-Day Growth Sprint;
+- if the main uncertainty is after enquiry → internal conversion evidence/check path, with price only if current pricing authority approves it;
+- after Day 30, if the constraint is resolved → the client may take the system and stop;
+- if a new/remaining finite verified constraint exists → optional Sprint 2 / Extension at `$2,500`;
+- if recurring ownership is justified → optional Growth System under client-specific terms.
+
+No later stage is mandatory.
+
 ## 10. Privacy and route rules
 
 Every Growth Score route remains `noindex` and outside the sitemap.
@@ -313,13 +429,17 @@ Acceptance requires:
 3. exactly one Primary + two Supporting Focus Gaps;
 4. one late commercial CTA;
 5. source-level absence of client-visible reviewer/selector attribution and embedded walkthrough card/URL;
-6. Four Surfaces unchanged; Cross-Surface remains separate;
-7. when `journeyGraph` is present: one reviewed artifact, both deterministic views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
-8. mobile and desktop smoke with no body overflow and usable evidence drill-down;
-9. privacy/noindex/sitemap gates;
-10. live production URL;
-11. deployed SHA;
-12. successful exact production smoke.
+6. Four Surfaces unchanged; Cross-Surface remains separate; Lead Intake/internal conversion is not rendered as a fifth surface;
+7. for new authoring: one reviewed `journeyGraph` artifact, both deterministic public views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
+8. Hero uses client-logo provenance/fallback rules, adaptive four-slot assignment and no invented success journey;
+9. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow and retains detailed evidence drill-down later;
+10. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis;
+11. internal review anchors `1101–1109` are absent from final approved client source;
+12. mobile and desktop smoke with no body overflow and usable graph/evidence drill-down;
+13. privacy/noindex/sitemap gates;
+14. live production URL;
+15. deployed SHA;
+16. successful exact production smoke.
 
 For protected reports, acceptance also includes unauthenticated gate, wrong-password rejection, valid session issuance and authenticated report/JSON checks.
 
@@ -329,15 +449,18 @@ Do not:
 
 - add a fifth surface;
 - create a separate Journey Graph score, require every surface-to-surface link or label an optional missing link red;
+- represent `Lead Intake` or Lead-to-Revenue as a fifth public surface;
 - add a tenth machine section;
 - turn competitor analysis into a ranking or score;
 - expose reviewer/selector identity to prove human approval;
 - embed the Valerie/walkthrough card back into the report;
 - diagnose internal conversion causes without access/evidence;
 - force Maps or Reputation into Top 3 without evidence;
+- display a client occupancy/revenue problem as fact merely because an illustrative owner question is persuasive;
 - hide DIY instructions to manufacture sales dependence;
 - invent retail implementation prices, savings, ROI, patients or revenue;
 - use fake scarcity, fake countdowns or implied price increases;
+- hardcode a Lead-to-Revenue Check price before pricing authority approves it;
 - publish a universal recurring fee that is not in current pricing/SSOT authority;
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
