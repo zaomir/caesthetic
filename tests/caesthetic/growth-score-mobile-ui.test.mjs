@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const js = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/growth-cockpit.js"), "utf8");
 const css = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report-mobile.css"), "utf8");
+const reportCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report.css"), "utf8");
 const contract = fs.readFileSync(path.join(root, "docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md"), "utf8");
 
 const orderedSections = [
@@ -58,6 +59,11 @@ test("presentation is mobile-first and progressively enhanced", () => {
   assert.match(css, /grid-template-columns:\s*1fr/);
   assert.match(js, /IntersectionObserver/);
   assert.match(js, /document\.createElement\("details"\)/);
+  assert.match(reportCss, /\.cae-journey-graph__canvas--desktop\s*\{\s*display:\s*none;/);
+  assert.match(reportCss, /\.cae-journey-graph__mobile\s*\{\s*display:\s*block;/);
+  assert.match(reportCss, /data-mobile-primary-journey|\.cae-journey-graph__mobile/);
+  assert.match(reportCss, /\.cae-lead-revenue ol\s*\{\s*grid-template-columns:\s*1fr;/);
+  assert.match(reportCss, /\.cae-journey-graph__edge summary\s*\{\s*min-height:\s*44px;/);
 });
 
 test("one commercial CTA appears only after Sprint Fit", () => {

@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.20
+version: 3.21
 updated: 2026-09-02
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
@@ -13,6 +13,7 @@ related:
   - docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
+  - docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md
   - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md
   - docs/founder-notes/DEC-862_raim-smile-caesthetic-partnership-economics-and-vip-access.md
@@ -242,6 +243,10 @@ Detailed metric catalogue and collection/scoring rules: `docs/caesthetic/growth_
 - **Reputation:** 90-day review velocity; rating; review depth; recency; response coverage/speed; negative-review handling; treatment/clinician proof in reviews.
 
 The **Cross-Surface Journey Graph** is the canonical evidence artifact for observable public asset/action routes to the `Lead Intake` boundary. It records nodes, edges, technical integrity, identity/location/treatment/offer/proof context integrity, evidence lineage, reachability, dead ends, loops and orphans. It renders the Hero Client Journey Map and Broken Connections Map from the same artifact inside the existing nine-section report. It is Cross-Surface evidence only: not a fifth surface, not a separate score and never an automatic score, binding-constraint or Focus-Selection input. A named human approves entity resolution, route expectations, semantic findings and edge severity before publication. Contract: `docs/caesthetic/growth_score_spec.md` §3.3 and `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` §3.1.
+
+The canonical Hero title is **`Where Clients Are Gained - and Lost`**. Its deterministic HTML/SVG composition keeps the approved client-logo centre, gray `LEAD INTAKE · NOT ASSESSED` ring, exactly four surface nodes, evidence-state edges, right legend, Cross-Surface Connections Overview, decision block and Outside-In Diagnosis strip. An edge is colored only from its own reviewed Journey Graph state: no Social/Reviews → Lead Intake edge is green without approved edge evidence, an observed `no clear next step` may support a red Social break, an unverified Reviews route remains gray, and an optional/irrelevant unassessed relationship is not drawn.
+
+When the unresolved decision sits after enquiry, the separate canonical branch is **Lead-to-Revenue Check · $500** under `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`. The $500 is credited once toward the next direct-continuation CAESTHETIC Sprint addressing the verified constraint; the Sprint total remains $2,500. This does not authorize any guaranteed enquiry, booking, patient, revenue, ROI or internal-cause claim.
 
 If less than 70% of a surface's metric weight is observable, publish `Insufficient evidence`, not a fabricated score. Overall and surface `/100` values are a compact navigator/tension layer, not the decision layer.
 

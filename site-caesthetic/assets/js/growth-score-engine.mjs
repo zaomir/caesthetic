@@ -532,6 +532,10 @@ function aggregateJourneyGraphEdges(artifact, nodeById) {
   // confirmed broken transition between the same two surface groups.
   const statusRank = { clean: 1, not_assessed: 2, friction: 3, broken: 4 };
   for (const edge of artifact.edges) {
+    // Optional relationships that were not assessed are not owner-facing
+    // connections. Keeping them out of the aggregate prevents a symmetric
+    // gray mesh from implying that every surface must link to every other one.
+    if (edge.expectation === "optional" && edge.status === "not_assessed") continue;
     const fromNode = nodeById.get(edge.from);
     const toNode = nodeById.get(edge.to);
     const from = fromNode.kind === "lead_intake" ? "lead_intake" : fromNode.surface;

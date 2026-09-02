@@ -419,6 +419,321 @@
       }
     ]
   },
+  "journeyGraph": {
+    "artifact_version": "cross-surface-journey-graph/1.0.0",
+    "artifact_id": "synthetic-lumen-hero-journey-v1",
+    "assessment_status": "assessed",
+    "max_hops": 3,
+    "automatic_score_change": false,
+    "evidence": [
+      {
+        "id": "synthetic-search-path",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "method": "Synthetic reproducible public-path observation for renderer validation.",
+        "evidence_class": "A",
+        "reviewer_status": "approved"
+      },
+      {
+        "id": "synthetic-website-path",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "method": "Synthetic reproducible booking-path observation for renderer validation.",
+        "evidence_class": "A",
+        "reviewer_status": "approved"
+      },
+      {
+        "id": "synthetic-social-path",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "method": "Synthetic reproducible profile-path observation for renderer validation.",
+        "evidence_class": "A",
+        "reviewer_status": "approved"
+      },
+      {
+        "id": "synthetic-reviews-context",
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "method": "Synthetic review-surface observation; continuation route intentionally not assessed.",
+        "evidence_class": "A",
+        "reviewer_status": "approved"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "synthetic-search",
+        "kind": "public_asset",
+        "surface": "search",
+        "asset_type": "gbp_listing",
+        "label": "Search / Maps",
+        "canonical_destination": "fixture://lumen/search",
+        "ownership": "owned",
+        "observability": "observed",
+        "evidence_refs": ["synthetic-search-path"]
+      },
+      {
+        "id": "synthetic-website",
+        "kind": "public_asset",
+        "surface": "website",
+        "asset_type": "service_page",
+        "label": "Treatment page",
+        "canonical_destination": "fixture://lumen/website",
+        "ownership": "owned",
+        "observability": "observed",
+        "evidence_refs": ["synthetic-website-path"]
+      },
+      {
+        "id": "synthetic-social",
+        "kind": "public_asset",
+        "surface": "social",
+        "asset_type": "social_profile",
+        "label": "Social profile",
+        "canonical_destination": "fixture://lumen/social",
+        "ownership": "owned",
+        "observability": "observed",
+        "evidence_refs": ["synthetic-social-path"]
+      },
+      {
+        "id": "synthetic-reviews",
+        "kind": "public_asset",
+        "surface": "reputation",
+        "asset_type": "review_listing",
+        "label": "Reviews",
+        "canonical_destination": "fixture://lumen/reviews",
+        "ownership": "third_party",
+        "observability": "observed",
+        "evidence_refs": ["synthetic-reviews-context"]
+      },
+      {
+        "id": "synthetic-lead-intake",
+        "kind": "lead_intake",
+        "surface": null,
+        "asset_type": "lead_intake_boundary",
+        "label": "Lead Intake",
+        "canonical_destination": null,
+        "ownership": "not_applicable",
+        "observability": "observed",
+        "evidence_refs": []
+      }
+    ],
+    "edges": [
+      {
+        "id": "synthetic-search-to-intake",
+        "from": "synthetic-search",
+        "to": "synthetic-lead-intake",
+        "expectation": "observed",
+        "action_type": "appointment",
+        "exists": true,
+        "status": "clean",
+        "technical_integrity": {
+          "status": "clean",
+          "observed_behavior": "The synthetic Maps appointment action resolves."
+        },
+        "context_integrity": {
+          "status": "clean",
+          "observed_behavior": "Identity, location, treatment, offer and proof context remain coherent.",
+          "dimensions": {
+            "identity": "clean",
+            "location": "clean",
+            "treatment": "clean",
+            "offer": "clean",
+            "proof": "clean"
+          }
+        },
+        "next_action_available": true,
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "evidence_refs": ["synthetic-search-path"],
+        "why_it_matters": "The synthetic Search entry has one usable next step.",
+        "repair_implication": "Protect and recheck the route."
+      },
+      {
+        "id": "synthetic-website-to-intake",
+        "from": "synthetic-website",
+        "to": "synthetic-lead-intake",
+        "expectation": "required",
+        "action_type": "book",
+        "exists": true,
+        "status": "broken",
+        "technical_integrity": {
+          "status": "clean",
+          "observed_behavior": "The synthetic scheduler opens."
+        },
+        "context_integrity": {
+          "status": "broken",
+          "observed_behavior": "The selected treatment context is lost before the next action.",
+          "dimensions": {
+            "identity": "clean",
+            "location": "clean",
+            "treatment": "broken",
+            "offer": "broken",
+            "proof": "friction"
+          }
+        },
+        "next_action_available": false,
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "evidence_refs": ["synthetic-website-path"],
+        "why_it_matters": "The synthetic treatment decision cannot continue with its context intact.",
+        "repair_implication": "Preserve treatment and location through the booking handoff."
+      },
+      {
+        "id": "synthetic-social-to-intake",
+        "from": "synthetic-social",
+        "to": "synthetic-lead-intake",
+        "expectation": "required",
+        "action_type": "book",
+        "exists": false,
+        "status": "broken",
+        "technical_integrity": {
+          "status": "broken",
+          "observed_behavior": "The synthetic profile has no clear next step to enquiry or booking."
+        },
+        "context_integrity": {
+          "status": "broken",
+          "observed_behavior": "No destination exists to preserve the selected treatment or offer.",
+          "dimensions": {
+            "identity": "not_assessed",
+            "location": "not_assessed",
+            "treatment": "broken",
+            "offer": "broken",
+            "proof": "not_assessed"
+          }
+        },
+        "next_action_available": false,
+        "source": "Synthetic demo fixture — not collected from a live practice",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "evidence_refs": ["synthetic-social-path"],
+        "why_it_matters": "The synthetic Social route stops because no clear next step was observed.",
+        "repair_implication": "Add and verify one truthful next action."
+      },
+      {
+        "id": "synthetic-reviews-to-intake",
+        "from": "synthetic-reviews",
+        "to": "synthetic-lead-intake",
+        "expectation": "conditional",
+        "action_type": "native_navigation",
+        "exists": null,
+        "status": "not_assessed",
+        "technical_integrity": {
+          "status": "not_assessed",
+          "observed_behavior": "The Reviews continuation route was not verified."
+        },
+        "context_integrity": {
+          "status": "not_assessed",
+          "observed_behavior": "Context continuity from Reviews to Lead Intake was not verified.",
+          "dimensions": {
+            "identity": "not_assessed",
+            "location": "not_assessed",
+            "treatment": "not_assessed",
+            "offer": "not_assessed",
+            "proof": "not_assessed"
+          }
+        },
+        "next_action_available": null,
+        "source": null,
+        "collected_at": null,
+        "evidence_refs": [],
+        "why_it_matters": "No route conclusion is supported.",
+        "repair_implication": "Verify the route before recommending a change."
+      },
+      {
+        "id": "synthetic-optional-reviews-to-social",
+        "from": "synthetic-reviews",
+        "to": "synthetic-social",
+        "expectation": "optional",
+        "action_type": "native_navigation",
+        "exists": null,
+        "status": "not_assessed",
+        "technical_integrity": {
+          "status": "not_assessed",
+          "observed_behavior": "This optional relationship was not assessed."
+        },
+        "context_integrity": {
+          "status": "not_assessed",
+          "observed_behavior": "This optional relationship was not assessed.",
+          "dimensions": {
+            "identity": "not_assessed",
+            "location": "not_assessed",
+            "treatment": "not_assessed",
+            "offer": "not_assessed",
+            "proof": "not_assessed"
+          }
+        },
+        "next_action_available": null,
+        "source": null,
+        "collected_at": null,
+        "evidence_refs": [],
+        "why_it_matters": "The relationship is optional and creates no requirement.",
+        "repair_implication": "Do not draw or repair an unassessed optional relationship."
+      }
+    ],
+    "entry_node_ids": [
+      "synthetic-search",
+      "synthetic-website",
+      "synthetic-social",
+      "synthetic-reviews"
+    ],
+    "lead_intake_node_id": "synthetic-lead-intake",
+    "metric_links": [
+      {
+        "metric_ref": "search.gbp_conversion_readiness",
+        "edge_ids": ["synthetic-search-to-intake"],
+        "node_ids": ["synthetic-search"],
+        "effect": "evidence_only"
+      },
+      {
+        "metric_ref": "website.booking_friction",
+        "edge_ids": ["synthetic-website-to-intake"],
+        "node_ids": ["synthetic-website"],
+        "effect": "evidence_only"
+      },
+      {
+        "metric_ref": "social.profile_to_booking",
+        "edge_ids": ["synthetic-social-to-intake"],
+        "node_ids": ["synthetic-social"],
+        "effect": "evidence_only"
+      },
+      {
+        "metric_ref": "cross.conversion_continuity",
+        "edge_ids": ["synthetic-search-to-intake", "synthetic-website-to-intake", "synthetic-reviews-to-intake"],
+        "node_ids": [],
+        "effect": "evidence_only"
+      }
+    ],
+    "representative_journeys": [
+      {
+        "id": "synthetic-search-clean-route",
+        "label": "Clean Search route",
+        "kind": "strongest",
+        "prospect_slot": 0,
+        "edge_ids": ["synthetic-search-to-intake"]
+      },
+      {
+        "id": "synthetic-website-primary-route",
+        "label": "Primary booking-context break",
+        "kind": "primary_constraint",
+        "prospect_slot": 1,
+        "edge_ids": ["synthetic-website-to-intake"]
+      },
+      {
+        "id": "synthetic-social-supporting-route",
+        "label": "Social route with no clear next step",
+        "kind": "supporting",
+        "prospect_slot": 2,
+        "edge_ids": ["synthetic-social-to-intake"]
+      }
+    ],
+    "review": {
+      "status": "approved",
+      "reviewed_by": "Fictional Taylor Rowan",
+      "reviewed_at": "2026-08-11T16:15:00Z",
+      "entity_resolution_approved": true,
+      "expectation_policy_approved": true,
+      "semantic_integrity_approved": true,
+      "severity_approved": true
+    }
+  },
   "humanDiagnosis": {
     "reviewer_status": "approved",
     "reviewer": {

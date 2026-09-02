@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.2
+version: 1.4
 updated: 2026-09-02
-scope: client-facing Growth Score report presentation, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph presentation, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
+scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph presentation, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
 implementation_spec: docs/caesthetic/growth_score_spec.md
 related:
@@ -12,6 +12,7 @@ related:
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
+  - docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md
   - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
 supersedes_scope:
   - client-visible reviewer/walkthrough requirements in older Growth Score report specs
@@ -120,6 +121,15 @@ The same artifact renders two client-facing views inside the existing nine-secti
 
 Both views use one state system: green `clean`, amber `friction`, red `broken`, gray `not_assessed`. An absent optional cross-link is not drawn as a defect. Red requires either an observed technical/context/next-action failure or a human-approved route expectation whose absence was confirmed.
 
+The canonical Hero title is exactly **`Where Clients Are Gained - and Lost`**. The approved composition is deterministic HTML/SVG: client logo or approved fallback in the centre; a separate gray `LEAD INTAKE` ring labelled `NOT ASSESSED`; four surface nodes with `PROTECT / WATCH / FIX NOW / NEEDS VERIFICATION`; individually state-colored route segments; a right-hand legend; `Cross-Surface Connections Overview`; `Primary Constraint / What This Means / Impact`; and a bottom `Outside-In Diagnosis` strip. Surface health and edge state are distinct. No route inherits green from a neighboring surface or from the best/worst state of an entire representative journey.
+
+Specific edge rules are fail-closed:
+
+- Social → Lead Intake is `broken` only when approved evidence supports the actual technical/context/next-action failure, including an observed `no clear next step`;
+- Reviews → Lead Intake is `not_assessed` when the route was not verified;
+- no edge is drawn for an optional/irrelevant relationship that was not assessed;
+- Hero and Broken Connections Map must expose the same edge IDs, states and evidence lineage from the one `journeyGraph` artifact.
+
 The artifact retains asset nodes, edges, `technical_integrity`, `context_integrity` across identity/location/treatment/offer/proof, evidence sources and dates, entry-to-Lead-Intake reachability, max 2–3 hop paths, dead ends, loops, orphans and break classifications. Exact schema and validation rules are owned by `docs/caesthetic/growth_score_spec.md` and `site-caesthetic/assets/js/growth-score-engine.mjs`.
 
 Graph-to-metric links are `evidence_only` and may reference only existing `gbp_conversion_readiness`, `entity_integrity`, `booking_friction`, `technical_booking_integrity`, `profile_to_booking`, `conversion_continuity`, `identity_coherence`, `positioning_coherence` and `proof_continuity`. No graph output changes a score, coverage, weight, Primary Constraint or Top 3 automatically. Any later scoring change requires separate explicit SSOT approval.
@@ -145,7 +155,7 @@ State system:
 
 A red upstream stage does **not** automatically make downstream stages red. Downstream stages remain gray when they were not reached or assessed. The map must not infer a weak receptionist, broken CRM, poor training or other internal cause from a no-response or drop-off fact alone.
 
-In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. Any price for a separate Lead-to-Revenue Check remains configuration governed by pricing authority; the visual must not hardcode `$500` until pricing SSOT explicitly approves it.
+In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. The active specific pricing authority is `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`: the report may render **`Lead-to-Revenue Check · $500`**, and must state that the $500 is credited once toward the next direct-continuation CAESTHETIC Sprint for the verified constraint while the Sprint total remains $2,500. It is not a results promise, refund balance or automatic upsell.
 
 ## 4. Client-visible human attribution and walkthrough separation
 
@@ -278,7 +288,7 @@ Visual refinement must never alter the machine contract, Four Surfaces, evidence
 
 The final client-facing visual sequence is canonical even though it is composed inside the nine-section machine contract:
 
-1. **Owner-first Hero + Client Journey Map.** Use the resolved client logo when provenance is reliable; otherwise use a neutral wordmark/initial fallback. The preferred owner tension is investment-first, e.g. `You have already invested in your practice. The question is: is that investment working as hard as it should?`. A stronger occupancy statement such as `why is it not filled with clients?` is allowed only when supported by owner-supplied context or evidence; it must not be fabricated from outside-in observation.
+1. **Owner-first Hero + Client Journey Map.** Title it `Where Clients Are Gained - and Lost`. Use the resolved client logo when provenance is reliable; otherwise use a neutral wordmark/initial fallback. Keep the approved centre/ring/four-orbit/right-legend/decision-block/Outside-In-strip composition defined in §3.1. The preferred owner tension is investment-first, e.g. `You have already invested in your practice. The question is: is that investment working as hard as it should?`. A stronger occupancy statement such as `why is it not filled with clients?` is allowed only when supported by owner-supplied context or evidence; it must not be fabricated from outside-in observation.
 2. **Four-Surface snapshot.** Four cards summarize Search / Maps, Website, Social and Reviews with `Protect / Watch / Fix now / Needs verification` and one owner-language sentence each.
 3. **Broken Connections Map.** Show technical and semantic route integrity between the four surfaces and Lead Intake from the canonical Journey Graph; do not require a complete 4×4 mesh.
 4. **Top 3 leaks.** Exactly one Primary + two Supporting. Primary is open by default; Supporting are collapsed by default. Closed state already states the problem and owner consequence. Expanded state includes `What we found`, `Why it matters`, `What it affects`, `Evidence`, and the repair path/DIY detail at the next disclosure level.
@@ -342,6 +352,57 @@ The report may close with a short, mostly editorial/italic founder note after th
 `We are not asking you to spend more. We are helping you decide what deserves funding next.`
 
 Use a real approved founder identity/signature presentation only. Do not fabricate handwriting, identity or biography. Valerie Petra may appear separately only in her truthful approved role.
+
+
+### 8.6 Multi-Location visual profile
+
+Multi-Location is an additive profile of this same schema-v5 report, not a second visual system. The package contains:
+
+1. one protected **network_parent** report as the delivery entry point;
+2. one protected **focus_location** report using the complete current single-location profile;
+3. one shared project ID, access group, frozen fact set, binding constraint, ordered Top 3 and Do Not Fund Yet.
+
+The parent uses the same unnumbered Intro and nine machine sections. Its owner-facing sequence is:
+
+**Network owner tension → declared/reviewed coverage → Network Journey Atlas → Four-Surface network snapshot → repeated/shared break patterns → exact Top 3 → internal location comparison → external competitor decision → network synthesis → pilot/replication decision → Lead-to-Revenue boundary → one package CTA → founder note.**
+
+The network parent must render:
+
+- network name, public geography, research date and “N of M declared locations reviewed”;
+- the named-human-selected focus location and its public-evidence rationale;
+- one navigation link to the full focus-location report;
+- a branch registry with explicit **reviewed / not_found / ambiguous / closed_or_moved_publicly_observed / excluded_by_approved_scope** state;
+- shared versus location-specific public assets;
+- one reviewed Journey Graph reference per reviewed location, including a reviewed **not_assessed** graph where evidence is unavailable;
+- repeated patterns stated as “Observed in N of M reviewed locations”;
+- a location × Four Surfaces comparison using **Protect / Watch / Fix now / Needs verification**;
+- one best observed public-surface practice worth propagating, without calling that branch the best business performer;
+- the same exact Primary plus two Supporting gaps as the focus child.
+
+The parent does not force every asset and every branch into one Journey Graph. It uses a network topology/asset registry, per-location graph references and a reviewed repeated-pattern index. The parent may emphasize the focus-location path and a small number of repeated paths, but must not render an unreadable all-branch graph or infer a network-wide pattern from partial coverage.
+
+Each selected gap carries:
+
+- scope: **shared_asset / repeated_pattern / focus_location**;
+- affected reviewed location IDs and observed count;
+- focus-location impact;
+- pilot location;
+- evidence-based replication conditions;
+- separate done-when evidence for the focus-location repair and any later network rollout.
+
+A selected network gap must affect the focus location directly or through a shared asset used by it. Other branch-only problems remain in the Full Network Gap Inventory and do not silently enter Sprint scope.
+
+Internal location comparison and external competitor comparison are separate. Locations are not competitors and are not ranked as businesses. Where geography changes the customer decision, each branch requires its own local external competitor set; the focus location receives the full 3–5 competitor decision drill-down.
+
+There is no aggregate Network Score, average branch score, network-wide revenue conclusion or “best/worst branch” claim. Per-location scores may appear only where the normal schema-v5 coverage gate passes. Coverage is disclosed by location and surface; missing evidence remains **Needs verification / not assessed**.
+
+The Lead-to-Revenue Map remains gray/not assessed for the network and each branch under the public-only Free Growth Score unless separately permitted internal evidence exists. A public observation cannot be converted into a receptionist, CRM, staffing, training, conversion or revenue diagnosis.
+
+The package has one commercial decision and one Sprint CTA on the network parent. The focus child replaces its commercial CTA with navigation back to the parent's implementation decision. The child may not create a second scope, second Top 3 or second commercial funnel.
+
+At approximately **360–430px**, the parent defaults to the focus location, renders locations as cards/selectable views rather than a compressed wide matrix, shows one representative path at a time, contains table overflow and preserves all evidence/state IDs. Desktop may show the comparison matrix, but the body must never overflow horizontally.
+
+Internal review anchors remain **1101–1109** per page and are disambiguated by package role and location ID in review records. They still disappear from final client source.
 
 ## 9. Implementation choice and commercial decision story
 
@@ -432,14 +493,15 @@ Acceptance requires:
 6. Four Surfaces unchanged; Cross-Surface remains separate; Lead Intake/internal conversion is not rendered as a fifth surface;
 7. for new authoring: one reviewed `journeyGraph` artifact, both deterministic public views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
 8. Hero uses client-logo provenance/fallback rules, adaptive four-slot assignment and no invented success journey;
-9. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow and retains detailed evidence drill-down later;
-10. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis;
-11. internal review anchors `1101–1109` are absent from final approved client source;
-12. mobile and desktop smoke with no body overflow and usable graph/evidence drill-down;
-13. privacy/noindex/sitemap gates;
-14. live production URL;
-15. deployed SHA;
-16. successful exact production smoke.
+9. Hero uses the exact canonical title and composition, colors each segment from its own edge, and shows no false green Social/Reviews → Lead Intake relationship;
+10. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow, shares the exact edge IDs/states, omits optional unassessed relationships and retains detailed evidence drill-down later;
+11. Lead-to-Revenue Map keeps unassessed downstream states gray, contains no unsupported internal-cause diagnosis, and uses the active $500/credit rule without an outcome claim;
+12. internal review anchors `1101–1109` are absent from final approved client source;
+13. mobile and desktop smoke with no body overflow and usable graph/evidence drill-down;
+14. privacy/noindex/sitemap gates;
+15. live production URL;
+16. deployed SHA;
+17. successful exact production smoke.
 
 For protected reports, acceptance also includes unauthenticated gate, wrong-password rejection, valid session issuance and authenticated report/JSON checks.
 
@@ -460,7 +522,7 @@ Do not:
 - hide DIY instructions to manufacture sales dependence;
 - invent retail implementation prices, savings, ROI, patients or revenue;
 - use fake scarcity, fake countdowns or implied price increases;
-- hardcode a Lead-to-Revenue Check price before pricing authority approves it;
+- suppress or contradict the approved `$500` Lead-to-Revenue Check price/credit rule, or turn it into a guaranteed-outcome claim;
 - publish a universal recurring fee that is not in current pricing/SSOT authority;
 - translate or localize in a way that changes evidence or the approved diagnosis.
 

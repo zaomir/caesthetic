@@ -347,6 +347,91 @@ export function createGrowthScoreReportTemplate() {
   return report;
 }
 
+
+function networkGapSlot(gap) {
+  return {
+    ...gap,
+    network_scope: {
+      scope: "__SHARED_ASSET_REPEATED_PATTERN_OR_FOCUS_LOCATION__",
+      affected_location_ids: [],
+      observed_in_reviewed_count: null,
+      rollout_plan: {
+        pilot_location_id: "__FOCUS_LOCATION_ID__",
+        replication_conditions: "__EVIDENCE_BASED_REPLICATION_CONDITIONS__",
+        done_when_focus_location: "__FOCUS_LOCATION_ACCEPTANCE_EVIDENCE__",
+        done_when_network_rollout: "__NETWORK_ROLLOUT_ACCEPTANCE_EVIDENCE__",
+      },
+    },
+  };
+}
+
+/**
+ * Additive Multi-Location profile of the same schema-v5 authoring template.
+ * The network parent carries topology/coverage. The focus child remains a
+ * complete location report and shares package identity, Top 3 and constraint.
+ */
+export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "network_parent" } = {}) {
+  if (!["network_parent", "focus_location"].includes(packageRole)) {
+    throw new TypeError("packageRole must be network_parent or focus_location");
+  }
+  const report = createGrowthScoreReportTemplate();
+  report.audit = {
+    format: "multi_location",
+    package_role: packageRole,
+    project_id: "__AUDIT_PROJECT_ID__",
+    access_group_id: "__ACCESS_GROUP_ID__",
+    parent_route: "__PRIVATE_NETWORK_PARENT_ROUTE__",
+    child_route: "__PRIVATE_FOCUS_LOCATION_ROUTE__",
+    ...(packageRole === "focus_location" ? { focus_location_id: "__FOCUS_LOCATION_ID__" } : {}),
+  };
+  if (packageRole === "network_parent") {
+    report.practice.name = "__NETWORK_NAME__";
+    report.practice.location = "__NETWORK_PUBLIC_GEOGRAPHY__";
+    report.humanDiagnosis.gap_inventory = report.humanDiagnosis.gap_inventory.map(networkGapSlot);
+    report.network = {
+      id: "__NETWORK_ID__",
+      name: "__NETWORK_NAME__",
+      declared_location_count: null,
+      reviewed_location_count: null,
+      focus_location_id: "__FOCUS_LOCATION_ID__",
+      focus_location_selection_rationale: "__HUMAN_APPROVED_PUBLIC_EVIDENCE_RATIONALE__",
+      locations: [
+        {
+          id: "__LOCATION_ID__",
+          name: "__LOCATION_NAME__",
+          public_location: "__CITY_REGION_COUNTRY__",
+          state: "reviewed",
+        },
+      ],
+      shared_assets: [
+        {
+          id: "__SHARED_ASSET_ID__",
+          surface: "website",
+          public_url: "__PUBLIC_URL__",
+          used_by_location_ids: ["__LOCATION_ID__"],
+        },
+      ],
+      local_assets: [
+        {
+          id: "__LOCAL_ASSET_ID__",
+          location_id: "__LOCATION_ID__",
+          surface: "search",
+          public_url: "__PUBLIC_URL__",
+        },
+      ],
+      location_graph_refs: [
+        {
+          location_id: "__LOCATION_ID__",
+          artifact_id: "__JOURNEY_GRAPH_ARTIFACT_ID__",
+        },
+      ],
+      repeated_patterns: [],
+      comparison_matrix: [],
+    };
+  }
+  return report;
+}
+
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   process.stdout.write(`${JSON.stringify(createGrowthScoreReportTemplate(), null, 2)}\n`);
 }

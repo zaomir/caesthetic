@@ -248,10 +248,10 @@ export function createJourneyGraphFixture() {
       },
       {
         id: "social-to-intake-missing", from: "social-profile", to: "lead-intake", expectation: "required", action_type: "book", exists: false, status: "broken",
-        technical_integrity: integrity("broken", "The claimed direct booking route is absent."),
+        technical_integrity: integrity("broken", "No clear next step to enquiry or booking was observed."),
         context_integrity: contextIntegrity("broken", "No destination exists to preserve the selected offer.", { identity: "not_assessed", location: "not_assessed", treatment: "broken", offer: "broken", proof: "not_assessed" }),
         next_action_available: false, source: "fixture://social-path", collected_at: "2026-08-11T12:00:00Z", evidence_refs: ["social-path"],
-        why_it_matters: "The expected direct next step cannot be completed.", repair_implication: "Add and verify one truthful direct booking or enquiry action.",
+        why_it_matters: "The expected direct next step cannot be completed because no clear next step was observed.", repair_implication: "Add and verify one truthful direct booking or enquiry action.",
       },
       {
         id: "reviews-to-website", from: "reviews-listing", to: "website-service", expectation: "conditional", action_type: "native_navigation", exists: true, status: "friction",

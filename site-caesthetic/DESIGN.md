@@ -1,6 +1,6 @@
 # CAESTHETIC — Design Thesis: Clinical Editorial Intelligence
-**Version:** 2.0 · Lane B · July 2026  
-**Status:** Handoff-ready — see `_handoff/lane-b/HANDOFF.md` for merge instructions  
+**Version:** 2.1 · September 2026
+**Status:** Active
 **Previous direction:** dark purple/magenta SaaS gradient — fully replaced
 
 ---
@@ -127,7 +127,13 @@ Light editorial surface (not dark) because this is analytical intelligence, not 
 
 ## 5. Signature Component: Demand Map / Evidence Strip
 
-The `cae-evidence-strip` and `cae-demand-map` are the defining visual artifacts of CAESTHETIC.
+The `cae-evidence-strip`, `cae-demand-map` and canonical Growth Score Hero Client Journey Map are the defining visual artifacts of CAESTHETIC.
+
+### Growth Score Hero Client Journey Map
+
+The canonical title is `Where Clients Are Gained - and Lost`. Production uses deterministic HTML/SVG, never the raster reference. Its visual signature is a client identity at centre, gray Lead Intake boundary ring, four status-coded surface orbits, evidence-coded asymmetric paths, a strict right legend, three-part decision block and a navy Outside-In Diagnosis strip.
+
+Diagnostic color is semantic and duplicated in labels. Surface health (`PROTECT / WATCH / FIX NOW / NEEDS VERIFICATION`) is visually distinct from journey-edge state (`CLEAN / FRICTION / BROKEN / NOT ASSESSED`). A route segment never inherits another node/segment's color. On mobile, show one evidence-backed representative route vertically instead of scaling the desktop SVG.
 
 ### Evidence Strip (`cae-evidence-strip`)
 

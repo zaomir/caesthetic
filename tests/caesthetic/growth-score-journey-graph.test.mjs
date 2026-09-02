@@ -162,8 +162,94 @@ test("one artifact deterministically renders both adaptive Hero and fixed Broken
   assert.deepEqual([...layout.order].sort(), ["reputation", "search", "social", "website"]);
   assert.equal((html.match(/data-artifact-id="fixture-journey-graph-v1"/g) || []).length, 2);
   assert.match(html, /data-graph-view="hero"/);
+  assert.match(html, /Where Clients Are Gained - and Lost/);
+  assert.match(html, /LEAD INTAKE/);
+  assert.match(html, /NOT ASSESSED/);
+  assert.match(html, /Surface health/);
+  assert.match(html, /PROTECT|WATCH|FIX NOW|NEEDS VERIFICATION/);
+  assert.match(html, /Cross-Surface Connections Overview/);
+  assert.match(html, /Primary Constraint/);
+  assert.match(html, /What This Means/);
+  assert.match(html, /OUTSIDE-IN DIAGNOSIS/);
+  assert.match(html, /data-mobile-primary-journey/);
   assert.match(html, /Broken Connections Map/);
-  assert.match(html, /Evidence-backed paths, not tracked individual patients/);
-  assert.match(html, /No graph result changes a score automatically/);
+  assert.ok(html.indexOf("Broken Connections Map") < html.indexOf('id="focus-gaps"'));
+  assert.match(html, /representative routes, not tracked individual patients/i);
+  assert.match(html, /data-edge-id="social-to-intake-missing" data-status="broken"/);
+  assert.match(html, /data-edge-id="website-to-intake" data-status="clean"/);
   assert.match(html, /social-to-intake-missing/);
+});
+
+test("Hero and Broken Connections use exact edge states without false green Lead Intake links", () => {
+  const graph = createJourneyGraphFixture();
+  graph.edges.push({
+    id: "reviews-to-intake-unverified",
+    from: "reviews-listing",
+    to: "lead-intake",
+    expectation: "conditional",
+    action_type: "native_navigation",
+    exists: null,
+    status: "not_assessed",
+    technical_integrity: { status: "not_assessed", observed_behavior: "The route was not verified." },
+    context_integrity: {
+      status: "not_assessed",
+      observed_behavior: "Context continuity was not verified.",
+      dimensions: Object.fromEntries(["identity", "location", "treatment", "offer", "proof"].map((dimension) => [dimension, "not_assessed"])),
+    },
+    next_action_available: null,
+    source: null,
+    collected_at: null,
+    evidence_refs: [],
+    why_it_matters: "No route conclusion is supported.",
+    repair_implication: "Verify the route before recommending a change.",
+  });
+  graph.representative_journeys.find((journey) => journey.kind === "supporting").edge_ids = ["reviews-to-intake-unverified"];
+  graph.edges.push({
+    id: "optional-reviews-to-social",
+    from: "reviews-listing",
+    to: "social-profile",
+    expectation: "optional",
+    action_type: "native_navigation",
+    exists: null,
+    status: "not_assessed",
+    technical_integrity: { status: "not_assessed", observed_behavior: "Optional relationship not assessed." },
+    context_integrity: {
+      status: "not_assessed",
+      observed_behavior: "Optional relationship not assessed.",
+      dimensions: Object.fromEntries(["identity", "location", "treatment", "offer", "proof"].map((dimension) => [dimension, "not_assessed"])),
+    },
+    next_action_available: null,
+    source: null,
+    collected_at: null,
+    evidence_refs: [],
+    why_it_matters: "The relationship is optional.",
+    repair_implication: "Do not infer a repair.",
+  });
+
+  const analysis = validateJourneyGraphArtifact(graph, { publication: true });
+  assert.equal(analysis.surface_edges.some((edge) => edge.edge_ids.includes("optional-reviews-to-social")), false);
+  assert.equal(analysis.surface_edges.find((edge) => edge.from === "reputation" && edge.to === "lead_intake").status, "not_assessed");
+
+  const html = renderGrowthReport(createV5Report(undefined, { journeyGraph: graph }));
+  assert.doesNotMatch(html, /data-edge-id="optional-reviews-to-social"/);
+  assert.match(html, /data-edge-id="reviews-to-intake-unverified" data-status="not_assessed"/);
+  assert.doesNotMatch(html, /data-edge-id="reviews-to-intake-unverified" data-status="clean"/);
+  assert.match(html, /data-edge-id="social-to-intake-missing" data-status="broken"/);
+  assert.doesNotMatch(html, /data-edge-id="social-to-intake-missing" data-status="clean"/);
+  assert.match(graph.edges.find((edge) => edge.id === "social-to-intake-missing").technical_integrity.observed_behavior, /no clear next step/i);
+});
+
+test("outside-in Lead-to-Revenue map stays gray and publishes only the canonical Check price and credit", () => {
+  const html = renderGrowthReport(createV5Report(undefined, { journeyGraph: createJourneyGraphFixture() }));
+  const start = html.indexOf('class="cae-lead-revenue"');
+  const end = html.indexOf("</section>", start);
+  const block = html.slice(start, end);
+
+  assert.equal((block.match(/data-status="not_assessed"/g) || []).length, 8);
+  assert.doesNotMatch(block, /data-status="(?:working|friction|confirmed_leak)"/);
+  assert.match(block, /Lead-to-Revenue Check/);
+  assert.match(block, /\$500/);
+  assert.match(block, /credited once toward the <span data-cae-sprint-price>\$2,500<\/span> Sprint total/);
+  assert.match(block, /does not infer response, booking, attendance, consultation or payment performance/i);
+  assert.doesNotMatch(block, /guaranteed|increase in (?:inquiries|bookings|revenue)|bad receptionist|broken CRM/i);
 });

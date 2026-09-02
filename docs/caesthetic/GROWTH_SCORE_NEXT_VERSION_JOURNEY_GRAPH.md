@@ -1,13 +1,14 @@
 ---
 owner: CAESTHETIC
 status: active_implementation_profile
-version: 1.1
+version: 1.2
 updated: 2026-09-02
 scope: canonical Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics, Broken Connections Map and Lead-to-Revenue visual branch
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
 implementation_parent: docs/caesthetic/growth_score_spec.md
 schema_authority: docs/caesthetic/growth_score_spec.md#33-cross-surface-journey-graph-evidence-artifact
 renderer_authority: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md#31-cross-surface-journey-graph-evidence-and-renderer-contract
+pricing_authority: docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md
 ---
 
 # CAESTHETIC Growth Score — Visual & Journey Graph implementation profile
@@ -32,6 +33,8 @@ Production diagnostic visuals are deterministic HTML/SVG components, not AI-gene
 
 Purpose: show the patient/client viewpoint before Lead Intake.
 
+Canonical title: **`Where Clients Are Gained - and Lost`**.
+
 Geometry:
 
 - resolved client logo is fixed in the centre; use a neutral wordmark/initial fallback if provenance is not reliable;
@@ -43,6 +46,18 @@ Geometry:
 - green = clean, amber = friction, red = confirmed break, gray = not assessed;
 - Primary Constraint receives `FIX FIRST` emphasis; Supporting Gaps remain secondary;
 - Cross-Surface Consistency may be shown as an orbit/connection state, never as a fifth surface.
+
+Approved composition:
+
+- client logo/fallback in the centre;
+- gray `LEAD INTAKE` ring plus `NOT ASSESSED`;
+- four surface nodes with `PROTECT / WATCH / FIX NOW / NEEDS VERIFICATION`;
+- individually state-colored `CLEAN / FRICTION / BROKEN / NOT ASSESSED` segments;
+- right legend and `Cross-Surface Connections Overview`;
+- `Primary Constraint / What This Means / Impact` block;
+- bottom `Outside-In Diagnosis` strip.
+
+The raster reference is composition-only. Production is deterministic HTML/SVG and must not embed or trace the raster asset.
 
 The four surface identities never change. Only their assignment to the four orbital slots may be permuted.
 
@@ -260,7 +275,7 @@ In Free Growth Score, stages remain gray unless valid internal evidence exists. 
 
 If an upstream stage is red, downstream stages do not automatically become red; they remain gray if they were not reached/assessed. A factual no-response/drop-off observation does not by itself justify a causal diagnosis about staff, CRM, training or capacity.
 
-A separate Lead-to-Revenue Check price is configuration. `$500` is not hardcoded until current pricing authority explicitly approves it.
+The active pricing authority now approves **`Lead-to-Revenue Check · $500`**. If the Check continues directly into the next CAESTHETIC Sprint for the verified constraint, the $500 is credited once toward the $2,500 Sprint total. The map remains gray in outside-in Growth Score and makes no enquiry, booking, patient, revenue, ROI or internal-cause claim without the required evidence.
 
 ## 10. Human review boundary
 

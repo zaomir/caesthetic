@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.2.1
+version: 5.2.2
 updated: 2026-09-02
 scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
@@ -12,6 +12,7 @@ parent: docs/ssot/CAESTHETIC.md
 related:
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
+  - docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md
   - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
 ---
 
@@ -344,6 +345,8 @@ Reachability asks whether each observable entry can reach `lead_intake` through 
 
 `representative_journeys[]` contains no more than three continuous edge-id paths: `strongest`, `primary_constraint` and/or `supporting`, each assigned to one of the three fixed prospect slots. These are representative evidence-backed paths, never claims about tracked individual patients.
 
+Renderer-state rule: each visible public segment uses the status of its own referenced edge. A journey-level worst state may summarize a path in text but may not recolor clean/not-assessed neighboring segments. Hero and Broken Connections Map are projections of the same edge registry. Optional `not_assessed` relationships are excluded from the owner-facing aggregate; a conditional unverified Reviews → Lead Intake route remains gray; a Social → Lead Intake route may be red only when the approved edge evidence confirms the break or no clear next step.
+
 #### Human review gate
 
 Publication requires:
@@ -511,6 +514,15 @@ growth_score_spec.md
 
 There is no other metric catalogue, scoring authority or renderer authority. A case builder may adapt verified case data and locale, but it cannot redefine the schema-v5 decision model or section order.
 
+
+#### 6.0.1 Multi-Location authoring profile
+
+`createMultiLocationGrowthScoreReportTemplate()` in `scripts/caesthetic/growth-score-report-template.mjs` is the only additive authoring entry point for a Multi-Location parent or focus child. `scripts/caesthetic/multi-location-growth-score.mjs` owns the fail-closed network envelope and package invariants; it does not create a second metric catalogue or scoring model.
+
+A `network_parent` adds the network registry, declared/reviewed coverage, shared and local public assets, per-location Journey Graph references, repeated-pattern evidence, location × Four Surfaces comparison and network scope/rollout fields for the exact Top 3. A `focus_location` remains a complete ordinary schema-v5 report and adds only the package envelope and parent navigation.
+
+The canonical renderer selects the network presentation profile only for `audit.format=multi_location` plus `audit.package_role=network_parent`. A focus child uses the ordinary location visual profile. Parent and child package validation must fail on identity, access group, route, focus location, ordered Top 3, binding constraint or Do Not Fund Yet mismatch. The parent must fail if any reviewed location lacks a comparison row or reviewed Journey Graph reference, or if an aggregate Network Score field is supplied.
+
 ### 6.1 Canonical client-facing cockpit order
 
 The current renderer is the presentation contract. Before the counted cockpit it renders one **unnumbered Intro**, then exactly these nine sections and IDs in this order. The 13-section presentation introduced by PR #1275 is superseded; its evidence and implementation content is consolidated below rather than removed.
@@ -527,7 +539,7 @@ The Intro appears immediately before `gap-map` and is not assigned a cockpit num
 
 `vertical_context` adapts only nouns and context in this shared Intro, while `report_locale` localizes its copy. Neither may change facts, the binding constraint, Focus Selection or Do Not Fund Yet. Multi-Location uses the same Intro with network/location wording; no per-vertical or per-language Intro file is allowed.
 
-1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, complete reviewed opportunity landscape and competitive decision context, with verified and `insufficient_evidence` states kept distinct.
+1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, canonical `Where Clients Are Gained - and Lost` Hero, Four-Surface snapshot, same-artifact Broken Connections Map and complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct.
 2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and exactly two Supporting gaps, visibly identified as human-approved, with rationale and binding-constraint link; selector identity stays in the internal audit trail.
 3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope.
 4. **Repair Paths** (`repair-paths`) — complete DIY-capable remediation plans for every selected gap: outcome, steps, dependencies, accountable role and observable `done_when`. A `start_in_30_days` item separates Day-30 outcome from beyond-Day-30 work.
@@ -652,5 +664,8 @@ Growth Score is not complete until production tests prove all of the following:
 - prominent synthetic/no-client-relationship demo disclosure;
 - correction events do not activate a global rule; promoted rules require version, approver, changelog, validation and rollback;
 - render-drift check against generated report artifacts.
+- exact Hero title/composition; four surface statuses; gray `LEAD INTAKE · NOT ASSESSED`; same-artifact edge IDs/states in Hero and Broken Connections Map; no optional-unassessed edge and no false green Social/Reviews → Lead Intake;
+- mobile Hero primary-route composition and vertical Lead-to-Revenue pipeline with no body overflow;
+- the active `Lead-to-Revenue Check · $500` direct-continuation Sprint credit rule, with all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
 
 Any legacy scorer may remain only as a thin CLI/import wrapper around the one production scoring authority. Two independent metric catalogues or scoring implementations are forbidden.

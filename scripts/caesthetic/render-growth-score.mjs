@@ -8,6 +8,17 @@ import {
   scoreGrowthReport,
   selectedFocusGapIds,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import {
+  focusChildNavigationHtml,
+  isMultiLocationFocusLocation,
+  isMultiLocationNetworkParent,
+  networkComparisonHtml,
+  networkCoverageHtml,
+  networkFocusScopeHtml,
+  networkJourneyAtlasHtml,
+  networkMethodHtml,
+  validateMultiLocationNetworkReport,
+} from "./multi-location-growth-score.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");
@@ -165,6 +176,9 @@ function requireReportContent(report) {
     requireNonEmptyString(card.problem, `surfaces.${surface.id}.owner_card.problem`);
     if (!["HIGH", "MEDIUM", "LOW"].includes(card.priority)) {
       throw new TypeError(`surfaces.${surface.id}.owner_card.priority must be HIGH|MEDIUM|LOW`);
+    }
+    if (card.status !== undefined && !["protect", "watch", "fix_now", "needs_verification"].includes(card.status)) {
+      throw new TypeError(`surfaces.${surface.id}.owner_card.status must be protect|watch|fix_now|needs_verification`);
     }
   }
 }
@@ -530,6 +544,18 @@ const journeySurfaceLabels = Object.freeze({
   reputation: "Reviews",
   lead_intake: "Lead Intake",
 });
+const JOURNEY_GRAPH_STATUS_LABELS = Object.freeze({
+  clean: "CLEAN",
+  friction: "FRICTION",
+  broken: "BROKEN",
+  not_assessed: "NOT ASSESSED",
+});
+const SURFACE_STATUS_LABELS = Object.freeze({
+  protect: "PROTECT",
+  watch: "WATCH",
+  fix_now: "FIX NOW",
+  needs_verification: "NEEDS VERIFICATION",
+});
 
 function permutations(values) {
   if (values.length <= 1) return [values];
@@ -601,60 +627,199 @@ function journeyStatus(artifact, journey) {
   return "clean";
 }
 
-function graphSurfaceNodeSvg(surface, point) {
-  return `<g class="cae-journey-graph__surface" data-surface="${surface}" transform="translate(${point.x} ${point.y})">
-    <circle r="48"></circle>
-    <text text-anchor="middle" dominant-baseline="middle">${escapeHtml(journeySurfaceLabels[surface])}</text>
+function surfaceStatus(report, result, surfaceId) {
+  if (!result.surfaces[surfaceId]?.sufficient) return "needs_verification";
+  const surface = report.surfaces.find((item) => item.id === surfaceId);
+  if (surface?.owner_card?.status) return surface.owner_card.status;
+  if (surface?.owner_card?.priority === "HIGH") return "fix_now";
+  if (surface?.owner_card?.priority === "LOW") return "protect";
+  return "watch";
+}
+
+function practiceIdentitySvg(report) {
+  const logo = report.practice?.logo;
+  if (logo?.src && ["approved", "verified"].includes(logo.provenance)) {
+    return `<image class="cae-journey-graph__logo" href="${escapeHtml(logo.src)}" x="-44" y="-44" width="88" height="88" preserveAspectRatio="xMidYMid meet"><title>${escapeHtml(logo.alt || `${report.practice.name} logo`)}</title></image>`;
+  }
+  const initials = String(report.practice?.name || "Practice")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+  return `<text class="cae-journey-graph__wordmark" text-anchor="middle" dominant-baseline="middle"><title>Practice identity fallback: ${escapeHtml(report.practice.name)}</title><tspan data-brand>${escapeHtml(initials)}</tspan></text>`;
+}
+
+function graphSurfaceNodeSvg(report, result, surface, point) {
+  const status = surfaceStatus(report, result, surface);
+  return `<g class="cae-journey-graph__surface" data-surface="${surface}" data-surface-status="${status}" transform="translate(${point.x} ${point.y})">
+    <circle r="56"></circle>
+    <text class="cae-journey-graph__surface-label" y="-7" text-anchor="middle">${escapeHtml(journeySurfaceLabels[surface])}</text>
+    <text class="cae-journey-graph__surface-status" y="17" text-anchor="middle">${escapeHtml(SURFACE_STATUS_LABELS[status])}</text>
   </g>`;
 }
 
-function heroJourneyMapHtml(report, graphAnalysis) {
+function graphNodeCoordinate(node, layout) {
+  if (!node) return null;
+  return node.kind === "lead_intake" ? JOURNEY_GRAPH_CENTER : layout.coordinates[node.surface];
+}
+
+function brokenMarkerSvg(from, to, edgeId) {
+  const x = (from.x + to.x) / 2;
+  const y = (from.y + to.y) / 2;
+  return `<g class="cae-journey-graph__break" data-edge-break="${escapeHtml(edgeId)}" transform="translate(${x} ${y})"><line x1="-8" y1="-8" x2="8" y2="8"></line><line x1="8" y1="-8" x2="-8" y2="8"></line></g>`;
+}
+
+function journeyEdgeSvg(edge, from, to, markerPrefix) {
+  if (!from || !to || (from.x === to.x && from.y === to.y)) return "";
+  const marker = `url(#${markerPrefix}-${edge.status})`;
+  return `<line class="cae-journey-graph__route" data-edge-id="${escapeHtml(edge.id)}" data-status="${edge.status}" data-expectation="${edge.expectation}" x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" marker-end="${marker}"><title>${escapeHtml(edge.id)} · ${escapeHtml(JOURNEY_GRAPH_STATUS_LABELS[edge.status])}</title></line>${edge.status === "broken" ? brokenMarkerSvg(from, to, edge.id) : ""}`;
+}
+
+function graphMarkersSvg(prefix) {
+  return `<defs>${Object.keys(JOURNEY_GRAPH_STATUS_LABELS).map((status) => `<marker id="${prefix}-${status}" class="cae-journey-graph__marker" data-status="${status}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker>`).join("")}</defs>`;
+}
+
+function primaryJourneyMobileHtml(artifact) {
+  const journey = artifact.representative_journeys.find((item) => item.kind === "primary_constraint")
+    || artifact.representative_journeys[0];
+  if (!journey) return `<p class="cae-report-note">No representative route was assessed. No connection is inferred.</p>`;
+  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
+  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
+  const rows = journey.edge_ids.map((edgeId) => {
+    const edge = edgeById.get(edgeId);
+    if (!edge) return "";
+    const fromNode = nodeById.get(edge.from);
+    const toNode = nodeById.get(edge.to);
+    const from = fromNode?.kind === "lead_intake" ? "Lead Intake" : journeySurfaceLabels[fromNode?.surface];
+    const to = toNode?.kind === "lead_intake" ? "Lead Intake" : journeySurfaceLabels[toNode?.surface];
+    return `<li data-edge-id="${escapeHtml(edge.id)}" data-status="${edge.status}"><span>${escapeHtml(from)}</span><b aria-hidden="true">→</b><span>${escapeHtml(to)}</span><strong>${escapeHtml(JOURNEY_GRAPH_STATUS_LABELS[edge.status])}</strong></li>`;
+  }).join("");
+  return `<div class="cae-journey-graph__mobile" data-mobile-primary-journey><p class="cae-kicker">Primary representative route</p><ol>${rows}</ol></div>`;
+}
+
+function graphLegendHtml(report, result, graphAnalysis) {
+  const counts = Object.fromEntries(Object.keys(JOURNEY_GRAPH_STATUS_LABELS).map((status) => [
+    status,
+    graphAnalysis.surface_edges.filter((edge) => edge.status === status).length,
+  ]));
+  const surfaceRows = JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => {
+    const status = surfaceStatus(report, result, surface);
+    return `<li><span data-surface-status="${status}"></span><b>${escapeHtml(journeySurfaceLabels[surface])}</b><em>${escapeHtml(SURFACE_STATUS_LABELS[status])}</em></li>`;
+  }).join("");
+  return `<aside class="cae-journey-graph__panel" aria-label="Journey map legend">
+    <section><h4>Surface health</h4><ul>${surfaceRows}</ul></section>
+    <section><h4>Journey paths</h4><div class="cae-journey-graph__legend"><span data-status="clean">CLEAN</span><span data-status="friction">FRICTION</span><span data-status="broken">BROKEN</span><span data-status="not_assessed">NOT ASSESSED</span></div></section>
+    <section><h4>Cross-Surface Connections Overview</h4><p><strong>${counts.clean}</strong> clean · <strong>${counts.friction}</strong> friction · <strong>${counts.broken}</strong> broken · <strong>${counts.not_assessed}</strong> not assessed</p><p>${escapeHtml(report.crossSurface.summary)}</p></section>
+  </aside>`;
+}
+
+function heroJourneyMapHtml(report, result, graphAnalysis) {
   const artifact = report.journeyGraph;
-  if (!artifact || artifact.assessment_status !== "assessed" || !artifact.representative_journeys.length) return "";
+  if (!artifact) return "";
   const layout = selectJourneyGraphLayout(artifact);
+  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
+  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
+  const seenEdges = new Set();
   const routes = artifact.representative_journeys.map((journey) => {
-    const sequence = journeySurfaceSequence(artifact, journey);
-    const points = [JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot], ...sequence.map((surface) => layout.coordinates[surface])].filter(Boolean);
-    const status = journeyStatus(artifact, journey);
-    return `<polyline class="cae-journey-graph__route" data-status="${status}" points="${points.map((point) => `${point.x},${point.y}`).join(" ")}" marker-end="url(#cae-journey-arrow)"><title>${escapeHtml(journey.label)} · ${escapeHtml(status)}</title></polyline>`;
+    const firstEdge = edgeById.get(journey.edge_ids[0]);
+    const firstPoint = graphNodeCoordinate(nodeById.get(firstEdge?.from), layout);
+    const prospect = JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot];
+    const entry = firstPoint ? `<line class="cae-journey-graph__entry" x1="${prospect.x}" y1="${prospect.y}" x2="${firstPoint.x}" y2="${firstPoint.y}"><title>${escapeHtml(journey.label)} · representative entry</title></line>` : "";
+    const edges = journey.edge_ids.map((edgeId) => {
+      if (seenEdges.has(edgeId)) return "";
+      seenEdges.add(edgeId);
+      const edge = edgeById.get(edgeId);
+      if (!edge) return "";
+      return journeyEdgeSvg(edge, graphNodeCoordinate(nodeById.get(edge.from), layout), graphNodeCoordinate(nodeById.get(edge.to), layout), "cae-hero-arrow");
+    }).join("");
+    return entry + edges;
   }).join("");
   const reachability = graphAnalysis.reachability.map((route) => `<li><strong>${escapeHtml(artifact.nodes.find((node) => node.id === route.entry_node_id)?.label || route.entry_node_id)}:</strong> ${escapeHtml(route.route_status)}${route.shortest_clean_hops === null ? "" : ` · ${route.shortest_clean_hops} clean hop${route.shortest_clean_hops === 1 ? "" : "s"}`}</li>`).join("");
   return `<figure class="cae-journey-graph" data-graph-view="hero" data-artifact-id="${escapeHtml(artifact.artifact_id)}">
-    <figcaption><strong>Representative client journeys</strong><span>Evidence-backed paths, not tracked individual patients.</span></figcaption>
-    <div class="cae-journey-graph__canvas">
+    <figcaption><strong>Where Clients Are Gained - and Lost</strong><span>Evidence-backed public paths across exactly four surfaces. These are representative routes, not tracked individual patients.</span></figcaption>
+    <div class="cae-journey-graph__layout">
+      <div>
+      <div class="cae-journey-graph__canvas cae-journey-graph__canvas--desktop">
       <svg viewBox="0 0 760 540" role="img" aria-labelledby="cae-journey-hero-title cae-journey-hero-desc">
-        <title id="cae-journey-hero-title">Hero Client Journey Map</title>
-        <desc id="cae-journey-hero-desc">Representative public journeys through exactly four surfaces toward the Lead Intake boundary.</desc>
-        <defs><marker id="cae-journey-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+        <title id="cae-journey-hero-title">Where Clients Are Gained - and Lost</title>
+        <desc id="cae-journey-hero-desc">Evidence-backed public routes through Search, Website, Social and Reviews toward the gray Lead Intake boundary.</desc>
+        ${graphMarkersSvg("cae-hero-arrow")}
         <circle class="cae-journey-graph__intake-ring" cx="380" cy="260" r="88"></circle>
         ${routes}
         ${artifact.representative_journeys.map((journey) => {
           const point = JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot];
           return `<g class="cae-journey-graph__prospect" transform="translate(${point.x} ${point.y})"><circle r="18"></circle><text y="34" text-anchor="middle">Prospect ${journey.prospect_slot + 1}</text></g>`;
         }).join("")}
-        ${JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => graphSurfaceNodeSvg(surface, layout.coordinates[surface])).join("")}
-        <g class="cae-journey-graph__intake" transform="translate(380 260)"><circle r="58"></circle><text y="-4" text-anchor="middle">${escapeHtml(report.practice.name)}</text><text y="16" text-anchor="middle">LEAD INTAKE</text></g>
+        ${JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => graphSurfaceNodeSvg(report, result, surface, layout.coordinates[surface])).join("")}
+        <text class="cae-journey-graph__intake-label" x="380" y="166" text-anchor="middle">LEAD INTAKE</text>
+        <text class="cae-journey-graph__intake-state" x="380" y="361" text-anchor="middle">NOT ASSESSED</text>
+        <g class="cae-journey-graph__intake" transform="translate(380 260)"><circle r="58"></circle>${practiceIdentitySvg(report)}</g>
       </svg>
+      </div>
+      ${primaryJourneyMobileHtml(artifact)}
+      </div>
+      ${graphLegendHtml(report, result, graphAnalysis)}
     </div>
-    <div class="cae-journey-graph__legend"><span data-status="clean">Clean</span><span data-status="friction">Friction</span><span data-status="broken">Confirmed break</span><span data-status="not_assessed">Not assessed</span></div>
-    <ul class="cae-journey-graph__routes">${reachability}</ul>
+    ${reachability ? `<ul class="cae-journey-graph__routes">${reachability}</ul>` : ""}
+    <div class="cae-journey-graph__decision-grid"><article><span>Primary Constraint</span><strong>${escapeHtml(report.humanDiagnosis.binding_constraint.title)}</strong></article><article><span>What This Means</span><p>${escapeHtml(report.humanDiagnosis.binding_constraint.statement)}</p></article><article><span>Impact</span><p>${escapeHtml(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === report.humanDiagnosis.focus_selection.primary_gap_id)?.why_it_matters || report.humanDiagnosis.current_state.constraint_detail)}</p></article></div>
+    <div class="cae-journey-graph__outside-in"><strong>OUTSIDE-IN DIAGNOSIS</strong><span>Public evidence only · Lead Intake and internal conversion remain NOT ASSESSED without authorized internal evidence.</span></div>
   </figure>`;
 }
 
-function brokenConnectionsMapHtml(report, graphAnalysis) {
+function surfaceSnapshotHtml(report, result) {
+  return `<section class="cae-surface-snapshot" aria-labelledby="surface-snapshot-title"><p class="cae-kicker">Four-Surface snapshot</p><h3 class="cae-report-subhead" id="surface-snapshot-title">What to protect, watch, fix or verify</h3><div>${JOURNEY_GRAPH_SURFACE_ORDER.map((surfaceId) => {
+    const surface = report.surfaces.find((item) => item.id === surfaceId);
+    const status = surfaceStatus(report, result, surfaceId);
+    return `<article data-surface="${surfaceId}" data-surface-status="${status}"><header><strong>${escapeHtml(journeySurfaceLabels[surfaceId])}</strong><span>${escapeHtml(SURFACE_STATUS_LABELS[status])}</span></header><p>${escapeHtml(surface.summary || surface.owner_card.problem)}</p></article>`;
+  }).join("")}</div></section>`;
+}
+
+function brokenConnectionsMobileHtml(graphAnalysis) {
+  if (!graphAnalysis.surface_edges.length) return `<div class="cae-journey-graph__mobile"><p class="cae-report-note">No public relationship was assessed, so no edge is drawn.</p></div>`;
+  return `<div class="cae-journey-graph__mobile"><ol>${graphAnalysis.surface_edges.map((edge) => `<li data-status="${edge.status}" data-edge-ids="${escapeHtml(edge.edge_ids.join(" "))}"><span>${escapeHtml(journeySurfaceLabels[edge.from])}</span><b aria-hidden="true">→</b><span>${escapeHtml(journeySurfaceLabels[edge.to])}</span><strong>${escapeHtml(JOURNEY_GRAPH_STATUS_LABELS[edge.status])}</strong></li>`).join("")}</ol></div>`;
+}
+
+function brokenConnectionsMapHtml(report, result, graphAnalysis) {
   const artifact = report.journeyGraph;
-  if (!artifact || artifact.assessment_status !== "assessed") return "";
+  if (!artifact) return "";
   const coordinates = Object.fromEntries(JOURNEY_GRAPH_SURFACE_ORDER.map((surface, index) => [surface, JOURNEY_GRAPH_SLOTS[index]]));
   coordinates.lead_intake = JOURNEY_GRAPH_CENTER;
   const lines = graphAnalysis.surface_edges.map((edge) => {
     const from = coordinates[edge.from];
     const to = coordinates[edge.to];
     if (!from || !to) return "";
-    return `<line class="cae-journey-graph__route" data-status="${edge.status}" x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" marker-end="url(#cae-broken-arrow)"><title>${escapeHtml(journeySurfaceLabels[edge.from])} to ${escapeHtml(journeySurfaceLabels[edge.to])}: ${escapeHtml(edge.status)}</title></line>`;
+    const displayEdge = { id: edge.edge_ids.join(" "), status: edge.status, expectation: "aggregate" };
+    return journeyEdgeSvg(displayEdge, from, to, "cae-system-arrow");
   }).join("");
   const counts = Object.fromEntries(["clean", "friction", "broken", "not_assessed"].map((status) => [status, graphAnalysis.surface_edges.filter((edge) => edge.status === status).length]));
+  return `<section class="cae-journey-graph-block" aria-labelledby="broken-connections-title" data-graph-view="connections" data-artifact-id="${escapeHtml(artifact.artifact_id)}">
+    <p class="cae-kicker">Cross-Surface Connections Overview</p>
+    <h3 class="cae-report-subhead" id="broken-connections-title">Broken Connections Map</h3>
+    <p>${counts.clean} clean · ${counts.friction} friction · ${counts.broken} broken · ${counts.not_assessed} not assessed. Optional or irrelevant relationships are not drawn.</p>
+    <div class="cae-journey-graph__canvas cae-journey-graph__canvas--desktop">
+      <svg viewBox="0 0 760 520" role="img" aria-labelledby="cae-broken-title cae-broken-desc">
+        <title id="cae-broken-title">Broken Connections Map</title>
+        <desc id="cae-broken-desc">Fixed-order system view from the same Journey Graph artifact used by the Hero.</desc>
+        ${graphMarkersSvg("cae-system-arrow")}
+        ${lines}
+        ${JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => graphSurfaceNodeSvg(report, result, surface, coordinates[surface])).join("")}
+        <g class="cae-journey-graph__intake cae-journey-graph__intake--boundary" transform="translate(380 260)"><circle r="58"></circle><text y="-4" text-anchor="middle">LEAD INTAKE</text><text y="16" text-anchor="middle">NOT ASSESSED</text></g>
+      </svg>
+    </div>
+    ${brokenConnectionsMobileHtml(graphAnalysis)}
+    <div class="cae-journey-graph__legend"><span data-status="clean">CLEAN</span><span data-status="friction">FRICTION</span><span data-status="broken">BROKEN</span><span data-status="not_assessed">NOT ASSESSED</span></div>
+  </section>`;
+}
+
+function journeyGraphEvidenceDetailsHtml(report) {
+  const artifact = report.journeyGraph;
+  if (!artifact || !artifact.edges.length) return `<p class="cae-report-note">Journey Graph edge detail: not assessed. No route or failure is inferred.</p>`;
   const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
-  const details = artifact.edges.map((edge) => `<details class="cae-journey-graph__edge" data-edge-id="${escapeHtml(edge.id)}" data-status="${edge.status}">
+  const publishedEdges = artifact.edges.filter((edge) => !(edge.expectation === "optional" && edge.status === "not_assessed"));
+  if (!publishedEdges.length) return `<p class="cae-report-note">Journey Graph edge detail: not assessed. No required route or failure is inferred.</p>`;
+  const details = publishedEdges.map((edge) => `<details class="cae-journey-graph__edge" data-edge-id="${escapeHtml(edge.id)}" data-status="${edge.status}">
     <summary>${escapeHtml(nodeById.get(edge.from)?.label)} → ${escapeHtml(nodeById.get(edge.to)?.label)} · ${escapeHtml(edge.status)}</summary>
     <p><strong>Observed:</strong> ${escapeHtml(edge.technical_integrity.observed_behavior)}</p>
     <p><strong>Context:</strong> ${escapeHtml(edge.context_integrity.observed_behavior)}</p>
@@ -662,22 +827,27 @@ function brokenConnectionsMapHtml(report, graphAnalysis) {
     <p><strong>Repair implication:</strong> ${escapeHtml(edge.repair_implication)}</p>
     <p><small>Source: ${escapeHtml(edge.source || "Not assessed")} · Collected: ${escapeHtml(edge.collected_at || "Not assessed")} · Evidence: ${refs(edge.evidence_refs)}</small></p>
   </details>`).join("");
-  return `<section class="cae-journey-graph-block" aria-labelledby="broken-connections-title" data-artifact-id="${escapeHtml(artifact.artifact_id)}">
-    <p class="cae-kicker">Cross-Surface evidence artifact</p>
-    <h3 class="cae-report-subhead" id="broken-connections-title">Broken Connections Map</h3>
-    <p>${counts.clean} clean · ${counts.friction} friction · ${counts.broken} confirmed break · ${counts.not_assessed} not assessed. No graph result changes a score automatically.</p>
-    <div class="cae-journey-graph__canvas">
-      <svg viewBox="0 0 760 520" role="img" aria-labelledby="cae-broken-title cae-broken-desc">
-        <title id="cae-broken-title">Broken Connections Map</title>
-        <desc id="cae-broken-desc">Fixed-order system view of transitions between the four public surfaces and Lead Intake.</desc>
-        <defs><marker id="cae-broken-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
-        ${lines}
-        ${JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => graphSurfaceNodeSvg(surface, coordinates[surface])).join("")}
-        <g class="cae-journey-graph__intake" transform="translate(380 260)"><circle r="58"></circle><text y="5" text-anchor="middle">LEAD INTAKE</text></g>
-      </svg>
-    </div>
-    <div class="cae-journey-graph__legend"><span data-status="clean">Clean</span><span data-status="friction">Friction</span><span data-status="broken">Confirmed break</span><span data-status="not_assessed">Not assessed</span></div>
-    <div class="cae-journey-graph__details">${details}</div>
+  return `<section class="cae-journey-graph__details" aria-labelledby="journey-edge-evidence-title"><h3 class="cae-report-subhead" id="journey-edge-evidence-title">Journey edge evidence</h3>${details}</section>`;
+}
+
+const LEAD_TO_REVENUE_STAGES = Object.freeze([
+  "LEAD RECEIVED",
+  "RESPONSE",
+  "QUALIFICATION",
+  "BOOKING",
+  "CONFIRMATION",
+  "SHOW",
+  "CONSULTATION",
+  "PAYMENT",
+]);
+
+function leadToRevenueMapHtml() {
+  return `<section class="cae-lead-revenue" aria-labelledby="lead-revenue-title">
+    <p class="cae-kicker">Internal conversion boundary</p>
+    <h3 class="cae-report-subhead" id="lead-revenue-title">What happens after the enquiry?</h3>
+    <p>Growth Score ends at Lead Intake. It does not infer response, booking, attendance, consultation or payment performance from public evidence.</p>
+    <ol>${LEAD_TO_REVENUE_STAGES.map((stage) => `<li data-status="not_assessed"><span>${escapeHtml(stage)}</span><strong>NOT ASSESSED</strong></li>`).join("")}</ol>
+    <div class="cae-lead-revenue__check"><div><span>Lead-to-Revenue Check</span><strong>$500</strong></div><p>An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>$2,500</span> Sprint total.</p><small>No enquiry, booking, patient, revenue or ROI outcome is promised.</small></div>
   </section>`;
 }
 
@@ -901,6 +1071,66 @@ function localizeReportHtml(html, locale) {
   }
 
   const replacements = [
+    ["Where Clients Are Gained - and Lost", "Где клиенты приходят — и где теряются"],
+    ["Evidence-backed public paths across exactly four surfaces. These are representative routes, not tracked individual patients.", "Публичные пути с подтверждающими evidence по ровно четырём поверхностям. Это репрезентативные маршруты, а не отслеживание отдельных клиентов."],
+    ["Evidence-backed public routes through Search, Website, Social and Reviews toward the gray Lead Intake boundary.", "Публичные маршруты с подтверждающими evidence через Search, Website, Social и отзывы к серой границе приёма обращения."],
+    ["Practice identity fallback:", "Резервное обозначение практики:"],
+    ["No representative route was assessed. No connection is inferred.", "Репрезентативный маршрут не оценён. Связь не предполагается."],
+    ["No public relationship was assessed, so no edge is drawn.", "Публичная связь не оценена, поэтому линия не показана."],
+    ["Journey Graph edge detail: not assessed. No required route or failure is inferred.", "Детали связей Journey Graph не оценены. Обязательный маршрут или разрыв не предполагается."],
+    ["Journey Graph edge detail: not assessed. No route or failure is inferred.", "Детали связей Journey Graph не оценены. Маршрут или разрыв не предполагается."],
+    ["Fixed-order system view from the same Journey Graph artifact used by the Hero.", "Системный вид с фиксированным порядком из того же артефакта Journey Graph, который использует Hero."],
+    ["Optional or irrelevant relationships are not drawn.", "Необязательные и нерелевантные связи не показываются."],
+    ["Public evidence only · Lead Intake and internal conversion remain NOT ASSESSED without authorized internal evidence.", "Только публичные evidence · приём обращения и внутренняя конверсия остаются НЕ ОЦЕНЕНЫ без разрешённых внутренних evidence."],
+    ["Growth Score ends at Lead Intake. It does not infer response, booking, attendance, consultation or payment performance from public evidence.", "Growth Score заканчивается на приёме обращения. Он не делает выводов об ответе, записи, явке, консультации или оплате по публичным evidence."],
+    ["An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>$2,500</span> Sprint total.", "Проверка разрешённого внутреннего пути только при наличии evidence. Если Check непосредственно продолжается следующим 30-дневным Growth Sprint CAESTHETIC по подтверждённому ограничению, $500 один раз засчитываются в общую стоимость Sprint <span data-cae-sprint-price>$2,500</span>."],
+    ["No enquiry, booking, patient, revenue or ROI outcome is promised.", "Результат по обращениям, записям, пациентам, выручке или окупаемости не обещается."],
+    ["What to protect, watch, fix or verify", "Что сохранить, наблюдать, исправить или проверить"],
+    ["Cross-Surface Connections Overview", "Обзор связей между поверхностями"],
+    ["Primary representative route", "Главный репрезентативный маршрут"],
+    ["Surface health", "Состояние поверхностей"],
+    ["Journey paths", "Пути клиента"],
+    ["Primary Constraint", "Главное ограничение"],
+    ["What This Means", "Что это означает"],
+    ["Outside-In Diagnosis", "Диагностика снаружи внутрь"],
+    ["Four-Surface snapshot", "Сводка по четырём поверхностям"],
+    ["Journey edge evidence", "Evidence связей пути"],
+    ["Final system synthesis", "Итоговый системный вывод"],
+    ["One connected decision system", "Единая связанная система решений"],
+    ["Internal conversion boundary", "Граница внутренней конверсии"],
+    ["What happens after the enquiry?", "Что происходит после обращения?"],
+    ["Lead-to-Revenue Check", "Проверка Lead-to-Revenue"],
+    ["Search / Maps", "Поиск / Карты"],
+    ["Reviews", "Отзывы"],
+    ["Lead Intake", "Приём обращения"],
+    ["LEAD INTAKE", "ПРИЁМ ОБРАЩЕНИЯ"],
+    ["NEEDS VERIFICATION", "НУЖНА ПРОВЕРКА"],
+    ["NOT ASSESSED", "НЕ ОЦЕНЕНО"],
+    ["CLEAN", "ИСПРАВНО"],
+    ["FRICTION", "ТРЕНИЕ"],
+    ["BROKEN", "РАЗРЫВ"],
+    ["PROTECT", "СОХРАНИТЬ"],
+    ["WATCH", "НАБЛЮДАТЬ"],
+    ["FIX NOW", "ИСПРАВИТЬ СЕЙЧАС"],
+    ["LEAD RECEIVED", "ОБРАЩЕНИЕ ПОЛУЧЕНО"],
+    ["RESPONSE", "ОТВЕТ"],
+    ["QUALIFICATION", "КВАЛИФИКАЦИЯ"],
+    ["BOOKING", "ЗАПИСЬ"],
+    ["CONFIRMATION", "ПОДТВЕРЖДЕНИЕ"],
+    ["SHOW", "ЯВКА"],
+    ["CONSULTATION", "КОНСУЛЬТАЦИЯ"],
+    ["PAYMENT", "ОПЛАТА"],
+    ["OUTSIDE-IN DIAGNOSIS", "ДИАГНОСТИКА СНАРУЖИ ВНУТРЬ"],
+    ["SURFACE HEALTH", "СОСТОЯНИЕ ПОВЕРХНОСТЕЙ"],
+    ["JOURNEY PATHS", "ПУТИ КЛИЕНТА"],
+    ["PRIMARY CONSTRAINT", "ГЛАВНОЕ ОГРАНИЧЕНИЕ"],
+    ["WHAT THIS MEANS", "ЧТО ЭТО ОЗНАЧАЕТ"],
+    ["IMPACT", "ВЛИЯНИЕ"],
+    ["Impact", "Влияние"],
+    [" clean", " исправных"],
+    [" friction", " с трением"],
+    [" broken", " разорванных"],
+    [" not assessed", " не оценено"],
     ["Executive Overview", "Краткий обзор"],
     ["Human-approved diagnosis", "Диагноз, утверждённый человеком"],
     ["Exactly Top 3 Focus Gaps", "Ровно 3 фокусных разрыва"],
@@ -1145,12 +1375,28 @@ const PILOT_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
   ["Why ", "Почему "],
   ["constraint", "ограничение"],
   ["GROWTH SCORE", "ОТЧЁТ О РОСТЕ"],
+  ["Проверка Lead-to-Revenue", "Проверка пути от обращения к выручке"],
+  ["NEEDS VERIFICATION", "НУЖНА ПРОВЕРКА"],
+  ["LEAD RECEIVED", "ОБРАЩЕНИЕ ПОЛУЧЕНО"],
+  ["RESPONSE", "ОТВЕТ"],
+  ["QUALIFICATION", "КВАЛИФИКАЦИЯ"],
+  ["BOOKING", "ЗАПИСЬ"],
+  ["CONFIRMATION", "ПОДТВЕРЖДЕНИЕ"],
+  ["SHOW", "ЯВКА"],
+  ["CONSULTATION", "КОНСУЛЬТАЦИЯ"],
+  ["PAYMENT", "ОПЛАТА"],
+  ["Journey Graph", "граф путей"],
+  ["Hero", "главная карта"],
+  ["Maps", "Карты"],
+  ["Reviews", "Отзывы"],
   ["Growth Score orientation", "Навигация по отчёту"],
   ["Growth Score", "Growth Score"],
   ["Evidence", "доказательства"],
   ["evidence", "доказательства"],
   ["Sprint Fit", "пригодность для спринта"],
   ["Sprint", "спринт"],
+  ["Growth спринт", "спринт роста"],
+  ["Check", "проверка"],
   ["scope", "объём работ"],
   ["Scope", "Объём"],
   ["Backlog", "Отложено"],
@@ -1245,6 +1491,9 @@ function finalizePilotHtml(html, report) {
 
 export function renderGrowthReport(report) {
   requireReportContent(report);
+  const isNetworkParent = isMultiLocationNetworkParent(report);
+  const isFocusLocationChild = isMultiLocationFocusLocation(report);
+  if (isNetworkParent) validateMultiLocationNetworkReport(report);
   const result = scoreGrowthReport(report);
   const isDemo = report.reportKind === "demo";
   const isPilot = report.presentation?.kind === "pilot";
@@ -1298,6 +1547,8 @@ ${isPilot ? "" : '<div id="cae-header-slot"></div>'}
         <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Prepared ${escapeHtml(report.practice.preparedAt)}</p>
         <p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${VALERIE.role}</p>
       </header>
+      ${networkCoverageHtml(report)}
+      ${focusChildNavigationHtml(report)}
       <div class="cae-report-hero__grid">
         <article class="cae-report-state">
           <p class="cae-kicker">Primary constraint</p>
@@ -1320,7 +1571,9 @@ ${growthScoreIntroHtml(report)}
       <h2 class="cae-h2">Every confirmed hole. Only ${focusCount} selected to start.</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
-      ${result.journeyGraph ? heroJourneyMapHtml(report, result.journeyGraph) : ""}
+      ${isNetworkParent ? networkJourneyAtlasHtml(report) : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
+      ${isNetworkParent ? "" : surfaceSnapshotHtml(report, result)}
+      ${isNetworkParent ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
@@ -1337,6 +1590,7 @@ ${growthScoreIntroHtml(report)}
       <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
       <h2 class="cae-h2">Exactly three human-approved holes</h2>
       <p>${escapeHtml(focus.rationale)}</p>
+      ${networkFocusScopeHtml(report)}
       <ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>
       <div class="cae-focus-gaps">${focusGapCards(diagnosis.gap_inventory, focus)}</div>
     </div>
@@ -1405,7 +1659,7 @@ ${growthScoreIntroHtml(report)}
       <h2 class="cae-h2">Why the selected holes are real</h2>
       <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
       <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
-      ${result.journeyGraph ? brokenConnectionsMapHtml(report, result.journeyGraph) : ""}
+      ${isNetworkParent ? networkComparisonHtml(report) : (result.journeyGraph ? journeyGraphEvidenceDetailsHtml(report) : "")}
       <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
 ${competitorRows(diagnosis.competitors)}
       <h3 class="cae-report-subhead">Metric drill-down</h3>
@@ -1418,7 +1672,7 @@ ${competitorRows(diagnosis.competitors)}
       <p class="cae-kicker">Approximate / secondary navigation</p>
       <h2 class="cae-h2">Scores and methodology</h2>
       <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
-      <div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>
+      ${isNetworkParent ? networkMethodHtml(report) : `<div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>`}
       <div class="cae-report-method__grid">
         <div>
           <p><strong>Class A:</strong> directly observable and approved. <strong>Class B:</strong> an explicit estimate or inference with its method and assumptions disclosed.</p>
@@ -1436,11 +1690,25 @@ ${competitorRows(diagnosis.competitors)}
   </section>
 
   <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="9">
-    <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Optional Sprint CTA</p>
-      <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
-      <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
-      <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
+    <div class="cae-wrap">
+      <div class="cae-report-synthesis">
+        <p class="cae-kicker">Final system synthesis</p>
+        <h2 class="cae-h2">One connected decision system</h2>
+        <p>${escapeHtml(report.crossSurface.summary)}</p>
+        <p><strong>Do Not Fund Yet:</strong> ${escapeHtml(diagnosis.do_not_do.title)}</p>
+      </div>
+      ${leadToRevenueMapHtml()}
+      ${isFocusLocationChild ? `
+        <p class="cae-kicker">Multi-Location package</p>
+        <h2 class="cae-h2">Return to the network implementation decision</h2>
+        <p>This detailed location page does not add a second commercial decision.</p>
+        ${focusChildNavigationHtml(report)}
+      ` : `
+        <p class="cae-kicker">Optional Sprint CTA</p>
+        <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
+        <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
+        <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
+      `}
     </div>
   </section>
 

@@ -1,9 +1,9 @@
 # Agents sync conflicts (auto-resolved)
 
-UTC: 2026-09-02T13:47:09Z
+UTC: 2026-09-02T21:05:54Z
 
 | Rel | Winner | Reason |
 |-----|--------|--------|
-| `tests/caesthetic/growth-score-renderer.test.mjs` | grainee→satellite | `conflict_protected_grainee` |
-| `tests/caesthetic/growth-score-spec-canon.test.mjs` | grainee→satellite | `conflict_protected_grainee` |
+| `docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md` | grainee→satellite | `conflict_protected_grainee` |
+| `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` | grainee→satellite | `conflict_protected_grainee` |
 

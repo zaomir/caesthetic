@@ -12,6 +12,12 @@ import {
   selectedFocusGapIds,
   validateGrowthScoreReport,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import {
+  isMultiLocationFocusLocation,
+  isMultiLocationNetworkParent,
+  validateMultiLocationFocusLocationReport,
+  validateMultiLocationNetworkReport,
+} from "./multi-location-growth-score.mjs";
 
 export const WORKFLOW_RECORD_TYPES = Object.freeze([
   "score_case",
@@ -134,6 +140,21 @@ export function validateScoreCaseRecord(record) {
   string(record.intake_version, "score_case.intake_version");
   string(record.workflow_version, "score_case.workflow_version");
   invariant(CASE_STATES.includes(record.state), "score_case.state is invalid");
+  const auditFormat = record.audit_format ?? "single_location";
+  invariant(["single_location", "multi_location"].includes(auditFormat), "score_case.audit_format is invalid");
+  if (auditFormat === "multi_location") {
+    string(record.project_id, "score_case.project_id");
+    invariant(Array.isArray(record.locations) && record.locations.length > 1, "multi_location score_case requires at least two declared locations");
+    record.locations.forEach((location, index) => {
+      object(location, `score_case.locations[${index}]`);
+      string(location.id, `score_case.locations[${index}].id`);
+      string(location.name, `score_case.locations[${index}].name`);
+    });
+    if (["fact_set_frozen", "gap_review", "report_review", "approved", "delivered", "closed"].includes(record.state)) {
+      string(record.focus_location_id, "score_case.focus_location_id");
+      invariant(record.locations.some((location) => location.id === record.focus_location_id), "score_case.focus_location_id must resolve to a declared location");
+    }
+  }
   object(record.self_reported_context, "score_case.self_reported_context");
   jsonValue(record.self_reported_context, "score_case.self_reported_context");
   assertNoReservedSelfReportedKeys(record.self_reported_context);
@@ -270,6 +291,8 @@ export function validateApprovedReportRecord(record) {
   timestamp(record.approved_at, "approved_report.approved_at");
   object(record.report_json, "approved_report.report_json");
   validateGrowthScoreReport(record.report_json);
+  if (isMultiLocationNetworkParent(record.report_json)) validateMultiLocationNetworkReport(record.report_json);
+  if (isMultiLocationFocusLocation(record.report_json)) validateMultiLocationFocusLocationReport(record.report_json);
   invariant(record.report_json.schemaVersion === GROWTH_SCORE_SCHEMA_VERSION, "new approved reports require schemaVersion=5");
   invariant(record.report_json.reportVersion === record.report_version, "approved_report report version does not match report_json");
   invariant(
