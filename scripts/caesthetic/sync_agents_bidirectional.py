@@ -61,9 +61,6 @@ EXCLUDE_DIR_NAMES = {
 EXCLUDE_FILE_PREFIXES = (".env",)
 EXCLUDE_FILE_SUFFIXES = (".pyc", ".pyo")
 EXCLUDE_REL_PREFIXES = (
-    # Audit-factory policy is canonical in grainee-v2; the public satellite has
-    # an intentionally different pointer at the same path.
-    "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
     "site-caesthetic/private/",
     "site-caesthetic/score/aurora-medspa-x7k9m2/",
     "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
@@ -81,10 +78,22 @@ EXCLUDE_REL_PREFIXES = (
     "docs/projects/caesthetic/operations/ig-growth/editorial-story-card/_hex-mark-52.png",
 )
 
+SCORE_MIRROR_ALLOW_PREFIXES = (
+    "site-caesthetic/score/catalog.json",
+    "site-caesthetic/score/index.html",
+    "site-caesthetic/score/demo-medical-aesthetics-search-gap/",
+    "site-caesthetic/score/demo-injector-practice-booking-friction/",
+    "site-caesthetic/score/demo-aesthetics-clinic-reputation-gap/",
+)
+
 PROTECTED_PREFIXES = (
+    "deploy/systemd/caesthetic-repo-sync.service",
+    "deploy/systemd/caesthetic-repo-sync.timer",
     "site-caesthetic/",
     "docs/ssot/CAESTHETIC.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md",
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
     "docs/caesthetic/growth_score_spec.md",
@@ -93,12 +102,21 @@ PROTECTED_PREFIXES = (
     "scripts/caesthetic/growth-score-report-template.mjs",
     "scripts/caesthetic/growth-score-select-focus.mjs",
     "scripts/caesthetic/growth-score-workflow.mjs",
+    "scripts/caesthetic/install-continuous-sync.sh",
+    "scripts/caesthetic/publish-growth-score-control-plane.mjs",
+    "scripts/caesthetic/publish-growth-score-deploy.sh",
     "scripts/caesthetic/render-growth-score.mjs",
+    "scripts/caesthetic/sync_agents_bidirectional.py",
     "tests/caesthetic/growth-score-engine.test.mjs",
     "tests/caesthetic/growth-score-journey-graph.test.mjs",
     "tests/caesthetic/growth-score-renderer.test.mjs",
+    "tests/caesthetic/growth-score-publish-control-plane.test.mjs",
     "tests/caesthetic/growth-score-spec-canon.test.mjs",
     "tests/caesthetic/satellite-growth-score-authoring.test.py",
+    "scripts/caesthetic/asset-worker/poll.mjs",
+    "scripts/caesthetic/asset-worker/repo-sync-worker.mjs",
+    "scripts/caesthetic/caesthetic-repo-sync-contract.mjs",
+    "scripts/caesthetic/continuous-sync-runner.sh",
 )
 
 STATE_REL = "docs/projects/caesthetic/.agents-sync-state.json"
@@ -137,6 +155,11 @@ def should_skip(rel: str, name: str, is_dir: bool) -> bool:
     if any(name.endswith(p) for p in EXCLUDE_FILE_SUFFIXES):
         return True
     rel_n = _norm_rel(rel, is_dir)
+    if rel_n.startswith("site-caesthetic/score/") and rel_n != "site-caesthetic/score/" and not any(
+        rel_n == prefix or rel_n.startswith(prefix)
+        for prefix in SCORE_MIRROR_ALLOW_PREFIXES
+    ):
+        return True
     for prefix in EXCLUDE_REL_PREFIXES:
         if rel_n == prefix or rel_n.startswith(prefix):
             return True
@@ -239,6 +262,8 @@ def decide(
         g_hash = sha256_file(g_path)
         if prev is None:
             return Action(rel, "g2s", "only_in_grainee")
+        if is_protected(rel):
+            return Action(rel, "g2s", "protected_satellite_deletion_refused")
         if g_hash == prev:
             return Action(rel, "s2g", "satellite_deleted", "delete")
         # Modification and deletion raced. Preserve the modified file. Protected
@@ -275,6 +300,8 @@ def decide(
     if g_changed and not s_changed:
         return Action(rel, "g2s", "grainee_changed")
     if s_changed and not g_changed:
+        if is_protected(rel):
+            return Action(rel, "g2s", "protected_satellite_change_refused")
         return Action(rel, "s2g", "satellite_changed")
 
     if is_protected(rel):
@@ -547,3 +574,8 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+    "scripts/caesthetic/asset-worker/poll.mjs",
+    "scripts/caesthetic/asset-worker/repo-sync-worker.mjs",
+    "scripts/caesthetic/caesthetic-repo-sync-contract.mjs",
+    "scripts/caesthetic/continuous-sync-runner.sh",
+    "scripts/caesthetic/sync_agents_bidirectional.py",

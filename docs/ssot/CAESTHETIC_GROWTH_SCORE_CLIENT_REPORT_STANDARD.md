@@ -477,6 +477,8 @@ No later stage is mandatory.
 
 Every Growth Score route remains `noindex` and outside the sitemap.
 
+Publication from `zaomir/caesthetic` uses only the pinned, allowlisted contract in `CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`. A single-location report is one approved artifact; Multi-Location is one atomic approved parent/focus-child package. Satellite authoring never changes production source authority or bypasses the production acceptance gates below.
+
 Real client reports use the applicable protected-delivery contract:
 
 - unguessable/private route;
@@ -536,6 +538,4 @@ Do not:
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
 The report should make the owner feel **clearer and more capable of making the next decision**, while keeping CAESTHETIC's commercial value grounded in evidence, coordination and accountable implementation rather than information asymmetry.
-
-
 

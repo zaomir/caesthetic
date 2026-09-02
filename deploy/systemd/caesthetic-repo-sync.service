@@ -6,6 +6,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 EnvironmentFile=/etc/caesthetic-repo-sync/environment
+EnvironmentFile=-/etc/evo/secrets.env
 ExecStart=/opt/caesthetic-repo-sync/continuous-sync-runner.sh
 User=root
 Group=root
@@ -15,8 +16,8 @@ IOSchedulingPriority=7
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=full
-ReadWritePaths=/var/lib/caesthetic-repo-sync /run/lock /tmp
-TimeoutStartSec=120
+ReadWritePaths=/var/lib/caesthetic-repo-sync /var/www/caesthetic.com /var/log/grainee /run/lock /tmp /etc/nginx/sites-available /etc/nginx/sites-enabled /etc/nginx/snippets
+TimeoutStartSec=1800
 
 [Install]
 WantedBy=multi-user.target

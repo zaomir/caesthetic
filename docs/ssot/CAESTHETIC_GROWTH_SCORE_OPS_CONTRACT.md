@@ -79,3 +79,5 @@ Public submit CORS allowlist: `https://caesthetic.com`, `https://www.caesthetic.
 ## Deploy and satellite
 
 Production authority: `zaomir/grainee-v2`. Satellite `zaomir/caesthetic` mirrors via DEC-829. Do not deploy from the satellite.
+
+An agent limited to the satellite requests approved-report publication through `docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`. VPS2402 imports only the pinned approved artifact into `grainee-v2/main`, renders canonically, deploys and returns the durable live result. This is an allowlisted request channel, not satellite runtime authority.

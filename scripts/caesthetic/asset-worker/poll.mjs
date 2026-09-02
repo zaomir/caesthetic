@@ -10,6 +10,8 @@ import { fileURLToPath } from "node:url";
 import { REPO_ROOT, STORAGE_PATH, assertCanonicalAgentHost, assertRequestId, runtimeHostInfo } from "./allowlist.mjs";
 import { cmdBridge, markBridgeProcessing } from "./worker.mjs";
 import { cmdVideoBridge, markVideoProcessing, supportsVideoOperation } from "./video-worker.mjs";
+import { markRepoSyncProcessing, runRepoSyncBridge } from "./repo-sync-worker.mjs";
+import { validateCaestheticRepoSyncRequest } from "../caesthetic-repo-sync-contract.mjs";
 
 const REQUESTS = path.join(REPO_ROOT, "docs/agent-api/requests");
 const RESULTS = path.join(REPO_ROOT, "docs/agent-api/results");
@@ -65,7 +67,7 @@ function shouldRun(file, resultsDir = RESULTS, nowMs = Date.now()) {
   } catch {
     return false;
   }
-  if (String(req.type || "") !== "caesthetic_assets") return false;
+  if (String(req.type || "") !== "caesthetic_assets" && !validateCaestheticRepoSyncRequest(req)) return false;
   let rid;
   try {
     rid = assertRequestId(req.request_id || path.basename(file, ".json"));
@@ -139,9 +141,12 @@ async function main() {
     const rel = path.relative(REPO_ROOT, file);
     const req = JSON.parse(fs.readFileSync(file, "utf8"));
     const requestId = assertRequestId(req.request_id || path.basename(file, ".json"));
+    const isRepoSyncOperation = req.type === "caesthetic_repo_sync";
     const isVideoOperation = supportsVideoOperation(req.operation || req.action);
     writePollerStatus("processing", { current_request_id: requestId });
-    const processingOut = isVideoOperation
+    const processingOut = isRepoSyncOperation
+      ? markRepoSyncProcessing({ request: req, outputPath: path.join(RESULTS, `${requestId}.json`) })
+      : isVideoOperation
       ? markVideoProcessing({ input: rel })
       : markBridgeProcessing({ input: rel });
     const processingRel = path.relative(REPO_ROOT, processingOut);
@@ -149,7 +154,9 @@ async function main() {
       [processingRel],
       `chore(caesthetic-assets): processing ${requestId} [skip ci]`,
     );
-    const out = isVideoOperation
+    const out = isRepoSyncOperation
+      ? runRepoSyncBridge({ request: req, outputPath: path.join(RESULTS, `${requestId}.json`), repoRoot: REPO_ROOT })
+      : isVideoOperation
       ? await cmdVideoBridge({ input: rel })
       : await cmdBridge({ input: rel });
     const outRel = path.relative(REPO_ROOT, out);

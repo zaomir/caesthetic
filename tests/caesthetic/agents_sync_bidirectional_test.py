@@ -113,10 +113,11 @@ class DecideDeletionTest(unittest.TestCase):
             "D\tdocs/caesthetic/deleted.md",
         )
 
-    def test_canonical_sop_pointer_is_not_mirrored(self):
+    def test_canonical_sop_is_mirrored_and_grainee_protected(self):
         rel = "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md"
         self.write(self.g, rel, "canonical")
-        self.assertNotIn(rel, SYNC.collect_rels(self.g))
+        self.assertIn(rel, SYNC.collect_rels(self.g))
+        self.assertTrue(SYNC.is_protected(rel))
 
     def test_systemd_units_are_in_mirror_contract(self):
         for rel in (
@@ -127,7 +128,8 @@ class DecideDeletionTest(unittest.TestCase):
             self.assertIn(rel, SYNC.collect_rels(self.g))
         service = (ROOT / "deploy" / "systemd" / "caesthetic-repo-sync.service").read_text()
         self.assertIn("ReadWritePaths=/var/lib/caesthetic-repo-sync", service)
-        self.assertNotIn("ReadWritePaths=/var/www", service)
+        self.assertIn("/var/www/caesthetic.com", service)
+        self.assertNotIn("ReadWritePaths=/var/www ", service)
 
     def test_sync_tool_contract_matches_manifest(self):
         self.assertEqual(SYNC.TREES, manifest_list("trees"))

@@ -44,7 +44,7 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
             for rel in AUTHORABLE_PATHS:
                 self.assertIn(rel, collected, rel)
 
-    def test_satellite_only_change_wins_even_for_protected_growth_score_path(self) -> None:
+    def test_satellite_cannot_change_protected_runtime_authority(self) -> None:
         rel = "scripts/caesthetic/growth-score-report-template.mjs"
         self.assertTrue(cae_sync.is_protected(rel))
         with tempfile.TemporaryDirectory() as tmp:
@@ -60,8 +60,8 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
             previous = {rel: cae_sync.sha256_file(g_path)}
             action = cae_sync.decide(rel, g_path, s_path, previous)
             self.assertIsNotNone(action)
-            self.assertEqual("s2g", action.direction)
-            self.assertEqual("satellite_changed", action.reason)
+            self.assertEqual("g2s", action.direction)
+            self.assertEqual("protected_satellite_change_refused", action.reason)
 
     def test_concurrent_protected_conflict_still_fails_toward_grainee_authority(self) -> None:
         rel = "docs/caesthetic/growth_score_spec.md"
@@ -90,6 +90,20 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
             "tests/caesthetic/satellite-growth-score-authoring.test.py",
         ):
             self.assertTrue(cae_sync.is_protected(rel), rel)
+
+    def test_runtime_score_routes_cannot_bypass_the_publish_control_plane(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            allowed = root / "site-caesthetic/score/demo-injector-practice-booking-friction/report.json"
+            denied = root / "site-caesthetic/score/demo-arbitrary-bypass/report.json"
+            request = root / "docs/projects/caesthetic/publish-growth-score/requests/publish-growth-score-test-20260902.json"
+            for target in (allowed, denied, request):
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text("{}\n", encoding="utf-8")
+            collected = cae_sync.collect_rels(root)
+            self.assertIn(str(allowed.relative_to(root)), collected)
+            self.assertNotIn(str(denied.relative_to(root)), collected)
+            self.assertIn(str(request.relative_to(root)), collected)
 
 
 if __name__ == "__main__":
