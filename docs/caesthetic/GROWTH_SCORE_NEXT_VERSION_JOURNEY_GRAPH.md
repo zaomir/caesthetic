@@ -1,267 +1,233 @@
 ---
 owner: CAESTHETIC
 status: active_implementation_profile
-version: 1.0
+version: 1.1
 updated: 2026-09-02
-scope: next-version Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics and Lead-to-Revenue visual branch
+scope: canonical Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics, Broken Connections Map and Lead-to-Revenue visual branch
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
 implementation_parent: docs/caesthetic/growth_score_spec.md
 schema_authority: docs/caesthetic/growth_score_spec.md#33-cross-surface-journey-graph-evidence-artifact
 renderer_authority: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md#31-cross-surface-journey-graph-evidence-and-renderer-contract
 ---
 
-# CAESTHETIC Growth Score — Journey Graph implementation profile
+# CAESTHETIC Growth Score — Visual & Journey Graph implementation profile
 
-This document preserves the founder-approved direction discussed on 2026-09-02 and is now the active implementation profile for the Cross-Surface Journey Graph. The canonical schema/data contract is `docs/caesthetic/growth_score_spec.md` §3.3; the client-facing placement and renderer contract are in `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` §3.1. This profile cannot override those authorities.
+> The legacy filename contains `NEXT_VERSION` for compatibility with existing references. The content is no longer a proposal: this is the active implementation profile subordinate to the Client Report Standard and detailed Growth Score spec.
 
-The implementation is an additive schema-v5.2 contract. New authoring includes `journeyGraph`; frozen pre-2026-09-02 v5.2 reports remain reproducible without silent migration. The graph never changes Four Surfaces, weights or scores automatically.
+The canonical schema/data contract is `docs/caesthetic/growth_score_spec.md` §3.3. The client-facing placement, visual order, review anchors, commercial/claim boundaries and production acceptance are in `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md`. This profile cannot override either authority.
 
-## 1. Visual system direction
+The implementation remains additive to schema v5 / template 5.2. New authoring includes `journeyGraph`; frozen pre-2026-09-02 v5.2 reports remain reproducible without silent migration. The graph never changes Four Surfaces, weights, scores, Primary Constraint or Top 3 automatically.
 
-The next client report keeps one shared template across aesthetic, dental and beauty contexts. The visual story is:
+## 1. Canonical visual story
 
-`Owner question → Hero Client Journey Map → Four Surface snapshot → Cross-Surface Broken Connections Map → Top 3 leaks → competitors → final system synthesis → implementation choices → optional Lead-to-Revenue Check visual → next path → founder note`.
+The shared report template across aesthetic, dental and beauty contexts uses this owner-facing story:
 
-The hero is a deterministic HTML/SVG component, not an AI-generated raster image.
+`Owner tension → Hero Client Journey Map → Four-Surface snapshot → Broken Connections Map → Top 3 leaks → competitor decision → final system synthesis → implementation decision → Lead-to-Revenue Map → next path → founder note`.
 
-### Hero geometry
+The story is mapped inside the existing Intro + nine canonical machine sections. It does not create a tenth section or a separate report product.
 
-- client logo fixed in the centre;
+Production diagnostic visuals are deterministic HTML/SVG components, not AI-generated raster images.
+
+## 2. Hero Client Journey Map
+
+Purpose: show the patient/client viewpoint before Lead Intake.
+
+Geometry:
+
+- resolved client logo is fixed in the centre; use a neutral wordmark/initial fallback if provenance is not reliable;
 - a separate `LEAD INTAKE` ring surrounds the logo and marks the boundary between the public patient-decision system and the internal conversion/patient-operations layer;
-- exactly four fixed orbital **slots** surround the centre;
+- exactly four fixed orbital slots surround the centre;
 - those slots are populated by `Search / Maps`, `Website`, `Social`, `Reviews`;
-- up to three external prospect icons occupy fixed outer entry positions;
-- representative evidence-backed journeys are drawn from prospects through surface nodes toward Lead Intake;
-- green = clean path, amber = friction, red = confirmed break, gray = not assessed;
-- Primary Constraint receives `FIX FIRST` emphasis; Supporting Gaps remain visually secondary;
-- Cross-Surface Consistency is shown as an orbit/connection state, never a fifth surface.
+- up to three prospect entry positions sit outside the orbit;
+- representative evidence-backed journeys move from prospect entries through surface nodes toward Lead Intake;
+- green = clean, amber = friction, red = confirmed break, gray = not assessed;
+- Primary Constraint receives `FIX FIRST` emphasis; Supporting Gaps remain secondary;
+- Cross-Surface Consistency may be shown as an orbit/connection state, never as a fifth surface.
 
-The geometry is fixed for brand consistency. The **surface assignment to the four orbital slots may be permuted** to reduce path crossings and make the selected journeys readable. Surface identity is always explicit through icon + label; the four surfaces themselves never change.
+The four surface identities never change. Only their assignment to the four orbital slots may be permuted.
 
-## 2. Three complementary visual questions
+### Adaptive surface assignment
 
-The next report should use three visual layers rather than force one diagram to answer everything.
+Evaluate all `4! = 24` surface-to-slot permutations. Choose the deterministic minimum-cost layout, minimizing in order:
 
-1. **Hero Client Journey Map — patient viewpoint.** Where does a prospect experience a clean path, friction or a confirmed break before Lead Intake?
-2. **Broken Connections Map — system viewpoint.** Which transitions between public assets/surfaces and Lead Intake are missing, broken, misdirected, circular or semantically inconsistent?
-3. **Lead-to-Revenue Map — internal operating viewpoint.** What happens after an enquiry is received? This remains gray/not assessed in the Free Growth Score and becomes evidence-coloured only after an approved internal conversion check or Sprint access.
+1. route crossings;
+2. label/edge-marker collisions;
+3. route bends and avoidable length;
+4. distance from prospect entry to its first journey node;
+5. deviation from preferred canonical orientation.
+
+The centre, Lead Intake ring, orbital coordinates and prospect positions remain fixed. This preserves one recognizable template while keeping client-specific routes readable.
+
+### Representative journeys
+
+Render no more than three continuous evidence-backed paths:
+
+1. `strongest` — best observable route toward Lead Intake, if one exists;
+2. `primary_constraint` — route containing the main verified friction/break;
+3. `supporting` — materially different route showing another relevant dependency.
+
+These are representative paths, not claims about tracked individual patients. If evidence is incomplete, render fewer paths or gray segments. Never invent a green success path for visual balance.
 
 ## 3. Cross-Surface Journey Graph
 
-The diagnostic layer is `Cross-Surface Journey Graph`. It deepens existing `cross.conversion_continuity`, `cross.identity_coherence`, `cross.positioning_coherence` and related surface metrics. It does **not** create a fifth surface or automatically create a new score.
+The Cross-Surface Journey Graph is a structured evidence artifact inside Cross-Surface diagnostics. It is **not** a fifth surface, a new score, a competitor score, a tracked-patient dataset or an internal-conversion diagnosis.
 
-### 3.1 Two graph levels
+### Asset graph
 
-#### Asset graph
-
-Machine graph of observable public assets/actions, for example:
+Machine graph of observable public assets/actions, including as applicable:
 
 - GBP / Maps listing;
-- branded search result / owned result;
+- branded search/owned result;
 - website homepage;
 - treatment/service page;
 - contact page;
 - booking destination/form;
 - social profile;
 - link-in-bio destination;
-- review surface/listing;
+- review listing/context;
 - phone/message/appointment action;
 - `lead_intake` boundary node.
 
-Each asset node records surface ownership, URL/action identity, source, collection date, observability and evidence references.
+Each node retains surface ownership, destination/action identity, source, collection date, observability and evidence references.
 
-#### Surface graph
+### Surface graph
 
-Owner-facing aggregation of the asset graph to the fixed nodes:
+Owner-facing aggregation of the asset graph to:
 
 `Search / Maps · Website · Social · Reviews · Lead Intake`.
 
-The hero and Broken Connections Map render this aggregate graph, while evidence drill-down can expose asset-level details.
+Hero and Broken Connections views use this aggregate graph. Evidence drill-down retains asset-level detail.
 
-## 4. Automated research pipeline
+## 4. Automated graph research pipeline
 
-### Step A — resolve the public entity
+### A — resolve the public entity
 
 Freeze the approved practice identity/location and canonical public asset candidates. Do not merge similarly named businesses by inference.
 
-### Step B — discover public assets
+### B — discover public assets/actions
 
 Collect observable destinations/actions from each surface:
 
-- Maps/GBP: website, appointment, phone, services, visible social links where available, review context;
-- Website: internal service paths, contact/booking actions, social links, outbound review/profile links;
+- Maps/GBP: website, appointment, phone, services and other visible actions;
+- Website: service paths, contact/booking actions, social/outbound profile links;
 - Social: bio link, link-in-bio, phone/message actions, local/service context;
-- Reputation: public listing context, business actions/destinations available from the review/listing experience.
+- Reputation: business/listing continuation actions and trust context that are actually observable.
 
-### Step C — canonicalize destinations
+### C — canonicalize destinations
 
-Resolve redirects and normalize domains/paths/actions. Record final destination rather than trusting anchor text.
+Resolve redirects and normalize domains, paths and actions. Record the final destination, not only anchor text.
 
-### Step D — probe every discovered edge
+### D — probe discovered/expected edges
 
-For each source → destination transition record:
+For each source → destination transition retain:
 
-- edge exists;
-- source asset;
-- target asset/surface;
-- action type (`link`, `book`, `call`, `message`, `native_navigation`, etc.);
+- source and target assets;
+- expectation: `required | conditional | optional | observed`;
+- action type;
+- existence;
 - HTTP/final destination where applicable;
-- working / broken / redirected;
-- owned / third-party / unknown destination;
-- destination relevance to the source intent;
-- location context preserved;
-- service/treatment context preserved;
-- identity coherence preserved;
-- next action available;
-- evidence ref + collection date.
+- technical state;
+- owned/third-party/unknown destination;
+- next-action availability;
+- source intent and destination relevance;
+- identity, location, treatment/service, offer and proof continuity;
+- evidence reference and collection date.
 
-### Step E — calculate reachability rather than requiring every possible direct link
+### E — calculate reachability
 
-Do **not** require all four surfaces to directly link to one another. That would manufacture gaps.
+Do **not** require every surface to link directly to every other surface.
 
-For each observable entry surface, calculate the best valid path to `lead_intake` within a small hop limit (recommended max 2–3 transitions).
+For each observable entry surface calculate the best valid route to `lead_intake` within the approved `max_hops` of 2–3 transitions.
 
-Key outputs:
+Derived outputs include:
 
 - `reachable_to_intake`;
 - shortest clean hop count;
-- alternate clean route available;
-- friction route only;
+- alternate clean route;
+- friction-only route;
 - no valid route;
-- loop detected;
-- orphaned asset;
+- loop;
+- orphan;
+- dead end;
 - destination mismatch;
-- context lost between steps.
+- technical break;
+- context break.
 
-### Step F — semantic continuity check
+### F — semantic continuity
 
-AI may compare source promise/context with destination content for:
+AI may assist with anchored comparison of source versus destination across:
 
 - business identity;
-- geography/location;
-- priority service/treatment;
-- offer/next step;
+- location/geography;
+- priority treatment/service;
+- offer / next step;
 - positioning;
 - proof continuity.
 
-This is an AI-assisted inference/anchored assessment, not an automatic Class A fact. Final gap severity remains human-approved under the existing evidence policy.
+This does not become an automatic Class A fact. Semantic mismatch severity remains human-reviewed.
 
-### Step G — graph diagnostics
+## 5. Candidate graph diagnostics
 
-The system should automatically surface candidate cross-surface gaps such as:
+The system may surface candidate gaps such as:
 
-- **Missing route to owned destination** — e.g. Maps has no usable Website/Appointment path and no clean direct intake route;
-- **Dead edge** — link/action returns failure or unusable endpoint;
-- **Misdirected edge** — source says Website/Book but destination is unrelated or wrong geography/service;
-- **Duplicate-action collapse** — e.g. Website and Appointment both lead to the same Instagram profile without a distinct booking path;
-- **Platform loop** — Social → Social or Maps → Instagram → another Instagram without reaching an owned/intake destination;
-- **Orphan surface** — useful public asset exists but is not reachable from the rest of the system or has no reasonable next step;
-- **Excessive hop friction** — a viable action exists only after unnecessary hops;
-- **Identity break** — business name/location/entity changes materially across a transition;
-- **Offer/context break** — user enters for treatment/service X but destination does not preserve that intent;
-- **Proof break** — evidence/trust created on one surface cannot be continued at the destination;
-- **Booking break** — interest reaches a public surface but there is no usable enquiry/booking action.
+- missing route to an appropriate owned/intake destination;
+- dead edge;
+- misdirected edge;
+- duplicate-action collapse;
+- platform loop;
+- orphaned public asset;
+- excessive-hop friction;
+- identity break;
+- location break;
+- treatment/service context break;
+- offer/next-step break;
+- proof continuity break;
+- booking/enquiry break.
 
-Absence of an optional cross-link is not a leak. A red `broken/missing` edge requires an explicit expectation rule or an observed path failure.
+Absence of an optional cross-link is not a leak. A red missing/broken edge requires an explicit expectation rule or observed failure.
 
-## 5. Edge expectation policy
+## 6. Edge states
 
-The graph uses route expectations, not a naïve 4×4 requirement matrix.
+Each assessed transition uses one state:
 
-Recommended baseline rules:
+- `clean` / green — next step exists, is relevant and works;
+- `friction` / amber — viable path exists but adds material ambiguity, hops or context loss;
+- `broken` / red — confirmed dead/misdirected path or a human-approved required/conditional route is absent;
+- `not_assessed` / gray — evidence is unavailable or the transition was not meaningfully assessed.
 
-- every observable public entry surface should have a clean route to `lead_intake` directly or through an appropriate controlled destination;
-- Search/Maps should normally expose a usable Website and/or direct enquiry/appointment route where the business publicly claims one;
-- Website must have a usable enquiry/booking route for the audited priority offer;
-- Social should provide a usable path to a controlled destination or direct enquiry/booking action;
-- Reputation must support trust and a reasonable return/continuation path within the business listing/context; it is not required to directly link to every other surface;
-- optional Website↔Social, Website↔Reviews or other cross-links are assessed only where they materially support the patient decision; their absence is not automatically a defect.
-
-Vertical-specific vocabulary may adapt the expectation description without changing Four Surfaces.
-
-## 6. Edge status
-
-Each evidence-backed transition uses one state:
-
-- `clean` / green — next step is available, relevant and works;
-- `friction` / amber — path exists but adds material ambiguity, hops or context loss;
-- `broken` / red — confirmed dead/misdirected path or required route is absent;
-- `not_assessed` / gray — evidence is unavailable or the transition is not meaningfully assessed.
+Technical integrity and context integrity are stored separately. A technically working link may still have semantic/context friction or break.
 
 Do not label a person as a `lost client` from structural friction alone. Use `confirmed break`, `friction` or `at risk` unless an observable failure occurred.
 
-## 7. Representative hero journeys
+## 7. Broken Connections Map
 
-The hero should not pretend to display tracked individual patients. Journeys are labelled as representative evidence-backed paths unless real analytics supports otherwise.
+Purpose: show the system architecture rather than prospect stories.
 
-Select up to three:
-
-1. **strongest path** — best observable route toward Lead Intake, if one exists;
-2. **Primary Constraint path** — route containing the main verified break/friction;
-3. **Supporting/Cross-Surface path** — a materially different route that demonstrates another relevant system dependency.
-
-If evidence is incomplete, render fewer journeys or gray segments. Never invent a green success path merely to balance the graphic.
-
-## 8. Adaptive orbital layout
-
-To preserve one recognisable composition while avoiding tangled lines:
-
-- centre position is fixed;
-- Lead Intake ring is fixed;
-- four orbital coordinates are fixed;
-- three prospect entry coordinates are fixed;
-- the assignment of the four surface types to the four orbital slots is chosen automatically from the 24 possible permutations.
-
-A simple layout cost function should minimize, in this order:
-
-1. route crossings;
-2. overlapping labels/edge markers;
-3. total route bends/length;
-4. distance from each prospect entry to its first journey node;
-5. unnecessary deviation from a preferred canonical orientation.
-
-This gives every report a recognisable template without forcing unreadable path intersections.
-
-For the **Broken Connections Map**, use a fixed canonical surface order for easier comparison between reports; only the hero uses adaptive slot assignment.
-
-## 9. Broken Connections Map
-
-Place this secondary visual after the Four Surface snapshot and before the Top 3 accordion when cross-surface evidence is meaningful.
-
-Purpose: show system architecture rather than prospect stories.
+Placement: after the Four-Surface snapshot and before the Top 3 owner presentation, while detailed edge evidence remains available later in `evidence-and-competitors`.
 
 Nodes:
 
 `Search / Maps · Website · Social · Reviews · Lead Intake`.
 
+Use one fixed canonical node order for cross-report comparability.
+
 Rendering:
 
 - green solid arrow — verified clean transition;
-- amber dotted arrow — existing but friction-heavy/indirect transition;
-- red split arrow with `×` — confirmed broken/misdirected/required-missing route;
-- gray faint edge — not assessed when worth showing;
-- no edge at all for relationships that are irrelevant/optional and were not assessed.
+- amber dotted arrow — friction-heavy/indirect transition;
+- red split/broken arrow with `×` — confirmed broken/misdirected/required-missing route;
+- gray faint edge — not assessed when it is meaningful to show;
+- no edge for irrelevant/optional relationships that were not assessed.
 
-Optional compact summary:
+Optional summary may show counts such as:
 
 `2 clean paths to intake · 1 confirmed break · 2 friction routes · 1 not assessed`.
 
-Each edge is clickable/tappable to open:
+Each assessed edge opens source, destination, observed behavior, why it matters, evidence/date and repair implication.
 
-- source;
-- destination;
-- observed behavior;
-- why it matters;
-- evidence/date;
-- repair implication.
+## 8. Relationship to current metrics and scoring
 
-This map is part of Cross-Surface diagnostics, not a new product surface.
-
-## 10. Relationship to current scoring
-
-The implementation **does not change the existing 30/25/15/30 surface weights or add a new scored surface**.
-
-The graph becomes a structured evidence artifact feeding existing metrics, especially:
+The Journey Graph is an evidence artifact. It feeds existing metrics only as `effect: evidence_only`, especially:
 
 - `search.gbp_conversion_readiness`;
 - `search.entity_integrity`;
@@ -273,49 +239,84 @@ The graph becomes a structured evidence artifact feeding existing metrics, espec
 - `cross.positioning_coherence`;
 - `cross.proof_continuity`.
 
-A later scoring change requires separate explicit canon approval.
+It does not change the current 30/25/15/30 surface weights, add a new scored surface, fill coverage automatically, select Top 3 or choose the binding constraint. Any scoring change requires separate explicit canon approval.
 
-## 11. Lead-to-Revenue Check visual branch
+## 9. Lead-to-Revenue Map
 
-A second, separate graphic appears lower in the report to break up long text and show the internal layer.
+This is the separate lower-page internal operating visual. It is not part of the Four Surfaces.
 
-Free Growth Score state:
+Required spine:
 
-`Lead received → Response → Qualification → Booking → Confirmation → Show → Consultation → Payment`
+`LEAD RECEIVED → RESPONSE → QUALIFICATION → BOOKING → CONFIRMATION → SHOW → CONSULTATION → PAYMENT`.
 
-All stages are gray/not assessed unless valid internal evidence exists.
+State system:
 
-After an approved internal conversion check or Sprint access, stages may become green/amber/red/gray from real evidence. This graphic never retroactively turns internal causes into outside-in findings.
+- green `WORKING`;
+- amber `FRICTION`;
+- red `CONFIRMED LEAK`;
+- gray `NOT ASSESSED`.
 
-The proposed `$500` commercial amount remains **non-canonical until pricing authority explicitly approves it**. The visual/data contract should therefore store `check_offer_price` as configuration, not hardcoded report copy.
+In Free Growth Score, stages remain gray unless valid internal evidence exists. After an approved internal conversion check or Sprint access, stages may be evidence-coloured.
 
-## 12. Proposed next-version visual order
+If an upstream stage is red, downstream stages do not automatically become red; they remain gray if they were not reached/assessed. A factual no-response/drop-off observation does not by itself justify a causal diagnosis about staff, CRM, training or capacity.
 
-1. Hero owner question + Hero Client Journey Map.
-2. Four Surface snapshot cards.
-3. Cross-Surface Broken Connections Map.
-4. Top 3 leak accordions + Full Gap Inventory drill-down.
-5. Competitive Decision Analysis.
-6. Final system synthesis + Do Not Fund Yet.
-7. DIY / separate specialists / CAESTHETIC / defer decision.
-8. Lead-to-Revenue internal map and optional internal-check branch.
-9. What happens next.
-10. Founder personal note.
+A separate Lead-to-Revenue Check price is configuration. `$500` is not hardcoded until current pricing authority explicitly approves it.
 
-The current machine contract may continue to remain Intro + nine canonical sections; these visual chapters must be mapped inside it unless a separate version migration is approved.
+## 10. Human review boundary
 
-## 13. Human review boundary
+Automation may discover/test public graph edges and propose candidate gaps. It may not autonomously declare the binding constraint or select Top 3.
 
-Automation may discover and test public graph edges and propose candidate leaks. It may not autonomously declare a binding constraint or change Top 3.
+Named-human approval covers:
 
-Human review must approve:
-
-- entity resolution;
-- whether a missing edge was genuinely expected;
-- semantic mismatch findings;
-- severity (`friction` vs `broken`);
-- candidate gap inclusion;
+- entity/location resolution;
+- whether a missing route was genuinely expected;
+- semantic/context mismatch findings;
+- `friction` versus `broken` severity;
+- gap inclusion;
 - Primary + Supporting selection;
-- final owner-facing synthesis.
+- final system synthesis.
 
-Missing evidence remains `not_assessed`, never a red edge by default.
+Missing evidence remains `not_assessed`, never red by default. Reviewer identity stays internal and is not rendered to the client.
+
+## 11. Canonical visual review anchors
+
+In Russian internal review mode only, major visual blocks may carry these small anchors:
+
+- `1101` Hero / Client Journey Map;
+- `1102` Four-Surface snapshot / Broken Connections Map;
+- `1103` Top 3;
+- `1104` competitor decision;
+- `1105` final synthesis / Do Not Fund reminder;
+- `1106` implementation decision;
+- `1107` Lead-to-Revenue Map;
+- `1108` next path;
+- `1109` founder note.
+
+They are presentation-review metadata, not machine-section numbers or evidence. They disappear after `APPROVE`.
+
+## 12. Mobile implementation
+
+At mobile width:
+
+- use a mobile graph composition rather than shrinking the desktop visual;
+- emphasize one representative hero journey at a time, defaulting to the Primary Constraint path;
+- preserve one visible Primary path without JavaScript;
+- stack Four-Surface cards;
+- preserve Broken Connections edge identity/state in a mobile graph;
+- show Primary Focus Gap open and Supporting collapsed;
+- keep tables inside contained scroll wrappers;
+- render Lead-to-Revenue as a vertical pipeline;
+- keep touch targets at least 44px;
+- do not allow an early sticky CTA to cover diagnosis.
+
+## 13. Canonical implementation principle
+
+The three complementary diagnostic visuals answer three different questions:
+
+1. **Hero Client Journey Map — patient viewpoint:** where can the prospect experience a clean path, friction or confirmed break before Lead Intake?
+2. **Broken Connections Map — system viewpoint:** which public transitions are missing, broken, misdirected, circular or semantically inconsistent?
+3. **Lead-to-Revenue Map — internal operating viewpoint:** what happens after enquiry, and which stages are genuinely assessed?
+
+Together they express the CAESTHETIC logic without creating a generic service menu:
+
+`How demand reaches the practice → where the public system breaks → what happens after the enquiry`.
