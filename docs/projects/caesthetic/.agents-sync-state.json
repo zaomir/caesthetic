@@ -504,7 +504,7 @@
     "scripts/caesthetic/render-daily-growth-note.py": "7251453e978f98bc997285f073feb18b2ce226ac6468b323e80e209db2f4ee87",
     "scripts/caesthetic/render-editorial-story-card.py": "9dff0f0e7ce74245b53298c2dfc1aa06e1bd24ab889f9d5d5990bcc3a5d294b1",
     "scripts/caesthetic/render-editorial-text-overlay.py": "88bc297a624da97b7ff79e1a002e08443dbfc8a20531eff89619ec9cb504503f",
-    "scripts/caesthetic/render-growth-score.mjs": "6fca62a40d0ce0713cc8bb84e87249d5f50af20fb9d7be2b9f8502d1745f6247",
+    "scripts/caesthetic/render-growth-score.mjs": "a13e478f58b534c026ab4aff191f8c9ee3f8566ab53531e908332de3bf605770",
     "scripts/caesthetic/render-ig-l5-cards.mjs": "f282d3f24a833ccf85221a3cd4e1d776d612f3cac36fb3766829167cbf81fac1",
     "scripts/caesthetic/render-ig-voc-batch.py": "11a4309f5322d2bc251f6ddc1efe25f113dfd58131a7a4b5675f0a01678e0303",
     "scripts/caesthetic/render-ig-w34-visuals.py": "384acec511079f81d3c5386f731b31f86288c997d02d6372437159cd4cce379f",
@@ -616,7 +616,7 @@
     "site-caesthetic/score/catalog.json": "9c11aab95fd918294585727a5d0e045757b850db691365e6b37147bed5d158a9",
     "site-caesthetic/score/demo-aesthetics-clinic-reputation-gap/index.html": "806ed3f6faf9b543eb3a137b17ce80675cc77f0c2cb952ab91e4211bb1622ded",
     "site-caesthetic/score/demo-aesthetics-clinic-reputation-gap/report.json": "25166f33082810095ce9e9f1555553e8be7b7f1de3fa65b8290cd14e745dd264",
-    "site-caesthetic/score/demo-injector-practice-booking-friction/index.html": "3acf3bb52370a81c3de8ccd923ced0a78cc6ccf7f394c9c55ab27f13bfc10596",
+    "site-caesthetic/score/demo-injector-practice-booking-friction/index.html": "c92e343236fa6abb5258f500fa7aaaf042d90d34c2802afd3d06b667cfb03b19",
     "site-caesthetic/score/demo-injector-practice-booking-friction/report.json": "e62c3fac10f592b191145d78d503c9e4d5b41b281a95c7d7524aaab8382273e4",
     "site-caesthetic/score/demo-medical-aesthetics-search-gap/index.html": "5883fc397ff967daba1c1a61d1c781a1c33ed989d05fac364b009ea4ed3e324e",
     "site-caesthetic/score/demo-medical-aesthetics-search-gap/report.json": "734b4a4f1624c2876c447054fddd4c98928445b5db14a98db6f207897143727a",
@@ -645,7 +645,7 @@
     "tests/caesthetic/growth-score-engine.test.mjs": "7f16003e78f5b5fad55056bd7721dd3359ed992003b06838b248b76a4afa44b5",
     "tests/caesthetic/growth-score-focus-selection.test.mjs": "58207c880a9a96ef7360fa7909174798cfaa78418aca2280dbae2105df5d17f9",
     "tests/caesthetic/growth-score-funnel-analytics.test.mjs": "cc4747eab29ffd04b5fd5fa82eadcef7ff3ba277577be45b4e10e034ea269764",
-    "tests/caesthetic/growth-score-journey-graph.test.mjs": "0db27125019e951cd1343f72357778b84475f36010924030da91e92307393fe9",
+    "tests/caesthetic/growth-score-journey-graph.test.mjs": "27657702f0898ea654c4381b76eb206c4d8d1bbb47aa1cf9202cf5de97706245",
     "tests/caesthetic/growth-score-lead-flow.test.mjs": "1ea2765cb641b8b5267a15da6713d10b8e9e9aea23b3c904cdae6cd29b5a6e87",
     "tests/caesthetic/growth-score-lead.test.mjs": "1b7cec5c70a642ba008e0ae556a0e55e18a06cef4c3f10445c2b6c7141abfb07",
     "tests/caesthetic/growth-score-mobile-ui.test.mjs": "1673cc092ebad85cf576a87d11c61ed2bc38b9388c6ac891d7144a241b0c1093",
@@ -687,6 +687,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "60cb2f597cfbe900acd27e5e9bbd2bd26c3633cd89ad9d0f8fc29b357f13c1f5"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-02T21:15:13Z",
+  "updated_at_utc": "2026-09-02T21:27:48Z",
   "version": 1
 }

@@ -763,6 +763,16 @@ function heroJourneyMapHtml(report, result, graphAnalysis) {
     }).join("");
     return entry + edges;
   }).join("");
+  const remainingPublishedEdges = artifact.edges
+    .filter((edge) => !(edge.expectation === "optional" && edge.status === "not_assessed"))
+    .filter((edge) => !seenEdges.has(edge.id))
+    .map((edge) => journeyEdgeSvg(
+      edge,
+      graphNodeCoordinate(nodeById.get(edge.from), layout),
+      graphNodeCoordinate(nodeById.get(edge.to), layout),
+      "cae-hero-arrow",
+    ))
+    .join("");
   const reachability = graphAnalysis.reachability.map((route) => `<li><strong>${escapeHtml(artifact.nodes.find((node) => node.id === route.entry_node_id)?.label || route.entry_node_id)}:</strong> ${escapeHtml(route.route_status)}${route.shortest_clean_hops === null ? "" : ` · ${route.shortest_clean_hops} clean hop${route.shortest_clean_hops === 1 ? "" : "s"}`}</li>`).join("");
   return `<figure class="cae-journey-graph" data-graph-view="hero" data-artifact-id="${escapeHtml(artifact.artifact_id)}">
     <figcaption><strong>Where Clients Are Gained - and Lost</strong><span>Evidence-backed public paths across exactly four surfaces. These are representative routes, not tracked individual patients.</span></figcaption>
@@ -774,7 +784,7 @@ function heroJourneyMapHtml(report, result, graphAnalysis) {
         <desc id="cae-journey-hero-desc">Evidence-backed public routes through Search, Website, Social and Reviews toward the gray Lead Intake boundary.</desc>
         ${graphMarkersSvg("cae-hero-arrow")}
         <circle class="cae-journey-graph__intake-ring" cx="380" cy="260" r="88"></circle>
-        ${routes}
+        ${routes}${remainingPublishedEdges}
         ${artifact.representative_journeys.map((journey) => {
           const point = JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot];
           return `<g class="cae-journey-graph__prospect" transform="translate(${point.x} ${point.y})"><circle r="18"></circle><text y="34" text-anchor="middle">Prospect ${journey.prospect_slot + 1}</text></g>`;
@@ -1824,4 +1834,3 @@ function runCli() {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) runCli();
-

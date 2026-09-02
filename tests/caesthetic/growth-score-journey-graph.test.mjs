@@ -203,7 +203,6 @@ test("Hero and Broken Connections use exact edge states without false green Lead
     why_it_matters: "No route conclusion is supported.",
     repair_implication: "Verify the route before recommending a change.",
   });
-  graph.representative_journeys.find((journey) => journey.kind === "supporting").edge_ids = ["reviews-to-intake-unverified"];
   graph.edges.push({
     id: "optional-reviews-to-social",
     from: "reviews-listing",
@@ -231,8 +230,11 @@ test("Hero and Broken Connections use exact edge states without false green Lead
   assert.equal(analysis.surface_edges.find((edge) => edge.from === "reputation" && edge.to === "lead_intake").status, "not_assessed");
 
   const html = renderGrowthReport(createV5Report(undefined, { journeyGraph: graph }));
+  const hero = html.slice(html.indexOf('data-graph-view="hero"'), html.indexOf("</figure>", html.indexOf('data-graph-view="hero"')));
   assert.doesNotMatch(html, /data-edge-id="optional-reviews-to-social"/);
   assert.match(html, /data-edge-id="reviews-to-intake-unverified" data-status="not_assessed"/);
+  assert.match(hero, /data-edge-id="reviews-to-intake-unverified" data-status="not_assessed"/);
+  assert.doesNotMatch(hero, /data-edge-id="optional-reviews-to-social"/);
   assert.doesNotMatch(html, /data-edge-id="reviews-to-intake-unverified" data-status="clean"/);
   assert.match(html, /data-edge-id="social-to-intake-missing" data-status="broken"/);
   assert.doesNotMatch(html, /data-edge-id="social-to-intake-missing" data-status="clean"/);
