@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.19
-updated: 2026-09-01
+version: 3.20
+updated: 2026-09-02
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -12,6 +12,8 @@ related:
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
   - docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
+  - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md
   - docs/founder-notes/DEC-862_raim-smile-caesthetic-partnership-economics-and-vip-access.md
   - docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md
@@ -238,6 +240,8 @@ Detailed metric catalogue and collection/scoring rules: `docs/caesthetic/growth_
 - **Website:** booking friction; priority-treatment clarity; mobile performance; above-fold conversion; clinician/trust proof; mystery-shopper response; technical booking integrity.
 - **Social:** priority-treatment presence; clinician expertise; proof quality; recency; profile-to-book path; local offer clarity.
 - **Reputation:** 90-day review velocity; rating; review depth; recency; response coverage/speed; negative-review handling; treatment/clinician proof in reviews.
+
+The **Cross-Surface Journey Graph** is the canonical evidence artifact for observable public asset/action routes to the `Lead Intake` boundary. It records nodes, edges, technical integrity, identity/location/treatment/offer/proof context integrity, evidence lineage, reachability, dead ends, loops and orphans. It renders the Hero Client Journey Map and Broken Connections Map from the same artifact inside the existing nine-section report. It is Cross-Surface evidence only: not a fifth surface, not a separate score and never an automatic score, binding-constraint or Focus-Selection input. A named human approves entity resolution, route expectations, semantic findings and edge severity before publication. Contract: `docs/caesthetic/growth_score_spec.md` §3.3 and `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` §3.1.
 
 If less than 70% of a surface's metric weight is observable, publish `Insufficient evidence`, not a fabricated score. Overall and surface `/100` values are a compact navigator/tension layer, not the decision layer.
 

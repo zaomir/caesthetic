@@ -63,7 +63,8 @@ test("publishes three clearly synthetic v5 demos through the same approved-repor
     assert.match(html, /SYNTHETIC DEMO/);
     assert.match(html, /no client relationship/i);
     assert.match(html, /Valerie Petra/);
-    assert.match(html, /Approved · Fictional/);
+    assert.doesNotMatch(html, new RegExp(report.humanDiagnosis.reviewer.name));
+    assert.doesNotMatch(html, /Your Growth Review|3–8 min|human-reviewed walkthrough/i);
     assert.match(html, /Competitive Decision Analysis/);
     assert.match(html, /Comparison Matrix/);
     assert.match(html, /Competitor Card/);

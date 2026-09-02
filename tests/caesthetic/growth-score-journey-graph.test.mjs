@@ -1,0 +1,169 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import {
+  JOURNEY_GRAPH_ARTIFACT_VERSION,
+  analyzeJourneyGraph,
+  scoreGrowthReport,
+  validateJourneyGraphArtifact,
+} from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import {
+  renderGrowthReport,
+  selectJourneyGraphLayout,
+} from "../../scripts/caesthetic/render-growth-score.mjs";
+import {
+  createJourneyGraphFixture,
+  createV5Report,
+} from "./helpers/growth-score-v5-fixture.mjs";
+
+test("Cross-Surface Journey Graph is one reviewed evidence artifact and never a fifth surface", () => {
+  const baseline = createV5Report();
+  const withGraph = createV5Report(undefined, { journeyGraph: createJourneyGraphFixture() });
+  const baselineResult = scoreGrowthReport(baseline);
+  const graphResult = scoreGrowthReport(withGraph);
+
+  assert.equal(withGraph.journeyGraph.artifact_version, JOURNEY_GRAPH_ARTIFACT_VERSION);
+  assert.equal(withGraph.journeyGraph.automatic_score_change, false);
+  assert.equal(withGraph.surfaces.length, 4);
+  assert.deepEqual(graphResult.surfaces, baselineResult.surfaces);
+  assert.deepEqual(graphResult.crossSurface, baselineResult.crossSurface);
+  assert.deepEqual(graphResult.overall, baselineResult.overall);
+  assert.ok(graphResult.journeyGraph);
+});
+
+test("reachability detects clean and friction routes plus technical and semantic breaks", () => {
+  const graph = createJourneyGraphFixture();
+  const analysis = validateJourneyGraphArtifact(graph, { publication: true });
+  assert.deepEqual(analysis, analyzeJourneyGraph(graph));
+
+  const search = analysis.reachability.find((item) => item.entry_node_id === "search-listing");
+  const social = analysis.reachability.find((item) => item.entry_node_id === "social-profile");
+  const reviews = analysis.reachability.find((item) => item.entry_node_id === "reviews-listing");
+  assert.deepEqual(search, {
+    entry_node_id: "search-listing",
+    reachable_to_intake: true,
+    route_status: "clean",
+    shortest_clean_hops: 2,
+    alternate_clean_route: false,
+    best_path_edge_ids: ["search-to-website", "website-to-intake"],
+  });
+  assert.equal(social.route_status, "friction");
+  assert.equal(reviews.route_status, "friction");
+  assert.deepEqual(analysis.diagnostics.technical_breaks, ["social-to-intake-missing"]);
+  assert.deepEqual(analysis.diagnostics.context_breaks, [{ edge_id: "social-to-intake-missing", dimensions: ["treatment", "offer"] }]);
+  assert.deepEqual(analysis.diagnostics.identity_breaks, []);
+  assert.deepEqual(analysis.diagnostics.location_breaks, []);
+  assert.deepEqual(analysis.diagnostics.treatment_breaks, ["social-to-intake-missing"]);
+  assert.deepEqual(analysis.diagnostics.offer_breaks, ["social-to-intake-missing"]);
+  assert.deepEqual(analysis.diagnostics.proof_breaks, []);
+});
+
+test("unknown path evidence stays not assessed and a clean parallel route cannot hide a broken surface edge", () => {
+  const graph = createJourneyGraphFixture();
+  const direct = graph.edges.find((edge) => edge.id === "social-to-intake-missing");
+  direct.status = "not_assessed";
+  direct.exists = null;
+  direct.technical_integrity = { status: "not_assessed", observed_behavior: "The direct route was not tested." };
+  direct.context_integrity = {
+    status: "not_assessed",
+    observed_behavior: "Context preservation was not tested.",
+    dimensions: Object.fromEntries(["identity", "location", "treatment", "offer", "proof"].map((dimension) => [dimension, "not_assessed"])),
+  };
+  direct.next_action_available = null;
+  direct.source = null;
+  direct.collected_at = null;
+  direct.evidence_refs = [];
+  graph.edges.find((edge) => edge.id === "social-to-website").status = "broken";
+  graph.edges.find((edge) => edge.id === "social-to-website").technical_integrity.status = "broken";
+
+  const analysis = validateJourneyGraphArtifact(graph, { publication: true });
+  assert.equal(analysis.reachability.find((item) => item.entry_node_id === "social-profile").route_status, "not_assessed");
+  assert.equal(
+    analysis.surface_edges.find((edge) => edge.from === "social" && edge.to === "website").status,
+    "broken",
+  );
+});
+
+test("graph diagnostics expose loops, dead ends and orphaned public assets", () => {
+  const graph = createJourneyGraphFixture();
+  graph.nodes.push({
+    id: "orphan-profile",
+    kind: "public_asset",
+    surface: "social",
+    asset_type: "stale_social_profile",
+    label: "Orphan profile",
+    canonical_destination: "fixture://orphan",
+    ownership: "unknown",
+    observability: "observed",
+    evidence_refs: ["social-path"],
+  });
+  graph.edges.push({
+    id: "website-to-social",
+    from: "website-service",
+    to: "social-profile",
+    expectation: "observed",
+    action_type: "link",
+    exists: true,
+    status: "friction",
+    technical_integrity: { status: "clean", observed_behavior: "The social link resolves." },
+    context_integrity: {
+      status: "friction",
+      observed_behavior: "The route leaves the owned booking path.",
+      dimensions: { identity: "clean", location: "clean", treatment: "friction", offer: "friction", proof: "clean" },
+    },
+    next_action_available: true,
+    source: "fixture://website-booking",
+    collected_at: "2026-08-11T12:00:00Z",
+    evidence_refs: ["website-booking"],
+    why_it_matters: "The detour can keep a prospect circulating between public surfaces.",
+    repair_implication: "Keep booking primary and social secondary.",
+  });
+  const analysis = validateJourneyGraphArtifact(graph, { publication: true });
+  assert.deepEqual(analysis.diagnostics.loops, [["social-profile", "website-service"]]);
+  assert.deepEqual(analysis.diagnostics.dead_ends, ["orphan-profile"]);
+  assert.deepEqual(analysis.diagnostics.orphans, ["orphan-profile"]);
+});
+
+test("publication fails closed on pending review, unapproved evidence and invented optional missing edges", () => {
+  const pending = createJourneyGraphFixture();
+  pending.review.status = "pending";
+  assert.throws(() => validateJourneyGraphArtifact(pending, { publication: true }), /review.status must be approved/);
+
+  const unapprovedEvidence = createJourneyGraphFixture();
+  unapprovedEvidence.evidence[0].reviewer_status = "ai_draft";
+  assert.throws(() => validateJourneyGraphArtifact(unapprovedEvidence, { publication: true }), /must be approved for publication/);
+
+  const optionalMissing = createJourneyGraphFixture();
+  optionalMissing.edges.find((edge) => edge.id === "social-to-intake-missing").expectation = "optional";
+  assert.throws(() => validateJourneyGraphArtifact(optionalMissing, { publication: true }), /cannot mark an optional/);
+
+  const hiddenContextBreak = createJourneyGraphFixture();
+  const cleanEdge = hiddenContextBreak.edges.find((edge) => edge.id === "search-to-website");
+  cleanEdge.context_integrity.dimensions.identity = "broken";
+  assert.throws(() => validateJourneyGraphArtifact(hiddenContextBreak, { publication: true }), /dimensions must all be clean/);
+});
+
+test("metric links are evidence-only and restricted to existing approved metrics", () => {
+  const graph = createJourneyGraphFixture();
+  graph.metric_links[0].metric_ref = "cross.new_network_score";
+  assert.throws(() => validateJourneyGraphArtifact(graph, { publication: true }), /not an approved existing metric/);
+
+  const scoreMutation = createJourneyGraphFixture();
+  scoreMutation.automatic_score_change = true;
+  assert.throws(() => validateJourneyGraphArtifact(scoreMutation, { publication: true }), /automatic_score_change must be false/);
+});
+
+test("one artifact deterministically renders both adaptive Hero and fixed Broken Connections views", () => {
+  const graph = createJourneyGraphFixture();
+  const report = createV5Report(undefined, { journeyGraph: graph });
+  const html = renderGrowthReport(report);
+  const layout = selectJourneyGraphLayout(graph);
+
+  assert.equal(new Set(layout.order).size, 4);
+  assert.deepEqual([...layout.order].sort(), ["reputation", "search", "social", "website"]);
+  assert.equal((html.match(/data-artifact-id="fixture-journey-graph-v1"/g) || []).length, 2);
+  assert.match(html, /data-graph-view="hero"/);
+  assert.match(html, /Broken Connections Map/);
+  assert.match(html, /Evidence-backed paths, not tracked individual patients/);
+  assert.match(html, /No graph result changes a score automatically/);
+  assert.match(html, /social-to-intake-missing/);
+});

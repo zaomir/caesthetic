@@ -84,7 +84,9 @@ EXCLUDE_REL_PREFIXES = (
 PROTECTED_PREFIXES = (
     "site-caesthetic/",
     "docs/ssot/CAESTHETIC.md",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md",
+    "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
     "docs/caesthetic/growth_score_spec.md",
     "docs/caesthetic/competitive_decision_analysis.md",
     "docs/projects/caesthetic/ROUTER.md",
@@ -93,8 +95,10 @@ PROTECTED_PREFIXES = (
     "scripts/caesthetic/growth-score-workflow.mjs",
     "scripts/caesthetic/render-growth-score.mjs",
     "tests/caesthetic/growth-score-engine.test.mjs",
+    "tests/caesthetic/growth-score-journey-graph.test.mjs",
     "tests/caesthetic/growth-score-renderer.test.mjs",
     "tests/caesthetic/growth-score-spec-canon.test.mjs",
+    "tests/caesthetic/satellite-growth-score-authoring.test.py",
 )
 
 STATE_REL = "docs/projects/caesthetic/.agents-sync-state.json"

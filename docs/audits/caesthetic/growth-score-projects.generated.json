@@ -3,8 +3,8 @@
   "authority": "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
   "generated_from": "approved site-caesthetic/score/**/report.json files",
   "counts": {
-    "total": 5,
-    "private": 2,
+    "total": 6,
+    "private": 3,
     "listed": 3
   },
   "projects": [
@@ -145,6 +145,34 @@
           "canonical_url": "https://caesthetic.com/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
           "schema_version": 5,
           "source_path": "site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/report.json"
+        }
+      ]
+    },
+    {
+      "project_id": "prestige-tenerife-2026",
+      "display_name": "Prestige",
+      "location": "Las Americas; сетевой контекст San Isidro, Тенерифе, Испания",
+      "subject_type": "beauty_salon",
+      "audit_format": "single_location",
+      "package_role": "manager_pilot",
+      "report_kind": "real",
+      "report_state": "approved_report",
+      "schema_version": 5,
+      "prepared_at": "2026-09-01",
+      "catalog_visibility": "private",
+      "listed_name": null,
+      "listed_location": null,
+      "access_group_id": null,
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "canonical_url": "https://caesthetic.com/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "source_path": "site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/report.json",
+      "report_refs": [
+        {
+          "role": "manager_pilot",
+          "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+          "canonical_url": "https://caesthetic.com/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/report.json"
         }
       ]
     }

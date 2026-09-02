@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import {
   CANONICAL_METRICS,
   GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
+  JOURNEY_GRAPH_ARTIFACT_VERSION,
   scoreGrowthReport,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 import {
@@ -46,7 +47,7 @@ test("detailed spec follows the unnumbered Intro and current 9-section schema-v5
   assert.match(spec, /at least two.*`close_in_30_days`/i);
   assert.match(spec, /no more than one.*`start_in_30_days`/i);
 });
-test("Free Score route, walkthrough and Mystery Shopper boundaries remain explicit", () => {
+test("Free Score route, separate walkthrough and Mystery Shopper boundaries remain explicit", () => {
   const master = read("docs/ssot/CAESTHETIC.md");
   const spec = read("docs/caesthetic/growth_score_spec.md");
   const walkthrough = read("docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md");
@@ -54,7 +55,8 @@ test("Free Score route, walkthrough and Mystery Shopper boundaries remain explic
   assert.match(master, /password-protected, private\/noindex `\/score\/<unguessable-slug>\/` owner cockpit/is);
   assert.match(master, /every `\/score\/` route remains `noindex` and outside the sitemap/i);
   assert.match(spec, /server-side password\/access enforcement/i);
-  assert.match(spec, /3\u20138 minute Valerie Petra walkthrough/);
+  assert.match(spec, /separately delivered Valerie Petra walkthrough/);
+  assert.match(spec, /reviewer\/selector identity and the separate Valerie Petra walkthrough remain outside client-report HTML/);
   assert.match(spec, /metric\/evidence capability/);
   assert.match(spec, /not part of the standard Free Score research or spoken walkthrough/i);
   assert.match(walkthrough, /3\u20138 minutes/);
@@ -84,6 +86,10 @@ test("canonical authoring template derives exact metrics and fails closed", () =
   assert.equal("remediation_tasks" in report.humanDiagnosis, false);
   assert.equal(report.humanDiagnosis.competitors.entries.length, 3);
   assert.equal(report.humanDiagnosis.walkthrough.status, "pending");
+  assert.equal(report.journeyGraph.artifact_version, JOURNEY_GRAPH_ARTIFACT_VERSION);
+  assert.equal(report.journeyGraph.assessment_status, "not_assessed");
+  assert.equal(report.journeyGraph.automatic_score_change, false);
+  assert.equal(report.journeyGraph.review.status, "pending");
 
   for (const surface of report.surfaces) {
     assert.deepEqual(

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,17 +14,21 @@ spec = importlib.util.spec_from_file_location("cae_sync", SYNC_PATH)
 if spec is None or spec.loader is None:
     raise RuntimeError(f"Unable to load {SYNC_PATH}")
 cae_sync = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = cae_sync
 spec.loader.exec_module(cae_sync)
 
 
 AUTHORABLE_PATHS = (
+    "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
     "docs/caesthetic/growth_score_spec.md",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
     "scripts/caesthetic/growth-score-report-template.mjs",
     "scripts/caesthetic/render-growth-score.mjs",
     "site-caesthetic/assets/js/growth-score-engine.mjs",
     "site-caesthetic/assets/js/growth-cockpit.js",
     "site-caesthetic/assets/css/growth-report.css",
     "tests/caesthetic/growth-score-renderer.test.mjs",
+    "tests/caesthetic/growth-score-journey-graph.test.mjs",
 )
 
 
@@ -76,6 +81,15 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
             self.assertIsNotNone(action)
             self.assertEqual("g2s", action.direction)
             self.assertEqual("conflict_protected_grainee", action.reason)
+
+    def test_journey_graph_authorities_are_protected(self) -> None:
+        for rel in (
+            "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
+            "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
+            "tests/caesthetic/growth-score-journey-graph.test.mjs",
+            "tests/caesthetic/satellite-growth-score-authoring.test.py",
+        ):
+            self.assertTrue(cae_sync.is_protected(rel), rel)
 
 
 if __name__ == "__main__":

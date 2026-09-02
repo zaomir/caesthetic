@@ -1,17 +1,20 @@
 ---
 owner: CAESTHETIC
-status: proposed
-version: 0.1
+status: active_implementation_profile
+version: 1.0
 updated: 2026-09-02
 scope: next-version Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics and Lead-to-Revenue visual branch
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
 implementation_parent: docs/caesthetic/growth_score_spec.md
-non_authoritative_until_approved: true
+schema_authority: docs/caesthetic/growth_score_spec.md#33-cross-surface-journey-graph-evidence-artifact
+renderer_authority: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md#31-cross-surface-journey-graph-evidence-and-renderer-contract
 ---
 
-# CAESTHETIC Growth Score — Next Version Journey Graph (proposal)
+# CAESTHETIC Growth Score — Journey Graph implementation profile
 
-This working document preserves the founder-approved direction discussed on 2026-09-02 for the next Growth Score visual/diagnostic version. It is **not active SSOT yet** and must not override the current schema-v5 / template-5.2 contract until explicitly promoted.
+This document preserves the founder-approved direction discussed on 2026-09-02 and is now the active implementation profile for the Cross-Surface Journey Graph. The canonical schema/data contract is `docs/caesthetic/growth_score_spec.md` §3.3; the client-facing placement and renderer contract are in `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` §3.1. This profile cannot override those authorities.
+
+The implementation is an additive schema-v5.2 contract. New authoring includes `journeyGraph`; frozen pre-2026-09-02 v5.2 reports remain reproducible without silent migration. The graph never changes Four Surfaces, weights or scores automatically.
 
 ## 1. Visual system direction
 
@@ -45,7 +48,7 @@ The next report should use three visual layers rather than force one diagram to 
 
 ## 3. Cross-Surface Journey Graph
 
-The proposed new diagnostic layer is `Cross-Surface Journey Graph`. It deepens existing `cross.conversion_continuity`, `cross.identity_coherence`, `cross.positioning_coherence` and related surface metrics. It does **not** create a fifth surface or automatically create a new score.
+The diagnostic layer is `Cross-Surface Journey Graph`. It deepens existing `cross.conversion_continuity`, `cross.identity_coherence`, `cross.positioning_coherence` and related surface metrics. It does **not** create a fifth surface or automatically create a new score.
 
 ### 3.1 Two graph levels
 
@@ -256,7 +259,7 @@ This map is part of Cross-Surface diagnostics, not a new product surface.
 
 ## 10. Relationship to current scoring
 
-Initial next-version implementation should **not change the existing 30/25/15/30 surface weights or add a new scored surface**.
+The implementation **does not change the existing 30/25/15/30 surface weights or add a new scored surface**.
 
 The graph becomes a structured evidence artifact feeding existing metrics, especially:
 

@@ -1,8 +1,9 @@
 # Agents sync conflicts (auto-resolved)
 
-UTC: 2026-09-01T12:42:08Z
+UTC: 2026-09-02T13:47:09Z
 
 | Rel | Winner | Reason |
 |-----|--------|--------|
-| `docs/ssot/CAESTHETIC_DOLPHIN_833304152_AUTONOMY.md` | grainee→satellite | `conflict_newer_grainee` |
+| `tests/caesthetic/growth-score-renderer.test.mjs` | grainee→satellite | `conflict_protected_grainee` |
+| `tests/caesthetic/growth-score-spec-canon.test.mjs` | grainee→satellite | `conflict_protected_grainee` |
 

@@ -42,8 +42,8 @@ test("Growth Score, Multi-Location Growth Score and аудит route to one mand
 
 test("current approved reports auto-register while private client data stays out of public artifacts", () => {
   const { internal, publicCatalog, publicIndex } = buildGrowthScoreProjectCatalog({ repoRoot: root });
-  assert.equal(internal.counts.total, 5);
-  assert.equal(internal.counts.private, 2);
+  assert.equal(internal.counts.total, 6);
+  assert.equal(internal.counts.private, 3);
   assert.equal(internal.counts.listed, 3);
   assert.equal(publicCatalog.projects.length, 3);
   assert.equal(internal.projects.every((project) => project.canonical_url.startsWith("https://caesthetic.com/score/")), true);
@@ -52,6 +52,7 @@ test("current approved reports auto-register while private client data stays out
   assert.doesNotMatch(publicSurface, /Aesthetemed Beauty & Wellness Clinic/i);
   assert.doesNotMatch(publicSurface, /aesthetemed-public-evidence-7c3e91b4a8f26d50/i);
   assert.doesNotMatch(publicSurface, /Nohy V Ruky|nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/i);
+  assert.doesNotMatch(publicSurface, /Prestige|prestige-ru-pilot-520-20260901-c6d8e2/i);
   assert.match(publicIndex, /noindex,nofollow,noarchive,nosnippet/);
   assert.match(publicIndex, /Private client audits are registered internally and never exposed/i);
 });

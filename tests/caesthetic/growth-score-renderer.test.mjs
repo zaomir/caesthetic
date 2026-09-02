@@ -112,6 +112,8 @@ test("Focus Selection remains exactly one Primary and two Supporting gaps", () =
   assert.equal((html.match(/class="cae-focus-gap"[^>]*data-gap-role="primary"/g) || []).length, 1);
   assert.equal((html.match(/class="cae-focus-gap"[^>]*data-gap-role="supporting"/g) || []).length, 2);
   assert.equal((html.match(/class="cae-focus-gap"/g) || []).length, 3);
+  assert.doesNotMatch(html, new RegExp(fixture.humanDiagnosis.focus_selection.selected_by));
+  assert.doesNotMatch(html, new RegExp(fixture.humanDiagnosis.reviewer.name));
 });
 
 test("score navigation is compact, four-surface, approximate and secondary", () => {
@@ -154,7 +156,9 @@ test("the same renderer accepts an approved real report and enforces private rou
   assert.match(html, /data-report-kind="real"/);
   assert.match(html, /Private Growth Score/);
   assert.match(html, /noindex,nofollow,noarchive,nosnippet/);
-  assert.match(html, /https:\/\/example\.com\/private-walkthrough/);
+  assert.doesNotMatch(html, /https:\/\/example\.com\/private-walkthrough/);
+  assert.doesNotMatch(html, /Alex Contract Reviewer/);
+  assert.doesNotMatch(html, /Your Growth Review|3–8 min|human-reviewed walkthrough/i);
   assert.match(html, /Valerie Petra/);
   assert.match(html, /CAESTHETIC Growth Advisor/);
   assert.doesNotMatch(html, /cae-demo-banner/);
@@ -326,7 +330,7 @@ test("demand leak is driven by fixture demand_stage and is not hardcoded to Book
   }
 });
 
-test("demo banner, Valerie Petra, single Sprint CTA, DIY link and Class A/B labels render", () => {
+test("demo banner, CAESTHETIC byline, single Sprint CTA, DIY link and Class A/B labels render", () => {
   const html = renderGrowthReport(fixture);
   assert.match(html, /SYNTHETIC DEMO — Demonstration only\. Fictional practice, synthetic data, no client relationship/);
   assert.match(html, /Valerie Petra/);

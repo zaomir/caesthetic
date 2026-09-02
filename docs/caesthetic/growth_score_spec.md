@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.2
-updated: 2026-09-01
-scope: public intake, AI-assisted research, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
+version: 5.2.1
+updated: 2026-09-02
+scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
 template_contract: growth-score-report-template/5.2.0
 intro_section: unnumbered
@@ -11,6 +11,8 @@ cockpit_sections: 9
 parent: docs/ssot/CAESTHETIC.md
 related:
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
+  - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
 ---
 
 # CAESTHETIC Growth Score — detailed specification
@@ -86,7 +88,7 @@ Every publishable owner cockpit must make these items explicit:
 - next actions that the owner, an alternative provider or CAESTHETIC can execute without hidden instructions;
 - an honest `Why CAESTHETIC / Why the 30-Day Sprint` explanation and explicit no-lock-in/client-ownership language;
 - methodology, limitations and Class A/Class B disclosure;
-- human reviewer state and, for a real report, a 3–8 minute Valerie Petra walkthrough link or an explicit pending placeholder;
+- a completed internal human-review state; reviewer/selector identity and the separate Valerie Petra walkthrough remain outside client-report HTML;
 - one CTA to `/sprint/`.
 
 The report must praise one objectively strong point. If no defensible strength exists, the practice does not pass the Growth Score ICP gate and the report is not published. Scores never outrank the human-approved Gap Inventory and Focus Selection: when a number and verified problem severity disagree, the evidence, dependencies and repair logic control the decision.
@@ -232,6 +234,131 @@ Every metric has one documented normalization rubric/version in the production s
 - approval never repairs a missing source, collection date or raw value.
 
 Therefore a publishable metric may have a non-null `normalized_score` only when it is approved. A pending record may retain its observed `raw_value`, source and collection date for review, but it contributes zero available weight until approval. At minimum, treatment clarity, above-fold conversion, clinician/trust proof, social expertise/proof/local clarity, review depth/negative handling/treatment proof and all Cross-Surface coherence rubrics use anchored human review.
+
+### 3.3 Cross-Surface Journey Graph evidence artifact
+
+Every newly approved or republished Growth Score after 2026-09-02 carries one optional-at-schema / required-at-authoring `journeyGraph` object using `artifact_version: "cross-surface-journey-graph/1.0.0"`. The field remains optional in the engine only so frozen schema-v5.2 reports created before this contract continue to render without silent rewriting. The canonical authoring template always emits the slot; a new report may publish it as reviewed `not_assessed` when evidence is unavailable, but it may not delete the slot to avoid the review gate.
+
+The graph is a structured evidence artifact inside Cross-Surface diagnostics. It is **not** a fifth surface, score, competitor score, tracked-patient dataset or internal-conversion diagnosis. It does not alter a metric, surface score, Cross-Surface score, Overall score, binding constraint or Focus Selection automatically.
+
+Top-level contract:
+
+```json
+{
+  "journeyGraph": {
+    "artifact_version": "cross-surface-journey-graph/1.0.0",
+    "artifact_id": "<stable case-scoped id>",
+    "assessment_status": "assessed | not_assessed",
+    "max_hops": 3,
+    "automatic_score_change": false,
+    "evidence": [],
+    "nodes": [],
+    "edges": [],
+    "entry_node_ids": [],
+    "lead_intake_node_id": null,
+    "metric_links": [],
+    "representative_journeys": [],
+    "review": {}
+  }
+}
+```
+
+`max_hops` is `2` or `3`. `lead_intake` is a boundary node, not a surface. `entry_node_ids` list only observable public entry assets. The artifact stores the asset graph; the surface graph, reachability and diagnostic collections are deterministic derived outputs.
+
+#### Node contract
+
+Each node contains:
+
+| Field | Contract |
+|---|---|
+| `id` | Stable, unique asset id inside the artifact. |
+| `kind` | `public_asset` or `lead_intake`. |
+| `surface` | `search`, `website`, `social` or `reputation`; exactly `null` for `lead_intake`. |
+| `asset_type` | Explicit machine type such as `gbp_listing`, `service_page`, `social_profile`, `review_listing`, `booking_destination` or `lead_intake_boundary`. |
+| `label` | Short owner-readable label; may adapt vocabulary without changing the surface id. |
+| `canonical_destination` | Normalized URL/action identity or `null` where not applicable. Redirect labels never replace the resolved destination. |
+| `ownership` | `owned`, `third_party`, `unknown` or `not_applicable`. |
+| `observability` | `observed` or `not_assessed`. |
+| `evidence_refs` | References to the artifact evidence registry; required for an observed public asset. |
+
+#### Edge contract
+
+Every observed or expected source → destination transition contains:
+
+```text
+id · from · to
+expectation = required | conditional | optional | observed
+action_type = link | book | appointment | call | message | form | native_navigation | other
+exists = true | false | null
+status = clean | friction | broken | not_assessed
+technical_integrity { status, observed_behavior }
+context_integrity {
+  status,
+  observed_behavior,
+  dimensions { identity, location, treatment, offer, proof }
+}
+next_action_available = true | false | null
+source · collected_at · evidence_refs
+why_it_matters · repair_implication
+```
+
+The edge and both integrity objects use only `clean`, `friction`, `broken` or `not_assessed`. Context dimensions preserve separate identity, location, treatment/service, offer, and proof continuity; the aggregate context state must not hide a broken dimension. An assessed edge retains a reproducible `source`, ISO collection date/time and at least one approved evidence reference. A gray `not_assessed` edge has `source=null`, `collected_at=null` and no invented evidence.
+
+State rules:
+
+- `clean`: the transition exists, technically works, preserves the relevant context and exposes a usable next action;
+- `friction`: a viable path exists but adds material ambiguity, hops or partial context loss;
+- `broken`: a dead/misdirected observed transition or an explicitly `required` / `conditional` missing route is confirmed;
+- `not_assessed`: evidence is unavailable or the transition was not meaningfully assessed.
+
+An absent optional cross-link is not a red edge. `exists=false` cannot be `broken` when the expectation is merely `optional` or `observed`.
+
+#### Evidence, metric links and scoring isolation
+
+Each `evidence[]` record retains `id`, `source`, `collected_at`, `method`, `evidence_class` (`A|B`) and `reviewer_status`; Class B semantic assessments also retain `finding_type`, method and assumptions. Nodes and edges reference these ids. Unapproved evidence cannot support a published graph.
+
+`metric_links[]` may connect graph nodes/edges only to these existing metrics:
+
+- `search.gbp_conversion_readiness`;
+- `search.entity_integrity`;
+- `website.booking_friction`;
+- `website.technical_booking_integrity`;
+- `social.profile_to_booking`;
+- `cross.conversion_continuity`;
+- `cross.identity_coherence`;
+- `cross.positioning_coherence`;
+- `cross.proof_continuity`.
+
+Every link declares `effect: "evidence_only"`. Graph evidence can support a human assessment of those existing metrics, but the graph validator never writes `normalized_score`, changes weights, fills coverage or selects a gap.
+
+#### Derived analysis contract
+
+The production authority deterministically derives:
+
+- per-entry `reachable_to_intake`, `route_status`, `shortest_clean_hops`, `alternate_clean_route` and `best_path_edge_ids` within `max_hops`;
+- surface-level aggregate edges for the owner visual;
+- `dead_ends`, `loops`, `orphans` and `technical_breaks`;
+- aggregate `context_breaks` plus explicit `identity_breaks`, `location_breaks`, `treatment_breaks`, `offer_breaks` and `proof_breaks`.
+
+Reachability asks whether each observable entry can reach `lead_intake` through a clean or friction route. It does not demand a complete 4×4 link matrix. A loop is a traversable cycle; an orphan is an observed public asset not reachable from any approved entry; a dead end is an observed public asset with no traversable outgoing next step.
+
+`representative_journeys[]` contains no more than three continuous edge-id paths: `strongest`, `primary_constraint` and/or `supporting`, each assigned to one of the three fixed prospect slots. These are representative evidence-backed paths, never claims about tracked individual patients.
+
+#### Human review gate
+
+Publication requires:
+
+```text
+review.status = approved
+review.reviewed_by = named human
+review.reviewed_at = valid timestamp
+entity_resolution_approved = true
+expectation_policy_approved = true
+semantic_integrity_approved = true
+severity_approved = true
+```
+
+The named reviewer approves entity/location resolution, whether a missing route was genuinely expected, semantic/context findings and `friction` versus `broken` severity. This internal audit trail is not rendered as personal attribution in the client report. A pending/rejected graph, unapproved evidence or unsupported red edge fails publication.
 
 ## 4. Coverage and calculations
 
@@ -401,7 +528,7 @@ The Intro appears immediately before `gap-map` and is not assigned a cockpit num
 `vertical_context` adapts only nouns and context in this shared Intro, while `report_locale` localizes its copy. Neither may change facts, the binding constraint, Focus Selection or Do Not Fund Yet. Multi-Location uses the same Intro with network/location wording; no per-vertical or per-language Intro file is allowed.
 
 1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, complete reviewed opportunity landscape and competitive decision context, with verified and `insufficient_evidence` states kept distinct.
-2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and exactly two Supporting gaps, visibly attributed to the named human who selected them, with rationale and binding-constraint link.
+2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and exactly two Supporting gaps, visibly identified as human-approved, with rationale and binding-constraint link; selector identity stays in the internal audit trail.
 3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope.
 4. **Repair Paths** (`repair-paths`) — complete DIY-capable remediation plans for every selected gap: outcome, steps, dependencies, accountable role and observable `done_when`. A `start_in_30_days` item separates Day-30 outcome from beyond-Day-30 work.
 5. **Do Not Fund Yet** (`do-not-fund`) — exactly one named-human-approved recommendation, its evidence-backed rationale and explicit conditions for revisiting it.
@@ -418,7 +545,7 @@ Surface sections should carry the useful diagnostic evidence from the former lon
 - Website: conversion path, performance and the `mystery_shopper` metric only when the permissioned evidence capability was actually used; its existence in the catalogue does not make it part of the standard Free Score workflow or walkthrough;
 - Reputation: 90-day review velocity, responses and named competitors;
 - Cross-Surface: treatment/positioning/proof/conversion/identity continuity;
-- Summary: objective strength, binding constraint, Focus Gaps, walkthrough, method, limitations and `do_not_do`.
+- Summary: objective strength, binding constraint, Focus Gaps, method, limitations and `do_not_do`; the separate walkthrough is not a report card or section.
 
 Conditional reactivation arithmetic may appear as optional Class B context when grounded in client-supplied inputs. It is not a fifth surface and does not affect scores.
 
@@ -446,7 +573,7 @@ versioned intake
 → named-human Focus Selection
 → deterministic scores + final narrative compiled only from verified facts
 → named human approval
-→ private owner cockpit + Valerie Petra walkthrough
+→ private owner cockpit + separately delivered Valerie Petra walkthrough
 ```
 
 Logical records are `score_case`, `candidate_evidence`, `verified_fact_set`, `draft`, `review_event`, `approved_report`, `learning_candidate` and `rule_release`. They may share storage, but their states may not be collapsed in a way that makes an AI draft publishable.
@@ -495,7 +622,7 @@ This summary does not replace per-metric `source` and `collected_at`. Every repo
 - unavailable metrics and resulting coverage;
 - Class A ratio;
 - method and assumptions for every Class B estimate/inference;
-- human reviewer status; metric collection dates remain attached to the evidence;
+- generic human-reviewed state where useful, without client-visible reviewer/selector identity; metric collection dates remain attached to the evidence;
 - that results are not guaranteed and the report is not a revenue forecast.
 
 The method must be inspectable enough for an owner to reproduce the material facts. Unsupported narrative, generic SEO advice and any metric the owner cannot trace to evidence are excluded.

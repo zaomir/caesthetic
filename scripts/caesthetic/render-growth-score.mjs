@@ -33,11 +33,9 @@ const surfaceLabels = Object.freeze({
   cross_surface: "Cross-Surface",
 });
 const FOCUS_RANKS = Object.freeze(["1", "2", "3"]);
-export const GROWTH_SCORE_WALKTHROUGH_DURATION = "3–8 min";
 const VALERIE = Object.freeze({
   name: "Valerie Petra",
   role: "CAESTHETIC Growth Advisor",
-  photo: "/assets/img/team/valerie-petra.svg",
 });
 
 let protectedRenderValues = null;
@@ -512,27 +510,175 @@ function estimateRows(estimates = []) {
           </article>`).join("");
 }
 
-function walkthroughHeroCard(walkthrough, isDemo) {
-  const duration = GROWTH_SCORE_WALKTHROUGH_DURATION;
-  const body = `
-      <img src="${VALERIE.photo}" alt="${escapeHtml(VALERIE.name)}" width="72" height="72">
-      <p class="cae-kicker">Your Growth Review</p>
-      <strong>${escapeHtml(VALERIE.name)}</strong>
-      <p>${VALERIE.role}</p>
-      <p>${duration}</p>`;
+const JOURNEY_GRAPH_SURFACE_ORDER = Object.freeze(["search", "website", "social", "reputation"]);
+const JOURNEY_GRAPH_SLOTS = Object.freeze([
+  Object.freeze({ x: 380, y: 82 }),
+  Object.freeze({ x: 650, y: 260 }),
+  Object.freeze({ x: 380, y: 438 }),
+  Object.freeze({ x: 110, y: 260 }),
+]);
+const JOURNEY_GRAPH_PROSPECTS = Object.freeze([
+  Object.freeze({ x: 42, y: 66 }),
+  Object.freeze({ x: 718, y: 66 }),
+  Object.freeze({ x: 380, y: 502 }),
+]);
+const JOURNEY_GRAPH_CENTER = Object.freeze({ x: 380, y: 260 });
+const journeySurfaceLabels = Object.freeze({
+  search: "Search / Maps",
+  website: "Website",
+  social: "Social",
+  reputation: "Reviews",
+  lead_intake: "Lead Intake",
+});
 
-  if (walkthrough.status === "available") {
-    return `<a class="cae-report-walkthrough" href="${escapeHtml(walkthrough.url)}" rel="nofollow noopener">${body}<span>Watch your review →</span></a>`;
-  }
-
-  const pendingCopy = isDemo
-    ? escapeHtml(walkthrough.placeholder)
-    : "Your human-reviewed walkthrough is being prepared.";
-  return `<div class="cae-report-walkthrough" role="note">${body}<p>${pendingCopy}</p></div>`;
+function permutations(values) {
+  if (values.length <= 1) return [values];
+  return values.flatMap((value, index) => permutations(values.filter((_, itemIndex) => itemIndex !== index))
+    .map((rest) => [value, ...rest]));
 }
 
-function reviewerStatusLabel(status) {
-  return sentenceCase(status);
+function segmentCrosses(a, b, c, d) {
+  const orientation = (p, q, r) => Math.sign((q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y));
+  return orientation(a, b, c) !== orientation(a, b, d) && orientation(c, d, a) !== orientation(c, d, b);
+}
+
+function journeySurfaceSequence(artifact, journey) {
+  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
+  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
+  const sequence = [];
+  const appendNode = (nodeId) => {
+    const node = nodeById.get(nodeId);
+    const id = node?.kind === "lead_intake" ? "lead_intake" : node?.surface;
+    if (id && sequence.at(-1) !== id) sequence.push(id);
+  };
+  journey.edge_ids.forEach((edgeId, index) => {
+    const edge = edgeById.get(edgeId);
+    if (!edge) return;
+    if (index === 0) appendNode(edge.from);
+    appendNode(edge.to);
+  });
+  return sequence;
+}
+
+export function selectJourneyGraphLayout(artifact) {
+  const candidates = permutations(JOURNEY_GRAPH_SURFACE_ORDER);
+  const scored = candidates.map((order) => {
+    const coordinates = Object.fromEntries(order.map((surface, index) => [surface, JOURNEY_GRAPH_SLOTS[index]]));
+    coordinates.lead_intake = JOURNEY_GRAPH_CENTER;
+    const journeySegments = artifact.representative_journeys.map((journey) => {
+      const sequence = journeySurfaceSequence(artifact, journey);
+      const points = [JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot], ...sequence.map((surface) => coordinates[surface])].filter(Boolean);
+      return points.slice(1).map((point, index) => [points[index], point]);
+    });
+    let crossings = 0;
+    for (let left = 0; left < journeySegments.length; left += 1) {
+      for (let right = left + 1; right < journeySegments.length; right += 1) {
+        journeySegments[left].forEach(([a, b]) => journeySegments[right].forEach(([c, d]) => {
+          if ([a, b].includes(c) || [a, b].includes(d)) return;
+          if (segmentCrosses(a, b, c, d)) crossings += 1;
+        }));
+      }
+    }
+    const length = journeySegments.flat().reduce((sum, [a, b]) => sum + Math.hypot(b.x - a.x, b.y - a.y), 0);
+    const preferredDeviation = order.reduce((sum, surface, index) => sum + Math.abs(JOURNEY_GRAPH_SURFACE_ORDER.indexOf(surface) - index), 0);
+    return { order, coordinates, cost: [crossings, Math.round(length), preferredDeviation] };
+  });
+  scored.sort((a, b) => {
+    for (let index = 0; index < a.cost.length; index += 1) {
+      if (a.cost[index] !== b.cost[index]) return a.cost[index] - b.cost[index];
+    }
+    return a.order.join("|").localeCompare(b.order.join("|"));
+  });
+  return Object.freeze(scored[0]);
+}
+
+function journeyStatus(artifact, journey) {
+  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
+  const statuses = journey.edge_ids.map((edgeId) => edgeById.get(edgeId)?.status).filter(Boolean);
+  if (statuses.includes("broken")) return "broken";
+  if (statuses.includes("friction")) return "friction";
+  if (statuses.includes("not_assessed")) return "not_assessed";
+  return "clean";
+}
+
+function graphSurfaceNodeSvg(surface, point) {
+  return `<g class="cae-journey-graph__surface" data-surface="${surface}" transform="translate(${point.x} ${point.y})">
+    <circle r="48"></circle>
+    <text text-anchor="middle" dominant-baseline="middle">${escapeHtml(journeySurfaceLabels[surface])}</text>
+  </g>`;
+}
+
+function heroJourneyMapHtml(report, graphAnalysis) {
+  const artifact = report.journeyGraph;
+  if (!artifact || artifact.assessment_status !== "assessed" || !artifact.representative_journeys.length) return "";
+  const layout = selectJourneyGraphLayout(artifact);
+  const routes = artifact.representative_journeys.map((journey) => {
+    const sequence = journeySurfaceSequence(artifact, journey);
+    const points = [JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot], ...sequence.map((surface) => layout.coordinates[surface])].filter(Boolean);
+    const status = journeyStatus(artifact, journey);
+    return `<polyline class="cae-journey-graph__route" data-status="${status}" points="${points.map((point) => `${point.x},${point.y}`).join(" ")}" marker-end="url(#cae-journey-arrow)"><title>${escapeHtml(journey.label)} · ${escapeHtml(status)}</title></polyline>`;
+  }).join("");
+  const reachability = graphAnalysis.reachability.map((route) => `<li><strong>${escapeHtml(artifact.nodes.find((node) => node.id === route.entry_node_id)?.label || route.entry_node_id)}:</strong> ${escapeHtml(route.route_status)}${route.shortest_clean_hops === null ? "" : ` · ${route.shortest_clean_hops} clean hop${route.shortest_clean_hops === 1 ? "" : "s"}`}</li>`).join("");
+  return `<figure class="cae-journey-graph" data-graph-view="hero" data-artifact-id="${escapeHtml(artifact.artifact_id)}">
+    <figcaption><strong>Representative client journeys</strong><span>Evidence-backed paths, not tracked individual patients.</span></figcaption>
+    <div class="cae-journey-graph__canvas">
+      <svg viewBox="0 0 760 540" role="img" aria-labelledby="cae-journey-hero-title cae-journey-hero-desc">
+        <title id="cae-journey-hero-title">Hero Client Journey Map</title>
+        <desc id="cae-journey-hero-desc">Representative public journeys through exactly four surfaces toward the Lead Intake boundary.</desc>
+        <defs><marker id="cae-journey-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+        <circle class="cae-journey-graph__intake-ring" cx="380" cy="260" r="88"></circle>
+        ${routes}
+        ${artifact.representative_journeys.map((journey) => {
+          const point = JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot];
+          return `<g class="cae-journey-graph__prospect" transform="translate(${point.x} ${point.y})"><circle r="18"></circle><text y="34" text-anchor="middle">Prospect ${journey.prospect_slot + 1}</text></g>`;
+        }).join("")}
+        ${JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => graphSurfaceNodeSvg(surface, layout.coordinates[surface])).join("")}
+        <g class="cae-journey-graph__intake" transform="translate(380 260)"><circle r="58"></circle><text y="-4" text-anchor="middle">${escapeHtml(report.practice.name)}</text><text y="16" text-anchor="middle">LEAD INTAKE</text></g>
+      </svg>
+    </div>
+    <div class="cae-journey-graph__legend"><span data-status="clean">Clean</span><span data-status="friction">Friction</span><span data-status="broken">Confirmed break</span><span data-status="not_assessed">Not assessed</span></div>
+    <ul class="cae-journey-graph__routes">${reachability}</ul>
+  </figure>`;
+}
+
+function brokenConnectionsMapHtml(report, graphAnalysis) {
+  const artifact = report.journeyGraph;
+  if (!artifact || artifact.assessment_status !== "assessed") return "";
+  const coordinates = Object.fromEntries(JOURNEY_GRAPH_SURFACE_ORDER.map((surface, index) => [surface, JOURNEY_GRAPH_SLOTS[index]]));
+  coordinates.lead_intake = JOURNEY_GRAPH_CENTER;
+  const lines = graphAnalysis.surface_edges.map((edge) => {
+    const from = coordinates[edge.from];
+    const to = coordinates[edge.to];
+    if (!from || !to) return "";
+    return `<line class="cae-journey-graph__route" data-status="${edge.status}" x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" marker-end="url(#cae-broken-arrow)"><title>${escapeHtml(journeySurfaceLabels[edge.from])} to ${escapeHtml(journeySurfaceLabels[edge.to])}: ${escapeHtml(edge.status)}</title></line>`;
+  }).join("");
+  const counts = Object.fromEntries(["clean", "friction", "broken", "not_assessed"].map((status) => [status, graphAnalysis.surface_edges.filter((edge) => edge.status === status).length]));
+  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
+  const details = artifact.edges.map((edge) => `<details class="cae-journey-graph__edge" data-edge-id="${escapeHtml(edge.id)}" data-status="${edge.status}">
+    <summary>${escapeHtml(nodeById.get(edge.from)?.label)} → ${escapeHtml(nodeById.get(edge.to)?.label)} · ${escapeHtml(edge.status)}</summary>
+    <p><strong>Observed:</strong> ${escapeHtml(edge.technical_integrity.observed_behavior)}</p>
+    <p><strong>Context:</strong> ${escapeHtml(edge.context_integrity.observed_behavior)}</p>
+    <p><strong>Why it matters:</strong> ${escapeHtml(edge.why_it_matters)}</p>
+    <p><strong>Repair implication:</strong> ${escapeHtml(edge.repair_implication)}</p>
+    <p><small>Source: ${escapeHtml(edge.source || "Not assessed")} · Collected: ${escapeHtml(edge.collected_at || "Not assessed")} · Evidence: ${refs(edge.evidence_refs)}</small></p>
+  </details>`).join("");
+  return `<section class="cae-journey-graph-block" aria-labelledby="broken-connections-title" data-artifact-id="${escapeHtml(artifact.artifact_id)}">
+    <p class="cae-kicker">Cross-Surface evidence artifact</p>
+    <h3 class="cae-report-subhead" id="broken-connections-title">Broken Connections Map</h3>
+    <p>${counts.clean} clean · ${counts.friction} friction · ${counts.broken} confirmed break · ${counts.not_assessed} not assessed. No graph result changes a score automatically.</p>
+    <div class="cae-journey-graph__canvas">
+      <svg viewBox="0 0 760 520" role="img" aria-labelledby="cae-broken-title cae-broken-desc">
+        <title id="cae-broken-title">Broken Connections Map</title>
+        <desc id="cae-broken-desc">Fixed-order system view of transitions between the four public surfaces and Lead Intake.</desc>
+        <defs><marker id="cae-broken-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+        ${lines}
+        ${JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => graphSurfaceNodeSvg(surface, coordinates[surface])).join("")}
+        <g class="cae-journey-graph__intake" transform="translate(380 260)"><circle r="58"></circle><text y="5" text-anchor="middle">LEAD INTAKE</text></g>
+      </svg>
+    </div>
+    <div class="cae-journey-graph__legend"><span data-status="clean">Clean</span><span data-status="friction">Friction</span><span data-status="broken">Confirmed break</span><span data-status="not_assessed">Not assessed</span></div>
+    <div class="cae-journey-graph__details">${details}</div>
+  </section>`;
 }
 
 function growthScoreIntroHtml(report) {
@@ -700,6 +846,9 @@ function localizeReportHtml(html, locale) {
       ["Start the 30-Day Growth Sprint", "Iniciar el Growth Sprint de 30 días"],
       ["Private Growth Score", "Growth Score privado"],
       ["Exactly Top 3", "Exactamente 3"],
+      ["Representative client journeys", "Recorridos representativos del cliente"],
+      ["Broken Connections Map", "Mapa de conexiones rotas"],
+      ["Cross-Surface evidence artifact", "Artefacto de evidencia entre superficies"],
     ],
     fr: [
       ["Executive Overview", "Synthèse"],
@@ -718,6 +867,9 @@ function localizeReportHtml(html, locale) {
       ["Start the 30-Day Growth Sprint", "Démarrer le Growth Sprint de 30 jours"],
       ["Private Growth Score", "Growth Score privé"],
       ["Exactly Top 3", "Exactement 3"],
+      ["Representative client journeys", "Parcours clients représentatifs"],
+      ["Broken Connections Map", "Carte des connexions rompues"],
+      ["Cross-Surface evidence artifact", "Artefact de preuve inter-surfaces"],
     ],
     uk: [
       ["Executive Overview", "Короткий огляд"],
@@ -736,6 +888,9 @@ function localizeReportHtml(html, locale) {
       ["Start the 30-Day Growth Sprint", "Розпочати 30-денний Growth Sprint"],
       ["Private Growth Score", "Приватний Growth Score"],
       ["Exactly Top 3", "Рівно 3"],
+      ["Representative client journeys", "Репрезентативні шляхи клієнта"],
+      ["Broken Connections Map", "Карта розірваних зв'язків"],
+      ["Cross-Surface evidence artifact", "Evidence-артефакт між поверхнями"],
     ],
   };
 
@@ -768,11 +923,14 @@ function localizeReportHtml(html, locale) {
     ["⚠ Main constraint:", "⚠ Главное ограничение:"],
     ["Start with:", "Начать с:"],
     ["Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.", "Баллы — вспомогательная навигация ниже на странице. Они не определяют фокусные разрывы."],
-    ["Your Growth Review", "Ваш разбор Growth Score"],
     ["CAESTHETIC Growth Advisor", "Growth Advisor CAESTHETIC"],
     ["Watch your review →", "Смотреть разбор →"],
-    ["Your human-reviewed walkthrough is being prepared.", "Видеоразбор после human review готовится."],
     ["Gap Map", "Карта разрывов"],
+    ["Representative client journeys", "Репрезентативные пути клиента"],
+    ["Evidence-backed paths, not tracked individual patients.", "Пути, подтверждённые evidence, а не отслеживаемые отдельные пациенты."],
+    ["Cross-Surface evidence artifact", "Cross-Surface evidence-артефакт"],
+    ["Broken Connections Map", "Карта разорванных связей"],
+    ["No graph result changes a score automatically.", "Ни один результат графа не меняет балл автоматически."],
     ["Every confirmed hole. Only ", "Все подтверждённые разрывы. Для старта выбрано только "],
     [" selected to start.", "."],
     ["Demand System", "Путь спроса"],
@@ -811,7 +969,7 @@ function localizeReportHtml(html, locale) {
     [" · Trust<", " · Доверие<"],
     [" · Booking<", " · Запись<"],
     ["Focus Gaps", "Фокусные разрывы"],
-    [" holes chosen by ", " разрыва выбрал "],
+    ["Exactly three human-approved holes", "Ровно три разрыва, утверждённых человеком"],
     ["Sprint Fit", "Пригодность для Sprint"],
     ["What can honestly close, start, or wait", "Что реально закрыть, начать или отложить"],
     ["Close in 30 days", "Закрыть за 30 дней"],
@@ -935,10 +1093,161 @@ function localizeReportHtml(html, locale) {
     .replace(/[ \t]+$/gm, "");
 }
 
+const PILOT_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
+  ["Playa de las Americas", "Плая-де-лас-Америкас"],
+  ["Las Americas", "Лас-Америкас"],
+  ["San Isidro", "Сан-Исидро"],
+  ["Tenerife", "Тенерифе"],
+  ["Exactly three", "Ровно три"],
+  ["Close In 30 Days", "Закрыть за 30 дней"],
+  ["Start In 30 Days", "Начать за 30 дней"],
+  ["Close in 30 days", "Закрыть за 30 дней"],
+  ["Start in 30 days", "Начать за 30 дней"],
+  ["This is the Primary Gap. Supporting repairs depend on it.", "Это главный разрыв. Поддерживающие исправления зависят от него."],
+  ["Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.", "Зависит от главного разрыва и не считается отдельным обязательством спринта."],
+  ["Insufficient repetition for a positive theme", "Недостаточно повторений позитивной темы"],
+  ["Insufficient repetition for a negative theme", "Недостаточно повторений негативной темы"],
+  ["Market Practice Gap", "Разрыв с рыночной практикой"],
+  ["Positioning Reference", "Ориентир позиционирования"],
+  ["positioning reference", "ориентир позиционирования"],
+  ["Category Leader", "Лидер категории"],
+  ["category leader", "лидер категории"],
+  ["Primary Gap", "Главный разрыв"],
+  ["Supporting Gap", "Поддерживающий разрыв"],
+  ["Cross-Surface Consistency", "Согласованность четырёх поверхностей"],
+  ["Cross-Surface", "Согласованность поверхностей"],
+  ["Cross Surface", "Согласованность поверхностей"],
+  ["CROSS SURFACE", "СОГЛАСОВАННОСТЬ ПОВЕРХНОСТЕЙ"],
+  ["SEARCH", "ПОИСК"],
+  ["WEBSITE", "САЙТ"],
+  ["SOCIAL", "СОЦИАЛЬНЫЕ СЕТИ"],
+  ["REPUTATION", "РЕПУТАЦИЯ"],
+  ["OVERALL", "ОБЩАЯ ОЦЕНКА"],
+  ["Search", "Поиск"],
+  ["Website", "Сайт"],
+  ["Social", "Социальные сети"],
+  ["Reputation", "Репутация"],
+  ["Discovery", "Обнаружение"],
+  ["Trust", "Доверие"],
+  ["Enquiry", "Обращение"],
+  ["Booking", "Запись"],
+  ["Treatment", "Услуга"],
+  ["Verified", "Подтверждено"],
+  ["Insufficient", "Недостаточно доказательств"],
+  ["insufficient", "недостаточно доказательств"],
+  ["CROSS-SURFACE", "СОГЛАСОВАННОСТЬ ПОВЕРХНОСТЕЙ"],
+  ["HIGH", "ВЫСОКИЙ"],
+  ["MEDIUM", "СРЕДНИЙ"],
+  ["LOW", "НИЗКИЙ"],
+  ["not now", "не сейчас"],
+  ["Not now", "Не сейчас"],
+  ["mobile-first", "сначала для мобильных устройств"],
+  ["Why ", "Почему "],
+  ["constraint", "ограничение"],
+  ["GROWTH SCORE", "ОТЧЁТ О РОСТЕ"],
+  ["Growth Score orientation", "Навигация по отчёту"],
+  ["Growth Score", "Growth Score"],
+  ["Evidence", "доказательства"],
+  ["evidence", "доказательства"],
+  ["Sprint Fit", "пригодность для спринта"],
+  ["Sprint", "спринт"],
+  ["scope", "объём работ"],
+  ["Scope", "Объём"],
+  ["Backlog", "Отложено"],
+  ["backlog", "отложено"],
+  ["Overall", "общую оценку"],
+  ["Class A", "класс А"],
+  ["CLASS A", "КЛАСС А"],
+  ["Class B", "класс Б"],
+  ["CLASS B", "КЛАСС Б"],
+  ["human review", "проверки человеком"],
+  ["inference", "выводом"],
+  ["validation gates", "условия подтверждения"],
+  ["close in 30 days", "закрыть за 30 дней"],
+  ["start in 30 days", "начать за 30 дней"],
+  ["local", "локальный"],
+  ["subject", "объект"],
+  ["directory", "каталог"],
+  ["website", "сайт"],
+  ["social", "социальные сети"],
+  ["maps", "карты"],
+  ["review platform", "площадка отзывов"],
+  ["review_platform", "площадка отзывов"],
+  ["public ad", "публичное объявление"],
+  ["public_ad", "публичное объявление"],
+  ["insufficient repetition", "недостаточно повторений"],
+  ["Insufficient repetition", "Недостаточно повторений"],
+  ["repetition", "повторений"],
+  ["Unidad", "помещение"],
+  ["insufficient evidence", "недостаточно доказательств"],
+  ["Insufficient evidence", "Недостаточно доказательств"],
+  ["Valerie Petra", "Валери Петра"],
+  ["Growth Advisor", "консультант по росту"],
+]);
+
+const PILOT_EVIDENCE_LABELS = Object.freeze({
+  "search.entity_integrity": "поиск: целостность сущности",
+  "website.booking_friction": "сайт: путь к записи",
+  "social.local_offer_clarity": "социальные сети: ясность предложения",
+  "social.profile_to_booking": "социальные сети: путь к записи",
+  "reputation.rating": "репутация: публичный рейтинг",
+  "cross.positioning_coherence": "согласованность: позиционирование",
+  "cross.conversion_continuity": "согласованность: путь к записи",
+  "cross.identity_coherence": "согласованность: идентичность",
+});
+
+function finalizePilotHtml(html, report) {
+  const officialNames = [...new Set(report.presentation?.official_names || [])]
+    .sort((left, right) => right.length - left.length);
+  const replaceTextNode = (text) => {
+    let output = text;
+    const protectedUrls = [];
+    output = output.replace(/https?:\/\/[^\s<,;]+/g, (url) => {
+      const token = `@@CAE_SOURCE_URL_${protectedUrls.length}@@`;
+      protectedUrls.push([token, url]);
+      return token;
+    });
+    const protectedNames = officialNames.map((name, index) => {
+      const escapedName = name.replaceAll("&", "&amp;");
+      const token = `@@CAE_OFFICIAL_${index}@@`;
+      output = output.replaceAll(escapedName, token);
+      return [token, escapedName];
+    });
+    for (const [ref, label] of Object.entries(PILOT_EVIDENCE_LABELS)) {
+      output = output.replaceAll(ref, label);
+    }
+    for (const [source, target] of PILOT_VISIBLE_TEXT_REPLACEMENTS) {
+      output = output.replaceAll(source, target);
+    }
+    output = output
+      .replace(/\b\d+(?:\.\d+)?\/100\b/g, "не публикуется")
+      .replace(/\s+to\s+/g, " — ");
+    for (const [token, url] of protectedUrls) {
+      output = output.replaceAll(token, `<a href="${url}">Открыть источник</a>`);
+    }
+    for (const [token, escapedName] of protectedNames) {
+      output = output.replaceAll(token, `<span data-brand>${escapedName}</span>`);
+    }
+    return output;
+  };
+  const withoutRawMetricPayloads = html.replace(
+    /(<li class="cae-report-metric">[\s\S]*?)<small>[\s\S]*?<\/small>([\s\S]*?<\/li>)/g,
+    "$1<small>Источники и исходные значения сохранены в проверяемом отчёте.</small>$2",
+  );
+  const bodyStart = withoutRawMetricPayloads.indexOf("<body");
+  const head = withoutRawMetricPayloads.slice(0, bodyStart);
+  const body = withoutRawMetricPayloads.slice(bodyStart)
+    .replace(/(\d)T(?=\d)/g, "$1 ")
+    .replace(/(\d)Z\b/g, "$1 по всемирному координированному времени")
+    .replace(/>([^<]*)</g, (_match, text) => `>${replaceTextNode(text)}<`);
+  return `${head}${body}`;
+}
+
 export function renderGrowthReport(report) {
   requireReportContent(report);
   const result = scoreGrowthReport(report);
   const isDemo = report.reportKind === "demo";
+  const isPilot = report.presentation?.kind === "pilot";
   const diagnosis = report.humanDiagnosis;
   const methodology = report.methodology;
   protectedRenderValues = [];
@@ -966,7 +1275,7 @@ export function renderGrowthReport(report) {
   const focusCount = selectedFocusGapIds(focus).length;
 
   const html = `<!doctype html>
-<html lang="${report.reportContext?.report_locale === "en" ? "en-US" : report.reportContext?.report_locale}" data-page="growth-score-report" data-report-kind="${escapeHtml(report.reportKind)}">
+<html lang="${report.reportContext?.report_locale === "en" ? "en-US" : report.reportContext?.report_locale}" data-page="growth-score-report" data-report-kind="${isPilot ? "pilot" : escapeHtml(report.reportKind)}"${isPilot ? ` data-template-version="${escapeHtml(report.templateVersion)}"` : ""}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -979,7 +1288,7 @@ export function renderGrowthReport(report) {
 </head>
 <body class="cae-score-report">
 ${disclosure}
-<div id="cae-header-slot"></div>
+${isPilot ? "" : '<div id="cae-header-slot"></div>'}
 <main>
   <section class="cae-report-hero" id="report-overview">
     <div class="cae-wrap">
@@ -988,7 +1297,6 @@ ${disclosure}
         <h1>${escapeHtml(report.practice.name)}</h1>
         <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Prepared ${escapeHtml(report.practice.preparedAt)}</p>
         <p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${VALERIE.role}</p>
-        <p class="cae-report-meta">${reviewerStatusLabel(diagnosis.reviewer_status)} · ${escapeHtml(diagnosis.reviewer.name)} · ${escapeHtml(diagnosis.reviewer.approved_at)}</p>
       </header>
       <div class="cae-report-hero__grid">
         <article class="cae-report-state">
@@ -1000,7 +1308,6 @@ ${disclosure}
           <p><strong>Start with:</strong> ${escapeHtml(diagnosis.current_state.priority_line)}</p>
           <p class="cae-report-note">Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.</p>
         </article>
-        ${walkthroughHeroCard(diagnosis.walkthrough, isDemo)}
       </div>
     </div>
   </section>
@@ -1013,6 +1320,7 @@ ${growthScoreIntroHtml(report)}
       <h2 class="cae-h2">Every confirmed hole. Only ${focusCount} selected to start.</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
+      ${result.journeyGraph ? heroJourneyMapHtml(report, result.journeyGraph) : ""}
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
@@ -1027,7 +1335,7 @@ ${growthScoreIntroHtml(report)}
   <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="2">
     <div class="cae-wrap">
       <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
-      <h2 class="cae-h2">Exactly three holes chosen by ${escapeHtml(focus.selected_by)}</h2>
+      <h2 class="cae-h2">Exactly three human-approved holes</h2>
       <p>${escapeHtml(focus.rationale)}</p>
       <ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>
       <div class="cae-focus-gaps">${focusGapCards(diagnosis.gap_inventory, focus)}</div>
@@ -1097,6 +1405,7 @@ ${growthScoreIntroHtml(report)}
       <h2 class="cae-h2">Why the selected holes are real</h2>
       <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
       <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
+      ${result.journeyGraph ? brokenConnectionsMapHtml(report, result.journeyGraph) : ""}
       <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
 ${competitorRows(diagnosis.competitors)}
       <h3 class="cae-report-subhead">Metric drill-down</h3>
@@ -1137,20 +1446,18 @@ ${competitorRows(diagnosis.competitors)}
 
 </main>
 <a class="cae-sticky-sprint" href="#next-step" hidden>View Sprint</a>
-<div id="cae-footer-slot"></div>
-<script src="/assets/js/caesthetic-config.js"></script>
-<script src="/assets/js/caesthetic.js" defer></script>
-<script src="/assets/js/analytics.js" defer></script>
+${isPilot ? "" : '<div id="cae-footer-slot"></div>\n<script src="/assets/js/caesthetic-config.js"></script>\n<script src="/assets/js/caesthetic.js" defer></script>\n<script src="/assets/js/analytics.js" defer></script>'}
 <script src="/assets/js/growth-cockpit.js" defer></script>
 </body>
 </html>
 `;
   const values = protectedRenderValues;
   protectedRenderValues = null;
-  return values.reduce(
+  const rendered = values.reduce(
     (rendered, [token, value]) => rendered.replaceAll(token, value),
     localizeReportHtml(html, report.reportContext?.report_locale),
   ).replace(/[ \t]+$/gm, "");
+  return isPilot ? finalizePilotHtml(rendered, report) : rendered;
 }
 
 export function isUnguessableScoreSlug(slug) {
@@ -1178,7 +1485,8 @@ export function renderReportFile(reportPath, { outputPath = path.join(path.dirna
     if (check) return true;
     return null;
   }
-  if (report.reportKind === "real" && !isUnguessableScoreSlug(path.basename(path.dirname(outputPath)))) {
+  const isApprovedPilot = report.reportKind === "real" && report.presentation?.kind === "pilot";
+  if (report.reportKind === "real" && !isApprovedPilot && !isUnguessableScoreSlug(path.basename(path.dirname(outputPath)))) {
     throw new TypeError("Real Growth Score output must use an unguessable /score/<slug>/ directory");
   }
   const output = renderGrowthReport(report);

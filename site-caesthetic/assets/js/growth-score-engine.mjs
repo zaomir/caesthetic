@@ -22,9 +22,8 @@ const metric = (weight, assessment) => Object.freeze({ weight, assessment });
 
 /**
  * `anchored` metrics require a rubric-based human judgment. `objective` metrics
- * have deterministic raw observations. Publication is intentionally stricter:
- * both kinds require reviewer_status=approved before their normalized score is
- * final or contributes to coverage.
+ * have deterministic raw observations. Approved evidence may remain unscored;
+ * only an approved metric with a normalized score contributes to coverage.
  */
 export const CANONICAL_METRICS = Object.freeze({
   search: Object.freeze({
@@ -89,7 +88,7 @@ export const HUMAN_REVIEW_METRICS = Object.freeze(Object.fromEntries(
   ]),
 ));
 
-export const REGISTERED_HUMAN_REVIEWER_MONONYMS = Object.freeze(["Валерия"]);
+export const REGISTERED_HUMAN_REVIEWER_MONONYMS = Object.freeze(["Валерия", "Амир"]);
 export const GROWTH_SCORE_SCHEMA_VERSION = 5;
 export const GROWTH_SCORE_REPORT_TEMPLATE_VERSION = "growth-score-report-template/5.2.0";
 export const GROWTH_SCORE_VERTICAL_CONTEXTS = Object.freeze([
@@ -98,6 +97,26 @@ export const GROWTH_SCORE_VERTICAL_CONTEXTS = Object.freeze([
   "beauty_salon",
 ]);
 export const GROWTH_SCORE_REPORT_LOCALES = Object.freeze(["en", "ru", "es", "fr", "uk"]);
+export const JOURNEY_GRAPH_ARTIFACT_VERSION = "cross-surface-journey-graph/1.0.0";
+export const JOURNEY_GRAPH_EDGE_STATUSES = Object.freeze(["clean", "friction", "broken", "not_assessed"]);
+export const JOURNEY_GRAPH_CONTEXT_DIMENSIONS = Object.freeze([
+  "identity",
+  "location",
+  "treatment",
+  "offer",
+  "proof",
+]);
+export const JOURNEY_GRAPH_METRIC_REFS = Object.freeze([
+  "search.gbp_conversion_readiness",
+  "search.entity_integrity",
+  "website.booking_friction",
+  "website.technical_booking_integrity",
+  "social.profile_to_booking",
+  "cross.conversion_continuity",
+  "cross.identity_coherence",
+  "cross.positioning_coherence",
+  "cross.proof_continuity",
+]);
 export const VERTICAL_CONTEXTS = GROWTH_SCORE_VERTICAL_CONTEXTS;
 export const REPORT_LOCALES = GROWTH_SCORE_REPORT_LOCALES;
 export const GROWTH_SCORE_VERTICAL_SOURCES = Object.freeze([
@@ -140,6 +159,22 @@ export const MAX_START_IN_30_DAYS = 1;
 const REVIEWER_STATUSES = Object.freeze(["approved", "pending", "ai_draft", "rejected"]);
 const EVIDENCE_CLASSES = Object.freeze(["A", "B"]);
 const GAP_SURFACES = Object.freeze([...REQUIRED_SURFACES, "cross_surface"]);
+const JOURNEY_GRAPH_SURFACES = Object.freeze([...REQUIRED_SURFACES]);
+const JOURNEY_GRAPH_NODE_KINDS = Object.freeze(["public_asset", "lead_intake"]);
+const JOURNEY_GRAPH_OWNERSHIP = Object.freeze(["owned", "third_party", "unknown", "not_applicable"]);
+const JOURNEY_GRAPH_OBSERVABILITY = Object.freeze(["observed", "not_assessed"]);
+const JOURNEY_GRAPH_EXPECTATIONS = Object.freeze(["required", "conditional", "optional", "observed"]);
+const JOURNEY_GRAPH_ACTION_TYPES = Object.freeze([
+  "link",
+  "book",
+  "appointment",
+  "call",
+  "message",
+  "form",
+  "native_navigation",
+  "other",
+]);
+const JOURNEY_GRAPH_JOURNEY_KINDS = Object.freeze(["strongest", "primary_constraint", "supporting"]);
 const NON_HUMAN_REVIEWER = /\b(?:ai|assistant|automation|automated|bot|model|system|anonymous|unknown|pending|unassigned)\b/i;
 
 export class EvidenceIncompleteError extends TypeError {
@@ -319,7 +354,6 @@ function validateMetric(metricInput, definition, context) {
 
   if (metricInput.reviewer_status === "approved") {
     invariant(hasRawValue, `${context}.raw_value is required when reviewer_status is approved`);
-    invariant(hasFinalScore, `${context}.normalized_score is required when reviewer_status is approved`);
   } else {
     invariant(
       !hasFinalScore,
@@ -338,7 +372,8 @@ function validateMetric(metricInput, definition, context) {
   const coverageEligible = available && metricInput.evidence_class === "A";
   let availabilityReason = null;
   if (!available) {
-    if (metricInput.reviewer_status === "rejected") availabilityReason = "rejected";
+    if (metricInput.reviewer_status === "approved" && hasRawValue && !hasFinalScore) availabilityReason = "approved_unscored";
+    else if (metricInput.reviewer_status === "rejected") availabilityReason = "rejected";
     else if (hasRawValue && metricInput.reviewer_status === "pending") availabilityReason = "pending_review";
     else if (hasRawValue && metricInput.reviewer_status === "ai_draft") availabilityReason = "ai_draft";
     else availabilityReason = "unavailable";
@@ -393,6 +428,415 @@ function scoreMetricGroup(metrics, surfaceId, context) {
   });
 }
 
+function validateJourneyGraphEvidenceRefs(refs, context, evidenceById, { nonEmpty = false } = {}) {
+  invariant(Array.isArray(refs), `${context}.evidence_refs must be an array`);
+  if (nonEmpty) invariant(refs.length > 0, `${context}.evidence_refs must not be empty`);
+  for (const ref of refs) {
+    nonEmptyString(ref, `${context}.evidence_refs[]`);
+    invariant(evidenceById.has(ref), `${context} has unknown journey-graph evidence reference ${ref}`);
+    invariant(
+      evidenceById.get(ref).reviewer_status === "approved",
+      `${context} references journey-graph evidence that is not approved: ${ref}`,
+    );
+  }
+}
+
+function validateJourneyGraphIntegrity(value, context, { withDimensions = false } = {}) {
+  invariant(value && typeof value === "object" && !Array.isArray(value), `${context} must be an object`);
+  invariant(JOURNEY_GRAPH_EDGE_STATUSES.includes(value.status), `${context}.status is invalid`);
+  nonEmptyString(value.observed_behavior, `${context}.observed_behavior`);
+  if (withDimensions) {
+    invariant(value.dimensions && typeof value.dimensions === "object" && !Array.isArray(value.dimensions), `${context}.dimensions must be an object`);
+    for (const dimension of JOURNEY_GRAPH_CONTEXT_DIMENSIONS) {
+      invariant(
+        JOURNEY_GRAPH_EDGE_STATUSES.includes(value.dimensions[dimension]),
+        `${context}.dimensions.${dimension} is invalid`,
+      );
+    }
+  }
+}
+
+function graphPathExists(
+  startId,
+  targetId,
+  outgoing,
+  allowedStatuses,
+  maxHops,
+  blockedFirstEdgeId = null,
+  { allowUnknownExistence = false } = {},
+) {
+  const queue = [{ nodeId: startId, edgeIds: [] }];
+  const bestDepth = new Map([[startId, 0]]);
+  while (queue.length) {
+    const current = queue.shift();
+    if (current.nodeId === targetId && current.edgeIds.length > 0) return current.edgeIds;
+    if (current.edgeIds.length >= maxHops) continue;
+    for (const edge of outgoing.get(current.nodeId) || []) {
+      if (edge.id === blockedFirstEdgeId && current.edgeIds.length === 0) continue;
+      const traversableExistence = edge.exists === true || (allowUnknownExistence && edge.exists === null);
+      if (!traversableExistence || !allowedStatuses.has(edge.status)) continue;
+      const nextDepth = current.edgeIds.length + 1;
+      if ((bestDepth.get(edge.to) ?? Infinity) < nextDepth) continue;
+      bestDepth.set(edge.to, nextDepth);
+      queue.push({ nodeId: edge.to, edgeIds: [...current.edgeIds, edge.id] });
+    }
+  }
+  return null;
+}
+
+function journeyGraphLoops(nodes, outgoing) {
+  let index = 0;
+  const stack = [];
+  const onStack = new Set();
+  const indexes = new Map();
+  const lowLinks = new Map();
+  const components = [];
+
+  const visit = (nodeId) => {
+    indexes.set(nodeId, index);
+    lowLinks.set(nodeId, index);
+    index += 1;
+    stack.push(nodeId);
+    onStack.add(nodeId);
+    for (const edge of outgoing.get(nodeId) || []) {
+      if (edge.exists !== true || !["clean", "friction"].includes(edge.status)) continue;
+      if (!indexes.has(edge.to)) {
+        visit(edge.to);
+        lowLinks.set(nodeId, Math.min(lowLinks.get(nodeId), lowLinks.get(edge.to)));
+      } else if (onStack.has(edge.to)) {
+        lowLinks.set(nodeId, Math.min(lowLinks.get(nodeId), indexes.get(edge.to)));
+      }
+    }
+    if (lowLinks.get(nodeId) !== indexes.get(nodeId)) return;
+    const component = [];
+    let member;
+    do {
+      member = stack.pop();
+      onStack.delete(member);
+      component.push(member);
+    } while (member !== nodeId);
+    const selfLoop = (outgoing.get(nodeId) || []).some((edge) => edge.to === nodeId && edge.exists === true && ["clean", "friction"].includes(edge.status));
+    if (component.length > 1 || selfLoop) components.push(component.sort());
+  };
+
+  nodes.forEach((node) => {
+    if (!indexes.has(node.id)) visit(node.id);
+  });
+  return components.sort((a, b) => a.join("|").localeCompare(b.join("|")));
+}
+
+function aggregateJourneyGraphEdges(artifact, nodeById) {
+  const aggregated = new Map();
+  // A surface summary must expose the most material supported problem. A clean
+  // parallel route is useful reachability evidence, but it cannot hide a
+  // confirmed broken transition between the same two surface groups.
+  const statusRank = { clean: 1, not_assessed: 2, friction: 3, broken: 4 };
+  for (const edge of artifact.edges) {
+    const fromNode = nodeById.get(edge.from);
+    const toNode = nodeById.get(edge.to);
+    const from = fromNode.kind === "lead_intake" ? "lead_intake" : fromNode.surface;
+    const to = toNode.kind === "lead_intake" ? "lead_intake" : toNode.surface;
+    if (from === to) continue;
+    const key = `${from}->${to}`;
+    const current = aggregated.get(key);
+    if (!current || statusRank[edge.status] > statusRank[current.status]) {
+      aggregated.set(key, { from, to, status: edge.status, edge_ids: [edge.id] });
+    } else if (current.status === edge.status) {
+      current.edge_ids.push(edge.id);
+    }
+  }
+  return [...aggregated.values()].sort((a, b) => `${a.from}:${a.to}`.localeCompare(`${b.from}:${b.to}`));
+}
+
+export function analyzeJourneyGraph(artifact) {
+  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
+  const outgoing = new Map(artifact.nodes.map((node) => [node.id, []]));
+  artifact.edges.forEach((edge) => outgoing.get(edge.from).push(edge));
+  const cleanStatuses = new Set(["clean"]);
+  const viableStatuses = new Set(["clean", "friction"]);
+  const cleanReachable = (startId, blockedFirstEdgeId = null) => graphPathExists(
+    startId,
+    artifact.lead_intake_node_id,
+    outgoing,
+    cleanStatuses,
+    artifact.max_hops,
+    blockedFirstEdgeId,
+  );
+  const viableReachable = (startId) => graphPathExists(
+    startId,
+    artifact.lead_intake_node_id,
+    outgoing,
+    viableStatuses,
+    artifact.max_hops,
+  );
+  const uncertainReachable = (startId) => graphPathExists(
+    startId,
+    artifact.lead_intake_node_id,
+    outgoing,
+    new Set(["clean", "friction", "not_assessed"]),
+    artifact.max_hops,
+    null,
+    { allowUnknownExistence: true },
+  );
+  const reachability = artifact.entry_node_ids.map((nodeId) => {
+    const cleanPath = cleanReachable(nodeId);
+    const viablePath = cleanPath || viableReachable(nodeId);
+    const uncertainPath = viablePath ? null : uncertainReachable(nodeId);
+    const alternateCleanRoute = Boolean(cleanPath && (outgoing.get(nodeId) || []).some((edge) => (
+      edge.id !== cleanPath[0]
+      && edge.exists === true
+      && edge.status === "clean"
+      && cleanReachable(nodeId, cleanPath[0])
+    )));
+    const assessed = nodeById.get(nodeId)?.observability === "observed";
+    return Object.freeze({
+      entry_node_id: nodeId,
+      reachable_to_intake: Boolean(viablePath),
+      route_status: cleanPath ? "clean" : viablePath ? "friction" : uncertainPath ? "not_assessed" : assessed ? "broken" : "not_assessed",
+      shortest_clean_hops: cleanPath?.length ?? null,
+      alternate_clean_route: alternateCleanRoute,
+      best_path_edge_ids: viablePath || [],
+    });
+  });
+
+  const traversableEdges = artifact.edges.filter((edge) => edge.exists === true && ["clean", "friction"].includes(edge.status));
+  const deadEnds = artifact.nodes
+    .filter((node) => node.kind !== "lead_intake" && node.observability === "observed")
+    .filter((node) => !(outgoing.get(node.id) || []).some((edge) => traversableEdges.includes(edge)))
+    .map((node) => node.id)
+    .sort();
+  const reachableFromEntry = new Set(artifact.entry_node_ids);
+  const queue = [...artifact.entry_node_ids];
+  while (queue.length) {
+    const current = queue.shift();
+    for (const edge of outgoing.get(current) || []) {
+      if (!traversableEdges.includes(edge) || reachableFromEntry.has(edge.to)) continue;
+      reachableFromEntry.add(edge.to);
+      queue.push(edge.to);
+    }
+  }
+  const orphans = artifact.nodes
+    .filter((node) => node.kind !== "lead_intake" && node.observability === "observed" && !reachableFromEntry.has(node.id))
+    .map((node) => node.id)
+    .sort();
+  const contextBreaks = artifact.edges
+    .filter((edge) => edge.context_integrity.status === "broken" || JOURNEY_GRAPH_CONTEXT_DIMENSIONS.some((dimension) => edge.context_integrity.dimensions[dimension] === "broken"))
+    .map((edge) => ({
+      edge_id: edge.id,
+      dimensions: JOURNEY_GRAPH_CONTEXT_DIMENSIONS.filter((dimension) => edge.context_integrity.dimensions[dimension] === "broken"),
+    }));
+  const technicalBreaks = artifact.edges
+    .filter((edge) => edge.technical_integrity.status === "broken")
+    .map((edge) => edge.id)
+    .sort();
+  const dimensionBreaks = Object.fromEntries(JOURNEY_GRAPH_CONTEXT_DIMENSIONS.map((dimension) => [
+    `${dimension}_breaks`,
+    Object.freeze(contextBreaks.filter((item) => item.dimensions.includes(dimension)).map((item) => item.edge_id).sort()),
+  ]));
+
+  return Object.freeze({
+    reachability: Object.freeze(reachability),
+    diagnostics: Object.freeze({
+      dead_ends: Object.freeze(deadEnds),
+      loops: Object.freeze(journeyGraphLoops(artifact.nodes, outgoing)),
+      orphans: Object.freeze(orphans),
+      technical_breaks: Object.freeze(technicalBreaks),
+      context_breaks: Object.freeze(contextBreaks),
+      ...dimensionBreaks,
+    }),
+    surface_edges: Object.freeze(aggregateJourneyGraphEdges(artifact, nodeById)),
+  });
+}
+
+export function validateJourneyGraphArtifact(artifact, { publication = false } = {}) {
+  invariant(artifact && typeof artifact === "object" && !Array.isArray(artifact), "journeyGraph must be an object");
+  invariant(artifact.artifact_version === JOURNEY_GRAPH_ARTIFACT_VERSION, `journeyGraph.artifact_version must be ${JOURNEY_GRAPH_ARTIFACT_VERSION}`);
+  nonEmptyString(artifact.artifact_id, "journeyGraph.artifact_id");
+  invariant(["assessed", "not_assessed"].includes(artifact.assessment_status), "journeyGraph.assessment_status must be assessed or not_assessed");
+  invariant(Number.isInteger(artifact.max_hops) && artifact.max_hops >= 2 && artifact.max_hops <= 3, "journeyGraph.max_hops must be 2 or 3");
+  invariant(artifact.automatic_score_change === false, "journeyGraph.automatic_score_change must be false");
+
+  invariant(Array.isArray(artifact.evidence), "journeyGraph.evidence must be an array");
+  const evidenceById = new Map();
+  artifact.evidence.forEach((item, index) => {
+    const context = `journeyGraph.evidence[${index}]`;
+    invariant(item && typeof item === "object" && !Array.isArray(item), `${context} must be an object`);
+    nonEmptyString(item.id, `${context}.id`);
+    invariant(!evidenceById.has(item.id), `journeyGraph.evidence has duplicate id ${item.id}`);
+    nonEmptyString(item.source, `${context}.source`);
+    validDate(item.collected_at, `${context}.collected_at`);
+    nonEmptyString(item.method, `${context}.method`);
+    invariant(EVIDENCE_CLASSES.includes(item.evidence_class), `${context}.evidence_class must be A or B`);
+    invariant(REVIEWER_STATUSES.includes(item.reviewer_status), `${context}.reviewer_status is invalid`);
+    if (publication) invariant(item.reviewer_status === "approved", `${context}.reviewer_status must be approved for publication`);
+    if (item.evidence_class === "B") validateClassBDisclosure(item, context);
+    evidenceById.set(item.id, item);
+  });
+
+  invariant(Array.isArray(artifact.nodes), "journeyGraph.nodes must be an array");
+  const nodeById = new Map();
+  artifact.nodes.forEach((node, index) => {
+    const context = `journeyGraph.nodes[${index}]`;
+    invariant(node && typeof node === "object" && !Array.isArray(node), `${context} must be an object`);
+    nonEmptyString(node.id, `${context}.id`);
+    invariant(!nodeById.has(node.id), `journeyGraph.nodes has duplicate id ${node.id}`);
+    invariant(JOURNEY_GRAPH_NODE_KINDS.includes(node.kind), `${context}.kind is invalid`);
+    if (node.kind === "lead_intake") invariant(node.surface === null, `${context}.surface must be null for lead_intake`);
+    else invariant(JOURNEY_GRAPH_SURFACES.includes(node.surface), `${context}.surface must be a Four-Surface id`);
+    nonEmptyString(node.asset_type, `${context}.asset_type`);
+    nonEmptyString(node.label, `${context}.label`);
+    invariant(JOURNEY_GRAPH_OWNERSHIP.includes(node.ownership), `${context}.ownership is invalid`);
+    invariant(JOURNEY_GRAPH_OBSERVABILITY.includes(node.observability), `${context}.observability is invalid`);
+    validateJourneyGraphEvidenceRefs(node.evidence_refs, context, evidenceById, { nonEmpty: node.observability === "observed" && node.kind !== "lead_intake" });
+    nodeById.set(node.id, node);
+  });
+
+  invariant(Array.isArray(artifact.edges), "journeyGraph.edges must be an array");
+  const edgeById = new Map();
+  artifact.edges.forEach((edge, index) => {
+    const context = `journeyGraph.edges[${index}]`;
+    invariant(edge && typeof edge === "object" && !Array.isArray(edge), `${context} must be an object`);
+    nonEmptyString(edge.id, `${context}.id`);
+    invariant(!edgeById.has(edge.id), `journeyGraph.edges has duplicate id ${edge.id}`);
+    invariant(nodeById.has(edge.from), `${context}.from references unknown node ${String(edge.from)}`);
+    invariant(nodeById.has(edge.to), `${context}.to references unknown node ${String(edge.to)}`);
+    invariant(edge.from !== edge.to, `${context} must not be a self-edge`);
+    invariant(JOURNEY_GRAPH_EXPECTATIONS.includes(edge.expectation), `${context}.expectation is invalid`);
+    invariant(JOURNEY_GRAPH_ACTION_TYPES.includes(edge.action_type), `${context}.action_type is invalid`);
+    invariant(JOURNEY_GRAPH_EDGE_STATUSES.includes(edge.status), `${context}.status is invalid`);
+    invariant(edge.exists === null || typeof edge.exists === "boolean", `${context}.exists must be boolean or null`);
+    invariant(edge.next_action_available === null || typeof edge.next_action_available === "boolean", `${context}.next_action_available must be boolean or null`);
+    validateJourneyGraphIntegrity(edge.technical_integrity, `${context}.technical_integrity`);
+    validateJourneyGraphIntegrity(edge.context_integrity, `${context}.context_integrity`, { withDimensions: true });
+    nonEmptyString(edge.why_it_matters, `${context}.why_it_matters`);
+    nonEmptyString(edge.repair_implication, `${context}.repair_implication`);
+    if (edge.status === "not_assessed") {
+      invariant(edge.source === null && edge.collected_at === null, `${context} source/date must be null when not_assessed`);
+      validateJourneyGraphEvidenceRefs(edge.evidence_refs, context, evidenceById);
+    } else {
+      nonEmptyString(edge.source, `${context}.source`);
+      validDate(edge.collected_at, `${context}.collected_at`);
+      validateJourneyGraphEvidenceRefs(edge.evidence_refs, context, evidenceById, { nonEmpty: true });
+    }
+    if (edge.status === "clean") {
+      invariant(edge.exists === true, `${context}.exists must be true when clean`);
+      invariant(edge.technical_integrity.status === "clean", `${context}.technical_integrity.status must be clean when edge is clean`);
+      invariant(edge.context_integrity.status === "clean", `${context}.context_integrity.status must be clean when edge is clean`);
+      invariant(
+        JOURNEY_GRAPH_CONTEXT_DIMENSIONS.every((dimension) => edge.context_integrity.dimensions[dimension] === "clean"),
+        `${context}.context_integrity dimensions must all be clean when edge is clean`,
+      );
+      invariant(edge.next_action_available === true, `${context}.next_action_available must be true when clean`);
+    }
+    if (JOURNEY_GRAPH_CONTEXT_DIMENSIONS.some((dimension) => edge.context_integrity.dimensions[dimension] === "broken")) {
+      invariant(
+        edge.context_integrity.status === "broken",
+        `${context}.context_integrity.status must be broken when a context dimension is broken`,
+      );
+    }
+    if (edge.status === "broken") {
+      invariant(
+        edge.exists === false
+          || edge.technical_integrity.status === "broken"
+          || edge.context_integrity.status === "broken"
+          || edge.next_action_available === false,
+        `${context} broken status requires an observed technical, context or next-action break`,
+      );
+      if (edge.exists === false) {
+        invariant(
+          ["required", "conditional"].includes(edge.expectation),
+          `${context} cannot mark an optional or merely observed missing edge as broken`,
+        );
+      }
+    }
+    edgeById.set(edge.id, edge);
+  });
+
+  invariant(Array.isArray(artifact.entry_node_ids), "journeyGraph.entry_node_ids must be an array");
+  invariant(new Set(artifact.entry_node_ids).size === artifact.entry_node_ids.length, "journeyGraph.entry_node_ids must be unique");
+  artifact.entry_node_ids.forEach((nodeId) => {
+    invariant(nodeById.has(nodeId), `journeyGraph.entry_node_ids references unknown node ${nodeId}`);
+    invariant(nodeById.get(nodeId).kind === "public_asset", `journeyGraph.entry_node_ids must reference public_asset nodes: ${nodeId}`);
+    invariant(nodeById.get(nodeId).observability === "observed", `journeyGraph.entry_node_ids must reference observed nodes: ${nodeId}`);
+  });
+  if (artifact.assessment_status === "assessed") {
+    invariant(artifact.nodes.length > 0, "journeyGraph.nodes must not be empty when assessed");
+    invariant(artifact.entry_node_ids.length > 0, "journeyGraph.entry_node_ids must not be empty when assessed");
+    nonEmptyString(artifact.lead_intake_node_id, "journeyGraph.lead_intake_node_id");
+    invariant(nodeById.get(artifact.lead_intake_node_id)?.kind === "lead_intake", "journeyGraph.lead_intake_node_id must reference the lead_intake node");
+    invariant(artifact.nodes.filter((node) => node.kind === "lead_intake").length === 1, "journeyGraph must contain exactly one lead_intake node when assessed");
+  } else {
+    invariant(artifact.lead_intake_node_id === null, "journeyGraph.lead_intake_node_id must be null when not_assessed");
+  }
+
+  invariant(Array.isArray(artifact.metric_links), "journeyGraph.metric_links must be an array");
+  const metricLinkRefs = new Set();
+  artifact.metric_links.forEach((link, index) => {
+    const context = `journeyGraph.metric_links[${index}]`;
+    invariant(JOURNEY_GRAPH_METRIC_REFS.includes(link.metric_ref), `${context}.metric_ref is not an approved existing metric`);
+    invariant(!metricLinkRefs.has(link.metric_ref), `journeyGraph.metric_links has duplicate metric_ref ${link.metric_ref}`);
+    metricLinkRefs.add(link.metric_ref);
+    invariant(link.effect === "evidence_only", `${context}.effect must be evidence_only`);
+    validateStringArray(link.edge_ids, `${context}.edge_ids`);
+    validateStringArray(link.node_ids, `${context}.node_ids`);
+    invariant(link.edge_ids.length + link.node_ids.length > 0, `${context} must reference at least one node or edge`);
+    link.edge_ids.forEach((edgeId) => invariant(edgeById.has(edgeId), `${context} references unknown edge ${edgeId}`));
+    link.node_ids.forEach((nodeId) => invariant(nodeById.has(nodeId), `${context} references unknown node ${nodeId}`));
+  });
+
+  invariant(Array.isArray(artifact.representative_journeys) && artifact.representative_journeys.length <= 3, "journeyGraph.representative_journeys must contain at most 3 journeys");
+  const journeyIds = new Set();
+  const prospectSlots = new Set();
+  artifact.representative_journeys.forEach((journey, index) => {
+    const context = `journeyGraph.representative_journeys[${index}]`;
+    nonEmptyString(journey.id, `${context}.id`);
+    invariant(!journeyIds.has(journey.id), `journeyGraph.representative_journeys has duplicate id ${journey.id}`);
+    journeyIds.add(journey.id);
+    nonEmptyString(journey.label, `${context}.label`);
+    invariant(JOURNEY_GRAPH_JOURNEY_KINDS.includes(journey.kind), `${context}.kind is invalid`);
+    invariant(Number.isInteger(journey.prospect_slot) && journey.prospect_slot >= 0 && journey.prospect_slot <= 2, `${context}.prospect_slot must be 0, 1 or 2`);
+    invariant(!prospectSlots.has(journey.prospect_slot), `${context}.prospect_slot must be unique`);
+    prospectSlots.add(journey.prospect_slot);
+    validateStringArray(journey.edge_ids, `${context}.edge_ids`, { nonEmpty: true });
+    let priorTarget = null;
+    journey.edge_ids.forEach((edgeId, edgeIndex) => {
+      invariant(edgeById.has(edgeId), `${context}.edge_ids references unknown edge ${edgeId}`);
+      const edge = edgeById.get(edgeId);
+      if (edgeIndex > 0) invariant(edge.from === priorTarget, `${context}.edge_ids must form one continuous path`);
+      priorTarget = edge.to;
+    });
+  });
+
+  const review = artifact.review;
+  invariant(review && typeof review === "object" && !Array.isArray(review), "journeyGraph.review must be an object");
+  invariant(["pending", "approved", "rejected"].includes(review.status), "journeyGraph.review.status is invalid");
+  if (publication) {
+    invariant(review.status === "approved", "journeyGraph.review.status must be approved for publication");
+    namedHuman(review.reviewed_by, "journeyGraph.review.reviewed_by");
+    validTimestamp(review.reviewed_at, "journeyGraph.review.reviewed_at");
+    for (const field of ["entity_resolution_approved", "expectation_policy_approved", "semantic_integrity_approved", "severity_approved"]) {
+      invariant(review[field] === true, `journeyGraph.review.${field} must be true for publication`);
+    }
+  }
+
+  return artifact.assessment_status === "assessed" ? analyzeJourneyGraph(artifact) : Object.freeze({
+    reachability: Object.freeze([]),
+    diagnostics: Object.freeze({
+      dead_ends: Object.freeze([]),
+      loops: Object.freeze([]),
+      orphans: Object.freeze([]),
+      technical_breaks: Object.freeze([]),
+      context_breaks: Object.freeze([]),
+      identity_breaks: Object.freeze([]),
+      location_breaks: Object.freeze([]),
+      treatment_breaks: Object.freeze([]),
+      offer_breaks: Object.freeze([]),
+      proof_breaks: Object.freeze([]),
+    }),
+    surface_edges: Object.freeze([]),
+  });
+}
+
 function buildEvidenceIndex(report) {
   const index = new Map();
   for (const surface of report.surfaces) {
@@ -413,9 +857,7 @@ function validateEvidenceRefs(refs, context, evidenceIndex) {
     invariant(evidenceIndex.has(ref), `${context} has unknown evidence reference ${ref}`);
     const evidence = evidenceIndex.get(ref);
     invariant(
-      evidence.raw_value !== null
-        && evidence.normalized_score !== null
-        && evidence.reviewer_status === "approved",
+      evidence.raw_value !== null && evidence.reviewer_status === "approved",
       `${context} references evidence that is not final and approved: ${ref}`,
     );
   }
@@ -883,7 +1325,6 @@ function validatePublishedEvidence(report, diagnosisClasses) {
         typeof metricInput.finding === "string"
         && metricInput.finding.trim()
         && metricInput.raw_value !== null
-        && metricInput.normalized_score !== null
         && metricInput.reviewer_status === "approved"
       ) classes.push(metricInput.evidence_class);
     }
@@ -893,7 +1334,6 @@ function validatePublishedEvidence(report, diagnosisClasses) {
       typeof metricInput.finding === "string"
       && metricInput.finding.trim()
       && metricInput.raw_value !== null
-      && metricInput.normalized_score !== null
       && metricInput.reviewer_status === "approved"
     ) classes.push(metricInput.evidence_class);
   }
@@ -983,6 +1423,9 @@ export function scoreGrowthReport(report) {
   if (report.reportKind === "demo") nonEmptyString(report.disclosure, "disclosure");
   validatePublicationLanguage(report);
   validateMethodology(report.methodology);
+  const journeyGraph = hasOwn(report, "journeyGraph")
+    ? validateJourneyGraphArtifact(report.journeyGraph, { publication: true })
+    : null;
   if (hasOwn(report, "economics")) validateGrowthEconomicsContract(report.economics);
   invariant(Array.isArray(report.surfaces), "surfaces must be an array");
   invariant(report.surfaces.length === REQUIRED_SURFACES.length, "report must contain exactly four surfaces");
@@ -1026,6 +1469,7 @@ export function scoreGrowthReport(report) {
       rawScore: overallRaw,
     }),
     evidence,
+    journeyGraph,
   });
 }
 

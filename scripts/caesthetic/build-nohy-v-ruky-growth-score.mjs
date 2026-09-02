@@ -2,7 +2,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { createGrowthScoreReportTemplate } from "./growth-score-report-template.mjs";
+import {
+  approveJourneyGraphNotAssessed,
+  createGrowthScoreReportTemplate,
+} from "./growth-score-report-template.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const slug = "nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8";
@@ -206,6 +209,11 @@ const decision = (title, rationale, evidence_refs) => ({ title, rationale, evide
 const template = createGrowthScoreReportTemplate();
 const report = {
   ...template,
+  journeyGraph: approveJourneyGraphNotAssessed(template.journeyGraph, {
+    artifactId: "nohy-v-ruky-odesa-2026-journey-graph-v1",
+    reviewedBy: "Travis Warner",
+    reviewedAt: approvedAt,
+  }),
   schemaVersion: 5,
   reportState: "approved_report",
   reportVersion: "nohy-v-ruky-odesa-public-evidence/1.0.0",

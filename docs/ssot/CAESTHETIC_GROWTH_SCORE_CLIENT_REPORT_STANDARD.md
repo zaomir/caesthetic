@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.0
+version: 1.1
 updated: 2026-09-02
 scope: client-facing Growth Score report presentation, approval/translation, competitive decision layer, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
@@ -98,6 +98,25 @@ The report may explain the end-to-end journey as:
 The internal conversion/patient-operations layer begins after the public decision path. CRM, telephony, front desk, chatbot, follow-up, training, call QA, hiring and similar functions are **not** report surfaces and are not diagnosed from outside-in evidence.
 
 During the Free Growth Score, an observable public fact may be stated when permission and valid evidence exist—for example whether a truthful non-clinical enquiry received a response by a disclosed cutoff. Internal causes remain `Not assessed` or `Insufficient evidence — requires workflow/data access` unless the required evidence/access exists.
+
+### 3.1 Cross-Surface Journey Graph evidence and renderer contract
+
+The **Cross-Surface Journey Graph** is the canonical machine-readable evidence artifact for observable routes between public assets and the `Lead Intake` boundary. It deepens Cross-Surface Consistency without creating a fifth surface or a separate score.
+
+Every newly approved or republished report uses one `journeyGraph` artifact under `cross-surface-journey-graph/1.0.0`. Frozen v5.2 reports created before 2026-09-02 may remain unchanged for deterministic historical rendering. New authoring may publish the artifact as reviewed `not_assessed` when evidence is unavailable; it may not omit the artifact or convert missing evidence to red.
+
+The same artifact renders two views inside the existing nine-section machine contract:
+
+1. **Hero Client Journey Map** inside `gap-map`: fixed centre and Lead Intake ring, four fixed orbital coordinates, up to three fixed prospect entries and no more than three representative evidence-backed paths. The renderer automatically evaluates all 24 assignments of Search / Maps, Website, Social and Reviews to the orbital coordinates and chooses the deterministic lowest-cost layout by crossings, route geometry and canonical-orientation deviation.
+2. **Broken Connections Map** inside `evidence-and-competitors`: fixed canonical surface order for comparable system inspection. Aggregate arrows link the four surfaces and Lead Intake; every shown edge drills down to source, destination, observed behavior, why it matters, evidence/date and repair implication.
+
+Both views use one state system: green `clean`, amber `friction`, red `broken`, gray `not_assessed`. An absent optional cross-link is not drawn as a defect. Red requires either an observed technical/context/next-action failure or a human-approved route expectation whose absence was confirmed.
+
+The artifact retains asset nodes, edges, `technical_integrity`, `context_integrity` across identity/location/treatment/offer/proof, evidence sources and dates, entry-to-Lead-Intake reachability, max 2–3 hop paths, dead ends, loops, orphans and break classifications. Exact schema and validation rules are owned by `docs/caesthetic/growth_score_spec.md` and `site-caesthetic/assets/js/growth-score-engine.mjs`.
+
+Graph-to-metric links are `evidence_only` and may reference only existing `gbp_conversion_readiness`, `entity_integrity`, `booking_friction`, `technical_booking_integrity`, `profile_to_booking`, `conversion_continuity`, `identity_coherence`, `positioning_coherence` and `proof_continuity`. No graph output changes a score, coverage, weight, Primary Constraint or Top 3 automatically. Any later scoring change requires separate explicit SSOT approval.
+
+Before publication, a named human must approve entity/location resolution, expectation rules, semantic integrity and edge severity. Reviewer identity remains in the internal artifact and is not rendered to the client.
 
 ## 4. Client-visible human attribution and walkthrough separation
 
@@ -295,11 +314,12 @@ Acceptance requires:
 4. one late commercial CTA;
 5. source-level absence of client-visible reviewer/selector attribution and embedded walkthrough card/URL;
 6. Four Surfaces unchanged; Cross-Surface remains separate;
-7. mobile and desktop smoke with no body overflow and usable evidence drill-down;
-8. privacy/noindex/sitemap gates;
-9. live production URL;
-10. deployed SHA;
-11. successful exact production smoke.
+7. when `journeyGraph` is present: one reviewed artifact, both deterministic views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
+8. mobile and desktop smoke with no body overflow and usable evidence drill-down;
+9. privacy/noindex/sitemap gates;
+10. live production URL;
+11. deployed SHA;
+12. successful exact production smoke.
 
 For protected reports, acceptance also includes unauthenticated gate, wrong-password rejection, valid session issuance and authenticated report/JSON checks.
 
@@ -308,6 +328,7 @@ For protected reports, acceptance also includes unauthenticated gate, wrong-pass
 Do not:
 
 - add a fifth surface;
+- create a separate Journey Graph score, require every surface-to-surface link or label an optional missing link red;
 - add a tenth machine section;
 - turn competitor analysis into a ranking or score;
 - expose reviewer/selector identity to prove human approval;

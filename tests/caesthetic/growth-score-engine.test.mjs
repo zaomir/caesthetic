@@ -373,7 +373,7 @@ test("publication is v5 approved-report only with named human and frozen fact-se
   unnamed.humanDiagnosis.reviewer.name = "AI assistant";
   assert.throws(() => scoreGrowthReport(unnamed), /named human/);
 
-  assert.deepEqual(REGISTERED_HUMAN_REVIEWER_MONONYMS, ["Валерия"]);
+  assert.deepEqual(REGISTERED_HUMAN_REVIEWER_MONONYMS, ["Валерия", "Амир"]);
 
   const registeredMononym = report();
   registeredMononym.humanDiagnosis.reviewer.name = "Валерия";
@@ -405,10 +405,12 @@ test("unknown evidence remains unavailable with nullable source and collection d
   assert.equal(getMetricResult(scored, "website", "technical_booking_integrity").availability_reason, "unavailable");
 });
 
-test("approved evidence requires a final score, raw value, valid source, and valid date", () => {
+test("approved evidence may remain unscored but still requires raw value, source, and date", () => {
   const noScore = report();
   getMetric(noScore, "website", "booking_friction").normalized_score = null;
-  assert.throws(() => scoreGrowthReport(noScore), /normalized_score is required when reviewer_status is approved/);
+  const unscored = scoreGrowthReport(noScore);
+  assert.equal(unscored.surfaces.website.observedWeight, 75);
+  assert.equal(getMetricResult(unscored, "website", "booking_friction").availability_reason, "approved_unscored");
 
   const noRaw = report();
   getMetric(noRaw, "website", "booking_friction").raw_value = null;

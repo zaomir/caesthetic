@@ -4,6 +4,7 @@ import {
   CANONICAL_METRICS,
   GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
   GROWTH_SCORE_SCHEMA_VERSION,
+  JOURNEY_GRAPH_ARTIFACT_VERSION,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
 export { GROWTH_SCORE_REPORT_TEMPLATE_VERSION };
@@ -153,6 +154,57 @@ const createGapSlot = (number) => ({
   },
 });
 
+export function createJourneyGraphTemplate() {
+  return {
+    artifact_version: JOURNEY_GRAPH_ARTIFACT_VERSION,
+    artifact_id: "__CASE_ID__-journey-graph-v1",
+    assessment_status: "not_assessed",
+    max_hops: 3,
+    automatic_score_change: false,
+    evidence: [],
+    nodes: [],
+    edges: [],
+    entry_node_ids: [],
+    lead_intake_node_id: null,
+    metric_links: [],
+    representative_journeys: [],
+    review: {
+      status: "pending",
+      reviewed_by: null,
+      reviewed_at: null,
+      entity_resolution_approved: false,
+      expectation_policy_approved: false,
+      semantic_integrity_approved: false,
+      severity_approved: false,
+    },
+  };
+}
+
+export function approveJourneyGraphNotAssessed(graph, { artifactId, reviewedBy, reviewedAt }) {
+  if (!graph || typeof graph !== "object") throw new TypeError("journeyGraph template is required");
+  return {
+    ...graph,
+    artifact_id: artifactId,
+    assessment_status: "not_assessed",
+    evidence: [],
+    nodes: [],
+    edges: [],
+    entry_node_ids: [],
+    lead_intake_node_id: null,
+    metric_links: [],
+    representative_journeys: [],
+    review: {
+      status: "approved",
+      reviewed_by: reviewedBy,
+      reviewed_at: reviewedAt,
+      entity_resolution_approved: true,
+      expectation_policy_approved: true,
+      semantic_integrity_approved: true,
+      severity_approved: true,
+    },
+  };
+}
+
 export function createLegacyGrowthScoreV4ReportTemplate() {
   const competitors = [1, 2, 3].map(createCompetitorSlot);
   return {
@@ -291,6 +343,7 @@ export function createGrowthScoreReportTemplate() {
     selected_at: null,
     rationale: "Pending named-human Focus Selection after the complete Gap Inventory is reviewed.",
   };
+  report.journeyGraph = createJourneyGraphTemplate();
   return report;
 }
 
