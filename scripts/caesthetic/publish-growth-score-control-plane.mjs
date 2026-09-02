@@ -117,6 +117,36 @@ function gitText(repo, args) {
   return git(repo, args).stdout.trim();
 }
 
+function authorityFor(repo) {
+  if (path.resolve(repo) === path.resolve(process.env.GRAINEE_ROOT || "/var/lib/caesthetic-repo-sync/grainee")) {
+    const root = process.env.CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT;
+    return root ? { root, remote: process.env.CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE || "origin" } : null;
+  }
+  if (path.resolve(repo) === path.resolve(process.env.CAESTHETIC_AGENTS_DIR || "/var/lib/caesthetic-repo-sync/satellite")) {
+    const root = process.env.CAESTHETIC_SYNC_SATELLITE_AUTHORITY_ROOT;
+    return root ? { root, remote: process.env.CAESTHETIC_SYNC_SATELLITE_AUTHORITY_REMOTE || "origin" } : null;
+  }
+  return null;
+}
+
+function fetchMain(repo) {
+  const authority = authorityFor(repo);
+  if (!authority) return git(repo, ["fetch", "origin", "main", "-q"]);
+  git(authority.root, ["fetch", authority.remote, "main", "-q"]);
+  const authorityRef = `refs/remotes/${authority.remote}/main`;
+  return git(repo, ["fetch", "--no-tags", authority.root, `+${authorityRef}:refs/remotes/origin/main`, "-q"]);
+}
+
+function pushMain(repo, { allowFailure = false } = {}) {
+  const authority = authorityFor(repo);
+  if (!authority) return git(repo, ["push", "origin", "HEAD:main"], { allowFailure });
+  const sha = gitText(repo, ["rev-parse", "HEAD"]);
+  git(authority.root, ["fetch", "--no-tags", repo, sha, "-q"]);
+  const result = git(authority.root, ["push", authority.remote, `${sha}:main`], { allowFailure });
+  if (result.status === 0) git(repo, ["update-ref", "refs/remotes/origin/main", sha]);
+  return result;
+}
+
 function readJsonBytes(bytes, label) {
   try {
     return JSON.parse(bytes.toString("utf8"));
@@ -377,11 +407,11 @@ function commitPush(repo, paths, message) {
   if (diff.status === 0) return gitText(repo, ["rev-parse", "HEAD"]);
   invariant(diff.status === 1, "unable to inspect staged publication diff");
   git(repo, ["-c", "user.name=CAESTHETIC Publish Bridge", "-c", "user.email=publish-bridge@caesthetic.com", "commit", "-m", message]);
-  const firstPush = git(repo, ["push", "origin", "HEAD:main"], { allowFailure: true });
+  const firstPush = pushMain(repo, { allowFailure: true });
   if (firstPush.status !== 0) {
-    git(repo, ["fetch", "origin", "main", "-q"]);
+    fetchMain(repo);
     git(repo, ["rebase", "origin/main"]);
-    git(repo, ["push", "origin", "HEAD:main"]);
+    pushMain(repo);
   }
   return gitText(repo, ["rev-parse", "HEAD"]);
 }
@@ -453,7 +483,7 @@ function makeResult(validated, status, extra = {}) {
 }
 
 function syncRepoMain(repo) {
-  git(repo, ["fetch", "origin", "main", "-q"]);
+  fetchMain(repo);
   invariant(!gitText(repo, ["status", "--porcelain"]), `dirty checkout: ${repo}`, "dirty_checkout");
   git(repo, ["checkout", "main"]);
   git(repo, ["merge", "--ff-only", "origin/main"]);

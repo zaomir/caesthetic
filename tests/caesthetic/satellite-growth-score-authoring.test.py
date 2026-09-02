@@ -95,13 +95,15 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             allowed = root / "site-caesthetic/score/demo-injector-practice-booking-friction/report.json"
+            allowed_multi = root / "site-caesthetic/score/demo-multi-location-growth-score/report.json"
             denied = root / "site-caesthetic/score/demo-arbitrary-bypass/report.json"
             request = root / "docs/projects/caesthetic/publish-growth-score/requests/publish-growth-score-test-20260902.json"
-            for target in (allowed, denied, request):
+            for target in (allowed, allowed_multi, denied, request):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text("{}\n", encoding="utf-8")
             collected = cae_sync.collect_rels(root)
             self.assertIn(str(allowed.relative_to(root)), collected)
+            self.assertIn(str(allowed_multi.relative_to(root)), collected)
             self.assertNotIn(str(denied.relative_to(root)), collected)
             self.assertIn(str(request.relative_to(root)), collected)
 

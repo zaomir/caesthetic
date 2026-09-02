@@ -38,6 +38,22 @@ export function markRepoSyncProcessing({ request, outputPath }) {
   return outputPath;
 }
 
+export function writeRepoSyncFailure({ request, outputPath, error }) {
+  const host = runtimeHostInfo();
+  const result = {
+    contract_version: "caesthetic-repo-sync/1.0",
+    request_id: assertRequestId(request.request_id),
+    type: "caesthetic_repo_sync",
+    operation: request.operation,
+    status: "error",
+    worker: { host: host.hostname, completed_at: new Date().toISOString() },
+    errors: [{ code: error.code || "repo_sync_failed", message: String(error.message || error).slice(0, 2000) }],
+  };
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, `${JSON.stringify(result, null, 2)}\n`);
+  return outputPath;
+}
+
 export function runRepoSyncBridge({ request, outputPath, repoRoot }) {
   const requestId = assertRequestId(request.request_id);
   if (!validateCaestheticRepoSyncRequest(request)) {

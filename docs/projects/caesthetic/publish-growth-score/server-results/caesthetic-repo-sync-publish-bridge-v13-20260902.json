@@ -1,0 +1,17 @@
+{
+  "contract_version": "caesthetic-repo-sync/1.0",
+  "request_id": "caesthetic-repo-sync-publish-bridge-v13-20260902",
+  "type": "caesthetic_repo_sync",
+  "operation": "install_and_start",
+  "status": "error",
+  "worker": {
+    "host": "vps2402",
+    "completed_at": "2026-09-02T23:54:18.253Z"
+  },
+  "errors": [
+    {
+      "code": "repo_sync_command_failed",
+      "message": "bash_failed: above exception, another exception occurred:\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]: Traceback (most recent call last):\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 615, in <module>\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:     sys.exit(main())\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:              ^^^^^^\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 501, in main\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:     ensure_satellite(sat)\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 407, in ensure_satellite\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:     sync_main_checkout(sat)\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 400, in sync_main_checkout\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]:     raise RuntimeError(f\"diverged_checkout_rebase_conflict:{repo}\")\nSep 03 00:54:18 vps2402 continuous-sync-runner.sh[1609085]: RuntimeError: diverged_checkout_rebase_conflict:/var/lib/caesthetic-repo-sync/satellite\nSep 03 00:54:18 vps2402 systemd[1]: caesthetic-repo-sync.service: Main process exited, code=exited, status=1/FAILURE\nSep 03 00:54:18 vps2402 systemd[1]: caesthetic-repo-sync.service: Failed with result 'exit-code'.\nSep 03 00:54:18 vps2402 systemd[1]: Failed to start caesthetic-repo-sync.service - CAESTHETIC bidirectional repository sync.\nSep 03 00:54:18 vps2402 systemd[1]: caesthetic-repo-sync.service: Consumed 2.588s CPU time, 35.9M memory peak, 0B memory swap peak.\n\nYour branch and 'origin/main' have diverged,\nand have 2 and 44 different commits each, respectively.\n  (use \"git pull\" if you want to integrate the remote branch"
+    }
+  ]
+}

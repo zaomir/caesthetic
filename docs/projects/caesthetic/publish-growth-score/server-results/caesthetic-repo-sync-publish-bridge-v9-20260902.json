@@ -1,0 +1,17 @@
+{
+  "contract_version": "caesthetic-repo-sync/1.0",
+  "request_id": "caesthetic-repo-sync-publish-bridge-v9-20260902",
+  "type": "caesthetic_repo_sync",
+  "operation": "install_and_start",
+  "status": "error",
+  "worker": {
+    "host": "vps2402",
+    "completed_at": "2026-09-02T23:44:58.427Z"
+  },
+  "errors": [
+    {
+      "code": "repo_sync_command_failed",
+      "message": "bash_failed:ocessError(retcode, process.args,\nSep 03 00:44:54 vps2402 continuous-sync-runner.sh[1583681]: subprocess.CalledProcessError: Command '['git', 'update-ref', 'refs/remotes/origin/main', 'e5037a6e238ffbee5da1dca31958ac5ff4d1e86d']' returned non-zero exit status 128.\nSep 03 00:44:54 vps2402 systemd[1]: caesthetic-repo-sync.service: Main process exited, code=exited, status=1/FAILURE\nSep 03 00:44:54 vps2402 systemd[1]: caesthetic-repo-sync.service: Failed with result 'exit-code'.\nSep 03 00:44:54 vps2402 systemd[1]: Failed to start caesthetic-repo-sync.service - CAESTHETIC bidirectional repository sync.\nSep 03 00:44:54 vps2402 systemd[1]: caesthetic-repo-sync.service: Consumed 1min 39.581s CPU time, 2.0G memory peak, 0B memory swap peak.\nSep 03 00:44:54 vps2402 systemd[1]: caesthetic-repo-sync.service: Ignoring invalid environment assignment 'export CF_ZONE_ID=43bbcfa22e49e18558b5d38d1330a105': /etc/evo/secrets.env\nSep 03 00:44:54 vps2402 systemd[1]: Starting caesthetic-repo-sync.service - CAESTHETIC bidirectional repository sync...\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585739]: Already on 'main'\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585739]: Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585739]:   (use \"git pull\" to update your local branch)\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585804]: Updating e5037a6e2..5b83cd94b\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585804]: Fast-forward\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585804]:  .../caesthetic-repo-sync-publish-bridge-v9-20260902.json      | 11 +++++++++++\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585804]:  1 file changed, 11 insertions(+)\nSep 03 00:44:57 vps2402 continuous-sync-runner.sh[1585804]:  create mode 100644 docs/projects/caesthetic/publish-growth-score/server-results/caesthetic-repo-sync-publish-bridge-v9-20260902.json\n\nYour branch is up to date with 'o"
+    }
+  ]
+}

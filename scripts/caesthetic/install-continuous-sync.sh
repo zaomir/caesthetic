@@ -14,7 +14,7 @@ if [[ "$(id -u)" -ne 0 ]]; then
   echo "ERROR: run as root" >&2
   exit 1
 fi
-for command_name in git python3 flock systemctl; do
+for command_name in git python3 flock systemctl timeout; do
   command -v "$command_name" >/dev/null || {
     echo "ERROR: missing required command: $command_name" >&2
     exit 1
@@ -39,42 +39,50 @@ install -m 644 "$SOURCE_ROOT/deploy/systemd/caesthetic-repo-sync.timer" \
 SATELLITE_LIVE_ROOT="${CAESTHETIC_SYNC_SOURCE_SATELLITE_ROOT:-/var/www/caesthetic}"
 GRAINEE_ORIGIN="$(git -C "$LIVE_GRAINEE_ROOT" remote get-url origin)"
 SATELLITE_ORIGIN="${CAESTHETIC_AGENTS_REPO_URL:-https://github.com/zaomir/caesthetic.git}"
+SATELLITE_AUTHORITY_REMOTE="caesthetic-satellite"
 test -n "$GRAINEE_ORIGIN"
 test -d "$SATELLITE_LIVE_ROOT/.git" || {
   echo "ERROR: missing satellite checkout: $SATELLITE_LIVE_ROOT" >&2
   exit 1
 }
 
-copy_git_auth_config() {
-  local source_repo="$1" target_repo="$2" key value line
-  while IFS= read -r line; do
-    [[ -n "$line" ]] || continue
-    key="${line%% *}"
-    value="${line#* }"
-    git -C "$target_repo" config --local "$key" "$value"
-  done < <(
-    git -C "$source_repo" config --local --get-regexp \
-      '^(credential\.|http\..*\.extraheader$|core\.sshcommand$|url\..*\.insteadof$)' \
-      2>/dev/null || true
-  )
-  chmod 600 "$target_repo/.git/config"
-}
-
-select_authenticated_remote() {
-  local target_repo="$1" https_url="$2" ssh_url="$3" candidate
-  for candidate in "$ssh_url" "$https_url"; do
-    if GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND='ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new' \
-      git -C "$target_repo" push --dry-run "$candidate" main:main >/dev/null 2>&1; then
-      printf '%s\n' "$candidate"
-      return 0
-    fi
-  done
-  echo "ERROR: no non-interactive GitHub push credential for $https_url" >&2
-  return 1
+verify_push_authority() {
+  local source_repo="$1" remote="$2" label="$3" remote_sha
+  remote_sha="$(timeout 20s env GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=10 -o ConnectionAttempts=1 -o StrictHostKeyChecking=accept-new' \
+    git -C "$source_repo" ls-remote "$remote" refs/heads/main | awk 'NR == 1 {print $1}')"
+  [[ "$remote_sha" =~ ^[0-9a-f]{40}$ ]] || {
+    echo "ERROR: cannot resolve ${label} main through existing push authority" >&2
+    return 1
+  }
+  timeout 20s git -C "$source_repo" fetch --no-tags "$remote" "$remote_sha" -q
+  if ! timeout 20s env GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=10 -o ConnectionAttempts=1 -o StrictHostKeyChecking=accept-new' \
+    git -C "$source_repo" push --dry-run "$remote" "${remote_sha}:main" >/dev/null 2>&1; then
+    echo "ERROR: existing ${label} checkout has no non-interactive push authority" >&2
+    return 1
+  fi
 }
 
 prepare_isolated_clone() {
-  local source_repo="$1" target_repo="$2" remote_url="$3" ssh_url="$4" authenticated_url
+  local target_repo="$1" remote_url="$2" authority_repo="$3" authority_remote="$4"
+  local quarantine quarantine_reason="" authority_ref="refs/remotes/${authority_remote}/main"
+  if [[ -d "$target_repo/.git" ]]; then
+    if [[ -n "$(git -C "$target_repo" status --porcelain)" ]]; then
+      quarantine_reason="dirty"
+    else
+      timeout 20s git -C "$authority_repo" fetch "$authority_remote" main -q
+      git -C "$target_repo" fetch --no-tags "$authority_repo" \
+        "+${authority_ref}:refs/remotes/origin/main" -q
+      if ! git -C "$target_repo" merge-base --is-ancestor HEAD origin/main && \
+         ! git -C "$target_repo" merge-base --is-ancestor origin/main HEAD; then
+        quarantine_reason="diverged"
+      fi
+    fi
+  fi
+  if [[ -n "$quarantine_reason" ]]; then
+    quarantine="${target_repo}.quarantine-$(date -u +%Y%m%dT%H%M%SZ)-$$"
+    mv "$target_repo" "$quarantine"
+    echo "CAESTHETIC_REPO_SYNC_QUARANTINED reason=$quarantine_reason path=$quarantine" >&2
+  fi
   if [[ ! -d "$target_repo/.git" ]]; then
     if [[ -d "$target_repo" ]]; then
       [[ -z "$(find "$target_repo" -mindepth 1 -maxdepth 1 -print -quit)" ]] || {
@@ -83,29 +91,49 @@ prepare_isolated_clone() {
       }
       rmdir "$target_repo"
     fi
-    git clone --shared --no-checkout "$source_repo" "$target_repo"
+    git clone --shared --no-checkout "$authority_repo" "$target_repo"
     git -C "$target_repo" sparse-checkout init --cone
     git -C "$target_repo" sparse-checkout set \
       site-caesthetic docs/projects/caesthetic docs/caesthetic \
       docs/audits/caesthetic scripts/caesthetic tests/caesthetic docs/ssot \
       agents/manifests deploy/systemd deploy/nginx vds/cron \
       infra/cloudflare scripts/agent-api
-    git -C "$target_repo" checkout main
+    git -C "$authority_repo" fetch "$authority_remote" main -q
+    git -C "$target_repo" fetch --no-tags "$authority_repo" \
+      "+${authority_ref}:refs/remotes/origin/main" -q
+    git -C "$target_repo" checkout -B main refs/remotes/origin/main
   fi
-  copy_git_auth_config "$source_repo" "$target_repo"
-  authenticated_url="$(select_authenticated_remote "$target_repo" "$remote_url" "$ssh_url")"
-  git -C "$target_repo" remote set-url origin "$authenticated_url"
+  git -C "$target_repo" remote set-url origin "$remote_url"
 }
 
-prepare_isolated_clone "$LIVE_GRAINEE_ROOT" "$GRAINEE_ROOT" "$GRAINEE_ORIGIN" \
-  "git@github.com:zaomir/grainee-v2.git"
-prepare_isolated_clone "$SATELLITE_LIVE_ROOT" "$SATELLITE_ROOT" "$SATELLITE_ORIGIN" \
-  "git@github.com:zaomir/caesthetic.git"
+case "$GRAINEE_ORIGIN" in
+  */grainee-v2.git) SATELLITE_AUTHORITY_URL="${GRAINEE_ORIGIN%/grainee-v2.git}/caesthetic.git" ;;
+  */grainee-v2) SATELLITE_AUTHORITY_URL="${GRAINEE_ORIGIN%/grainee-v2}/caesthetic.git" ;;
+  *)
+    echo "ERROR: cannot derive allowlisted satellite authority URL from canonical origin" >&2
+    exit 1
+    ;;
+esac
+if git -C "$LIVE_GRAINEE_ROOT" remote get-url "$SATELLITE_AUTHORITY_REMOTE" >/dev/null 2>&1; then
+  git -C "$LIVE_GRAINEE_ROOT" remote set-url "$SATELLITE_AUTHORITY_REMOTE" "$SATELLITE_AUTHORITY_URL"
+else
+  git -C "$LIVE_GRAINEE_ROOT" remote add "$SATELLITE_AUTHORITY_REMOTE" "$SATELLITE_AUTHORITY_URL"
+fi
+
+verify_push_authority "$LIVE_GRAINEE_ROOT" "origin" "grainee"
+verify_push_authority "$LIVE_GRAINEE_ROOT" "$SATELLITE_AUTHORITY_REMOTE" "satellite"
+prepare_isolated_clone "$GRAINEE_ROOT" "$GRAINEE_ORIGIN" "$LIVE_GRAINEE_ROOT" "origin"
+prepare_isolated_clone "$SATELLITE_ROOT" "$SATELLITE_ORIGIN" \
+  "$LIVE_GRAINEE_ROOT" "$SATELLITE_AUTHORITY_REMOTE"
 
 install -d -m 755 /etc/caesthetic-repo-sync
 {
   printf 'GRAINEE_ROOT=%q\n' "$GRAINEE_ROOT"
   printf 'CAESTHETIC_AGENTS_DIR=%q\n' "$SATELLITE_ROOT"
+  printf 'CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT=%q\n' "$LIVE_GRAINEE_ROOT"
+  printf 'CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE=%q\n' "origin"
+  printf 'CAESTHETIC_SYNC_SATELLITE_AUTHORITY_ROOT=%q\n' "$LIVE_GRAINEE_ROOT"
+  printf 'CAESTHETIC_SYNC_SATELLITE_AUTHORITY_REMOTE=%q\n' "$SATELLITE_AUTHORITY_REMOTE"
   printf 'CAESTHETIC_SYNC_LOCK=%q\n' "/run/lock/caesthetic-repo-sync.lock"
   printf 'CAESTHETIC_SYNC_REMOTE_STATE=%q\n' "$DATA_ROOT/remote-heads"
   printf 'CAESTHETIC_PUBLISH_SECRETS_FILE=%q\n' "${CAESTHETIC_PUBLISH_SECRETS_FILE:-/etc/evo/secrets.env}"
@@ -120,9 +148,23 @@ rm -f "$DATA_ROOT/remote-heads" "$DATA_ROOT/remote-heads.tmp"
 rm -f /etc/cron.d/caesthetic-agents-sync
 systemctl daemon-reload
 systemctl enable --now caesthetic-repo-sync.timer
-if ! systemctl start caesthetic-repo-sync.service; then
-  systemctl --no-pager --full status caesthetic-repo-sync.service || true
-  journalctl -u caesthetic-repo-sync.service -n 80 --no-pager || true
+# Do not make the bootstrap worker wait for a possibly active oneshot. The
+# timer owns reconciliation. Bootstrap still waits for one bounded terminal
+# state so a server-side failure is recorded durably instead of looking ready.
+systemctl start --no-block caesthetic-repo-sync.service
+
+sync_terminal=""
+for _attempt in $(seq 1 45); do
+  sync_state="$(systemctl show caesthetic-repo-sync.service -p ActiveState --value)"
+  case "$sync_state" in
+    inactive) sync_terminal="success"; break ;;
+    failed) sync_terminal="failed"; break ;;
+  esac
+  sleep 1
+done
+if [[ "$sync_terminal" != "success" ]]; then
+  echo "ERROR: initial CAESTHETIC reconciliation did not complete successfully (state=${sync_state:-unknown})" >&2
+  journalctl --no-pager -u caesthetic-repo-sync.service -n 40 >&2 || true
   exit 1
 fi
 

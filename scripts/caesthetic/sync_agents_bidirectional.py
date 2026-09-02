@@ -23,7 +23,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Set
+from typing import Dict, Iterable, List, Optional, Set, Tuple
 
 GRAINEE_DEFAULT = Path("/var/www/grainee-v2")
 SAT_DEFAULT = Path("/var/www/caesthetic")
@@ -84,6 +84,7 @@ SCORE_MIRROR_ALLOW_PREFIXES = (
     "site-caesthetic/score/demo-medical-aesthetics-search-gap/",
     "site-caesthetic/score/demo-injector-practice-booking-friction/",
     "site-caesthetic/score/demo-aesthetics-clinic-reputation-gap/",
+    "site-caesthetic/score/demo-multi-location-growth-score/",
 )
 
 PROTECTED_PREFIXES = (
@@ -130,6 +131,44 @@ def run(cmd: List[str], cwd: Optional[Path] = None) -> None:
 
 def run_out(cmd: List[str], cwd: Optional[Path] = None) -> str:
     return subprocess.check_output(cmd, cwd=str(cwd) if cwd else None, text=True).strip()
+
+
+def authority_for(repo: Path) -> Optional[Tuple[Path, str]]:
+    grainee = os.environ.get("GRAINEE_ROOT")
+    satellite = os.environ.get("CAESTHETIC_AGENTS_DIR")
+    if grainee and repo.resolve() == Path(grainee).resolve():
+        value = os.environ.get("CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT")
+        remote = os.environ.get("CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE", "origin")
+        return (Path(value), remote) if value else None
+    if satellite and repo.resolve() == Path(satellite).resolve():
+        value = os.environ.get("CAESTHETIC_SYNC_SATELLITE_AUTHORITY_ROOT")
+        remote = os.environ.get("CAESTHETIC_SYNC_SATELLITE_AUTHORITY_REMOTE", "origin")
+        return (Path(value), remote) if value else None
+    return None
+
+
+def fetch_origin_main(repo: Path) -> None:
+    authority_config = authority_for(repo)
+    if not authority_config:
+        run(["git", "fetch", "origin", "main", "-q"], cwd=repo)
+        return
+    authority, remote = authority_config
+    run(["git", "fetch", remote, "main", "-q"], cwd=authority)
+    authority_ref = f"refs/remotes/{remote}/main"
+    run(["git", "fetch", "--no-tags", str(authority),
+         f"+{authority_ref}:refs/remotes/origin/main", "-q"], cwd=repo)
+
+
+def push_main(repo: Path) -> None:
+    authority_config = authority_for(repo)
+    if not authority_config:
+        run(["git", "push", "origin", "main"], cwd=repo)
+        return
+    authority, remote = authority_config
+    sha = run_out(["git", "rev-parse", "HEAD"], cwd=repo)
+    run(["git", "fetch", "--no-tags", str(repo), sha, "-q"], cwd=authority)
+    run(["git", "push", remote, f"{sha}:main"], cwd=authority)
+    run(["git", "update-ref", "refs/remotes/origin/main", sha], cwd=repo)
 
 
 def sha256_file(path: Path) -> str:
@@ -325,7 +364,7 @@ def delete_file(path: Path) -> None:
 
 def sync_main_checkout(repo: Path) -> None:
     """Bring a clean local main to origin/main without discarding local commits."""
-    run(["git", "fetch", "origin", "main", "-q"], cwd=repo)
+    fetch_origin_main(repo)
     run(["git", "checkout", "main"], cwd=repo)
     dirty = run_out(["git", "status", "--porcelain"], cwd=repo)
     if dirty:
@@ -349,7 +388,7 @@ def sync_main_checkout(repo: Path) -> None:
     if remote_is_ancestor:
         # Preserve an earlier sync commit that was created locally but whose
         # push was interrupted. This remains a normal fast-forward push.
-        run(["git", "push", "origin", "main"], cwd=repo)
+        push_main(repo)
         return
 
     # Both sides advanced. Rebase preserves local commits and obeys the repo's
@@ -415,7 +454,7 @@ def git_commit_push(repo: Path, message: str, paths: List[str], do_commit: bool,
         cwd=repo,
     )
     if do_push:
-        run(["git", "push", "origin", "main"], cwd=repo)
+        push_main(repo)
 
 
 def write_marker(grainee: Path, sat: Path, summary: str) -> None:

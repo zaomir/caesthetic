@@ -1,0 +1,13 @@
+{
+  "contract_version": "caesthetic-repo-sync/1.0",
+  "request_id": "caesthetic-repo-sync-publish-bridge-v7-20260902",
+  "type": "caesthetic_repo_sync",
+  "operation": "install_and_start",
+  "status": "success",
+  "source_sha": "b45028f23d96a5b84f3385f5b022e7118f26db3c",
+  "worker": {
+    "host": "vps2402",
+    "completed_at": "2026-09-02T23:38:17.039Z"
+  },
+  "evidence": "● caesthetic-repo-sync.timer - Run CAESTHETIC repository sync every 15 seconds\n     Loaded: loaded (/etc/systemd/system/caesthetic-repo-sync.timer; enabled; preset: enabled)\n     Active: active (waiting) since Mon 2026-08-31 02:28:26 WEST; 2 days ago\n    Trigger: Thu 2026-09-03 00:38:31 WEST; 14s left\n   Triggers: ● caesthetic-repo-sync.service\n\nAug 31 02:28:26 vps2402 systemd[1]: Started caesthetic-repo-sync.timer - Run CAESTHETIC repository sync every 15 seconds.\n● caesthetic-repo-sync.service - CAESTHETIC bidirectional repository sync\n     Loaded: loaded (/etc/systemd/system/caesthetic-repo-sync.service; disabled; preset: enabled)\n     Active: activating (start) since Thu 2026-09-03 00:38:16 WEST; 290ms ago\nTriggeredBy: ● caesthetic-repo-sync.timer\n   Main PID: 1570800 (flock)\n      Tasks: 7 (limit: 38468)\n     Memory: 10.4M (peak: 10.7M)\n        CPU: 138ms\n     CGroup: /system.slice/caesthetic-repo-sync.service\n             ├─1570800 flock -n /run/lock/caesthetic-repo-sync.lock bash -c run_once\n             ├─1570803 bash -c run_once\n             ├─1570806 bash -c run_once\n             ├─1570808 git -C /var/www/grainee-v2 ls-remote origin refs/heads/main\n             ├─1570809 awk \"NR == 1 {print \\$1}\"\n             ├─1570810 /usr/lib/git-core/git remote-https origin https://github.com/zaomir/grainee-v2.git\n             ├─1570811 /usr/lib/git-core/git-remote-https origin https://github.com/zaomir/grainee-v2.git\n             └─1570856 /bin/sh -c \"/usr/bin/gh auth git-credential get\" \"/usr/bin/gh auth git-credential get\"\n\nCAESTHETIC_REPO_SYNC_INSTALL_PASS interval=15s remote_head_gate=enabled github_actions=disabled"
+}

@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.4
+version: 1.5
 updated: 2026-09-02
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph presentation, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
@@ -362,9 +362,11 @@ Multi-Location is an additive profile of this same schema-v5 report, not a secon
 2. one protected **focus_location** report using the complete current single-location profile;
 3. one shared project ID, access group, frozen fact set, binding constraint, ordered Top 3 and Do Not Fund Yet.
 
+The current network presentation profile is `multi-location-growth-score/1.1.0`. It is additive to schema v5 and template `growth-score-report-template/5.2.0`; those canonical versions do not change. Frozen Multi-Location reports without a profile marker remain deterministic legacy reports, while every newly authored network package must use the current profile.
+
 The parent uses the same unnumbered Intro and nine machine sections. Its owner-facing sequence is:
 
-**Network owner tension → declared/reviewed coverage and focus-location link → Primary Constraint → internal location comparison → network overview of shared/local assets and repeated patterns → exact Top 3 → external competitor decision → network synthesis → pilot/replication decision → Lead-to-Revenue boundary → one package CTA → founder note.**
+**Executive Network Decision Summary → declared/reviewed coverage and focus-location link → Primary Constraint → derived Network Risk Profile → focus-location selection criteria → internal location comparison → network overview → exact Top 3 → 30-day operational plan → ownership/rollout → propagation candidates → external competitor signal → evidence boundary → CMO decisions → one package CTA.**
 
 The network parent must render:
 
@@ -379,12 +381,19 @@ The network parent must render:
 - one best observed public-surface practice worth propagating, without calling that branch the best business performer;
 - the same exact Primary plus two Supporting gaps as the focus child.
 
+The first executive block answers exactly six questions: **Protect / Fix first / Shared issue / Pilot / Scale rule / Decision required**. It is a synthesis of approved fields, not a score or an AI-only recommendation.
+
 Inside the immutable nine-section contract, the parent presentation is decision-first:
 
-- section 1 renders the internal location comparison immediately after the Demand System and before the Network Overview; section 7 must not repeat that matrix;
+- section 1 renders a Network Risk Profile derived from the comparison matrix, the four focus-location selection criteria, then the internal location comparison and Network Overview; section 7 must not repeat that matrix;
 - the Network Overview summarizes shared assets, local assets, reviewed journeys, branch state and repeated patterns; raw machine states remain in the package, while the page uses plain client-facing labels;
-- section 2 renders the approved Top 3 exactly once as compact decision cards; the Primary Gap carries the strongest desktop emphasis, and evidence, dependencies and implementation detail sit in a native disclosure control;
-- section 7 keeps external Competitive Decision Analysis and metric/technical evidence as separate disclosure groups;
+- section 2 renders the approved Top 3 exactly once as compact decision cards; each card states network scope, accountable owner, public baseline and Day-30 public check, while evidence, dependencies and implementation detail sit in a native disclosure control;
+- section 3 translates the Top 3 into **Days 1–10 / Days 11–20 / Days 21–30 / Day 30 decision** without creating purchased scope;
+- section 4 separates `hq`, `local` and `shared` ownership and shows the focus acceptance evidence plus replication gate;
+- section 6 keeps branch-only/backlog gaps below the Top 3 and may show approved propagation candidates without calling their source location the best business;
+- section 7 shows a compact competitor decision summary before keeping full Competitive Decision Analysis and metric/technical evidence in separate disclosure groups;
+- section 8 states what public evidence can prove, what remains unassessed and that any authorized internal data belongs only to a later separate impact analysis and does not change the audit/score;
+- section 9 shows explicit CMO decisions for pilot, accountability and scale gate before the single package CTA;
 - the first four locations remain visible and any additional locations use progressive disclosure without being removed from the HTML or evidence package;
 - the focus child uses a compact `Network analysis → Focus location` breadcrumb and no second commercial CTA.
 
@@ -398,6 +407,12 @@ Each selected gap carries:
 - pilot location;
 - evidence-based replication conditions;
 - separate done-when evidence for the focus-location repair and any later network rollout.
+- execution owner: `hq / local / shared`;
+- accountable role, public baseline and Day-30 public verification.
+
+Focus-location selection uses exactly four human-approved criteria: **public journey risk, evidence confidence, 30-day feasibility and network learning value**. Every criterion retains evidence references. The page must explicitly say that the selection is not a business-performance ranking.
+
+The Network Risk Profile is derived only from the approved matrix and counts `Protect / Watch / Fix now / Needs verification` states overall and by surface. Counts are never stored as a second source of truth and never become an aggregate Network Score.
 
 A selected network gap must affect the focus location directly or through a shared asset used by it. Other branch-only problems remain in the Full Network Gap Inventory and do not silently enter Sprint scope.
 
@@ -408,6 +423,8 @@ There is no aggregate Network Score, average branch score, network-wide revenue 
 The Lead-to-Revenue Map remains gray/not assessed for the network and each branch under the public-only Free Growth Score unless separately permitted internal evidence exists. A public observation cannot be converted into a receptionist, CRM, staffing, training, conversion or revenue diagnosis.
 
 The package has one commercial decision and one Sprint CTA on the network parent. The focus child replaces its commercial CTA with navigation back to the parent's implementation decision. The child may not create a second scope, second Top 3 or second commercial funnel.
+
+Before publication, the internal `publication_approval` card must be `approved`, match the report's named-human reviewer, focus location and ordered Top 3, and confirm `public_sources_only=true`. The reviewer identity and timestamp remain outside client-facing HTML under §4.
 
 At approximately **360–430px**, the parent defaults to the focus location, renders locations as stacked cards rather than a compressed wide matrix, shows one representative path at a time, contains table overflow and preserves all evidence/state IDs. Desktop may show the comparison matrix, but the body must never overflow horizontally. Interactive links and disclosure summaries use at least 44px targets, and the presentation remains useful when JavaScript is unavailable.
 
@@ -538,4 +555,5 @@ Do not:
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
 The report should make the owner feel **clearer and more capable of making the next decision**, while keeping CAESTHETIC's commercial value grounded in evidence, coordination and accountable implementation rather than information asymmetry.
+
 

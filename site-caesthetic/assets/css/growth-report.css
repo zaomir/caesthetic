@@ -1006,4 +1006,129 @@
   }
 }
 
+/* Multi-Location v1.1 executive decision layer */
+.cae-network-decision-summary {
+  margin: var(--cae-space-6) 0;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--cae-border-data);
+  border-top: 4px solid var(--cae-signal);
+  background: var(--cae-report-card-bg);
+}
+.cae-network-decision-summary .cae-h2 { margin: var(--cae-space-2) 0 var(--cae-space-5); }
+.cae-network-decision-summary > div,
+.cae-network-risk-profile__totals,
+.cae-network-risk-profile__surfaces,
+.cae-network-sprint-plan,
+.cae-network-ownership > div,
+.cae-network-propagation > div,
+.cae-network-competitor-summary > div,
+.cae-network-evidence-boundary > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--cae-border);
+}
+.cae-network-decision-summary article,
+.cae-network-risk-profile article,
+.cae-network-sprint-plan article,
+.cae-network-ownership article,
+.cae-network-propagation article,
+.cae-network-competitor-summary article,
+.cae-network-evidence-boundary article {
+  min-width: 0;
+  padding: var(--cae-space-4);
+  background: var(--cae-bg);
+}
+.cae-network-decision-summary article span,
+.cae-network-risk-profile article > span:first-child,
+.cae-network-sprint-plan article > span,
+.cae-network-ownership article > span,
+.cae-network-propagation article > span,
+.cae-network-competitor-summary article > span,
+.cae-network-evidence-boundary article > span {
+  color: var(--cae-signal);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.cae-network-decision-summary article p { margin: var(--cae-space-2) 0 0; }
+.cae-network-risk-profile,
+.cae-network-focus-decision,
+.cae-network-ownership,
+.cae-network-propagation,
+.cae-network-competitor-summary,
+.cae-network-evidence-boundary,
+.cae-network-decision-asks {
+  margin: var(--cae-space-6) 0;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--cae-border-data);
+  background: var(--cae-report-card-bg);
+}
+.cae-network-risk-profile .cae-report-subhead,
+.cae-network-focus-decision .cae-report-subhead,
+.cae-network-ownership .cae-report-subhead,
+.cae-network-propagation .cae-report-subhead,
+.cae-network-competitor-summary .cae-report-subhead,
+.cae-network-evidence-boundary .cae-report-subhead,
+.cae-network-decision-asks .cae-report-subhead { margin: var(--cae-space-2) 0; }
+.cae-network-risk-profile__totals {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: var(--cae-space-5);
+}
+.cae-network-risk-profile__totals article { display: grid; gap: var(--cae-space-1); border-top: 3px solid var(--cae-data-neutral); }
+.cae-network-risk-profile__totals article[data-state="fix_now"] { border-color: var(--cae-data-negative); }
+.cae-network-risk-profile__totals article[data-state="watch"] { border-color: var(--cae-data-warning); }
+.cae-network-risk-profile__totals article[data-state="protect"] { border-color: var(--cae-data-positive); }
+.cae-network-risk-profile__totals strong { font-family: var(--cae-font-display); font-size: var(--cae-text-3xl); font-weight: 400; }
+.cae-network-risk-profile__totals small { color: var(--cae-muted); }
+.cae-network-risk-profile__surfaces { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1px; }
+.cae-network-risk-profile__surfaces article { display: grid; gap: var(--cae-space-2); }
+.cae-network-risk-profile__surfaces span { display: flex; justify-content: space-between; gap: var(--cae-space-2); color: var(--cae-muted); font-size: var(--cae-text-sm); }
+.cae-network-risk-profile__surfaces span[data-state="fix_now"] b { color: var(--cae-data-negative); }
+.cae-network-risk-profile__surfaces span[data-state="watch"] b { color: var(--cae-data-warning); }
+.cae-network-risk-profile__surfaces span[data-state="protect"] b { color: var(--cae-data-positive); }
+.cae-network-focus-decision table { width: 100%; border-collapse: collapse; background: var(--cae-bg); }
+.cae-network-focus-decision th,
+.cae-network-focus-decision td { min-width: 180px; padding: var(--cae-space-4); border: 1px solid var(--cae-border); text-align: left; vertical-align: top; }
+.cae-network-focus-decision thead th { color: var(--cae-accent); background: var(--cae-bg-2); font-family: var(--cae-font-mono); font-size: var(--cae-text-xs); text-transform: uppercase; }
+.cae-network-focus-decision code { overflow-wrap: anywhere; color: var(--cae-muted); font-size: var(--cae-text-xs); }
+.cae-network-sprint-plan { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cae-network-sprint-plan article { border-top: 3px solid var(--cae-signal); }
+.cae-network-sprint-plan h3,
+.cae-network-sprint-plan p { margin: var(--cae-space-2) 0; }
+.cae-network-sprint-plan small { color: var(--cae-muted); }
+.cae-network-ownership h4,
+.cae-network-propagation h4,
+.cae-network-competitor-summary h4 { margin: var(--cae-space-2) 0; font-family: var(--cae-font-display); font-size: var(--cae-text-xl); font-weight: 400; }
+.cae-network-propagation > div { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.cae-network-propagation small { color: var(--cae-muted); }
+.cae-network-propagation code { overflow-wrap: anywhere; font-size: var(--cae-text-xs); }
+.cae-network-evidence-boundary article:nth-child(2) { border-top: 3px solid var(--cae-data-warning); }
+.cae-network-evidence-boundary article:nth-child(3) { border-top: 3px solid var(--cae-data-neutral); }
+.cae-network-decision-asks { border-top: 4px solid var(--cae-signal); }
+.cae-network-decision-asks ol { display: grid; gap: var(--cae-space-3); padding-left: 1.4rem; }
+.cae-network-decision-asks li { padding-left: var(--cae-space-2); }
 
+@media (max-width: 900px) {
+  .cae-network-risk-profile__surfaces,
+  .cae-network-sprint-plan { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .cae-network-decision-summary > div,
+  .cae-network-risk-profile__totals,
+  .cae-network-risk-profile__surfaces,
+  .cae-network-sprint-plan,
+  .cae-network-ownership > div,
+  .cae-network-competitor-summary > div,
+  .cae-network-evidence-boundary > div { grid-template-columns: 1fr; }
+  .cae-network-risk-profile__totals article {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+  }
+  .cae-network-risk-profile__totals article small { grid-column: 1 / -1; }
+  .cae-network-risk-profile__surfaces article { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+  .cae-network-risk-profile__surfaces article > strong { grid-row: 1 / span 4; }
+}

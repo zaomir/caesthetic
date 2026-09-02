@@ -3,9 +3,9 @@
   "authority": "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
   "generated_from": "approved site-caesthetic/score/**/report.json files",
   "counts": {
-    "total": 6,
+    "total": 7,
     "private": 3,
-    "listed": 3
+    "listed": 4
   },
   "projects": [
     {
@@ -117,6 +117,48 @@
           "canonical_url": "https://caesthetic.com/score/demo-medical-aesthetics-search-gap/",
           "schema_version": 5,
           "source_path": "site-caesthetic/score/demo-medical-aesthetics-search-gap/report.json"
+        }
+      ]
+    },
+    {
+      "project_id": "demo-multi-location-growth-score",
+      "display_name": "Fictional Meridian Aesthetic Network",
+      "location": "Three fictional U.S. markets",
+      "subject_type": "public_business",
+      "audit_format": "multi_location",
+      "package_role": "network_parent",
+      "report_kind": "demo",
+      "report_state": "approved_report",
+      "schema_version": 5,
+      "prepared_at": "2026-09-02",
+      "catalog_visibility": "synthetic",
+      "listed_name": "Fictional Meridian Aesthetic Network",
+      "listed_location": "Three fictional U.S. markets",
+      "access_group_id": "demo-multi-location-growth-score-public",
+      "route": "/score/demo-multi-location-growth-score/",
+      "canonical_url": "https://caesthetic.com/score/demo-multi-location-growth-score/",
+      "source_path": "site-caesthetic/score/demo-multi-location-growth-score/report.json",
+      "detail_schema_version": 5,
+      "focus_location": {
+        "display_name": "Fictional Meridian Downtown",
+        "location": "Fictional Southwest market",
+        "route": "/score/demo-multi-location-growth-score/focus-location/",
+        "canonical_url": "https://caesthetic.com/score/demo-multi-location-growth-score/focus-location/"
+      },
+      "report_refs": [
+        {
+          "role": "network_parent",
+          "route": "/score/demo-multi-location-growth-score/",
+          "canonical_url": "https://caesthetic.com/score/demo-multi-location-growth-score/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/demo-multi-location-growth-score/report.json"
+        },
+        {
+          "role": "focus_location",
+          "route": "/score/demo-multi-location-growth-score/focus-location/",
+          "canonical_url": "https://caesthetic.com/score/demo-multi-location-growth-score/focus-location/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/demo-multi-location-growth-score/focus-location/report.json"
         }
       ]
     },

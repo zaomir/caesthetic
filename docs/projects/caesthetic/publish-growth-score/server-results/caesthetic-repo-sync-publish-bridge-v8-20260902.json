@@ -1,0 +1,17 @@
+{
+  "contract_version": "caesthetic-repo-sync/1.0",
+  "request_id": "caesthetic-repo-sync-publish-bridge-v8-20260902",
+  "type": "caesthetic_repo_sync",
+  "operation": "install_and_start",
+  "status": "error",
+  "worker": {
+    "host": "vps2402",
+    "completed_at": "2026-09-02T23:42:15.648Z"
+  },
+  "errors": [
+    {
+      "code": "repo_sync_command_failed",
+      "message": "bash_failed:c-runner.sh[1579824]: grainee:   /var/lib/caesthetic-repo-sync/grainee\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]: satellite: /var/lib/caesthetic-repo-sync/satellite\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]: mode:      APPLY\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]: Traceback (most recent call last):\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 615, in <module>\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:     sys.exit(main())\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:              ^^^^^^\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 501, in main\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:     ensure_satellite(sat)\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 407, in ensure_satellite\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:     sync_main_checkout(sat)\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 371, in sync_main_checkout\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]:     raise RuntimeError(f\"dirty_checkout:{repo}\")\nSep 03 00:42:14 vps2402 continuous-sync-runner.sh[1579824]: RuntimeError: dirty_checkout:/var/lib/caesthetic-repo-sync/satellite\nSep 03 00:42:14 vps2402 systemd[1]: caesthetic-repo-sync.service: Main process exited, code=exited, status=1/FAILURE\nSep 03 00:42:14 vps2402 systemd[1]: caesthetic-repo-sync.service: Failed with result 'exit-code'.\nSep 03 00:42:14 vps2402 systemd[1]: Failed to start caesthetic-repo-sync.service - CAESTHETIC bidirectional repository sync.\nSep 03 00:42:14 vps2402 systemd[1]: caesthetic-repo-sync.service: Consumed 2.924s CPU time, 38.5M memory peak, 0B memor"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "contract_version": "caesthetic-repo-sync/1.0",
+  "request_id": "caesthetic-repo-sync-publish-bridge-v12-20260902",
+  "type": "caesthetic_repo_sync",
+  "operation": "install_and_start",
+  "status": "error",
+  "worker": {
+    "host": "vps2402",
+    "completed_at": "2026-09-02T23:52:23.824Z"
+  },
+  "errors": [
+    {
+      "code": "repo_sync_command_failed",
+      "message": "bash_failed:c-runner.sh[1604232]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 407, in ensure_satellite\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:     sync_main_checkout(sat)\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 367, in sync_main_checkout\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:     fetch_origin_main(repo)\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 158, in fetch_origin_main\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:     run([\"git\", \"fetch\", \"--no-tags\", str(authority),\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:   File \"/opt/caesthetic-repo-sync/sync_agents_bidirectional.py\", line 129, in run\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:     subprocess.run(cmd, cwd=str(cwd) if cwd else None, check=True)\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:   File \"/usr/lib/python3.12/subprocess.py\", line 571, in run\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]:     raise CalledProcessError(retcode, process.args,\nSep 03 00:52:22 vps2402 continuous-sync-runner.sh[1604232]: subprocess.CalledProcessError: Command '['git', 'fetch', '--no-tags', '/var/www/grainee-v2', 'refs/remotes/caesthetic-satellite/main:refs/remotes/origin/main', '-q']' returned non-zero exit status 1.\nSep 03 00:52:23 vps2402 systemd[1]: caesthetic-repo-sync.service: Main process exited, code=exited, status=1/FAILURE\nSep 03 00:52:23 vps2402 systemd[1]: caesthetic-repo-sync.service: Failed with result 'exit-code'.\nSep 03 00:52:23 vps2402 systemd[1]: Failed to start caesthetic-repo-sync.service - CAESTHETIC bidirectional repository sync.\nSep 03 00:52:23 vps2402 systemd[1]: caesthetic-repo-sync.service: Consumed 3.135s CPU time, 38.4M memory peak, 0B memory swap peak.\n\nYour branch is up to date with 'o"
+    }
+  ]
+}

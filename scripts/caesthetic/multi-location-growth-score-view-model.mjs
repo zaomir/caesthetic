@@ -37,6 +37,19 @@ const GAP_SCOPE_LABELS = Object.freeze({
   focus_location: "Focus location",
 });
 
+const OWNER_LABELS = Object.freeze({
+  hq: "HQ-owned",
+  local: "Location-owned",
+  shared: "Shared ownership",
+});
+
+const FOCUS_CRITERION_LABELS = Object.freeze({
+  public_journey_risk: "Public journey risk",
+  evidence_confidence: "Evidence confidence",
+  thirty_day_feasibility: "30-day feasibility",
+  network_learning_value: "Network learning value",
+});
+
 function selectedGapIds(report) {
   const focus = report?.humanDiagnosis?.focus_selection;
   return focus ? [focus.primary_gap_id, ...(focus.supporting_gap_ids || [])] : [];
@@ -74,6 +87,13 @@ export function buildMultiLocationPresentationModel(report) {
       affected_location_count: gap.network_scope?.affected_location_ids?.length || 0,
       affected_location_label: `${gap.network_scope?.affected_location_ids?.length || 0} reviewed ${(gap.network_scope?.affected_location_ids?.length || 0) === 1 ? "location" : "locations"}`,
       pilot_location_name: locationById.get(gap.network_scope?.rollout_plan?.pilot_location_id)?.name || focusLocation?.name || network.focus_location_id,
+      execution_owner_label: OWNER_LABELS[gap.network_scope?.execution_owner] || "Owner not assigned",
+      accountable_role: gap.network_scope?.accountable_role || gap.repair_plan?.owner_role || "Not assigned",
+      public_baseline: gap.network_scope?.public_baseline || "Not assessed",
+      day_30_public_check: gap.network_scope?.day_30_public_check || "Not assessed",
+      replication_conditions: gap.network_scope?.rollout_plan?.replication_conditions || "Not assessed",
+      focus_acceptance: gap.network_scope?.rollout_plan?.done_when_focus_location || "Not assessed",
+      network_acceptance: gap.network_scope?.rollout_plan?.done_when_network_rollout || "Not assessed",
     }));
   const comparisonRows = [...network.comparison_matrix]
     .sort((left, right) => left.location_id === network.focus_location_id ? -1 : right.location_id === network.focus_location_id ? 1 : 0)
@@ -89,6 +109,35 @@ export function buildMultiLocationPresentationModel(report) {
         summary: row[surface].summary,
       })),
     }));
+
+  const emptyStateCounts = () => ({ protect: 0, watch: 0, fix_now: 0, needs_verification: 0 });
+  const totalRiskCounts = emptyStateCounts();
+  const riskBySurface = NETWORK_SURFACES.map((surface) => ({ surface, surface_label: SURFACE_LABELS[surface], ...emptyStateCounts() }));
+  comparisonRows.forEach((row) => row.cells.forEach((cell) => {
+    totalRiskCounts[cell.state] += 1;
+    riskBySurface.find((entry) => entry.surface === cell.surface)[cell.state] += 1;
+  }));
+
+  const propagationCandidates = (network.propagation_candidates || []).map((candidate) => ({
+    ...candidate,
+    surface_label: SURFACE_LABELS[candidate.surface] || "Cross-Surface",
+    source_location_name: locationById.get(candidate.source_location_id)?.name || candidate.source_location_id,
+    target_location_names: candidate.target_location_ids.map((id) => locationById.get(id)?.name || id),
+  }));
+
+  const focusCriteria = (network.focus_decision?.criteria || []).map((criterion) => ({
+    ...criterion,
+    label: FOCUS_CRITERION_LABELS[criterion.id] || criterion.id,
+  }));
+
+  const competitorSummary = (report.humanDiagnosis?.competitors?.entries || []).slice(0, 3).map((competitor) => ({
+    id: competitor.id,
+    name: competitor.name,
+    type: competitor.competitor_type?.replaceAll("_", " ") || "comparator",
+    choice_reason: competitor.patient_choice_reason,
+    observable_advantage: competitor.observable_advantage,
+    constraint_effect: competitor.constraint_effect,
+  }));
 
   return Object.freeze({
     coverage: {
@@ -117,6 +166,30 @@ export function buildMultiLocationPresentationModel(report) {
       surface_label: SURFACE_LABELS[pattern.surface] || "Cross-Surface",
     })),
     selected_gaps: selectedGaps,
+    executive_summary: network.executive_summary || null,
+    focus_decision: network.focus_decision ? {
+      ...network.focus_decision,
+      criteria: focusCriteria,
+    } : null,
+    risk_profile: {
+      totals: totalRiskCounts,
+      surfaces: riskBySurface,
+      assessed_cells: comparisonRows.length * NETWORK_SURFACES.length,
+    },
+    propagation_candidates: propagationCandidates,
+    competitor_summary: competitorSummary,
+    sprint_plan: [
+      { period: "Days 1–10", title: "Baseline and primary repair", gap: selectedGaps[0] || null },
+      { period: "Days 11–20", title: "Supporting repair one", gap: selectedGaps[1] || null },
+      { period: "Days 21–30", title: "Supporting repair two and verification", gap: selectedGaps[2] || null },
+      { period: "Day 30 decision", title: "Protect, iterate or scale", gap: null, decision: network.executive_summary?.scale_rule || "Scale only after the public acceptance evidence passes." },
+    ],
+    decision_asks: network.executive_summary ? [
+      network.executive_summary.decision_required,
+      `Confirm ${selectedGaps.map((gap) => gap.execution_owner_label).join(", ")} accountability for the approved Top 3.`,
+      `Authorize network rollout only when the focus-location public checks pass.`,
+    ] : [],
+    publication_approval: network.publication_approval || null,
     primary_comparison_rows: comparisonRows.slice(0, 4),
     additional_comparison_rows: comparisonRows.slice(4),
   });

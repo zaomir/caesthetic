@@ -10,11 +10,13 @@ import { fileURLToPath } from "node:url";
 import { REPO_ROOT, STORAGE_PATH, assertCanonicalAgentHost, assertRequestId, runtimeHostInfo } from "./allowlist.mjs";
 import { cmdBridge, markBridgeProcessing } from "./worker.mjs";
 import { cmdVideoBridge, markVideoProcessing, supportsVideoOperation } from "./video-worker.mjs";
-import { markRepoSyncProcessing, runRepoSyncBridge } from "./repo-sync-worker.mjs";
+import { markRepoSyncProcessing, runRepoSyncBridge, writeRepoSyncFailure } from "./repo-sync-worker.mjs";
 import { validateCaestheticRepoSyncRequest } from "../caesthetic-repo-sync-contract.mjs";
 
 const REQUESTS = path.join(REPO_ROOT, "docs/agent-api/requests");
 const RESULTS = path.join(REPO_ROOT, "docs/agent-api/results");
+const REPO_SYNC_REQUESTS = path.join(REPO_ROOT, "docs/projects/caesthetic/publish-growth-score/server-requests");
+const REPO_SYNC_RESULTS = path.join(REPO_ROOT, "docs/projects/caesthetic/publish-growth-score/server-results");
 const POLLER_STATUS = path.join(STORAGE_PATH, "status", "poller.json");
 const STALE_PROCESSING_MS = 30 * 60 * 1000;
 
@@ -128,7 +130,17 @@ async function main() {
     throw Object.assign(new Error(`git_pull_failed:${err.message}`), { code: "git_pull_failed" });
   }
 
-  const files = fs.readdirSync(REQUESTS).map((n) => path.join(REQUESTS, n)).filter((file) => shouldRun(file));
+  const queues = [
+    { requests: REQUESTS, results: RESULTS },
+    { requests: REPO_SYNC_REQUESTS, results: REPO_SYNC_RESULTS },
+  ];
+  const files = queues.flatMap(({ requests, results }) => {
+    if (!fs.existsSync(requests)) return [];
+    return fs.readdirSync(requests)
+      .map((name) => path.join(requests, name))
+      .filter((file) => shouldRun(file, results))
+      .map((file) => ({ file, results }));
+  });
   if (!files.length) {
     writePollerStatus("idle", { processed: 0, current_request_id: null, last_error: null });
     console.log(JSON.stringify({ ok: true, processed: 0 }));
@@ -137,7 +149,7 @@ async function main() {
 
   const written = [];
   let lastResult = null;
-  for (const file of files) {
+  for (const { file, results } of files) {
     const rel = path.relative(REPO_ROOT, file);
     const req = JSON.parse(fs.readFileSync(file, "utf8"));
     const requestId = assertRequestId(req.request_id || path.basename(file, ".json"));
@@ -145,7 +157,7 @@ async function main() {
     const isVideoOperation = supportsVideoOperation(req.operation || req.action);
     writePollerStatus("processing", { current_request_id: requestId });
     const processingOut = isRepoSyncOperation
-      ? markRepoSyncProcessing({ request: req, outputPath: path.join(RESULTS, `${requestId}.json`) })
+      ? markRepoSyncProcessing({ request: req, outputPath: path.join(results, `${requestId}.json`) })
       : isVideoOperation
       ? markVideoProcessing({ input: rel })
       : markBridgeProcessing({ input: rel });
@@ -154,11 +166,17 @@ async function main() {
       [processingRel],
       `chore(caesthetic-assets): processing ${requestId} [skip ci]`,
     );
-    const out = isRepoSyncOperation
-      ? runRepoSyncBridge({ request: req, outputPath: path.join(RESULTS, `${requestId}.json`), repoRoot: REPO_ROOT })
-      : isVideoOperation
-      ? await cmdVideoBridge({ input: rel })
-      : await cmdBridge({ input: rel });
+    let out;
+    try {
+      out = isRepoSyncOperation
+        ? runRepoSyncBridge({ request: req, outputPath: path.join(results, `${requestId}.json`), repoRoot: REPO_ROOT })
+        : isVideoOperation
+        ? await cmdVideoBridge({ input: rel })
+        : await cmdBridge({ input: rel });
+    } catch (error) {
+      if (!isRepoSyncOperation) throw error;
+      out = writeRepoSyncFailure({ request: req, outputPath: path.join(results, `${requestId}.json`), error });
+    }
     const outRel = path.relative(REPO_ROOT, out);
     commitAndPush(
       [outRel],

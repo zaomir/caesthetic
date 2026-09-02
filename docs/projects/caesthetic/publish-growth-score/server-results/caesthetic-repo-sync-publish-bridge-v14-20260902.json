@@ -1,0 +1,11 @@
+{
+  "contract_version": "caesthetic-repo-sync/1.0",
+  "request_id": "caesthetic-repo-sync-publish-bridge-v14-20260902",
+  "type": "caesthetic_repo_sync",
+  "operation": "install_and_start",
+  "status": "processing",
+  "worker": {
+    "host": "vps2402",
+    "started_at": "2026-09-02T23:56:02.766Z"
+  }
+}

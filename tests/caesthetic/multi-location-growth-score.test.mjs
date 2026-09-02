@@ -1,8 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
   createMultiLocationGrowthScoreReportTemplate,
+  MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
 } from "../../scripts/caesthetic/growth-score-report-template.mjs";
 import {
   validateMultiLocationNetworkReport,
@@ -15,8 +19,10 @@ import { renderGrowthReport } from "../../scripts/caesthetic/render-growth-score
 import { createV5Report } from "./helpers/growth-score-v5-fixture.mjs";
 
 const clone = (value) => structuredClone(value);
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
 function networkScope(scope, affected) {
+  const executionOwner = scope === "shared_asset" ? "hq" : scope === "focus_location" ? "local" : "shared";
   return {
     scope,
     affected_location_ids: affected,
@@ -27,6 +33,10 @@ function networkScope(scope, affected) {
       done_when_focus_location: "The repaired public path passes the documented focus-location check.",
       done_when_network_rollout: "Every approved rollout location passes the same documented check.",
     },
+    execution_owner: executionOwner,
+    accountable_role: executionOwner === "hq" ? "VP Marketing" : executionOwner === "local" ? "Location Marketing Lead" : "VP Marketing and Location Leads",
+    public_baseline: "The current public path and evidence state are captured before implementation.",
+    day_30_public_check: "Repeat the same public route and confirm the documented acceptance evidence.",
   };
 }
 
@@ -36,6 +46,7 @@ export function packageFixture() {
   });
   parent.audit = {
     format: "multi_location",
+    profile_version: MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
     package_role: "network_parent",
     project_id: "fixture-network-project",
     access_group_id: "fixture-access-group",
@@ -49,6 +60,24 @@ export function packageFixture() {
     reviewed_location_count: 2,
     focus_location_id: "focus",
     focus_location_selection_rationale: "Focus has the highest-risk observed public journey among the reviewed locations; this is not a business-performance ranking.",
+    focus_decision: {
+      not_business_performance_ranking: true,
+      manager_rationale: "Focus is the clearest 30-day pilot because public journey risk is observable and the repair can teach the network.",
+      criteria: [
+        { id: "public_journey_risk", assessment: "One fix-now discovery state is directly observable.", evidence_refs: ["search.map_visibility"] },
+        { id: "evidence_confidence", assessment: "The priority route is supported by approved public evidence.", evidence_refs: ["search.map_visibility"] },
+        { id: "thirty_day_feasibility", assessment: "The selected repair has a public Day 30 verification path.", evidence_refs: ["website.booking_friction"] },
+        { id: "network_learning_value", assessment: "The location uses the shared booking route also observed at its peer.", evidence_refs: ["website.booking_friction"] },
+      ],
+    },
+    executive_summary: {
+      protect: "Keep the peer location’s strong local search pattern and both locations’ usable reputation proof.",
+      fix_first: "Repair the focus location’s public discovery path before expanding lower-priority work.",
+      shared_issue: "The shared booking route loses location context across both reviewed locations.",
+      pilot: "Use Focus Location as the 30-day implementation pilot.",
+      scale_rule: "Roll out only after the same public acceptance checks pass at the pilot.",
+      decision_required: "Approve the Focus Location pilot and the accountable owners for the Top 3.",
+    },
     locations: [
       { id: "focus", name: "Focus Location", public_location: "Market A", state: "reviewed" },
       { id: "peer", name: "Peer Location", public_location: "Market B", state: "reviewed" },
@@ -82,6 +111,26 @@ export function packageFixture() {
       social: { state: "needs_verification", summary: "Comparable local evidence is incomplete.", evidence_refs: [] },
       reputation: { state: "protect", summary: "Observed public proof is usable.", evidence_refs: ["reputation.rating"] },
     })),
+    propagation_candidates: [
+      {
+        id: "peer-search-pattern",
+        title: "Preserve complete local search context",
+        source_location_id: "peer",
+        surface: "search",
+        target_location_ids: ["focus"],
+        evidence_refs: ["search.map_visibility"],
+        standardize: "Use the peer’s observable location-context pattern as the checklist, without copying claims.",
+        limitations: "Public evidence does not prove lead or revenue impact.",
+      },
+    ],
+    publication_approval: {
+      status: "approved",
+      approved_by: "Morgan Reed",
+      approved_at: "2026-08-11T13:00:00Z",
+      focus_location_id: "focus",
+      selected_gap_ids: ["search-gap", "booking-gap", "proof-gap"],
+      public_sources_only: true,
+    },
   };
   parent.humanDiagnosis.gap_inventory = parent.humanDiagnosis.gap_inventory.map((gap) => ({
     ...gap,
@@ -95,6 +144,7 @@ export function packageFixture() {
   });
   child.audit = {
     format: "multi_location",
+    profile_version: MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
     package_role: "focus_location",
     project_id: parent.audit.project_id,
     access_group_id: parent.audit.access_group_id,
@@ -110,6 +160,7 @@ test("Multi-Location authoring profile extends schema v5 without a second score"
   const child = createMultiLocationGrowthScoreReportTemplate({ packageRole: "focus_location" });
   assert.equal(parent.schemaVersion, 5);
   assert.equal(parent.audit.package_role, "network_parent");
+  assert.equal(parent.audit.profile_version, MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION);
   assert.ok(parent.network);
   assert.equal(child.schemaVersion, 5);
   assert.equal(child.audit.package_role, "focus_location");
@@ -135,6 +186,10 @@ test("fails closed on coverage, package priority or aggregate-score drift", () =
   const score = packageFixture();
   score.parent.network.network_score = 71;
   assert.throws(() => validateMultiLocationNetworkReport(score.parent), /aggregate Network Score/);
+
+  const facts = packageFixture();
+  facts.child.verifiedFactSetVersion = "different-fact-set";
+  assert.throws(() => validateMultiLocationPackage(facts.parent, facts.child), /verifiedFactSetVersion/);
 });
 
 test("network presentation model translates audit data without changing the approved priorities", () => {
@@ -151,12 +206,27 @@ test("network presentation model translates audit data without changing the appr
   assert.deepEqual(view.selected_gaps.map((gap) => gap.id), ["search-gap", "booking-gap", "proof-gap"]);
   assert.deepEqual(view.selected_gaps.map((gap) => gap.scope_label), ["Focus location", "Shared system", "Repeated pattern"]);
   assert.equal(view.primary_comparison_rows[0].location_name, "Focus Location");
+  assert.deepEqual(view.risk_profile.totals, { protect: 3, watch: 2, fix_now: 1, needs_verification: 2 });
+  assert.equal(view.focus_decision.criteria.length, 4);
+  assert.equal(view.propagation_candidates[0].source_location_name, "Peer Location");
+  assert.equal(view.sprint_plan.length, 4);
 });
 
 test("network parent renders early comparison, one compact Top 3 and no network score navigator", () => {
   const { parent } = packageFixture();
   const html = renderGrowthReport(parent);
   assert.match(html, /Network overview/);
+  assert.match(html, /Executive Network Decision Summary/);
+  assert.match(html, /Network Risk Profile/);
+  assert.match(html, /Not a performance ranking/);
+  assert.match(html, /30-day operational plan/);
+  assert.match(html, /HQ, local and shared responsibility/);
+  assert.match(html, /What to replicate across the network/);
+  assert.match(html, /What the named comparators change in the decision/);
+  assert.match(html, /What this audit can prove — and what remains unassessed/);
+  assert.match(html, /CMO decisions/);
+  assert.match(html, /Prepared September 2, 2026/);
+  assert.doesNotMatch(html, /Morgan Reed/);
   assert.match(html, /Declared locations/);
   assert.match(html, /Internal network comparison/);
   assert.match(html, /Detailed location audit/);
@@ -170,6 +240,33 @@ test("network parent renders early comparison, one compact Top 3 and no network 
   assert.equal((html.match(/Start the 30-Day Growth Sprint/g) || []).length, 1);
 });
 
+test("v1.1 fails closed until the manager publication card and public checks are complete", () => {
+  const missingApproval = packageFixture();
+  missingApproval.parent.network.publication_approval.status = "pending";
+  assert.throws(() => validateMultiLocationNetworkReport(missingApproval.parent), /must be approved before publication/);
+
+  const missingPublicCheck = packageFixture();
+  delete missingPublicCheck.parent.humanDiagnosis.gap_inventory[0].network_scope.day_30_public_check;
+  assert.throws(() => validateMultiLocationNetworkReport(missingPublicCheck.parent), /day_30_public_check/);
+});
+
+test("legacy Multi-Location parents without a profile marker remain valid", () => {
+  const { parent } = packageFixture();
+  delete parent.audit.profile_version;
+  delete parent.network.focus_decision;
+  delete parent.network.executive_summary;
+  delete parent.network.propagation_candidates;
+  delete parent.network.publication_approval;
+  parent.humanDiagnosis.gap_inventory.forEach((gap) => {
+    if (!gap.network_scope) return;
+    delete gap.network_scope.execution_owner;
+    delete gap.network_scope.accountable_role;
+    delete gap.network_scope.public_baseline;
+    delete gap.network_scope.day_30_public_check;
+  });
+  assert.equal(validateMultiLocationNetworkReport(parent), parent);
+});
+
 test("focus child keeps location presentation and returns to the parent without a second CTA", () => {
   const { child } = packageFixture();
   const html = renderGrowthReport(child);
@@ -179,4 +276,26 @@ test("focus child keeps location presentation and returns to the parent without 
   assert.match(html, /Return to the network implementation decision/);
   assert.doesNotMatch(html, /Start the 30-Day Growth Sprint/);
   assert.doesNotMatch(html, /Network overview/);
+});
+
+test("Multi-Location presentation localizes executive labels for the Russian pilot", () => {
+  const { parent } = packageFixture();
+  parent.reportContext.report_locale = "ru";
+  const html = renderGrowthReport(parent);
+  assert.match(html, /Краткое управленческое решение по сети/);
+  assert.match(html, /Профиль рисков сети/);
+  assert.match(html, /Операционный план на 30 дней/);
+  assert.match(html, /Решения директора по маркетингу/);
+  assert.equal(parent.network.executive_summary.fix_first, "Repair the focus location’s public discovery path before expanding lower-priority work.");
+});
+
+test("published synthetic Multi-Location demo is one valid parent-child package", () => {
+  const demoRoot = path.join(repoRoot, "site-caesthetic/score/demo-multi-location-growth-score");
+  const parent = JSON.parse(fs.readFileSync(path.join(demoRoot, "report.json"), "utf8"));
+  const child = JSON.parse(fs.readFileSync(path.join(demoRoot, "focus-location/report.json"), "utf8"));
+  assert.deepEqual(validateMultiLocationPackage(parent, child), { parent, child });
+  assert.equal(parent.schemaVersion, 5);
+  assert.equal(parent.templateVersion, "growth-score-report-template/5.2.0");
+  assert.equal((renderGrowthReport(parent).match(/Start the 30-Day Growth Sprint/g) || []).length, 1);
+  assert.equal((renderGrowthReport(child).match(/Start the 30-Day Growth Sprint/g) || []).length, 0);
 });

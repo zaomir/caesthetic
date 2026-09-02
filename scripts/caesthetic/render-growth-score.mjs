@@ -9,13 +9,22 @@ import {
   selectedFocusGapIds,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 import {
+  executiveNetworkDecisionHtml,
   focusChildNavigationHtml,
   isMultiLocationFocusLocation,
   isMultiLocationNetworkParent,
+  networkCompetitorSummaryHtml,
   networkComparisonHtml,
   networkCoverageHtml,
+  networkEvidenceBoundaryHtml,
+  networkExecutiveDecisionHtml,
+  networkFocusDecisionHtml,
   networkJourneyAtlasHtml,
   networkMethodHtml,
+  networkOperationalPlanHtml,
+  networkOwnershipRolloutHtml,
+  networkPropagationHtml,
+  networkRiskProfileHtml,
   validateMultiLocationNetworkReport,
 } from "./multi-location-growth-score.mjs";
 import { buildMultiLocationPresentationModel } from "./multi-location-growth-score-view-model.mjs";
@@ -395,7 +404,9 @@ function focusGapCards(gaps, focus, { networkView = null } = {}) {
             <p><strong>Observed on:</strong> ${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))}</p>
             <p><strong>Why it matters:</strong> ${escapeHtml(gap.why_it_matters)}</p>
             ${longWork}
-            <p><strong>Who can do this:</strong> ${escapeHtml(gap.repair_plan.owner_role)}</p>
+            <p><strong>Owner:</strong> ${escapeHtml(networkGap.execution_owner_label)} · ${escapeHtml(networkGap.accountable_role)}</p>
+            <p><strong>Public baseline:</strong> ${escapeHtml(networkGap.public_baseline)}</p>
+            <p><strong>Day 30 public check:</strong> ${escapeHtml(networkGap.day_30_public_check)}</p>
             <details class="cae-focus-gap__details">
               <summary>Evidence, dependencies and implementation details</summary>
               <div>
@@ -1169,6 +1180,33 @@ function localizeReportHtml(html, locale) {
     [" broken", " разорванных"],
     [" not assessed", " не оценено"],
     ["Executive Overview", "Краткий обзор"],
+    ["Executive Network Decision Summary", "Краткое управленческое решение по сети"],
+    ["The five-minute implementation view", "Решение по внедрению за пять минут"],
+    ["Network Risk Profile", "Профиль рисков сети"],
+    ["What the public evidence says across reviewed locations", "Что показывают публичные доказательства по проверенным локациям"],
+    ["Why this focus location", "Почему выбрана эта фокусная локация"],
+    ["Pilot selection criteria", "Критерии выбора пилота"],
+    ["Not a performance ranking.", "Это не рейтинг эффективности бизнеса."],
+    ["30-day operational plan", "Операционный план на 30 дней"],
+    ["HQ, local and shared responsibility", "Ответственность центральной команды, локации и совместных владельцев"],
+    ["Who owns the repair — and when it can roll out", "Кто отвечает за исправление и когда его можно тиражировать"],
+    ["What to replicate across the network", "Что стоит тиражировать по сети"],
+    ["Observed strengths worth standardizing", "Наблюдаемые сильные стороны для стандартизации"],
+    ["Competitive signal", "Конкурентный сигнал"],
+    ["What the named comparators change in the decision", "Как выбранные конкуренты влияют на решение"],
+    ["Public evidence boundary", "Граница публичных доказательств"],
+    ["What this audit can prove — and what remains unassessed", "Что этот аудит подтверждает, а что остаётся неоценённым"],
+    ["CMO decisions", "Решения директора по маркетингу"],
+    ["Approve the pilot, owners and scale gate", "Утвердить пилот, владельцев и условие тиражирования"],
+    [">Protect<", ">Защитить<"],
+    [">Fix first<", ">Исправить в первую очередь<"],
+    [">Shared issue<", ">Общая проблема<"],
+    [">Pilot<", ">Пилот<"],
+    [">Scale rule<", ">Правило тиражирования<"],
+    [">Decision required<", ">Требуемое решение<"],
+    [">Criterion<", ">Критерий<"],
+    [">Assessment<", ">Оценка<"],
+    [">Public evidence<", ">Публичные доказательства<"],
     ["Human-approved diagnosis", "Диагноз, утверждённый человеком"],
     ["Exactly Top 3 Focus Gaps", "Ровно 3 фокусных разрыва"],
     ["Exactly Top 3", "Ровно 3"],
@@ -1560,6 +1598,14 @@ export function renderGrowthReport(report) {
   const inventoryCount = diagnosis.gap_inventory.length;
   const focus = diagnosis.focus_selection;
   const focusCount = selectedFocusGapIds(focus).length;
+  const preparedDate = (() => {
+    const raw = report.practice.preparedAt;
+    if (!isNetworkParent && !isFocusLocationChild) return raw;
+    const parsed = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? new Date(`${raw}T00:00:00Z`) : null;
+    if (!parsed || !Number.isFinite(parsed.valueOf())) return raw;
+    const locale = ({ en: "en-US", ru: "ru-RU", es: "es-ES", fr: "fr-FR", uk: "uk-UA" })[report.reportContext?.report_locale] || "en-US";
+    return new Intl.DateTimeFormat(locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(parsed);
+  })();
 
   const html = `<!doctype html>
 <html lang="${report.reportContext?.report_locale === "en" ? "en-US" : report.reportContext?.report_locale}" data-page="growth-score-report" data-report-kind="${isPilot ? "pilot" : escapeHtml(report.reportKind)}"${isPilot ? ` data-template-version="${escapeHtml(report.templateVersion)}"` : ""}>
@@ -1582,9 +1628,10 @@ ${isPilot ? "" : '<div id="cae-header-slot"></div>'}
       <header class="cae-report-header">
         <p class="cae-kicker">Executive Overview · ${kicker}</p>
         <h1>${escapeHtml(report.practice.name)}</h1>
-        <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Prepared ${escapeHtml(report.practice.preparedAt)}</p>
+        <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Prepared ${escapeHtml(preparedDate)}</p>
         <p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${VALERIE.role}</p>
       </header>
+      ${executiveNetworkDecisionHtml(report)}
       ${networkCoverageHtml(report)}
       ${focusChildNavigationHtml(report)}
       <div class="cae-report-hero__grid">
@@ -1609,7 +1656,7 @@ ${growthScoreIntroHtml(report)}
       <h2 class="cae-h2">${isNetworkParent ? "Where growth is currently constrained" : `Every confirmed hole. Only ${focusCount} selected to start.`}</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
-      ${isNetworkParent ? `${networkComparisonHtml(report)}${networkJourneyAtlasHtml(report)}` : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
+      ${isNetworkParent ? `${networkRiskProfileHtml(report)}${networkFocusDecisionHtml(report)}${networkComparisonHtml(report)}${networkJourneyAtlasHtml(report)}` : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
       ${isNetworkParent ? "" : surfaceSnapshotHtml(report, result)}
       ${isNetworkParent ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
@@ -1636,15 +1683,16 @@ ${growthScoreIntroHtml(report)}
   <section class="cae-section" id="sprint-fit" data-cockpit-order="3">
     <div class="cae-wrap">
       <p class="cae-kicker">Sprint Fit</p>
-      <h2 class="cae-h2">What can honestly close, start, or wait</h2>
-      ${sprintFitHtml(diagnosis.gap_inventory, focus)}
+      <h2 class="cae-h2">${isNetworkParent ? "30-day operational plan" : "What can honestly close, start, or wait"}</h2>
+      ${isNetworkParent ? networkOperationalPlanHtml(report) : sprintFitHtml(diagnosis.gap_inventory, focus)}
     </div>
   </section>
 
   <section class="cae-section cae-section--soft" id="repair-paths" data-cockpit-order="4">
     <div class="cae-wrap">
       <p class="cae-kicker">Repair paths</p>
-      <h2 class="cae-h2">Four valid ways forward</h2>
+      <h2 class="cae-h2">${isNetworkParent ? "Ownership and rollout logic" : "Four valid ways forward"}</h2>
+      ${isNetworkParent ? networkOwnershipRolloutHtml(report) : ""}
       <p>Want to implement the selected Focus Gaps yourself? You can.</p>
       <p><a class="cae-report-inline-link" href="#focus-gaps">View Focus Gap DIY steps</a></p>
       <div class="cae-report-paths">
@@ -1679,6 +1727,7 @@ ${growthScoreIntroHtml(report)}
     <div class="cae-wrap">
       <p class="cae-kicker">Full Problem / Gap Inventory</p>
       <h2 class="cae-h2">${inventoryCount} ${isNetworkParent ? "findings" : "holes"} reviewed</h2>
+      ${isNetworkParent ? networkPropagationHtml(report) : ""}
       <div class="cae-report-filters" role="toolbar" aria-label="Filter gaps">
         <button type="button" data-filter="all">All</button>
         <button type="button" data-filter="fix-now">Fix now</button>
@@ -1696,6 +1745,7 @@ ${growthScoreIntroHtml(report)}
       <h2 class="cae-h2">${isNetworkParent ? "Evidence behind the priorities" : "Why the selected holes are real"}</h2>
       <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} ${isNetworkParent ? "" : `<small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small>`}</p>
       <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
+      ${isNetworkParent ? networkCompetitorSummaryHtml(report) : ""}
       ${isNetworkParent ? `
       <details class="cae-report-disclosure-panel">
         <summary>Competitive Decision Analysis</summary>
@@ -1718,6 +1768,7 @@ ${competitorRows(diagnosis.competitors)}
       <p class="cae-kicker">Approximate / secondary navigation</p>
       <h2 class="cae-h2">Scores and methodology</h2>
       <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
+      ${isNetworkParent ? networkEvidenceBoundaryHtml(report) : ""}
       ${isNetworkParent ? networkMethodHtml(report) : `<div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>`}
       <div class="cae-report-method__grid">
         <div>
@@ -1744,6 +1795,7 @@ ${competitorRows(diagnosis.competitors)}
         <p><strong>Do Not Fund Yet:</strong> ${escapeHtml(diagnosis.do_not_do.title)}</p>
       </div>
       ${leadToRevenueMapHtml()}
+      ${isNetworkParent ? networkExecutiveDecisionHtml(report) : ""}
       ${isFocusLocationChild ? `
         <p class="cae-kicker">Multi-Location package</p>
         <h2 class="cae-h2">Return to the network implementation decision</h2>

@@ -9,6 +9,7 @@ import {
 
 export { GROWTH_SCORE_REPORT_TEMPLATE_VERSION };
 export const LEGACY_GROWTH_SCORE_V4_TEMPLATE_VERSION = "growth-score-report-template/4.0.0";
+export const MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION = "multi-location-growth-score/1.1.0";
 
 const labels = Object.freeze({
   search: "Search",
@@ -361,6 +362,10 @@ function networkGapSlot(gap) {
         done_when_focus_location: "__FOCUS_LOCATION_ACCEPTANCE_EVIDENCE__",
         done_when_network_rollout: "__NETWORK_ROLLOUT_ACCEPTANCE_EVIDENCE__",
       },
+      execution_owner: "__HQ_LOCAL_OR_SHARED__",
+      accountable_role: "__NAMED_ACCOUNTABLE_ROLE__",
+      public_baseline: "__PUBLIC_BASELINE_BEFORE_SPRINT__",
+      day_30_public_check: "__PUBLIC_DAY_30_VERIFICATION__",
     },
   };
 }
@@ -377,6 +382,7 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
   const report = createGrowthScoreReportTemplate();
   report.audit = {
     format: "multi_location",
+    profile_version: MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
     package_role: packageRole,
     project_id: "__AUDIT_PROJECT_ID__",
     access_group_id: "__ACCESS_GROUP_ID__",
@@ -395,6 +401,24 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
       reviewed_location_count: null,
       focus_location_id: "__FOCUS_LOCATION_ID__",
       focus_location_selection_rationale: "__HUMAN_APPROVED_PUBLIC_EVIDENCE_RATIONALE__",
+      focus_decision: {
+        not_business_performance_ranking: true,
+        manager_rationale: "__HUMAN_APPROVED_FOCUS_LOCATION_RATIONALE__",
+        criteria: [
+          { id: "public_journey_risk", assessment: "__PUBLIC_JOURNEY_RISK_ASSESSMENT__", evidence_refs: [] },
+          { id: "evidence_confidence", assessment: "__EVIDENCE_CONFIDENCE_ASSESSMENT__", evidence_refs: [] },
+          { id: "thirty_day_feasibility", assessment: "__THIRTY_DAY_FEASIBILITY_ASSESSMENT__", evidence_refs: [] },
+          { id: "network_learning_value", assessment: "__NETWORK_LEARNING_VALUE_ASSESSMENT__", evidence_refs: [] },
+        ],
+      },
+      executive_summary: {
+        protect: "__PUBLIC_STRENGTH_TO_PROTECT__",
+        fix_first: "__FIRST_NETWORK_REPAIR__",
+        shared_issue: "__SHARED_NETWORK_ISSUE__",
+        pilot: "__FOCUS_LOCATION_PILOT__",
+        scale_rule: "__PUBLIC_EVIDENCE_SCALE_RULE__",
+        decision_required: "__CMO_DECISION_REQUIRED__",
+      },
       locations: [
         {
           id: "__LOCATION_ID__",
@@ -427,6 +451,15 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
       ],
       repeated_patterns: [],
       comparison_matrix: [],
+      propagation_candidates: [],
+      publication_approval: {
+        status: "pending",
+        approved_by: null,
+        approved_at: null,
+        focus_location_id: "__FOCUS_LOCATION_ID__",
+        selected_gap_ids: [],
+        public_sources_only: true,
+      },
     };
   }
   return report;

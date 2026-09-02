@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.6
+version: 2.7
 created: 2026-08-30
 updated: 2026-09-02
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
@@ -402,6 +402,8 @@ The page shows the exactly three human-approved highest-risk Focus Gaps first. S
 
 ### 11.2 Multi-Location Growth Score
 
+All newly authored packages use additive profile `multi-location-growth-score/1.1.0` while retaining `schemaVersion=5` and `templateVersion=growth-score-report-template/5.2.0`. Older packages without a profile marker remain readable; they are not silently upgraded.
+
 Render the same shared unnumbered Intro first, adapted only to network/locations wording, then one parent network cockpit with the same nine-section narrative order:
 
 1. Network Gap Map;
@@ -423,6 +425,8 @@ The hero must state:
 - selected focus location;
 - `View the full Growth Score for [Location]`.
 
+Before those coverage details, the hero renders an Executive Network Decision Summary with **Protect / Fix first / Shared issue / Pilot / Scale rule / Decision required**. These fields are frozen with the approved diagnosis and do not create a Network Score.
+
 The child page is a complete current schema-v5 Growth Score for that focus location. Each selected gap carries `shared_asset`, `repeated_pattern` or `focus_location` scope. The parent and child show the same ordered Top 3, one shared binding constraint and one Do Not Fund Yet. The parent may compare per-location surface evidence where coverage passes, but it must not create an aggregate Network Score.
 
 The parent profile additionally requires:
@@ -434,10 +438,14 @@ The parent profile additionally requires:
 - a location × Four Surfaces matrix using `Protect | Watch | Fix now | Needs verification`;
 - separate internal location comparison and external local-competitor comparison;
 - network-scope and pilot/replication acceptance fields on every selected gap.
+- a four-criterion focus-location decision card with evidence references and the explicit `not_business_performance_ranking=true` assertion;
+- per-selected-gap `execution_owner`, `accountable_role`, `public_baseline` and `day_30_public_check`;
+- approved propagation candidates with source/target locations, public evidence, standardization rule and limitation;
+- a publication approval card matching the named reviewer, selected focus location and ordered Top 3, with `public_sources_only=true`.
 
-The parent does not merge every location into one graph. In section 1 it renders the internal location × Four Surfaces comparison immediately after the Demand System, followed by a Network Overview derived from the approved topology, graph references and repeated-pattern index. Section 7 retains external competitor and metric/technical evidence in separate disclosure groups and does not repeat the internal matrix. The parent then links to the ordinary detailed Journey Graph of the focus location. The focus child uses single-location wording, not the network Intro.
+The parent does not merge every location into one graph. In section 1 it renders a derived Network Risk Profile and approved focus-selection criteria before the internal location × Four Surfaces comparison, followed by a Network Overview derived from the approved topology, graph references and repeated-pattern index. Section 7 shows a compact named-comparator decision summary, then retains external competitor and metric/technical evidence in separate disclosure groups without repeating the internal matrix. The parent links to the ordinary detailed Journey Graph of the focus location. The focus child uses single-location wording, not the network Intro.
 
-The parent renders its exact approved Top 3 once in section 2 as compact decision cards. Client-visible card summaries show scope, affected-location count, pilot, observed surface/journey, why the issue matters, reachable result and accountable role. Evidence IDs, dependencies, sprint detail and implementation instructions remain available under native progressive disclosure. The first four locations are visible; larger registries and matrices retain additional rows under native disclosure. Raw package states and evidence references remain unchanged and auditable.
+The parent renders its exact approved Top 3 once in section 2 as compact decision cards. Client-visible card summaries show scope, affected-location count, pilot, observed surface/journey, why the issue matters, reachable result, accountable ownership, public baseline and Day-30 public check. Evidence IDs, dependencies, sprint detail and implementation instructions remain available under native progressive disclosure. Section 3 converts those same priorities into Days 1–10, 11–20, 21–30 and a Day-30 protect/iterate/scale decision. Section 4 shows HQ/local/shared responsibility and rollout gates. Section 6 may surface approved replication candidates. Section 8 makes the public-evidence boundary explicit. Section 9 asks the CMO to approve pilot, owners and scale gate. The first four locations are visible; larger registries and matrices retain additional rows under native disclosure. Raw package states and evidence references remain unchanged and auditable.
 
 A selected gap must affect the focus location directly or through a shared asset used by it. Other branch-only gaps remain below in the Full Network Gap Inventory. The package has one commercial CTA on the parent; the child replaces its CTA with navigation back to the parent implementation decision.
 
@@ -600,6 +608,13 @@ An audit is deliverable only when all are true:
 - every reviewed location has a registry record, comparison row and reviewed Journey Graph reference;
 - every repeated pattern declares exact affected locations, evidence and N-of-M coverage;
 - every selected gap has approved scope plus focus-location pilot and later-replication acceptance evidence;
+- current Multi-Location profile marker is present on new parent and child reports;
+- focus location has four approved selection criteria with public evidence and is explicitly not presented as a business-performance ranking;
+- Network Risk Profile counts are derived from the comparison matrix, not stored or scored;
+- each selected gap has approved HQ/local/shared ownership, accountable role, public baseline and Day-30 public check;
+- propagation candidates and compact competitor decision summary are evidence-backed and limitations are visible;
+- public-evidence boundary distinguishes observable public findings from unassessed internal conversion/economics;
+- internal publication approval matches the named reviewer, focus location, ordered Top 3 and `public_sources_only=true`;
 - internal location comparison is separate from external competitor analysis;
 - internal location comparison appears once, before the Top 3, while external competitor and technical evidence remain progressive disclosures in section 7;
 - the Top 3 appears once as decision cards with complete detail available under native disclosure;

@@ -6,12 +6,25 @@ SATELLITE="${CAESTHETIC_AGENTS_DIR:-/var/lib/caesthetic-repo-sync/satellite}"
 LOCK="${CAESTHETIC_SYNC_LOCK:-/run/lock/caesthetic-repo-sync.lock}"
 STATE="${CAESTHETIC_SYNC_REMOTE_STATE:-/var/lib/caesthetic-repo-sync/remote-heads}"
 SATELLITE_URL="${CAESTHETIC_AGENTS_REPO_URL:-https://github.com/zaomir/caesthetic.git}"
+GRAINEE_AUTHORITY="${CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT:-$ROOT}"
+SATELLITE_AUTHORITY="${CAESTHETIC_SYNC_SATELLITE_AUTHORITY_ROOT:-$SATELLITE}"
+GRAINEE_AUTHORITY_REMOTE="${CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE:-origin}"
+SATELLITE_AUTHORITY_REMOTE="${CAESTHETIC_SYNC_SATELLITE_AUTHORITY_REMOTE:-origin}"
+
+remote_head() {
+  local authority="$1" remote="$2" fallback_url="$3"
+  if [[ -d "$authority/.git" ]]; then
+    git -C "$authority" ls-remote "$remote" refs/heads/main | awk 'NR == 1 {print $1}'
+  else
+    git ls-remote "$fallback_url" refs/heads/main | awk 'NR == 1 {print $1}'
+  fi
+}
 
 run_once() {
   set -euo pipefail
   local g_remote s_remote current previous
-  g_remote="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk 'NR == 1 {print $1}')"
-  s_remote="$(git ls-remote "$SATELLITE_URL" refs/heads/main | awk 'NR == 1 {print $1}')"
+  g_remote="$(remote_head "$GRAINEE_AUTHORITY" "$GRAINEE_AUTHORITY_REMOTE" "$(git -C "$ROOT" remote get-url origin)")"
+  s_remote="$(remote_head "$SATELLITE_AUTHORITY" "$SATELLITE_AUTHORITY_REMOTE" "$SATELLITE_URL")"
   test -n "$g_remote" && test -n "$s_remote"
   current="${g_remote} ${s_remote}"
   previous="$(cat "$STATE" 2>/dev/null || true)"
@@ -35,13 +48,13 @@ run_once() {
   fi
 
   # Capture post-push heads. A temporary file prevents a partial state write.
-  g_remote="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk 'NR == 1 {print $1}')"
-  s_remote="$(git ls-remote "$SATELLITE_URL" refs/heads/main | awk 'NR == 1 {print $1}')"
+  g_remote="$(remote_head "$GRAINEE_AUTHORITY" "$GRAINEE_AUTHORITY_REMOTE" "$(git -C "$ROOT" remote get-url origin)")"
+  s_remote="$(remote_head "$SATELLITE_AUTHORITY" "$SATELLITE_AUTHORITY_REMOTE" "$SATELLITE_URL")"
   printf '%s %s\n' "$g_remote" "$s_remote" > "${STATE}.tmp"
   mv "${STATE}.tmp" "$STATE"
   echo "CAESTHETIC_REPO_SYNC_APPLIED grainee=${g_remote:0:12} satellite=${s_remote:0:12}"
 }
 
-export -f run_once
-export INSTALL_ROOT ROOT SATELLITE STATE SATELLITE_URL
+export -f run_once remote_head
+export INSTALL_ROOT ROOT SATELLITE STATE SATELLITE_URL GRAINEE_AUTHORITY SATELLITE_AUTHORITY GRAINEE_AUTHORITY_REMOTE SATELLITE_AUTHORITY_REMOTE
 exec flock -n "$LOCK" bash -c run_once
