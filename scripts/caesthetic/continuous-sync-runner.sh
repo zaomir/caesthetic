@@ -25,6 +25,15 @@ run_once() {
     --satellite "$SATELLITE" \
     --apply --commit --push || return $?
 
+  # Publication is a separate fail-closed path. The ordinary DEC-829 mirror
+  # never copies a report into runtime; this processor imports only pinned,
+  # approved packages and deploys the resulting canonical grainee commit.
+  if [[ -f "$ROOT/scripts/caesthetic/publish-growth-score-control-plane.mjs" ]]; then
+    node "$ROOT/scripts/caesthetic/publish-growth-score-control-plane.mjs" poll \
+      --grainee "$ROOT" \
+      --satellite "$SATELLITE"
+  fi
+
   # Capture post-push heads. A temporary file prevents a partial state write.
   g_remote="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk 'NR == 1 {print $1}')"
   s_remote="$(git ls-remote "$SATELLITE_URL" refs/heads/main | awk 'NR == 1 {print $1}')"

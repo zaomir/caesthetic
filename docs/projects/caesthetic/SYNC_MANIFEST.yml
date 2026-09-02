@@ -27,9 +27,6 @@ excludes:
   - __pycache__
   - "*.pyc"
   - "*.pyo"
-  # The public satellite intentionally keeps a canonical pointer here instead
-  # of duplicating the production operating SSOT from grainee-v2.
-  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - site-caesthetic/private/**
   - site-caesthetic/score/aurora-medspa-x7k9m2/**
   - site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/**
@@ -48,9 +45,13 @@ excludes:
   - docs/projects/caesthetic/operations/growth-score-board.jsonl
   - docs/projects/caesthetic/operations/ig-growth/editorial-story-card/_hex-mark-52.png
 protected_in_target:
+  - deploy/systemd/caesthetic-repo-sync.service
+  - deploy/systemd/caesthetic-repo-sync.timer
   - site-caesthetic/**
   - docs/ssot/CAESTHETIC.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md
   - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
   - docs/caesthetic/growth_score_spec.md
@@ -59,9 +60,18 @@ protected_in_target:
   - scripts/caesthetic/growth-score-report-template.mjs
   - scripts/caesthetic/growth-score-select-focus.mjs
   - scripts/caesthetic/growth-score-workflow.mjs
+  - scripts/caesthetic/install-continuous-sync.sh
+  - scripts/caesthetic/publish-growth-score-control-plane.mjs
+  - scripts/caesthetic/publish-growth-score-deploy.sh
   - scripts/caesthetic/render-growth-score.mjs
+  - scripts/caesthetic/sync_agents_bidirectional.py
   - tests/caesthetic/growth-score-engine.test.mjs
   - tests/caesthetic/growth-score-journey-graph.test.mjs
   - tests/caesthetic/growth-score-renderer.test.mjs
+  - tests/caesthetic/growth-score-publish-control-plane.test.mjs
   - tests/caesthetic/growth-score-spec-canon.test.mjs
   - tests/caesthetic/satellite-growth-score-authoring.test.py
+  - scripts/caesthetic/asset-worker/poll.mjs
+  - scripts/caesthetic/asset-worker/repo-sync-worker.mjs
+  - scripts/caesthetic/caesthetic-repo-sync-contract.mjs
+  - scripts/caesthetic/continuous-sync-runner.sh

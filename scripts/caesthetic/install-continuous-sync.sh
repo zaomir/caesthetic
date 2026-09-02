@@ -88,7 +88,8 @@ prepare_isolated_clone() {
     git -C "$target_repo" sparse-checkout set \
       site-caesthetic docs/projects/caesthetic docs/caesthetic \
       docs/audits/caesthetic scripts/caesthetic tests/caesthetic docs/ssot \
-      agents/manifests deploy/systemd
+      agents/manifests deploy/systemd deploy/nginx vds/cron \
+      infra/cloudflare scripts/agent-api
     git -C "$target_repo" checkout main
   fi
   copy_git_auth_config "$source_repo" "$target_repo"
@@ -107,6 +108,7 @@ install -d -m 755 /etc/caesthetic-repo-sync
   printf 'CAESTHETIC_AGENTS_DIR=%q\n' "$SATELLITE_ROOT"
   printf 'CAESTHETIC_SYNC_LOCK=%q\n' "/run/lock/caesthetic-repo-sync.lock"
   printf 'CAESTHETIC_SYNC_REMOTE_STATE=%q\n' "$DATA_ROOT/remote-heads"
+  printf 'CAESTHETIC_PUBLISH_SECRETS_FILE=%q\n' "${CAESTHETIC_PUBLISH_SECRETS_FILE:-/etc/evo/secrets.env}"
 } > /etc/caesthetic-repo-sync/environment
 chmod 600 /etc/caesthetic-repo-sync/environment
 

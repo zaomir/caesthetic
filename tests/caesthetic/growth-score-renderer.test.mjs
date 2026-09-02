@@ -6,7 +6,7 @@ import test from "node:test";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { GROWTH_SCORE_REPORT_TEMPLATE_VERSION } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
-import { isUnguessableScoreSlug, renderGrowthReport, renderReportFile } from "../../scripts/caesthetic/render-growth-score.mjs";
+import { isAllowedRealScoreOutput, isUnguessableScoreSlug, renderGrowthReport, renderReportFile } from "../../scripts/caesthetic/render-growth-score.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const fixturePath = path.join(root, "site-caesthetic/score/demo-medical-aesthetics-search-gap/report.json");
@@ -184,6 +184,24 @@ test("the same renderer accepts an approved real report and enforces private rou
   }
 });
 
+test("a protected Multi-Location focus child is allowed only below its unguessable parent route", () => {
+  const report = structuredClone(fixture);
+  report.reportKind = "real";
+  report.audit = {
+    format: "multi_location",
+    package_role: "focus_location",
+    project_id: "private-network",
+    access_group_id: "private-network-access",
+    parent_route: "/score/private-network-0123456789abcdef/",
+    child_route: "/score/private-network-0123456789abcdef/focus-location/",
+    focus_location_id: "focus",
+  };
+  const allowed = path.join(root, "site-caesthetic/score/private-network-0123456789abcdef/focus-location/index.html");
+  const wrongParent = path.join(root, "site-caesthetic/score/guessable/focus-location/index.html");
+  assert.equal(isAllowedRealScoreOutput(report, allowed), true);
+  assert.equal(isAllowedRealScoreOutput(report, wrongParent), false);
+});
+
 test("Russian real reports render a Russian cockpit without changing English demos", (t) => {
   const route = "nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8";
   const reportPath = path.join(root, "site-caesthetic/score", route, "report.json");
@@ -278,9 +296,10 @@ test("real reports omit coordination counts that cannot be derived", () => {
   assert.doesNotMatch(html, /systems involved|specialist roles/);
 });
 
-test("Aesthetemed public-evidence test stays v4 historical, private and evidence-limited", () => {
+test("Aesthetemed public-evidence test stays v4 historical, private and evidence-limited", (t) => {
   const route = "aesthetemed-public-evidence-7c3e91b4a8f26d50";
   const directory = path.join(root, "site-caesthetic/score", route);
+  if (!fs.existsSync(path.join(directory, "report.json"))) return t.skip("private historical fixture is intentionally absent from the public satellite repository");
   const report = JSON.parse(fs.readFileSync(path.join(directory, "report.json"), "utf8"));
   const html = fs.readFileSync(path.join(directory, "index.html"), "utf8");
 
@@ -302,10 +321,12 @@ test("Aesthetemed public-evidence test stays v4 historical, private and evidence
   assert.equal(isUnguessableScoreSlug(route), true);
 });
 
-test("real and demo score routes stay out of the sitemap", () => {
+test("real and demo score routes stay out of the sitemap", (t) => {
   const sitemap = fs.readFileSync(path.join(root, "site-caesthetic/sitemap.xml"), "utf8");
   assert.doesNotMatch(sitemap, /\/score\//);
-  const retired = fs.readFileSync(path.join(root, "site-caesthetic/score/aurora-medspa-x7k9m2/index.html"), "utf8");
+  const retiredPath = path.join(root, "site-caesthetic/score/aurora-medspa-x7k9m2/index.html");
+  if (!fs.existsSync(retiredPath)) return t.skip("private retired fixture is intentionally absent from the public satellite repository");
+  const retired = fs.readFileSync(retiredPath, "utf8");
   assert.match(retired, /noindex,nofollow,noarchive,nosnippet/);
   assert.match(retired, /Retired sample/);
 });

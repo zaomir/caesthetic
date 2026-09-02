@@ -1778,6 +1778,20 @@ export function isUnguessableScoreSlug(slug) {
   return realScoreSlugPattern.test(String(slug));
 }
 
+export function isAllowedRealScoreOutput(report, outputPath) {
+  const outputDirectory = path.dirname(outputPath);
+  const outputSlug = path.basename(outputDirectory);
+  if (isUnguessableScoreSlug(outputSlug)) return true;
+  if (
+    report?.audit?.format === "multi_location"
+    && report.audit.package_role === "focus_location"
+    && isUnguessableScoreSlug(path.basename(path.dirname(outputDirectory)))
+    && report.audit.child_route === `/score/${path.basename(path.dirname(outputDirectory))}/${outputSlug}/`
+    && report.audit.parent_route === `/score/${path.basename(path.dirname(outputDirectory))}/`
+  ) return true;
+  return false;
+}
+
 function findReportPaths(root) {
   const reports = [];
   const visit = (directory) => {
@@ -1800,7 +1814,7 @@ export function renderReportFile(reportPath, { outputPath = path.join(path.dirna
     return null;
   }
   const isApprovedPilot = report.reportKind === "real" && report.presentation?.kind === "pilot";
-  if (report.reportKind === "real" && !isApprovedPilot && !isUnguessableScoreSlug(path.basename(path.dirname(outputPath)))) {
+  if (report.reportKind === "real" && !isApprovedPilot && !isAllowedRealScoreOutput(report, outputPath)) {
     throw new TypeError("Real Growth Score output must use an unguessable /score/<slug>/ directory");
   }
   const output = renderGrowthReport(report);

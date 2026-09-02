@@ -8,3 +8,5 @@
 - **Summary:** g2s=3 s2g=0 conflicts=0
 
 Production deploy still ships only from grainee-v2.
+
+Approved Growth Score publication is a separate exact-SHA allowlisted control plane; ordinary bidirectional mirroring never grants satellite deploy authority. Contract: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`.
