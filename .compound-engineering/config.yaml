@@ -1,0 +1,20 @@
+# CAESTHETIC Compound Engineering checkout defaults.
+# Business/domain authority remains in AGENTS.md and canonical SSOT files.
+
+docs_root: docs/compound-engineering
+
+# Keep external-provider review opt-in until a task is explicitly confirmed safe
+# for cross-provider disclosure.
+cross_model_review_mode: off
+
+# Let the active host implement by default. Per-run instructions may explicitly
+# route implementation to another supported harness/model.
+work_engine_mode: off
+
+# Keep planning checkpoints for product/risk-bearing changes.
+plan_skip_scoping_confirm: false
+
+# Markdown artifacts are easiest to diff, search, sync, and review.
+brainstorm_output: md
+plan_output: md
+ideate_output: md
