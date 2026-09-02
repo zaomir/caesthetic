@@ -1,0 +1,28 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-demo-multilocation-control-plane-20260902",
+  "type": "caesthetic_growth_score_publish",
+  "status": "error",
+  "source_satellite_sha": "a456473f389034c22c421eeff209a5fc0783bc17",
+  "package_sha256": "db333487108eb0f050189d26ef777261cdb41ea90aec632f2c5a836fbe245690",
+  "audit_format": "multi_location",
+  "project_id": "synthetic-publish-control-plane-multilocation-20260902",
+  "visibility": "synthetic",
+  "live_urls": [
+    "https://caesthetic.com/score/demo-publish-control-plane-network/",
+    "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/"
+  ],
+  "updated_at": "2026-09-02T23:59:44.442Z",
+  "canonical_imported_sha": null,
+  "deployed_sha": null,
+  "smoke": {
+    "ok": false,
+    "checks": []
+  },
+  "errors": [
+    {
+      "code": "publish_command_failed",
+      "message": "node_failed:ved reports auto-register while private client data stays out of public artifacts\n  ---\n  duration_ms: 49.872538\n  location: '/var/lib/caesthetic-repo-sync/grainee/tests/caesthetic/growth-score-routing-catalog.test.mjs:43:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    8 !== 7\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: 7\n  actual: 8\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///var/lib/caesthetic-repo-sync/grainee/tests/caesthetic/growth-score-routing-catalog.test.mjs:45:10)\n    Test.runInAsyncScope (node:async_hooks:206:9)\n    Test.run (node:internal/test_runner/test:796:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:526:18)\n    Test.postRun (node:internal/test_runner/test:889:19)\n    Test.run (node:internal/test_runner/test:835:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)\n  ...\n# Subtest: a newly approved report is discovered without a manual registry edit\nok 82 - a newly approved report is discovered without a manual registry edit\n  ---\n  duration_ms: 6.190394\n  ...\n# Subtest: a Multi-Location parent and focus"
+    }
+  ]
+}
