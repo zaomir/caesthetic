@@ -5,6 +5,12 @@
  * coverage and parent/child invariants without creating a Network Score.
  */
 
+import {
+  buildFocusLocationNavigationModel,
+  buildMultiLocationPresentationModel,
+  NETWORK_SURFACES,
+} from "./multi-location-growth-score-view-model.mjs";
+
 const LOCATION_STATES = new Set([
   "reviewed",
   "not_found",
@@ -232,61 +238,70 @@ function escapeHtml(value) {
   })[character]);
 }
 
-function stateLabel(state) {
-  return ({ protect: "Protect", watch: "Watch", fix_now: "Fix now", needs_verification: "Needs verification" })[state] || state;
-}
-
 export function networkCoverageHtml(report) {
   if (!isMultiLocationNetworkParent(report)) return "";
-  const network = report.network;
-  const focus = network.locations.find((location) => location.id === network.focus_location_id);
+  const view = buildMultiLocationPresentationModel(report);
   return `<section class="cae-network-summary" aria-label="Multi-Location coverage">
-    <div><span>Declared locations</span><strong>${escapeHtml(network.declared_location_count)}</strong></div>
-    <div><span>Reviewed locations</span><strong>${escapeHtml(network.reviewed_location_count)}</strong></div>
-    <div><span>Focus location</span><strong>${escapeHtml(focus?.name || network.focus_location_id)}</strong></div>
-    <div><span>Method</span><strong>Public sources only</strong></div>
-    <p>${escapeHtml(network.focus_location_selection_rationale)}</p>
-    <a class="cae-report-inline-link" href="${escapeHtml(report.audit.child_route)}">View the full Growth Score for ${escapeHtml(focus?.name || network.focus_location_id)}</a>
+    <div><span>Declared locations</span><strong>${escapeHtml(view.coverage.declared)}</strong></div>
+    <div><span>Reviewed locations</span><strong>${escapeHtml(view.coverage.reviewed)}</strong></div>
+    <div><span>Focus location</span><strong>${escapeHtml(view.focus_location.name)}</strong></div>
+    <div><span>Method</span><strong>${escapeHtml(view.coverage.method)}</strong></div>
+    <p>${escapeHtml(view.focus_location.rationale)}</p>
+    <a class="cae-network-focus-link" href="${escapeHtml(view.focus_location.route)}">
+      <span>Detailed location audit</span>
+      <strong>${escapeHtml(view.focus_location.name)}</strong>
+      <small>Open the complete location evidence and repair plan →</small>
+    </a>
+    <nav class="cae-network-jump" aria-label="Network report sections">
+      <a href="#network-comparison">Compare locations</a>
+      <a href="#focus-gaps">Top 3 priorities</a>
+      <a href="#evidence-and-competitors">Evidence</a>
+    </nav>
   </section>`;
 }
 
 export function networkJourneyAtlasHtml(report) {
   if (!isMultiLocationNetworkParent(report)) return "";
-  const network = report.network;
-  const locationCards = network.locations.map((location) => `<li data-location-state="${escapeHtml(location.state)}"${location.id === network.focus_location_id ? ' data-focus-location="true"' : ""}>
-    <strong>${escapeHtml(location.name)}</strong><span>${escapeHtml(location.public_location)}</span><small>${escapeHtml(location.state.replaceAll("_", " "))}</small>
-  </li>`).join("");
-  const patternCards = network.repeated_patterns.map((pattern) => `<article>
-    <span>${escapeHtml(pattern.surface.replaceAll("_", " "))}</span><h4>${escapeHtml(pattern.title)}</h4>
-    <p>Observed in ${escapeHtml(pattern.observed_in_reviewed_count)} of ${escapeHtml(network.reviewed_location_count)} reviewed locations.</p>
+  const view = buildMultiLocationPresentationModel(report);
+  const locationCard = (location) => `<li data-location-state="${escapeHtml(location.state)}"${location.is_focus ? ' data-focus-location="true"' : ""}>
+    <strong>${escapeHtml(location.name)}</strong><span>${escapeHtml(location.public_location)}</span><small>${escapeHtml(location.state_label)}</small>
+  </li>`;
+  const locationCards = view.primary_locations.map(locationCard).join("");
+  const additionalLocations = view.additional_locations.length ? `<details class="cae-network-more"><summary>View ${escapeHtml(view.additional_locations.length)} more locations</summary><ul class="cae-network-atlas__locations">${view.additional_locations.map(locationCard).join("")}</ul></details>` : "";
+  const patternCards = view.repeated_patterns.map((pattern) => `<article>
+    <span>${escapeHtml(pattern.surface_label)}</span><h4>${escapeHtml(pattern.title)}</h4>
+    <p>Observed in ${escapeHtml(pattern.observed_in_reviewed_count)} of ${escapeHtml(view.coverage.reviewed)} reviewed locations.</p>
   </article>`).join("");
-  return `<section class="cae-network-atlas" aria-labelledby="network-atlas-title">
-    <p class="cae-kicker">Network Journey Atlas</p>
-    <h3 class="cae-report-subhead" id="network-atlas-title">One network. Different public journeys.</h3>
-    <p>The map separates shared assets from location-specific evidence. It does not calculate an aggregate Network Score.</p>
-    <div class="cae-network-atlas__assets"><div><span>Shared assets</span><strong>${escapeHtml(network.shared_assets.length)}</strong></div><div><span>Local assets</span><strong>${escapeHtml(network.local_assets.length)}</strong></div><div><span>Reviewed journey graphs</span><strong>${escapeHtml(network.location_graph_refs.length)}</strong></div></div>
+  return `<section class="cae-network-atlas" aria-labelledby="network-overview-title">
+    <p class="cae-kicker">Network overview</p>
+    <h3 class="cae-report-subhead" id="network-overview-title">What is shared, local and repeated</h3>
+    <p>Only equivalent evidence visible in public sources is compared across locations.</p>
+    <div class="cae-network-atlas__assets"><div><span>Shared assets</span><strong>${escapeHtml(view.asset_counts.shared)}</strong></div><div><span>Local assets</span><strong>${escapeHtml(view.asset_counts.local)}</strong></div><div><span>Reviewed journeys</span><strong>${escapeHtml(view.asset_counts.journey_graphs)}</strong></div></div>
     <ul class="cae-network-atlas__locations">${locationCards}</ul>
+    ${additionalLocations}
     <div class="cae-network-patterns">${patternCards}</div>
   </section>`;
 }
 
 export function networkFocusScopeHtml(report) {
   if (!isMultiLocationNetworkParent(report)) return "";
-  const gaps = selectedGaps(report);
-  return `<div class="cae-network-focus-scopes">${gaps.map((gap) => `<article><span>${escapeHtml(gap.network_scope.scope.replaceAll("_", " "))}</span><strong>${escapeHtml(gap.title)}</strong><small>Affects ${escapeHtml(gap.network_scope.affected_location_ids.length)} reviewed location(s) · pilot: ${escapeHtml(report.network.focus_location_id)}</small></article>`).join("")}</div>`;
+  const view = buildMultiLocationPresentationModel(report);
+  return `<div class="cae-network-focus-scopes">${view.selected_gaps.map((gap) => `<article><span>${escapeHtml(gap.scope_label)}</span><strong>${escapeHtml(gap.title)}</strong><small>Affects ${escapeHtml(gap.affected_location_label)} · pilot: ${escapeHtml(gap.pilot_location_name)}</small></article>`).join("")}</div>`;
 }
 
 export function networkComparisonHtml(report) {
   if (!isMultiLocationNetworkParent(report)) return "";
-  const network = report.network;
-  const names = new Map(network.locations.map((location) => [location.id, location.name]));
-  const header = SURFACES.map((surface) => `<th scope="col">${escapeHtml(surface)}</th>`).join("");
-  const rows = network.comparison_matrix.map((row) => `<tr${row.location_id === network.focus_location_id ? ' data-focus-location="true"' : ""}><th scope="row">${escapeHtml(names.get(row.location_id) || row.location_id)}</th>${SURFACES.map((surface) => `<td data-surface="${escapeHtml(surface)}" data-state="${escapeHtml(row[surface].state)}"><strong>${escapeHtml(stateLabel(row[surface].state))}</strong><span>${escapeHtml(row[surface].summary)}</span></td>`).join("")}</tr>`).join("");
-  return `<section class="cae-network-comparison" aria-labelledby="network-comparison-title">
+  const view = buildMultiLocationPresentationModel(report);
+  const header = NETWORK_SURFACES.map((surface) => `<th scope="col">${escapeHtml(surface === "search" ? "Search" : surface[0].toUpperCase() + surface.slice(1))}</th>`).join("");
+  const rowsHtml = (rows) => rows.map((row) => `<tr${row.is_focus ? ' data-focus-location="true"' : ""}><th scope="row">${escapeHtml(row.location_name)}${row.is_focus ? "<small>Focus location</small>" : ""}</th>${row.cells.map((cell) => `<td data-surface="${escapeHtml(cell.surface_label)}" data-state="${escapeHtml(cell.state)}"><strong>${escapeHtml(cell.state_label)}</strong><span>${escapeHtml(cell.summary)}</span></td>`).join("")}</tr>`).join("");
+  const tableHtml = (rows, label) => `<div class="cae-table-scroll"><table aria-label="${escapeHtml(label)}"><thead><tr><th scope="col">Location</th>${header}</tr></thead><tbody>${rowsHtml(rows)}</tbody></table></div>`;
+  const additionalRows = view.additional_comparison_rows.length ? `<details class="cae-network-more"><summary>Compare ${escapeHtml(view.additional_comparison_rows.length)} more reviewed locations</summary>${tableHtml(view.additional_comparison_rows, "Additional reviewed locations")}</details>` : "";
+  return `<section class="cae-network-comparison" id="network-comparison" aria-labelledby="network-comparison-title">
     <p class="cae-kicker">Internal network comparison</p>
-    <h3 class="cae-report-subhead" id="network-comparison-title">What should be protected, repaired or propagated</h3>
+    <h3 class="cae-report-subhead" id="network-comparison-title">Where each location needs protection, attention or repair</h3>
     <p>Locations are compared only on equivalent public evidence. They are not ranked as businesses.</p>
-    <div class="cae-table-scroll"><table><thead><tr><th scope="col">Location</th>${header}</tr></thead><tbody>${rows}</tbody></table></div>
+    ${tableHtml(view.primary_comparison_rows, "Location comparison across the Four Surfaces")}
+    ${additionalRows}
   </section>`;
 }
 
@@ -297,5 +312,6 @@ export function networkMethodHtml(report) {
 
 export function focusChildNavigationHtml(report) {
   if (!isMultiLocationFocusLocation(report)) return "";
-  return `<section class="cae-network-child-nav" role="navigation" aria-label="Multi-Location package"><p>This location report is part of one Multi-Location Growth Score package.</p><a class="cae-report-inline-link" href="${escapeHtml(report.audit.parent_route)}">Back to the network analysis</a></section>`;
+  const view = buildFocusLocationNavigationModel(report);
+  return `<nav class="cae-network-child-nav" aria-label="Multi-Location package"><ol><li><a href="${escapeHtml(view.parent_route)}">Network analysis</a></li><li aria-current="page">${escapeHtml(view.location_name)}</li></ol></nav>`;
 }

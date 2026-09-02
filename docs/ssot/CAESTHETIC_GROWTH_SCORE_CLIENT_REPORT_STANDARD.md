@@ -364,7 +364,7 @@ Multi-Location is an additive profile of this same schema-v5 report, not a secon
 
 The parent uses the same unnumbered Intro and nine machine sections. Its owner-facing sequence is:
 
-**Network owner tension → declared/reviewed coverage → Network Journey Atlas → Four-Surface network snapshot → repeated/shared break patterns → exact Top 3 → internal location comparison → external competitor decision → network synthesis → pilot/replication decision → Lead-to-Revenue boundary → one package CTA → founder note.**
+**Network owner tension → declared/reviewed coverage and focus-location link → Primary Constraint → internal location comparison → network overview of shared/local assets and repeated patterns → exact Top 3 → external competitor decision → network synthesis → pilot/replication decision → Lead-to-Revenue boundary → one package CTA → founder note.**
 
 The network parent must render:
 
@@ -378,6 +378,15 @@ The network parent must render:
 - a location × Four Surfaces comparison using **Protect / Watch / Fix now / Needs verification**;
 - one best observed public-surface practice worth propagating, without calling that branch the best business performer;
 - the same exact Primary plus two Supporting gaps as the focus child.
+
+Inside the immutable nine-section contract, the parent presentation is decision-first:
+
+- section 1 renders the internal location comparison immediately after the Demand System and before the Network Overview; section 7 must not repeat that matrix;
+- the Network Overview summarizes shared assets, local assets, reviewed journeys, branch state and repeated patterns; raw machine states remain in the package, while the page uses plain client-facing labels;
+- section 2 renders the approved Top 3 exactly once as compact decision cards; the Primary Gap carries the strongest desktop emphasis, and evidence, dependencies and implementation detail sit in a native disclosure control;
+- section 7 keeps external Competitive Decision Analysis and metric/technical evidence as separate disclosure groups;
+- the first four locations remain visible and any additional locations use progressive disclosure without being removed from the HTML or evidence package;
+- the focus child uses a compact `Network analysis → Focus location` breadcrumb and no second commercial CTA.
 
 The parent does not force every asset and every branch into one Journey Graph. It uses a network topology/asset registry, per-location graph references and a reviewed repeated-pattern index. The parent may emphasize the focus-location path and a small number of repeated paths, but must not render an unreadable all-branch graph or infer a network-wide pattern from partial coverage.
 
@@ -400,7 +409,7 @@ The Lead-to-Revenue Map remains gray/not assessed for the network and each branc
 
 The package has one commercial decision and one Sprint CTA on the network parent. The focus child replaces its commercial CTA with navigation back to the parent's implementation decision. The child may not create a second scope, second Top 3 or second commercial funnel.
 
-At approximately **360–430px**, the parent defaults to the focus location, renders locations as cards/selectable views rather than a compressed wide matrix, shows one representative path at a time, contains table overflow and preserves all evidence/state IDs. Desktop may show the comparison matrix, but the body must never overflow horizontally.
+At approximately **360–430px**, the parent defaults to the focus location, renders locations as stacked cards rather than a compressed wide matrix, shows one representative path at a time, contains table overflow and preserves all evidence/state IDs. Desktop may show the comparison matrix, but the body must never overflow horizontally. Interactive links and disclosure summaries use at least 44px targets, and the presentation remains useful when JavaScript is unavailable.
 
 Internal review anchors remain **1101–1109** per page and are disambiguated by package role and location ID in review records. They still disappear from final client source.
 
@@ -527,3 +536,6 @@ Do not:
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
 The report should make the owner feel **clearer and more capable of making the next decision**, while keeping CAESTHETIC's commercial value grounded in evidence, coordination and accountable implementation rather than information asymmetry.
+
+
+

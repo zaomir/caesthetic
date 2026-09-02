@@ -14,11 +14,11 @@ import {
   isMultiLocationNetworkParent,
   networkComparisonHtml,
   networkCoverageHtml,
-  networkFocusScopeHtml,
   networkJourneyAtlasHtml,
   networkMethodHtml,
   validateMultiLocationNetworkReport,
 } from "./multi-location-growth-score.mjs";
+import { buildMultiLocationPresentationModel } from "./multi-location-growth-score-view-model.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");
@@ -372,7 +372,7 @@ ${gaps.map((gap) => {
         </ol>`;
 }
 
-function focusGapCards(gaps, focus) {
+function focusGapCards(gaps, focus, { networkView = null } = {}) {
   const selected = selectedFocusGapIds(focus)
     .map((id) => gaps.find((gap) => gap.id === id))
     .filter(Boolean);
@@ -385,6 +385,33 @@ function focusGapCards(gaps, focus) {
     const dependency = gap.id === focus.primary_gap_id
       ? "This is the Primary Gap. Supporting repairs depend on it."
       : `Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.`;
+    const networkGap = networkView?.selected_gaps.find((item) => item.id === gap.id);
+    if (networkGap) {
+      return `
+          <article class="cae-focus-gap" id="gap-${escapeHtml(gap.id)}" data-gap-role="${marker.kind}" data-network-scope="${escapeHtml(gap.network_scope.scope)}">
+            <p class="cae-focus-gap__rank" aria-label="${escapeHtml(marker.label)}">${FOCUS_RANKS[index]} · ${escapeHtml(marker.label)}</p>
+            <p class="cae-focus-gap__scope"><span>${escapeHtml(networkGap.scope_label)}</span> Affects ${escapeHtml(networkGap.affected_location_label)} · pilot: ${escapeHtml(networkGap.pilot_location_name)}</p>
+            <h3>${escapeHtml(gap.title)}</h3>
+            <p><strong>Observed on:</strong> ${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))}</p>
+            <p><strong>Why it matters:</strong> ${escapeHtml(gap.why_it_matters)}</p>
+            ${longWork}
+            <p><strong>Who can do this:</strong> ${escapeHtml(gap.repair_plan.owner_role)}</p>
+            <details class="cae-focus-gap__details">
+              <summary>Evidence, dependencies and implementation details</summary>
+              <div>
+                <p><strong>Evidence references:</strong> ${refs(gap.evidence_refs)}</p>
+                <p><strong>Why this priority:</strong> ${escapeHtml(focus.rationale)}</p>
+                <p><strong>Primary dependency:</strong> ${escapeHtml(dependency)}</p>
+                <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></p>
+                <p><strong>Done when:</strong></p>
+                <ul>${stringList(gap.repair_plan.done_when)}</ul>
+                <h4>DIY instruction</h4>
+                <ol>${stringList(gap.repair_plan.diy_steps)}</ol>
+                <p class="cae-report-note">CAESTHETIC can separately confirm written Sprint scope for the selected Focus Gaps. These DIY steps are not Sprint commitments.</p>
+              </div>
+            </details>
+          </article>`;
+    }
     return `
           <article class="cae-focus-gap" id="gap-${escapeHtml(gap.id)}" data-gap-role="${marker.kind}">
             <p class="cae-focus-gap__rank cae-status-pill" aria-label="${escapeHtml(marker.label)}">${FOCUS_RANKS[index]} · ${escapeHtml(marker.label)}</p>
@@ -1494,6 +1521,7 @@ export function renderGrowthReport(report) {
   const isNetworkParent = isMultiLocationNetworkParent(report);
   const isFocusLocationChild = isMultiLocationFocusLocation(report);
   if (isNetworkParent) validateMultiLocationNetworkReport(report);
+  const networkView = isNetworkParent ? buildMultiLocationPresentationModel(report) : null;
   const result = scoreGrowthReport(report);
   const isDemo = report.reportKind === "demo";
   const isPilot = report.presentation?.kind === "pilot";
@@ -1535,7 +1563,7 @@ export function renderGrowthReport(report) {
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
   <link rel="stylesheet" href="/assets/css/growth-report.css">
 </head>
-<body class="cae-score-report">
+<body class="cae-score-report${isNetworkParent ? " cae-score-report--multi-location" : ""}${isFocusLocationChild ? " cae-score-report--focus-location" : ""}">
 ${disclosure}
 ${isPilot ? "" : '<div id="cae-header-slot"></div>'}
 <main>
@@ -1568,10 +1596,10 @@ ${growthScoreIntroHtml(report)}
   <section class="cae-section" id="gap-map" data-cockpit-order="1">
     <div class="cae-wrap">
       <p class="cae-kicker">Gap Map · Human-approved diagnosis</p>
-      <h2 class="cae-h2">Every confirmed hole. Only ${focusCount} selected to start.</h2>
+      <h2 class="cae-h2">${isNetworkParent ? "Where growth is currently constrained" : `Every confirmed hole. Only ${focusCount} selected to start.`}</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
-      ${isNetworkParent ? networkJourneyAtlasHtml(report) : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
+      ${isNetworkParent ? `${networkComparisonHtml(report)}${networkJourneyAtlasHtml(report)}` : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
       ${isNetworkParent ? "" : surfaceSnapshotHtml(report, result)}
       ${isNetworkParent ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
@@ -1588,11 +1616,10 @@ ${growthScoreIntroHtml(report)}
   <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="2">
     <div class="cae-wrap">
       <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
-      <h2 class="cae-h2">Exactly three human-approved holes</h2>
+      <h2 class="cae-h2">${isNetworkParent ? "Three validated priorities" : "Exactly three human-approved holes"}</h2>
       <p>${escapeHtml(focus.rationale)}</p>
-      ${networkFocusScopeHtml(report)}
-      <ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>
-      <div class="cae-focus-gaps">${focusGapCards(diagnosis.gap_inventory, focus)}</div>
+      ${isNetworkParent ? "" : `<ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>`}
+      <div class="cae-focus-gaps${isNetworkParent ? " cae-focus-gaps--network" : ""}">${focusGapCards(diagnosis.gap_inventory, focus, { networkView })}</div>
     </div>
   </section>
 
@@ -1641,7 +1668,7 @@ ${growthScoreIntroHtml(report)}
   <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="6">
     <div class="cae-wrap">
       <p class="cae-kicker">Full Problem / Gap Inventory</p>
-      <h2 class="cae-h2">${inventoryCount} holes reviewed</h2>
+      <h2 class="cae-h2">${inventoryCount} ${isNetworkParent ? "findings" : "holes"} reviewed</h2>
       <div class="cae-report-filters" role="toolbar" aria-label="Filter gaps">
         <button type="button" data-filter="all">All</button>
         <button type="button" data-filter="fix-now">Fix now</button>
@@ -1656,14 +1683,23 @@ ${growthScoreIntroHtml(report)}
   <section class="cae-section" id="evidence-and-competitors" data-cockpit-order="7">
     <div class="cae-wrap">
       <p class="cae-kicker">Evidence and competitors</p>
-      <h2 class="cae-h2">Why the selected holes are real</h2>
-      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} <small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small></p>
+      <h2 class="cae-h2">${isNetworkParent ? "Evidence behind the priorities" : "Why the selected holes are real"}</h2>
+      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} ${isNetworkParent ? "" : `<small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small>`}</p>
       <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
-      ${isNetworkParent ? networkComparisonHtml(report) : (result.journeyGraph ? journeyGraphEvidenceDetailsHtml(report) : "")}
+      ${isNetworkParent ? `
+      <details class="cae-report-disclosure-panel">
+        <summary>Competitive Decision Analysis</summary>
+        <div>${competitorRows(diagnosis.competitors)}</div>
+      </details>
+      <details class="cae-report-disclosure-panel">
+        <summary>Metric evidence and technical references</summary>
+        <div>${evidenceAccordion(report, result)}</div>
+      </details>` : `
+      ${result.journeyGraph ? journeyGraphEvidenceDetailsHtml(report) : ""}
       <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
 ${competitorRows(diagnosis.competitors)}
       <h3 class="cae-report-subhead">Metric drill-down</h3>
-      ${evidenceAccordion(report, result)}
+      ${evidenceAccordion(report, result)}`}
     </div>
   </section>
 
@@ -1788,3 +1824,4 @@ function runCli() {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) runCli();
+

@@ -521,7 +521,9 @@ There is no other metric catalogue, scoring authority or renderer authority. A c
 
 A `network_parent` adds the network registry, declared/reviewed coverage, shared and local public assets, per-location Journey Graph references, repeated-pattern evidence, location × Four Surfaces comparison and network scope/rollout fields for the exact Top 3. A `focus_location` remains a complete ordinary schema-v5 report and adds only the package envelope and parent navigation.
 
-The canonical renderer selects the network presentation profile only for `audit.format=multi_location` plus `audit.package_role=network_parent`. A focus child uses the ordinary location visual profile. Parent and child package validation must fail on identity, access group, route, focus location, ordered Top 3, binding constraint or Do Not Fund Yet mismatch. The parent must fail if any reviewed location lacks a comparison row or reviewed Journey Graph reference, or if an aggregate Network Score field is supplied.
+The canonical renderer selects the network presentation profile only for `audit.format=multi_location` plus `audit.package_role=network_parent`. `scripts/caesthetic/multi-location-growth-score-view-model.mjs` is the pure client-presentation adapter: it may derive labels, focus-first ordering, affected-location summaries and progressive-disclosure groups, but it must not mutate evidence, scores, coverage, the binding constraint or the manager-approved Top 3. A focus child uses the ordinary location visual profile. Parent and child package validation must fail on identity, access group, route, focus location, ordered Top 3, binding constraint or Do Not Fund Yet mismatch. The parent must fail if any reviewed location lacks a comparison row or reviewed Journey Graph reference, or if an aggregate Network Score field is supplied.
+
+Within the same nine-section order, a network parent renders its internal location comparison once inside `gap-map`, immediately after the Demand System and before the shared/local/repeated Network Overview. `focus-gaps` renders one compact card per approved priority and moves evidence IDs, dependency, sprint and implementation detail into native disclosure. `evidence-and-competitors` keeps external competitor analysis and metric/technical references in separate native disclosure groups; it does not repeat the internal location matrix. Additional locations after the first four remain in the document under disclosure. The focus child renders a parent breadcrumb and no second commercial CTA.
 
 ### 6.1 Canonical client-facing cockpit order
 
@@ -669,3 +671,5 @@ Growth Score is not complete until production tests prove all of the following:
 - the active `Lead-to-Revenue Check · $500` direct-continuation Sprint credit rule, with all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
 
 Any legacy scorer may remain only as a thin CLI/import wrapper around the one production scoring authority. Two independent metric catalogues or scoring implementations are forbidden.
+
+

@@ -8,6 +8,9 @@ import {
   validateMultiLocationNetworkReport,
   validateMultiLocationPackage,
 } from "../../scripts/caesthetic/multi-location-growth-score.mjs";
+import {
+  buildMultiLocationPresentationModel,
+} from "../../scripts/caesthetic/multi-location-growth-score-view-model.mjs";
 import { renderGrowthReport } from "../../scripts/caesthetic/render-growth-score.mjs";
 import { createV5Report } from "./helpers/growth-score-v5-fixture.mjs";
 
@@ -27,7 +30,7 @@ function networkScope(scope, affected) {
   };
 }
 
-function packageFixture() {
+export function packageFixture() {
   const parent = createV5Report(undefined, {
     practice: { name: "Fixture Network", location: "Two fictional markets", preparedAt: "2026-09-02", preparedFor: "Fixture owner" },
   });
@@ -134,23 +137,46 @@ test("fails closed on coverage, package priority or aggregate-score drift", () =
   assert.throws(() => validateMultiLocationNetworkReport(score.parent), /aggregate Network Score/);
 });
 
-test("network parent renders coverage, atlas, internal comparison and no network score navigator", () => {
+test("network presentation model translates audit data without changing the approved priorities", () => {
+  const { parent } = packageFixture();
+  const view = buildMultiLocationPresentationModel(parent);
+  assert.deepEqual(view.coverage, {
+    declared: 3,
+    reviewed: 2,
+    not_reviewed: 1,
+    method: "Public sources only",
+  });
+  assert.equal(view.locations[0].name, "Focus Location");
+  assert.equal(view.locations.at(-1).state_label, "Not verified");
+  assert.deepEqual(view.selected_gaps.map((gap) => gap.id), ["search-gap", "booking-gap", "proof-gap"]);
+  assert.deepEqual(view.selected_gaps.map((gap) => gap.scope_label), ["Focus location", "Shared system", "Repeated pattern"]);
+  assert.equal(view.primary_comparison_rows[0].location_name, "Focus Location");
+});
+
+test("network parent renders early comparison, one compact Top 3 and no network score navigator", () => {
   const { parent } = packageFixture();
   const html = renderGrowthReport(parent);
-  assert.match(html, /Network Journey Atlas/);
+  assert.match(html, /Network overview/);
   assert.match(html, /Declared locations/);
   assert.match(html, /Internal network comparison/);
+  assert.match(html, /Detailed location audit/);
   assert.match(html, /Observed in 2 of 2 reviewed locations/);
   assert.match(html, /No aggregate Network Score/);
   assert.doesNotMatch(html, /class="cae-report-score-nav"/);
+  assert.doesNotMatch(html, /class="cae-focus-summary"/);
+  assert.ok(html.indexOf('id="network-comparison"') < html.indexOf('id="focus-gaps"'));
+  assert.equal((html.match(/class="cae-network-comparison"/g) || []).length, 1);
+  assert.equal((html.match(/class="cae-report-disclosure-panel"/g) || []).length, 2);
   assert.equal((html.match(/Start the 30-Day Growth Sprint/g) || []).length, 1);
 });
 
 test("focus child keeps location presentation and returns to the parent without a second CTA", () => {
   const { child } = packageFixture();
   const html = renderGrowthReport(child);
-  assert.match(html, /Back to the network analysis/);
+  assert.match(html, /aria-label="Multi-Location package"/);
+  assert.match(html, />Network analysis</);
+  assert.match(html, /aria-current="page">Focus Location/);
   assert.match(html, /Return to the network implementation decision/);
   assert.doesNotMatch(html, /Start the 30-Day Growth Sprint/);
-  assert.doesNotMatch(html, /Network Journey Atlas/);
+  assert.doesNotMatch(html, /Network overview/);
 });
