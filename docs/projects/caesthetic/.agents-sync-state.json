@@ -262,7 +262,7 @@
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
     "docs/projects/caesthetic/AGENTS.md": "8751621593b658d54e02fd3d3e9effea5f84d9ad7bc757b1ede09427fbd302c4",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
-    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "6388428ae6bb23c1ad72a501177f4d569af418d2988a434743e6be8e6ee3d9be",
+    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "d7d91723d233342277289c50f1573ce070a840a29564b3f8cf33ace71dc3a848",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "a388c3f2ffa59a4f5d696ba4b8204edd3a55a87015b0967a69acc8998651291d",
     "docs/projects/caesthetic/PROJECT_STATUS.md": "1bd30369049924a6ddae9171b32186bce7bf789ef713fbad0e11bf07e2396622",
@@ -638,7 +638,7 @@
     "tests/caesthetic/evidence-bank.test.mjs": "be80a54561d63d9e3fd42377eb8bb3382b37b533df613944cd848e3ecf091929",
     "tests/caesthetic/growth-economics-engine.test.mjs": "74b1cc6931fe1295f1ad715bf281f350e25d6307ea328a123888c144de2b194d",
     "tests/caesthetic/growth-score-conversion-infra.test.mjs": "2a969de45c6e0a1522c28b861fcd8c33295f44705e665539fd27959318ddd2d1",
-    "tests/caesthetic/growth-score-demos.test.mjs": "ecbe7938e9d32d5daf809f5938e15932d3a84f281f1bceb53a5426faf7e975e7",
+    "tests/caesthetic/growth-score-demos.test.mjs": "6cc95766a9a97da47d647fbb84ac0fc87fdd5760ddfd71644e3cb5ab5b0dfac4",
     "tests/caesthetic/growth-score-engine.test.mjs": "7f16003e78f5b5fad55056bd7721dd3359ed992003b06838b248b76a4afa44b5",
     "tests/caesthetic/growth-score-focus-selection.test.mjs": "58207c880a9a96ef7360fa7909174798cfaa78418aca2280dbae2105df5d17f9",
     "tests/caesthetic/growth-score-funnel-analytics.test.mjs": "cc4747eab29ffd04b5fd5fa82eadcef7ff3ba277577be45b4e10e034ea269764",
@@ -683,6 +683,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "60cb2f597cfbe900acd27e5e9bbd2bd26c3633cd89ad9d0f8fc29b357f13c1f5"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-02T13:47:09Z",
+  "updated_at_utc": "2026-09-02T13:56:20Z",
   "version": 1
 }

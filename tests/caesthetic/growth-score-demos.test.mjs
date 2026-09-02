@@ -231,6 +231,10 @@ test("deploy and Agent API smoke markers still match the public demo hub", () =>
     assert.doesNotMatch(source, /Four surfaces\. Fixed weights\./);
   }
   assert.match(deployScript, /SYNTHETIC DEMO/);
+  assert.match(productionSmoke, /cross-surface-journey-graph\/1\.0\.0/);
+  assert.match(productionSmoke, /automatic_score_change must be false/);
+  assert.match(productionSmoke, /! grep -Fq 'cae-report-walkthrough'/);
+  assert.doesNotMatch(productionSmoke, /grep -Fq 'cae-report-walkthrough' "\$walkthrough_file"/);
   assert.match(hub, /Four surfaces\. One separate consistency check\./);
   assert.match(demo, /SYNTHETIC DEMO/);
 });
