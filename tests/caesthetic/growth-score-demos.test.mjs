@@ -220,6 +220,7 @@ test("deploy and Agent API smoke markers still match the public demo hub", () =>
   const hub = fs.readFileSync(path.join(root, "site-caesthetic/growth-score/index.html"), "utf8");
   const demo = fs.readFileSync(path.join(scoreRoot, routes[0], "index.html"), "utf8");
   const productionSmoke = fs.readFileSync(path.join(root, "scripts/caesthetic-growth-score-production-smoke.sh"), "utf8");
+  const protectedSmoke = fs.readFileSync(path.join(root, "scripts/caesthetic-protected-score-smoke.sh"), "utf8");
   const deployScript = fs.readFileSync(path.join(root, "scripts/deploy-caesthetic.sh"), "utf8");
   const allowlist = fs.readFileSync(path.join(root, "scripts/agent-api/lib/deploy-allowlist.mjs"), "utf8");
 
@@ -235,6 +236,9 @@ test("deploy and Agent API smoke markers still match the public demo hub", () =>
   assert.match(productionSmoke, /automatic_score_change must be false/);
   assert.match(productionSmoke, /! grep -Fq 'cae-report-walkthrough'/);
   assert.doesNotMatch(productionSmoke, /grep -Fq 'cae-report-walkthrough' "\$walkthrough_file"/);
+  assert.match(protectedSmoke, /! grep -Fq 'Travis Warner'/);
+  assert.match(protectedSmoke, /cross-surface-journey-graph\/1\.0\.0/);
+  assert.match(protectedSmoke, /assessment_status !== "not_assessed"/);
   assert.match(hub, /Four surfaces\. One separate consistency check\./);
   assert.match(demo, /SYNTHETIC DEMO/);
 });

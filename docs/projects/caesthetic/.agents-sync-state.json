@@ -638,7 +638,7 @@
     "tests/caesthetic/evidence-bank.test.mjs": "be80a54561d63d9e3fd42377eb8bb3382b37b533df613944cd848e3ecf091929",
     "tests/caesthetic/growth-economics-engine.test.mjs": "74b1cc6931fe1295f1ad715bf281f350e25d6307ea328a123888c144de2b194d",
     "tests/caesthetic/growth-score-conversion-infra.test.mjs": "2a969de45c6e0a1522c28b861fcd8c33295f44705e665539fd27959318ddd2d1",
-    "tests/caesthetic/growth-score-demos.test.mjs": "6cc95766a9a97da47d647fbb84ac0fc87fdd5760ddfd71644e3cb5ab5b0dfac4",
+    "tests/caesthetic/growth-score-demos.test.mjs": "f491ef26ac28d8b6345d0832051ecbb2d7c413f9707bcd14f06e20cbe93cb5ae",
     "tests/caesthetic/growth-score-engine.test.mjs": "7f16003e78f5b5fad55056bd7721dd3359ed992003b06838b248b76a4afa44b5",
     "tests/caesthetic/growth-score-focus-selection.test.mjs": "58207c880a9a96ef7360fa7909174798cfaa78418aca2280dbae2105df5d17f9",
     "tests/caesthetic/growth-score-funnel-analytics.test.mjs": "cc4747eab29ffd04b5fd5fa82eadcef7ff3ba277577be45b4e10e034ea269764",
@@ -683,6 +683,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "60cb2f597cfbe900acd27e5e9bbd2bd26c3633cd89ad9d0f8fc29b357f13c1f5"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-02T13:56:20Z",
+  "updated_at_utc": "2026-09-02T14:03:26Z",
   "version": 1
 }
