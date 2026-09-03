@@ -184,8 +184,9 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("systemctl reset-failed caesthetic-repo-sync.service", installer)
         self.assertIn("systemctl start --no-block caesthetic-repo-sync.service", installer)
         self.assertNotIn("sync_terminal", installer)
-        self.assertIn("OnUnitInactiveSec=15s", timer)
+        self.assertIn("OnCalendar=*-*-* *:*:00,15,30,45", timer)
         self.assertNotIn("OnUnitActiveSec", timer)
+        self.assertNotIn("OnUnitInactiveSec", timer)
 
 
     def test_runner_skips_full_reconcile_when_remote_heads_are_unchanged(self):
