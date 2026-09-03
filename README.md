@@ -13,6 +13,19 @@ See **[`docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md`](docs/projects/caesthet
 
 Short version: create a Cloud Agents Environment for **`zaomir/caesthetic`**, then always pick project **caesthetic** for CAESTHETIC chats.
 
+## Growth Score / audit routing
+
+Any Russian or English Growth Score/audit synonym in the canonical dictionary
+routes to the single `growth_score_audit` workflow before normal project
+routing. The agent must begin with the Manager Interview; a bare name, URL or
+request never authorizes full research. Canonical entrypoint:
+[`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`](docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md).
+
+That adapter routes to the production SOP, current schema-v5 template and
+protected publication pipeline. Audit research uses public/open sources only,
+final Focus Selection is manual, and Multi-Location delivery is one comparative
+network overview plus one linked full report for the selected focus location.
+
 ## Flow
 
 ```
@@ -42,6 +55,7 @@ Paths mirror grainee-v2 relative roots (see `SYNC_MANIFEST.yml`).
 
 1. `START.md`
 2. `AGENTS.md`
-3. `docs/ssot/CAESTHETIC.md`
-4. `docs/projects/caesthetic/AGENTS.md`
-5. `agents/manifests/caesthetic.yaml`
+3. `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`
+4. `docs/ssot/CAESTHETIC.md`
+5. `docs/projects/caesthetic/AGENTS.md`
+6. `agents/manifests/caesthetic.yaml`

@@ -4,7 +4,9 @@ status: mandatory_agent_adapter
 version: 2.4
 canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
-canonical_ref: zaomir/grainee-v2 origin/main resolved at run start
+satellite_repo: zaomir/caesthetic
+canonical_sop_version: 2.8
+canonical_ref: zaomir/caesthetic main resolved at run start; production import verifies exact SHA
 updated: 2026-09-03
 ---
 
@@ -15,25 +17,52 @@ This is a fail-closed execution adapter for every AI agent operating in
 adapter conflicts with the canonical file, stop, report `BLOCKED: audit policy
 drift`, and use the canonical SSOT only after the conflict is resolved.
 
+Do not create an ad-hoc audit document, substitute a generic audit template or
+skip to research because the manager supplied a business name or URL.
+
+An agent with access only to `zaomir/caesthetic` uses the complete local
+authority chain in §2 and must not ask the manager to open `grainee-v2`.
+Authoring is allowed here; production import and deploy remain gated by the
+exact-SHA publish control plane and `grainee-v2`. If the local adapter and local
+mirrored SOP disagree, stop with `BLOCKED: audit policy drift`.
+
 ## 1. Universal pre-router
 
 Apply this before repository, project, task, skill or tool routing.
 
-This pre-router triggers on any mention or semantic equivalent of:
+**Minimal trigger rule:** normalize case, Unicode dashes and spacing. If the
+message contains any whole dictionary phrase below, or the standalone English
+word `audit` / Russian word `аудит` in an ordinary grammatical form, route to
+the canonical `growth_score_audit` intent before any other routing. Do not
+infer a different audit product inside this repository.
 
-- `аудит`;
-- `Growth Score`;
-- `Multi-Location Growth Score`;
-- `score`;
-- `diagnostic`;
-- `audit report`;
-- `проверка бизнеса`;
-- `поиск утечек`;
-- `Top 3 gaps`;
-- `binding constraint`.
+### Russian dictionary
 
-If there is no active `growth_score_audit` interview, the first sentence of
-the response must be exactly:
+`аудит`, `бизнес-аудит`, `маркетинговый аудит`, `аудит маркетинга`, `аудит
+роста`, `аудит клиники`, `аудит салона`, `аудит локации`, `аудит сети`,
+`сетевой аудит`, `аудит филиалов`, `мульти-локационный аудит`,
+`мультилокационный аудит`, `мини-аудит`, `оценка роста`, `диагностика роста`,
+`маркетинговая диагностика`, `диагностика 4444`, `разбор 4444`, `гроус скор`,
+`проверка бизнеса`, `поиск утечек`.
+
+### English dictionary
+
+`Growth Score`, `Free Growth Score`, `Partner Growth Score`, `Growth Score
+audit`, `Multi-Location Growth Score`, `MultiLocation Growth Score`, `multi-site
+Growth Score`, `network Growth Score`, `growth assessment`, `written growth
+assessment`, `growth diagnostic`, `business audit`, `marketing audit`, `digital
+audit`, `online presence audit`, `clinic audit`, `practice audit`, `salon
+audit`, `location audit`, `network audit`, `multi-location audit`, `multi-site
+audit`, `four-surface audit`, `4444 audit`, `mini-audit`, `1-minute leak`, `leak
+diagnosis`, `score`, `diagnostic`, `audit report`, `Top 3 gaps`, `binding
+constraint`.
+
+The executable dictionary is
+`scripts/caesthetic/growth-score-intent-router.mjs`. The lists above and the
+executable dictionary must change in the same reviewed release.
+
+If there is no active `growth_score_audit` interview, the first sentence of the
+response must be exactly:
 
 `Вы создаёте новый аудит? Ответьте на вопросы.`
 
@@ -81,6 +110,13 @@ Four Surfaces means exactly:
 
 Cross-Surface Consistency, Lead Intake, Lead-to-Revenue and Paid Ads are not a
 fifth surface.
+
+After this authority preflight, implementation must use only
+`scripts/caesthetic/growth-score-report-template.mjs`,
+`scripts/caesthetic/growth-score-workflow.mjs`,
+`scripts/caesthetic/render-growth-score.mjs` and the publish control plane
+already named above. These are implementation/runtime contracts, not higher
+product authorities.
 
 ## 3. Mandatory Manager Interview
 
@@ -170,7 +206,16 @@ non-publishable.
 A named human must verify evidence and manually select exactly one Primary Gap
 plus exactly two Supporting Gaps. The lowest surface score never automatically
 becomes the Primary Gap. For Multi-Location there is one shared final Top 3
-selection total and one named focus location.
+selection total and one named focus location. This Focus Selection defines the
+proposed 30-Day Growth Sprint priority scope; it is not a generic backlog.
+
+Managers may use the informal phrase `1 Primary + 2–3 Supporting` while
+discussing Sprint candidates. The current approved schema-v5 report contract is
+still exactly one Primary plus two Supporting Gaps. If a manager requires a
+third Supporting Gap in final Focus Selection, stop with `BLOCKED: focus
+cardinality conflict`; do not silently drop it or publish outside the current
+template. A third final Supporting Gap requires a versioned method, schema,
+renderer and validator release.
 
 No compilation before human Focus Selection; no publication before report
 approval; no delivery before server-side password/access QA. Real reports live
@@ -178,7 +223,31 @@ only under `https://caesthetic.com/score/` with an unguessable route and
 `noindex`. Catalog registration is automatic; public listing requires a
 synthetic report or explicit client permission.
 
-## 8. Fail-closed rule
+For Multi-Location, publish one comparative network overview as the package
+entry point and one linked full current-schema report for the named focus
+location. Both pages share the same access group and approved Focus Selection.
+After access QA, deliver the protected parent/standalone link to the client;
+never describe a local file, preview URL or unverified route as delivery.
+
+## 8. Canonical stage order
+
+Every audit follows this order without shortcuts:
+
+```text
+Manager Interview
+→ Quick, non-scored public reconnaissance
+→ Business + competitor understanding in a versioned Research Alignment Card
+→ Named-manager APPROVE
+→ Full public/open-source research
+→ Complete Gap Inventory
+→ Internal AI candidate risk order
+→ Named-human Focus Selection
+→ Approved report
+→ Server-side password + route/noindex/access QA
+→ Protected link delivered to client
+```
+
+## 9. Fail-closed rule
 
 If an agent cannot satisfy a gate, access the canonical rules, establish public
 provenance, identify the approving manager or preserve the required evidence,

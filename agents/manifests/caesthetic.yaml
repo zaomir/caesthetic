@@ -13,6 +13,7 @@ read_first:
 allowed_paths:
   - AGENTS.md
   - START.md
+  - README.md
   - .cursorrules
   - CLAUDE.md
   - GEMINI.md
@@ -46,8 +47,17 @@ protected_paths: []
 topics:
   strategy: docs/ssot/CAESTHETIC.md
   growth_score:
-    ssot: docs/ssot/CAESTHETIC.md
+    pre_router: docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md
+    master_ssot: docs/ssot/CAESTHETIC.md
+    client_report_standard: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
     spec: docs/caesthetic/growth_score_spec.md
+    production_sop: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
+    implementation_profile: docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
+    lead_to_revenue: docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md
+    intent_router: scripts/caesthetic/growth-score-intent-router.mjs
+    template: scripts/caesthetic/growth-score-report-template.mjs
+    workflow: scripts/caesthetic/growth-score-workflow.mjs
+    publication: docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md
     code:
       - scripts/caesthetic/growth-score-engine.mjs
       - scripts/caesthetic/render-growth-score.mjs

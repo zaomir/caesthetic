@@ -2,6 +2,15 @@
 
 Full production URL authority remains `docs/ROUTER.md`.
 
+## Pre-route: Growth Score / audit intent
+
+Before the concept and URL routes below, apply
+`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. Any Russian or
+English dictionary synonym, standalone English `audit` form or ordinary
+Russian `аудит` form resolves to `growth_score_audit`, starts/continues the
+Manager Interview and loads the production SOP. No other project route may
+create an alternative audit workflow.
+
 Runtime root: `site-caesthetic/`  
 Public domain: `https://caesthetic.com`  
 Brand domains: `caesthetic.com` (public site) · `caesthetic.co` (cold-email brand; logos served from `.com`)

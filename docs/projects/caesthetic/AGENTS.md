@@ -3,12 +3,15 @@
 ## Highest-priority universal audit pre-router — mandatory audit-intent routing
 
 Before all repository/project routing, read and enforce
-`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. When there is no
-active interview and a user mentions `Multi-Location Growth Score`, `Growth
-Score` or `аудит`, the response must start exactly with `Вы создаёте новый
-аудит? Ответьте на вопросы.` Use public/open sources only. Full research is
-blocked until a named manager approves the versioned Research Alignment Card.
-Any policy conflict is `BLOCKED: audit policy drift`.
+`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. The minimal
+trigger is the whole-phrase bilingual dictionary plus standalone English
+`audit` forms and ordinary Russian `аудит` forms defined there. Every match
+routes to `growth_score_audit` and the same SSOT/template/pipeline. When there
+is no active interview, start exactly with `Вы создаёте новый аудит? Ответьте
+на вопросы.` Use public/open sources only. Full research is blocked until a
+named manager approves the versioned Research Alignment Card. Never create an
+ad-hoc audit from project-local context. Any policy conflict is `BLOCKED: audit
+policy drift`.
 
 Read in order:
 1. `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`

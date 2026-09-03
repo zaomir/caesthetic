@@ -15,7 +15,11 @@ import { renderGrowthReport } from "../../scripts/caesthetic/render-growth-score
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const fixturePath = path.join(root, "tests/fixtures/caesthetic/growth-score-focus-selection-16-to-4.json");
 
-test("16 found holes collapse to exactly 3 human-selected Focus Gaps", () => {
+test("16 found holes collapse to exactly 3 human-selected Focus Gaps", {
+  skip: !fs.existsSync(fixturePath)
+    ? "private fixture is intentionally absent from the public satellite repository"
+    : false,
+}, () => {
   const report = JSON.parse(fs.readFileSync(fixturePath, "utf8"));
   assert.equal(report.humanDiagnosis.gap_inventory.length, 16);
   const selected = [
