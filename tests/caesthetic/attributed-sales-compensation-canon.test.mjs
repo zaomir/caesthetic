@@ -13,6 +13,7 @@ const decision = read(
 const standard = read(
   'docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md',
 );
+const master = read('docs/ssot/CAESTHETIC.md');
 const manifest = read('agents/manifests/caesthetic.yaml');
 
 for (const text of [decision, standard]) {
@@ -28,6 +29,7 @@ assert.match(
   standard,
   /CAESTHETIC может получать согласованный процент от продаж клиентам/i,
 );
+assert.match(master, /Attributed Sales Performance Fee/);
 assert.match(
   standard,
   /medical_attributed_sales_fee_status\s*=\s*LEGAL_FISCAL_ACTIVATION_GATED/i,
@@ -35,6 +37,9 @@ assert.match(
 assert.match(standard, /current_payable_rate\s*=\s*0%/i);
 assert.match(standard, /Coordinator medical sales percentage\s*=\s*0%/i);
 assert.match(standard, /Clinician medical sales percentage\s*=\s*0%/i);
+assert.match(master, /current payable rate is `0% \/ NOT ACTIVE`/i);
+assert.match(master, /Coordinator medical sales percentage and clinician referral\/sales percentage remain `0%`/i);
+assert.doesNotMatch(master, /CAESTHETIC\/coordinator treatment revenue share is `0%`/i);
 assert.match(decision, /DEC-862/);
 assert.match(decision, /0%.*текущим fail-closed activation state/is);
 assert.match(
