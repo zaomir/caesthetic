@@ -210,8 +210,8 @@ def should_skip(rel: str, name: str, is_dir: bool) -> bool:
         return True
     rel_n = _norm_rel(rel, is_dir)
     if rel_n.startswith("site-caesthetic/score/") and rel_n != "site-caesthetic/score/" and not any(
-        rel_n == prefix or rel_n.startswith(prefix)
-        for prefix in SCORE_MIRROR_ALLOW_PREFIXES
+            rel_n == prefix or rel_n.startswith(prefix)
+            for prefix in SCORE_MIRROR_ALLOW_PREFIXES
     ):
         return True
     for prefix in EXCLUDE_REL_PREFIXES:

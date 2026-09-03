@@ -545,6 +545,27 @@ Runtime schema changes require implementation and tests in `scripts/caesthetic/g
 
 ## 17. Audit project architecture
 
+### 17.1 Repository storage
+
+Every audit, including a draft, has exactly one repository card at
+`docs/audits/caesthetic/growth-score/cases/<project_id>/case.json`. This shared
+tree is mirrored bidirectionally between `zaomir/grainee-v2` and the public
+`zaomir/caesthetic` satellite. New client working folders must not be created
+under `docs/projects/caesthetic/clients/`; that legacy tree is retained only for
+historical provenance.
+
+The card is the stable navigation record. Repo-safe report records live under
+the same case folder and contain dated public evidence plus report decisions.
+The card may also point to corresponding production artifacts in
+`site-caesthetic/score/**`, but those paths are outputs, not satellite authoring
+paths. Rendered client HTML, previews, passwords, hashes, tokens, private
+attachments, CRM data and contact lists are not part of the shared audit store.
+
+The storage contract is verified by `scripts/caesthetic/audit-storage.mjs` and
+`tests/caesthetic/audit-storage.test.mjs`. The generated navigation index is
+`docs/audits/caesthetic/growth-score/index.generated.json`; it must never be
+edited by hand.
+
 Every approved project resolves to this minimum platform record:
 
 | Field | Contract |
@@ -559,6 +580,8 @@ Every approved project resolves to this minimum platform record:
 | `catalog_visibility` | `private`, `synthetic` or explicitly approved `public_case` |
 | `access_group_id` | Runtime reference for real packages; never a password or hash |
 | `prepared_at` | Report evidence/preparation date |
+| `repository_access` | Exactly `zaomir/grainee-v2` and `zaomir/caesthetic` for the shared audit package |
+| `evidence_policy` | `public_sources_only`; private operational data is stored outside the shared package |
 
 Single-location projects have one standalone v5 report reference. Multi-Location projects have one parent network reference and one child v5 focus-location reference. The parent and child share the same project/package identity and access group.
 

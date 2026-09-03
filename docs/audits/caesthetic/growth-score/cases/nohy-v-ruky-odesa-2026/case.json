@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "audit_id": "nohy-v-ruky-odesa-2026",
+  "product": "growth_score",
+  "title": "Nohy V Ruky / Ноги в Руки",
+  "subject_type": "beauty_salon",
+  "audit_format": "single_location",
+  "status": "approved_report",
+  "evidence_policy": "public_sources_only",
+  "repository_access": ["zaomir/grainee-v2", "zaomir/caesthetic"],
+  "authoring_source_paths": ["scripts/caesthetic/build-nohy-v-ruky-growth-score.mjs", "docs/audits/caesthetic/growth-score/cases/nohy-v-ruky-odesa-2026/reports/standalone.json"],
+  "report_paths": ["docs/audits/caesthetic/growth-score/cases/nohy-v-ruky-odesa-2026/reports/standalone.json"],
+  "production_report_paths": ["site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/report.json"],
+  "legacy_main_repo_paths": ["docs/projects/caesthetic/clients/nogi-v-ruki/"]
+}

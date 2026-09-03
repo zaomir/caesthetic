@@ -1,0 +1,1162 @@
+{
+  "schemaVersion": 5,
+  "reportState": "approved_report",
+  "reportVersion": "spoken-medspa-snellville-public-evidence/1.0.0",
+  "verifiedFactSetVersion": "spoken-medspa-snellville-2026-09-03/1.0.0",
+  "reportKind": "real",
+  "templateVersion": "growth-score-report-template/5.2.0",
+  "reportContext": {
+    "vertical_context": "aesthetic_practice",
+    "report_locale": "en",
+    "vertical_source": "human_resolved",
+    "locale_source": "human_resolved"
+  },
+  "disclosure": "Outside-in Growth Score using public evidence only. Internal operations, patient data, revenue and outcomes are not assessed.",
+  "practice": {
+    "name": "Spoken Med Spa",
+    "location": "2121 Fountain Drive, Suite M, Snellville, GA 30078, United States",
+    "preparedAt": "2026-09-03",
+    "preparedFor": "Ivy Cleveland"
+  },
+  "executiveSummary": "Spoken has a strong Botox/Ivy authority asset. The binding constraint is incomplete identity/trust continuity after the Jurney-to-Spoken transition, with mixed patient/Academy routing and uneven filler proof continuity.",
+  "surfaces": [
+    {
+      "id": "search",
+      "summary": "Legacy identity friction; Search coverage unmeasured.",
+      "owner_card": {
+        "strength": "Current brand is clear.",
+        "problem": "Legacy Jurney signals.",
+        "priority": "HIGH"
+      },
+      "metrics": [
+        {
+          "metric_id": "map_visibility",
+          "label": "map_visibility",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "gbp_treatment_category_completeness",
+          "label": "gbp_treatment_category_completeness",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "entity_integrity",
+          "label": "entity_integrity",
+          "raw_value": "Spoken/Jurney",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa; https://msha.ke/spokenmedspa/",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "Current Spoken and legacy Jurney signals coexist."
+        },
+        {
+          "metric_id": "gbp_conversion_readiness",
+          "label": "gbp_conversion_readiness",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "freshness",
+          "label": "freshness",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "branded_search_control",
+          "label": "branded_search_control",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        }
+      ]
+    },
+    {
+      "id": "website",
+      "summary": "Strong Botox/Ivy asset; routing/proof repair needed.",
+      "owner_card": {
+        "strength": "Botox page + Ivy authority.",
+        "problem": "Mixed audiences and uneven filler proof.",
+        "priority": "HIGH"
+      },
+      "metrics": [
+        {
+          "metric_id": "booking_friction",
+          "label": "booking_friction",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "treatment_clarity",
+          "label": "treatment_clarity",
+          "raw_value": "Botox/fillers",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/dermal-fillers-snellville-ga",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "Botox is clearer than fillers."
+        },
+        {
+          "metric_id": "mobile_performance",
+          "label": "mobile_performance",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "above_fold_conversion",
+          "label": "above_fold_conversion",
+          "raw_value": "patient/academy",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/; https://www.spokenmedspa.com/spoken-aesthetic-academy",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "Patient and Academy offers share the public path."
+        },
+        {
+          "metric_id": "clinician_trust_proof",
+          "label": "clinician_trust_proof",
+          "raw_value": "Ivy Cleveland",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/about",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "Ivy Cleveland has visible NP and injector/instructor authority."
+        },
+        {
+          "metric_id": "mystery_shopper",
+          "label": "mystery_shopper",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "technical_booking_integrity",
+          "label": "technical_booking_integrity",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "summary": "Insufficient evidence.",
+      "owner_card": {
+        "strength": "Branded link hub exists.",
+        "problem": "Dated sample not retained.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "priority_treatment_presence",
+          "label": "priority_treatment_presence",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "clinician_expertise",
+          "label": "clinician_expertise",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "proof_quality",
+          "label": "proof_quality",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "recency",
+          "label": "recency",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "profile_to_booking",
+          "label": "profile_to_booking",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "local_offer_clarity",
+          "label": "local_offer_clarity",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        }
+      ]
+    },
+    {
+      "id": "reputation",
+      "summary": "Insufficient evidence.",
+      "owner_card": {
+        "strength": "Directional reputation signal only.",
+        "problem": "Direct 90-day sample not retained.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "review_velocity_90d",
+          "label": "review_velocity_90d",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "rating",
+          "label": "rating",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "review_depth",
+          "label": "review_depth",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "recency",
+          "label": "recency",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "response_coverage",
+          "label": "response_coverage",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "response_speed",
+          "label": "response_speed",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "negative_review_handling",
+          "label": "negative_review_handling",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        },
+        {
+          "metric_id": "treatment_clinician_proof",
+          "label": "treatment_clinician_proof",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence."
+        }
+      ]
+    }
+  ],
+  "crossSurface": {
+    "summary": "Identity, audience and proof friction observed.",
+    "metrics": [
+      {
+        "metric_id": "treatment_presence",
+        "label": "treatment_presence",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Insufficient evidence."
+      },
+      {
+        "metric_id": "positioning_coherence",
+        "label": "positioning_coherence",
+        "raw_value": "mixed audiences",
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": "https://www.spokenmedspa.com/; https://msha.ke/spokenmedspa/",
+        "collected_at": "2026-09-03",
+        "reviewer_status": "approved",
+        "finding": "Patient and professional journeys are not consistently separated."
+      },
+      {
+        "metric_id": "proof_continuity",
+        "label": "proof_continuity",
+        "raw_value": "uneven proof",
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/clients",
+        "collected_at": "2026-09-03",
+        "reviewer_status": "approved",
+        "finding": "Proof continuity is stronger on Botox than fillers."
+      },
+      {
+        "metric_id": "conversion_continuity",
+        "label": "conversion_continuity",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Insufficient evidence."
+      },
+      {
+        "metric_id": "identity_coherence",
+        "label": "identity_coherence",
+        "raw_value": "Spoken/Jurney",
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa; https://msha.ke/spokenmedspa/",
+        "collected_at": "2026-09-03",
+        "reviewer_status": "approved",
+        "finding": "Current and legacy identity signals are not fully synchronized."
+      }
+    ]
+  },
+  "humanDiagnosis": {
+    "reviewer_status": "approved",
+    "reviewer": {
+      "name": "Valerie Petra",
+      "approved_at": "2026-09-03T13:51:02Z"
+    },
+    "objective_strength": {
+      "title": "Strong Botox/provider authority centered on Ivy Cleveland.",
+      "evidence_refs": [
+        "website.clinician_trust_proof",
+        "website.treatment_clarity"
+      ]
+    },
+    "strongest_surface": "website",
+    "binding_constraint": {
+      "title": "Identity and trust continuity remain unsynchronized",
+      "statement": "Legacy Jurney signals and mixed audience paths create public friction before booking.",
+      "demand_stage": "trust",
+      "evidence_refs": [
+        "search.entity_integrity",
+        "cross.identity_coherence",
+        "cross.positioning_coherence"
+      ],
+      "gap_ref": "SMS-26-01"
+    },
+    "current_state": {
+      "strengths": [
+        "Strong Botox page and Ivy authority."
+      ],
+      "constraint_label": "Identity/trust continuity",
+      "constraint_detail": "Rebrand, audience routing and proof are not fully synchronized.",
+      "priority_line": "Fix identity, then audiences, then filler proof."
+    },
+    "gap_inventory": [
+      {
+        "id": "SMS-26-01",
+        "title": "Legacy Jurney identity remains",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "search",
+          "cross_surface"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "search.entity_integrity",
+          "cross.identity_coherence"
+        ],
+        "why_it_matters": "Identity uncertainty appears before booking.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "One current Spoken identity.",
+          "diy_steps": [
+            "Freeze current facts; inventory and update controlled endpoints; retain before/after evidence."
+          ],
+          "dependencies": [
+            "Confirmed current facts"
+          ],
+          "owner_role": "Web/GBP/social owner",
+          "done_when": [
+            "Controlled surfaces match current Spoken facts."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-02",
+        "title": "Patient and Academy journeys are mixed",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website",
+          "cross_surface"
+        ],
+        "journey_stage": "enquiry",
+        "evidence_refs": [
+          "website.above_fold_conversion",
+          "cross.positioning_coherence"
+        ],
+        "why_it_matters": "Different audiences share one action path.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Patient-first path + separate professional lane.",
+          "diy_steps": [
+            "Create a clear professional lane and separate patient vs Academy CTAs."
+          ],
+          "dependencies": [
+            "SMS-26-01"
+          ],
+          "owner_role": "UX/web owner",
+          "done_when": [
+            "Priority patient journeys contain patient actions; Academy has one explicit entry."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-03",
+        "title": "Filler trust continuity trails Botox",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website",
+          "cross_surface"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "website.clinician_trust_proof",
+          "website.treatment_clarity",
+          "cross.proof_continuity"
+        ],
+        "why_it_matters": "Botox has a stronger Who/Trust/Proof chain.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Consistent Botox/filler trust architecture.",
+          "diy_steps": [
+            "Use Botox as template; add verified provider/proof to fillers; remove unrelated copy."
+          ],
+          "dependencies": [
+            "SMS-26-01"
+          ],
+          "owner_role": "Clinical-content/web owner",
+          "done_when": [
+            "Both priority pages pass one trust-chain checklist."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-04",
+        "title": "Secondary page QA debt",
+        "diagnosis_state": "monitor",
+        "surfaces": [
+          "website"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "website.treatment_clarity"
+        ],
+        "why_it_matters": "Unrelated copy can reduce polish.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Reviewed relevant copy.",
+          "diy_steps": [
+            "QA priority/adjacent pages."
+          ],
+          "dependencies": [],
+          "owner_role": "Web owner",
+          "done_when": [
+            "Known unrelated/placeholder copy removed."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-05",
+        "title": "Local map visibility not measured",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "search"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [],
+        "why_it_matters": "Manual search cannot establish geographic visibility.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Reproducible Search baseline.",
+          "diy_steps": [
+            "Capture approved 5×5 geo-grids."
+          ],
+          "dependencies": [],
+          "owner_role": "Search analyst",
+          "done_when": [
+            "Dated grids retained."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-06",
+        "title": "90-day reputation baseline not measured",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [],
+        "why_it_matters": "Third-party snapshots are not a direct comparable window.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Direct reputation baseline.",
+          "diy_steps": [
+            "Capture direct 90-day sample for subject and competitors."
+          ],
+          "dependencies": [],
+          "owner_role": "Reputation analyst",
+          "done_when": [
+            "Source/window/sample retained."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-07",
+        "title": "Internal lead handling not assessed",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "cross_surface"
+        ],
+        "journey_stage": "booking",
+        "evidence_refs": [],
+        "why_it_matters": "Public evidence cannot establish internal causes.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "No unsupported internal diagnosis.",
+          "diy_steps": [
+            "Do not infer internal causes."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner",
+          "done_when": [
+            "Internal causes remain not assessed."
+          ]
+        }
+      }
+    ],
+    "focus_selection": {
+      "primary_gap_id": "SMS-26-01",
+      "supporting_gap_ids": [
+        "SMS-26-02",
+        "SMS-26-03"
+      ],
+      "selected_by": "Valerie Petra",
+      "selected_at": "2026-09-03T13:51:02Z",
+      "rationale": "Identity is the binding dependency."
+    },
+    "do_not_do": {
+      "title": "Do not scale paid Botox/filler demand before identity repair and Search/booking verification",
+      "rationale": "Demand shortage is unproven; destination friction is observable.",
+      "evidence_refs": [
+        "search.entity_integrity",
+        "cross.identity_coherence",
+        "cross.positioning_coherence"
+      ],
+      "revisit_after": [
+        "Current identity synchronized.",
+        "Audience paths separated.",
+        "Search and booking baselines verified."
+      ]
+    },
+    "competitors": {
+      "status": "applicable",
+      "selection_method": "Four approved local Snellville comparators.",
+      "sample_limitations": "Website evidence only; other comparable surfaces insufficient.",
+      "comparison_window": {
+        "start": "2026-09-03",
+        "end": "2026-09-03"
+      },
+      "review_sample_rule": "No review-theme conclusion without a direct comparable sample.",
+      "branch_scope": "Spoken Med Spa, Snellville, GA",
+      "entries": [
+        {
+          "id": "dermani-medspa-snellville",
+          "name": "dermani MEDSPA® Snellville",
+          "competitor_type": "local",
+          "selection_reason": "Approved local comparator.",
+          "branch_scope": "Snellville, GA",
+          "patient_choice_reason": "Relevant local alternative.",
+          "observable_advantage": "Clear local treatment-to-booking architecture.",
+          "observable_gap": "Full Four-Surface sample not retained.",
+          "repeat": "Adapt clear journey structure.",
+          "improve": "Differentiate through Ivy authority.",
+          "do_not_copy": "Do not copy claims/discounts as proof.",
+          "strategic_implication": "Context only.",
+          "constraint_effect": "Supports identity repair first.",
+          "priority_effect": "No Top 3 change.",
+          "modernization_implication": "No superiority inferred.",
+          "strengths": [
+            "Clear local treatment-to-booking architecture."
+          ],
+          "weaknesses_or_risks": [
+            "Incomplete sample."
+          ],
+          "limitations": "Website-only context; review-theme repetition was not assessed and remains insufficient evidence.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://dermanimedspa.com/schedule-online-snellville/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Public website"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Clear local treatment-to-booking architecture.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        },
+        {
+          "id": "about-face-snellville",
+          "name": "About Face Skin Care - Snellville",
+          "competitor_type": "local",
+          "selection_reason": "Approved local comparator.",
+          "branch_scope": "Snellville, GA",
+          "patient_choice_reason": "Relevant local alternative.",
+          "observable_advantage": "Structured medical authority and treatment depth.",
+          "observable_gap": "Full Four-Surface sample not retained.",
+          "repeat": "Adapt clear journey structure.",
+          "improve": "Differentiate through Ivy authority.",
+          "do_not_copy": "Do not copy claims/discounts as proof.",
+          "strategic_implication": "Context only.",
+          "constraint_effect": "Supports identity repair first.",
+          "priority_effect": "No Top 3 change.",
+          "modernization_implication": "No superiority inferred.",
+          "strengths": [
+            "Structured medical authority and treatment depth."
+          ],
+          "weaknesses_or_risks": [
+            "Incomplete sample."
+          ],
+          "limitations": "Website-only context; review-theme repetition was not assessed and remains insufficient evidence.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://www.aboutfaceskin.com/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Public website"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Structured medical authority and treatment depth.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        },
+        {
+          "id": "harper-haus",
+          "name": "Harper Haus Aesthetics & Wellness",
+          "competitor_type": "local",
+          "selection_reason": "Approved local comparator.",
+          "branch_scope": "Snellville, GA",
+          "patient_choice_reason": "Relevant local alternative.",
+          "observable_advantage": "Simple named-provider proposition.",
+          "observable_gap": "Full Four-Surface sample not retained.",
+          "repeat": "Adapt clear journey structure.",
+          "improve": "Differentiate through Ivy authority.",
+          "do_not_copy": "Do not copy claims/discounts as proof.",
+          "strategic_implication": "Context only.",
+          "constraint_effect": "Supports identity repair first.",
+          "priority_effect": "No Top 3 change.",
+          "modernization_implication": "No superiority inferred.",
+          "strengths": [
+            "Simple named-provider proposition."
+          ],
+          "weaknesses_or_risks": [
+            "Incomplete sample."
+          ],
+          "limitations": "Website-only context; review-theme repetition was not assessed and remains insufficient evidence.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://www.harperhauswellness.com/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Public website"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Simple named-provider proposition.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        },
+        {
+          "id": "a-defined-image",
+          "name": "A Defined Image Medical Wellness Centre",
+          "competitor_type": "local",
+          "selection_reason": "Approved local comparator.",
+          "branch_scope": "Snellville, GA",
+          "patient_choice_reason": "Relevant local alternative.",
+          "observable_advantage": "Local provider/injectables relevance.",
+          "observable_gap": "Full Four-Surface sample not retained.",
+          "repeat": "Adapt clear journey structure.",
+          "improve": "Differentiate through Ivy authority.",
+          "do_not_copy": "Do not copy claims/discounts as proof.",
+          "strategic_implication": "Context only.",
+          "constraint_effect": "Supports identity repair first.",
+          "priority_effect": "No Top 3 change.",
+          "modernization_implication": "No superiority inferred.",
+          "strengths": [
+            "Local provider/injectables relevance."
+          ],
+          "weaknesses_or_risks": [
+            "Incomplete sample."
+          ],
+          "limitations": "Website-only context; review-theme repetition was not assessed and remains insufficient evidence.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://adefinedimage.com/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Public website"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Local provider/injectables relevance.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence.",
+              "evidence_refs": [],
+              "limitation": "Not retained."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        }
+      ],
+      "comparison_matrix": {
+        "subject_name": "Spoken Med Spa",
+        "rows": [
+          {
+            "entity_ref": "subject",
+            "entity_name": "Spoken Med Spa",
+            "entity_type": "subject",
+            "search": "Identity friction; geo-grid unmeasured.",
+            "website": "Strong Botox/Ivy; routing/proof gaps.",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": [
+              "search.entity_integrity",
+              "website.clinician_trust_proof"
+            ]
+          },
+          {
+            "entity_ref": "dermani-medspa-snellville",
+            "entity_name": "dermani MEDSPA® Snellville",
+            "entity_type": "competitor",
+            "search": "Insufficient evidence",
+            "website": "Clear local treatment-to-booking architecture.",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          },
+          {
+            "entity_ref": "about-face-snellville",
+            "entity_name": "About Face Skin Care - Snellville",
+            "entity_type": "competitor",
+            "search": "Insufficient evidence",
+            "website": "Structured medical authority and treatment depth.",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          },
+          {
+            "entity_ref": "harper-haus",
+            "entity_name": "Harper Haus Aesthetics & Wellness",
+            "entity_type": "competitor",
+            "search": "Insufficient evidence",
+            "website": "Simple named-provider proposition.",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          },
+          {
+            "entity_ref": "a-defined-image",
+            "entity_name": "A Defined Image Medical Wellness Centre",
+            "entity_type": "competitor",
+            "search": "Insufficient evidence",
+            "website": "Local provider/injectables relevance.",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          }
+        ]
+      },
+      "decision_summary": {
+        "defend": [
+          {
+            "title": "Defend Ivy authority",
+            "rationale": "Named-provider authority is visible.",
+            "evidence_refs": [
+              "website.clinician_trust_proof"
+            ]
+          }
+        ],
+        "close": [
+          {
+            "title": "Close identity/trust gap",
+            "rationale": "Patients should not reconcile Spoken/Jurney signals.",
+            "evidence_refs": [
+              "search.entity_integrity",
+              "cross.identity_coherence"
+            ]
+          }
+        ],
+        "differentiate": [
+          {
+            "title": "Use injector-educator authority as trust evidence",
+            "rationale": "Use education as expertise evidence without superiority claims.",
+            "evidence_refs": [
+              "website.clinician_trust_proof"
+            ]
+          }
+        ],
+        "do_not_copy": [
+          {
+            "title": "Do not copy visible tactics as proof",
+            "rationale": "Visibility does not establish ROI or clinical superiority.",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          }
+        ]
+      },
+      "market_practice_gap": {
+        "status": "insufficient_evidence",
+        "reason": "Full Four-Surface sample not retained.",
+        "recommendations": []
+      }
+    },
+    "walkthrough": {
+      "status": "pending",
+      "url": null,
+      "placeholder": "Separate delivery artifact."
+    },
+    "coordination_burden": {
+      "diagnosed_issues": 7,
+      "high_priority_fixes": 3,
+      "systems_involved": 4,
+      "dependencies": 3,
+      "specialist_roles": 4
+    }
+  },
+  "implementation_paths": {
+    "diy": "Implement in-house.",
+    "other_provider": "Use another qualified provider.",
+    "defer": "Preserve evidence and revisit later.",
+    "caesthetic": "Ask CAESTHETIC to scope selected work separately."
+  },
+  "why_caesthetic": {
+    "evidence_advantage": "Evidence and dependency order are assembled.",
+    "coordination_advantage": "Repair spans identity, website, Search destinations and proof.",
+    "sprint_boundary": "No task is automatic; written 30-Day Sprint scope is separate. Sprint price: $2,500.",
+    "ownership": "Report and repair paths may be used without CAESTHETIC; no lock-in."
+  },
+  "methodology": {
+    "sources": [
+      "https://www.spokenmedspa.com/",
+      "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa",
+      "https://www.spokenmedspa.com/botox-snellville",
+      "https://www.spokenmedspa.com/dermal-fillers-snellville-ga",
+      "https://www.spokenmedspa.com/about",
+      "https://www.spokenmedspa.com/spoken-aesthetic-academy",
+      "https://www.spokenmedspa.com/clients",
+      "https://msha.ke/spokenmedspa/",
+      "https://dermanimedspa.com/schedule-online-snellville/",
+      "https://www.aboutfaceskin.com/",
+      "https://www.harperhauswellness.com/",
+      "https://adefinedimage.com/"
+    ],
+    "collectedAt": "2026-09-03",
+    "competitorSelection": "Four approved local comparators.",
+    "limitations": "No 5×5 geo-grid, complete direct GBP audit, dated representative Social sample, direct comparable 90-day Google review corpus, Lighthouse, enquiry submission, appointment, internal ops, patient, lead/revenue or clinical-outcome data. Missing evidence remains unavailable."
+  },
+  "estimates": [],
+  "journeyGraph": {
+    "artifact_version": "cross-surface-journey-graph/1.0.0",
+    "artifact_id": "spoken-medspa-snellville-2026-journey-graph-v1",
+    "assessment_status": "not_assessed",
+    "max_hops": 3,
+    "automatic_score_change": false,
+    "evidence": [],
+    "nodes": [],
+    "edges": [],
+    "entry_node_ids": [],
+    "lead_intake_node_id": null,
+    "metric_links": [],
+    "representative_journeys": [],
+    "review": {
+      "status": "approved",
+      "reviewed_by": "Valerie Petra",
+      "reviewed_at": "2026-09-03T13:51:02Z",
+      "entity_resolution_approved": true,
+      "expectation_policy_approved": true,
+      "semantic_integrity_approved": true,
+      "severity_approved": true
+    }
+  },
+  "decisionViews": {
+    "artifact_version": "growth-score-decision-views/1.0.0",
+    "assessment_status": "not_assessed",
+    "source_policy": "existing_growth_score_evidence_only",
+    "automatic_score_change": false,
+    "automatic_binding_constraint_selection": false,
+    "automatic_focus_selection": false,
+    "automatic_promotion_decision": false,
+    "treatments": [],
+    "providers": [],
+    "trust_chains": [],
+    "friction_paths": [],
+    "promotion_holds": [],
+    "review": {
+      "status": "approved",
+      "reviewed_by": "Valerie Petra",
+      "reviewed_at": "2026-09-03T13:51:02Z",
+      "treatment_mapping_approved": true,
+      "provider_resolution_approved": true,
+      "trust_inferences_approved": true,
+      "friction_classification_approved": true,
+      "promotion_holds_approved": true
+    }
+  },
+  "audit": {
+    "project_id": "spoken-medspa-snellville-2026",
+    "subject_type": "aesthetic_practice",
+    "format": "single_location",
+    "package_role": "standalone",
+    "access_group_id": "spoken-medspa-snellville-2026-09-03"
+  },
+  "catalog": {
+    "visibility": "private",
+    "public_listing_approved": false
+  }
+}

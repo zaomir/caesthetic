@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "audit_id": "synthetic-publish-control-plane-multilocation-20260902",
+  "product": "growth_score",
+  "title": "Fixture Network",
+  "subject_type": "public_business",
+  "audit_format": "multi_location",
+  "status": "approved_report",
+  "evidence_policy": "public_sources_only",
+  "repository_access": ["zaomir/grainee-v2", "zaomir/caesthetic"],
+  "authoring_source_paths": ["docs/audits/caesthetic/growth-score/cases/synthetic-publish-control-plane-multilocation-20260902/reports/network-parent.json", "docs/audits/caesthetic/growth-score/cases/synthetic-publish-control-plane-multilocation-20260902/reports/focus-location.json"],
+  "report_paths": [
+    "docs/audits/caesthetic/growth-score/cases/synthetic-publish-control-plane-multilocation-20260902/reports/network-parent.json",
+    "docs/audits/caesthetic/growth-score/cases/synthetic-publish-control-plane-multilocation-20260902/reports/focus-location.json"
+  ],
+  "production_report_paths": [
+    "site-caesthetic/score/demo-publish-control-plane-network/report.json",
+    "site-caesthetic/score/demo-publish-control-plane-network/focus-location/report.json"
+  ]
+}

@@ -1,0 +1,1335 @@
+{
+  "schemaVersion": 5,
+  "templateVersion": "growth-score-report-template/5.2.0",
+  "reportState": "approved_report",
+  "reportVersion": "demo-multi-location-growth-score/1.2.0",
+  "verifiedFactSetVersion": "demo-multi-location-growth-score-facts/1.1.0",
+  "reportKind": "demo",
+  "reportContext": {
+    "vertical_context": "aesthetic_practice",
+    "report_locale": "en",
+    "vertical_source": "human_resolved",
+    "locale_source": "user_selected"
+  },
+  "practice": {
+    "name": "Fictional Meridian Aesthetic Network",
+    "location": "Three fictional U.S. markets",
+    "preparedAt": "2026-09-02",
+    "preparedFor": "Multi-Location Growth Score demonstration"
+  },
+  "executiveSummary": "A synthetic network diagnosis showing where to protect, pilot and scale using public evidence only.",
+  "surfaces": [
+    {
+      "id": "search",
+      "summary": "search fixture summary.",
+      "owner_card": {
+        "strength": "search strength",
+        "problem": "search problem",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "map_visibility",
+          "raw_value": "observed:map_visibility",
+          "normalized_score": 40,
+          "evidence_class": "A",
+          "source": "fixture://map_visibility",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "map_visibility fixture finding"
+        },
+        {
+          "metric_id": "gbp_treatment_category_completeness",
+          "raw_value": "observed:gbp_treatment_category_completeness",
+          "normalized_score": 40,
+          "evidence_class": "A",
+          "source": "fixture://gbp_treatment_category_completeness",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "gbp_treatment_category_completeness fixture finding"
+        },
+        {
+          "metric_id": "entity_integrity",
+          "raw_value": "observed:entity_integrity",
+          "normalized_score": 40,
+          "evidence_class": "A",
+          "source": "fixture://entity_integrity",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "entity_integrity fixture finding"
+        },
+        {
+          "metric_id": "gbp_conversion_readiness",
+          "raw_value": "observed:gbp_conversion_readiness",
+          "normalized_score": 40,
+          "evidence_class": "A",
+          "source": "fixture://gbp_conversion_readiness",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "gbp_conversion_readiness fixture finding"
+        },
+        {
+          "metric_id": "freshness",
+          "raw_value": "observed:freshness",
+          "normalized_score": 40,
+          "evidence_class": "A",
+          "source": "fixture://freshness",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "freshness fixture finding"
+        },
+        {
+          "metric_id": "branded_search_control",
+          "raw_value": "observed:branded_search_control",
+          "normalized_score": 40,
+          "evidence_class": "A",
+          "source": "fixture://branded_search_control",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "branded_search_control fixture finding"
+        }
+      ]
+    },
+    {
+      "id": "website",
+      "summary": "website fixture summary.",
+      "owner_card": {
+        "strength": "website strength",
+        "problem": "website problem",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "booking_friction",
+          "raw_value": "observed:booking_friction",
+          "normalized_score": 60,
+          "evidence_class": "A",
+          "source": "fixture://booking_friction",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "booking_friction fixture finding"
+        },
+        {
+          "metric_id": "treatment_clarity",
+          "raw_value": "observed:treatment_clarity",
+          "normalized_score": 60,
+          "evidence_class": "A",
+          "source": "fixture://treatment_clarity",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "treatment_clarity fixture finding"
+        },
+        {
+          "metric_id": "mobile_performance",
+          "raw_value": "observed:mobile_performance",
+          "normalized_score": 60,
+          "evidence_class": "A",
+          "source": "fixture://mobile_performance",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "mobile_performance fixture finding"
+        },
+        {
+          "metric_id": "above_fold_conversion",
+          "raw_value": "observed:above_fold_conversion",
+          "normalized_score": 60,
+          "evidence_class": "A",
+          "source": "fixture://above_fold_conversion",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "above_fold_conversion fixture finding"
+        },
+        {
+          "metric_id": "clinician_trust_proof",
+          "raw_value": "observed:clinician_trust_proof",
+          "normalized_score": 60,
+          "evidence_class": "A",
+          "source": "fixture://clinician_trust_proof",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "clinician_trust_proof fixture finding"
+        },
+        {
+          "metric_id": "mystery_shopper",
+          "raw_value": "observed:mystery_shopper",
+          "normalized_score": 60,
+          "evidence_class": "A",
+          "source": "fixture://mystery_shopper",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "mystery_shopper fixture finding"
+        },
+        {
+          "metric_id": "technical_booking_integrity",
+          "raw_value": "observed:technical_booking_integrity",
+          "normalized_score": 60,
+          "evidence_class": "A",
+          "source": "fixture://technical_booking_integrity",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "technical_booking_integrity fixture finding"
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "summary": "social fixture summary.",
+      "owner_card": {
+        "strength": "social strength",
+        "problem": "social problem",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "priority_treatment_presence",
+          "raw_value": "observed:priority_treatment_presence",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "fixture://priority_treatment_presence",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "priority_treatment_presence fixture finding"
+        },
+        {
+          "metric_id": "clinician_expertise",
+          "raw_value": "observed:clinician_expertise",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "fixture://clinician_expertise",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "clinician_expertise fixture finding"
+        },
+        {
+          "metric_id": "proof_quality",
+          "raw_value": "observed:proof_quality",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "fixture://proof_quality",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "proof_quality fixture finding"
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": "observed:recency",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "fixture://recency",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "recency fixture finding"
+        },
+        {
+          "metric_id": "profile_to_booking",
+          "raw_value": "observed:profile_to_booking",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "fixture://profile_to_booking",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "profile_to_booking fixture finding"
+        },
+        {
+          "metric_id": "local_offer_clarity",
+          "raw_value": "observed:local_offer_clarity",
+          "normalized_score": 80,
+          "evidence_class": "A",
+          "source": "fixture://local_offer_clarity",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "local_offer_clarity fixture finding"
+        }
+      ]
+    },
+    {
+      "id": "reputation",
+      "summary": "reputation fixture summary.",
+      "owner_card": {
+        "strength": "reputation strength",
+        "problem": "reputation problem",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "review_velocity_90d",
+          "raw_value": "observed:review_velocity_90d",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://review_velocity_90d",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "review_velocity_90d fixture finding"
+        },
+        {
+          "metric_id": "rating",
+          "raw_value": "observed:rating",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://rating",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "rating fixture finding"
+        },
+        {
+          "metric_id": "review_depth",
+          "raw_value": "observed:review_depth",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://review_depth",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "review_depth fixture finding"
+        },
+        {
+          "metric_id": "recency",
+          "raw_value": "observed:recency",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://recency",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "recency fixture finding"
+        },
+        {
+          "metric_id": "response_coverage",
+          "raw_value": "observed:response_coverage",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://response_coverage",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "response_coverage fixture finding"
+        },
+        {
+          "metric_id": "response_speed",
+          "raw_value": "observed:response_speed",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://response_speed",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "response_speed fixture finding"
+        },
+        {
+          "metric_id": "negative_review_handling",
+          "raw_value": "observed:negative_review_handling",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://negative_review_handling",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "negative_review_handling fixture finding"
+        },
+        {
+          "metric_id": "treatment_clinician_proof",
+          "raw_value": "observed:treatment_clinician_proof",
+          "normalized_score": 100,
+          "evidence_class": "A",
+          "source": "fixture://treatment_clinician_proof",
+          "collected_at": "2026-08-11T12:00:00Z",
+          "reviewer_status": "approved",
+          "finding": "treatment_clinician_proof fixture finding"
+        }
+      ]
+    }
+  ],
+  "crossSurface": {
+    "metrics": [
+      {
+        "metric_id": "treatment_presence",
+        "raw_value": "observed:treatment_presence",
+        "normalized_score": 5,
+        "evidence_class": "A",
+        "source": "fixture://treatment_presence",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "finding": "treatment_presence fixture finding"
+      },
+      {
+        "metric_id": "positioning_coherence",
+        "raw_value": "observed:positioning_coherence",
+        "normalized_score": 5,
+        "evidence_class": "A",
+        "source": "fixture://positioning_coherence",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "finding": "positioning_coherence fixture finding"
+      },
+      {
+        "metric_id": "proof_continuity",
+        "raw_value": "observed:proof_continuity",
+        "normalized_score": 5,
+        "evidence_class": "A",
+        "source": "fixture://proof_continuity",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "finding": "proof_continuity fixture finding"
+      },
+      {
+        "metric_id": "conversion_continuity",
+        "raw_value": "observed:conversion_continuity",
+        "normalized_score": 5,
+        "evidence_class": "A",
+        "source": "fixture://conversion_continuity",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "finding": "conversion_continuity fixture finding"
+      },
+      {
+        "metric_id": "identity_coherence",
+        "raw_value": "observed:identity_coherence",
+        "normalized_score": 5,
+        "evidence_class": "A",
+        "source": "fixture://identity_coherence",
+        "collected_at": "2026-08-11T12:00:00Z",
+        "reviewer_status": "approved",
+        "finding": "identity_coherence fixture finding"
+      }
+    ],
+    "summary": "Cross-surface fixture summary."
+  },
+  "humanDiagnosis": {
+    "reviewer_status": "approved",
+    "reviewer": {
+      "name": "Morgan Reed",
+      "approved_at": "2026-08-11T13:00:00Z"
+    },
+    "objective_strength": {
+      "title": "Strong reputation proof",
+      "evidence_refs": [
+        "reputation.rating"
+      ]
+    },
+    "strongest_surface": "reputation",
+    "binding_constraint": {
+      "title": "Search constraint",
+      "statement": "Local discovery is the binding public leak.",
+      "demand_stage": "discovery",
+      "evidence_refs": [
+        "search.map_visibility"
+      ],
+      "gap_ref": "search-gap"
+    },
+    "current_state": {
+      "strengths": [
+        "Reputation proof is already usable."
+      ],
+      "constraint_label": "Discovery leak",
+      "constraint_detail": "High-intent local demand does not reliably encounter the practice.",
+      "priority_line": "Close the Search discovery gap first."
+    },
+    "gap_inventory": [
+      {
+        "id": "search-gap",
+        "title": "Weak local discovery",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "search"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "search.map_visibility"
+        ],
+        "why_it_matters": "Priority-treatment demand is missed before any booking path can work.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Weak local discovery is repaired to an observable public state.",
+          "diy_steps": [
+            "Capture the current public evidence and the owner-approved destination state.",
+            "Apply the smallest accurate correction that the evidence supports.",
+            "Recheck the same public path and keep the before/after record."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or a named operator with access",
+          "done_when": [
+            "The same public path shows the accepted correction."
+          ]
+        },
+        "network_scope": {
+          "scope": "focus_location",
+          "affected_location_ids": [
+            "downtown"
+          ],
+          "observed_in_reviewed_count": 1,
+          "rollout_plan": {
+            "pilot_location_id": "downtown",
+            "replication_conditions": "Replicate only after the focus-location public acceptance evidence passes under the same collection method.",
+            "done_when_focus_location": "The repaired public route passes the documented focus-location check.",
+            "done_when_network_rollout": "Every approved rollout location passes the same documented public check."
+          },
+          "execution_owner": "local",
+          "accountable_role": "Downtown Marketing Lead",
+          "public_baseline": "The current public route and evidence state are captured before implementation.",
+          "day_30_public_check": "Repeat the same public route and confirm the documented acceptance evidence."
+        }
+      },
+      {
+        "id": "booking-gap",
+        "title": "Booking path friction",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website"
+        ],
+        "journey_stage": "booking",
+        "evidence_refs": [
+          "website.booking_friction"
+        ],
+        "why_it_matters": "Patients who find the practice still stall before enquiry.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Booking path friction is repaired to an observable public state.",
+          "diy_steps": [
+            "Capture the current public evidence and the owner-approved destination state.",
+            "Apply the smallest accurate correction that the evidence supports.",
+            "Recheck the same public path and keep the before/after record."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or a named operator with access",
+          "done_when": [
+            "The same public path shows the accepted correction."
+          ]
+        },
+        "network_scope": {
+          "scope": "shared_asset",
+          "affected_location_ids": [
+            "downtown",
+            "northside",
+            "lakeside"
+          ],
+          "observed_in_reviewed_count": 3,
+          "rollout_plan": {
+            "pilot_location_id": "downtown",
+            "replication_conditions": "Replicate only after the focus-location public acceptance evidence passes under the same collection method.",
+            "done_when_focus_location": "The repaired public route passes the documented focus-location check.",
+            "done_when_network_rollout": "Every approved rollout location passes the same documented public check."
+          },
+          "execution_owner": "hq",
+          "accountable_role": "VP Marketing",
+          "public_baseline": "The current public route and evidence state are captured before implementation.",
+          "day_30_public_check": "Repeat the same public route and confirm the documented acceptance evidence."
+        }
+      },
+      {
+        "id": "proof-gap",
+        "title": "Proof loses continuity",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "social",
+          "website"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "social.proof_quality"
+        ],
+        "why_it_matters": "Existing clinician proof is not present at the decision point.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Proof loses continuity is repaired to an observable public state.",
+          "diy_steps": [
+            "Capture the current public evidence and the owner-approved destination state.",
+            "Apply the smallest accurate correction that the evidence supports.",
+            "Recheck the same public path and keep the before/after record."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or a named operator with access",
+          "done_when": [
+            "The same public path shows the accepted correction."
+          ]
+        },
+        "network_scope": {
+          "scope": "repeated_pattern",
+          "affected_location_ids": [
+            "downtown",
+            "northside",
+            "lakeside"
+          ],
+          "observed_in_reviewed_count": 3,
+          "rollout_plan": {
+            "pilot_location_id": "downtown",
+            "replication_conditions": "Replicate only after the focus-location public acceptance evidence passes under the same collection method.",
+            "done_when_focus_location": "The repaired public route passes the documented focus-location check.",
+            "done_when_network_rollout": "Every approved rollout location passes the same documented public check."
+          },
+          "execution_owner": "shared",
+          "accountable_role": "VP Marketing and Location Leads",
+          "public_baseline": "The current public route and evidence state are captured before implementation.",
+          "day_30_public_check": "Repeat the same public route and confirm the documented acceptance evidence."
+        }
+      },
+      {
+        "id": "freshness-monitor",
+        "title": "Profile freshness is intermittent",
+        "diagnosis_state": "monitor",
+        "surfaces": [
+          "search"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [
+          "reputation.rating"
+        ],
+        "why_it_matters": "Freshness is worth watching after the discovery leak is closed.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Profile freshness is intermittent is repaired to an observable public state.",
+          "diy_steps": [
+            "Capture the current public evidence and the owner-approved destination state.",
+            "Apply the smallest accurate correction that the evidence supports.",
+            "Recheck the same public path and keep the before/after record."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or a named operator with access",
+          "done_when": [
+            "The same public path shows the accepted correction."
+          ]
+        }
+      },
+      {
+        "id": "response-backlog",
+        "title": "Review response speed is slower than peers",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "reputation.rating"
+        ],
+        "why_it_matters": "Response speed can wait until the discovery leak is closed.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Review response speed is slower than peers is repaired to an observable public state.",
+          "diy_steps": [
+            "Capture the current public evidence and the owner-approved destination state.",
+            "Apply the smallest accurate correction that the evidence supports.",
+            "Recheck the same public path and keep the before/after record."
+          ],
+          "dependencies": [],
+          "owner_role": "Practice owner or a named operator with access",
+          "done_when": [
+            "The same public path shows the accepted correction."
+          ]
+        }
+      }
+    ],
+    "focus_selection": {
+      "primary_gap_id": "search-gap",
+      "supporting_gap_ids": [
+        "booking-gap",
+        "proof-gap"
+      ],
+      "selected_by": "Morgan Reed",
+      "selected_at": "2026-08-11T13:00:00Z",
+      "rationale": "Discovery is the binding leak; booking and proof continuity are the related 30-day repairs."
+    },
+    "do_not_do": {
+      "title": "Do not increase paid media before fixing the measured constraint.",
+      "evidence_refs": [
+        "search.map_visibility"
+      ],
+      "rationale": "More traffic would amplify the same discovery leak.",
+      "revisit_after": [
+        "Geo-grid cells recover"
+      ]
+    },
+    "competitors": {
+      "status": "applicable",
+      "selection_method": "Nearest practices offering the same priority treatment.",
+      "sample_limitations": "Synthetic fixture; no real business conclusion.",
+      "comparison_window": {
+        "start": "2026-05-14",
+        "end": "2026-08-11"
+      },
+      "review_sample_rule": "Same 90-day window and ten eligible reviews; recurrence requires two mentions.",
+      "branch_scope": "Single-market fixture.",
+      "entries": [
+        {
+          "id": "named-competitor-a",
+          "name": "Named Competitor A",
+          "competitor_type": "local",
+          "selection_reason": "Direct local alternative for the same priority treatment.",
+          "branch_scope": "Single-market fixture.",
+          "sources": [
+            {
+              "url_or_snapshot": "fixture://competitor",
+              "source_type": "maps",
+              "collected_at": "2026-08-11",
+              "sample_note": "Synthetic comparable sample."
+            }
+          ],
+          "strengths": [
+            "Clear first step."
+          ],
+          "weaknesses_or_risks": [
+            "No verified outcome superiority."
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "observed",
+              "finding": "search fixture comparison",
+              "evidence_refs": [
+                "search.map_visibility"
+              ]
+            },
+            "website": {
+              "status": "observed",
+              "finding": "website fixture comparison",
+              "evidence_refs": [
+                "website.booking_friction"
+              ]
+            },
+            "social": {
+              "status": "observed",
+              "finding": "social fixture comparison",
+              "evidence_refs": [
+                "social.proof_quality"
+              ]
+            },
+            "reputation": {
+              "status": "observed",
+              "finding": "reputation fixture comparison",
+              "evidence_refs": [
+                "reputation.rating"
+              ]
+            }
+          },
+          "repeated_positive_themes": [
+            {
+              "theme": "Clear first step",
+              "mentions": 3,
+              "sample_size": 10,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.rating"
+              ]
+            }
+          ],
+          "repeated_negative_themes": [
+            {
+              "theme": "Price uncertainty",
+              "mentions": 2,
+              "sample_size": 10,
+              "window": "2026-05-14 to 2026-08-11",
+              "evidence_refs": [
+                "reputation.rating"
+              ]
+            }
+          ],
+          "patient_choice_reason": "The competitor presents a clearer first step.",
+          "observable_advantage": "Clearer discovery-to-booking continuity.",
+          "observable_gap": "No verified superiority in clinical outcome.",
+          "repeat": "Repeat the clear explanation pattern.",
+          "improve": "Connect it to verified proof and price conditions.",
+          "do_not_copy": "Do not copy unsupported clinical claims.",
+          "strategic_implication": "Close the decision-path gap before adding spend.",
+          "constraint_effect": "Confirms the discovery constraint.",
+          "priority_effect": "Confirms the selected Focus Gaps.",
+          "modernization_implication": "Pilot the clearer path; do not infer that newer clinical inputs are superior.",
+          "evidence_refs": [
+            "search.map_visibility",
+            "website.booking_friction",
+            "social.proof_quality",
+            "reputation.rating"
+          ],
+          "limitations": "Synthetic fixture; no real competitor or clinical conclusion."
+        }
+      ],
+      "comparison_matrix": {
+        "subject_name": "Fictional Meridian Aesthetic Network",
+        "rows": [
+          {
+            "entity_ref": "subject",
+            "entity_name": "Fictional Meridian Aesthetic Network",
+            "entity_type": "subject",
+            "search": "Subject search baseline.",
+            "website": "Subject website baseline.",
+            "social": "Subject social baseline.",
+            "reputation": "Subject reputation baseline.",
+            "evidence_refs": [
+              "search.map_visibility",
+              "website.booking_friction",
+              "social.proof_quality",
+              "reputation.rating"
+            ]
+          },
+          {
+            "entity_ref": "named-competitor-a",
+            "entity_name": "Named Competitor A",
+            "entity_type": "competitor",
+            "search": "Competitor search comparison.",
+            "website": "Competitor website comparison.",
+            "social": "Competitor social comparison.",
+            "reputation": "Competitor reputation comparison.",
+            "evidence_refs": [
+              "search.map_visibility",
+              "website.booking_friction",
+              "social.proof_quality",
+              "reputation.rating"
+            ]
+          }
+        ]
+      },
+      "decision_summary": {
+        "defend": [
+          {
+            "title": "Defend verified reputation",
+            "rationale": "Preserve the existing strength.",
+            "evidence_refs": [
+              "reputation.rating"
+            ]
+          }
+        ],
+        "close": [
+          {
+            "title": "Close discovery gap",
+            "rationale": "It remains the binding constraint.",
+            "evidence_refs": [
+              "search.map_visibility"
+            ]
+          }
+        ],
+        "differentiate": [
+          {
+            "title": "Own clear continuity",
+            "rationale": "Connect proof to booking.",
+            "evidence_refs": [
+              "website.booking_friction"
+            ]
+          }
+        ],
+        "do_not_copy": [
+          {
+            "title": "Avoid unsupported claims",
+            "rationale": "Activity is not proof.",
+            "evidence_refs": [
+              "social.proof_quality"
+            ]
+          }
+        ]
+      },
+      "market_practice_gap": {
+        "status": "applicable",
+        "reason": "A clearer decision-path pattern is observable and suitable for a bounded pilot.",
+        "recommendations": [
+          {
+            "title": "Pilot the clearer decision path",
+            "current_state": "The fixture separates proof and booking.",
+            "market_shift": "The comparison joins them into one path.",
+            "evidence_scope": "Synthetic local comparison only.",
+            "business_implication": "The path may reduce decision friction.",
+            "transition_economics": "Run a bounded test before replacement spend.",
+            "dependencies": [
+              "Owner approval",
+              "Baseline metric"
+            ],
+            "decision": "pilot",
+            "specialist_validation": "A qualified clinician and regulatory authority validate any clinical, drug, device or protocol change.",
+            "evidence_refs": [
+              "website.booking_friction"
+            ],
+            "limitations": "Adoption does not prove superiority or profitability."
+          }
+        ]
+      }
+    },
+    "walkthrough": {
+      "status": "pending",
+      "url": null,
+      "placeholder": "Human walkthrough recording pending."
+    },
+    "coordination_burden": {
+      "diagnosed_issues": 4,
+      "high_priority_fixes": 3,
+      "systems_involved": 2,
+      "dependencies": 1,
+      "specialist_roles": 2
+    }
+  },
+  "implementation_paths": {
+    "diy": "Use the complete task steps and acceptance evidence with the internal team.",
+    "other_provider": "Share the owned evidence pack and task plan with another qualified provider.",
+    "defer": "Defer lower-priority work while preserving the evidence baseline.",
+    "caesthetic": "Ask CAESTHETIC to scope selected tasks separately; no work is pre-purchased."
+  },
+  "why_caesthetic": {
+    "evidence_advantage": "CAESTHETIC already understands the reviewed evidence and problem map.",
+    "coordination_advantage": "CAESTHETIC can coordinate the dependency order and acceptance checks.",
+    "sprint_boundary": "Any 30-Day Sprint scope is confirmed separately and cannot include every Score task by default.",
+    "ownership": "The client owns the report, evidence and task plan and may use another provider without lock-in."
+  },
+  "estimates": [],
+  "disclosure": "Fictional practice, synthetic data, no client relationship.",
+  "methodology": {
+    "sources": [
+      "Synthetic fixture"
+    ],
+    "collectedAt": "2026-08-11T12:00:00Z",
+    "competitorSelection": "Nearest fictional peers offering the same priority treatment.",
+    "limitations": "Synthetic data; no client outcome or guarantee."
+  },
+  "audit": {
+    "format": "multi_location",
+    "profile_version": "multi-location-growth-score/1.2.0",
+    "project_id": "demo-multi-location-growth-score",
+    "access_group_id": "demo-multi-location-growth-score-public",
+    "parent_route": "/score/demo-multi-location-growth-score/",
+    "child_route": "/score/demo-multi-location-growth-score/focus-location/",
+    "package_role": "network_parent"
+  },
+  "network": {
+    "id": "fictional-meridian-network",
+    "name": "Fictional Meridian Aesthetic Network",
+    "declared_location_count": 3,
+    "reviewed_location_count": 3,
+    "focus_location_id": "downtown",
+    "focus_location_selection_rationale": "Downtown has the clearest observable public-journey risk and the strongest 30-day learning value; this is not a business-performance ranking.",
+    "focus_decision": {
+      "not_business_performance_ranking": true,
+      "manager_rationale": "Downtown is the clearest public-evidence pilot for a bounded 30-day repair that can teach the rest of the network.",
+      "criteria": [
+        {
+          "id": "public_journey_risk",
+          "assessment": "A fix-now discovery state is directly observable.",
+          "evidence_refs": [
+            "search.map_visibility"
+          ]
+        },
+        {
+          "id": "evidence_confidence",
+          "assessment": "The priority route is supported by approved synthetic public evidence.",
+          "evidence_refs": [
+            "search.map_visibility"
+          ]
+        },
+        {
+          "id": "thirty_day_feasibility",
+          "assessment": "The selected repairs each have a public Day 30 check.",
+          "evidence_refs": [
+            "website.booking_friction"
+          ]
+        },
+        {
+          "id": "network_learning_value",
+          "assessment": "Downtown uses shared systems also visible at the peer locations.",
+          "evidence_refs": [
+            "cross.proof_continuity"
+          ]
+        }
+      ]
+    },
+    "executive_summary": {
+      "protect": "Keep Northside’s strong local search pattern and the network’s usable reputation proof.",
+      "fix_first": "Repair Downtown’s public discovery path before expanding lower-priority work.",
+      "shared_issue": "Proof and location context weaken across the shared web journey.",
+      "pilot": "Use Downtown as the 30-day implementation pilot.",
+      "scale_rule": "Roll out only after the same public acceptance checks pass at the pilot.",
+      "decision_required": "Approve the Downtown pilot and accountable owners for the Top 3."
+    },
+    "locations": [
+      {
+        "id": "downtown",
+        "name": "Fictional Meridian Downtown",
+        "public_location": "Fictional Southwest market",
+        "state": "reviewed"
+      },
+      {
+        "id": "northside",
+        "name": "Fictional Meridian Northside",
+        "public_location": "Fictional Mountain market",
+        "state": "reviewed"
+      },
+      {
+        "id": "lakeside",
+        "name": "Fictional Meridian Lakeside",
+        "public_location": "Fictional Sun Belt market",
+        "state": "reviewed"
+      }
+    ],
+    "shared_assets": [
+      {
+        "id": "shared-site",
+        "surface": "website",
+        "public_url": "https://example.invalid/fictional-meridian",
+        "used_by_location_ids": [
+          "downtown",
+          "northside",
+          "lakeside"
+        ]
+      },
+      {
+        "id": "shared-social",
+        "surface": "social",
+        "public_url": "https://example.invalid/fictional-meridian-social",
+        "used_by_location_ids": [
+          "downtown",
+          "northside",
+          "lakeside"
+        ]
+      }
+    ],
+    "local_assets": [
+      {
+        "id": "downtown-listing",
+        "location_id": "downtown",
+        "surface": "search",
+        "public_url": "https://example.invalid/downtown-listing"
+      },
+      {
+        "id": "northside-listing",
+        "location_id": "northside",
+        "surface": "search",
+        "public_url": "https://example.invalid/northside-listing"
+      },
+      {
+        "id": "lakeside-listing",
+        "location_id": "lakeside",
+        "surface": "search",
+        "public_url": "https://example.invalid/lakeside-listing"
+      }
+    ],
+    "location_graph_refs": [
+      {
+        "location_id": "downtown",
+        "artifact_id": "synthetic-downtown-journey-v1"
+      },
+      {
+        "location_id": "northside",
+        "artifact_id": "synthetic-northside-journey-v1"
+      },
+      {
+        "location_id": "lakeside",
+        "artifact_id": "synthetic-lakeside-journey-v1"
+      }
+    ],
+    "repeated_patterns": [
+      {
+        "id": "shared-proof-continuity",
+        "title": "Shared proof loses location context",
+        "surface": "cross_surface",
+        "affected_location_ids": [
+          "downtown",
+          "northside",
+          "lakeside"
+        ],
+        "observed_in_reviewed_count": 3,
+        "evidence_refs": [
+          "cross.proof_continuity"
+        ]
+      }
+    ],
+    "comparison_matrix": [
+      {
+        "location_id": "downtown",
+        "search": {
+          "state": "fix_now",
+          "summary": "Discovery evidence supports immediate repair.",
+          "evidence_refs": [
+            "search.map_visibility"
+          ]
+        },
+        "website": {
+          "state": "watch",
+          "summary": "Shared route needs location-context monitoring.",
+          "evidence_refs": [
+            "website.booking_friction"
+          ]
+        },
+        "social": {
+          "state": "watch",
+          "summary": "Proof is visible but loses continuity.",
+          "evidence_refs": [
+            "social.proof_quality"
+          ]
+        },
+        "reputation": {
+          "state": "protect",
+          "summary": "Observed public proof is usable.",
+          "evidence_refs": [
+            "reputation.rating"
+          ]
+        }
+      },
+      {
+        "location_id": "northside",
+        "search": {
+          "state": "protect",
+          "summary": "Search is the strongest observed local pattern.",
+          "evidence_refs": [
+            "search.map_visibility"
+          ]
+        },
+        "website": {
+          "state": "watch",
+          "summary": "Shared route needs location-context monitoring.",
+          "evidence_refs": [
+            "website.booking_friction"
+          ]
+        },
+        "social": {
+          "state": "protect",
+          "summary": "Treatment-specific proof is observable.",
+          "evidence_refs": [
+            "social.proof_quality"
+          ]
+        },
+        "reputation": {
+          "state": "protect",
+          "summary": "Observed public proof is usable.",
+          "evidence_refs": [
+            "reputation.rating"
+          ]
+        }
+      },
+      {
+        "location_id": "lakeside",
+        "search": {
+          "state": "needs_verification",
+          "summary": "Comparable local evidence is incomplete.",
+          "evidence_refs": []
+        },
+        "website": {
+          "state": "watch",
+          "summary": "Shared route needs location-context monitoring.",
+          "evidence_refs": [
+            "website.booking_friction"
+          ]
+        },
+        "social": {
+          "state": "watch",
+          "summary": "Proof is visible but loses continuity.",
+          "evidence_refs": [
+            "social.proof_quality"
+          ]
+        },
+        "reputation": {
+          "state": "protect",
+          "summary": "Observed public proof is usable.",
+          "evidence_refs": [
+            "reputation.rating"
+          ]
+        }
+      }
+    ],
+    "decision_intelligence": {
+      "artifact_version": "multi-location-decision-intelligence/1.0.0",
+      "assessment_status": "assessed",
+      "source_policy": "existing_growth_score_evidence_only",
+      "automatic_score_change": false,
+      "automatic_binding_constraint_selection": false,
+      "automatic_focus_selection": false,
+      "automatic_promotion_decision": false,
+      "location_projections": [
+        {
+          "location_id": "downtown",
+          "decision_views": {
+            "artifact_version": "growth-score-decision-views/1.0.0",
+            "assessment_status": "assessed",
+            "source_policy": "existing_growth_score_evidence_only",
+            "automatic_score_change": false,
+            "automatic_binding_constraint_selection": false,
+            "automatic_focus_selection": false,
+            "automatic_promotion_decision": false,
+            "treatments": [
+              {
+                "id": "neuromodulator",
+                "label": "Neuromodulator",
+                "priority": "priority",
+                "surfaces": {
+                  "search": {
+                    "status": "protect",
+                    "summary": "The treatment is observable in local discovery.",
+                    "evidence_refs": ["search.gbp_treatment_category_completeness"],
+                    "assessment_basis": "observed"
+                  },
+                  "website": {
+                    "status": "fix_now",
+                    "summary": "Treatment detail does not yet support a confident next step.",
+                    "evidence_refs": ["website.treatment_clarity"],
+                    "assessment_basis": "human_inference",
+                    "method": "Named-human synthesis of approved Growth Score evidence.",
+                    "assumptions": ["Only the referenced synthetic public evidence is in scope."]
+                  },
+                  "social": {
+                    "status": "watch",
+                    "summary": "Treatment proof is present but incomplete.",
+                    "evidence_refs": ["social.priority_treatment_presence"],
+                    "assessment_basis": "observed"
+                  },
+                  "reputation": {
+                    "status": "protect",
+                    "summary": "Treatment-linked public proof is observable.",
+                    "evidence_refs": ["reputation.treatment_clinician_proof"],
+                    "assessment_basis": "observed"
+                  }
+                }
+              }
+            ],
+            "providers": [
+              {
+                "id": "provider-a",
+                "label": "Fictional Provider A",
+                "role": "Injector",
+                "treatment_ids": ["neuromodulator"],
+                "surfaces": {
+                  "search": {
+                    "status": "not_assessed",
+                    "summary": "Provider visibility was not assessed in Search.",
+                    "evidence_refs": [],
+                    "assessment_basis": null
+                  },
+                  "website": {
+                    "status": "visible",
+                    "summary": "Provider identity and credentials are observable.",
+                    "evidence_refs": ["website.clinician_trust_proof"],
+                    "assessment_basis": "observed"
+                  },
+                  "social": {
+                    "status": "partial",
+                    "summary": "Provider expertise is visible but not consistently linked to treatment proof.",
+                    "evidence_refs": ["social.clinician_expertise"],
+                    "assessment_basis": "human_inference",
+                    "method": "Named-human synthesis of approved Growth Score evidence.",
+                    "assumptions": ["Only the referenced synthetic public evidence is in scope."]
+                  },
+                  "reputation": {
+                    "status": "visible",
+                    "summary": "Public proof names the provider and treatment.",
+                    "evidence_refs": ["reputation.treatment_clinician_proof"],
+                    "assessment_basis": "observed"
+                  }
+                }
+              }
+            ],
+            "trust_chains": [
+              {
+                "id": "neuromodulator-provider-a",
+                "label": "Neuromodulator trust chain",
+                "treatment_id": "neuromodulator",
+                "provider_id": "provider-a",
+                "links": {
+                  "identity": {"status": "connected", "summary": "Practice identity is coherent.", "evidence_refs": ["cross.identity_coherence"], "assessment_basis": "observed"},
+                  "treatment": {"status": "friction", "summary": "Treatment context weakens between surfaces.", "evidence_refs": ["cross.treatment_presence"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "provider": {"status": "connected", "summary": "Named provider proof is observable.", "evidence_refs": ["website.clinician_trust_proof"], "assessment_basis": "observed"},
+                  "proof": {"status": "friction", "summary": "Proof does not remain continuous to the decision point.", "evidence_refs": ["cross.proof_continuity"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "next_action": {"status": "broken", "summary": "The next action loses treatment context.", "evidence_refs": ["cross.conversion_continuity"], "assessment_basis": "observed"}
+                }
+              }
+            ],
+            "friction_paths": [
+              {
+                "treatment_id": "neuromodulator",
+                "stages": {
+                  "discovery": {"status": "clear", "summary": "The treatment can be discovered.", "evidence_refs": ["search.gbp_treatment_category_completeness"], "assessment_basis": "observed"},
+                  "trust": {"status": "friction", "summary": "Proof continuity is incomplete.", "evidence_refs": ["cross.proof_continuity"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "enquiry": {"status": "friction", "summary": "The first conversion step is not fully clear.", "evidence_refs": ["website.above_fold_conversion"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "booking": {"status": "broken", "summary": "The booking path contains a confirmed break.", "evidence_refs": ["website.booking_friction"], "assessment_basis": "observed"}
+                }
+              }
+            ],
+            "promotion_holds": [
+              {
+                "treatment_id": "neuromodulator",
+                "decision": "do_not_promote_yet",
+                "rationale": "Additional promotion would send demand into a treatment path with a confirmed booking break.",
+                "blockers": ["Repair and verify the treatment-specific booking path."],
+                "revisit_when": ["The same public path passes the booking acceptance check."],
+                "evidence_refs": ["website.booking_friction", "cross.conversion_continuity"],
+                "assessment_basis": "human_inference",
+                "method": "Named-human review of the treatment path against approved evidence.",
+                "assumptions": ["No private operations evidence is inferred."]
+              }
+            ],
+            "review": {
+              "status": "approved",
+              "reviewed_by": "Morgan Reed",
+              "reviewed_at": "2026-08-11T13:00:00Z",
+              "treatment_mapping_approved": true,
+              "provider_resolution_approved": true,
+              "trust_inferences_approved": true,
+              "friction_classification_approved": true,
+              "promotion_holds_approved": true
+            }
+          }
+        },
+        {
+          "location_id": "northside",
+          "decision_views": {
+            "artifact_version": "growth-score-decision-views/1.0.0",
+            "assessment_status": "not_assessed",
+            "source_policy": "existing_growth_score_evidence_only",
+            "automatic_score_change": false,
+            "automatic_binding_constraint_selection": false,
+            "automatic_focus_selection": false,
+            "automatic_promotion_decision": false,
+            "treatments": [], "providers": [], "trust_chains": [], "friction_paths": [], "promotion_holds": [],
+            "review": {"status": "approved", "reviewed_by": "Morgan Reed", "reviewed_at": "2026-08-11T13:00:00Z", "treatment_mapping_approved": true, "provider_resolution_approved": true, "trust_inferences_approved": true, "friction_classification_approved": true, "promotion_holds_approved": true}
+          }
+        },
+        {
+          "location_id": "lakeside",
+          "decision_views": {
+            "artifact_version": "growth-score-decision-views/1.0.0",
+            "assessment_status": "not_assessed",
+            "source_policy": "existing_growth_score_evidence_only",
+            "automatic_score_change": false,
+            "automatic_binding_constraint_selection": false,
+            "automatic_focus_selection": false,
+            "automatic_promotion_decision": false,
+            "treatments": [], "providers": [], "trust_chains": [], "friction_paths": [], "promotion_holds": [],
+            "review": {"status": "approved", "reviewed_by": "Morgan Reed", "reviewed_at": "2026-08-11T13:00:00Z", "treatment_mapping_approved": true, "provider_resolution_approved": true, "trust_inferences_approved": true, "friction_classification_approved": true, "promotion_holds_approved": true}
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewed_by": "Morgan Reed",
+        "reviewed_at": "2026-08-11T13:00:00Z",
+        "location_coverage_approved": true,
+        "treatment_identity_approved": true,
+        "provider_identity_approved": true,
+        "representative_chains_approved": true,
+        "friction_projection_approved": true,
+        "promotion_holds_approved": true
+      }
+    },
+    "propagation_candidates": [
+      {
+        "id": "northside-search-pattern",
+        "title": "Preserve complete local search context",
+        "source_location_id": "northside",
+        "surface": "search",
+        "target_location_ids": [
+          "downtown",
+          "lakeside"
+        ],
+        "evidence_refs": [
+          "search.map_visibility"
+        ],
+        "standardize": "Use the observable Northside context pattern as a checklist without copying claims.",
+        "limitations": "Synthetic public evidence does not prove lead or revenue impact."
+      }
+    ],
+    "publication_approval": {
+      "status": "approved",
+      "approved_by": "Morgan Reed",
+      "approved_at": "2026-08-11T13:00:00Z",
+      "focus_location_id": "downtown",
+      "selected_gap_ids": [
+        "search-gap",
+        "booking-gap",
+        "proof-gap"
+      ],
+      "public_sources_only": true
+    }
+  }
+}

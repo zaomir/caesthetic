@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "audit_id": "prestige-tenerife-2026",
+  "product": "growth_score",
+  "title": "Prestige — Las Americas and San Isidro",
+  "subject_type": "beauty_salon",
+  "audit_format": "single_location",
+  "status": "approved_report",
+  "evidence_policy": "public_sources_only",
+  "repository_access": ["zaomir/grainee-v2", "zaomir/caesthetic"],
+  "authoring_source_paths": ["scripts/caesthetic/build-prestige-growth-score-pilot.mjs", "docs/audits/caesthetic/growth-score/cases/prestige-tenerife-2026/reports/standalone.json"],
+  "report_paths": ["docs/audits/caesthetic/growth-score/cases/prestige-tenerife-2026/reports/standalone.json"],
+  "production_report_paths": ["site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/report.json"]
+}

@@ -57,6 +57,7 @@ An agent that has access **only** to `zaomir/caesthetic` is allowed to edit the 
 
 Authorable Growth Score paths include:
 
+- `docs/audits/caesthetic/growth-score/cases/**`
 - `docs/caesthetic/growth_score_spec.md`
 - `docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md`
 - `docs/ssot/CAESTHETIC*.md` except files intentionally excluded by the DEC-829 manifest
@@ -78,6 +79,7 @@ Rules for a satellite-only agent:
 5. Never edit excluded private client routes/packs in the satellite; those intentionally do not sync.
 6. Never deploy from `zaomir/caesthetic`. After the change reaches `grainee-v2`, canonical tests/deploy/smoke run from `grainee-v2`.
 7. If the same protected file changed concurrently in both repos, stop and report the conflict instead of trying to force satellite content over `grainee-v2`.
+8. Create and find audits through `docs/audits/caesthetic/growth-score/cases/<audit-id>/case.json`. Repo-safe report records live under that same case folder. `site-caesthetic/score/**` remains production-controlled and is not an authoring shortcut from the satellite.
 
 ### Locked `Where Clients Are Gained - and Lost` visual
 

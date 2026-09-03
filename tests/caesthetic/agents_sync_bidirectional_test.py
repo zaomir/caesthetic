@@ -164,6 +164,20 @@ class DecideDeletionTest(unittest.TestCase):
         ]
         self.assertEqual(list(SYNC.PROTECTED_PREFIXES), protected)
 
+    def test_shared_audit_store_is_mirrored_without_client_runtime(self):
+        root = Path(self.tmp.name) / "audit-mirror"
+        report = root / "docs/audits/caesthetic/growth-score/cases/real-client/reports/standalone.json"
+        html = root / "site-caesthetic/score/real-client-unlisted/index.html"
+        runtime_report = root / "site-caesthetic/score/real-client-unlisted/report.json"
+        for path in (report, html, runtime_report):
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("{}\n")
+
+        collected = SYNC.collect_rels(root)
+        self.assertIn(str(report.relative_to(root)), collected)
+        self.assertNotIn(str(html.relative_to(root)), collected)
+        self.assertNotIn(str(runtime_report.relative_to(root)), collected)
+
     def test_retired_cron_installer_routes_to_continuous_timer(self):
         wrapper = (ROOT / "scripts" / "caesthetic" / "install-agents-sync-cron.sh").read_text()
         self.assertIn("install-continuous-sync.sh", wrapper)

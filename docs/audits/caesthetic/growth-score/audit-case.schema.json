@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caesthetic.com/schemas/growth-score-audit-case-v1.json",
+  "title": "CAESTHETIC Growth Score audit case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "audit_id",
+    "product",
+    "title",
+    "subject_type",
+    "audit_format",
+    "status",
+    "evidence_policy",
+    "repository_access",
+    "authoring_source_paths",
+    "report_paths",
+    "production_report_paths"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "audit_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "product": { "const": "growth_score" },
+    "title": { "type": "string", "minLength": 1 },
+    "subject_type": { "type": "string", "minLength": 1 },
+    "audit_format": { "enum": ["single_location", "multi_location"] },
+    "status": { "type": "string", "minLength": 1 },
+    "evidence_policy": { "const": "public_sources_only" },
+    "repository_access": {
+      "const": ["zaomir/grainee-v2", "zaomir/caesthetic"]
+    },
+    "authoring_source_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "report_paths": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^docs/audits/caesthetic/growth-score/cases/.+/reports/.+\\.json$" }
+    },
+    "production_report_paths": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^site-caesthetic/score/.+/report\\.json$" }
+    },
+    "legacy_main_repo_paths": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

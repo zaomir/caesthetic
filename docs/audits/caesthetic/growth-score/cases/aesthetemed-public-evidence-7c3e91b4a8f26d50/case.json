@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "audit_id": "aesthetemed-public-evidence-7c3e91b4a8f26d50",
+  "product": "growth_score",
+  "title": "Aesthetemed Beauty & Wellness Clinic",
+  "subject_type": "public_business",
+  "audit_format": "single_location",
+  "status": "approved_report",
+  "evidence_policy": "public_sources_only",
+  "repository_access": ["zaomir/grainee-v2", "zaomir/caesthetic"],
+  "authoring_source_paths": ["scripts/caesthetic/build-aesthetemed-growth-score.mjs", "docs/audits/caesthetic/growth-score/cases/aesthetemed-public-evidence-7c3e91b4a8f26d50/reports/standalone.json"],
+  "report_paths": ["docs/audits/caesthetic/growth-score/cases/aesthetemed-public-evidence-7c3e91b4a8f26d50/reports/standalone.json"],
+  "production_report_paths": ["site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/report.json"]
+}

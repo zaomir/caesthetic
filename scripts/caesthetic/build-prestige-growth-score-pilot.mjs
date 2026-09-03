@@ -208,17 +208,17 @@ const competitors = [
 const report = {
   ...template,
   decisionViews: approveDecisionViewsNotAssessed(template.decisionViews, {
-    reviewedBy: "Амир",
+    reviewedBy: "Редакционная версия",
     reviewedAt: approvedAt,
   }),
   journeyGraph: approveJourneyGraphNotAssessed(template.journeyGraph, {
     artifactId: "prestige-tenerife-2026-journey-graph-v1",
-    reviewedBy: "Амир",
+    reviewedBy: "Редакционная версия",
     reviewedAt: approvedAt,
   }),
   reportState: "approved_report",
   reportVersion: "prestige-ru-pilot-2026-09-01",
-  verifiedFactSetVersion: "prestige-public-evidence-2026-09-01-approved-amir",
+  verifiedFactSetVersion: "prestige-public-evidence-2026-09-01-editorial",
   reportKind: "real",
   presentation: {
     kind: "pilot",
@@ -234,13 +234,13 @@ const report = {
   crossSurface,
   humanDiagnosis: {
     reviewer_status: "approved",
-    reviewer: { name: "Амир", approved_at: approvedAt },
+    reviewer: { name: "Редакционная версия", approved_at: approvedAt },
     objective_strength: { title: "Карточка Las Americas уже имеет сильный публичный рейтинг Google 4,9 по 58 отзывам.", evidence_refs: ["reputation.rating"] },
     strongest_surface: "reputation",
     binding_constraint: { title: "Нет единого пути от поиска Prestige к услуге, филиалу и записи", statement: "Google, Booksy и Instagram не объясняют одним последовательным маршрутом, какую услугу выбрать, к какому филиалу она относится и где завершить запись.", demand_stage: "enquiry", evidence_refs: ["search.entity_integrity", "website.booking_friction", "cross.conversion_continuity"], gap_ref: "PRE-26-01" },
     current_state: { strengths: ["Las Americas имеет рейтинг Google 4,9 по 58 отзывам.", "Для Las Americas доступна публичная запись через Booksy."], constraint_label: "Единый публичный путь Prestige", constraint_detail: "Существующие поверхности не сходятся в одной архитектуре услуги, филиала и записи.", priority_line: "Сначала согласовать сущности и назначения, затем запустить единый управляемый путь и развести роли предложений." },
     gap_inventory: gaps,
-    focus_selection: { primary_gap_id: "PRE-26-01", supporting_gap_ids: ["PRE-26-02", "PRE-26-03"], selected_by: "Амир", selected_at: approvedAt, rationale: "PRE-26-01 закрывает основное несоответствие; PRE-26-02 начинает единое управляемое назначение; PRE-26-03 закрывает неоднозначность барбершопа, парикмахерской и академии." },
+    focus_selection: { primary_gap_id: "PRE-26-01", supporting_gap_ids: ["PRE-26-02", "PRE-26-03"], selected_by: "Редакционная версия", selected_at: approvedAt, rationale: "PRE-26-01 закрывает основное несоответствие; PRE-26-02 начинает единое управляемое назначение; PRE-26-03 закрывает неоднозначность барбершопа, парикмахерской и академии." },
     do_not_do: { title: "Не финансировать Paid Ads до проверки единого публичного пути", rationale: "Дополнительный платный спрос направит внимание в неподтверждённый маршрут между услугой, филиалом и записью.", evidence_refs: ["search.entity_integrity", "website.booking_friction", "cross.conversion_continuity"], revisit_after: ["Единый реестр сущностей утверждён.", "Маршрут услуга → филиал → запись проверен из поиска и социальных сетей.", "Назначения Google, Booksy и Instagram согласованы."] },
     competitors: {
       status: "applicable",

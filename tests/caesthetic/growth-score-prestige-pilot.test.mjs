@@ -39,7 +39,7 @@ test("Prestige pilot preserves the approved human Focus Selection and publishes 
   assert.deepEqual(report.humanDiagnosis.focus_selection, {
     primary_gap_id: "PRE-26-01",
     supporting_gap_ids: ["PRE-26-02", "PRE-26-03"],
-    selected_by: "Амир",
+    selected_by: "Редакционная версия",
     selected_at: "2026-09-01T12:16:22Z",
     rationale: "PRE-26-01 закрывает основное несоответствие; PRE-26-02 начинает единое управляемое назначение; PRE-26-03 закрывает неоднозначность барбершопа, парикмахерской и академии.",
   });

@@ -19,6 +19,7 @@ spec.loader.exec_module(cae_sync)
 
 
 AUTHORABLE_PATHS = (
+    "docs/audits/caesthetic/growth-score/cases/example-audit/case.json",
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
     "docs/caesthetic/growth_score_spec.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
@@ -32,6 +33,7 @@ AUTHORABLE_PATHS = (
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png",
     "tests/caesthetic/growth-score-renderer.test.mjs",
     "tests/caesthetic/growth-score-journey-graph.test.mjs",
+    "docs/audits/caesthetic/growth-score/cases/example-audit/reports/standalone.json",
 )
 
 

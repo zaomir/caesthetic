@@ -51,6 +51,8 @@ topics:
   growth_score:
     ssot: docs/ssot/CAESTHETIC.md
     spec: docs/caesthetic/growth_score_spec.md
+    audit_storage: docs/audits/caesthetic/growth-score/README.md
+    audit_cases: docs/audits/caesthetic/growth-score/cases/
     code:
       - scripts/caesthetic/growth-score-engine.mjs
       - scripts/caesthetic/render-growth-score.mjs
