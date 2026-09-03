@@ -179,6 +179,9 @@ test('deployment scripts use the fixed portfolio registry and preserve mail DNS'
   assert.match(zoneConfig, /"PATCH"/);
   assert.match(deployer, /proxy_existing_web_records/);
   assert.match(deployer, /"proxy_existing"/);
+  assert.match(deployer, /CAESTHETIC_OUTREACH_DNS_PROXY=externally_managed/);
+  assert.match(deployer, /reason=no_configured_dns_permission/);
+  assert.doesNotMatch(deployer, /DNS proxy authority is unavailable/);
   assert.match(zoneConfig, /CAESTHETIC_OUTREACH_OPERATION/);
   assert.match(zoneConfig, /MX, TXT, DKIM, DMARC/);
   assert.match(zoneConfig, /for pattern in row\["routes"\]/);

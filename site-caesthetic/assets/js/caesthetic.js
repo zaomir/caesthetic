@@ -324,34 +324,104 @@
     qsa(".cae-form:not([data-multistep]):not([data-cae-score-form])").forEach(function (form) {
       var successEl = qs(".cae-form-success", form);
       if (successEl) successEl.hidden = true;
+    });
+  }
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+  /* ──────────────────────────────────────────────────────────────
+     TWO-FIELD REQUEST MODAL
+  ────────────────────────────────────────────────────────────── */
 
-        var submitBtn = qs('button[type="submit"]', form);
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = "Request recorded";
-        }
+  function initRequestModal() {
+    var requestButtons = qsa('a.cae-btn[href^="mailto:"], a[data-cae-sprint-inquiry], button[data-cae-request], .cae-form:not([data-multistep]):not([data-cae-score-form]) button[type="submit"]');
+    var requestForms = qsa(".cae-form:not([data-multistep]):not([data-cae-score-form])");
+    if (!requestButtons.length && !requestForms.length) return;
 
-        if (successEl) {
-          successEl.hidden = false;
-          successEl.focus();
-        }
+    var dialog = document.createElement("dialog");
+    dialog.className = "cae-request-modal";
+    dialog.setAttribute("aria-labelledby", "cae-request-modal-title");
+    dialog.innerHTML =
+      '<div class="cae-request-modal__panel">' +
+        '<button class="cae-request-modal__close" type="button" aria-label="Close request form">×</button>' +
+        '<p class="cae-kicker">Request</p>' +
+        '<h2 class="cae-h2" id="cae-request-modal-title">Leave your details</h2>' +
+        '<p class="cae-request-modal__intro">We will reply by email.</p>' +
+        '<form class="cae-request-modal__form">' +
+          '<label for="cae-request-name">Name</label>' +
+          '<input id="cae-request-name" name="name" type="text" autocomplete="name" required>' +
+          '<label for="cae-request-email">Email</label>' +
+          '<input id="cae-request-email" name="email" type="email" autocomplete="email" inputmode="email" required>' +
+          '<button class="cae-btn cae-btn--primary" type="submit">Send request</button>' +
+          '<p class="cae-request-modal__status" role="status" aria-live="polite"></p>' +
+        '</form>' +
+      '</div>';
+    document.body.appendChild(dialog);
 
-        var subject = encodeURIComponent("CAESTHETIC enquiry");
-        var body = encodeURIComponent(
-          Array.from(new FormData(form).entries())
-            .map(function (x) { return x[0] + ": " + x[1]; })
-            .join("\n")
-        );
+    var form = qs("form", dialog);
+    var close = qs(".cae-request-modal__close", dialog);
+    var status = qs(".cae-request-modal__status", dialog);
+    var activeTrigger = null;
+    var requestIntent = "";
 
-        setTimeout(function () {
-          var contactEmail =
-            (window.CAESTHETIC && window.CAESTHETIC.contactEmail) || "info@caesthetic.com";
-          window.location.href =
-            "mailto:" + contactEmail + "?subject=" + subject + "&body=" + body;
-        }, 350);
+    function closeDialog() {
+      dialog.close();
+      if (activeTrigger) activeTrigger.focus();
+    }
+
+    function openDialog(trigger) {
+      activeTrigger = trigger || null;
+      requestIntent = trigger && trigger.textContent
+        ? trigger.textContent.trim()
+        : "CAESTHETIC request";
+      status.textContent = "";
+      form.reset();
+      var modalSubmit = qs('button[type="submit"]', form);
+      modalSubmit.disabled = false;
+      modalSubmit.textContent = "Send request";
+      dialog.showModal();
+      qs('input[name="name"]', form).focus();
+    }
+
+    close.addEventListener("click", closeDialog);
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) closeDialog();
+    });
+
+    requestButtons.forEach(function (button) {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        openDialog(button);
+      });
+    });
+
+    requestForms.forEach(function (requestForm) {
+      requestForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        openDialog(qs('button[type="submit"]', requestForm));
+      });
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var submit = qs('button[type="submit"]', form);
+      var payload = {
+        name: String(new FormData(form).get("name") || "").trim(),
+        email: String(new FormData(form).get("email") || "").trim(),
+        intent: requestIntent,
+        page_url: window.location.href
+      };
+      submit.disabled = true;
+      status.textContent = "Sending…";
+      fetch((window.CAESTHETIC_API && window.CAESTHETIC_API.request) || "", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (response) {
+        if (!response.ok) throw new Error("request_failed");
+        status.textContent = "Request sent. We will reply by email.";
+        submit.textContent = "Sent";
+      }).catch(function () {
+        status.textContent = "We could not send the request. Please try again.";
+        submit.disabled = false;
       });
     });
   }
@@ -424,6 +494,7 @@
     initDemandMaps();
     initMultiStepForms();
     initForms();
+    initRequestModal();
     initRatingBars();
     initSmoothScroll();
     loadAnalytics();

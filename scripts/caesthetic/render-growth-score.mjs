@@ -228,29 +228,29 @@ function metricEvidenceRows(metrics, metricResults, sufficient) {
   return coverageNote + metrics.map((metric) => {
     const result = metricResults.find((candidate) => candidate.metric_id === metric.metric_id);
     const scoreValue = result?.normalized_score ?? metric.normalized_score;
-    const raw = metric.raw_value === null || metric.raw_value === undefined
-      ? "Not collected"
-      : typeof metric.raw_value === "object" ? JSON.stringify(metric.raw_value) : String(metric.raw_value);
+    const sourceLine = metric.source
+      ? `<small>Source: ${escapeHtml(metric.source)}${metric.collected_at ? ` · Collected: ${escapeHtml(metric.collected_at)}` : ""}</small>`
+      : "";
     return `
               <li class="cae-report-metric">
                 <div>
                   <p class="cae-kicker">${metricClassLabel(metric)}</p>
-                  <strong>${escapeHtml(metric.label || sentenceCase(metric.metric_id))}</strong>
+                  <strong>${escapeHtml(sentenceCase(metric.metric_id))}</strong>
                   <p>${escapeHtml(metric.finding || metric.unavailable_reason || "No published finding for this metric.")}</p>
                 </div>
                 <span>${displayScore(scoreValue)}</span>
-                <small>Source: ${escapeHtml(metric.source || "No source: unavailable")} · Collected: ${escapeHtml(metric.collected_at || "No collection date")} · Raw: ${escapeHtml(raw)}</small>
+                ${sourceLine}
               </li>`;
   }).join("");
 }
 
 function reviewThemeRows(themes, emptyLabel) {
   if (themes.length === 0) return `<li>${escapeHtml(emptyLabel)}</li>`;
-  return themes.map((theme) => `<li>${escapeHtml(theme.theme)} <small>${theme.mentions}/${theme.sample_size} eligible reviews · ${escapeHtml(theme.window)} · Evidence: ${refs(theme.evidence_refs)}</small></li>`).join("");
+  return themes.map((theme) => `<li>${escapeHtml(theme.theme)} <small>${theme.mentions}/${theme.sample_size} eligible reviews · ${escapeHtml(theme.window)}</small></li>`).join("");
 }
 
 function decisionRows(items) {
-  return items.map((item) => `<li><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.rationale)}</p><small>Evidence: ${refs(item.evidence_refs)}</small></li>`).join("");
+  return items.map((item) => `<li><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.rationale)}</p></li>`).join("");
 }
 
 function comparisonMatrixHtml(matrix) {
@@ -271,7 +271,7 @@ ${matrix.rows.map((row) => `              <tr>
 
 function marketPracticeGapHtml(gap) {
   if (gap.status !== "applicable") {
-    return `<div class="cae-report-market-gap"><p class="cae-kicker">Market Practice Gap · ${escapeHtml(gap.status)}</p><p>${escapeHtml(gap.reason)}</p></div>`;
+    return `<div class="cae-report-market-gap"><p class="cae-kicker">Market Practice Gap · ${escapeHtml(sentenceCase(gap.status))}</p><p>${escapeHtml(gap.reason)}</p></div>`;
   }
   return `<div class="cae-report-market-gap">
           <p class="cae-kicker">Market Practice Gap · Strategic Modernization</p>
@@ -289,7 +289,7 @@ ${gap.recommendations.map((item) => `            <article>
               <p><strong>Dependencies:</strong> ${escapeHtml(item.dependencies.join("; "))}</p>
               <p><strong>Validation gate:</strong> ${escapeHtml(item.specialist_validation)}</p>
               <p class="cae-report-note"><strong>Limitations:</strong> ${escapeHtml(item.limitations)}</p>
-              <small>Evidence: ${refs(item.evidence_refs)}</small>
+              
             </article>`).join("\n")}
           </div>
         </div>`;
@@ -331,7 +331,7 @@ ${competitors.entries.map((competitor) => `          <article class="cae-report-
               </dl>
               <p class="cae-report-note"><strong>Limitations:</strong> ${escapeHtml(competitor.limitations)}</p>
               <p class="cae-report-note"><strong>Sources:</strong> ${competitor.sources.map((source) => `${escapeHtml(source.source_type)} · ${escapeHtml(source.collected_at)} · ${escapeHtml(source.url_or_snapshot)} · ${escapeHtml(source.sample_note)}`).join("<br>")}</p>
-              <small>Evidence: ${refs(competitor.evidence_refs)}</small>
+              
             </article>`).join("\n")}
         </div>
         <div class="cae-report-competitive-decisions">
@@ -429,7 +429,7 @@ function focusGapCards(gaps, focus, { networkView = null } = {}) {
             <details class="cae-focus-gap__details">
               <summary>Evidence, dependencies and implementation details</summary>
               <div>
-                <p><strong>Evidence references:</strong> ${refs(gap.evidence_refs)}</p>
+                
                 <p><strong>Why this priority:</strong> ${escapeHtml(focus.rationale)}</p>
                 <p><strong>Primary dependency:</strong> ${escapeHtml(dependency)}</p>
                 <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></p>
@@ -447,7 +447,7 @@ function focusGapCards(gaps, focus, { networkView = null } = {}) {
             <p class="cae-focus-gap__rank cae-status-pill" aria-label="${escapeHtml(marker.label)}">${FOCUS_RANKS[index]} · ${escapeHtml(marker.label)}</p>
             <h3>${escapeHtml(gap.title)}</h3>
             <p><strong>Found on:</strong> ${escapeHtml(surfaces)} · ${escapeHtml(sentenceCase(gap.journey_stage))}</p>
-            <p><strong>Evidence → Explanation:</strong> ${refs(gap.evidence_refs)}. ${escapeHtml(gap.why_it_matters)}</p>
+            <p><strong>Why it matters:</strong> ${escapeHtml(gap.why_it_matters)}</p>
             <p><strong>Why now:</strong> ${escapeHtml(focus.rationale)}</p>
             <p><strong>Primary dependency:</strong> ${escapeHtml(dependency)}</p>
             <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">${escapeHtml(sprintFitLabel(gap.sprint_fit.mode))}</span></p>
@@ -487,7 +487,7 @@ function sprintFitHtml(gaps, focus) {
           <article><p class="cae-kicker cae-status-pill">Start in 30 days</p>${row(start, "No long initiative was started.")}</article>
           <article><p class="cae-kicker cae-status-pill">Not now</p>${row(backlog, "No backlog holes.")}</article>
         </div>
-        <p class="cae-report-note">This roadmap is generated from Sprint Fit. It is not purchased scope, a delivery promise or a results guarantee.</p>`;
+        <p class="cae-report-note">This roadmap is generated from Sprint Fit.</p>`;
 }
 
 function surfaceNavigatorCards(report, result) {
@@ -596,7 +596,7 @@ const DECISION_VIEW_STATUS_LABELS = Object.freeze({
 });
 
 function decisionViewCellHtml(item) {
-  const evidence = item.evidence_refs?.length ? `<small>Evidence: ${refs(item.evidence_refs)}</small>` : "";
+  const evidence = item.evidence_refs?.length ? `` : "";
   const inference = item.assessment_basis === "human_inference" ? '<small class="cae-decision-view__inference">Human-reviewed inference</small>' : "";
   return `<strong>${escapeHtml(DECISION_VIEW_STATUS_LABELS[item.status] || sentenceCase(item.status))}</strong><span>${escapeHtml(item.summary)}</span>${evidence}${inference}`;
 }
@@ -664,7 +664,7 @@ function doNotPromoteYetByTreatmentHtml(view) {
   return `<section class="cae-do-not-promote" data-decision-view="do-not-promote-yet-by-treatment">
     <p class="cae-kicker">Do Not Promote Yet by Treatment · Human-approved</p>
     <h3>Hold promotion until the named public-evidence blockers are closed</h3>
-    <div>${view.items.map((hold) => `<article><h4>${escapeHtml(hold.treatment_id)}</h4><p>${escapeHtml(hold.rationale)}</p><p><strong>Blockers:</strong></p><ul>${stringList(hold.blockers)}</ul><p><strong>Revisit when:</strong></p><ul>${stringList(hold.revisit_when)}</ul><small>Evidence: ${refs(hold.evidence_refs)} · Human-reviewed inference</small></article>`).join("")}</div>
+    <div>${view.items.map((hold) => `<article><h4>${escapeHtml(hold.treatment_id)}</h4><p>${escapeHtml(hold.rationale)}</p><p><strong>Blockers:</strong></p><ul>${stringList(hold.blockers)}</ul><p><strong>Revisit when:</strong></p><ul>${stringList(hold.revisit_when)}</ul><small>Human-reviewed inference</small></article>`).join("")}</div>
   </section>`;
 }
 
@@ -740,7 +740,7 @@ function networkDoNotPromoteHtml(view) {
   return `<section class="cae-do-not-promote cae-network-promotion-holds" data-decision-view="network-do-not-promote-yet-by-treatment">
     <p class="cae-kicker">Do Not Promote Yet by Treatment · Network projection · Human-approved</p>
     <h3>Hold promotion only where the approved public-evidence blocker applies</h3>
-    <div>${view.promotion_holds.map((group) => `<article><h4>${escapeHtml(group.treatment_label)}</h4><p><strong>Affected locations:</strong> ${escapeHtml(group.affected_location_names.join(", "))}</p>${group.holds.map((hold) => `<div class="cae-network-hold"><p>${escapeHtml(hold.location_name)} — ${escapeHtml(hold.rationale)}</p><p><strong>Blockers:</strong></p><ul>${stringList(hold.blockers)}</ul><p><strong>Revisit when:</strong></p><ul>${stringList(hold.revisit_when)}</ul><small>Evidence: ${refs(hold.evidence_refs)} · Human-reviewed inference</small></div>`).join("")}</article>`).join("")}</div>
+    <div>${view.promotion_holds.map((group) => `<article><h4>${escapeHtml(group.treatment_label)}</h4><p><strong>Affected locations:</strong> ${escapeHtml(group.affected_location_names.join(", "))}</p>${group.holds.map((hold) => `<div class="cae-network-hold"><p>${escapeHtml(hold.location_name)} — ${escapeHtml(hold.rationale)}</p><p><strong>Blockers:</strong></p><ul>${stringList(hold.blockers)}</ul><p><strong>Revisit when:</strong></p><ul>${stringList(hold.revisit_when)}</ul><small>Human-reviewed inference</small></div>`).join("")}</article>`).join("")}</div>
     <p class="cae-report-note">A hold is location- and treatment-specific. It is not a universal prohibition and it does not change the global Do Not Fund Yet decision above.</p>
   </section>`;
 }
@@ -878,7 +878,7 @@ function journeyGraphEvidenceDetailsHtml(report) {
     <p><strong>Context:</strong> ${escapeHtml(edge.context_integrity.observed_behavior)}</p>
     <p><strong>Why it matters:</strong> ${escapeHtml(edge.why_it_matters)}</p>
     <p><strong>Repair implication:</strong> ${escapeHtml(edge.repair_implication)}</p>
-    <p><small>Source: ${escapeHtml(edge.source || "Not assessed")} · Collected: ${escapeHtml(edge.collected_at || "Not assessed")} · Evidence: ${refs(edge.evidence_refs)}</small></p>
+    <p><small>Source: ${escapeHtml(edge.source || "Not assessed")} · Collected: ${escapeHtml(edge.collected_at || "Not assessed")}</small></p>
   </details>`).join("");
   return `<section class="cae-journey-graph__details" aria-labelledby="journey-edge-evidence-title"><h3 class="cae-report-subhead" id="journey-edge-evidence-title">Journey edge evidence</h3>${details}</section>`;
 }
@@ -904,7 +904,7 @@ function leadToRevenueMapHtml(report) {
     ? `<div class="cae-lead-revenue__check" data-cae-check-recommended="true">
       <div><span>Lead-to-Revenue Check</span><strong>$500</strong></div>
       <p><strong>Why recommended:</strong> ${escapeHtml(checkDecision.reason)}</p>
-      <p><strong>Supporting evidence:</strong> ${refs(checkDecision.evidence_refs)}</p>
+      
       <p>An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>$2,500</span> Sprint total.</p>
       <small>No enquiry, booking, patient, revenue or ROI outcome is promised.</small>
       <a class="cae-report-inline-link" href="/lead-to-revenue-check/">Review the Lead-to-Revenue Check</a>
@@ -1340,7 +1340,7 @@ function localizeReportHtml(html, locale) {
     ["Close in 30 days", "Закрыть за 30 дней"],
     ["Start in 30 days", "Начать за 30 дней"],
     ["Not now", "Не сейчас"],
-    ["This roadmap is generated from Пригодность для Sprint. It is not purchased scope, a delivery promise or a results guarantee.", "Эта дорожная карта сформирована по Sprint Fit. Это не оплаченный scope, не обещание поставки и не гарантия результата."],
+    ["This roadmap is generated from Пригодность для Sprint.", "Эта дорожная карта сформирована по Sprint Fit."],
     ["Repair paths", "Пути исправления"],
     ["Four valid ways forward", "Четыре допустимых пути"],
     ["Want to implement the selected Фокусные разрывы yourself? You can.", "Выбранные фокусные разрывы можно исправить самостоятельно."],
@@ -1833,7 +1833,7 @@ ${growthScoreIntroHtml(report)}
     <div class="cae-wrap">
       <p class="cae-kicker">Evidence and competitors</p>
       <h2 class="cae-h2">${isNetworkParent ? "Evidence behind the priorities" : "Why the selected holes are real"}</h2>
-      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)} ${isNetworkParent ? "" : `<small>Evidence: ${refs(diagnosis.objective_strength.evidence_refs)}</small>`}</p>
+      <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)}</p>
       <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
       ${isNetworkParent ? networkCompetitorSummaryHtml(report) : ""}
       ${isNetworkParent ? `

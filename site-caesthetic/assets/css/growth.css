@@ -998,3 +998,31 @@
   .cae-score-intake__actions { align-items: stretch; }
   .cae-score-intake__actions .cae-btn { width: 100%; white-space: normal; }
 }
+
+
+/* Founder-directed spacing correction for commercial panels. */
+.cae-price-block {
+  padding: clamp(1.75rem, 4vw, 3rem);
+}
+
+.cae-price-block > :first-child {
+  margin-top: 0;
+}
+
+.cae-price-block > :last-child {
+  margin-bottom: 0;
+}
+
+.cae-price-block .cae-check-credit {
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+@media (max-width: 520px) {
+  .cae-price-block {
+    padding: 1.5rem;
+  }
+
+  .cae-price-block .cae-check-credit {
+    padding: 1.25rem;
+  }
+}

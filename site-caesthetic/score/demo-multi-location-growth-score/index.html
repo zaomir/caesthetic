@@ -164,7 +164,7 @@
   </details>
     <details class="cae-decision-view cae-network-decision-view" data-decision-view="network-trust-chain">
     <summary>Trust Chain <span class="cae-status-pill">REPRESENTATIVE · UNSCORED</span></summary>
-    <div class="cae-decision-view__cards"><article data-status="broken" data-focus-location="true"><p class="cae-kicker">Fictional Meridian Downtown · Focus location</p><h4>Neuromodulator trust chain</h4><p><strong>Confirmed break</strong> · 5/5 links assessed</p><ol><li data-status="connected"><span>Identity</span><strong>Connected</strong><span>Practice identity is coherent.</span><small>Evidence: cross.identity_coherence</small></li><li data-status="friction"><span>Treatment</span><strong>Friction</strong><span>Treatment context weakens between surfaces.</span><small>Evidence: cross.treatment_presence</small><small class="cae-decision-view__inference">Human-reviewed inference</small></li><li data-status="connected"><span>Provider</span><strong>Connected</strong><span>Named provider proof is observable.</span><small>Evidence: website.clinician_trust_proof</small></li><li data-status="friction"><span>Proof</span><strong>Friction</strong><span>Proof does not remain continuous to the decision point.</span><small>Evidence: cross.proof_continuity</small><small class="cae-decision-view__inference">Human-reviewed inference</small></li><li data-status="broken"><span>Next Action</span><strong>Confirmed break</strong><span>The next action loses treatment context.</span><small>Evidence: cross.conversion_continuity</small></li></ol></article></div>
+    <div class="cae-decision-view__cards"><article data-status="broken" data-focus-location="true"><p class="cae-kicker">Fictional Meridian Downtown · Focus location</p><h4>Neuromodulator trust chain</h4><p><strong>Confirmed break</strong> · 5/5 links assessed</p><ol><li data-status="connected"><span>Identity</span><strong>Connected</strong><span>Practice identity is coherent.</span></li><li data-status="friction"><span>Treatment</span><strong>Friction</strong><span>Treatment context weakens between surfaces.</span><small class="cae-decision-view__inference">Human-reviewed inference</small></li><li data-status="connected"><span>Provider</span><strong>Connected</strong><span>Named provider proof is observable.</span></li><li data-status="friction"><span>Proof</span><strong>Friction</strong><span>Proof does not remain continuous to the decision point.</span><small class="cae-decision-view__inference">Human-reviewed inference</small></li><li data-status="broken"><span>Next Action</span><strong>Confirmed break</strong><span>The next action loses treatment context.</span></li></ol></article></div>
 
   </details>
     <details class="cae-decision-view cae-network-decision-view" data-decision-view="network-patient-friction-index">
@@ -251,7 +251,7 @@
             <details class="cae-focus-gap__details">
               <summary>Evidence, dependencies and implementation details</summary>
               <div>
-                <p><strong>Evidence references:</strong> search.map_visibility</p>
+
                 <p><strong>Why this priority:</strong> Discovery is the binding leak; booking and proof continuity are the related 30-day repairs.</p>
                 <p><strong>Primary dependency:</strong> This is the Primary Gap. Supporting repairs depend on it.</p>
                 <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
@@ -276,7 +276,7 @@
             <details class="cae-focus-gap__details">
               <summary>Evidence, dependencies and implementation details</summary>
               <div>
-                <p><strong>Evidence references:</strong> website.booking_friction</p>
+
                 <p><strong>Why this priority:</strong> Discovery is the binding leak; booking and proof continuity are the related 30-day repairs.</p>
                 <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
                 <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
@@ -301,7 +301,7 @@
             <details class="cae-focus-gap__details">
               <summary>Evidence, dependencies and implementation details</summary>
               <div>
-                <p><strong>Evidence references:</strong> social.proof_quality</p>
+
                 <p><strong>Why this priority:</strong> Discovery is the binding leak; booking and proof continuity are the related 30-day repairs.</p>
                 <p><strong>Primary dependency:</strong> Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.</p>
                 <p><strong>Sprint Fit:</strong> <span class="cae-status-pill">Close in 30 days</span></p>
@@ -364,7 +364,7 @@
       <section class="cae-do-not-promote cae-network-promotion-holds" data-decision-view="network-do-not-promote-yet-by-treatment">
     <p class="cae-kicker">Do Not Promote Yet by Treatment · Network projection · Human-approved</p>
     <h3>Hold promotion only where the approved public-evidence blocker applies</h3>
-    <div><article><h4>Neuromodulator</h4><p><strong>Affected locations:</strong> Fictional Meridian Downtown</p><div class="cae-network-hold"><p>Fictional Meridian Downtown — Additional promotion would send demand into a treatment path with a confirmed booking break.</p><p><strong>Blockers:</strong></p><ul><li>Repair and verify the treatment-specific booking path.</li></ul><p><strong>Revisit when:</strong></p><ul><li>The same public path passes the booking acceptance check.</li></ul><small>Evidence: website.booking_friction, cross.conversion_continuity · Human-reviewed inference</small></div></article></div>
+    <div><article><h4>Neuromodulator</h4><p><strong>Affected locations:</strong> Fictional Meridian Downtown</p><div class="cae-network-hold"><p>Fictional Meridian Downtown — Additional promotion would send demand into a treatment path with a confirmed booking break.</p><p><strong>Blockers:</strong></p><ul><li>Repair and verify the treatment-specific booking path.</li></ul><p><strong>Revisit when:</strong></p><ul><li>The same public path passes the booking acceptance check.</li></ul><small>Human-reviewed inference</small></div></article></div>
     <p class="cae-report-note">A hold is location- and treatment-specific. It is not a universal prohibition and it does not change the global Do Not Fund Yet decision above.</p>
   </section>
     </div>
@@ -429,7 +429,7 @@
     <div class="cae-wrap">
       <p class="cae-kicker">Evidence and competitors</p>
       <h2 class="cae-h2">Evidence behind the priorities</h2>
-      <p><strong>Objective strength:</strong> Strong reputation proof </p>
+      <p><strong>Objective strength:</strong> Strong reputation proof</p>
       <p><strong>Strongest surface:</strong> Reputation</p>
       <section class="cae-network-competitor-summary" aria-labelledby="network-competitor-summary-title">
     <p class="cae-kicker">Competitive signal</p>
@@ -470,8 +470,8 @@
               <p><strong>Observed strengths:</strong> Clear first step.</p>
               <p><strong>Weaknesses / risks:</strong> No verified outcome superiority.</p>
               <div class="cae-report-competitor-card__themes">
-                <div><h4>Repeated positive themes</h4><ul><li>Clear first step <small>3/10 eligible reviews · 2026-05-14 to 2026-08-11 · Evidence: reputation.rating</small></li></ul></div>
-                <div><h4>Repeated negative themes</h4><ul><li>Price uncertainty <small>2/10 eligible reviews · 2026-05-14 to 2026-08-11 · Evidence: reputation.rating</small></li></ul></div>
+                <div><h4>Repeated positive themes</h4><ul><li>Clear first step <small>3/10 eligible reviews · 2026-05-14 to 2026-08-11</small></li></ul></div>
+                <div><h4>Repeated negative themes</h4><ul><li>Price uncertainty <small>2/10 eligible reviews · 2026-05-14 to 2026-08-11</small></li></ul></div>
               </div>
               <dl>
                 <div><dt>Observable advantage</dt><dd>Clearer discovery-to-booking continuity.</dd></div>
@@ -486,14 +486,14 @@
               </dl>
               <p class="cae-report-note"><strong>Limitations:</strong> Synthetic fixture; no real competitor or clinical conclusion.</p>
               <p class="cae-report-note"><strong>Sources:</strong> maps · 2026-08-11 · fixture://competitor · Synthetic comparable sample.</p>
-              <small>Evidence: search.map_visibility, website.booking_friction, social.proof_quality, reputation.rating</small>
+
             </article>
         </div>
         <div class="cae-report-competitive-decisions">
-          <article><p class="cae-kicker">Defend</p><ul><li><strong>Defend verified reputation</strong><p>Preserve the existing strength.</p><small>Evidence: reputation.rating</small></li></ul></article>
-          <article><p class="cae-kicker">Close</p><ul><li><strong>Close discovery gap</strong><p>It remains the binding constraint.</p><small>Evidence: search.map_visibility</small></li></ul></article>
-          <article><p class="cae-kicker">Differentiate</p><ul><li><strong>Own clear continuity</strong><p>Connect proof to booking.</p><small>Evidence: website.booking_friction</small></li></ul></article>
-          <article><p class="cae-kicker">Do not copy</p><ul><li><strong>Avoid unsupported claims</strong><p>Activity is not proof.</p><small>Evidence: social.proof_quality</small></li></ul></article>
+          <article><p class="cae-kicker">Defend</p><ul><li><strong>Defend verified reputation</strong><p>Preserve the existing strength.</p></li></ul></article>
+          <article><p class="cae-kicker">Close</p><ul><li><strong>Close discovery gap</strong><p>It remains the binding constraint.</p></li></ul></article>
+          <article><p class="cae-kicker">Differentiate</p><ul><li><strong>Own clear continuity</strong><p>Connect proof to booking.</p></li></ul></article>
+          <article><p class="cae-kicker">Do not copy</p><ul><li><strong>Avoid unsupported claims</strong><p>Activity is not proof.</p></li></ul></article>
         </div>
 <div class="cae-report-market-gap">
           <p class="cae-kicker">Market Practice Gap · Strategic Modernization</p>
@@ -511,7 +511,7 @@
               <p><strong>Dependencies:</strong> Owner approval; Baseline metric</p>
               <p><strong>Validation gate:</strong> A qualified clinician and regulatory authority validate any clinical, drug, device or protocol change.</p>
               <p class="cae-report-note"><strong>Limitations:</strong> Adoption does not prove superiority or profitability.</p>
-              <small>Evidence: website.booking_friction</small>
+
             </article>
           </div>
         </div></div>
@@ -530,7 +530,7 @@
                   <p>map_visibility fixture finding</p>
                 </div>
                 <span>40/100</span>
-                <small>Source: fixture://map_visibility · Collected: 2026-08-11T12:00:00Z · Raw: observed:map_visibility</small>
+                <small>Source: fixture://map_visibility · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -539,7 +539,7 @@
                   <p>gbp_treatment_category_completeness fixture finding</p>
                 </div>
                 <span>40/100</span>
-                <small>Source: fixture://gbp_treatment_category_completeness · Collected: 2026-08-11T12:00:00Z · Raw: observed:gbp_treatment_category_completeness</small>
+                <small>Source: fixture://gbp_treatment_category_completeness · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -548,7 +548,7 @@
                   <p>entity_integrity fixture finding</p>
                 </div>
                 <span>40/100</span>
-                <small>Source: fixture://entity_integrity · Collected: 2026-08-11T12:00:00Z · Raw: observed:entity_integrity</small>
+                <small>Source: fixture://entity_integrity · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -557,7 +557,7 @@
                   <p>gbp_conversion_readiness fixture finding</p>
                 </div>
                 <span>40/100</span>
-                <small>Source: fixture://gbp_conversion_readiness · Collected: 2026-08-11T12:00:00Z · Raw: observed:gbp_conversion_readiness</small>
+                <small>Source: fixture://gbp_conversion_readiness · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -566,7 +566,7 @@
                   <p>freshness fixture finding</p>
                 </div>
                 <span>40/100</span>
-                <small>Source: fixture://freshness · Collected: 2026-08-11T12:00:00Z · Raw: observed:freshness</small>
+                <small>Source: fixture://freshness · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -575,7 +575,7 @@
                   <p>branded_search_control fixture finding</p>
                 </div>
                 <span>40/100</span>
-                <small>Source: fixture://branded_search_control · Collected: 2026-08-11T12:00:00Z · Raw: observed:branded_search_control</small>
+                <small>Source: fixture://branded_search_control · Collected: 2026-08-11T12:00:00Z</small>
               </li></ul>
         </details>
         <details class="cae-report-evidence" id="surface-website">
@@ -589,7 +589,7 @@
                   <p>booking_friction fixture finding</p>
                 </div>
                 <span>60/100</span>
-                <small>Source: fixture://booking_friction · Collected: 2026-08-11T12:00:00Z · Raw: observed:booking_friction</small>
+                <small>Source: fixture://booking_friction · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -598,7 +598,7 @@
                   <p>treatment_clarity fixture finding</p>
                 </div>
                 <span>60/100</span>
-                <small>Source: fixture://treatment_clarity · Collected: 2026-08-11T12:00:00Z · Raw: observed:treatment_clarity</small>
+                <small>Source: fixture://treatment_clarity · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -607,7 +607,7 @@
                   <p>mobile_performance fixture finding</p>
                 </div>
                 <span>60/100</span>
-                <small>Source: fixture://mobile_performance · Collected: 2026-08-11T12:00:00Z · Raw: observed:mobile_performance</small>
+                <small>Source: fixture://mobile_performance · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -616,7 +616,7 @@
                   <p>above_fold_conversion fixture finding</p>
                 </div>
                 <span>60/100</span>
-                <small>Source: fixture://above_fold_conversion · Collected: 2026-08-11T12:00:00Z · Raw: observed:above_fold_conversion</small>
+                <small>Source: fixture://above_fold_conversion · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -625,7 +625,7 @@
                   <p>clinician_trust_proof fixture finding</p>
                 </div>
                 <span>60/100</span>
-                <small>Source: fixture://clinician_trust_proof · Collected: 2026-08-11T12:00:00Z · Raw: observed:clinician_trust_proof</small>
+                <small>Source: fixture://clinician_trust_proof · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -634,7 +634,7 @@
                   <p>mystery_shopper fixture finding</p>
                 </div>
                 <span>60/100</span>
-                <small>Source: fixture://mystery_shopper · Collected: 2026-08-11T12:00:00Z · Raw: observed:mystery_shopper</small>
+                <small>Source: fixture://mystery_shopper · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -643,7 +643,7 @@
                   <p>technical_booking_integrity fixture finding</p>
                 </div>
                 <span>60/100</span>
-                <small>Source: fixture://technical_booking_integrity · Collected: 2026-08-11T12:00:00Z · Raw: observed:technical_booking_integrity</small>
+                <small>Source: fixture://technical_booking_integrity · Collected: 2026-08-11T12:00:00Z</small>
               </li></ul>
         </details>
         <details class="cae-report-evidence" id="surface-social">
@@ -657,7 +657,7 @@
                   <p>priority_treatment_presence fixture finding</p>
                 </div>
                 <span>80/100</span>
-                <small>Source: fixture://priority_treatment_presence · Collected: 2026-08-11T12:00:00Z · Raw: observed:priority_treatment_presence</small>
+                <small>Source: fixture://priority_treatment_presence · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -666,7 +666,7 @@
                   <p>clinician_expertise fixture finding</p>
                 </div>
                 <span>80/100</span>
-                <small>Source: fixture://clinician_expertise · Collected: 2026-08-11T12:00:00Z · Raw: observed:clinician_expertise</small>
+                <small>Source: fixture://clinician_expertise · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -675,7 +675,7 @@
                   <p>proof_quality fixture finding</p>
                 </div>
                 <span>80/100</span>
-                <small>Source: fixture://proof_quality · Collected: 2026-08-11T12:00:00Z · Raw: observed:proof_quality</small>
+                <small>Source: fixture://proof_quality · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -684,7 +684,7 @@
                   <p>recency fixture finding</p>
                 </div>
                 <span>80/100</span>
-                <small>Source: fixture://recency · Collected: 2026-08-11T12:00:00Z · Raw: observed:recency</small>
+                <small>Source: fixture://recency · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -693,7 +693,7 @@
                   <p>profile_to_booking fixture finding</p>
                 </div>
                 <span>80/100</span>
-                <small>Source: fixture://profile_to_booking · Collected: 2026-08-11T12:00:00Z · Raw: observed:profile_to_booking</small>
+                <small>Source: fixture://profile_to_booking · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -702,7 +702,7 @@
                   <p>local_offer_clarity fixture finding</p>
                 </div>
                 <span>80/100</span>
-                <small>Source: fixture://local_offer_clarity · Collected: 2026-08-11T12:00:00Z · Raw: observed:local_offer_clarity</small>
+                <small>Source: fixture://local_offer_clarity · Collected: 2026-08-11T12:00:00Z</small>
               </li></ul>
         </details>
         <details class="cae-report-evidence" id="surface-reputation">
@@ -716,7 +716,7 @@
                   <p>review_velocity_90d fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://review_velocity_90d · Collected: 2026-08-11T12:00:00Z · Raw: observed:review_velocity_90d</small>
+                <small>Source: fixture://review_velocity_90d · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -725,7 +725,7 @@
                   <p>rating fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://rating · Collected: 2026-08-11T12:00:00Z · Raw: observed:rating</small>
+                <small>Source: fixture://rating · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -734,7 +734,7 @@
                   <p>review_depth fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://review_depth · Collected: 2026-08-11T12:00:00Z · Raw: observed:review_depth</small>
+                <small>Source: fixture://review_depth · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -743,7 +743,7 @@
                   <p>recency fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://recency · Collected: 2026-08-11T12:00:00Z · Raw: observed:recency</small>
+                <small>Source: fixture://recency · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -752,7 +752,7 @@
                   <p>response_coverage fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://response_coverage · Collected: 2026-08-11T12:00:00Z · Raw: observed:response_coverage</small>
+                <small>Source: fixture://response_coverage · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -761,7 +761,7 @@
                   <p>response_speed fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://response_speed · Collected: 2026-08-11T12:00:00Z · Raw: observed:response_speed</small>
+                <small>Source: fixture://response_speed · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -770,7 +770,7 @@
                   <p>negative_review_handling fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://negative_review_handling · Collected: 2026-08-11T12:00:00Z · Raw: observed:negative_review_handling</small>
+                <small>Source: fixture://negative_review_handling · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -779,7 +779,7 @@
                   <p>treatment_clinician_proof fixture finding</p>
                 </div>
                 <span>100/100</span>
-                <small>Source: fixture://treatment_clinician_proof · Collected: 2026-08-11T12:00:00Z · Raw: observed:treatment_clinician_proof</small>
+                <small>Source: fixture://treatment_clinician_proof · Collected: 2026-08-11T12:00:00Z</small>
               </li></ul>
         </details>
         <details class="cae-report-evidence" id="surface-cross">
@@ -794,7 +794,7 @@
                   <p>treatment_presence fixture finding</p>
                 </div>
                 <span>5/100</span>
-                <small>Source: fixture://treatment_presence · Collected: 2026-08-11T12:00:00Z · Raw: observed:treatment_presence</small>
+                <small>Source: fixture://treatment_presence · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -803,7 +803,7 @@
                   <p>positioning_coherence fixture finding</p>
                 </div>
                 <span>5/100</span>
-                <small>Source: fixture://positioning_coherence · Collected: 2026-08-11T12:00:00Z · Raw: observed:positioning_coherence</small>
+                <small>Source: fixture://positioning_coherence · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -812,7 +812,7 @@
                   <p>proof_continuity fixture finding</p>
                 </div>
                 <span>5/100</span>
-                <small>Source: fixture://proof_continuity · Collected: 2026-08-11T12:00:00Z · Raw: observed:proof_continuity</small>
+                <small>Source: fixture://proof_continuity · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -821,7 +821,7 @@
                   <p>conversion_continuity fixture finding</p>
                 </div>
                 <span>5/100</span>
-                <small>Source: fixture://conversion_continuity · Collected: 2026-08-11T12:00:00Z · Raw: observed:conversion_continuity</small>
+                <small>Source: fixture://conversion_continuity · Collected: 2026-08-11T12:00:00Z</small>
               </li>
               <li class="cae-report-metric">
                 <div>
@@ -830,7 +830,7 @@
                   <p>identity_coherence fixture finding</p>
                 </div>
                 <span>5/100</span>
-                <small>Source: fixture://identity_coherence · Collected: 2026-08-11T12:00:00Z · Raw: observed:identity_coherence</small>
+                <small>Source: fixture://identity_coherence · Collected: 2026-08-11T12:00:00Z</small>
               </li></ul>
         </details></div>
       </details>

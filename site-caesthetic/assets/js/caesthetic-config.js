@@ -6,6 +6,7 @@ window.CAESTHETIC_API = {
   supabaseFunctions: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1",
   submitScore: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/submit-caesthetic-growth-score",
   payment: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/caesthetic-payment",
+  request: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/submit-caesthetic-request",
 };
 
 window.CAESTHETIC = {

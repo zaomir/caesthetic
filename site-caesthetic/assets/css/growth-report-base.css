@@ -1705,3 +1705,136 @@ a.cae-report-walkthrough:hover {
     transition: none;
   }
 }
+
+
+/* Founder-directed Growth Score alignment refinements — 2026-09-03. */
+.cae-score-report .cae-report-hero__grid {
+  align-items: stretch;
+}
+
+.cae-score-report .cae-report-hero__grid > *,
+.cae-score-report .cae-report-state {
+  height: 100%;
+}
+
+.cae-score-report .cae-report-demand ol {
+  align-items: stretch;
+}
+
+.cae-score-report .cae-report-demand__stage {
+  height: 100%;
+}
+
+.cae-score-report #report-intro .cae-report-method__grid {
+  column-gap: clamp(3rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.cae-score-report #report-intro .cae-report-paths {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cae-score-report #report-intro .cae-report-paths article {
+  height: 100%;
+}
+
+@media (max-width: 800px) {
+  .cae-score-report #report-intro .cae-report-method__grid {
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .cae-score-report #report-intro .cae-report-paths {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Report-wide type discipline: two families, three size roles. */
+.cae-score-report {
+  --cae-report-type-small: 0.875rem;
+  --cae-report-type-body: 1.125rem;
+  --cae-report-type-heading: clamp(2rem, 3.5vw, 3rem);
+  --cae-font-mono: var(--cae-font);
+  font-family: var(--cae-font);
+  font-size: var(--cae-report-type-body);
+  line-height: 1.55;
+}
+
+.cae-score-report :is(p, li, td, dd, summary, button, a) {
+  font-family: var(--cae-font);
+  font-size: var(--cae-report-type-body);
+}
+
+.cae-score-report :is(h1, h2, .cae-h2) {
+  font-family: var(--cae-font-display);
+  font-size: var(--cae-report-type-heading);
+  line-height: 1.08;
+}
+
+.cae-score-report :is(h3, h4, .cae-report-subhead) {
+  font-family: var(--cae-font-display);
+  font-size: var(--cae-report-type-body);
+  line-height: 1.3;
+}
+
+.cae-score-report :is(.cae-kicker, small, .cae-report-meta, .cae-status-pill, th) {
+  font-family: var(--cae-font);
+  font-size: var(--cae-report-type-small);
+  line-height: 1.4;
+}
+
+.cae-score-report .cae-report-market-gap {
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cae-score-report .cae-report-market-gap > :last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 520px) {
+  .cae-score-report {
+    --cae-report-type-body: 1rem;
+    --cae-report-type-heading: 2rem;
+  }
+
+  .cae-score-report .cae-report-market-gap {
+    padding: 1.25rem;
+  }
+}
+
+
+/* Comfortable insets for expanded evidence and the owner-facing contact row. */
+.cae-score-report .cae-report-evidence[open] > .cae-report-note,
+.cae-score-report .cae-report-evidence[open] > .cae-report-metrics {
+  margin-right: clamp(1.5rem, 3vw, 2rem);
+  margin-left: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cae-score-report .cae-point-of-contact__person {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.cae-score-report .cae-point-of-contact__person img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+@media (max-width: 620px) {
+  .cae-score-report .cae-report-evidence[open] > .cae-report-note,
+  .cae-score-report .cae-report-evidence[open] > .cae-report-metrics {
+    margin-right: 1.25rem;
+    margin-left: 1.25rem;
+  }
+
+  .cae-score-report .cae-point-of-contact__person {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
