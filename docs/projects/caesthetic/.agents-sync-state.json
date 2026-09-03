@@ -262,7 +262,7 @@
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
     "docs/projects/caesthetic/AGENTS.md": "42d95c2cf1d36187531292f1d0a52334964ea91f7d75ec0890b1ca4c4385bf4c",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
-    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "d1ba59fb9ad027f5055d50898477ae07b2027b7dc2068da05021852e8a1991a2",
+    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "102b922fbe7c7959fb138842da948e7c9ffe2f567ec3b1918bf5de6167a6b568",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "6263a4d87699f3f01bae46238ff17c565c2c884468f0b5cd5f7b1769e8211bc9",
     "docs/projects/caesthetic/PROJECT_STATUS.md": "949755193394003b48a51af0e250704a0b1391d99f306dfb298b17713a9a37f1",
@@ -382,6 +382,7 @@
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r6-20260903.json": "5f19f52d54a03b03c85208c4aacb4875056c1e9c4ac2560cc554525d873ee0d1",
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r7-20260903.json": "aa44d641c502a2380481db1eff3811dd4719712cc892c0304b6054260262ee13",
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r8-20260903.json": "08b7295fad2092c3e56559a358d921deb07902cd0f5bca655f3c9b62676d3e7d",
+    "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-spoken-medspa-20260903.json": "ad5ad2c41d54c9ec8f07d274e14aab9c117a0f3d110d88c5a58dcb3feea11f8a",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-pin-only-v18-20260903.json": "2b6c05a2310542e49e6138d9535e0f544fb884446a0c0c7292d4abff35c5c423",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v10-20260902.json": "c7fab8a2018421aea4b095fb948de5a9654db9549a39c70d787d098c690eb6ee",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v11-20260902.json": "b368d7d6623be63a57fb753fa9691a183654a910f30e8ef0a67222b381f5d6bd",
@@ -820,6 +821,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T18:49:05Z",
+  "updated_at_utc": "2026-09-03T18:49:49Z",
   "version": 1
 }
