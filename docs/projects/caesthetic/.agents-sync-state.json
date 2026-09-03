@@ -311,7 +311,7 @@
     "docs/projects/caesthetic/intake/README.md": "d7384ed59ce1890ae29ba2d15b5a1c5d702bb67229c7a8048e0a244c34a057a7",
     "docs/projects/caesthetic/legal/CAESTHETIC_CHARGEBACK_DISPUTE_STRATEGY_DRAFT.md": "7439bbfc5216a6edaf6086a9764a0e5f937155482ac9d1c11d7a3a90f8aafe00",
     "docs/projects/caesthetic/legal/CAESTHETIC_CHARGEBACK_DISPUTE_STRATEGY_REVIEW.md": "0d244af90fbcd60e99951c50cdc1937508d3e34d6507320b152ab6bd65cb91b3",
-    "docs/projects/caesthetic/legal/CAESTHETIC_PAYMENT_EVIDENCE_RUNTIME.md": "77256c8d064c29fc69586cb1365d68ec846213c35e44a961d5466e53e0fcb303",
+    "docs/projects/caesthetic/legal/CAESTHETIC_PAYMENT_EVIDENCE_RUNTIME.md": "64c6204bcc58d7e1b044c30f428261bc8310a605836cd911df4352af2a405d13",
     "docs/projects/caesthetic/legal/README.md": "dd2f6e6293815fbec0e5e3131ecab08a750402efd57e3ea692e3a8ba8fd9f816",
     "docs/projects/caesthetic/marketing/README.md": "ae804c18e707068602ce4fba08590e000335c0567e084b54a2b33b938b8a0f04",
     "docs/projects/caesthetic/operations/GROWTH_SCORE_FUNNEL_ANALYTICS.md": "f2525d59028aa0c1f4e9c116091385cf20e9f24660f9300d8bdad0e448d9a030",
@@ -853,6 +853,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T22:36:33Z",
+  "updated_at_utc": "2026-09-03T22:37:51Z",
   "version": 1
 }
