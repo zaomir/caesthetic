@@ -26,6 +26,7 @@ satellite approved artifact @ exact SHA
 ```
 
 No paid GitHub Actions are used by the steady-state publication path. The existing VPS2402 systemd timer owns polling, locking and deploy serialization.
+The fixed report-only deploy reuses `scripts/deploy-caesthetic.sh` but skips nginx/vhost installation; static sync, Cloudflare cutover and canonical production smokes still run. Nginx authority is unchanged and remains in the normal full-site deploy path.
 
 ## Agent contract
 

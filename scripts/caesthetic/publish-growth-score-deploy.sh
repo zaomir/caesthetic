@@ -31,7 +31,8 @@ if [[ -z "${CLOUDFLARE_API_TOKEN:-}" && -z "${CLOUDFLARE_API_TOKEN2:-}" && -z "$
   exit 6
 fi
 
-CAESTHETIC_SKIP_GIT_SYNC=1 CAESTHETIC_SKIP_WORKER_INSTALL=1 REPO_ROOT="$ROOT" bash "$ROOT/scripts/deploy-caesthetic.sh"
+CAESTHETIC_SKIP_GIT_SYNC=1 CAESTHETIC_SKIP_WORKER_INSTALL=1 CAESTHETIC_SKIP_NGINX_SYNC=1 \
+  REPO_ROOT="$ROOT" bash "$ROOT/scripts/deploy-caesthetic.sh"
 CAESTHETIC_KEEP_SCORE_ACCESS_CONFIG=1 bash "$ROOT/scripts/cf-caesthetic-cutover.sh" --skip-routes
 bash "$ROOT/scripts/cf-caesthetic-cutover-smoke.sh"
 bash "$ROOT/scripts/caesthetic-growth-score-production-smoke.sh"

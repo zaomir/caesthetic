@@ -218,10 +218,14 @@ test("idempotency accepts an exact replay and rejects request-id payload reuse",
 test("server timer uses one lock and a fixed publication command without paid Actions", () => {
   const runner = fs.readFileSync(path.join(root, "scripts/caesthetic/continuous-sync-runner.sh"), "utf8");
   const service = fs.readFileSync(path.join(root, "deploy/systemd/caesthetic-repo-sync.service"), "utf8");
+  const deploy = fs.readFileSync(path.join(root, "scripts/caesthetic/publish-growth-score-deploy.sh"), "utf8");
+  const canonicalDeploy = fs.readFileSync(path.join(root, "scripts/deploy-caesthetic.sh"), "utf8");
   const workflowPath = path.join(root, ".github/workflows/agent-api-bridge.yml");
   assert.match(runner, /publish-growth-score-control-plane\.mjs" poll/);
   assert.match(runner, /flock -n "\$LOCK"/);
   assert.match(service, /TimeoutStartSec=1800/);
+  assert.match(deploy, /CAESTHETIC_SKIP_NGINX_SYNC=1/);
+  assert.match(canonicalDeploy, /skip nginx sync for report-only publication/);
   if (fs.existsSync(workflowPath)) {
     assert.doesNotMatch(fs.readFileSync(workflowPath, "utf8"), /caesthetic_growth_score_publish/);
   }
