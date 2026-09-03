@@ -208,6 +208,16 @@ test('public company identity uses the supplied Los Angeles details everywhere i
     assert.match(source, /"postalCode": "90017"/);
     assert.match(source, /"addressCountry": "US"/);
   }
+
+  for (const source of [
+    read('legal/privacy/index.html'),
+    read('legal/terms/index.html'),
+    read('legal/cookies/index.html'),
+    read('legal/payment-terms/index.html'),
+  ]) {
+    assert.match(source, /OXFORD PROJETS trading as CAESTHETIC/);
+    assert.match(source, /#100, 600 W 7th St, Los Angeles, California 90017, US/);
+  }
 });
 
 test('public pricing artifact contains only public product prices and client-specific recurring terms', () => {

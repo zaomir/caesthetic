@@ -19,10 +19,25 @@ test -r "$SECRETS_FILE" || { echo "missing root-owned deploy environment" >&2; e
 }
 ROOT="$CANONICAL_ROOT"
 
+# Preserve the PIN-only runtime derived by the publication poller. Root-owned
+# deploy secrets may still contain legacy score-access values for old releases;
+# they must not overwrite the per-package PIN runtime for this publication.
+PUBLISH_SCORE_ACCESS_CONFIG="${CAESTHETIC_SCORE_ACCESS_CONFIG:-}"
+PUBLISH_SCORE_PASSWORDS="${CAESTHETIC_SCORE_PUBLISH_PASSWORDS:-}"
+
 set -a
 # shellcheck disable=SC1090
 source "$SECRETS_FILE"
 set +a
+
+if [[ -n "$PUBLISH_SCORE_ACCESS_CONFIG" ]]; then
+  CAESTHETIC_SCORE_ACCESS_CONFIG="$PUBLISH_SCORE_ACCESS_CONFIG"
+  export CAESTHETIC_SCORE_ACCESS_CONFIG
+fi
+if [[ -n "$PUBLISH_SCORE_PASSWORDS" ]]; then
+  CAESTHETIC_SCORE_PUBLISH_PASSWORDS="$PUBLISH_SCORE_PASSWORDS"
+  export CAESTHETIC_SCORE_PUBLISH_PASSWORDS
+fi
 
 test -n "${CLOUDFLARE_ACCOUNT_ID:-}" || { echo "CLOUDFLARE_ACCOUNT_ID missing" >&2; exit 5; }
 if [[ -z "${CLOUDFLARE_API_TOKEN:-}" && -z "${CLOUDFLARE_API_TOKEN2:-}" && -z "${CLOUDFLARE_API_TOKEN_BOTOTOX:-}" && -z "${CF_API_TOKEN:-}" ]]; then

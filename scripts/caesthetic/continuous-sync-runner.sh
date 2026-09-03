@@ -20,6 +20,14 @@ remote_head() {
   fi
 }
 
+prepare_growth_score_pin_runtime() {
+  local runtime
+  runtime="$(node "$ROOT/scripts/caesthetic/score-pin-runtime.mjs" pending-runtime "$SATELLITE")"
+  CAESTHETIC_SCORE_ACCESS_CONFIG="$(printf '%s' "$runtime" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>process.stdout.write(JSON.stringify({access_groups:JSON.parse(s).access_groups})))')"
+  CAESTHETIC_SCORE_PUBLISH_PASSWORDS="$(printf '%s' "$runtime" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>process.stdout.write(JSON.stringify(JSON.parse(s).passwords)))')"
+  export CAESTHETIC_SCORE_ACCESS_CONFIG CAESTHETIC_SCORE_PUBLISH_PASSWORDS
+}
+
 run_once() {
   set -euo pipefail
   local g_remote s_remote current previous
@@ -38,16 +46,16 @@ run_once() {
     --satellite "$SATELLITE" \
     --apply --commit --push || return $?
 
-  # Publication is a separate fail-closed path. The ordinary DEC-829 mirror
-  # never copies a report into runtime; this processor imports only pinned,
-  # approved packages and deploys the resulting canonical grainee commit.
+  # Publication remains fail-closed for approval/schema/evidence, but client
+  # access is now PIN-only. Runtime access config and smoke PINs are derived
+  # automatically from the protected-route manifest and pending package hashes.
   if [[ -f "$ROOT/scripts/caesthetic/publish-growth-score-control-plane.mjs" ]]; then
+    prepare_growth_score_pin_runtime
     node "$ROOT/scripts/caesthetic/publish-growth-score-control-plane.mjs" poll \
       --grainee "$ROOT" \
       --satellite "$SATELLITE"
   fi
 
-  # Capture post-push heads. A temporary file prevents a partial state write.
   g_remote="$(remote_head "$GRAINEE_AUTHORITY" "$GRAINEE_AUTHORITY_REMOTE" "$(git -C "$ROOT" remote get-url origin)")"
   s_remote="$(remote_head "$SATELLITE_AUTHORITY" "$SATELLITE_AUTHORITY_REMOTE" "$SATELLITE_URL")"
   printf '%s %s\n' "$g_remote" "$s_remote" > "${STATE}.tmp"
@@ -55,6 +63,6 @@ run_once() {
   echo "CAESTHETIC_REPO_SYNC_APPLIED grainee=${g_remote:0:12} satellite=${s_remote:0:12}"
 }
 
-export -f run_once remote_head
+export -f run_once remote_head prepare_growth_score_pin_runtime
 export INSTALL_ROOT ROOT SATELLITE STATE SATELLITE_URL GRAINEE_AUTHORITY SATELLITE_AUTHORITY GRAINEE_AUTHORITY_REMOTE SATELLITE_AUTHORITY_REMOTE
 exec flock -n "$LOCK" bash -c run_once
