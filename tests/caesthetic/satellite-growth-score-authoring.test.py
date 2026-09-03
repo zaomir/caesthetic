@@ -22,6 +22,8 @@ AUTHORABLE_PATHS = (
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
     "docs/caesthetic/growth_score_spec.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
+    "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
+    "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
     "scripts/caesthetic/growth-score-report-template.mjs",
     "scripts/caesthetic/render-growth-score.mjs",
     "site-caesthetic/assets/js/growth-score-engine.mjs",
@@ -86,6 +88,8 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
         for rel in (
             "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
             "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
+            "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
+            "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
             "tests/caesthetic/growth-score-journey-graph.test.mjs",
             "tests/caesthetic/satellite-growth-score-authoring.test.py",
         ):

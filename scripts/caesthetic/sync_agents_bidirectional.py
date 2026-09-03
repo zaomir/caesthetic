@@ -46,6 +46,10 @@ SSOT_GLOBS = [
 
 EXTRA_FILES = [
     "agents/manifests/caesthetic.yaml",
+    "docs/founder-notes/DEC-829.md",
+    "docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md",
+    "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
+    "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
     "deploy/systemd/caesthetic-repo-sync.service",
     "deploy/systemd/caesthetic-repo-sync.timer",
 ]
@@ -91,11 +95,14 @@ PROTECTED_PREFIXES = (
     "deploy/systemd/caesthetic-repo-sync.service",
     "deploy/systemd/caesthetic-repo-sync.timer",
     "site-caesthetic/",
+    "docs/founder-notes/DEC-829.md",
     "docs/ssot/CAESTHETIC.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md",
+    "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
+    "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
     "docs/caesthetic/growth_score_spec.md",
     "docs/caesthetic/competitive_decision_analysis.md",
