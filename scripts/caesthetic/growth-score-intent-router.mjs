@@ -4,10 +4,103 @@ import { fileURLToPath } from "node:url";
 export const GROWTH_SCORE_AUDIT_INTENT = "growth_score_audit";
 export const GROWTH_SCORE_AUDIT_OPENING_RU = "Вы создаёте новый аудит? Ответьте на вопросы.";
 
+export const GROWTH_SCORE_AUDIT_SYNONYMS_BY_LANGUAGE = Object.freeze({
+  ru: Object.freeze([
+    "аудит",
+    "бизнес-аудит",
+    "маркетинговый аудит",
+    "аудит маркетинга",
+    "аудит роста",
+    "аудит клиники",
+    "аудит салона",
+    "аудит локации",
+    "аудит сети",
+    "сетевой аудит",
+    "аудит филиалов",
+    "мульти-локационный аудит",
+    "мультилокационный аудит",
+    "мини-аудит",
+    "оценка роста",
+    "диагностика роста",
+    "маркетинговая диагностика",
+    "диагностика 4444",
+    "разбор 4444",
+    "гроус скор",
+    "проверка бизнеса",
+    "поиск утечек",
+  ]),
+  en: Object.freeze([
+    "Growth Score",
+    "Free Growth Score",
+    "Partner Growth Score",
+    "Growth Score audit",
+    "Multi-Location Growth Score",
+    "MultiLocation Growth Score",
+    "multi-site Growth Score",
+    "network Growth Score",
+    "growth assessment",
+    "written growth assessment",
+    "growth diagnostic",
+    "business audit",
+    "marketing audit",
+    "digital audit",
+    "online presence audit",
+    "clinic audit",
+    "practice audit",
+    "salon audit",
+    "location audit",
+    "network audit",
+    "multi-location audit",
+    "multi-site audit",
+    "four-surface audit",
+    "4444 audit",
+    "mini-audit",
+    "1-minute leak",
+    "leak diagnosis",
+    "score",
+    "diagnostic",
+    "audit report",
+    "Top 3 gaps",
+    "binding constraint",
+  ]),
+});
+
 export const GROWTH_SCORE_AUDIT_SYNONYMS = Object.freeze([
-  "Growth Score",
-  "Multi-Location Growth Score",
-  "аудит",
+  ...new Set(Object.values(GROWTH_SCORE_AUDIT_SYNONYMS_BY_LANGUAGE).flat()),
+]);
+
+export const GROWTH_SCORE_AUDIT_AUTHORITY = Object.freeze({
+  required_preflight: Object.freeze([
+    "docs/ssot/CAESTHETIC.md",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
+    "docs/caesthetic/growth_score_spec.md",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
+    "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
+    "docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md",
+  ]),
+  conditional_preflight: Object.freeze({
+    competitor_work: "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
+    evidence_or_impact_work: "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
+    publication_work: "docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md",
+  }),
+  spec: "docs/caesthetic/growth_score_spec.md",
+  production_sop: "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
+  template: "scripts/caesthetic/growth-score-report-template.mjs",
+  workflow: "scripts/caesthetic/growth-score-workflow.mjs",
+  renderer: "scripts/caesthetic/render-growth-score.mjs",
+  publication: "docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md",
+});
+
+export const GROWTH_SCORE_AUDIT_PIPELINE = Object.freeze([
+  "manager_interview",
+  "quick_public_reconnaissance",
+  "named_manager_research_alignment_approval",
+  "full_public_research",
+  "complete_gap_inventory",
+  "named_human_focus_selection",
+  "approved_report",
+  "protected_route_qa",
+  "client_link_delivery",
 ]);
 
 export const GROWTH_SCORE_MANAGER_QUESTIONS_RU = Object.freeze([
@@ -82,16 +175,29 @@ const normalize = (value) => String(value ?? "")
   .trim()
   .replace(/\s+/g, " ");
 
+const NORMALIZED_SYNONYMS = Object.freeze(
+  GROWTH_SCORE_AUDIT_SYNONYMS
+    .map((synonym) => normalize(synonym))
+    .sort((left, right) => right.length - left.length),
+);
+
+export function matchedGrowthScoreAuditSynonym(value) {
+  const normalized = normalize(value);
+  const text = ` ${normalized} `;
+  const explicit = NORMALIZED_SYNONYMS.find((synonym) => text.includes(` ${synonym} `));
+  if (explicit) return explicit;
+  if (/(?:^|\s)audit(?:s|ed|ing)?(?:\s|$)/u.test(normalized)) return "audit";
+  if (/(?:^|\s)аудит(?:а|у|ом|е|ы|ов|ам|ами|ах)?(?:\s|$)/u.test(normalized)) return "аудит";
+  return null;
+}
+
 export function mentionsGrowthScoreAudit(value) {
-  const text = ` ${normalize(value)} `;
-  if (text.includes(" growth score ")) return true;
-  if (text.includes(" multi location growth score ")) return true;
-  if (/(?:^|\s)audits?(?:\s|$)/u.test(text.trim())) return true;
-  return /(?:^|\s)аудит(?:а|у|ом|е|ы|ов|ам|ами|ах)?(?:\s|$)/u.test(text.trim());
+  return matchedGrowthScoreAuditSynonym(value) !== null;
 }
 
 export function routeGrowthScoreAuditIntent(value, { active_intent = null } = {}) {
-  if (!mentionsGrowthScoreAudit(value)) {
+  const matched_synonym = matchedGrowthScoreAuditSynonym(value);
+  if (!matched_synonym) {
     return Object.freeze({ matched: false, canonical_intent: null, action: null });
   }
 
@@ -103,6 +209,9 @@ export function routeGrowthScoreAuditIntent(value, { active_intent = null } = {}
       opening: null,
       repository_context: "any_supported_repository",
       source_policy: "public_open_sources_only",
+      matched_synonym,
+      authority: GROWTH_SCORE_AUDIT_AUTHORITY,
+      pipeline: GROWTH_SCORE_AUDIT_PIPELINE,
       questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
     });
   }
@@ -110,12 +219,27 @@ export function routeGrowthScoreAuditIntent(value, { active_intent = null } = {}
   return Object.freeze({
     matched: true,
     canonical_intent: GROWTH_SCORE_AUDIT_INTENT,
+    matched_synonym,
     synonyms: GROWTH_SCORE_AUDIT_SYNONYMS,
     action: "start_manager_interview",
     opening: GROWTH_SCORE_AUDIT_OPENING_RU,
     repository_context: "any_supported_repository",
     source_policy: "public_open_sources_only",
     full_research_gate: "named_manager_research_alignment_approval",
+    authority: GROWTH_SCORE_AUDIT_AUTHORITY,
+    pipeline: GROWTH_SCORE_AUDIT_PIPELINE,
+    focus_selection_contract: Object.freeze({
+      selected_by: "named_human_manager",
+      purpose: "30_day_growth_sprint",
+      primary_gap_count: 1,
+      sprint_candidate_supporting_gap_range: Object.freeze([2, 3]),
+      supporting_gap_count: 2,
+      requested_third_supporting_gap: "BLOCKED: focus cardinality conflict",
+    }),
+    multi_location_contract: Object.freeze({
+      deliverable: "comparative_network_overview_plus_one_linked_full_focus_location_report",
+      shared_focus_selection: true,
+    }),
     questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
   });
 }

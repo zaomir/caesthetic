@@ -2,10 +2,10 @@
 
 ## 0. Universal Growth Score audit pre-router (highest priority)
 
-Apply this rule before repository/project routing. It triggers on any mention or
-semantic equivalent of `аудит`, `Growth Score`, `Multi-Location Growth Score`,
-`score`, `diagnostic`, `audit report`, `проверка бизнеса`, `поиск утечек`, `Top
-3 gaps` or `binding constraint`.
+Apply this rule before repository/project routing. Minimal trigger: after
+case/dash/spacing normalization, any whole Russian or English synonym in
+`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`, standalone English
+`audit` form or ordinary Russian `аудит` form routes to `growth_score_audit`.
 
 Before any substantive work, resolve the current `zaomir/caesthetic` `main`
 and read the following authorities from that same current ref, in order:
@@ -46,7 +46,8 @@ already active, continue with missing questions without repeating the opening.
 For a request as simple as `сделай аудит X`, the first operational action is
 the authority preflight above and launch of the canonical audit workflow, not
 research into X. This rule is identical in every supported repo and always
-routes runtime to CAESTHETIC in `zaomir/grainee-v2`.
+routes to the one CAESTHETIC Growth Score SSOT/template/pipeline; never create
+an ad-hoc audit. Production remains in `zaomir/grainee-v2`.
 
 Before taking any audit action, read and enforce
 `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. It is the
