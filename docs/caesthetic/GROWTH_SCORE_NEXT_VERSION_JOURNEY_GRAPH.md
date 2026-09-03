@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active_implementation_profile
-version: 1.3
+version: 1.4
 updated: 2026-09-02
 scope: canonical Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics, Broken Connections Map and Lead-to-Revenue visual branch
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
@@ -37,10 +37,10 @@ Canonical title: **`Where Clients Are Gained - and Lost`**.
 
 The sole visual authority is the owner-uploaded file copied byte-for-byte to:
 
-`site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png`
+`site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png`
 
-- SHA-256: `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`;
-- byte length: `1,231,338`;
+- SHA-256: `64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05`;
+- byte length: `1,056,049`;
 - intrinsic dimensions: `6912×3456`;
 - MIME: `image/png`.
 

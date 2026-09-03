@@ -17,9 +17,9 @@ import {
 } from "./helpers/growth-score-v5-fixture.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const approvedHeroAsset = "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png";
-const approvedHeroSrc = "/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png";
-const approvedHeroSha256 = "6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47";
+const approvedHeroAsset = "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png";
+const approvedHeroSrc = "/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png";
+const approvedHeroSha256 = "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05";
 
 test("Cross-Surface Journey Graph is one reviewed evidence artifact and never a fifth surface", () => {
   const baseline = createV5Report();
@@ -164,13 +164,16 @@ test("approved Hero is the exact immutable raster while the artifact still rende
   const html = renderGrowthReport(report);
   const assetBytes = fs.readFileSync(path.join(root, approvedHeroAsset));
   const assetHash = crypto.createHash("sha256").update(assetBytes).digest("hex");
+  const approvedAssetDirectory = path.dirname(path.join(root, approvedHeroAsset));
+  const heroPngs = fs.readdirSync(approvedAssetDirectory).filter((name) => name.endsWith(".png"));
   const heroStart = html.indexOf('<figure class="cae-approved-hero-asset"');
   const heroEnd = html.indexOf("</figure>", heroStart);
   const hero = html.slice(heroStart, heroEnd + "</figure>".length);
   const rendererSource = fs.readFileSync(path.join(root, "scripts/caesthetic/render-growth-score.mjs"), "utf8");
 
   assert.equal(assetHash, approvedHeroSha256);
-  assert.equal(assetBytes.length, 1231338);
+  assert.equal(assetBytes.length, 1056049);
+  assert.deepEqual(heroPngs, [path.basename(approvedHeroAsset)]);
   assert.equal((html.match(/data-artifact-id="fixture-journey-graph-v1"/g) || []).length, 2);
   assert.match(html, /data-graph-view="hero"/);
   assert.match(hero, new RegExp(`src="${approvedHeroSrc.replaceAll("/", "\\/")}"`));

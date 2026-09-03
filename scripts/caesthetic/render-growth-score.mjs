@@ -754,8 +754,8 @@ const JOURNEY_GRAPH_SLOTS = Object.freeze([
 ]);
 const JOURNEY_GRAPH_CENTER = Object.freeze({ x: 380, y: 260 });
 const APPROVED_HERO_ASSET = Object.freeze({
-  src: "/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png",
-  sha256: "6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47",
+  src: "/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png",
+  sha256: "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05",
   width: 6912,
   height: 3456,
 });

@@ -30,7 +30,7 @@ AUTHORABLE_PATHS = (
     "site-caesthetic/assets/js/growth-score-engine.mjs",
     "site-caesthetic/assets/js/growth-cockpit.js",
     "site-caesthetic/assets/css/growth-report.css",
-    "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png",
+    "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png",
     "tests/caesthetic/growth-score-renderer.test.mjs",
     "tests/caesthetic/growth-score-journey-graph.test.mjs",
     "docs/audits/caesthetic/growth-score/cases/example-audit/reports/standalone.json",
@@ -95,7 +95,7 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
             "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
             "tests/caesthetic/growth-score-journey-graph.test.mjs",
             "tests/caesthetic/satellite-growth-score-authoring.test.py",
-            "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png",
+            "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png",
         ):
             self.assertTrue(cae_sync.is_protected(rel), rel)
 

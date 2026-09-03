@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.3.2
+version: 5.3.3
 updated: 2026-09-03
 scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, five derived decision views, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
@@ -345,7 +345,7 @@ Reachability asks whether each observable entry can reach `lead_intake` through 
 
 #### Locked Hero visual isolation
 
-The Journey Graph artifact remains mandatory and drives validation, derived analysis, Broken Connections and evidence drill-down. It does **not** dynamically draw the `Where Clients Are Gained - and Lost` Hero. That Hero is one immutable owner-approved PNG at `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png`, SHA-256 `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`. The renderer may only emit the exact raster through one `<img>` with its intrinsic `6912×3456` dimensions and proportional CSS scaling. HTML, SVG, canvas, CSS or image-derivative substitution fails the renderer contract. A change requires explicit owner approval, canon update and matching hash-guard update.
+The Journey Graph artifact remains mandatory and drives validation, derived analysis, Broken Connections and evidence drill-down. It does **not** dynamically draw the `Where Clients Are Gained - and Lost` Hero. That Hero is one immutable owner-approved PNG at `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png`, SHA-256 `64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05`. The renderer may only emit the exact raster through one `<img>` with its intrinsic `6912×3456` dimensions and proportional CSS scaling. HTML, SVG, canvas, CSS or image-derivative substitution fails the renderer contract. A change requires explicit owner approval, canon update and matching hash-guard update.
 
 `representative_journeys[]` contains no more than three continuous edge-id paths: `strongest`, `primary_constraint` and/or `supporting`, each assigned to one of the three fixed prospect slots. These are representative evidence-backed paths, never claims about tracked individual patients.
 

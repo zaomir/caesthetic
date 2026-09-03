@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.0
+version: 2.1
 updated: 2026-09-03
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
@@ -121,7 +121,7 @@ The existing nine-section machine contract contains two related but deliberately
 
 Both views use one state system: green `clean`, amber `friction`, red `broken`, gray `not_assessed`. An absent optional cross-link is not drawn as a defect. Red requires either an observed technical/context/next-action failure or a human-approved route expectation whose absence was confirmed.
 
-The canonical Hero title is exactly **`Where Clients Are Gained - and Lost`**. Its sole approved visual is `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png` with SHA-256 `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`, `1,231,338` bytes and intrinsic dimensions `6912×3456`. The renderer must emit one ordinary `<img>` for this exact PNG and may only scale it proportionally. No HTML/SVG/canvas/CSS reconstruction, tracing, crop, recolor, translation, responsive redraw, generated substitute, `srcset` derivative or client-specific overlay is permitted. Replacement requires explicit owner approval and a canon plus hash-guard update. The image is explanatory; it does not override or invent report evidence.
+The canonical Hero title is exactly **`Where Clients Are Gained - and Lost`**. Its sole approved visual is `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png` with SHA-256 `64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05`, `1,056,049` bytes and intrinsic dimensions `6912×3456`. The renderer must emit one ordinary `<img>` for this exact PNG and may only scale it proportionally. No HTML/SVG/canvas/CSS reconstruction, tracing, crop, recolor, translation, responsive redraw, generated substitute, `srcset` derivative or client-specific overlay is permitted. Replacement requires explicit owner approval and a canon plus hash-guard update. The image is explanatory; it does not override or invent report evidence.
 
 Specific edge rules are fail-closed:
 

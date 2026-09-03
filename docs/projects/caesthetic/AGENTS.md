@@ -67,7 +67,7 @@ Authorable Growth Score paths include:
 - `site-caesthetic/assets/js/growth-score-engine.mjs`
 - `site-caesthetic/assets/js/growth-cockpit.js`
 - `site-caesthetic/assets/css/growth-report*.css`
-- `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png`
+- `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png`
 - `tests/caesthetic/growth-score-*.test.mjs`
 
 Rules for a satellite-only agent:
@@ -83,7 +83,7 @@ Rules for a satellite-only agent:
 
 ### Locked `Where Clients Are Gained - and Lost` visual
 
-The exact mirrored PNG above is the only approved visual for this Growth Score section. Its required SHA-256 is `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`. Do not generate, redraw, trace, reconstruct, translate, recolor, crop, overlay or substitute it with HTML, SVG, canvas, CSS or another image/derivative. A replacement requires explicit owner approval and synchronized canon plus hash-guard updates in both repositories.
+The exact mirrored PNG above is the only approved visual for this Growth Score section. Its required SHA-256 is `64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05`. Do not generate, redraw, trace, reconstruct, translate, recolor, crop, overlay or substitute it with HTML, SVG, canvas, CSS or another image/derivative. A replacement requires explicit owner approval and synchronized canon plus hash-guard updates in both repositories.
 
 The executable guard for this contract is `tests/caesthetic/satellite-growth-score-authoring.test.py`.
 
