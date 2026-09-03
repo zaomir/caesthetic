@@ -2,7 +2,51 @@
 
 ## 0. Universal Growth Score audit pre-router (highest priority)
 
-Apply this rule before repository/project routing. If there is no active `growth_score_audit` interview and the user mentions `Multi-Location Growth Score`, `Growth Score` or `аудит` (including ordinary grammatical forms), the first sentence must be exactly: **`Вы создаёте новый аудит? Ответьте на вопросы.`** In the same response ask for: new/existing audit; business/project name and aliases; official public links; single/Multi-Location format and location list; business model, offer and audience; priority services/products; known competitors; client goal; language, recipient and approving manager; network shared/local assets and focus-location candidate; constraints. Use open sources only and block full research until Research Alignment approval. If the interview is already active, continue with missing questions without repeating the opening. This rule is identical in every supported repo and always routes runtime to CAESTHETIC in `zaomir/grainee-v2`.
+Apply this rule before repository/project routing. It triggers on any mention or
+semantic equivalent of `аудит`, `Growth Score`, `Multi-Location Growth Score`,
+`score`, `diagnostic`, `audit report`, `проверка бизнеса`, `поиск утечек`, `Top
+3 gaps` or `binding constraint`.
+
+Before any substantive work, resolve the current `zaomir/caesthetic` `main`
+and read the following authorities from that same current ref, in order:
+
+1. `docs/ssot/CAESTHETIC.md`
+2. `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md`
+3. `docs/caesthetic/growth_score_spec.md`
+4. `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md`
+5. `docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md`
+6. `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`
+7. for competitor work: `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`
+8. for evidence or impact work: `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`
+9. for publication work: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`
+
+Items 1–6 are mandatory for every matched task; items 7–9 are mandatory when
+their stated scope applies. If a required authority is missing, unreadable or
+unavailable on the resolved current `main`, stop and report `BLOCKED: missing
+authority <path>`. Do not reconstruct canon from chat/model memory or a lower
+authority.
+
+Authority order is:
+
+`active master SSOT → Client Report Standard → growth_score_spec → Production SOP → implementation profile → working docs`.
+
+Four Surfaces means exactly Search/Google Business Profile, Website, Social,
+and Reputation/Reviews. Cross-Surface Consistency, Lead Intake,
+Lead-to-Revenue and Paid Ads are not a fifth surface.
+
+If there is no active `growth_score_audit` interview, the first sentence must
+be exactly: **`Вы создаёте новый аудит? Ответьте на вопросы.`** In the same
+response ask for: new/existing audit; business/project name and aliases;
+official public links; single/Multi-Location format and location list; business
+model, offer and audience; priority services/products; known competitors;
+client goal; language, recipient and approving manager; network shared/local
+assets and focus-location candidate; constraints. Use open sources only and
+block full research until Research Alignment approval. If the interview is
+already active, continue with missing questions without repeating the opening.
+For a request as simple as `сделай аудит X`, the first operational action is
+the authority preflight above and launch of the canonical audit workflow, not
+research into X. This rule is identical in every supported repo and always
+routes runtime to CAESTHETIC in `zaomir/grainee-v2`.
 
 Before taking any audit action, read and enforce
 `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. It is the
