@@ -22,6 +22,7 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 | `/ru/salony-krasoty/` | Russian beauty-salon vertical | Diagnose salon growth constraints in Russian | Same localized salon decision system | Request Salon Growth Score | index |
 | `/fr/salons-de-beaute/` | French beauty-salon vertical | Diagnose salon growth constraints in French | Same localized salon decision system | Request Salon Growth Score | index |
 | `/about/` | Public identity and legal operator | Understand who leads delivery | Valerie Petra and entity details | Start with Growth Score | index |
+| `/outreach/` | Verify a CAESTHETIC cold-outreach email | Confirm sender identity, evidence boundary and opt-out choices | `caesthetic.co` relationship, Four Surfaces, legal operator and suppression controls | Review Growth Score or unsubscribe | noindex |
 | `/support/` | Customer support and safe-contact guidance | Resolve a service, billing, privacy or technical question | Verified support address and legal entity | Email customer support | index |
 | `/privacy/` | Compatibility alias for external merchant profiles | Reach the canonical Privacy Policy | Canonical redirect to `/legal/privacy/` | Continue to policy | noindex |
 | `/terms/` | Compatibility alias for external merchant profiles | Reach the canonical Terms of Use | Canonical redirect to `/legal/terms/` | Continue to terms | noindex |
@@ -34,6 +35,7 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 ## Internal linking
 
 - `/` links to `/growth-score/` and `/growth-system/`; primary navigation remains focused on the aesthetic-practice funnel. The Lead-to-Revenue Check stays a conditional branch rather than a fourth mandatory stage.
+- `/outreach/` is not in primary navigation. It is reached from `caesthetic.co`, the global footer or direct verification links and hands the visitor into the canonical product/legal routes.
 - The global footer links the isolated `/beauty-salons/` vertical; each salon locale links all four locale routes directly.
 - `/growth-score/` links to every demo, the safe `/score/` catalog, the request form and the conditional `/lead-to-revenue-check/` branch. `/pricing/` links to every public product stage and conditional diagnostic.
 - The global footer links `/lead-to-revenue-check/`; Sprint, Growth System, About, Support, the audit catalog and relevant localized vertical pages explain the branch only where internal outcome uncertainty is material.
@@ -46,6 +48,8 @@ The salon routes are standalone static documents with reciprocal `hreflang` valu
 ## Redirects and legacy
 
 The retired Aurora sample remains a noindex explanation page and links to the labeled demos. `/privacy/` and `/terms/` are noindex compatibility aliases for external merchant settings and immediately hand off to the canonical `/legal/` routes. `/audit/`, `/audits/` and `/multi-location-growth-score/` preserve safe query/hash data and hand off to the canonical `/growth-score/` product route.
+
+`caesthetic.co/*` and `www.caesthetic.co/*` are handled by the dedicated `grainee-caesthetic-outreach` Worker and redirect to `/outreach/` with only allowlisted attribution parameters. They do not mirror the site or host a second intake form.
 
 Salon aliases keep safe query/UTM and 301 to the English Beauty Salons route:
 

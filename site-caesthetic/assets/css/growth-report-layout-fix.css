@@ -1,0 +1,17 @@
+/* Growth Score demand journey layout repair — 2026-09-03.
+ * Scoped presentation-only fix. The mobile-story renderer supplies its own
+ * .cae-mobile-demand-dot. growth-report.css also supplies a legacy ::before
+ * marker; showing both creates duplicate dots on desktop.
+ */
+
+.cae-score-report--mobile-story .cae-report-demand__stage::before {
+  display: none !important;
+  content: none !important;
+}
+
+@media (min-width: 900px) {
+  .cae-score-report--mobile-story .cae-mobile-demand-dot {
+    justify-self: center;
+    margin-inline: auto;
+  }
+}

@@ -1,6 +1,6 @@
 # CAESTHETIC — site-caesthetic
 
-**Domain:** `caesthetic.com` (unchanged) · email brand `caesthetic.co`  
+**Domain:** `caesthetic.com` (canonical public site) · `caesthetic.co` (approved cold-outbound sender; root verifies the sender through `/outreach/`)  
 **Brand logos:** `assets/brand/logo-square.{svg,png}` (circular frames) · `assets/brand/logo-long.{svg,png}` (horizontal) · aliases under `/brand/`  
 **Production logo:** `assets/brand/logo-square.{svg,png}` in header, footer, favicon and Open Graph metadata
 **Public IA:** US independent aesthetic practices → Growth Score → conditional Lead-to-Revenue Check where internal outcome uncertainty remains → 30-Day Sprint → optional Growth System
@@ -17,6 +17,7 @@
 | `/growth-system/` | Optional recurring ownership · client-specific Growth Budget with its Fixed Management Fee inside |
 | `/pricing/` | Public comparison using generated pricing artifacts |
 | `/about/` | Corporate category, operating model and evidence standard; no Valerie identity block |
+| `/outreach/` | Noindex sender-verification page for recipients arriving from `caesthetic.co`; not a funnel stage or separate product |
 | `/legal/privacy/` | Privacy + CCPA/CPRA |
 | `/legal/terms/` | Terms |
 | `/score/[slug]/` | Private practice reports (`noindex`, not in sitemap) |
@@ -34,6 +35,19 @@ node --test tests/caesthetic/growth-score-*.test.mjs
 ```
 
 Every approved `site-caesthetic/score/**/report.json` is discovered automatically. The complete generated registry lives at `docs/audits/caesthetic/growth-score-projects.generated.json`; `/score/catalog.json` and `/score/index.html` contain only synthetic demos or client cases with explicit public-listing approval. Real client reports default to private.
+
+## Outbound sender identity
+
+`caesthetic.co` is not a second CAESTHETIC site. Its apex and `www` are routed through the `grainee-caesthetic-outreach` Cloudflare Worker to the canonical noindex identity page at `/outreach/`. The page explains the sender relationship, outside-in evidence boundary, Four Surfaces, legal operator, verification contact and unsubscribe control.
+
+The domain policy is `docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md`. BeboFix, BeboNow, Bototox/Toxifillers and GRAINEE domains are not authorized CAESTHETIC cold-outbound identities.
+
+Validate the contract with:
+
+```bash
+node --test tests/caesthetic/outbound-domain-identity.test.mjs
+bash scripts/caesthetic-outreach-domain-smoke.sh
+```
 
 ## Not in the public IA
 
@@ -54,7 +68,8 @@ bash scripts/deploy-caesthetic.sh
 ```
 
 Origin: VPS2402 `185.216.214.28` → `/var/www/caesthetic.com/`  
-Edge: Cloudflare Worker `grainee-caesthetic-public` (legacy redirects in `infra/cloudflare/router`).
+Canonical edge: Cloudflare Worker `grainee-caesthetic-public` (legacy redirects and protected reports in `infra/cloudflare/router`).  
+Sender edge: Cloudflare Worker `grainee-caesthetic-outreach` (`caesthetic.co` and `www.caesthetic.co` → `/outreach/`).
 
 ## Project docs (strategy, specs)
 

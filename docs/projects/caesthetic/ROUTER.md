@@ -4,10 +4,11 @@ Full production URL authority remains `docs/ROUTER.md`.
 
 Runtime root: `site-caesthetic/`  
 Public domain: `https://caesthetic.com`  
-Brand domains: `caesthetic.com` (public site) · `caesthetic.co` (cold-email brand; logos served from `.com`)
+Brand domains: `caesthetic.com` (canonical public/product/legal site) · `caesthetic.co` (approved cold-email sender; apex and `www` verify the sender through `/outreach/`)
 
 Canonical concept routing:
 - `4444` / `Четверки` → `docs/ssot/CAESTHETIC.md` §2, the Four Surfaces model only: Search / GBP, Website, Social, Reputation / Reviews.
+- CAESTHETIC sender domains / `caesthetic.co` / BeboFix / BeboNow / Bototox / GRAINEE use in CAESTHETIC outreach → `docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md`. Only `caesthetic.co` is authorized; the other reviewed domains are separate products/assets/runtimes.
 - React/Remotion Reel evidence scenes / render manifest / `FourSurfaceMap` → `docs/ssot/CAESTHETIC_REMOTION_RENDER_MANIFEST.md` (DEC-851); Reel structure remains governed by Reel System V3.2.
 - Paid Ads → the Demand Layer that sends demand into 4444; it is not a fifth surface.
 - Acquisition / prospect qualification / signals / A-B-C-Research-Reject / multichannel activation / pre-Score boundary / Partner Growth Score / referrals / CITY CHECK sequencing / acquisition cockpit → `docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md` (DEC-845).
@@ -29,6 +30,7 @@ Key product routes:
 - `/pricing/` — public funnel comparison; no reusable recurring amount
 - `/beauty-salons/` · `/es/salones-de-belleza/` · `/ru/salony-krasoty/` · `/fr/salons-de-beaute/` — Beauty Salons vertical adapter (footer only; not primary nav). Aliases `/beauty/`, `/go/new-salon-launch/`, `/go/salon-growth/` 301 here.
 - `/about/` — legal entity and Valerie Petra public business identity
+- `/outreach/` — noindex sender-verification and opt-out surface; `caesthetic.co/*` redirects here through `grainee-caesthetic-outreach`
 
 ## Brand logos
 
