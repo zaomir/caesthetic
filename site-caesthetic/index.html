@@ -162,17 +162,10 @@
       <div class="cae-split">
         <div>
           <h2 class="cae-h2">Get your Growth Score</h2>
-          <p class="cae-lead">The request asks for four fields and does not ask about revenue, budget, or decision-making roles.</p>
+          <p class="cae-lead">The request opens with two required fields: name and email.</p>
           <p class="cae-disclaimer">CAESTHETIC does not guarantee patient volume, revenue, rankings, or review outcomes. The Score is an evidence-based, human-verified diagnosis; any estimates are explicitly labelled with their assumptions.</p>
         </div>
-        <form class="cae-form cae-form--score" data-cae-score-form action="/growth-score/" method="post">
-          <p class="cae-form-success" tabindex="-1" hidden>Request recorded. We will email you when your Growth Score is ready. Questions: info@caesthetic.com.</p>
-          <label>Practice name<input name="practice_name" required autocomplete="organization" maxlength="120"></label>
-          <label>City, State<input name="city_state" required autocomplete="address-level2" placeholder="Austin, TX" maxlength="80"></label>
-          <label>Your name<input name="name" required autocomplete="name" maxlength="80"></label>
-          <label>Email<input type="email" name="email" required autocomplete="email" maxlength="120"></label>
-          <button class="cae-btn cae-btn--primary" type="submit">Get your Growth Score</button>
-        </form>
+        <div class="cae-form cae-form--score cae-request-launch"><button class="cae-btn cae-btn--primary" type="button" data-cae-request>Get your Growth Score</button></div>
       </div>
     </div>
   </section>

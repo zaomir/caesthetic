@@ -332,8 +332,8 @@
   ────────────────────────────────────────────────────────────── */
 
   function initRequestModal() {
-    var requestButtons = qsa('a.cae-btn[href^="mailto:"], a[data-cae-sprint-inquiry], button[data-cae-request], .cae-form:not([data-multistep]):not([data-cae-score-form]) button[type="submit"]');
-    var requestForms = qsa(".cae-form:not([data-multistep]):not([data-cae-score-form])");
+    var requestButtons = qsa('a[data-cae-request], button[data-cae-request], a[data-cae-sprint-inquiry], a.cae-btn[href="/growth-score/"], a.cae-btn[href="#salon-score-form"], [data-cae-score-form] button[type="submit"], [data-cae-salon-score-form] button[type="submit"], .cae-form:not([data-multistep]) button[type="submit"]');
+    var requestForms = qsa(".cae-form:not([data-multistep]), [data-cae-score-form], [data-cae-salon-score-form]");
     if (!requestButtons.length && !requestForms.length) return;
 
     var dialog = document.createElement("dialog");
@@ -396,8 +396,9 @@
     requestForms.forEach(function (requestForm) {
       requestForm.addEventListener("submit", function (event) {
         event.preventDefault();
+        event.stopImmediatePropagation();
         openDialog(qs('button[type="submit"]', requestForm));
-      });
+      }, true);
     });
 
     form.addEventListener("submit", function (event) {

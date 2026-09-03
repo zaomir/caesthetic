@@ -1838,3 +1838,45 @@ a.cae-report-walkthrough:hover {
     gap: 1.25rem;
   }
 }
+
+
+/* Founder acceptance: equal-height support cards and approved Lead-to-Revenue visual. */
+.cae-score-report .cae-report-hero__support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: stretch;
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.cae-score-report .cae-report-hero__support-grid > .cae-report-state {
+  height: 100%;
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cae-score-report .cae-lead-to-revenue-map-asset {
+  margin: clamp(2rem, 4vw, 3rem) 0;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--cae-border);
+  border-radius: var(--cae-radius-lg);
+  background: var(--cae-surface);
+}
+
+.cae-score-report .cae-lead-to-revenue-map-asset img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--cae-radius-lg) - 2px);
+}
+
+.cae-score-report .cae-lead-to-revenue-map-asset figcaption {
+  margin-top: 0.875rem;
+  color: var(--cae-muted);
+  font-size: var(--cae-report-type-small);
+}
+
+@media (max-width: 720px) {
+  .cae-score-report .cae-report-hero__support-grid {
+    grid-template-columns: 1fr;
+  }
+}

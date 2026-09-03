@@ -12,15 +12,48 @@ const fn = readFileSync(resolve(root, "supabase/functions/submit-caesthetic-requ
 const migration = readFileSync(resolve(root, "supabase/migrations/20260903221000_caesthetic_public_requests.sql"), "utf8");
 const supabase = readFileSync(resolve(root, "supabase/config.toml"), "utf8");
 
+const requestPages = [
+  "index.html",
+  "growth-score/index.html",
+  "lead-to-revenue-check/index.html",
+  "sprint/index.html",
+  "growth-system/index.html",
+  "support/index.html",
+  "outreach/index.html",
+  "beauty-salons/index.html",
+  "es/salones-de-belleza/index.html",
+  "ru/salony-krasoty/index.html",
+  "fr/salons-de-beaute/index.html",
+].map((path) => readFileSync(resolve(site, path), "utf8"));
+
 test("request CTAs open one shared modal with exactly name and email fields", () => {
-  assert.match(js, /a\.cae-btn\[href\^="mailto:"\]/);
+  assert.match(js, /a\[data-cae-request\]/);
+  assert.match(js, /a\.cae-btn\[href="\/growth-score\/"\]/);
+  assert.match(js, /\[data-cae-score-form\] button\[type="submit"\]/);
+  assert.match(js, /\[data-cae-salon-score-form\] button\[type="submit"\]/);
   assert.match(js, /<dialog|createElement\("dialog"\)/);
   const inputNames = [...js.matchAll(/<input\b[^>]*\bname="([^"]+)"/g)].map((match) => match[1]);
-  assert.deepEqual(inputNames.filter((name) => ["name", "email"].includes(name)), ["name", "email"]);
+  assert.deepEqual(inputNames, ["name", "email"]);
   assert.doesNotMatch(js, /name="(?:phone|company|budget|message)"/);
+  assert.doesNotMatch(js, /window\.location\.href\s*=\s*["']mailto:/);
   assert.match(js, /dialog\.showModal\(\)/);
   assert.match(js, /window\.CAESTHETIC_API\.request/);
   assert.match(css, /\.cae-request-modal/);
+});
+
+test("request CTA pages contain no mailto buttons and load the modal runtime", () => {
+  for (const html of requestPages) {
+    assert.doesNotMatch(html, /<a\b[^>]*class="[^"]*cae-btn[^"]*"[^>]*href="mailto:/i);
+    assert.match(html, /\/assets\/js\/caesthetic\.js/);
+  }
+});
+
+test("public score entry points expose only the shared request launcher", () => {
+  const scorePages = requestPages.filter((html) => /(?:Get your Growth Score|Salon Growth Score|Growth Score intake)/i.test(html));
+  for (const html of scorePages) {
+    assert.doesNotMatch(html, /<form\b[^>]*(?:data-cae-score-form|data-cae-salon-score-form)/i);
+    assert.match(html, /data-cae-request/);
+  }
 });
 
 test("two-field request endpoint validates, rate-limits and stores requests privately", () => {

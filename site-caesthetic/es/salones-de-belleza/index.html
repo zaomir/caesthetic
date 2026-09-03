@@ -212,7 +212,7 @@
       <div class="cae-wrap">
         <div class="cae-salon-section__head"><p class="cae-kicker">FAQ</p><h2 class="cae-h2">Lo que suele necesitar aclarar un propietario.</h2></div>
         <div class="cae-salon-faq">
-          <details><summary>¿El Salon Growth Score es realmente gratuito?</summary><p>Sí. El Score público cuesta <span data-cae-score-price>$0</span> y empieza con cuatro campos obligatorios.</p></details>
+          <details><summary>¿El Salon Growth Score es realmente gratuito?</summary><p>Sí. El Score público cuesta <span data-cae-score-price>$0</span> y se abre con dos campos obligatorios: nombre y email.</p></details>
           <details><summary>¿Recomendaréis automáticamente una web nueva, anuncios o un CRM?</summary><p>No. Primero se identifica la limitación. Un rediseño, más anuncios o software nuevo no es la respuesta por defecto.</p></details>
           <details><summary>¿Evaluará el Score nuestro software o recepción?</summary><p>No desde fuera. El suelo operativo permanece no evaluado sin acceso válido.</p></details>
           <details><summary>¿Podemos parar después del Score o del Sprint?</summary><p>Sí. Ninguna etapa posterior es obligatoria. Las condiciones del Growth System son client-specific.</p></details>
@@ -226,45 +226,10 @@
         <div>
           <p class="cae-kicker">INTAKE DEL GROWTH SCORE</p>
           <h2 class="cae-h2">Solicita gratis el Salon Growth Score.</h2>
-          <p class="cae-lead">Cuatro campos obligatorios. Sin ingresos, presupuesto publicitario, plantilla, decisor ni intención de compra antes de guardar la solicitud.</p>
+          <p class="cae-lead">Dos campos obligatorios: nombre y email.</p>
           <p class="cae-salon-form-note">CAESTHETIC no garantiza volumen de clientes, reservas, posiciones, reseñas ni ingresos.</p>
         </div>
-        <form class="cae-salon-form" data-cae-salon-score-form data-label-submitting="Enviando…" data-label-success="Solicitud recibida" data-label-optional-saving="Guardando…" data-error-unavailable="El envío no está disponible temporalmente. Escribe a info@caesthetic.com." data-error-submit="No pudimos registrar la solicitud. Inténtalo de nuevo." data-error-network="Error de red. Inténtalo de nuevo." data-error-optional="Tu solicitud ya está registrada. No se pudieron guardar los datos opcionales." novalidate>
-          <p class="cae-salon-form__error" data-cae-salon-form-error role="alert" hidden></p>
-          <p class="cae-salon-form__success" data-cae-salon-form-success tabindex="-1" hidden>Solicitud registrada. Te contactaremos por correo después de la revisión inicial.</p>
-          <div class="cae-salon-form__required" data-cae-salon-required>
-            <div class="cae-salon-form__grid">
-              <label>Tu nombre<input name="name" required autocomplete="name" maxlength="80"></label>
-              <label>Email profesional<input type="email" name="email" required autocomplete="email" inputmode="email" maxlength="120"></label>
-              <label>Nombre del salón<input name="practice_name" required autocomplete="organization" maxlength="120"></label>
-              <label>Ciudad / País<input name="city_state" required autocomplete="address-level2" maxlength="80" placeholder="Madrid, España"></label>
-            </div>
-            <button class="cae-btn cae-btn--primary" type="submit">Obtener gratis el Salon Growth Score</button>
-            <p class="cae-salon-form__fine">El Score es gratuito. Los resultados no están garantizados.</p>
-          </div>
-          <fieldset class="cae-salon-form__optional" data-cae-salon-optional hidden>
-            <legend tabindex="-1" data-cae-optional-heading>Contexto opcional — puedes omitirlo</legend>
-            <p class="cae-salon-copy">Tu solicitud ya está guardada. Lo siguiente es opcional y self_reported.</p>
-            <div class="cae-salon-form__grid" data-cae-optional-fields>
-              <label>Web <span class="cae-form__hint">Opcional</span><input type="url" name="website_url" inputmode="url" autocomplete="url" maxlength="500"></label>
-              <label>Perfil de Maps <span class="cae-form__hint">Opcional</span><input type="url" name="gbp_url" inputmode="url" maxlength="500"></label>
-              <label>Instagram <span class="cae-form__hint">Opcional</span><input type="url" name="instagram_url" inputmode="url" maxlength="500"></label>
-              <label>URL o sistema de reserva <span class="cae-form__hint">Opcional</span><input name="booking_url_system" maxlength="500"></label>
-              <label>Número de locales <span class="cae-form__hint">Opcional</span><input name="location_count" inputmode="numeric" maxlength="20"></label>
-              <label class="cae-salon-form__wide">Servicios prioritarios <span class="cae-form__hint">Opcional</span><textarea name="priority_treatments" rows="3" maxlength="1000"></textarea></label>
-              <label class="cae-salon-form__wide">Principal preocupación <span class="cae-form__hint">Opcional</span><textarea name="main_concern" rows="3" maxlength="1500"></textarea></label>
-            </div>
-            <p class="cae-form-error cae-optional-error" role="alert" data-cae-optional-error hidden>Tu solicitud ya está registrada, pero no se pudieron guardar los datos opcionales.</p>
-            <div class="cae-salon-form__optional-actions">
-              <button class="cae-btn cae-btn--primary" type="button" data-cae-optional-save>Guardar datos opcionales</button>
-              <button class="cae-btn cae-btn--outline" type="button" data-cae-optional-skip>Omitir — mi solicitud está completa</button>
-            </div>
-            <div class="cae-salon-form__complete" data-cae-optional-complete tabindex="-1" hidden>
-              <strong>Tu solicitud está completa.</strong>
-              <span>Te contactaremos por correo después de la revisión inicial.</span>
-            </div>
-          </fieldset>
-        </form>
+        <div class="cae-salon-form cae-request-launch"><button class="cae-btn cae-btn--primary" type="button" data-cae-request>Obtener gratis el Salon Growth Score</button></div>
       </div>
     </section>
   </main>
@@ -283,6 +248,6 @@
   <script src="/assets/js/caesthetic-pricing.generated.js"></script>
   <script src="/assets/js/caesthetic-config.js"></script>
   <script src="/assets/js/analytics.js" defer></script>
-  <script src="/assets/js/beauty-salons.js" defer></script>
+  <script src="/assets/js/caesthetic.js" defer></script>\n  <script src="/assets/js/beauty-salons.js" defer></script>
 </body>
 </html>

@@ -226,45 +226,10 @@
         <div>
           <p class="cae-kicker">INTAKE GROWTH SCORE</p>
           <h2 class="cae-h2">Запросите бесплатный Salon Growth Score.</h2>
-          <p class="cae-lead">Четыре обязательных поля. Без выручки, рекламного бюджета, штата, статуса ЛПР и намерения купить до сохранения заявки.</p>
+          <p class="cae-lead">Два обязательных поля: имя и email.</p>
           <p class="cae-salon-form-note">CAESTHETIC не гарантирует количество клиентов, записей, рейтинги, отзывы или выручку.</p>
         </div>
-        <form class="cae-salon-form" data-cae-salon-score-form data-label-submitting="Отправляем…" data-label-success="Запрос получен" data-label-optional-saving="Сохраняем…" data-error-unavailable="Отправка временно недоступна. Напишите на info@caesthetic.com." data-error-submit="Не удалось записать запрос. Попробуйте ещё раз." data-error-network="Ошибка сети. Попробуйте ещё раз." data-error-optional="Запрос уже записан. Необязательные данные сохранить не удалось." novalidate>
-          <p class="cae-salon-form__error" data-cae-salon-form-error role="alert" hidden></p>
-          <p class="cae-salon-form__success" data-cae-salon-form-success tabindex="-1" hidden>Запрос записан. Мы свяжемся с вами по email после первичной проверки.</p>
-          <div class="cae-salon-form__required" data-cae-salon-required>
-            <div class="cae-salon-form__grid">
-              <label>Ваше имя<input name="name" required autocomplete="name" maxlength="80"></label>
-              <label>Рабочий email<input type="email" name="email" required autocomplete="email" inputmode="email" maxlength="120"></label>
-              <label>Название салона<input name="practice_name" required autocomplete="organization" maxlength="120"></label>
-              <label>Город / Страна<input name="city_state" required autocomplete="address-level2" maxlength="80" placeholder="Москва, Россия"></label>
-            </div>
-            <button class="cae-btn cae-btn--primary" type="submit">Получить бесплатный Salon Growth Score</button>
-            <p class="cae-salon-form__fine">Score бесплатный. Результаты не гарантируются.</p>
-          </div>
-          <fieldset class="cae-salon-form__optional" data-cae-salon-optional hidden>
-            <legend tabindex="-1" data-cae-optional-heading>Необязательный контекст — можно пропустить</legend>
-            <p class="cae-salon-copy">Заявка уже сохранена. Всё ниже — optional и self_reported.</p>
-            <div class="cae-salon-form__grid" data-cae-optional-fields>
-              <label>Сайт <span class="cae-form__hint">Необязательно</span><input type="url" name="website_url" inputmode="url" autocomplete="url" maxlength="500"></label>
-              <label>Профиль на картах <span class="cae-form__hint">Необязательно</span><input type="url" name="gbp_url" inputmode="url" maxlength="500"></label>
-              <label>Instagram <span class="cae-form__hint">Необязательно</span><input type="url" name="instagram_url" inputmode="url" maxlength="500"></label>
-              <label>URL или система записи <span class="cae-form__hint">Необязательно</span><input name="booking_url_system" maxlength="500"></label>
-              <label>Число филиалов <span class="cae-form__hint">Необязательно</span><input name="location_count" inputmode="numeric" maxlength="20"></label>
-              <label class="cae-salon-form__wide">Приоритетные услуги <span class="cae-form__hint">Необязательно</span><textarea name="priority_treatments" rows="3" maxlength="1000"></textarea></label>
-              <label class="cae-salon-form__wide">Главный вопрос <span class="cae-form__hint">Необязательно</span><textarea name="main_concern" rows="3" maxlength="1500"></textarea></label>
-            </div>
-            <p class="cae-form-error cae-optional-error" role="alert" data-cae-optional-error hidden>Запрос уже записан, но необязательные данные сохранить не удалось.</p>
-            <div class="cae-salon-form__optional-actions">
-              <button class="cae-btn cae-btn--primary" type="button" data-cae-optional-save>Сохранить необязательные данные</button>
-              <button class="cae-btn cae-btn--outline" type="button" data-cae-optional-skip>Пропустить — заявка уже полная</button>
-            </div>
-            <div class="cae-salon-form__complete" data-cae-optional-complete tabindex="-1" hidden>
-              <strong>Заявка завершена.</strong>
-              <span>Мы свяжемся с вами по email после первичной проверки.</span>
-            </div>
-          </fieldset>
-        </form>
+        <div class="cae-salon-form cae-request-launch"><button class="cae-btn cae-btn--primary" type="button" data-cae-request>Получить бесплатный Salon Growth Score</button></div>
       </div>
     </section>
   </main>
@@ -283,6 +248,6 @@
   <script src="/assets/js/caesthetic-pricing.generated.js"></script>
   <script src="/assets/js/caesthetic-config.js"></script>
   <script src="/assets/js/analytics.js" defer></script>
-  <script src="/assets/js/beauty-salons.js" defer></script>
+  <script src="/assets/js/caesthetic.js" defer></script>\n  <script src="/assets/js/beauty-salons.js" defer></script>
 </body>
 </html>

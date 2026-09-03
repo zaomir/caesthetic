@@ -837,6 +837,12 @@ function brokenConnectionsMobileHtml(graphAnalysis) {
 function brokenConnectionsMapHtml(report, result, graphAnalysis) {
   const artifact = report.journeyGraph;
   if (!artifact) return "";
+  if (artifact.artifact_id === "spoken-medspa-snellville-2026-journey-graph-v1") {
+    return `<figure class="cae-lead-to-revenue-map-asset">
+      <img src="/assets/img/growth-score/lead-to-revenue-map.png" width="1536" height="1024" alt="Lead-to-Revenue Map from lead received through payment" loading="lazy" decoding="async">
+      <figcaption>Lead-to-Revenue Map · Internal stages require authorized evidence.</figcaption>
+    </figure>`;
+  }
   const coordinates = Object.fromEntries(JOURNEY_GRAPH_SURFACE_ORDER.map((surface, index) => [surface, JOURNEY_GRAPH_SLOTS[index]]));
   coordinates.lead_intake = JOURNEY_GRAPH_CENTER;
   const lines = graphAnalysis.surface_edges.map((edge) => {
@@ -909,7 +915,11 @@ function leadToRevenueMapHtml(report) {
       <small>No enquiry, booking, patient, revenue or ROI outcome is promised.</small>
       <a class="cae-report-inline-link" href="/lead-to-revenue-check/">Review the Lead-to-Revenue Check</a>
     </div>`
-    : "";
+    : `<div class="cae-lead-revenue__check" data-cae-check-recommended="false">
+      <div><span>Lead-to-Revenue Check</span><strong>$500</strong></div>
+      <p>Use this authorized internal-path diagnostic only when the public Growth Score cannot explain what happens after an enquiry reaches the practice.</p>
+      <a class="cae-report-inline-link" href="/lead-to-revenue-check/">See when the Check applies</a>
+    </div>`;
   return `<section class="cae-lead-revenue" aria-labelledby="lead-revenue-title">
     <p class="cae-kicker">Internal conversion boundary</p>
     <h3 class="cae-report-subhead" id="lead-revenue-title">What happens after the enquiry?</h3>
@@ -925,14 +935,14 @@ function commercialNextStepHtml(report) {
         <p class="cae-kicker">Conditional diagnostic CTA</p>
         <h2 class="cae-h2">Verify the internal path before choosing the fix</h2>
         <p>The Growth Score identified internal uncertainty that public evidence cannot resolve. Confirm the evidence boundary and request written Check scope before selecting implementation.</p>
-        <a class="cae-btn cae-btn--primary" href="/lead-to-revenue-check/">Review the Lead-to-Revenue Check</a>
+        <a class="cae-btn cae-btn--primary" href="#request" data-cae-request>Review the Lead-to-Revenue Check</a>
       `;
   }
   return `
         <p class="cae-kicker">Optional Sprint CTA</p>
         <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
         <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
-        <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
+        <a class="cae-btn cae-btn--primary" href="#request" data-cae-request>Start the 30-Day Growth Sprint</a>
       `;
 }
 
@@ -1722,11 +1732,19 @@ ${isPilot ? "" : '<div id="cae-header-slot"></div>'}
         <article class="cae-report-state">
           <p class="cae-kicker">Primary constraint</p>
           <h2 class="cae-h2">${escapeHtml(diagnosis.binding_constraint.title)}</h2>
-          <ul>${strengths.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
           <p><strong>⚠ Main constraint:</strong> ${escapeHtml(diagnosis.current_state.constraint_label)}</p>
           <p>${escapeHtml(diagnosis.current_state.constraint_detail)}</p>
-          <p><strong>Start with:</strong> ${escapeHtml(diagnosis.current_state.priority_line)}</p>
           <p class="cae-report-note">Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.</p>
+        </article>
+      </div>
+      <div class="cae-report-hero__support-grid">
+        <article class="cae-report-state">
+          <p class="cae-kicker">What already works</p>
+          <ul>${strengths.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
+        </article>
+        <article class="cae-report-state">
+          <p class="cae-kicker">Fix first</p>
+          <p>${escapeHtml(diagnosis.current_state.priority_line)}</p>
         </article>
       </div>
     </div>

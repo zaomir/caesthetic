@@ -123,7 +123,7 @@
         <p class="cae-kicker">What happens next</p>
         <h2 class="cae-h2">A short request, then a private Score page.</h2>
         <ul class="cae-list">
-          <li><span>01</span><div>You submit four required fields in two short stages. No revenue or budget questions.</div></li>
+          <li><span>01</span><div>The request opens with two required fields: name and email. No revenue or budget questions.</div></li>
           <li><span>02</span><div>Your request is safely recorded before we offer any optional context questions.</div></li>
           <li><span>03</span><div>AI-assisted collection builds the evidence file; a human verifies it and approves the diagnosis.</div></li>
           <li><span>04</span><div>You receive a private, noindex /score/ page and a 3–8 minute human-recorded walkthrough.</div></li>
@@ -131,65 +131,7 @@
         </ul>
         <p class="cae-disclaimer">Cost of the Growth Score: $0. No guaranteed patient, ranking, or revenue outcome.</p>
       </div>
-      <form class="cae-form cae-form--score cae-score-intake" data-cae-score-form data-cae-multistage-score-form novalidate>
-        <ol class="cae-score-intake__progress" aria-label="Growth Score request progress">
-          <li data-cae-progress-step="1" aria-current="step"><span>1</span>Contact</li>
-          <li data-cae-progress-step="2"><span>2</span>Practice</li>
-          <li data-cae-progress-step="3"><span>3</span>Optional</li>
-        </ol>
-
-        <fieldset class="cae-score-stage" data-cae-score-stage="1">
-          <legend>First, how can we reach you?</legend>
-          <p class="cae-score-stage__intro">Two details. We will use them only to manage and deliver your Growth Score.</p>
-          <label>Your name<input name="name" required autocomplete="name" maxlength="80"></label>
-          <label>Work email<input type="email" name="email" required autocomplete="email" inputmode="email" maxlength="120"></label>
-          <div class="cae-score-intake__actions">
-            <button class="cae-btn cae-btn--primary" type="button" data-cae-contact-continue>Continue</button>
-          </div>
-        </fieldset>
-
-        <fieldset class="cae-score-stage" data-cae-score-stage="2" hidden>
-          <legend>Tell us which practice to research.</legend>
-          <p class="cae-score-stage__intro">This is the last required stage. If we cannot resolve the practice unambiguously, we will ask for one public link later by email.</p>
-          <label>Practice name<input name="practice_name" required autocomplete="organization" maxlength="120"></label>
-          <label>City, State<input name="city_state" required autocomplete="address-level2" placeholder="Scottsdale, AZ" maxlength="80"></label>
-          <div class="cae-score-intake__actions">
-            <button class="cae-btn cae-btn--ghost" type="button" data-cae-score-back>Back</button>
-            <button class="cae-btn cae-btn--primary" type="submit" data-cae-required-submit>Start my Growth Score</button>
-          </div>
-        </fieldset>
-
-        <fieldset class="cae-score-stage cae-score-stage--optional" data-cae-score-stage="3" hidden>
-          <legend tabindex="-1" data-cae-optional-heading>Thank you — this is enough for us to start.</legend>
-          <p class="cae-form-success" tabindex="-1" hidden>Request recorded. We will email you when your Growth Score is ready. Questions: info@caesthetic.com.</p>
-          <p class="cae-score-stage__intro">Everything below is optional and self-reported context. Skip it now or close this page—your request remains successful.</p>
-          <div data-cae-optional-fields>
-            <div class="cae-score-intake__grid">
-              <label>Website URL <span class="cae-form__hint">Optional</span><input type="url" name="website_url" inputmode="url" autocomplete="url" placeholder="https://yourpractice.com" maxlength="500"></label>
-              <label>Google Business Profile URL <span class="cae-form__hint">Optional</span><input type="url" name="gbp_url" inputmode="url" placeholder="https://maps.google.com/…" maxlength="500"></label>
-              <label>Instagram URL <span class="cae-form__hint">Optional</span><input type="url" name="instagram_url" inputmode="url" placeholder="https://instagram.com/…" maxlength="500"></label>
-              <label>Booking URL or system <span class="cae-form__hint">Optional</span><input name="booking_url_system" placeholder="Public booking link or system name" maxlength="500"></label>
-              <label class="cae-score-intake__wide">Priority treatments <span class="cae-form__hint">Optional</span><textarea name="priority_treatments" rows="3" maxlength="1000" placeholder="The treatments you most want us to examine"></textarea></label>
-              <label class="cae-score-intake__wide">Main concern <span class="cae-form__hint">Optional</span><textarea name="main_concern" rows="3" maxlength="1500" placeholder="What feels hardest or least clear today?"></textarea></label>
-              <label class="cae-score-intake__wide">Relevant competitors <span class="cae-form__hint">Optional</span><textarea name="relevant_competitors" rows="3" maxlength="1500" placeholder="Names or public links we should consider"></textarea></label>
-              <label class="cae-score-intake__wide">Preferred contact or phone <span class="cae-form__hint">Optional</span><input name="preferred_contact_phone" autocomplete="tel" maxlength="160" placeholder="For example: email, or +1 …"></label>
-            </div>
-            <label class="cae-score-permission">
-              <input type="checkbox" name="enquiry_path_permission" value="true">
-              <span>I give explicit permission for CAESTHETIC to make a truthful, non-clinical test of the practice's public enquiry path. No false patient story or clinical claim will be used.</span>
-            </label>
-            <p class="cae-form-error cae-optional-error" role="alert" data-cae-optional-error hidden>Your Growth Score request is already recorded, but we could not save these optional details. You can retry or skip without affecting your request.</p>
-            <div class="cae-score-intake__actions">
-              <button class="cae-btn cae-btn--primary" type="button" data-cae-optional-save>Save optional details</button>
-              <button class="cae-btn cae-btn--ghost" type="button" data-cae-optional-skip>Skip — my request is complete</button>
-            </div>
-          </div>
-          <div class="cae-score-intake__complete" data-cae-optional-complete tabindex="-1" hidden>
-            <strong>Your request is complete.</strong>
-            <span>We will contact you by email if we need one public identifier and again when the private report is ready.</span>
-          </div>
-        </fieldset>
-      </form>
+      <div class="cae-form cae-form--score cae-score-intake cae-request-launch"><button class="cae-btn cae-btn--primary" type="button" data-cae-request>Start my Growth Score</button></div>
     </div>
   </section>
 
