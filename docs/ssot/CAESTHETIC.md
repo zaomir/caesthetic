@@ -485,11 +485,11 @@ Founder-confirmed on 2026-08-11. All mailboxes below are registered and were add
 
 | Role | Domain | Mailboxes | Operational boundary |
 |---|---|---|---|
-| Cold outbound | `caesthetic.co` | `valerie@caesthetic.co`, `harper@caesthetic.co`, `lana@caesthetic.co`, `aurora@caesthetic.co`, `scarlett@caesthetic.co`, `sienna@caesthetic.co`, `chloebennett@caesthetic.co`, `willow@caesthetic.co` | Cold campaigns only after warm-up and deliverability approval. |
+| Cold outbound | approved five-domain portfolio | Mailboxes individually approved under `CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md` | Cold campaigns only after mailbox-level warm-up and deliverability approval. |
 | Notifications | `caesthetic.com` | `notifications@caesthetic.com` | Transactional/system notifications; never use for cold outreach. |
 | Website | `caesthetic.com` | `info@caesthetic.com` | Designated public website contact. Updating live site copy is a separate runtime change and deploy. |
 
-Sender-role separation is mandatory: cold outreach stays on `caesthetic.co`; the primary `caesthetic.com` domain remains reserved for the public site and operational mail. Credentials, provider tokens and DNS secrets remain outside Git.
+Sender-role separation is mandatory: cold outreach stays on the five-domain portfolio approved by `CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md`; the primary `caesthetic.com` domain remains reserved for the public site and operational mail. Credentials, provider tokens and DNS secrets remain outside Git.
 
 ### Public business identity
 

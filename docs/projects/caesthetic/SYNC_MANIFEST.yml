@@ -55,6 +55,7 @@ protected_in_target:
   - site-caesthetic/**
   - docs/founder-notes/DEC-829.md
   - docs/ssot/CAESTHETIC.md
+  - docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md
@@ -84,6 +85,7 @@ protected_in_target:
   - tests/caesthetic/growth-score-publish-control-plane.test.mjs
   - tests/caesthetic/growth-score-routing-catalog.test.mjs
   - tests/caesthetic/growth-score-spec-canon.test.mjs
+  - tests/caesthetic/outbound-domain-identity.test.mjs
   - tests/caesthetic/agents_sync_bidirectional_test.py
   - tests/caesthetic/satellite-growth-score-authoring.test.py
   - scripts/caesthetic/asset-worker/poll.mjs
