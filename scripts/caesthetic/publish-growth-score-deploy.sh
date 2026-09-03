@@ -25,7 +25,7 @@ source "$SECRETS_FILE"
 set +a
 
 test -n "${CLOUDFLARE_ACCOUNT_ID:-}" || { echo "CLOUDFLARE_ACCOUNT_ID missing" >&2; exit 5; }
-if [[ -z "${CLOUDFLARE_API_TOKEN:-}" && -z "${CLOUDFLARE_API_TOKEN2:-}" && -z "${CF_API_TOKEN:-}" ]]; then
+if [[ -z "${CLOUDFLARE_API_TOKEN:-}" && -z "${CLOUDFLARE_API_TOKEN2:-}" && -z "${CLOUDFLARE_API_TOKEN_BOTOTOX:-}" && -z "${CF_API_TOKEN:-}" ]]; then
   echo "Cloudflare Workers token missing" >&2
   exit 6
 fi

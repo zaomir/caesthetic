@@ -48,6 +48,7 @@ test("CAESTHETIC score access is fail-closed, Nohy stays protected and the Prest
   assert.match(cutover, /SCORE_PROTECTED_PATHS/);
   assert.match(cutover, /SCORE_PUBLIC_PATHS/);
   assert.match(cutover, /select_cloudflare_auth/);
+  assert.match(cutover, /CLOUDFLARE_API_TOKEN2:-.*CLOUDFLARE_API_TOKEN_BOTOTOX:-.*CLOUDFLARE_API_TOKEN:-.*CF_API_TOKEN:-/);
   assert.match(cutover, /CLOUDFLARE_GLOBAL_API_KEY/);
   assert.match(cutover, /X-Auth-Email/);
   assert.match(cutover, /X-Auth-Key/);

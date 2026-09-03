@@ -27,6 +27,7 @@ satellite approved artifact @ exact SHA
 
 No paid GitHub Actions are used by the steady-state publication path. The existing VPS2402 systemd timer owns polling, locking and deploy serialization.
 The fixed report-only deploy requires the locked canonical worker to be clean and pinned exactly to the imported SHA, then reuses `scripts/deploy-caesthetic.sh` while skipping nginx/vhost installation; static sync, Cloudflare cutover and canonical production smokes still run. Nginx authority is unchanged and remains in the normal full-site deploy path.
+Cutover selects the first scoped token that returns HTTP 200 on Workers Scripts: `CLOUDFLARE_API_TOKEN2`, `CLOUDFLARE_API_TOKEN_BOTOTOX`, `CLOUDFLARE_API_TOKEN`, then `CF_API_TOKEN`. Do not create a new Cloudflare dashboard token when `CLOUDFLARE_API_TOKEN_BOTOTOX` already has Workers Scripts Edit. A Global API Key is only a last-resort pre-provisioned fallback.
 
 ## Agent contract
 
