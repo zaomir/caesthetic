@@ -450,21 +450,8 @@
     var buttons = document.querySelectorAll("[data-cae-sprint-inquiry]");
     if (!buttons.length) return;
     buttons.forEach(function (btn) {
-      var contactEmail = cfg().contactEmail || "info@caesthetic.com";
-      var price = cfg().sprintPriceLabel || "the published price";
-      var inquiryUrl =
-        "mailto:" +
-        contactEmail +
-        "?subject=" +
-        encodeURIComponent("Scope request — 30-Day Growth Sprint") +
-        "&body=" +
-        encodeURIComponent(
-          "I want to review the scope and payment instructions for the 30-Day Growth Sprint (" +
-            price +
-            ", USD)."
-        );
-
-      btn.setAttribute("href", inquiryUrl);
+      btn.setAttribute("href", "#request");
+      btn.setAttribute("data-cae-request", "");
       btn.setAttribute("data-cae-sprint-inquiry-state", "request");
       btn.textContent = "Request Sprint scope and payment instructions";
 
@@ -482,21 +469,8 @@
     var buttons = document.querySelectorAll("[data-cae-check-inquiry]");
     if (!buttons.length) return;
     buttons.forEach(function (btn) {
-      var contactEmail = cfg().contactEmail || "info@caesthetic.com";
-      var price = cfg().leadToRevenueCheckLabel || "$500";
-      var inquiryUrl =
-        "mailto:" +
-        contactEmail +
-        "?subject=" +
-        encodeURIComponent("Scope request — Lead-to-Revenue Check") +
-        "&body=" +
-        encodeURIComponent(
-          "I want to review the evidence access, scope and payment instructions for the Lead-to-Revenue Check (" +
-            price +
-            ", USD)."
-        );
-
-      btn.setAttribute("href", inquiryUrl);
+      btn.setAttribute("href", "#request");
+      btn.setAttribute("data-cae-request", "");
       btn.addEventListener("click", function () {
         track("lead_to_revenue_check_scope_requested", {
           product: "lead_to_revenue_check",

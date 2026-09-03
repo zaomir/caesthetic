@@ -6,6 +6,7 @@ import test from "node:test";
 const root = resolve(new URL("../..", import.meta.url).pathname);
 const site = resolve(root, "site-caesthetic");
 const js = readFileSync(resolve(site, "assets/js/caesthetic.js"), "utf8");
+const growthJs = readFileSync(resolve(site, "assets/js/growth.js"), "utf8");
 const css = readFileSync(resolve(site, "assets/css/caesthetic.css"), "utf8");
 const config = readFileSync(resolve(site, "assets/js/caesthetic-config.js"), "utf8");
 const fn = readFileSync(resolve(root, "supabase/functions/submit-caesthetic-request/index.ts"), "utf8");
@@ -37,6 +38,8 @@ test("request CTAs open one shared modal with exactly name and email fields", ()
   assert.doesNotMatch(js, /name="(?:phone|company|budget|message)"/);
   assert.doesNotMatch(js, /window\.location\.href\s*=\s*["']mailto:/);
   assert.match(js, /dialog\.showModal\(\)/);
+  assert.doesNotMatch(growthJs, /"mailto:"/);
+  assert.match(growthJs, /btn\.setAttribute\("data-cae-request", ""\)/);
   assert.match(js, /window\.CAESTHETIC_API\.request/);
   assert.match(css, /\.cae-request-modal/);
 });

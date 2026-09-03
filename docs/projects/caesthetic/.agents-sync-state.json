@@ -717,7 +717,7 @@
     "site-caesthetic/assets/js/case-study-detail.js": "3d5ef0cef715f86cfdb48d2d3f860444ca76fe393615e45c599222d367fe8e5e",
     "site-caesthetic/assets/js/growth-cockpit.js": "b5ec58c317cc1c70248f3afddb4a591f0467311b3494fe01232f3037ff83e05d",
     "site-caesthetic/assets/js/growth-score-engine.mjs": "93f3195c7fc45c358782e11b555652c2cfd869fcf4bf253e2cf270d264696681",
-    "site-caesthetic/assets/js/growth.js": "7d06390abec72b12481deb39350b914f5bca9ec0a10e01930b6231f3f698e8dc",
+    "site-caesthetic/assets/js/growth.js": "a0b2e06520b9a58c28b93d80628e380924e53ae2c2659cb83c4932bf475c20dc",
     "site-caesthetic/assets/js/media-registry.js": "0494fe5c86e440e77e2f4e7221676902c03899228ed7db8a3ca730fa28d1fd72",
     "site-caesthetic/assets/js/point-of-contact.js": "63d4cc128607c3a2404b0789a1c4cc49c712fb8bd76b2cdc1441b3659ea556cb",
     "site-caesthetic/audit/index.html": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
@@ -786,7 +786,7 @@
     "site-caesthetic/sprint/index.html": "dddf61dbacb392d292084d79dad5305717f16af4d2270d1427b06b75b1160fcb",
     "site-caesthetic/src/config/pricing.ts": "a347bd5593d1e27597aaf5bcf78f8e920b03037ab53aa630dd8cecb2538c64f0",
     "site-caesthetic/support/index.html": "625ee9e17b50cdafab796743d2241898473d0cbc607432f0785a74d47b9189a0",
-    "site-caesthetic/templates/footer.html": "8276d06d30d8e5726d94aea698e171d362a4abe85087dbec3651c666972632c6",
+    "site-caesthetic/templates/footer.html": "efe423aa102860127d85cecb1b2a9e0a5afc8aad884255989fe7fda93173aae9",
     "site-caesthetic/templates/header.html": "0b735a744016e6e389cd19c706fc69580bc0fbfd6c2ad05456f2f859a6ca170c",
     "site-caesthetic/templates/partner-tech-fieldset.html": "7ff740a769d1b981ffb53263c899e46e9e431cd2e73e7ae92ef6eb38d4171696",
     "site-caesthetic/terms/index.html": "9bccac28c54ee3fdb95f0a9329bf00b8d9f0b6ede345901bb9da0e7ed470fdd0",
@@ -846,7 +846,7 @@
     "tests/caesthetic/reel-automation-ssot.test.mjs": "c64e432c0a574a5b9cbbca316dc4c377b7a8ad06774d9e2e2f220456f12b8aa3",
     "tests/caesthetic/reel-opening-master-v3-1.test.mjs": "14ef0fb8a53067c2d0abbd49097615696d4bed138d388c8af75c1af3e68edea1",
     "tests/caesthetic/report-design-directives.test.mjs": "7e1c7fa51683a137cc69544b4ba3ccd44bc81588b3f564391ce5d1c2789794e4",
-    "tests/caesthetic/request-modal.test.mjs": "d4ea46be464c7027ccc00222f86f591196d4a1325719845c7821e9fbbbd31518",
+    "tests/caesthetic/request-modal.test.mjs": "29d21f3669b11b6ae014db81dcbc43efe624d1ef3ee027db779457680108e1ec",
     "tests/caesthetic/resolve_account_test.py": "92cc3e8402be4b10fc28493f0eee21e1d32bdf2db009ab2624cd295f06f56596",
     "tests/caesthetic/run-pricing.mjs": "f2fc798fb3bb5ce838ff1ebba4161837519d043bee67aece469812d3a54e2461",
     "tests/caesthetic/satellite-growth-score-authoring.test.py": "bf67e10b76dcab41bd15773dade115791ce4721e4b43d64d79e3457d1146a12d",
@@ -855,6 +855,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T22:57:50Z",
+  "updated_at_utc": "2026-09-03T23:12:21Z",
   "version": 1
 }
