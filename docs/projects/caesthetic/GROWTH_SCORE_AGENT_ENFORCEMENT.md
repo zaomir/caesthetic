@@ -1,11 +1,11 @@
 ---
 owner: CAESTHETIC
 status: mandatory_agent_adapter
-version: 2.3
+version: 2.4
 canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
 canonical_ref: zaomir/grainee-v2 origin/main resolved at run start
-updated: 2026-09-01
+updated: 2026-09-03
 ---
 
 # Growth Score audit — mandatory AI-agent enforcement
@@ -19,17 +19,70 @@ drift`, and use the canonical SSOT only after the conflict is resolved.
 
 Apply this before repository, project, task, skill or tool routing.
 
-If there is no active `growth_score_audit` interview and the user's message
-mentions `Multi-Location Growth Score`, `Growth Score` or `аудит` (including
-ordinary grammatical forms), the first sentence of the response must be
-exactly:
+This pre-router triggers on any mention or semantic equivalent of:
+
+- `аудит`;
+- `Growth Score`;
+- `Multi-Location Growth Score`;
+- `score`;
+- `diagnostic`;
+- `audit report`;
+- `проверка бизнеса`;
+- `поиск утечек`;
+- `Top 3 gaps`;
+- `binding constraint`.
+
+If there is no active `growth_score_audit` interview, the first sentence of
+the response must be exactly:
 
 `Вы создаёте новый аудит? Ответьте на вопросы.`
 
 The same response must begin the Manager Interview. If an interview is already
 active, continue with the missing questions and do not repeat the opening.
 
-## 2. Mandatory Manager Interview
+For a request as simple as `сделай аудит X`, the first operational action is
+the authority preflight in §2 and launch of this canonical audit workflow, not
+research into X.
+
+## 2. Mandatory current-main authority preflight
+
+Before any substantive work, resolve the current `zaomir/caesthetic` `main`
+and read these authorities from that same current ref, in order:
+
+1. `docs/ssot/CAESTHETIC.md`
+2. `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md`
+3. `docs/caesthetic/growth_score_spec.md`
+4. `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md`
+5. `docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md`
+6. `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`
+7. for competitor work: `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`
+8. for evidence or impact work: `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`
+9. for publication work: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`
+
+Items 1–6 are mandatory for every matched task. Items 7–9 become mandatory
+when the task reaches or requests the stated scope.
+
+The authority order is:
+
+`active master SSOT → Client Report Standard → growth_score_spec → Production SOP → implementation profile → working docs`.
+
+If a required authority is missing, unreadable or unavailable on the resolved
+current `main`, stop before substantive work and report `BLOCKED: missing
+authority <path>`, including the unresolved path and ref. Do not reconstruct,
+infer or complete the canon from chat/model memory, an older checkout or a
+lower-authority working document.
+
+Four Surfaces means exactly:
+
+1. Search / Google Business Profile;
+2. Website;
+3. Social;
+4. Reputation / Reviews.
+
+Cross-Surface Consistency, Lead Intake, Lead-to-Revenue and Paid Ads are not a
+fifth surface.
+
+## 3. Mandatory Manager Interview
 
 Reuse facts already supplied and ask only for missing information, but do not
 skip any applicable field:
@@ -53,7 +106,7 @@ skip any applicable field:
 The Manager Interview gate passes only when at least one unambiguous public
 identifier, the format and the scope are resolved.
 
-## 3. Public/open-source-only boundary
+## 4. Public/open-source-only boundary
 
 Both audit formats use public/open sources only. Manager statements remain
 `self_reported` context until independently verified from public evidence.
@@ -70,7 +123,7 @@ Never request or use as audit evidence:
 Public booking/enquiry paths may be inspected only up to non-submission. Never
 send a form, message or test enquiry, make a call or create an appointment.
 
-## 4. Research Alignment gate
+## 5. Research Alignment gate
 
 After the interview, perform only quick, non-scored public reconnaissance.
 Return a versioned Research Alignment Card containing:
@@ -93,7 +146,7 @@ Ask for an explicit decision from the named manager:
 Full research, scoring and conclusions are blocked until a named manager
 approves a specific Research Alignment version with a timestamp.
 
-## 5. Full research and evidence
+## 6. Full research and evidence
 
 After approval, research exactly Search/GBP, Website, Social and
 Reputation/Reviews. Treat Cross-Surface Consistency as an unweighted layer and
@@ -108,7 +161,7 @@ limitations and supersession link. Missing or contradictory evidence is
 Competitors must be selected by a disclosed, comparable rule. Visible public
 activity is not proof of commercial effectiveness.
 
-## 6. Human-only decisions and delivery gates
+## 7. Human-only decisions and delivery gates
 
 AI may build the complete Gap Inventory, candidate risk order, draft binding
 constraint, Repair Plans and candidate Focus Selection. All remain internal and
@@ -125,7 +178,7 @@ only under `https://caesthetic.com/score/` with an unguessable route and
 `noindex`. Catalog registration is automatic; public listing requires a
 synthetic report or explicit client permission.
 
-## 7. Fail-closed rule
+## 8. Fail-closed rule
 
 If an agent cannot satisfy a gate, access the canonical rules, establish public
 provenance, identify the approving manager or preserve the required evidence,
