@@ -23,7 +23,7 @@ const orderedSections = [
 ];
 
 test("mobile decision UI keeps the canonical nine-section machine order", () => {
-  assert.match(js, /growth-score-mobile-ui\/1\.1\.0/);
+  assert.match(js, /growth-score-mobile-ui\/1\.1\.1/);
   orderedSections.forEach((id) => assert.match(js, new RegExp(`"${id}"`)));
   assert.match(contract, /one unnumbered Intro and exactly nine machine sections/i);
   assert.doesNotMatch(contract, /tenth section|10-section cockpit/i);
@@ -84,7 +84,16 @@ test("Multi-Location keeps its network decision story and one package CTA", () =
 });
 
 test("Demand Journey copy remains separated and regular controls meet the 44px target", () => {
+  const demandListRule = css.match(/\.cae-score-report--mobile-story \.cae-report-demand ol\s*\{[\s\S]*?\}/)?.[0] || "";
+  const demandStageRule = css.match(/\.cae-score-report--mobile-story \.cae-report-demand__stage\s*\{[\s\S]*?\}/)?.[0] || "";
+  const desktopDemandRules = css.match(/@media \(min-width: 900px\)\s*\{[\s\S]*?@media \(max-width: 520px\)/)?.[0] || "";
+
   assert.match(css, /\.cae-score-report--mobile-story \.cae-report-demand__stage > \.cae-mobile-demand-copy\s*\{[\s\S]*?display:\s*grid/);
+  assert.match(demandListRule, /grid-template-columns:\s*1fr/);
+  assert.match(demandStageRule, /height:\s*auto/);
+  assert.match(desktopDemandRules, /\.cae-score-report--mobile-story \.cae-report-demand ol\s*\{[\s\S]*?grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(desktopDemandRules, /\.cae-score-report--mobile-story \.cae-report-demand__stage\s*\{[\s\S]*?height:\s*auto/);
+  assert.match(js, /growth-report-mobile\.css\?v=1\.1\.1/);
   assert.match(css, /\.cae-mobile-report-nav__brand\s*\{[\s\S]*?min-height:\s*44px/);
   assert.doesNotMatch(css, /min-height:\s*42px/);
   assert.match(js, /evidenceCountLabel/);

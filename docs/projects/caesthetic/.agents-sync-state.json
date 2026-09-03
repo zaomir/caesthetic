@@ -268,7 +268,7 @@
     "docs/caesthetic/00_INDEX.md": "e5f703febb8d66153a24c0db82803d33c3beba1ad233291eba70b8b7a447e14b",
     "docs/caesthetic/00_PIPELINE_PROTOCOL.md": "1f913ad23a9b313d41f157d1cfb094d8f6f98851a46cefe18d088f8b538ee1d4",
     "docs/caesthetic/CAESTHETIC_SSOT.md": "930130300c6c4e3a60751044a2757bf169952b50905f534d1b32afc944efa5ba",
-    "docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md": "23e1eeb9c92ec9f255d6171c4eef244330a6e4722a67e5bdf588e792c4a97454",
+    "docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md": "8c5091bc005ca6c566f442cf78cc9f36fc981fa9d16bde2cfaa5dc6253031422",
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md": "7c2daa9566885186ed04814f898338140d5a5ff81b9f4c37de1eb93695b0cd61",
     "docs/caesthetic/GROWTH_SCORE_PILOT_LANGUAGE_POLICY.md": "afc51512681be24293e448599b3aafd27ac60f43635aed02b8b43b753a8364f6",
     "docs/caesthetic/README.md": "e02ab83bf6e00e8b40e299150052ef8e6c2d75fccb52c3a8494b65baac988e5a",
@@ -690,7 +690,7 @@
     "site-caesthetic/assets/css/case-study-detail.css": "7bd19d40840f6bd5cc4ec025a5ff7d47171e7b2af5e20533ddd2f0d3dd369073",
     "site-caesthetic/assets/css/growth-report-base.css": "65e1eb693d98c428721ecb4874fe4717c8ecbfad950a3a8152d520e06f9cebf7",
     "site-caesthetic/assets/css/growth-report-layout-fix.css": "44f1218930486c4703c8b0cbecf436c7060e3b3f1b4925324f151d5383a5017e",
-    "site-caesthetic/assets/css/growth-report-mobile.css": "31890c6703d61ab219426894fe34a2e47ae3fd301ccd5314223ad9d9201fb288",
+    "site-caesthetic/assets/css/growth-report-mobile.css": "a158547e8cadb87fb8482db881949c5ed4a74e121c71ca64ab1e41893c4ee5c7",
     "site-caesthetic/assets/css/growth-report.css": "c4e1f5f4396216ba5cdf4e14826fd305647cb747e00c7371860de337b2376b0c",
     "site-caesthetic/assets/css/growth.css": "aed2348880c7dce70e79243d3888cf4d2705ea99741b78e68eb9ae193280e7ae",
     "site-caesthetic/assets/css/point-of-contact.css": "64e9b2fed1f17e9deadb6cf0c7407db2edbd1c495a23ca182fc9f7eaaa9674fa",
@@ -715,7 +715,7 @@
     "site-caesthetic/assets/js/caesthetic.js": "934e2da9ad4d2d73a61364d7456ff69006e8bddeea5947f1fb64b0ee31499277",
     "site-caesthetic/assets/js/case-studies.js": "7442e7208a3d43220c8f25cb1c6643617f6654f700b719d553a70e1c342d703b",
     "site-caesthetic/assets/js/case-study-detail.js": "3d5ef0cef715f86cfdb48d2d3f860444ca76fe393615e45c599222d367fe8e5e",
-    "site-caesthetic/assets/js/growth-cockpit.js": "b5ec58c317cc1c70248f3afddb4a591f0467311b3494fe01232f3037ff83e05d",
+    "site-caesthetic/assets/js/growth-cockpit.js": "41ceb698500a4e71cf305c04f805ba0ec8ede01fb958425e91eaec3dc0b092d6",
     "site-caesthetic/assets/js/growth-score-engine.mjs": "93f3195c7fc45c358782e11b555652c2cfd869fcf4bf253e2cf270d264696681",
     "site-caesthetic/assets/js/growth.js": "a0b2e06520b9a58c28b93d80628e380924e53ae2c2659cb83c4932bf475c20dc",
     "site-caesthetic/assets/js/media-registry.js": "0494fe5c86e440e77e2f4e7221676902c03899228ed7db8a3ca730fa28d1fd72",
@@ -812,7 +812,7 @@
     "tests/caesthetic/growth-score-journey-graph.test.mjs": "6e25cdf262fa95812a170ceeb3223348367db6159f15ca93e49b1f2b589d036c",
     "tests/caesthetic/growth-score-lead-flow.test.mjs": "5dc7ffdb19edf725d22aef24cfcdbbc6e1d626936b4d66aebee85740f7a30d78",
     "tests/caesthetic/growth-score-lead.test.mjs": "354e8cb85ded964d24c93d92d603b0af6d447e52ae9ca870455b18c7402f3901",
-    "tests/caesthetic/growth-score-mobile-ui.test.mjs": "d1abf6af331e67a6e62d974b3ecfe589ba99983a56d2f529599eb565d6cc4768",
+    "tests/caesthetic/growth-score-mobile-ui.test.mjs": "9c503d8f212121683b6f206e4c1094828e309bb33c2f1115df369b18e5b61667",
     "tests/caesthetic/growth-score-ops-contract.test.mjs": "ff24f38759d6f609d756950d616aba09463fc61547a00f867ea1496e9c400345",
     "tests/caesthetic/growth-score-ops-intake.test.mjs": "4f7107edc188f19fa5fd5ae8459ffea7edf456d660b6beb9f22d6123ba25bffe",
     "tests/caesthetic/growth-score-ops-lifecycle.test.mjs": "a4abb555794188d5e365895abba1d977d8fc62b7867097fb0ddeb001b8d7b9f8",
@@ -855,6 +855,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T23:12:21Z",
+  "updated_at_utc": "2026-09-03T23:37:36Z",
   "version": 1
 }

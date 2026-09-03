@@ -280,6 +280,7 @@ html[data-page="growth-score-report"] {
 
 .cae-score-report--mobile-story .cae-report-demand ol {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 0;
   margin: 0;
   padding: 0;
@@ -291,6 +292,7 @@ html[data-page="growth-score-report"] {
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr);
   gap: 0.8rem;
+  height: auto;
   min-height: 70px;
   padding: 0 0 0.85rem;
   border: 0;
@@ -817,7 +819,10 @@ html[data-page="growth-score-report"] {
 
   .cae-score-report--mobile-story .cae-report-demand__stage {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: start;
     gap: 0.5rem;
+    height: auto;
     min-height: 120px;
     padding: 1rem;
     border: 1px solid var(--cae-mobile-line);
