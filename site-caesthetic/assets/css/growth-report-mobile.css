@@ -326,7 +326,7 @@ html[data-page="growth-score-report"] {
   box-shadow: 0 0 0 5px rgba(159, 47, 67, 0.12);
 }
 
-.cae-score-report--mobile-story .cae-mobile-demand-copy {
+.cae-score-report--mobile-story .cae-report-demand__stage > .cae-mobile-demand-copy {
   display: grid;
   gap: 0.12rem;
   min-width: 0;

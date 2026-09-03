@@ -1,0 +1,17 @@
+{
+  "contract_version": "caesthetic-repo-sync/1.0",
+  "request_id": "caesthetic-repo-sync-run-once-publish-r3-20260903",
+  "type": "caesthetic_repo_sync",
+  "operation": "run_once",
+  "status": "error",
+  "worker": {
+    "host": "vps2402",
+    "completed_at": "2026-09-03T00:12:05.311Z"
+  },
+  "errors": [
+    {
+      "code": "repo_sync_command_failed",
+      "message": "bash_failed:"
+    }
+  ]
+}

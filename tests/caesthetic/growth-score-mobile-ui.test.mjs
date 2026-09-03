@@ -84,7 +84,7 @@ test("Multi-Location keeps its network decision story and one package CTA", () =
 });
 
 test("Demand Journey copy remains separated and regular controls meet the 44px target", () => {
-  assert.match(css, /\.cae-score-report--mobile-story \.cae-mobile-demand-copy\s*\{[\s\S]*?display:\s*grid/);
+  assert.match(css, /\.cae-score-report--mobile-story \.cae-report-demand__stage > \.cae-mobile-demand-copy\s*\{[\s\S]*?display:\s*grid/);
   assert.match(css, /\.cae-mobile-report-nav__brand\s*\{[\s\S]*?min-height:\s*44px/);
   assert.doesNotMatch(css, /min-height:\s*42px/);
   assert.match(js, /evidenceCountLabel/);
