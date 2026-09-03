@@ -1,10 +1,10 @@
 # Agents repo sync marker
 
 - **Mode:** bidirectional (DEC-829)
-- **Grainee SHA (pre-commit):** `0c9c0430498126e8dbc01081a3a83387b4539e86`
-- **Satellite SHA (pre-commit):** `d6d038fb26949fe350d3c22b5d3717952b157ad3`
-- **Synced at (UTC):** 2026-09-03T00:33:07Z
+- **Grainee SHA (pre-commit):** `e1ea5aee498e9973c7966d32b268e598f5cb6ab2`
+- **Satellite SHA (pre-commit):** `a55b54e246bf83c20483ac70f6d0c5b11d069a72`
+- **Synced at (UTC):** 2026-09-03T00:35:08Z
 - **Script:** `scripts/caesthetic/sync-agents-bidirectional.sh`
-- **Summary:** g2s=3 s2g=0 conflicts=0
+- **Summary:** g2s=0 s2g=3 conflicts=0
 
 Production deploy still ships only from grainee-v2.
