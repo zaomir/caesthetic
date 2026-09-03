@@ -350,6 +350,7 @@
     "docs/projects/caesthetic/publish-growth-score/artifacts/publish-growth-score-demo-multilocation-control-plane-r5-20260903/package.json": "f512e66ca870fe0bb23eb431c6a5fa8372f6b460fdf56a7f745da469f63f9abf",
     "docs/projects/caesthetic/publish-growth-score/canonical-records/publish-growth-score-demo-multilocation-control-plane-r3-20260903.json": "c7ffc02418c106b2e411b278d1e77140df1286eaca4ce029a7d750aae1fa8059",
     "docs/projects/caesthetic/publish-growth-score/canonical-records/publish-growth-score-demo-multilocation-control-plane-r4-20260903.json": "01fb31c3df1fcb83245da681934511de930c10568decf19800f2f0c7261c685a",
+    "docs/projects/caesthetic/publish-growth-score/canonical-records/publish-growth-score-demo-multilocation-control-plane-r5-20260903.json": "2abd214c8bf356bdb4b89413144d0ddbbea703c6add681b96f638d2415da70dc",
     "docs/projects/caesthetic/publish-growth-score/requests/publish-growth-score-demo-multilocation-control-plane-20260902.json": "fb5e49d012503d93bcb1f7112f5213e538eab74903a418812a8ce9b54a5c0375",
     "docs/projects/caesthetic/publish-growth-score/requests/publish-growth-score-demo-multilocation-control-plane-r2-20260903.json": "cad31429a12d40d3ba09fb8558347d8214ab8010f15ebd9cef8ed55727b6cf02",
     "docs/projects/caesthetic/publish-growth-score/requests/publish-growth-score-demo-multilocation-control-plane-r3-20260903.json": "188f6315e8d8a7ca219cd5d872ebbae495adcdd8ac410902800f518d609a99bc",
@@ -359,6 +360,7 @@
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r2-20260903.json": "2108876357a9220ef2644fc2bb6362606b7d80e1800c34c7b743a9b6f6a97b24",
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r3-20260903.json": "6bf9b74932b4bb79714f6e969b9c8c799e20a707b0e7a4fff3f1aeebe42cfe68",
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r4-20260903.json": "5c890659acbe054c9b80268571840490f0421729980efaf7ae7971f419200019",
+    "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r5-20260903.json": "280f083edf7d58a20118716ab814c737b2ad1c662689c6fd4d27b557613449a8",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v10-20260902.json": "c7fab8a2018421aea4b095fb948de5a9654db9549a39c70d787d098c690eb6ee",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v11-20260902.json": "b368d7d6623be63a57fb753fa9691a183654a910f30e8ef0a67222b381f5d6bd",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v12-20260902.json": "f4ba64ef58bb26ef3ac34a86acd00d2e0e8ed5e7d409122639ef6ed59eea160a",
@@ -761,6 +763,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "60cb2f597cfbe900acd27e5e9bbd2bd26c3633cd89ad9d0f8fc29b357f13c1f5"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T00:30:30Z",
+  "updated_at_utc": "2026-09-03T00:31:41Z",
   "version": 1
 }
