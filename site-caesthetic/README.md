@@ -16,7 +16,7 @@
 | `/sprint/` | Diagnosis-led 30-Day Growth Sprint · generated fixed price · written scope/payment inquiry |
 | `/growth-system/` | Optional recurring ownership · client-specific Growth Budget with its Fixed Management Fee inside |
 | `/pricing/` | Public comparison using generated pricing artifacts |
-| `/about/` | Entity + public face Valerie Petra |
+| `/about/` | Corporate category, operating model and evidence standard; no Valerie identity block |
 | `/legal/privacy/` | Privacy + CCPA/CPRA |
 | `/legal/terms/` | Terms |
 | `/score/[slug]/` | Private practice reports (`noindex`, not in sitemap) |
@@ -45,6 +45,7 @@ Sprint Extension, `/clinic-launch/`, `/launch/`, cases and product procurement p
 
 - `ga4MeasurementId`, `metaPixelId` — optional approved measurement IDs; empty values mean no active GA4/Meta claim
 - `phoneDisplay` / `phoneE164` — optional US phone for footer
+- `analyst` — repository-authorized Valerie Petra identity, portrait and canonical LinkedIn URL used by the reusable point-of-contact component
 
 ## Deploy
 

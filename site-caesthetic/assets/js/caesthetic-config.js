@@ -25,9 +25,9 @@ window.CAESTHETIC = {
   analyst: {
     name: "Valerie Petra",
     role: "Growth Analyst",
-    linkedin: "",
-    linkedinVerified: false,
-    photo: "/assets/img/team/valerie-petra.svg",
+    linkedin: "https://www.linkedin.com/in/valeriia-petrova-uk/",
+    linkedinVerified: true,
+    photo: "/assets/img/team/valerie-petra-office-portrait.webp",
   },
   /* Approved GA4 web stream. Meta stays dataLayer-only until separately approved. */
   ga4MeasurementId: "G-PNQB0W9YB2",

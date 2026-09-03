@@ -69,8 +69,9 @@
       image.src = analyst.photo;
       image.width = 140;
       image.height = 140;
-      image.alt = analyst.name + " monogram";
+      image.alt = "Portrait of " + analyst.name;
       image.loading = "lazy";
+      image.decoding = "async";
       person.appendChild(image);
     }
 

@@ -14,9 +14,10 @@ test("config points Growth Score submit to dedicated edge function", () => {
   assert.match(config, /contactEmail: "info@caesthetic\.com"/);
   assert.match(config, /scoreTurnaround: ""/);
   assert.match(config, /name: "Valerie Petra"/);
-  assert.match(config, /linkedin: ""/);
+  assert.match(config, /linkedin: "https:\/\/www\.linkedin\.com\/in\/valeriia-petrova-uk\/"/);
+  assert.match(config, /linkedinVerified: true/);
+  assert.match(config, /photo: "\/assets\/img\/team\/valerie-petra-office-portrait\.webp"/);
   assert.doesNotMatch(config, /Valeriia Petrova/);
-  assert.doesNotMatch(config, /linkedin\.com\/in\/valeriia-petrova-uk/);
   assert.doesNotMatch(config, /5 business days/);
 });
 

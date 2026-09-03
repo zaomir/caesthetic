@@ -20,6 +20,7 @@ const header = read('templates/header.html');
 const footer = read('templates/footer.html');
 const sitemap = read('sitemap.xml');
 const config = read('assets/js/caesthetic-config.js');
+const pointOfContact = read('assets/js/point-of-contact.js');
 const pricingArtifact = read('assets/js/caesthetic-pricing.generated.js');
 
 test('homepage publishes v2 positioning and canonical owner problems', () => {
@@ -78,12 +79,16 @@ test('Growth System publishes economics v2.1 money layers and evidence lifecycle
   assert.doesNotMatch(system, /\$1,500|Total Growth Allocation|\b10\s*%|10 percent|AGC share|performance cap/i);
 });
 
-test('Valerie Petra is the public identity without an invented LinkedIn URL', () => {
+test('Valerie Petra uses the founder-confirmed point-of-contact identity', () => {
   assert.match(home, /Valerie Petra/);
-  assert.match(about, /Valerie Petra/);
+  assert.doesNotMatch(about, /Valerie Petra/);
   assert.match(config, /name: "Valerie Petra"/);
-  assert.match(config, /linkedin: ""/);
-  assert.doesNotMatch(home + about + config, /Valeriia Petrova|valeriia-petrova-uk/i);
+  assert.match(config, /linkedin: "https:\/\/www\.linkedin\.com\/in\/valeriia-petrova-uk\/"/);
+  assert.match(config, /linkedinVerified: true/);
+  assert.match(config, /photo: "\/assets\/img\/team\/valerie-petra-office-portrait\.webp"/);
+  assert.match(pointOfContact, /Portrait of /);
+  assert.match(pointOfContact, /View Valerie on LinkedIn/);
+  assert.doesNotMatch(home + about + config, /Valeriia Petrova/i);
   assert.doesNotMatch(about, /"sameAs"/);
 });
 

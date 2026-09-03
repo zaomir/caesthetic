@@ -39,7 +39,7 @@ CAESTHETIC is the first **reference implementation** of the global Growth Contro
 
 ### Public identity
 
-**Valerie Petra** is the public face of CAESTHETIC and leads the owner-facing Growth Score walkthroughs. Public CAESTHETIC surfaces use her name and role without a LinkedIn link until a canonical Valerie Petra profile URL is confirmed in repository authority. Unconfirmed legacy profile links must not appear in public runtime or current CAESTHETIC identity material.
+**Valerie Petra** is the public face of CAESTHETIC and leads the owner-facing Growth Score walkthroughs. Founder-confirmed on 2026-09-03, her canonical public LinkedIn profile is `https://www.linkedin.com/in/valeriia-petrova-uk/`. Public CAESTHETIC runtime may publish only this exact HTTPS profile URL for Valerie; any other, empty or unverified candidate remains fail-closed.
 
 Practical owner question: **Where is my practice losing patients, what should I fix first, and what should I not spend money on yet?**
 
@@ -493,9 +493,9 @@ Sender-role separation is mandatory: cold outreach stays on `caesthetic.co`; the
 
 ### Public business identity
 
-Founder-confirmed on 2026-08-12: **Valerie Petra** is the public face of CAESTHETIC, including its LinkedIn presence. This is the only current public CAESTHETIC identity label. No LinkedIn URL may be published until a canonical profile URL is confirmed in the repository.
+Founder-confirmed on 2026-08-12: **Valerie Petra** is the public face of CAESTHETIC, including its LinkedIn presence. This is the only current public CAESTHETIC identity label. Founder-confirmed on 2026-09-03, the canonical personal LinkedIn URL for that identity is `https://www.linkedin.com/in/valeriia-petrova-uk/`; the URL slug does not change the public identity label.
 
-No canonical Valerie Petra personal LinkedIn URL is verified in the repository yet. The legacy name-bearing URL must not be published or redirected by assumption. Public runtime and identity registries keep the profile URL empty until the approved canonical URL is verified; stable technical ids and service/file names containing `valeriia` remain unchanged unless a separately scoped migration is approved.
+The reusable owner-facing point-of-contact component uses the founder-provided `08-portrait-glasses-office-blazer.png` source (SHA-256 `4b3e0574a6b2ebb3d29e0e0eebdfb72e7609c8c997190fbf06daa3566b987c56`) through the optimized public derivative `/assets/img/team/valerie-petra-office-portrait.webp`. The component belongs on accountable delivery and decision surfaces, not on `/about/`; About remains the corporate category, operating-model and evidence-standard page. Replacing the photo or LinkedIn URL requires a new founder-confirmed source and repository-authority update. Stable technical ids and service/file names containing `valeriia` remain unchanged unless a separately scoped migration is approved.
 
 ## 12. Authority map
 - Global architecture: `docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md`

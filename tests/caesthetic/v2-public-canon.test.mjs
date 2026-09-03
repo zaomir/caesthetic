@@ -14,8 +14,7 @@ test("homepage uses v2 positioning, audience and Valerie Petra identity", () => 
   assert.match(home, /<h1[^>]*>The growth operating system for independent aesthetic practices\.<\/h1>/);
   assert.match(home, /independent injectors, aesthetic doctors, and small med spas in the United States/i);
   assert.match(home, /Valerie Petra/);
-  assert.match(about, /Valerie Petra/);
-  assert.doesNotMatch(home + about, /Valeriia Petrova|valeriia-petrova-uk/i);
+  assert.doesNotMatch(about, /Valerie Petra|valeriia-petrova-uk/i);
 });
 
 test("Growth Score states AI-assisted, human-verified evidence boundaries without SLA", () => {
@@ -55,11 +54,13 @@ test("all public commercial surfaces omit superseded recurring defaults", () => 
   assert.match(pricing, /no percentage, cap or availability is advertised as a public default/i);
 });
 
-test("legal copy does not claim active analytics and prohibits replay", () => {
+test("legal copy describes approved GA4 consent mode and prohibits replay", () => {
   const privacy = read("legal/privacy/index.html");
   const cookies = read("legal/cookies/index.html");
   assert.match(privacy, /only if an approved measurement configuration is enabled/i);
-  assert.match(cookies, /does not represent Google Analytics 4, Meta Pixel.*as active/is);
+  assert.match(cookies, /Google Analytics 4 in Advanced Consent Mode/i);
+  assert.match(cookies, /analytics storage is denied/i);
+  assert.match(cookies, /Advertising storage, advertising user data and personalisation remain disabled/i);
   assert.match(cookies, /does not use session replay/i);
 });
 
@@ -85,7 +86,8 @@ test("all primary public surfaces use info email and canonical brand assets", ()
     "legal/cookies/index.html", "templates/header.html", "templates/footer.html",
   ].map(read).join("\n");
   assert.doesNotMatch(publicCopy, /team@caesthetic\.com/i);
-  assert.doesNotMatch(publicCopy, /valeriia-petrova-uk|Valeriia Petrova/i);
+  assert.doesNotMatch(publicCopy, /Valeriia Petrova/i);
+  assert.match(publicCopy, /https:\/\/www\.linkedin\.com\/in\/valeriia-petrova-uk\//i);
   assert.match(publicCopy, /info@caesthetic\.com/i);
   assert.match(publicCopy, /assets\/brand\/logo-square/);
 });
