@@ -113,6 +113,18 @@ function requireReportContent(report) {
     if (!report.why_caesthetic?.[key]) throw new TypeError(`why_caesthetic.${key} is required`);
   }
 
+  const checkDecision = report.leadToRevenueCheck;
+  if (checkDecision !== undefined) {
+    if (!["recommended", "not_recommended"].includes(checkDecision?.recommendation)) {
+      throw new TypeError("leadToRevenueCheck.recommendation must be recommended or not_recommended");
+    }
+    requireNonEmptyString(checkDecision.reason, "leadToRevenueCheck.reason");
+    if (checkDecision.recommendation === "recommended") {
+      requireArray(checkDecision.evidence_refs, "leadToRevenueCheck.evidence_refs");
+      checkDecision.evidence_refs.forEach((ref, index) => requireNonEmptyString(ref, `leadToRevenueCheck.evidence_refs[${index}]`));
+    }
+  }
+
   requireNonEmptyString(diagnosis.objective_strength?.title, "humanDiagnosis.objective_strength.title");
   requireArray(diagnosis.objective_strength?.evidence_refs, "humanDiagnosis.objective_strength.evidence_refs");
   requireNonEmptyString(diagnosis.strongest_surface, "humanDiagnosis.strongest_surface");
@@ -889,14 +901,46 @@ const LEAD_TO_REVENUE_STAGES = Object.freeze([
   "PAYMENT",
 ]);
 
-function leadToRevenueMapHtml() {
+function isLeadToRevenueCheckRecommended(report) {
+  return report.leadToRevenueCheck?.recommendation === "recommended";
+}
+
+function leadToRevenueMapHtml(report) {
+  const checkDecision = report.leadToRevenueCheck;
+  const recommendation = isLeadToRevenueCheckRecommended(report)
+    ? `<div class="cae-lead-revenue__check" data-cae-check-recommended="true">
+      <div><span>Lead-to-Revenue Check</span><strong>$500</strong></div>
+      <p><strong>Why recommended:</strong> ${escapeHtml(checkDecision.reason)}</p>
+      <p><strong>Supporting evidence:</strong> ${refs(checkDecision.evidence_refs)}</p>
+      <p>An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>$2,500</span> Sprint total.</p>
+      <small>No enquiry, booking, patient, revenue or ROI outcome is promised.</small>
+      <a class="cae-report-inline-link" href="/lead-to-revenue-check/">Review the Lead-to-Revenue Check</a>
+    </div>`
+    : "";
   return `<section class="cae-lead-revenue" aria-labelledby="lead-revenue-title">
     <p class="cae-kicker">Internal conversion boundary</p>
     <h3 class="cae-report-subhead" id="lead-revenue-title">What happens after the enquiry?</h3>
     <p>Growth Score ends at Lead Intake. It does not infer response, booking, attendance, consultation or payment performance from public evidence.</p>
     <ol>${LEAD_TO_REVENUE_STAGES.map((stage) => `<li data-status="not_assessed"><span>${escapeHtml(stage)}</span><strong>NOT ASSESSED</strong></li>`).join("")}</ol>
-    <div class="cae-lead-revenue__check"><div><span>Lead-to-Revenue Check</span><strong>$500</strong></div><p>An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>$2,500</span> Sprint total.</p><small>No enquiry, booking, patient, revenue or ROI outcome is promised.</small></div>
+    ${recommendation}
   </section>`;
+}
+
+function commercialNextStepHtml(report) {
+  if (isLeadToRevenueCheckRecommended(report)) {
+    return `
+        <p class="cae-kicker">Conditional diagnostic CTA</p>
+        <h2 class="cae-h2">Verify the internal path before choosing the fix</h2>
+        <p>The Growth Score identified internal uncertainty that public evidence cannot resolve. Confirm the evidence boundary and request written Check scope before selecting implementation.</p>
+        <a class="cae-btn cae-btn--primary" href="/lead-to-revenue-check/">Review the Lead-to-Revenue Check</a>
+      `;
+  }
+  return `
+        <p class="cae-kicker">Optional Sprint CTA</p>
+        <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
+        <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
+        <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
+      `;
 }
 
 function growthScoreIntroHtml(report) {
@@ -1381,6 +1425,13 @@ function localizeReportHtml(html, locale) {
     ["published findings", "опубликованных выводов"],
     ["Comparison method:", "Метод сравнения:"],
     ["Scores use heuristic diagnostic weights. They do not determine Sprint scope automatically.", "Баллы используют эвристические диагностические веса и не определяют scope Sprint автоматически."],
+    ["Conditional diagnostic CTA", "Условный диагностический следующий шаг"],
+    ["Verify the internal path before choosing the fix", "Проверьте внутренний путь до выбора решения"],
+    ["The Growth Score identified internal uncertainty that public evidence cannot resolve. Confirm the evidence boundary and request written Check scope before selecting implementation.", "Growth Score выявил внутреннюю неопределённость, которую нельзя разрешить публичными evidence. До выбора способа внедрения подтвердите границы evidence и запросите письменный scope Check."],
+    ["Why recommended:", "Почему рекомендовано:"],
+    ["Supporting evidence:", "Подтверждающие evidence:"],
+    ["Review the Lead-to-Revenue Check", "Открыть Lead-to-Revenue Check"],
+    ["View Check", "Открыть Check"],
     ["Optional next step", "Необязательный следующий шаг"],
     ["Поручить CAESTHETIC to take the selected Фокусные разрывы", "Поручить CAESTHETIC выбранные фокусные разрывы"],
     ["Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.", "Scope Sprint отдельно подтверждается письменно. Ни один фокусный разрыв или самостоятельный шаг не входит в работу до такого подтверждения."],
@@ -1794,24 +1845,19 @@ ${competitorRows(diagnosis.competitors)}
         <p>${escapeHtml(report.crossSurface.summary)}</p>
         <p><strong>Do Not Fund Yet:</strong> ${escapeHtml(diagnosis.do_not_do.title)}</p>
       </div>
-      ${leadToRevenueMapHtml()}
+      ${leadToRevenueMapHtml(report)}
       ${isNetworkParent ? networkExecutiveDecisionHtml(report) : ""}
       ${isFocusLocationChild ? `
         <p class="cae-kicker">Multi-Location package</p>
         <h2 class="cae-h2">Return to the network implementation decision</h2>
         <p>This detailed location page does not add a second commercial decision.</p>
         ${focusChildNavigationHtml(report)}
-      ` : `
-        <p class="cae-kicker">Optional Sprint CTA</p>
-        <h2 class="cae-h2">Ask CAESTHETIC to take the selected Focus Gaps</h2>
-        <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
-        <a class="cae-btn cae-btn--primary" href="/sprint/">Start the 30-Day Growth Sprint</a>
-      `}
+      ` : commercialNextStepHtml(report)}
     </div>
   </section>
 
 </main>
-<a class="cae-sticky-sprint" href="#next-step" hidden>View Sprint</a>
+<a class="cae-sticky-sprint" href="#next-step" hidden>${isLeadToRevenueCheckRecommended(report) ? "View Check" : "View Sprint"}</a>
 ${isPilot ? "" : '<div id="cae-footer-slot"></div>\n<script src="/assets/js/caesthetic-config.js"></script>\n<script src="/assets/js/caesthetic.js" defer></script>\n<script src="/assets/js/analytics.js" defer></script>'}
 <script src="/assets/js/growth-cockpit.js" defer></script>
 </body>

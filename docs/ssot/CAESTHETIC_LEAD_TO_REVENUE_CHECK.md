@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.0
+version: 1.1
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-03
 scope: canonical commercial and evidence contract for the CAESTHETIC Lead-to-Revenue Check
 parent: docs/ssot/CAESTHETIC.md
 related:
@@ -111,7 +111,17 @@ with concise language explaining that Growth Score shows how demand reaches the 
 
 The Check remains secondary to a directly verified external Sprint path. Do not insert it as an automatic upsell when the Growth Score has already established an actionable external binding constraint.
 
-## 7. Authority and conflicts
+## 7. Public runtime and report-routing contract
+
+- Canonical indexable product route: `/lead-to-revenue-check/`.
+- The primary header remains focused on the headline funnel. The Check is discoverable through the global footer and contextual decision boundaries on Growth Score, Pricing, Sprint, Growth System, About, Support, the audit catalog and relevant localized vertical pages.
+- Public pricing values come from `site-caesthetic/src/config/pricing.ts` through the generated pricing artifact. Runtime code must not create a second price source.
+- A Growth Score report shows the commercial Check card only when its approved source contains `leadToRevenueCheck.recommendation = "recommended"`, a non-empty reason and at least one evidence reference.
+- Absence of that field, or `recommendation = "not_recommended"`, keeps the internal map gray without a Check offer. The report's single late commercial CTA remains the Sprint unless the approved Check recommendation replaces it. A Multi-Location focus child never adds a second commercial CTA.
+- Canonical measurement events are `lead_to_revenue_check_page_viewed` and `lead_to_revenue_check_scope_requested`.
+- Scope is confirmed in writing before CAESTHETIC issues a private controlled payment request.
+
+## 8. Authority and conflicts
 
 This file is the specific active pricing/evidence authority for the Lead-to-Revenue Check. It supplements `docs/ssot/CAESTHETIC.md` without changing the immutable Four Surfaces or the public headline funnel.
 

@@ -37,6 +37,7 @@ Read in order:
 - Growth System is recurring ownership, not hours/output quotas; request classes and add-on routing come from the operating-model SSOT.
 - Through Day 30 communication is email-only; a 3–8 minute Valerie Petra video is standard only for the free Growth Score and follows `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 - No fabricated proof, ranking/patient/revenue guarantees, prohibited review gating, or deliberate unfinished work.
+- Cloudflare Workers 403 on `CLOUDFLARE_API_TOKEN` / `CF_API_TOKEN` is not a founder Dashboard login (DEC-874). Probe `CLOUDFLARE_API_TOKEN_BOTOTOX` first; cutover candidate list lives in `scripts/cf-caesthetic-cutover.sh` on `grainee-v2/main`.
 
 ## Runtime
 Production root: `site-caesthetic/`  

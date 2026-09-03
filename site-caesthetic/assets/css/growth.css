@@ -337,6 +337,82 @@
   color: var(--cae-signal-light);
 }
 
+.cae-check-branch {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--cae-space-7);
+  border-top: 2px solid var(--cae-border-strong);
+  border-left: 1px solid var(--cae-border);
+}
+
+.cae-check-branch article {
+  min-width: 0;
+  padding: var(--cae-space-6);
+  border-right: 1px solid var(--cae-border);
+  border-bottom: 1px solid var(--cae-border);
+}
+
+.cae-check-branch article[aria-current="step"] {
+  background: var(--cae-accent-light);
+}
+
+.cae-check-branch strong,
+.cae-check-path strong {
+  display: block;
+  margin-bottom: var(--cae-space-2);
+  font-family: var(--cae-font-display);
+  font-size: var(--cae-text-xl);
+  font-weight: 400;
+}
+
+.cae-check-branch p {
+  margin-bottom: 0;
+  color: var(--cae-muted);
+}
+
+.cae-check-path {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: var(--cae-space-7) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--cae-border-strong);
+  border-left: 1px solid var(--cae-border);
+}
+
+.cae-check-path li {
+  min-width: 0;
+  padding: var(--cae-space-5);
+  border-right: 1px solid var(--cae-border);
+  border-bottom: 1px solid var(--cae-border);
+}
+
+.cae-check-path span {
+  display: block;
+  margin-bottom: var(--cae-space-3);
+  color: var(--cae-signal);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cae-check-commercial {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, .7fr);
+  gap: var(--cae-space-8);
+  align-items: start;
+}
+
+.cae-check-credit {
+  padding: var(--cae-space-6);
+  border: 1px solid var(--cae-border-data);
+}
+
+.cae-check-credit p:last-child {
+  margin-bottom: 0;
+}
+
 .cae-price-block .cae-actions {
   margin-top: var(--cae-space-6);
 }
@@ -870,7 +946,10 @@
   .cae-gate-grid,
   .cae-scope-ledger,
   .cae-lifecycle,
-  .cae-allocation-model {
+  .cae-allocation-model,
+  .cae-check-branch,
+  .cae-check-path,
+  .cae-check-commercial {
     grid-template-columns: 1fr;
   }
   .cae-owner-questions p {

@@ -7,6 +7,7 @@ const REPO = resolve(new URL('../..', import.meta.url).pathname);
 const SITE = resolve(REPO, 'site-caesthetic');
 const sprint = readFileSync(resolve(SITE, 'sprint/index.html'), 'utf8');
 const growthScore = readFileSync(resolve(SITE, 'growth-score/index.html'), 'utf8');
+const check = readFileSync(resolve(SITE, 'lead-to-revenue-check/index.html'), 'utf8');
 const growthJs = readFileSync(resolve(SITE, 'assets/js/growth.js'), 'utf8');
 const configJs = readFileSync(resolve(SITE, 'assets/js/caesthetic-config.js'), 'utf8');
 const terms = readFileSync(resolve(SITE, 'legal/terms/index.html'), 'utf8');
@@ -28,6 +29,19 @@ test('public Sprint delivery stays email-only and ends with a written Day-30 rep
   assert.match(sprint, /work not started and why/i);
   assert.match(sprint, /recommended next path/i);
   assert.doesNotMatch(sprint, /recorded|walkthrough|video/i);
+});
+
+test('Lead-to-Revenue Check remains conditional, finite and credit-safe', () => {
+  assert.match(check, /not required after every Growth Score/i);
+  assert.match(check, /authorized non-clinical internal evidence/i);
+  assert.match(check, /No passwords are sent by email/i);
+  assert.match(check, /No unnecessary patient names, medical records, treatment details or other protected health information/i);
+  assert.match(check, /fixed \$500/i);
+  assert.match(check, /credited once toward the Sprint's/i);
+  assert.match(check, /Remaining Sprint balance:[\s\S]*\$2,000/i);
+  assert.match(check, /not cash, a refund, a transferable balance or a recurring discount/i);
+  assert.match(check, /private payment request only after the written scope/i);
+  assert.doesNotMatch(check + growthJs, /data-cae-checkout|buy\.stripe\.com|wise\.com\/pay/i);
 });
 
 test('recorded walkthrough remains specific to the free Growth Score', () => {

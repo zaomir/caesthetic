@@ -2,7 +2,7 @@
 owner: CAESTHETIC / Platform
 status: active
 version: 1.0
-updated: 2026-09-02
+updated: 2026-09-03
 scope: allowlisted publication of approved Growth Score packages from zaomir/caesthetic
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 decision: DEC-829
@@ -28,6 +28,8 @@ satellite approved artifact @ exact SHA
 No paid GitHub Actions are used by the steady-state publication path. The existing VPS2402 systemd timer owns polling, locking and deploy serialization.
 The fixed report-only deploy requires the locked canonical worker to be clean and pinned exactly to the imported SHA, then reuses `scripts/deploy-caesthetic.sh` while skipping nginx/vhost installation; static sync, Cloudflare cutover and canonical production smokes still run. Nginx authority is unchanged and remains in the normal full-site deploy path.
 Cutover selects the first scoped token that returns HTTP 200 on Workers Scripts: `CLOUDFLARE_API_TOKEN2`, `CLOUDFLARE_API_TOKEN_BOTOTOX`, `CLOUDFLARE_API_TOKEN`, then `CF_API_TOKEN`. Do not create a new Cloudflare dashboard token when `CLOUDFLARE_API_TOKEN_BOTOTOX` already has Workers Scripts Edit. A Global API Key is only a last-resort pre-provisioned fallback.
+
+**ChatGPT / no-VDS (DEC-874):** `deploy_failed` with HTTP 403 on `CLOUDFLARE_API_TOKEN` is not lost Cloudflare access and is not a founder Dashboard login. The VPS already holds `CLOUDFLARE_API_TOKEN_BOTOTOX`. Never ask Total to open Cloudflare Dashboard, type «готово», mint a Workers Scripts Edit token or supply a Global API Key until TOKEN2, TOKEN_BOTOTOX, TOKEN and CF_API_TOKEN are all documented non-200. Correction path: new `request_id` + `operation=republish` after the cutover candidate list on `grainee-v2/main` includes BOTOTOX.
 
 ## Agent contract
 

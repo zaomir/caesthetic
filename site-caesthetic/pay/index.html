@@ -38,7 +38,7 @@
       <div id="payment-card" hidden>
         <dl>
           <dt>Practice</dt><dd id="pay-practice"></dd>
-          <dt>Service</dt><dd>CAESTHETIC 30-Day Growth Sprint</dd>
+          <dt>Service</dt><dd id="pay-service">CAESTHETIC service stated in your written Order</dd>
           <dt>Invoice</dt><dd id="pay-invoice"></dd>
           <dt>SOW</dt><dd id="pay-sow"></dd>
           <dt>Seller</dt><dd>OXFORD PROJECTS LTD trading as CAESTHETIC</dd>
@@ -111,6 +111,12 @@
   const card = document.getElementById('payment-card');
   const form = document.getElementById('payer-form');
   const buttons = [...document.querySelectorAll('[data-payment-action]')];
+  const productLabels = Object.freeze({
+    growth_sprint: 'CAESTHETIC 30-Day Growth Sprint',
+    lead_to_revenue_check: 'CAESTHETIC Lead-to-Revenue Check',
+    growth_system: 'CAESTHETIC Growth System',
+    performance_fee: 'CAESTHETIC Performance Fee',
+  });
 
   const fail = (message) => {
     status.textContent = 'This payment request is not available.';
@@ -136,6 +142,7 @@
         return;
       }
       document.getElementById('pay-practice').textContent = data.practice_name || '—';
+      document.getElementById('pay-service').textContent = productLabels[data.product_code] || 'CAESTHETIC service stated in your written Order';
       document.getElementById('pay-invoice').textContent = data.invoice_number || data.order_number || '—';
       document.getElementById('pay-sow').textContent = data.sow_id || 'As stated in your written Order';
       document.getElementById('pay-amount').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: data.currency || 'USD' }).format((data.amount_minor || 0) / 100) + ` ${data.currency || 'USD'}`;

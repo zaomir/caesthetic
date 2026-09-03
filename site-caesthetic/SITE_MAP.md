@@ -2,7 +2,7 @@
 owner: CAESTHETIC
 status: active
 project: caesthetic
-updated: 2026-08-30
+updated: 2026-09-03
 standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 ---
 
@@ -11,7 +11,8 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 | URL | Purpose | Audience intent | Primary proof | CTA | Indexing |
 |---|---|---|---|---|---|
 | `/` | Positioning and entry | Understand the offer | Four-Surface model | Get Growth Score | index |
-| `/growth-score/` | Explain diagnosis and show examples | Evaluate method | Three labeled demos | Request Growth Score | index |
+| `/growth-score/` | Explain public-evidence diagnosis and show examples | Evaluate method | Three labeled demos | Request Growth Score | index |
+| `/lead-to-revenue-check/` | Explain the conditional internal-path diagnostic | Resolve internal outcome uncertainty after a Growth Score | Authorized evidence boundary, eight-stage path and fixed commercial terms | Request Check scope | index |
 | `/audit/` · `/audits/` · `/multi-location-growth-score/` | Synonym compatibility aliases | Reach the canonical audit product | Canonical handoff | Continue to `/growth-score/` | noindex |
 | `/sprint/` | Explain finite implementation | Evaluate paid next step | Scope and fixed pricing | Request scope and payment instructions | index |
 | `/growth-system/` | Explain recurring operating ownership | Evaluate optional ongoing work | Growth Budget parts, minimum scope and evidence maturity | Discuss Growth System | index |
@@ -32,9 +33,10 @@ standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 
 ## Internal linking
 
-- `/` links to `/growth-score/` and `/growth-system/`; primary navigation remains focused on the aesthetic-practice funnel.
+- `/` links to `/growth-score/` and `/growth-system/`; primary navigation remains focused on the aesthetic-practice funnel. The Lead-to-Revenue Check stays a conditional branch rather than a fourth mandatory stage.
 - The global footer links the isolated `/beauty-salons/` vertical; each salon locale links all four locale routes directly.
-- `/growth-score/` links to every demo, the safe `/score/` catalog and the request form. `/pricing/` links to every public product stage.
+- `/growth-score/` links to every demo, the safe `/score/` catalog, the request form and the conditional `/lead-to-revenue-check/` branch. `/pricing/` links to every public product stage and conditional diagnostic.
+- The global footer links `/lead-to-revenue-check/`; Sprint, Growth System, About, Support, the audit catalog and relevant localized vertical pages explain the branch only where internal outcome uncertainty is material.
 - Every demo links back to the demo index. `/score/`, demos and all real report routes stay out of the sitemap.
 
 ## Locale contract

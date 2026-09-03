@@ -3,7 +3,7 @@
 **Domain:** `caesthetic.com` (unchanged) · email brand `caesthetic.co`  
 **Brand logos:** `assets/brand/logo-square.{svg,png}` (circular frames) · `assets/brand/logo-long.{svg,png}` (horizontal) · aliases under `/brand/`  
 **Production logo:** `assets/brand/logo-square.{svg,png}` in header, footer, favicon and Open Graph metadata
-**Public IA:** US independent aesthetic practices → Growth Score → 30-Day Sprint → optional Growth System
+**Public IA:** US independent aesthetic practices → Growth Score → conditional Lead-to-Revenue Check where internal outcome uncertainty remains → 30-Day Sprint → optional Growth System
 
 ## Public pages (Phase 1)
 
@@ -11,6 +11,7 @@
 |-----|------|
 | `/` | Positioning → Growth Score |
 | `/growth-score/` | Score explainer + 4-field form |
+| `/lead-to-revenue-check/` | Conditional, evidence-gated internal-path diagnostic · fixed $500 · credited once toward the directly following $2,500 Sprint |
 | `/audit/`, `/audits/`, `/multi-location-growth-score/` | Noindex synonym aliases to `/growth-score/` |
 | `/sprint/` | Diagnosis-led 30-Day Growth Sprint · generated fixed price · written scope/payment inquiry |
 | `/growth-system/` | Optional recurring ownership · client-specific Growth Budget with its Fixed Management Fee inside |
@@ -58,7 +59,7 @@ Edge: Cloudflare Worker `grainee-caesthetic-public` (legacy redirects in `infra/
 
 Master authority: `docs/ssot/CAESTHETIC.md`. The read-only `docs/caesthetic/` Dropbox mirror is provenance and working detail, not a competing SSOT.
 
-Public pricing exposes only the free Growth Score and the fixed Sprint. Sprint Extension stays internal, and recurring commercial values come only from a client-specific Commercial Schedule.
+Public pricing exposes the free Growth Score, the conditional fixed $500 Lead-to-Revenue Check and the fixed $2,500 Sprint. A Check is not mandatory and does not replace the Growth Score; when it continues directly into the next Sprint for the verified constraint, its $500 is credited once toward the Sprint total. Sprint Extension stays internal, and recurring commercial values come only from a client-specific Commercial Schedule.
 
 ## Archive
 

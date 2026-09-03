@@ -1,5 +1,5 @@
 /**
- * CAESTHETIC Phase 1 — Growth Score form + Sprint inquiry helpers.
+ * CAESTHETIC Phase 1 — Growth Score, Lead-to-Revenue Check and Sprint helpers.
  */
 (function () {
   "use strict";
@@ -104,6 +104,12 @@
     });
     document.querySelectorAll("[data-cae-score-price]").forEach(function (el) {
       if (c.growthScoreLabel) el.textContent = c.growthScoreLabel;
+    });
+    document.querySelectorAll("[data-cae-check-price]").forEach(function (el) {
+      if (c.leadToRevenueCheckLabel) el.textContent = c.leadToRevenueCheckLabel;
+    });
+    document.querySelectorAll("[data-cae-sprint-after-check-balance]").forEach(function (el) {
+      if (c.sprintAfterCheckBalanceLabel) el.textContent = c.sprintAfterCheckBalanceLabel;
     });
   }
 
@@ -472,11 +478,41 @@
     });
   }
 
+  function initCheckInquiry() {
+    var buttons = document.querySelectorAll("[data-cae-check-inquiry]");
+    if (!buttons.length) return;
+    buttons.forEach(function (btn) {
+      var contactEmail = cfg().contactEmail || "info@caesthetic.com";
+      var price = cfg().leadToRevenueCheckLabel || "$500";
+      var inquiryUrl =
+        "mailto:" +
+        contactEmail +
+        "?subject=" +
+        encodeURIComponent("Scope request — Lead-to-Revenue Check") +
+        "&body=" +
+        encodeURIComponent(
+          "I want to review the evidence access, scope and payment instructions for the Lead-to-Revenue Check (" +
+            price +
+            ", USD)."
+        );
+
+      btn.setAttribute("href", inquiryUrl);
+      btn.addEventListener("click", function () {
+        track("lead_to_revenue_check_scope_requested", {
+          product: "lead_to_revenue_check",
+          value: cfg().leadToRevenueCheckUsd || 500,
+          currency: "USD",
+        });
+      });
+    });
+  }
+
   function boot() {
     applyContactOverrides();
     preserveQueryOnLinks();
     initScoreForm();
     initSprintInquiry();
+    initCheckInquiry();
   }
 
   window.caestheticGrowth = {

@@ -1,7 +1,17 @@
 # CAESTHETIC — Project Status
 
-**Updated:** 2026-09-01
+**Updated:** 2026-09-03
 **Phase:** Phase 1 — proof + outbound readiness
+
+## Lead-to-Revenue Check — sitewide runtime (2026-09-03)
+
+- Canonical route: `/lead-to-revenue-check/`; fixed price `$500` from the generated pricing SSOT.
+- Product role: conditional internal-path diagnostic after public-evidence Growth Score, not a fifth surface, mandatory stage or primary-navigation item.
+- Contextual entry points exist on Home, Growth Score, Pricing, Sprint, Growth System, About, Support, the audit catalog and four Beauty Salons locales; the global footer exposes the canonical product route.
+- The route explains the eight-stage internal path, authorized non-clinical evidence boundary, least-privilege/PHI rule, deliverable and decision set, no-outcome-claim boundary and one-time direct-continuation Sprint credit.
+- Scope request remains written-order-first. The private payment summary resolves an allowlisted product label and does not trust arbitrary backend text.
+- Growth Score renderer is fail-closed: a commercial Check card requires `leadToRevenueCheck.recommendation="recommended"`, a reason and evidence references; otherwise only the gray internal boundary renders. A recommended Check replaces the Sprint CTA. Multi-Location focus children keep parent navigation and no second commercial CTA.
+- Analytics: `lead_to_revenue_check_page_viewed` and `lead_to_revenue_check_scope_requested`. Production smoke includes page, price, inquiry and sitemap markers.
 
 ## Beauty Salons vertical — production (2026-08-28)
 

@@ -1,7 +1,7 @@
 /**
  * CAESTHETIC analytics — GA4 + Meta Pixel + dataLayer.
- * Events: score_request_submitted, score_page_viewed, sprint_page_viewed,
- * sprint_scope_requested, page_view.
+ * Events: score_request_submitted, score_page_viewed, lead_to_revenue_check_page_viewed,
+ * lead_to_revenue_check_scope_requested, sprint_page_viewed, sprint_scope_requested, page_view.
  */
 (function () {
   "use strict";
@@ -80,6 +80,7 @@
       var metaMap = {
         score_request_submitted: "Lead",
         sprint_scope_requested: "Lead",
+        lead_to_revenue_check_scope_requested: "Lead",
         page_view: "PageView",
       };
       var metaEvent = metaMap[eventName];
@@ -211,6 +212,9 @@
     var path = location.pathname;
     if (path.indexOf("/score/") === 0 || path.indexOf("/growth-score/") === 0) {
       push("score_page_viewed");
+    }
+    if (path.indexOf("/lead-to-revenue-check/") === 0) {
+      push("lead_to_revenue_check_page_viewed");
     }
     if (path.indexOf("/sprint/") === 0) push("sprint_page_viewed");
     push("page_view");

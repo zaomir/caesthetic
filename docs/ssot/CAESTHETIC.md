@@ -96,7 +96,10 @@ Canonical client-facing sequence:
 
 ```text
 Growth Score — see the constraint from the outside
-→ 30-Day Sprint — fix the first priority and verify adoption
+→ verified external priority: 30-Day Sprint — fix it and verify adoption
+OR
+→ material internal uncertainty: Lead-to-Revenue Check — verify the permitted internal path
+   → verified finite priority: optional 30-Day Sprint
 → after Day 30 — decide whether a deeper internal constraint deserves funding
 ```
 
@@ -178,6 +181,8 @@ Public funnel:
 
 `Growth Score (free) → 30-Day Growth Sprint ($2,500) → optional Growth System`
 
+The **Lead-to-Revenue Check ($500)** is a conditional paid diagnostic branch when the Growth Score cannot resolve material post-enquiry uncertainty from public evidence. It is not a mandatory stage or a fourth headline product. Its canonical public route is `/lead-to-revenue-check/`; it remains outside primary header navigation and appears in the footer plus contextually relevant decision boundaries. If it continues directly into the next CAESTHETIC Sprint for the verified constraint, its $500 fee is credited once toward the unchanged $2,500 Sprint total.
+
 The currently approved public recurring product is Growth System. Do not publish Fixed Retainer, Hybrid or Performance Compensation as public SKUs unless separately approved.
 
 Canonical continuation after Sprint:
@@ -248,7 +253,7 @@ The **Cross-Surface Journey Graph** is the canonical evidence artifact for obser
 
 The canonical Hero title is **`Where Clients Are Gained - and Lost`**. Its deterministic HTML/SVG composition keeps the approved client-logo centre, gray `LEAD INTAKE · NOT ASSESSED` ring, exactly four surface nodes, evidence-state edges, right legend, Cross-Surface Connections Overview, decision block and Outside-In Diagnosis strip. An edge is colored only from its own reviewed Journey Graph state: no Social/Reviews → Lead Intake edge is green without approved edge evidence, an observed `no clear next step` may support a red Social break, an unverified Reviews route remains gray, and an optional/irrelevant unassessed relationship is not drawn.
 
-When the unresolved decision sits after enquiry, the separate canonical branch is **Lead-to-Revenue Check · $500** under `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`. The $500 is credited once toward the next direct-continuation CAESTHETIC Sprint addressing the verified constraint; the Sprint total remains $2,500. This does not authorize any guaranteed enquiry, booking, patient, revenue, ROI or internal-cause claim.
+When the unresolved decision sits after enquiry, the separate canonical branch is **Lead-to-Revenue Check · $500** under `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`. The $500 is credited once toward the next direct-continuation CAESTHETIC Sprint addressing the verified constraint; the Sprint total remains $2,500. This does not authorize any guaranteed enquiry, booking, patient, revenue, ROI or internal-cause claim. A report may render this offer only from an explicit approved recommendation with a reason and evidence references; the offer then replaces the Sprint CTA rather than being added beside it.
 
 If less than 70% of a surface's metric weight is observable, publish `Insufficient evidence`, not a fabricated score. Overall and surface `/100` values are a compact navigator/tension layer, not the decision layer.
 

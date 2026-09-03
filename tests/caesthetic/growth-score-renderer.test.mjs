@@ -129,6 +129,30 @@ test("score navigation is compact, four-surface, approximate and secondary", () 
   assert.match(html, /do not determine Sprint scope/i);
 });
 
+test("Lead-to-Revenue Check renders only after an explicit evidence-backed recommendation", () => {
+  const defaultHtml = renderGrowthReport(fixture);
+  assert.doesNotMatch(defaultHtml, /cae-lead-revenue__check/);
+  assert.doesNotMatch(defaultHtml, /href="\/lead-to-revenue-check\/"/);
+  assert.equal((defaultHtml.match(/href="\/sprint\/"/g) || []).length, 1);
+
+  const recommended = structuredClone(fixture);
+  recommended.leadToRevenueCheck = {
+    recommendation: "recommended",
+    reason: "Public evidence cannot resolve the post-enquiry booking handoff.",
+    evidence_refs: [recommended.humanDiagnosis.binding_constraint.evidence_refs[0]],
+  };
+  const recommendedHtml = renderGrowthReport(recommended);
+  assert.match(recommendedHtml, /data-cae-check-recommended="true"/);
+  assert.match(recommendedHtml, /Public evidence cannot resolve the post-enquiry booking handoff/);
+  assert.equal((recommendedHtml.match(/class="cae-btn cae-btn--primary" href="\/lead-to-revenue-check\/"/g) || []).length, 1);
+  assert.doesNotMatch(recommendedHtml, /href="\/sprint\/"/);
+  assert.match(recommendedHtml, />View Check<\/a>/);
+
+  const incomplete = structuredClone(recommended);
+  delete incomplete.leadToRevenueCheck.evidence_refs;
+  assert.throws(() => renderGrowthReport(incomplete), /leadToRevenueCheck\.evidence_refs/);
+});
+
 test("demo HTML is exact output of the reportKind-independent renderer", () => {
   for (const route of demoRoutes) {
     const directory = path.join(root, "site-caesthetic/score", route);

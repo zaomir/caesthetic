@@ -12,11 +12,18 @@ const readNumber = (name) => {
   return Number(match[1]);
 };
 const usd = (value) => `$${new Intl.NumberFormat('en-US').format(value)}`;
+const growthScoreUsd = readNumber('growthScoreUsd');
+const leadToRevenueCheckUsd = readNumber('leadToRevenueCheckUsd');
+const sprintPriceUsd = readNumber('growthSprintUsd');
 const pricing = {
-  growthScoreUsd: readNumber('growthScoreUsd'),
-  growthScoreLabel: usd(readNumber('growthScoreUsd')),
-  sprintPriceUsd: readNumber('growthSprintUsd'),
-  sprintPriceLabel: usd(readNumber('growthSprintUsd')),
+  growthScoreUsd,
+  growthScoreLabel: usd(growthScoreUsd),
+  leadToRevenueCheckUsd,
+  leadToRevenueCheckLabel: usd(leadToRevenueCheckUsd),
+  sprintPriceUsd,
+  sprintPriceLabel: usd(sprintPriceUsd),
+  sprintAfterCheckBalanceUsd: sprintPriceUsd - leadToRevenueCheckUsd,
+  sprintAfterCheckBalanceLabel: usd(sprintPriceUsd - leadToRevenueCheckUsd),
   recurringCommercialTerms: 'client_specific',
 };
 

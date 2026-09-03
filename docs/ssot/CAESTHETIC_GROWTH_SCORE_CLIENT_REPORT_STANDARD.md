@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.6
-updated: 2026-09-02
+version: 1.7
+updated: 2026-09-03
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph presentation, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
 implementation_spec: docs/caesthetic/growth_score_spec.md
@@ -156,6 +156,8 @@ State system:
 A red upstream stage does **not** automatically make downstream stages red. Downstream stages remain gray when they were not reached or assessed. The map must not infer a weak receptionist, broken CRM, poor training or other internal cause from a no-response or drop-off fact alone.
 
 In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. The active specific pricing authority is `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`: the report may render **`Lead-to-Revenue Check · $500`**, and must state that the $500 is credited once toward the next direct-continuation CAESTHETIC Sprint for the verified constraint while the Sprint total remains $2,500. It is not a results promise, refund balance or automatic upsell.
+
+The commercial Check card is fail-closed. It renders only when the approved report source contains `leadToRevenueCheck.recommendation = "recommended"`, a non-empty manager-approved reason and one or more evidence references. A missing field or `not_recommended` decision leaves the gray boundary explanation visible but suppresses the offer. When recommended, the Check replaces the late Sprint CTA; it never adds a second commercial CTA.
 
 ## 4. Client-visible human attribution and walkthrough separation
 
@@ -312,7 +314,7 @@ The visual sequence above does not reorder or add machine sections:
 - `gap-inventory` contains the exhaustive inventory; an earlier compact summary/link may point to it but does not replace it;
 - `evidence-and-competitors` contains evidence drill-down, Journey Graph edge details and Competitive Decision Analysis;
 - `scores-and-methodology` keeps scores/methodology secondary;
-- `next-step` begins with the final system synthesis, may restate the Do Not Fund decision compactly, then presents implementation choices, one Sprint CTA, Lead-to-Revenue Map, branching continuation and founder note.
+- `next-step` begins with the final system synthesis, may restate the Do Not Fund decision compactly, then presents implementation choices, the Lead-to-Revenue Map and exactly one contextual commercial CTA: Check when explicitly recommended, otherwise Sprint; a Multi-Location focus child has navigation back to its parent instead of a commercial CTA.
 
 This mapping is the authoritative way to preserve both the owner-story order and the schema-v5 machine contract.
 
@@ -424,7 +426,7 @@ There is no aggregate Network Score, average branch score, network-wide revenue 
 
 The Lead-to-Revenue Map remains gray/not assessed for the network and each branch under the public-only Free Growth Score unless separately permitted internal evidence exists. A public observation cannot be converted into a receptionist, CRM, staffing, training, conversion or revenue diagnosis.
 
-The package has one commercial decision and one Sprint CTA on the network parent. The focus child replaces its commercial CTA with navigation back to the parent's implementation decision. The child may not create a second scope, second Top 3 or second commercial funnel.
+The package has one commercial decision and exactly one contextual CTA on the network parent: Check when explicitly evidence-recommended, otherwise Sprint. The focus child replaces its commercial CTA with navigation back to the parent's implementation decision. The child may not create a second scope, second Top 3 or second commercial funnel.
 
 Before publication, the internal `publication_approval` card must be `approved`, match the report's named-human reviewer, focus location and ordered Top 3, and confirm `public_sources_only=true`. The reviewer identity and timestamp remain outside client-facing HTML under §4.
 
@@ -487,7 +489,7 @@ The owner keeps the delivered report, evidence pack, task plan and completed out
 The client-facing continuation is a decision tree, not an automatic sales ladder:
 
 - if the outside-in external constraint is verified and finite → optional 30-Day Growth Sprint;
-- if the main uncertainty is after enquiry → internal conversion evidence/check path, with price only if current pricing authority approves it;
+- if the main uncertainty is after enquiry and the approved recommendation carries a reason plus evidence references → Lead-to-Revenue Check at the canonical fixed $500 price;
 - after Day 30, if the constraint is resolved → the client may take the system and stop;
 - if a new/remaining finite verified constraint exists → optional Sprint 2 / Extension at `$2,500`;
 - if recurring ownership is justified → optional Growth System under client-specific terms.
@@ -527,7 +529,7 @@ Acceptance requires:
 8. Hero uses client-logo provenance/fallback rules, adaptive four-slot assignment and no invented success journey;
 9. Hero uses the exact canonical title and composition, colors each segment from its own edge, and shows no false green Social/Reviews → Lead Intake relationship;
 10. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow, shares the exact edge IDs/states, omits optional unassessed relationships and retains detailed evidence drill-down later;
-11. Lead-to-Revenue Map keeps unassessed downstream states gray, contains no unsupported internal-cause diagnosis, and uses the active $500/credit rule without an outcome claim;
+11. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis; its $500/credit card appears only from the explicit approved recommendation contract and replaces, rather than duplicates, the Sprint CTA;
 12. internal review anchors `1101–1109` are absent from final approved client source;
 13. mobile and desktop smoke with no body overflow and usable graph/evidence drill-down;
 14. privacy/noindex/sitemap gates;
@@ -554,7 +556,7 @@ Do not:
 - hide DIY instructions to manufacture sales dependence;
 - invent retail implementation prices, savings, ROI, patients or revenue;
 - use fake scarcity, fake countdowns or implied price increases;
-- suppress or contradict the approved `$500` Lead-to-Revenue Check price/credit rule, or turn it into a guaranteed-outcome claim;
+- suppress or contradict the approved `$500` Lead-to-Revenue Check price/credit rule, turn it into a guaranteed-outcome claim, or render it without an explicit evidence-backed recommendation;
 - publish a universal recurring fee that is not in current pricing/SSOT authority;
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
