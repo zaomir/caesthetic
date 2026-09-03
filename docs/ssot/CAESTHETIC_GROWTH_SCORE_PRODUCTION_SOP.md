@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.9
+version: 3.0
 created: 2026-08-30
 updated: 2026-09-03
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
@@ -16,6 +16,7 @@ runtime_contracts:
   - scripts/caesthetic/growth-score-project-catalog.mjs
   - scripts/caesthetic/render-growth-score.mjs
   - scripts/caesthetic/multi-location-growth-score.mjs
+  - scripts/caesthetic/multi-location-decision-view-model.mjs
 ---
 
 # CAESTHETIC — Growth Score Audit Factory SSOT
@@ -411,7 +412,7 @@ The page shows the exactly three human-approved highest-risk Focus Gaps first. S
 
 ### 11.2 Multi-Location Growth Score
 
-All newly authored packages use additive profile `multi-location-growth-score/1.1.0` while retaining `schemaVersion=5` and `templateVersion=growth-score-report-template/5.2.0`. Older packages without a profile marker remain readable; they are not silently upgraded.
+All newly authored packages use additive profile `multi-location-growth-score/1.2.0` while retaining `schemaVersion=5` and `templateVersion=growth-score-report-template/5.2.0`. Older packages without a profile marker and frozen profile-1.1 packages remain readable; they are not silently upgraded.
 
 Render the same shared unnumbered Intro first, adapted only to network/locations wording, then one parent network cockpit with the same nine-section narrative order:
 
@@ -451,8 +452,10 @@ The parent profile additionally requires:
 - per-selected-gap `execution_owner`, `accountable_role`, `public_baseline` and `day_30_public_check`;
 - approved propagation candidates with source/target locations, public evidence, standardization rule and limitation;
 - a publication approval card matching the named reviewer, selected focus location and ordered Top 3, with `public_sources_only=true`.
+- one approved `decisionViews` projection for every reviewed location, including explicit approved `not_assessed` projections where evidence is insufficient;
+- `network.decision_intelligence` review matching the named report reviewer, with source policy `existing_growth_score_evidence_only` and every automation flag false.
 
-The parent does not merge every location into one graph. In section 1 it renders a derived Network Risk Profile and approved focus-selection criteria before the internal location × Four Surfaces comparison, followed by a Network Overview derived from the approved topology, graph references and repeated-pattern index. Section 7 shows a compact named-comparator decision summary, then retains external competitor and metric/technical evidence in separate disclosure groups without repeating the internal matrix. The parent links to the ordinary detailed Journey Graph of the focus location. The focus child uses single-location wording, not the network Intro.
+The parent does not merge every location into one graph. In section 1 it renders a derived Network Risk Profile and approved focus-selection criteria before the internal location × Four Surfaces comparison, followed by a Network Overview and the five network decision views derived from approved per-location projections. Section 5 groups approved treatment-specific holds by affected location beneath the one global Do Not Fund Yet decision. Section 7 shows a compact named-comparator decision summary, then retains external competitor and metric/technical evidence in separate disclosure groups without repeating the internal matrix. The parent links to the ordinary detailed Journey Graph of the focus location. The focus child uses single-location wording, not the network Intro.
 
 The parent renders its exact approved Top 3 once in section 2 as compact decision cards. Client-visible card summaries show scope, affected-location count, pilot, observed surface/journey, why the issue matters, reachable result, accountable ownership, public baseline and Day-30 public check. Evidence IDs, dependencies, sprint detail and implementation instructions remain available under native progressive disclosure. Section 3 converts those same priorities into Days 1–10, 11–20, 21–30 and a Day-30 protect/iterate/scale decision. Section 4 shows HQ/local/shared responsibility and rollout gates. Section 6 may surface approved replication candidates. Section 8 makes the public-evidence boundary explicit. Section 9 asks the CMO to approve pilot, owners and scale gate. The first four locations are visible; larger registries and matrices retain additional rows under native disclosure. Raw package states and evidence references remain unchanged and auditable.
 

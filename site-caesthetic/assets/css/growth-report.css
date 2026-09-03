@@ -1200,9 +1200,119 @@
 .cae-do-not-promote ul { padding-left: 1.25rem; list-style: initial; }
 .cae-do-not-promote small { color: var(--cae-muted); }
 
+.cae-network-decision-intelligence {
+  border-top-color: var(--cae-accent);
+}
+.cae-network-treatment-table table {
+  min-width: 0;
+  table-layout: fixed;
+}
+.cae-network-treatment-table th,
+.cae-network-treatment-table td {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.cae-network-treatment-table th:first-child { width: min(240px, 24%); }
+.cae-network-treatment-table td > strong,
+.cae-network-treatment-table td > span,
+.cae-network-treatment-table th small { display: block; }
+.cae-network-treatment-table td > span,
+.cae-network-treatment-table th small { margin-top: var(--cae-space-1); color: var(--cae-muted); font-size: var(--cae-text-xs); }
+.cae-network-treatment-table td details { margin-top: var(--cae-space-3); }
+.cae-network-treatment-table td details summary {
+  min-height: 44px;
+  color: var(--cae-accent);
+  cursor: pointer;
+  font-size: var(--cae-text-xs);
+  font-weight: 700;
+}
+.cae-network-treatment-table td ul,
+.cae-network-provider ul,
+.cae-network-friction-grid ol {
+  display: grid;
+  gap: 1px;
+  margin: var(--cae-space-2) 0 0;
+  padding: 0;
+  background: var(--cae-border-data);
+  list-style: none;
+}
+.cae-network-treatment-table td li,
+.cae-network-provider li,
+.cae-network-friction-grid li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--cae-space-2);
+  padding: var(--cae-space-2);
+  background: var(--cae-bg);
+  font-size: var(--cae-text-xs);
+}
+.cae-network-provider-groups,
+.cae-network-friction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--cae-space-4);
+}
+.cae-network-provider-groups > article,
+.cae-network-friction-grid > article {
+  padding: var(--cae-space-4);
+  border: 1px solid var(--cae-border-data);
+  background: var(--cae-bg);
+}
+.cae-network-provider-groups > article[data-focus-location="true"],
+.cae-network-friction-grid > article[data-focus-location="true"],
+.cae-network-decision-view article[data-focus-location="true"] {
+  outline: 2px solid var(--cae-signal);
+  outline-offset: -2px;
+}
+.cae-network-provider + .cae-network-provider {
+  margin-top: var(--cae-space-4);
+  padding-top: var(--cae-space-4);
+  border-top: 1px solid var(--cae-border);
+}
+.cae-network-provider h4,
+.cae-network-friction-grid h4 { margin: 0 0 var(--cae-space-2); }
+.cae-network-promotion-holds .cae-network-hold {
+  margin-top: var(--cae-space-4);
+  padding: var(--cae-space-4);
+  border-left: 3px solid var(--cae-data-negative);
+  background: var(--cae-bg-2);
+}
+.cae-network-promotion-holds .cae-network-hold p:first-child { margin-top: 0; }
+
 @media (max-width: 720px) {
   .cae-decision-views { padding: var(--cae-space-4); }
   .cae-decision-view > summary { align-items: flex-start; font-size: var(--cae-text-lg); }
   .cae-decision-view table { min-width: 760px; }
   .cae-decision-view__cards { grid-template-columns: 1fr; }
+  .cae-network-treatment-table { overflow: visible; }
+  .cae-network-treatment-table table,
+  .cae-network-treatment-table tbody,
+  .cae-network-treatment-table tr,
+  .cae-network-treatment-table th,
+  .cae-network-treatment-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  .cae-network-treatment-table thead { display: none; }
+  .cae-network-treatment-table tr {
+    margin-bottom: var(--cae-space-5);
+    border: 1px solid var(--cae-border-data);
+  }
+  .cae-network-treatment-table th:first-child { width: 100%; }
+  .cae-network-treatment-table th,
+  .cae-network-treatment-table td { border-width: 0 0 1px; }
+  .cae-network-treatment-table td:last-child { border-bottom: 0; }
+  .cae-network-treatment-table td::before {
+    display: block;
+    margin-bottom: var(--cae-space-2);
+    color: var(--cae-signal);
+    content: attr(data-location);
+    font-family: var(--cae-font-mono);
+    font-size: var(--cae-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .cae-network-provider-groups,
+  .cae-network-friction-grid { grid-template-columns: 1fr; }
 }

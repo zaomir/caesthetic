@@ -3,6 +3,13 @@
 **Updated:** 2026-09-03
 **Phase:** Phase 1 — proof + outbound readiness
 
+## Multi-Location decision intelligence — implementation (2026-09-03)
+
+- New authoring uses additive profile `multi-location-growth-score/1.2.0`; schema v5, template `growth-score-report-template/5.2.0`, Four Surfaces, weights, Overall, binding constraint and named-human Top 3 rules are unchanged.
+- The network parent now validates one approved decision-view projection per reviewed location under `multi-location-decision-intelligence/1.0.0`, using existing approved Growth Score evidence only. Missing evidence remains explicit `not_assessed`; numeric treatment/provider/friction/network scores and every automatic decision flag are rejected.
+- The pure network projection renders Treatment × Location, Provider × Location, representative Trust Chains, categorical Patient Friction by location and location-specific treatment promotion holds inside the existing nine sections. Mobile uses stacked cards and native disclosure; the first four locations stay visible.
+- Frozen profile-1.1 and markerless Multi-Location packages remain readable without silent migration.
+
 ## Growth Score derived decision views — implementation (2026-09-03)
 
 - Schema-v5 now supports five derived, unscored views over the existing approved evidence layer: Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and Do Not Promote Yet by Treatment.

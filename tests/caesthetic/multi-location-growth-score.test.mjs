@@ -5,10 +5,14 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
+  approveDecisionViewsNotAssessed,
+  createDecisionViewsTemplate,
   createMultiLocationGrowthScoreReportTemplate,
+  MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION,
   MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
 } from "../../scripts/caesthetic/growth-score-report-template.mjs";
 import {
+  MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION,
   MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION,
   validateMultiLocationNetworkReport,
   validateMultiLocationPackage,
@@ -18,7 +22,7 @@ import {
   buildMultiLocationPresentationModel,
 } from "../../scripts/caesthetic/multi-location-growth-score-view-model.mjs";
 import { renderGrowthReport } from "../../scripts/caesthetic/render-growth-score.mjs";
-import { createV5Report } from "./helpers/growth-score-v5-fixture.mjs";
+import { createDecisionViewsFixture, createV5Report } from "./helpers/growth-score-v5-fixture.mjs";
 
 const clone = (value) => structuredClone(value);
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -42,6 +46,60 @@ function networkScope(scope, affected) {
   };
 }
 
+function locationDecisionViews(locationId, { notAssessed = false } = {}) {
+  if (notAssessed) {
+    return approveDecisionViewsNotAssessed(createDecisionViewsTemplate(), {
+      reviewedBy: "Morgan Reed",
+      reviewedAt: "2026-08-11T13:00:00Z",
+    });
+  }
+  const artifact = clone(createDecisionViewsFixture());
+  if (!["focus", "peer"].includes(locationId)) {
+    artifact.providers = [];
+    artifact.trust_chains[0].provider_id = null;
+    artifact.promotion_holds = [];
+  }
+  if (locationId === "focus") {
+    artifact.treatments.push({
+      ...clone(artifact.treatments[0]),
+      id: "laser",
+      label: "Laser",
+      priority: "secondary",
+    });
+  }
+  if (locationId === "east") {
+    artifact.treatments[0].surfaces.search.status = "watch";
+  }
+  return artifact;
+}
+
+function decisionIntelligence(reviewedLocationIds) {
+  return {
+    artifact_version: MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION,
+    assessment_status: "assessed",
+    source_policy: "existing_growth_score_evidence_only",
+    automatic_score_change: false,
+    automatic_binding_constraint_selection: false,
+    automatic_focus_selection: false,
+    automatic_promotion_decision: false,
+    location_projections: reviewedLocationIds.map((location_id) => ({
+      location_id,
+      decision_views: locationDecisionViews(location_id, { notAssessed: location_id === "remote" }),
+    })),
+    review: {
+      status: "approved",
+      reviewed_by: "Morgan Reed",
+      reviewed_at: "2026-08-11T13:00:00Z",
+      location_coverage_approved: true,
+      treatment_identity_approved: true,
+      provider_identity_approved: true,
+      representative_chains_approved: true,
+      friction_projection_approved: true,
+      promotion_holds_approved: true,
+    },
+  };
+}
+
 export function packageFixture() {
   const parent = createV5Report(undefined, {
     practice: { name: "Fixture Network", location: "Two fictional markets", preparedAt: "2026-09-02", preparedFor: "Fixture owner" },
@@ -58,8 +116,8 @@ export function packageFixture() {
   parent.network = {
     id: "fixture-network",
     name: "Fixture Network",
-    declared_location_count: 3,
-    reviewed_location_count: 2,
+    declared_location_count: 6,
+    reviewed_location_count: 5,
     focus_location_id: "focus",
     focus_location_selection_rationale: "Focus has the highest-risk observed public journey among the reviewed locations; this is not a business-performance ranking.",
     focus_decision: {
@@ -83,36 +141,46 @@ export function packageFixture() {
     locations: [
       { id: "focus", name: "Focus Location", public_location: "Market A", state: "reviewed" },
       { id: "peer", name: "Peer Location", public_location: "Market B", state: "reviewed" },
-      { id: "unresolved", name: "Unresolved Location", public_location: "Market C", state: "ambiguous" },
+      { id: "east", name: "East Location", public_location: "Market C", state: "reviewed" },
+      { id: "west", name: "West Location", public_location: "Market D", state: "reviewed" },
+      { id: "remote", name: "Remote Location", public_location: "Market E", state: "reviewed" },
+      { id: "unresolved", name: "Unresolved Location", public_location: "Market F", state: "ambiguous" },
     ],
     shared_assets: [
-      { id: "shared-site", surface: "website", public_url: "https://example.test/", used_by_location_ids: ["focus", "peer"] },
+      { id: "shared-site", surface: "website", public_url: "https://example.test/", used_by_location_ids: ["focus", "peer", "east", "west", "remote"] },
     ],
     local_assets: [
       { id: "focus-gbp", location_id: "focus", surface: "search", public_url: "https://example.test/focus-gbp" },
       { id: "peer-gbp", location_id: "peer", surface: "search", public_url: "https://example.test/peer-gbp" },
+      { id: "east-gbp", location_id: "east", surface: "search", public_url: "https://example.test/east-gbp" },
+      { id: "west-gbp", location_id: "west", surface: "search", public_url: "https://example.test/west-gbp" },
+      { id: "remote-gbp", location_id: "remote", surface: "search", public_url: "https://example.test/remote-gbp" },
     ],
     location_graph_refs: [
       { location_id: "focus", artifact_id: "journey-focus-v1" },
       { location_id: "peer", artifact_id: "journey-peer-v1" },
+      { location_id: "east", artifact_id: "journey-east-v1" },
+      { location_id: "west", artifact_id: "journey-west-v1" },
+      { location_id: "remote", artifact_id: "journey-remote-v1-not-assessed" },
     ],
     repeated_patterns: [
       {
         id: "booking-pattern",
         title: "Shared booking route loses location context",
         surface: "cross_surface",
-        affected_location_ids: ["focus", "peer"],
-        observed_in_reviewed_count: 2,
+        affected_location_ids: ["focus", "peer", "east", "west"],
+        observed_in_reviewed_count: 4,
         evidence_refs: ["website.booking_friction"],
       },
     ],
-    comparison_matrix: ["focus", "peer"].map((location_id, row) => ({
+    comparison_matrix: ["focus", "peer", "east", "west", "remote"].map((location_id, row) => ({
       location_id,
       search: { state: row ? "protect" : "fix_now", summary: row ? "Search is the strongest observed local pattern." : "Discovery evidence supports repair.", evidence_refs: ["search.map_visibility"] },
       website: { state: "watch", summary: "Shared route needs location-context monitoring.", evidence_refs: ["website.booking_friction"] },
       social: { state: "needs_verification", summary: "Comparable local evidence is incomplete.", evidence_refs: [] },
       reputation: { state: "protect", summary: "Observed public proof is usable.", evidence_refs: ["reputation.rating"] },
     })),
+    decision_intelligence: decisionIntelligence(["focus", "peer", "east", "west", "remote"]),
     propagation_candidates: [
       {
         id: "peer-search-pattern",
@@ -137,8 +205,8 @@ export function packageFixture() {
   parent.humanDiagnosis.gap_inventory = parent.humanDiagnosis.gap_inventory.map((gap) => ({
     ...gap,
     ...(gap.id === "search-gap" ? { network_scope: networkScope("focus_location", ["focus"]) } : {}),
-    ...(gap.id === "booking-gap" ? { network_scope: networkScope("shared_asset", ["focus", "peer"]) } : {}),
-    ...(gap.id === "proof-gap" ? { network_scope: networkScope("repeated_pattern", ["focus", "peer"]) } : {}),
+    ...(gap.id === "booking-gap" ? { network_scope: networkScope("shared_asset", ["focus", "peer", "east", "west", "remote"]) } : {}),
+    ...(gap.id === "proof-gap" ? { network_scope: networkScope("repeated_pattern", ["focus", "peer", "east", "west", "remote"]) } : {}),
   }));
 
   const child = createV5Report(undefined, {
@@ -164,6 +232,9 @@ test("Multi-Location authoring profile extends schema v5 without a second score"
   assert.equal(parent.audit.package_role, "network_parent");
   assert.equal(parent.audit.profile_version, MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION);
   assert.ok(parent.network);
+  assert.equal(parent.network.decision_intelligence.artifact_version, MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION);
+  assert.equal(parent.network.decision_intelligence.assessment_status, "not_assessed");
+  assert.equal(parent.network.decision_intelligence.location_projections[0].decision_views.assessment_status, "not_assessed");
   assert.equal(child.schemaVersion, 5);
   assert.equal(child.audit.package_role, "focus_location");
   assert.equal("network" in child, false);
@@ -198,8 +269,8 @@ test("network presentation model translates audit data without changing the appr
   const { parent } = packageFixture();
   const view = buildMultiLocationPresentationModel(parent);
   assert.deepEqual(view.coverage, {
-    declared: 3,
-    reviewed: 2,
+    declared: 6,
+    reviewed: 5,
     not_reviewed: 1,
     method: "Public sources only",
   });
@@ -208,10 +279,19 @@ test("network presentation model translates audit data without changing the appr
   assert.deepEqual(view.selected_gaps.map((gap) => gap.id), ["search-gap", "booking-gap", "proof-gap"]);
   assert.deepEqual(view.selected_gaps.map((gap) => gap.scope_label), ["Focus location", "Shared system", "Repeated pattern"]);
   assert.equal(view.primary_comparison_rows[0].location_name, "Focus Location");
-  assert.deepEqual(view.risk_profile.totals, { protect: 3, watch: 2, fix_now: 1, needs_verification: 2 });
+  assert.deepEqual(view.risk_profile.totals, { protect: 9, watch: 5, fix_now: 1, needs_verification: 5 });
   assert.equal(view.focus_decision.criteria.length, 4);
   assert.equal(view.propagation_candidates[0].source_location_name, "Peer Location");
   assert.equal(view.sprint_plan.length, 4);
+  assert.equal(view.decision_intelligence.coverage.assessed, 4);
+  assert.equal(view.decision_intelligence.coverage.not_assessed, 1);
+  assert.equal(view.decision_intelligence.primary_locations.length, 4);
+  assert.equal(view.decision_intelligence.additional_locations.length, 1);
+  const laser = view.decision_intelligence.treatment_matrix.find((treatment) => treatment.id === "laser");
+  assert.equal(laser.cells.find((cell) => cell.location_id === "remote").status, "not_assessed");
+  assert.equal(view.decision_intelligence.provider_visibility.groups.filter((group) => group.providers.length).length, 2);
+  assert.equal(view.decision_intelligence.promotion_holds[0].affected_location_count, 2);
+  assert.ok(view.decision_intelligence.trust_chains.representative.length <= 5);
 });
 
 test("network parent renders early comparison, one compact Top 3 and no network score navigator", () => {
@@ -227,12 +307,18 @@ test("network parent renders early comparison, one compact Top 3 and no network 
   assert.match(html, /What the named comparators change in the decision/);
   assert.match(html, /What this audit can prove — and what remains unassessed/);
   assert.match(html, /CMO decisions/);
+  assert.match(html, /Network decision intelligence/);
+  assert.match(html, /LOCATION × TREATMENT · UNSCORED/);
+  assert.match(html, /PROVIDER × LOCATION · UNSCORED/);
+  assert.match(html, /View 1 more locations/);
+  assert.match(html, /No approved treatment-specific projection is available/);
+  assert.match(html, /Affected locations:<\/strong> Focus Location, Peer Location/);
   assert.match(html, /Prepared September 2, 2026/);
   assert.doesNotMatch(html, /Morgan Reed/);
   assert.match(html, /Declared locations/);
   assert.match(html, /Internal network comparison/);
   assert.match(html, /Detailed location audit/);
-  assert.match(html, /Observed in 2 of 2 reviewed locations/);
+  assert.match(html, /Observed in 4 of 5 reviewed locations/);
   assert.match(html, /No aggregate Network Score/);
   assert.doesNotMatch(html, /class="cae-report-score-nav"/);
   assert.doesNotMatch(html, /class="cae-focus-summary"/);
@@ -242,7 +328,7 @@ test("network parent renders early comparison, one compact Top 3 and no network 
   assert.equal((html.match(/Start the 30-Day Growth Sprint/g) || []).length, 1);
 });
 
-test("v1.1 fails closed until the manager publication card and public checks are complete", () => {
+test("the structured Multi-Location profile fails closed until the manager publication card and public checks are complete", () => {
   const missingApproval = packageFixture();
   missingApproval.parent.network.publication_approval.status = "pending";
   assert.throws(() => validateMultiLocationNetworkReport(missingApproval.parent), /must be approved before publication/);
@@ -252,9 +338,19 @@ test("v1.1 fails closed until the manager publication card and public checks are
   assert.throws(() => validateMultiLocationNetworkReport(missingPublicCheck.parent), /day_30_public_check/);
 });
 
-test("legacy Multi-Location parents without a profile marker remain valid", () => {
+test("profile 1.1 remains readable without requiring network decision intelligence", () => {
+  const { parent } = packageFixture();
+  parent.audit.profile_version = MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION;
+  delete parent.network.decision_intelligence;
+  assert.equal(validateMultiLocationNetworkReport(parent), parent);
+  const html = renderGrowthReport(parent);
+  assert.doesNotMatch(html, /Network decision intelligence/);
+});
+
+test("frozen Multi-Location parents without a profile marker remain valid", () => {
   const { parent } = packageFixture();
   delete parent.audit.profile_version;
+  delete parent.network.decision_intelligence;
   delete parent.network.focus_decision;
   delete parent.network.executive_summary;
   delete parent.network.propagation_candidates;
@@ -267,6 +363,42 @@ test("legacy Multi-Location parents without a profile marker remain valid", () =
     delete gap.network_scope.day_30_public_check;
   });
   assert.equal(validateMultiLocationNetworkReport(parent), parent);
+});
+
+test("profile 1.2 decision intelligence fails closed on coverage, sources, scores and review drift", () => {
+  const missingLocation = packageFixture();
+  missingLocation.parent.network.decision_intelligence.location_projections.pop();
+  assert.throws(() => validateMultiLocationNetworkReport(missingLocation.parent), /every reviewed location requires exactly one approved decision-view projection/);
+
+  const unreviewedLocation = packageFixture();
+  unreviewedLocation.parent.network.decision_intelligence.location_projections[0].location_id = "unresolved";
+  assert.throws(() => validateMultiLocationNetworkReport(unreviewedLocation.parent), /references unreviewed location/);
+
+  const unsupportedEvidence = packageFixture();
+  unsupportedEvidence.parent.network.decision_intelligence.location_projections[0].decision_views.treatments[0].surfaces.search.evidence_refs = ["linkedin.profile"];
+  assert.throws(() => validateMultiLocationNetworkReport(unsupportedEvidence.parent), /unknown evidence reference linkedin\.profile/);
+
+  const numericFriction = packageFixture();
+  numericFriction.parent.network.decision_intelligence.friction_score = 62;
+  assert.throws(() => validateMultiLocationNetworkReport(numericFriction.parent), /categorical and unscored/);
+
+  const automaticPriority = packageFixture();
+  automaticPriority.parent.network.decision_intelligence.automatic_focus_selection = true;
+  assert.throws(() => validateMultiLocationNetworkReport(automaticPriority.parent), /automatic_focus_selection must be false/);
+
+  const pendingReview = packageFixture();
+  pendingReview.parent.network.decision_intelligence.review.status = "pending";
+  assert.throws(() => validateMultiLocationNetworkReport(pendingReview.parent), /must be approved before publication/);
+
+  const inconsistentProvider = packageFixture();
+  inconsistentProvider.parent.network.decision_intelligence.location_projections[1].decision_views.providers[0].label = "Different identity";
+  assert.throws(() => validateMultiLocationNetworkReport(inconsistentProvider.parent), /provider provider-a must resolve consistently/);
+});
+
+test("a selected network gap must affect the focus location directly or through its shared asset", () => {
+  const fixture = packageFixture();
+  fixture.parent.humanDiagnosis.gap_inventory.find((gap) => gap.id === "booking-gap").network_scope.affected_location_ids = ["peer"];
+  assert.throws(() => validateMultiLocationNetworkReport(fixture.parent), /must affect the focus location/);
 });
 
 test("focus child keeps location presentation and returns to the parent without a second CTA", () => {

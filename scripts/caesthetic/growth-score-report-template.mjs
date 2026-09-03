@@ -10,7 +10,8 @@ import {
 
 export { GROWTH_SCORE_REPORT_TEMPLATE_VERSION };
 export const LEGACY_GROWTH_SCORE_V4_TEMPLATE_VERSION = "growth-score-report-template/4.0.0";
-export const MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION = "multi-location-growth-score/1.1.0";
+export const MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION = "multi-location-growth-score/1.2.0";
+export const MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION = "multi-location-growth-score/1.1.0";
 
 const labels = Object.freeze({
   search: "Search",
@@ -503,6 +504,32 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
       ],
       repeated_patterns: [],
       comparison_matrix: [],
+      decision_intelligence: {
+        artifact_version: "multi-location-decision-intelligence/1.0.0",
+        assessment_status: "not_assessed",
+        source_policy: "existing_growth_score_evidence_only",
+        automatic_score_change: false,
+        automatic_binding_constraint_selection: false,
+        automatic_focus_selection: false,
+        automatic_promotion_decision: false,
+        location_projections: [
+          {
+            location_id: "__LOCATION_ID__",
+            decision_views: createDecisionViewsTemplate(),
+          },
+        ],
+        review: {
+          status: "pending",
+          reviewed_by: null,
+          reviewed_at: null,
+          location_coverage_approved: false,
+          treatment_identity_approved: false,
+          provider_identity_approved: false,
+          representative_chains_approved: false,
+          friction_projection_approved: false,
+          promotion_holds_approved: false,
+        },
+      },
       propagation_candidates: [],
       publication_approval: {
         status: "pending",

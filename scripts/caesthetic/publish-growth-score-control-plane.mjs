@@ -62,6 +62,7 @@ const DRIFT_PATHS = Object.freeze([
   "scripts/caesthetic/growth-score-report-template.mjs",
   "scripts/caesthetic/multi-location-growth-score.mjs",
   "scripts/caesthetic/multi-location-growth-score-view-model.mjs",
+  "scripts/caesthetic/multi-location-decision-view-model.mjs",
   "scripts/caesthetic/render-growth-score.mjs",
 ]);
 const TEST_FILES = Object.freeze([

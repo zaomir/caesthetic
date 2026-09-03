@@ -2,7 +2,7 @@
   "schemaVersion": 5,
   "templateVersion": "growth-score-report-template/5.2.0",
   "reportState": "approved_report",
-  "reportVersion": "demo-multi-location-growth-score/1.1.0",
+  "reportVersion": "demo-multi-location-growth-score/1.2.0",
   "verifiedFactSetVersion": "demo-multi-location-growth-score-facts/1.1.0",
   "reportKind": "demo",
   "reportContext": {
@@ -879,7 +879,7 @@
   },
   "audit": {
     "format": "multi_location",
-    "profile_version": "multi-location-growth-score/1.1.0",
+    "profile_version": "multi-location-growth-score/1.2.0",
     "project_id": "demo-multi-location-growth-score",
     "access_group_id": "demo-multi-location-growth-score-public",
     "parent_route": "/score/demo-multi-location-growth-score/",
@@ -1120,6 +1120,188 @@
         }
       }
     ],
+    "decision_intelligence": {
+      "artifact_version": "multi-location-decision-intelligence/1.0.0",
+      "assessment_status": "assessed",
+      "source_policy": "existing_growth_score_evidence_only",
+      "automatic_score_change": false,
+      "automatic_binding_constraint_selection": false,
+      "automatic_focus_selection": false,
+      "automatic_promotion_decision": false,
+      "location_projections": [
+        {
+          "location_id": "downtown",
+          "decision_views": {
+            "artifact_version": "growth-score-decision-views/1.0.0",
+            "assessment_status": "assessed",
+            "source_policy": "existing_growth_score_evidence_only",
+            "automatic_score_change": false,
+            "automatic_binding_constraint_selection": false,
+            "automatic_focus_selection": false,
+            "automatic_promotion_decision": false,
+            "treatments": [
+              {
+                "id": "neuromodulator",
+                "label": "Neuromodulator",
+                "priority": "priority",
+                "surfaces": {
+                  "search": {
+                    "status": "protect",
+                    "summary": "The treatment is observable in local discovery.",
+                    "evidence_refs": ["search.gbp_treatment_category_completeness"],
+                    "assessment_basis": "observed"
+                  },
+                  "website": {
+                    "status": "fix_now",
+                    "summary": "Treatment detail does not yet support a confident next step.",
+                    "evidence_refs": ["website.treatment_clarity"],
+                    "assessment_basis": "human_inference",
+                    "method": "Named-human synthesis of approved Growth Score evidence.",
+                    "assumptions": ["Only the referenced synthetic public evidence is in scope."]
+                  },
+                  "social": {
+                    "status": "watch",
+                    "summary": "Treatment proof is present but incomplete.",
+                    "evidence_refs": ["social.priority_treatment_presence"],
+                    "assessment_basis": "observed"
+                  },
+                  "reputation": {
+                    "status": "protect",
+                    "summary": "Treatment-linked public proof is observable.",
+                    "evidence_refs": ["reputation.treatment_clinician_proof"],
+                    "assessment_basis": "observed"
+                  }
+                }
+              }
+            ],
+            "providers": [
+              {
+                "id": "provider-a",
+                "label": "Fictional Provider A",
+                "role": "Injector",
+                "treatment_ids": ["neuromodulator"],
+                "surfaces": {
+                  "search": {
+                    "status": "not_assessed",
+                    "summary": "Provider visibility was not assessed in Search.",
+                    "evidence_refs": [],
+                    "assessment_basis": null
+                  },
+                  "website": {
+                    "status": "visible",
+                    "summary": "Provider identity and credentials are observable.",
+                    "evidence_refs": ["website.clinician_trust_proof"],
+                    "assessment_basis": "observed"
+                  },
+                  "social": {
+                    "status": "partial",
+                    "summary": "Provider expertise is visible but not consistently linked to treatment proof.",
+                    "evidence_refs": ["social.clinician_expertise"],
+                    "assessment_basis": "human_inference",
+                    "method": "Named-human synthesis of approved Growth Score evidence.",
+                    "assumptions": ["Only the referenced synthetic public evidence is in scope."]
+                  },
+                  "reputation": {
+                    "status": "visible",
+                    "summary": "Public proof names the provider and treatment.",
+                    "evidence_refs": ["reputation.treatment_clinician_proof"],
+                    "assessment_basis": "observed"
+                  }
+                }
+              }
+            ],
+            "trust_chains": [
+              {
+                "id": "neuromodulator-provider-a",
+                "label": "Neuromodulator trust chain",
+                "treatment_id": "neuromodulator",
+                "provider_id": "provider-a",
+                "links": {
+                  "identity": {"status": "connected", "summary": "Practice identity is coherent.", "evidence_refs": ["cross.identity_coherence"], "assessment_basis": "observed"},
+                  "treatment": {"status": "friction", "summary": "Treatment context weakens between surfaces.", "evidence_refs": ["cross.treatment_presence"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "provider": {"status": "connected", "summary": "Named provider proof is observable.", "evidence_refs": ["website.clinician_trust_proof"], "assessment_basis": "observed"},
+                  "proof": {"status": "friction", "summary": "Proof does not remain continuous to the decision point.", "evidence_refs": ["cross.proof_continuity"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "next_action": {"status": "broken", "summary": "The next action loses treatment context.", "evidence_refs": ["cross.conversion_continuity"], "assessment_basis": "observed"}
+                }
+              }
+            ],
+            "friction_paths": [
+              {
+                "treatment_id": "neuromodulator",
+                "stages": {
+                  "discovery": {"status": "clear", "summary": "The treatment can be discovered.", "evidence_refs": ["search.gbp_treatment_category_completeness"], "assessment_basis": "observed"},
+                  "trust": {"status": "friction", "summary": "Proof continuity is incomplete.", "evidence_refs": ["cross.proof_continuity"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "enquiry": {"status": "friction", "summary": "The first conversion step is not fully clear.", "evidence_refs": ["website.above_fold_conversion"], "assessment_basis": "human_inference", "method": "Named-human synthesis of approved Growth Score evidence.", "assumptions": ["Only the referenced synthetic public evidence is in scope."]},
+                  "booking": {"status": "broken", "summary": "The booking path contains a confirmed break.", "evidence_refs": ["website.booking_friction"], "assessment_basis": "observed"}
+                }
+              }
+            ],
+            "promotion_holds": [
+              {
+                "treatment_id": "neuromodulator",
+                "decision": "do_not_promote_yet",
+                "rationale": "Additional promotion would send demand into a treatment path with a confirmed booking break.",
+                "blockers": ["Repair and verify the treatment-specific booking path."],
+                "revisit_when": ["The same public path passes the booking acceptance check."],
+                "evidence_refs": ["website.booking_friction", "cross.conversion_continuity"],
+                "assessment_basis": "human_inference",
+                "method": "Named-human review of the treatment path against approved evidence.",
+                "assumptions": ["No private operations evidence is inferred."]
+              }
+            ],
+            "review": {
+              "status": "approved",
+              "reviewed_by": "Morgan Reed",
+              "reviewed_at": "2026-08-11T13:00:00Z",
+              "treatment_mapping_approved": true,
+              "provider_resolution_approved": true,
+              "trust_inferences_approved": true,
+              "friction_classification_approved": true,
+              "promotion_holds_approved": true
+            }
+          }
+        },
+        {
+          "location_id": "northside",
+          "decision_views": {
+            "artifact_version": "growth-score-decision-views/1.0.0",
+            "assessment_status": "not_assessed",
+            "source_policy": "existing_growth_score_evidence_only",
+            "automatic_score_change": false,
+            "automatic_binding_constraint_selection": false,
+            "automatic_focus_selection": false,
+            "automatic_promotion_decision": false,
+            "treatments": [], "providers": [], "trust_chains": [], "friction_paths": [], "promotion_holds": [],
+            "review": {"status": "approved", "reviewed_by": "Morgan Reed", "reviewed_at": "2026-08-11T13:00:00Z", "treatment_mapping_approved": true, "provider_resolution_approved": true, "trust_inferences_approved": true, "friction_classification_approved": true, "promotion_holds_approved": true}
+          }
+        },
+        {
+          "location_id": "lakeside",
+          "decision_views": {
+            "artifact_version": "growth-score-decision-views/1.0.0",
+            "assessment_status": "not_assessed",
+            "source_policy": "existing_growth_score_evidence_only",
+            "automatic_score_change": false,
+            "automatic_binding_constraint_selection": false,
+            "automatic_focus_selection": false,
+            "automatic_promotion_decision": false,
+            "treatments": [], "providers": [], "trust_chains": [], "friction_paths": [], "promotion_holds": [],
+            "review": {"status": "approved", "reviewed_by": "Morgan Reed", "reviewed_at": "2026-08-11T13:00:00Z", "treatment_mapping_approved": true, "provider_resolution_approved": true, "trust_inferences_approved": true, "friction_classification_approved": true, "promotion_holds_approved": true}
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "reviewed_by": "Morgan Reed",
+        "reviewed_at": "2026-08-11T13:00:00Z",
+        "location_coverage_approved": true,
+        "treatment_identity_approved": true,
+        "provider_identity_approved": true,
+        "representative_chains_approved": true,
+        "friction_projection_approved": true,
+        "promotion_holds_approved": true
+      }
+    },
     "propagation_candidates": [
       {
         "id": "northside-search-pattern",
@@ -1151,4 +1333,3 @@
     }
   }
 }
-

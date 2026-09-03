@@ -148,25 +148,29 @@
   </section>
 
 
-      <section class="cae-decision-views" data-artifact-version="growth-score-decision-views/1.0.0">
-    <p class="cae-kicker">Derived decision intelligence · Existing evidence only</p>
-    <h3 class="cae-report-subhead">Treatment, provider, trust and friction views</h3>
-    <p>These views reorganize the reviewed Growth Score evidence. They add no source, surface, weight, score or automatic priority decision.</p>
-    <details class="cae-decision-view" data-view-status="not_assessed">
-    <summary>Treatment Opportunity Matrix <span class="cae-status-pill">Needs verification</span></summary>
-    <div><p>Treatment-by-surface evidence has not been reviewed.</p><p class="cae-report-note">Missing evidence stays unscored and does not create a gap, funding decision or promotion approval.</p></div>
+      <section class="cae-decision-views cae-network-decision-intelligence" data-artifact-version="multi-location-decision-intelligence/1.0.0">
+    <p class="cae-kicker">Network decision intelligence · Existing approved Growth Score evidence only</p>
+    <h3 class="cae-report-subhead">Treatment, provider, trust and friction across reviewed locations</h3>
+    <p>1 of 3 reviewed locations have an assessed projection; 2 remain explicitly not assessed. These views add no source, surface, weight, score or automatic decision.</p>
+    <details class="cae-decision-view cae-network-decision-view" data-decision-view="network-treatment-opportunity-matrix" open>
+    <summary>Treatment Opportunity Matrix <span class="cae-status-pill">LOCATION × TREATMENT · UNSCORED</span></summary>
+    <div class="cae-table-scroll cae-network-treatment-table"><table aria-label="Treatment Opportunity Matrix for the first reviewed locations"><thead><tr><th scope="col">Treatment</th><th scope="col">Fictional Meridian Downtown<small>Focus location</small></th><th scope="col">Fictional Meridian Northside</th><th scope="col">Fictional Meridian Lakeside</th></tr></thead><tbody><tr><th scope="row"><strong>Neuromodulator</strong><small>Priority · Local · observed in 1 of 3 reviewed</small></th><td data-status="fix_now" data-location="Fictional Meridian Downtown"><strong>Fix now</strong><span>4/4 surfaces assessed; the most decision-relevant state is fix now.</span><details><summary>Four Surfaces</summary><ul><li data-status="protect"><span>Search</span><strong>Protect</strong></li><li data-status="fix_now"><span>Website</span><strong>Fix now</strong></li><li data-status="watch"><span>Social</span><strong>Watch</strong></li><li data-status="protect"><span>Reputation</span><strong>Protect</strong></li></ul></details></td><td data-status="not_assessed" data-location="Fictional Meridian Northside"><strong>Needs verification</strong><span>No approved treatment-specific projection is available for this location.</span></td><td data-status="not_assessed" data-location="Fictional Meridian Lakeside"><strong>Needs verification</strong><span>No approved treatment-specific projection is available for this location.</span></td></tr></tbody></table></div>
+
   </details>
-    <details class="cae-decision-view" data-view-status="not_assessed">
-    <summary>Provider Visibility Map <span class="cae-status-pill">Needs verification</span></summary>
-    <div><p>Provider identity and proof have not been reviewed across the Four Surfaces.</p><p class="cae-report-note">Missing evidence stays unscored and does not create a gap, funding decision or promotion approval.</p></div>
+    <details class="cae-decision-view cae-network-decision-view" data-decision-view="network-provider-visibility-map">
+    <summary>Provider Visibility Map <span class="cae-status-pill">PROVIDER × LOCATION · UNSCORED</span></summary>
+    <p>Provider proof is unresolved in 3 of 3 reviewed locations.</p>
+    <div class="cae-network-provider-groups"><article data-focus-location="true"><p class="cae-kicker">Fictional Meridian Downtown · Focus location</p><div class="cae-network-provider"><h4>Fictional Provider A</h4><p>Injector · <strong data-status="partial">Partial</strong></p><small>Treatments: neuromodulator</small><ul><li data-status="not_assessed"><span>Search</span><strong>Needs verification</strong></li><li data-status="visible"><span>Website</span><strong>Visible</strong></li><li data-status="partial"><span>Social</span><strong>Partial</strong></li><li data-status="visible"><span>Reputation</span><strong>Visible</strong></li></ul></div></article><article><p class="cae-kicker">Fictional Meridian Northside</p><p class="cae-report-note">Needs verification — no provider finding is inferred.</p></article><article><p class="cae-kicker">Fictional Meridian Lakeside</p><p class="cae-report-note">Needs verification — no provider finding is inferred.</p></article></div>
   </details>
-    <details class="cae-decision-view" data-view-status="not_assessed">
-    <summary>Trust Chain <span class="cae-status-pill">Needs verification</span></summary>
-    <div><p>No treatment-specific identity, provider, proof and next-action chain has been reviewed.</p><p class="cae-report-note">Missing evidence stays unscored and does not create a gap, funding decision or promotion approval.</p></div>
+    <details class="cae-decision-view cae-network-decision-view" data-decision-view="network-trust-chain">
+    <summary>Trust Chain <span class="cae-status-pill">REPRESENTATIVE · UNSCORED</span></summary>
+    <div class="cae-decision-view__cards"><article data-status="broken" data-focus-location="true"><p class="cae-kicker">Fictional Meridian Downtown · Focus location</p><h4>Neuromodulator trust chain</h4><p><strong>Confirmed break</strong> · 5/5 links assessed</p><ol><li data-status="connected"><span>Identity</span><strong>Connected</strong><span>Practice identity is coherent.</span><small>Evidence: cross.identity_coherence</small></li><li data-status="friction"><span>Treatment</span><strong>Friction</strong><span>Treatment context weakens between surfaces.</span><small>Evidence: cross.treatment_presence</small><small class="cae-decision-view__inference">Human-reviewed inference</small></li><li data-status="connected"><span>Provider</span><strong>Connected</strong><span>Named provider proof is observable.</span><small>Evidence: website.clinician_trust_proof</small></li><li data-status="friction"><span>Proof</span><strong>Friction</strong><span>Proof does not remain continuous to the decision point.</span><small>Evidence: cross.proof_continuity</small><small class="cae-decision-view__inference">Human-reviewed inference</small></li><li data-status="broken"><span>Next Action</span><strong>Confirmed break</strong><span>The next action loses treatment context.</span><small>Evidence: cross.conversion_continuity</small></li></ol></article></div>
+
   </details>
-    <details class="cae-decision-view" data-view-status="not_assessed">
-    <summary>Patient Friction Index <span class="cae-status-pill">Needs verification</span></summary>
-    <div><p>No treatment-specific public path has enough reviewed evidence for a categorical friction signal.</p><p class="cae-report-note">Missing evidence stays unscored and does not create a gap, funding decision or promotion approval.</p></div>
+    <details class="cae-decision-view cae-network-decision-view" data-decision-view="network-patient-friction-index">
+    <summary>Patient Friction Index <span class="cae-status-pill">LOCATION · CATEGORICAL · UNSCORED</span></summary>
+    <div class="cae-network-friction-grid"><article data-status="broken" data-focus-location="true"><p class="cae-kicker">Fictional Meridian Downtown · Focus location</p><h4>Confirmed break</h4><ol><li data-status="clear"><span>Discovery</span><strong>Clear</strong></li><li data-status="friction"><span>Trust</span><strong>Friction</strong></li><li data-status="friction"><span>Enquiry</span><strong>Friction</strong></li><li data-status="broken"><span>Booking</span><strong>Confirmed break</strong></li></ol></article><article data-status="not_assessed"><p class="cae-kicker">Fictional Meridian Northside</p><h4>Needs verification</h4><ol><li data-status="not_assessed"><span>Discovery</span><strong>Needs verification</strong></li><li data-status="not_assessed"><span>Trust</span><strong>Needs verification</strong></li><li data-status="not_assessed"><span>Enquiry</span><strong>Needs verification</strong></li><li data-status="not_assessed"><span>Booking</span><strong>Needs verification</strong></li></ol></article><article data-status="not_assessed"><p class="cae-kicker">Fictional Meridian Lakeside</p><h4>Needs verification</h4><ol><li data-status="not_assessed"><span>Discovery</span><strong>Needs verification</strong></li><li data-status="not_assessed"><span>Trust</span><strong>Needs verification</strong></li><li data-status="not_assessed"><span>Enquiry</span><strong>Needs verification</strong></li><li data-status="not_assessed"><span>Booking</span><strong>Needs verification</strong></li></ol></article></div>
+    <p class="cae-report-note">Categorical public-path states only. No average, numeric index or business-performance ranking is calculated.</p>
   </details>
   </section>
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
@@ -357,7 +361,12 @@
         <p><strong>Revisit after:</strong></p>
         <ul><li>✓ Geo-grid cells recover</li></ul>
       </article>
-      <section class="cae-do-not-promote" data-view-status="not_assessed"><p class="cae-kicker">Do Not Promote Yet by Treatment · UNSCORED</p><h3>Needs verification</h3><p>No treatment-specific promotion hold has been approved. This is not permission to promote a treatment.</p></section>
+      <section class="cae-do-not-promote cae-network-promotion-holds" data-decision-view="network-do-not-promote-yet-by-treatment">
+    <p class="cae-kicker">Do Not Promote Yet by Treatment · Network projection · Human-approved</p>
+    <h3>Hold promotion only where the approved public-evidence blocker applies</h3>
+    <div><article><h4>Neuromodulator</h4><p><strong>Affected locations:</strong> Fictional Meridian Downtown</p><div class="cae-network-hold"><p>Fictional Meridian Downtown — Additional promotion would send demand into a treatment path with a confirmed booking break.</p><p><strong>Blockers:</strong></p><ul><li>Repair and verify the treatment-specific booking path.</li></ul><p><strong>Revisit when:</strong></p><ul><li>The same public path passes the booking acceptance check.</li></ul><small>Evidence: website.booking_friction, cross.conversion_continuity · Human-reviewed inference</small></div></article></div>
+    <p class="cae-report-note">A hold is location- and treatment-specific. It is not a universal prohibition and it does not change the global Do Not Fund Yet decision above.</p>
+  </section>
     </div>
   </section>
 

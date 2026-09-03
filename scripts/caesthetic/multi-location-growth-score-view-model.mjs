@@ -6,6 +6,8 @@
  * scores, the binding constraint or the manager-approved Top 3.
  */
 
+import { buildMultiLocationDecisionViewModel } from "./multi-location-decision-view-model.mjs";
+
 export const NETWORK_SURFACES = Object.freeze(["search", "website", "social", "reputation"]);
 
 const SURFACE_LABELS = Object.freeze({
@@ -190,6 +192,7 @@ export function buildMultiLocationPresentationModel(report) {
       `Authorize network rollout only when the focus-location public checks pass.`,
     ] : [],
     publication_approval: network.publication_approval || null,
+    decision_intelligence: buildMultiLocationDecisionViewModel(report),
     primary_comparison_rows: comparisonRows.slice(0, 4),
     additional_comparison_rows: comparisonRows.slice(4),
   });

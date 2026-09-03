@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.8
+version: 1.9
 updated: 2026-09-03
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
@@ -374,11 +374,11 @@ Multi-Location is an additive profile of this same schema-v5 report, not a secon
 2. one protected **focus_location** report using the complete current single-location profile;
 3. one shared project ID, access group, frozen fact set, binding constraint, ordered Top 3 and Do Not Fund Yet.
 
-The current network presentation profile is `multi-location-growth-score/1.1.0`. It is additive to schema v5 and template `growth-score-report-template/5.2.0`; those canonical versions do not change. Frozen Multi-Location reports without a profile marker remain deterministic legacy reports, while every newly authored network package must use the current profile.
+The current network presentation profile is `multi-location-growth-score/1.2.0`. It is additive to schema v5 and template `growth-score-report-template/5.2.0`; those canonical versions do not change. Frozen packages without a profile marker and profile `multi-location-growth-score/1.1.0` remain deterministic read-only reports and are not silently migrated. Every newly authored network package uses 1.2.
 
 The parent uses the same unnumbered Intro and nine machine sections. Its owner-facing sequence is:
 
-**Executive Network Decision Summary → declared/reviewed coverage and focus-location link → Primary Constraint → derived Network Risk Profile → focus-location selection criteria → internal location comparison → network overview → exact Top 3 → 30-day operational plan → ownership/rollout → propagation candidates → external competitor signal → evidence boundary → CMO decisions → one package CTA.**
+**Executive Network Decision Summary → declared/reviewed coverage and focus-location link → Primary Constraint → derived Network Risk Profile → focus-location selection criteria → internal location comparison → network overview → network decision intelligence → exact Top 3 → 30-day operational plan → ownership/rollout → treatment promotion holds → propagation candidates → external competitor signal → evidence boundary → CMO decisions → one package CTA.**
 
 The network parent must render:
 
@@ -390,6 +390,9 @@ The network parent must render:
 - one reviewed Journey Graph reference per reviewed location, including a reviewed **not_assessed** graph where evidence is unavailable;
 - repeated patterns stated as “Observed in N of M reviewed locations”;
 - a location × Four Surfaces comparison using **Protect / Watch / Fix now / Needs verification**;
+- one approved decision-view projection per reviewed location, including an explicit approved `not_assessed` projection where evidence is unavailable;
+- Treatment × Location, Provider × Location, representative Trust Chain and categorical location-friction views derived only from those projections;
+- treatment-specific promotion holds grouped by affected location, each retaining its blocker, revisit condition and named-human approval;
 - one best observed public-surface practice worth propagating, without calling that branch the best business performer;
 - the same exact Primary plus two Supporting gaps as the focus child.
 
@@ -398,6 +401,7 @@ The first executive block answers exactly six questions: **Protect / Fix first /
 Inside the immutable nine-section contract, the parent presentation is decision-first:
 
 - section 1 renders a Network Risk Profile derived from the comparison matrix, the four focus-location selection criteria, then the internal location comparison and Network Overview; section 7 must not repeat that matrix;
+- section 1 then renders the profile-1.2 network Decision Intelligence projection: Treatment Opportunity Matrix, Provider Visibility Map, no more than five initially visible representative Trust Chains and categorical Patient Friction by location; it persists no derived aggregate score;
 - the Network Overview summarizes shared assets, local assets, reviewed journeys, branch state and repeated patterns; raw machine states remain in the package, while the page uses plain client-facing labels;
 - section 2 renders the approved Top 3 exactly once as compact decision cards; each card states network scope, accountable owner, public baseline and Day-30 public check, while evidence, dependencies and implementation detail sit in a native disclosure control;
 - section 3 translates the Top 3 into **Days 1–10 / Days 11–20 / Days 21–30 / Day 30 decision** without creating purchased scope;
@@ -425,6 +429,8 @@ Each selected gap carries:
 Focus-location selection uses exactly four human-approved criteria: **public journey risk, evidence confidence, 30-day feasibility and network learning value**. Every criterion retains evidence references. The page must explicitly say that the selection is not a business-performance ranking.
 
 The Network Risk Profile is derived only from the approved matrix and counts `Protect / Watch / Fix now / Needs verification` states overall and by surface. Counts are never stored as a second source of truth and never become an aggregate Network Score.
+
+Profile 1.2 stores `network.decision_intelligence` under `multi-location-decision-intelligence/1.0.0`. Its `source_policy` is exactly `existing_growth_score_evidence_only`; all score, binding-constraint, Focus Selection and promotion automation flags are `false`. Every reviewed location has exactly one embedded, engine-validated `decisionViews` artifact. Treatment and provider IDs must resolve consistently across locations, unreviewed locations cannot participate, and `not_assessed` never becomes a negative state. The network view-model may group and count categorical states for presentation, but it cannot write them back, introduce numeric treatment/provider/friction scores or change approved decisions.
 
 A selected network gap must affect the focus location directly or through a shared asset used by it. Other branch-only problems remain in the Full Network Gap Inventory and do not silently enter Sprint scope.
 
@@ -571,4 +577,3 @@ Do not:
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
 The report should make the owner feel **clearer and more capable of making the next decision**, while keeping CAESTHETIC's commercial value grounded in evidence, coordination and accountable implementation rather than information asymmetry.
-

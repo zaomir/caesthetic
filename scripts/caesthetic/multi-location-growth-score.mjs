@@ -10,9 +10,20 @@ import {
   buildMultiLocationPresentationModel,
   NETWORK_SURFACES,
 } from "./multi-location-growth-score-view-model.mjs";
-import { MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION } from "./growth-score-report-template.mjs";
+import {
+  MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION,
+} from "./multi-location-decision-view-model.mjs";
+import {
+  MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION,
+  MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
+} from "./growth-score-report-template.mjs";
+import { validateGrowthScoreDecisionViews } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
 
-export { MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION };
+export {
+  MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION,
+  MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION,
+  MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
+};
 
 const LOCATION_STATES = new Set([
   "reviewed",
@@ -31,6 +42,18 @@ const FOCUS_DECISION_CRITERIA = Object.freeze([
   "evidence_confidence",
   "thirty_day_feasibility",
   "network_learning_value",
+]);
+const SUPPORTED_PROFILE_VERSIONS = new Set([
+  MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION,
+  MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
+]);
+const DECISION_INTELLIGENCE_REVIEW_FIELDS = Object.freeze([
+  "location_coverage_approved",
+  "treatment_identity_approved",
+  "provider_identity_approved",
+  "representative_chains_approved",
+  "friction_projection_approved",
+  "promotion_holds_approved",
 ]);
 
 function invariant(condition, message) {
@@ -75,6 +98,105 @@ function selectedGaps(report) {
   return ids.map((id) => inventory.find((gap) => gap.id === id));
 }
 
+function hasStructuredProfile(audit) {
+  return SUPPORTED_PROFILE_VERSIONS.has(audit.profile_version);
+}
+
+function buildEvidenceIndex(report) {
+  const index = new Map();
+  (report.surfaces || []).forEach((surface) => (surface.metrics || []).forEach((metric) => {
+    index.set(`${surface.id}.${metric.metric_id}`, metric);
+  }));
+  (report.crossSurface?.metrics || []).forEach((metric) => {
+    index.set(`cross.${metric.metric_id}`, metric);
+  });
+  return index;
+}
+
+function forbidDecisionScores(value, path = "network.decision_intelligence") {
+  if (!value || typeof value !== "object") return;
+  for (const [key, nested] of Object.entries(value)) {
+    invariant(
+      !/^(?:score|network_?score|provider_?score|treatment_?score|friction_?score|overall)$/i.test(key),
+      `${path}.${key} is forbidden; network decision intelligence is categorical and unscored`,
+    );
+    forbidDecisionScores(nested, `${path}.${key}`);
+  }
+}
+
+function validateNetworkDecisionIntelligence(report, reviewedIds) {
+  const intelligence = object(report.network.decision_intelligence, "network.decision_intelligence");
+  invariant(
+    intelligence.artifact_version === MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION,
+    `network.decision_intelligence.artifact_version must be ${MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION}`,
+  );
+  invariant(
+    ["assessed", "not_assessed"].includes(intelligence.assessment_status),
+    "network.decision_intelligence.assessment_status must be assessed or not_assessed",
+  );
+  invariant(
+    intelligence.source_policy === "existing_growth_score_evidence_only",
+    "network.decision_intelligence.source_policy must be existing_growth_score_evidence_only",
+  );
+  for (const field of ["automatic_score_change", "automatic_binding_constraint_selection", "automatic_focus_selection", "automatic_promotion_decision"]) {
+    invariant(intelligence[field] === false, `network.decision_intelligence.${field} must be false`);
+  }
+
+  invariant(Array.isArray(intelligence.location_projections), "network.decision_intelligence.location_projections must be an array");
+  const evidenceIndex = buildEvidenceIndex(report);
+  const projectedIds = new Set();
+  const treatmentMetadata = new Map();
+  const providerMetadata = new Map();
+  let assessedProjectionCount = 0;
+
+  intelligence.location_projections.forEach((projection, index) => {
+    const context = `network.decision_intelligence.location_projections[${index}]`;
+    object(projection, context);
+    string(projection.location_id, `${context}.location_id`);
+    invariant(reviewedIds.includes(projection.location_id), `${context} references unreviewed location ${projection.location_id}`);
+    invariant(!projectedIds.has(projection.location_id), `${context} duplicates location ${projection.location_id}`);
+    projectedIds.add(projection.location_id);
+    object(projection.decision_views, `${context}.decision_views`);
+    validateGrowthScoreDecisionViews(projection.decision_views, evidenceIndex, report, { publication: true });
+    if (projection.decision_views.assessment_status === "assessed") assessedProjectionCount += 1;
+
+    projection.decision_views.treatments.forEach((treatment) => {
+      const prior = treatmentMetadata.get(treatment.id);
+      const current = JSON.stringify({ label: treatment.label, priority: treatment.priority });
+      invariant(!prior || prior === current, `treatment ${treatment.id} must resolve consistently across location projections`);
+      treatmentMetadata.set(treatment.id, current);
+    });
+    projection.decision_views.providers.forEach((provider) => {
+      const prior = providerMetadata.get(provider.id);
+      const current = JSON.stringify({ label: provider.label, role: provider.role });
+      invariant(!prior || prior === current, `provider ${provider.id} must resolve consistently across location projections`);
+      providerMetadata.set(provider.id, current);
+    });
+  });
+
+  invariant(
+    reviewedIds.every((id) => projectedIds.has(id)) && projectedIds.size === reviewedIds.length,
+    "every reviewed location requires exactly one approved decision-view projection, including explicit not_assessed artifacts",
+  );
+  if (intelligence.assessment_status === "not_assessed") {
+    invariant(assessedProjectionCount === 0, "network decision intelligence cannot be not_assessed when a location projection is assessed");
+  } else {
+    invariant(assessedProjectionCount > 0, "assessed network decision intelligence requires at least one assessed location projection");
+  }
+
+  const review = object(intelligence.review, "network.decision_intelligence.review");
+  invariant(review.status === "approved", "network.decision_intelligence.review.status must be approved before publication");
+  string(review.reviewed_by, "network.decision_intelligence.review.reviewed_by");
+  string(review.reviewed_at, "network.decision_intelligence.review.reviewed_at");
+  DECISION_INTELLIGENCE_REVIEW_FIELDS.forEach((field) => {
+    invariant(review[field] === true, `network.decision_intelligence.review.${field} must be true before publication`);
+  });
+  invariant(review.reviewed_by === report.humanDiagnosis?.reviewer?.name, "network decision intelligence reviewer must match humanDiagnosis.reviewer");
+  invariant(review.reviewed_at === report.humanDiagnosis?.reviewer?.approved_at, "network decision intelligence review timestamp must match humanDiagnosis.reviewer");
+  forbidDecisionScores(intelligence);
+  return intelligence;
+}
+
 function forbidAggregateNetworkScore(value, path = "report") {
   if (!value || typeof value !== "object") return;
   for (const [key, nested] of Object.entries(value)) {
@@ -103,7 +225,7 @@ export function validateMultiLocationNetworkReport(report) {
   string(audit.child_route, "audit.child_route");
   invariant(audit.parent_route !== audit.child_route, "parent and child routes must differ");
   if (audit.profile_version !== undefined) {
-    invariant(audit.profile_version === MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION, `audit.profile_version must be ${MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION}`);
+    invariant(SUPPORTED_PROFILE_VERSIONS.has(audit.profile_version), `audit.profile_version must be ${MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION} or ${MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION}`);
   }
 
   const network = object(report.network, "network");
@@ -208,7 +330,7 @@ export function validateMultiLocationNetworkReport(report) {
     string(gap.network_scope.rollout_plan.replication_conditions, `selected gap ${gap.id}.network_scope.rollout_plan.replication_conditions`);
     string(gap.network_scope.rollout_plan.done_when_focus_location, `selected gap ${gap.id}.network_scope.rollout_plan.done_when_focus_location`);
     string(gap.network_scope.rollout_plan.done_when_network_rollout, `selected gap ${gap.id}.network_scope.rollout_plan.done_when_network_rollout`);
-    if (audit.profile_version === MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION) {
+    if (hasStructuredProfile(audit)) {
       invariant(EXECUTION_OWNERS.has(gap.network_scope.execution_owner), `selected gap ${gap.id}.network_scope.execution_owner must be hq, local or shared`);
       string(gap.network_scope.accountable_role, `selected gap ${gap.id}.network_scope.accountable_role`);
       string(gap.network_scope.public_baseline, `selected gap ${gap.id}.network_scope.public_baseline`);
@@ -216,7 +338,7 @@ export function validateMultiLocationNetworkReport(report) {
     }
   });
 
-  if (audit.profile_version === MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION) {
+  if (hasStructuredProfile(audit)) {
     const focusDecision = object(network.focus_decision, "network.focus_decision");
     invariant(focusDecision.not_business_performance_ranking === true, "network.focus_decision must state that focus selection is not a business-performance ranking");
     string(focusDecision.manager_rationale, "network.focus_decision.manager_rationale");
@@ -264,6 +386,10 @@ export function validateMultiLocationNetworkReport(report) {
     invariant(approval.approved_at === report.humanDiagnosis?.reviewer?.approved_at, "network.publication_approval timestamp must match humanDiagnosis.reviewer");
   }
 
+  if (audit.profile_version === MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION) {
+    validateNetworkDecisionIntelligence(report, reviewedIds);
+  }
+
   forbidAggregateNetworkScore(report.network, "network");
   return report;
 }
@@ -274,7 +400,7 @@ export function validateMultiLocationFocusLocationReport(report) {
   invariant(isMultiLocationFocusLocation(report), "report must be a multi_location focus_location");
   const audit = object(report.audit, "audit");
   if (audit.profile_version !== undefined) {
-    invariant(audit.profile_version === MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION, `audit.profile_version must be ${MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION}`);
+    invariant(SUPPORTED_PROFILE_VERSIONS.has(audit.profile_version), `audit.profile_version must be ${MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION} or ${MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION}`);
   }
   string(audit.project_id, "audit.project_id");
   string(audit.access_group_id, "audit.access_group_id");
@@ -330,6 +456,51 @@ function translationNetworkScopeCore(scope) {
       pilot_location_id: scope.rollout_plan?.pilot_location_id,
     },
     execution_owner: scope.execution_owner,
+  };
+}
+
+function translationDecisionViewsCore(artifact) {
+  if (!artifact) return null;
+  const assessment = (value) => ({
+    status: value?.status,
+    evidence_refs: value?.evidence_refs,
+    assessment_basis: value?.assessment_basis,
+  });
+  return {
+    artifact_version: artifact.artifact_version,
+    assessment_status: artifact.assessment_status,
+    source_policy: artifact.source_policy,
+    automatic_score_change: artifact.automatic_score_change,
+    automatic_binding_constraint_selection: artifact.automatic_binding_constraint_selection,
+    automatic_focus_selection: artifact.automatic_focus_selection,
+    automatic_promotion_decision: artifact.automatic_promotion_decision,
+    treatments: (artifact.treatments || []).map((treatment) => ({
+      id: treatment.id,
+      priority: treatment.priority,
+      surfaces: Object.fromEntries(SURFACES.map((surface) => [surface, assessment(treatment.surfaces?.[surface])])),
+    })),
+    providers: (artifact.providers || []).map((provider) => ({
+      id: provider.id,
+      treatment_ids: provider.treatment_ids,
+      surfaces: Object.fromEntries(SURFACES.map((surface) => [surface, assessment(provider.surfaces?.[surface])])),
+    })),
+    trust_chains: (artifact.trust_chains || []).map((chain) => ({
+      id: chain.id,
+      treatment_id: chain.treatment_id,
+      provider_id: chain.provider_id,
+      links: Object.fromEntries(["identity", "treatment", "provider", "proof", "next_action"].map((link) => [link, assessment(chain.links?.[link])])),
+    })),
+    friction_paths: (artifact.friction_paths || []).map((path) => ({
+      treatment_id: path.treatment_id,
+      stages: Object.fromEntries(["discovery", "trust", "enquiry", "booking"].map((stage) => [stage, assessment(path.stages?.[stage])])),
+    })),
+    promotion_holds: (artifact.promotion_holds || []).map((hold) => ({
+      treatment_id: hold.treatment_id,
+      decision: hold.decision,
+      evidence_refs: hold.evidence_refs,
+      assessment_basis: hold.assessment_basis,
+    })),
+    review: artifact.review,
   };
 }
 
@@ -425,6 +596,20 @@ function translationDecisionCore(report) {
           evidence_refs: row[surface]?.evidence_refs,
         }])),
       })),
+      decision_intelligence: network.decision_intelligence ? {
+        artifact_version: network.decision_intelligence.artifact_version,
+        assessment_status: network.decision_intelligence.assessment_status,
+        source_policy: network.decision_intelligence.source_policy,
+        automatic_score_change: network.decision_intelligence.automatic_score_change,
+        automatic_binding_constraint_selection: network.decision_intelligence.automatic_binding_constraint_selection,
+        automatic_focus_selection: network.decision_intelligence.automatic_focus_selection,
+        automatic_promotion_decision: network.decision_intelligence.automatic_promotion_decision,
+        location_projections: network.decision_intelligence.location_projections.map((projection) => ({
+          location_id: projection.location_id,
+          decision_views: translationDecisionViewsCore(projection.decision_views),
+        })),
+        review: network.decision_intelligence.review,
+      } : null,
       propagation_candidates: (network.propagation_candidates || []).map((candidate) => ({
         id: candidate.id,
         source_location_id: candidate.source_location_id,

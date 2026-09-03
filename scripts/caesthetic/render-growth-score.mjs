@@ -661,6 +661,83 @@ function doNotPromoteYetByTreatmentHtml(view) {
   </section>`;
 }
 
+function networkTreatmentCellHtml(cell) {
+  const surfaceDetails = Object.entries(cell.surfaces || {}).map(([surface, value]) => (
+    `<li data-status="${escapeHtml(value.status)}"><span>${escapeHtml(surfaceLabels[surface] || sentenceCase(surface))}</span><strong>${escapeHtml(DECISION_VIEW_STATUS_LABELS[value.status] || sentenceCase(value.status))}</strong></li>`
+  )).join("");
+  return `<strong>${escapeHtml(cell.status_label)}</strong><span>${escapeHtml(cell.summary)}</span>${surfaceDetails ? `<details><summary>Four Surfaces</summary><ul>${surfaceDetails}</ul></details>` : ""}`;
+}
+
+function networkTreatmentMatrixHtml(view) {
+  if (!view.treatment_matrix.length) {
+    return decisionViewNotAssessedHtml("Treatment Opportunity Matrix", "No reviewed location has an approved treatment projection.");
+  }
+  const table = (locations, label) => `<div class="cae-table-scroll cae-network-treatment-table"><table aria-label="${escapeHtml(label)}"><thead><tr><th scope="col">Treatment</th>${locations.map((location) => `<th scope="col">${escapeHtml(location.name)}${location.id === view.locations[0]?.id ? "<small>Focus location</small>" : ""}</th>`).join("")}</tr></thead><tbody>${view.treatment_matrix.map((treatment) => `<tr><th scope="row"><strong>${escapeHtml(treatment.label)}</strong><small>${escapeHtml(sentenceCase(treatment.priority))} · ${escapeHtml(treatment.scope.label)} · observed in ${escapeHtml(treatment.observed_in_reviewed_count)} of ${escapeHtml(view.coverage.reviewed)} reviewed</small></th>${locations.map((location) => {
+    const cell = treatment.cells.find((candidate) => candidate.location_id === location.id);
+    return `<td data-status="${escapeHtml(cell.status)}" data-location="${escapeHtml(location.name)}">${networkTreatmentCellHtml(cell)}</td>`;
+  }).join("")}</tr>`).join("")}</tbody></table></div>`;
+  return `<details class="cae-decision-view cae-network-decision-view" data-decision-view="network-treatment-opportunity-matrix" open>
+    <summary>Treatment Opportunity Matrix <span class="cae-status-pill">LOCATION × TREATMENT · UNSCORED</span></summary>
+    ${table(view.primary_locations, "Treatment Opportunity Matrix for the first reviewed locations")}
+    ${view.additional_locations.length ? `<details class="cae-network-more"><summary>View ${escapeHtml(view.additional_locations.length)} more locations</summary>${table(view.additional_locations, "Treatment Opportunity Matrix for additional reviewed locations")}</details>` : ""}
+  </details>`;
+}
+
+function networkProviderVisibilityHtml(view) {
+  const groups = view.provider_visibility.groups;
+  if (!groups.some((group) => group.providers.length)) {
+    return decisionViewNotAssessedHtml("Provider Visibility Map", "No reviewed location has an approved provider projection.");
+  }
+  return `<details class="cae-decision-view cae-network-decision-view" data-decision-view="network-provider-visibility-map">
+    <summary>Provider Visibility Map <span class="cae-status-pill">PROVIDER × LOCATION · UNSCORED</span></summary>
+    <p>Provider proof is unresolved in ${escapeHtml(view.provider_visibility.unresolved_location_count)} of ${escapeHtml(view.provider_visibility.reviewed_location_count)} reviewed locations.</p>
+    <div class="cae-network-provider-groups">${groups.map((group) => `<article${group.is_focus ? ' data-focus-location="true"' : ""}><p class="cae-kicker">${escapeHtml(group.location_name)}${group.is_focus ? " · Focus location" : ""}</p>${group.providers.length ? group.providers.map((provider) => `<div class="cae-network-provider"><h4>${escapeHtml(provider.label)}</h4><p>${escapeHtml(provider.role)} · <strong data-status="${escapeHtml(provider.status)}">${escapeHtml(provider.status_label)}</strong></p><small>Treatments: ${escapeHtml(provider.treatment_ids.join(", ") || "Needs verification")}</small><ul>${Object.entries(provider.surfaces).map(([surface, cell]) => `<li data-status="${escapeHtml(cell.status)}"><span>${escapeHtml(surfaceLabels[surface] || sentenceCase(surface))}</span><strong>${escapeHtml(DECISION_VIEW_STATUS_LABELS[cell.status] || sentenceCase(cell.status))}</strong></li>`).join("")}</ul></div>`).join("") : '<p class="cae-report-note">Needs verification — no provider finding is inferred.</p>'}</article>`).join("")}</div>
+  </details>`;
+}
+
+function networkTrustChainsHtml(view) {
+  if (!view.trust_chains.total) return decisionViewNotAssessedHtml("Trust Chain", "No treatment/provider chain has been reviewed at any location.");
+  const card = (chain) => `<article data-status="${escapeHtml(chain.status)}"${chain.is_focus ? ' data-focus-location="true"' : ""}><p class="cae-kicker">${escapeHtml(chain.location_name)}${chain.is_focus ? " · Focus location" : ""}</p><h4>${escapeHtml(chain.label)}</h4><p><strong>${escapeHtml(DECISION_VIEW_STATUS_LABELS[chain.status] || sentenceCase(chain.status))}</strong> · ${escapeHtml(chain.assessed_link_count)}/5 links assessed</p><ol>${Object.entries(chain.links).map(([id, link]) => `<li data-status="${escapeHtml(link.status)}"><span>${escapeHtml(sentenceCase(id))}</span>${decisionViewCellHtml(link)}</li>`).join("")}</ol></article>`;
+  return `<details class="cae-decision-view cae-network-decision-view" data-decision-view="network-trust-chain">
+    <summary>Trust Chain <span class="cae-status-pill">REPRESENTATIVE · UNSCORED</span></summary>
+    <div class="cae-decision-view__cards">${view.trust_chains.representative.map(card).join("")}</div>
+    ${view.trust_chains.additional.length ? `<details class="cae-network-more"><summary>View ${escapeHtml(view.trust_chains.additional.length)} more reviewed chains</summary><div class="cae-decision-view__cards">${view.trust_chains.additional.map(card).join("")}</div></details>` : ""}
+  </details>`;
+}
+
+function networkPatientFrictionHtml(view) {
+  const stages = ["discovery", "trust", "enquiry", "booking"];
+  return `<details class="cae-decision-view cae-network-decision-view" data-decision-view="network-patient-friction-index">
+    <summary>Patient Friction Index <span class="cae-status-pill">LOCATION · CATEGORICAL · UNSCORED</span></summary>
+    <div class="cae-network-friction-grid">${view.friction_by_location.map((location) => `<article data-status="${escapeHtml(location.status)}"${location.is_focus ? ' data-focus-location="true"' : ""}><p class="cae-kicker">${escapeHtml(location.location_name)}${location.is_focus ? " · Focus location" : ""}</p><h4>${escapeHtml(location.status_label)}</h4><ol>${stages.map((stage) => `<li data-status="${escapeHtml(location.stages[stage].status)}"><span>${escapeHtml(sentenceCase(stage))}</span><strong>${escapeHtml(location.stages[stage].status_label)}</strong></li>`).join("")}</ol></article>`).join("")}</div>
+    <p class="cae-report-note">Categorical public-path states only. No average, numeric index or business-performance ranking is calculated.</p>
+  </details>`;
+}
+
+function networkDecisionIntelligenceHtml(view) {
+  if (!view) return "";
+  return `<section class="cae-decision-views cae-network-decision-intelligence" data-artifact-version="${escapeHtml(view.artifact_version)}">
+    <p class="cae-kicker">Network decision intelligence · Existing approved Growth Score evidence only</p>
+    <h3 class="cae-report-subhead">Treatment, provider, trust and friction across reviewed locations</h3>
+    <p>${escapeHtml(view.coverage.assessed)} of ${escapeHtml(view.coverage.reviewed)} reviewed locations have an assessed projection; ${escapeHtml(view.coverage.not_assessed)} remain explicitly not assessed. These views add no source, surface, weight, score or automatic decision.</p>
+    ${networkTreatmentMatrixHtml(view)}
+    ${networkProviderVisibilityHtml(view)}
+    ${networkTrustChainsHtml(view)}
+    ${networkPatientFrictionHtml(view)}
+  </section>`;
+}
+
+function networkDoNotPromoteHtml(view) {
+  if (!view) return "";
+  if (!view.promotion_holds.length) return `<section class="cae-do-not-promote" data-view-status="not_assessed"><p class="cae-kicker">Do Not Promote Yet by Treatment · Network projection · UNSCORED</p><h3>No treatment-specific hold was approved</h3><p>This is not permission to promote a treatment. Each location still requires sufficient reviewed evidence and an explicit decision.</p></section>`;
+  return `<section class="cae-do-not-promote cae-network-promotion-holds" data-decision-view="network-do-not-promote-yet-by-treatment">
+    <p class="cae-kicker">Do Not Promote Yet by Treatment · Network projection · Human-approved</p>
+    <h3>Hold promotion only where the approved public-evidence blocker applies</h3>
+    <div>${view.promotion_holds.map((group) => `<article><h4>${escapeHtml(group.treatment_label)}</h4><p><strong>Affected locations:</strong> ${escapeHtml(group.affected_location_names.join(", "))}</p>${group.holds.map((hold) => `<div class="cae-network-hold"><p>${escapeHtml(hold.location_name)} — ${escapeHtml(hold.rationale)}</p><p><strong>Blockers:</strong></p><ul>${stringList(hold.blockers)}</ul><p><strong>Revisit when:</strong></p><ul>${stringList(hold.revisit_when)}</ul><small>Evidence: ${refs(hold.evidence_refs)} · Human-reviewed inference</small></div>`).join("")}</article>`).join("")}</div>
+    <p class="cae-report-note">A hold is location- and treatment-specific. It is not a universal prohibition and it does not change the global Do Not Fund Yet decision above.</p>
+  </section>`;
+}
+
 const JOURNEY_GRAPH_SURFACE_ORDER = Object.freeze(["search", "website", "social", "reputation"]);
 const JOURNEY_GRAPH_SLOTS = Object.freeze([
   Object.freeze({ x: 380, y: 82 }),
@@ -1837,7 +1914,9 @@ ${growthScoreIntroHtml(report)}
       ${isNetworkParent ? `${networkRiskProfileHtml(report)}${networkFocusDecisionHtml(report)}${networkComparisonHtml(report)}${networkJourneyAtlasHtml(report)}` : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
       ${isNetworkParent ? "" : surfaceSnapshotHtml(report, result)}
       ${isNetworkParent ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
-      ${growthScoreDecisionViewsHtml(result.decisionViews)}
+      ${isNetworkParent && networkView.decision_intelligence
+        ? networkDecisionIntelligenceHtml(networkView.decision_intelligence)
+        : growthScoreDecisionViewsHtml(result.decisionViews)}
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
@@ -1899,7 +1978,9 @@ ${growthScoreIntroHtml(report)}
         <p><strong>Revisit after:</strong></p>
         <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
       </article>
-      ${doNotPromoteYetByTreatmentHtml(result.decisionViews.do_not_promote_yet_by_treatment)}
+      ${isNetworkParent && networkView.decision_intelligence
+        ? networkDoNotPromoteHtml(networkView.decision_intelligence)
+        : doNotPromoteYetByTreatmentHtml(result.decisionViews.do_not_promote_yet_by_treatment)}
     </div>
   </section>
 

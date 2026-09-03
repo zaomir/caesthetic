@@ -2,7 +2,7 @@
   "schemaVersion": 5,
   "templateVersion": "growth-score-report-template/5.2.0",
   "reportState": "approved_report",
-  "reportVersion": "demo-multi-location-focus-location/1.1.0",
+  "reportVersion": "demo-multi-location-focus-location/1.2.0",
   "verifiedFactSetVersion": "demo-multi-location-growth-score-facts/1.1.0",
   "reportKind": "demo",
   "reportContext": {
@@ -824,7 +824,7 @@
   },
   "audit": {
     "format": "multi_location",
-    "profile_version": "multi-location-growth-score/1.1.0",
+    "profile_version": "multi-location-growth-score/1.2.0",
     "project_id": "demo-multi-location-growth-score",
     "access_group_id": "demo-multi-location-growth-score-public",
     "parent_route": "/score/demo-multi-location-growth-score/",

@@ -67,6 +67,9 @@ protected_in_target:
   - scripts/caesthetic/growth-score-report-template.mjs
   - scripts/caesthetic/growth-score-select-focus.mjs
   - scripts/caesthetic/growth-score-workflow.mjs
+  - scripts/caesthetic/multi-location-decision-view-model.mjs
+  - scripts/caesthetic/multi-location-growth-score-view-model.mjs
+  - scripts/caesthetic/multi-location-growth-score.mjs
   - scripts/caesthetic/install-continuous-sync.sh
   - scripts/caesthetic/publish-growth-score-control-plane.mjs
   - scripts/caesthetic/publish-growth-score-deploy.sh
