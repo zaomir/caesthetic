@@ -169,6 +169,7 @@ class DecideDeletionTest(unittest.TestCase):
 
     def test_installer_uses_isolated_checkouts(self):
         installer = (ROOT / "scripts" / "caesthetic" / "install-continuous-sync.sh").read_text()
+        timer = (ROOT / "deploy" / "systemd" / "caesthetic-repo-sync.timer").read_text()
         self.assertIn("$DATA_ROOT/grainee", installer)
         self.assertIn("$DATA_ROOT/satellite", installer)
         self.assertIn("git clone --shared --no-checkout", installer)
@@ -183,6 +184,8 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("systemctl reset-failed caesthetic-repo-sync.service", installer)
         self.assertIn("systemctl start --no-block caesthetic-repo-sync.service", installer)
         self.assertNotIn("sync_terminal", installer)
+        self.assertIn("OnUnitInactiveSec=15s", timer)
+        self.assertNotIn("OnUnitActiveSec", timer)
 
 
     def test_runner_skips_full_reconcile_when_remote_heads_are_unchanged(self):

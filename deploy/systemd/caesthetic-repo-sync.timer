@@ -3,7 +3,7 @@ Description=Run CAESTHETIC repository sync every 15 seconds
 
 [Timer]
 OnBootSec=10s
-OnUnitActiveSec=15s
+OnUnitInactiveSec=15s
 AccuracySec=1s
 RandomizedDelaySec=0
 Persistent=false
