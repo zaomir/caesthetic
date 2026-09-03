@@ -43,6 +43,17 @@
       "prepared_at": "2026-09-02",
       "route": "/score/demo-multi-location-growth-score/",
       "focus_location_route": "/score/demo-multi-location-growth-score/focus-location/"
+    },
+    {
+      "project_id": "synthetic-publish-control-plane-multilocation-20260902",
+      "display_name": "Fixture Network",
+      "location": "Two fictional markets",
+      "audit_format": "multi_location",
+      "report_kind": "demo",
+      "schema_version": 5,
+      "prepared_at": "2026-09-02",
+      "route": "/score/demo-publish-control-plane-network/",
+      "focus_location_route": "/score/demo-publish-control-plane-network/focus-location/"
     }
   ]
 }

@@ -25,6 +25,12 @@ test -d "$LIVE_GRAINEE_ROOT/.git" || {
   exit 1
 }
 
+# A previous interrupted bootstrap can leave the oneshot and its flock alive.
+# Stop it before touching the isolated workers; their dirty/diverged state is
+# preserved by prepare_isolated_clone below.
+timeout 30s systemctl stop caesthetic-repo-sync.service 2>/dev/null || true
+systemctl reset-failed caesthetic-repo-sync.service 2>/dev/null || true
+
 install -d -m 755 "$INSTALL_ROOT" "$SYSTEMD_ROOT"
 install -d -m 700 "$DATA_ROOT"
 install -m 755 "$SOURCE_ROOT/scripts/caesthetic/sync_agents_bidirectional.py" \
@@ -148,25 +154,9 @@ rm -f "$DATA_ROOT/remote-heads" "$DATA_ROOT/remote-heads.tmp"
 rm -f /etc/cron.d/caesthetic-agents-sync
 systemctl daemon-reload
 systemctl enable --now caesthetic-repo-sync.timer
-# Do not make the bootstrap worker wait for a possibly active oneshot. The
-# timer owns reconciliation. Bootstrap still waits for one bounded terminal
-# state so a server-side failure is recorded durably instead of looking ready.
+# Do not make the bootstrap worker share the oneshot lifecycle. The timer owns
+# reconciliation, while each publication request/result is the durable proof.
 systemctl start --no-block caesthetic-repo-sync.service
-
-sync_terminal=""
-for _attempt in $(seq 1 45); do
-  sync_state="$(systemctl show caesthetic-repo-sync.service -p ActiveState --value)"
-  case "$sync_state" in
-    inactive) sync_terminal="success"; break ;;
-    failed) sync_terminal="failed"; break ;;
-  esac
-  sleep 1
-done
-if [[ "$sync_terminal" != "success" ]]; then
-  echo "ERROR: initial CAESTHETIC reconciliation did not complete successfully (state=${sync_state:-unknown})" >&2
-  journalctl --no-pager -u caesthetic-repo-sync.service -n 40 >&2 || true
-  exit 1
-fi
 
 systemctl is-enabled --quiet caesthetic-repo-sync.timer
 systemctl is-active --quiet caesthetic-repo-sync.timer

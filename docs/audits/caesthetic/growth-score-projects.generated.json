@@ -3,9 +3,9 @@
   "authority": "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
   "generated_from": "approved site-caesthetic/score/**/report.json files",
   "counts": {
-    "total": 7,
+    "total": 8,
     "private": 3,
-    "listed": 4
+    "listed": 5
   },
   "projects": [
     {
@@ -215,6 +215,48 @@
           "canonical_url": "https://caesthetic.com/score/prestige-ru-pilot-520-20260901-c6d8e2/",
           "schema_version": 5,
           "source_path": "site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/report.json"
+        }
+      ]
+    },
+    {
+      "project_id": "synthetic-publish-control-plane-multilocation-20260902",
+      "display_name": "Fixture Network",
+      "location": "Two fictional markets",
+      "subject_type": "public_business",
+      "audit_format": "multi_location",
+      "package_role": "network_parent",
+      "report_kind": "demo",
+      "report_state": "approved_report",
+      "schema_version": 5,
+      "prepared_at": "2026-09-02",
+      "catalog_visibility": "synthetic",
+      "listed_name": "Fixture Network",
+      "listed_location": "Two fictional markets",
+      "access_group_id": "fixture-access-group",
+      "route": "/score/demo-publish-control-plane-network/",
+      "canonical_url": "https://caesthetic.com/score/demo-publish-control-plane-network/",
+      "source_path": "site-caesthetic/score/demo-publish-control-plane-network/report.json",
+      "detail_schema_version": 5,
+      "focus_location": {
+        "display_name": "Focus Location",
+        "location": "Market A",
+        "route": "/score/demo-publish-control-plane-network/focus-location/",
+        "canonical_url": "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/"
+      },
+      "report_refs": [
+        {
+          "role": "network_parent",
+          "route": "/score/demo-publish-control-plane-network/",
+          "canonical_url": "https://caesthetic.com/score/demo-publish-control-plane-network/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/demo-publish-control-plane-network/report.json"
+        },
+        {
+          "role": "focus_location",
+          "route": "/score/demo-publish-control-plane-network/focus-location/",
+          "canonical_url": "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/",
+          "schema_version": 5,
+          "source_path": "site-caesthetic/score/demo-publish-control-plane-network/focus-location/report.json"
         }
       ]
     }

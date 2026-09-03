@@ -1,5 +1,6 @@
 import hashlib
 import importlib.util
+import os
 import subprocess
 import sys
 import tempfile
@@ -172,9 +173,17 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("$DATA_ROOT/satellite", installer)
         self.assertIn("git clone --shared --no-checkout", installer)
         self.assertIn("sparse-checkout set", installer)
-        self.assertIn("copy_git_auth_config", installer)
+        self.assertNotIn("copy_git_auth_config", installer)
+        self.assertIn('git clone --shared --no-checkout "$authority_repo"', installer)
+        self.assertIn("checkout -B main refs/remotes/origin/main", installer)
         self.assertIn("push --dry-run", installer)
-        self.assertIn("git@github.com:zaomir/grainee-v2.git", installer)
+        self.assertIn("CAESTHETIC_SYNC_SATELLITE_AUTHORITY_REMOTE", installer)
+        self.assertIn("CAESTHETIC_REPO_SYNC_QUARANTINED", installer)
+        self.assertIn("timeout 30s systemctl stop caesthetic-repo-sync.service", installer)
+        self.assertIn("systemctl reset-failed caesthetic-repo-sync.service", installer)
+        self.assertIn("systemctl start --no-block caesthetic-repo-sync.service", installer)
+        self.assertNotIn("sync_terminal", installer)
+
 
     def test_runner_skips_full_reconcile_when_remote_heads_are_unchanged(self):
         root = Path(self.tmp.name)
@@ -292,6 +301,41 @@ class DecideDeletionTest(unittest.TestCase):
         remote = subprocess.check_output(["git", "ls-remote", str(bare),
                                           "refs/heads/main"], text=True).split()[0]
         self.assertEqual(local, remote)
+
+    def test_isolated_commit_pushes_through_existing_authority_checkout(self):
+        root = Path(self.tmp.name)
+        bare = root / "authority-remote.git"
+        authority = root / "authority"
+        isolated = root / "isolated"
+        subprocess.run(["git", "init", "--bare", "--initial-branch=main", str(bare)], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "clone", str(bare), str(authority)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "config", "user.name", "Test"], cwd=authority, check=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=authority, check=True)
+        (authority / "seed").write_text("one\n")
+        subprocess.run(["git", "add", "."], cwd=authority, check=True)
+        subprocess.run(["git", "commit", "-m", "seed"], cwd=authority, check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=authority, check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "clone", str(bare), str(isolated)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "config", "user.name", "Test"], cwd=isolated, check=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=isolated, check=True)
+        (isolated / "isolated-change").write_text("two\n")
+        subprocess.run(["git", "add", "."], cwd=isolated, check=True)
+        subprocess.run(["git", "commit", "-m", "isolated"], cwd=isolated, check=True, stdout=subprocess.DEVNULL)
+        keys = ("GRAINEE_ROOT", "CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT", "CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE")
+        old = {key: os.environ.get(key) for key in keys}
+        try:
+            os.environ["GRAINEE_ROOT"] = str(isolated)
+            os.environ["CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT"] = str(authority)
+            os.environ["CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE"] = "origin"
+            SYNC.push_main(isolated)
+        finally:
+            for key, value in old.items():
+                if value is None:
+                    os.environ.pop(key, None)
+                else:
+                    os.environ[key] = value
+        remote = subprocess.check_output(["git", "ls-remote", str(bare), "refs/heads/main"], text=True).split()[0]
+        self.assertEqual(remote, subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=isolated, text=True).strip())
 
 
 if __name__ == "__main__":
