@@ -1,0 +1,22 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-demo-multilocation-control-plane-r2-20260903",
+  "type": "caesthetic_growth_score_publish",
+  "status": "error",
+  "source_satellite_sha": "25bf49b9f0f524509729b5703cdd4f0d1691efc0",
+  "package_sha256": "7400c33bd23a7f8b3f90b4e1126fce8e84e3e1ea8fa6238a88459a383ad84799",
+  "canonical_imported_sha": null,
+  "deployed_sha": null,
+  "live_urls": [],
+  "smoke": {
+    "ok": false,
+    "checks": []
+  },
+  "errors": [
+    {
+      "code": "renderer_drift",
+      "message": "renderer drift: scripts/caesthetic/multi-location-growth-score.mjs"
+    }
+  ],
+  "updated_at": "2026-09-03T00:04:30.476Z"
+}
