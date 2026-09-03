@@ -30,6 +30,9 @@ allowed_paths:
   - docs/projects/caesthetic/**
   - docs/caesthetic/**
   - docs/ssot/CAESTHETIC*.md
+  - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
+  - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
+  - docs/founder-notes/DEC-829.md
   - docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
   - docs/research/caesthetic/**
   - docs/audits/caesthetic/**

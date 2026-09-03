@@ -30,6 +30,13 @@ test("universal audit pre-router precedes CAESTHETIC repository routing", () => 
   const agents = read("AGENTS.md");
   assert.ok(agents.indexOf("Universal Growth Score audit pre-router") < agents.indexOf("This repository is"));
   assert.ok(agents.includes(enforcementPath));
+  for (const authority of [
+    "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
+    "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
+  ]) {
+    assert.ok(agents.includes(authority), authority);
+    assert.ok(fs.existsSync(new URL(`../${authority}`, import.meta.url)), authority);
+  }
 });
 
 test("every supported AI-agent instruction surface enforces the same fail-closed pre-router", () => {
@@ -97,6 +104,7 @@ test("the local adapter contains the current-main authority preflight and every 
   for (const authority of orderedAuthorities) {
     const index = preflight.indexOf(authority);
     assert.ok(index > previousIndex, authority);
+    assert.ok(fs.existsSync(new URL(`../${authority}`, import.meta.url)), authority);
     previousIndex = index;
   }
 

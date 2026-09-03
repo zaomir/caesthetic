@@ -115,10 +115,14 @@ class DecideDeletionTest(unittest.TestCase):
         )
 
     def test_canonical_sop_is_mirrored_and_grainee_protected(self):
-        rel = "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md"
-        self.write(self.g, rel, "canonical")
-        self.assertIn(rel, SYNC.collect_rels(self.g))
-        self.assertTrue(SYNC.is_protected(rel))
+        for rel in (
+            "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
+            "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
+            "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
+        ):
+            self.write(self.g, rel, "canonical")
+            self.assertIn(rel, SYNC.collect_rels(self.g))
+            self.assertTrue(SYNC.is_protected(rel))
 
     def test_systemd_units_are_in_mirror_contract(self):
         for rel in (
