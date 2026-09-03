@@ -751,7 +751,7 @@
     "site-caesthetic/score/demo-multi-location-growth-score/focus-location/report.json": "fad950e3747b88c136d5540dd8ea1dad83450d859e94af7e160734e58e570aea",
     "site-caesthetic/score/demo-multi-location-growth-score/index.html": "bbc6630a9b0dafd738355211b4eb2eb25da825bbdbde0d7c4524c8f5e6cec73f",
     "site-caesthetic/score/demo-multi-location-growth-score/report.json": "fa10d959d57252810fa5dd6e9d896192b7dbc0ee7323a6f56140a280d6f8a714",
-    "site-caesthetic/score/index.html": "b13961160b61cc1f2ac9a50db326cb1c20eb60a8f6984580c69e034791a6c67b",
+    "site-caesthetic/score/index.html": "67b17ed83c10a3aa420ffbbca93edb65d8d7ed5c01121aa59f9496edf01b8838",
     "site-caesthetic/sitemap.xml": "f90ab19f26c0a389becd94e1ac9d0a74b5e5728476e46f5cb48ddf57d86f9292",
     "site-caesthetic/sprint/index.html": "0bb65154977467c0b2637543a84bb2de174f54d380b6dc3167ad5b0e6897211a",
     "site-caesthetic/src/config/pricing.ts": "a347bd5593d1e27597aaf5bcf78f8e920b03037ab53aa630dd8cecb2538c64f0",
@@ -821,6 +821,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T18:49:49Z",
+  "updated_at_utc": "2026-09-03T18:54:33Z",
   "version": 1
 }
