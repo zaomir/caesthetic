@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.7
+version: 1.8
 updated: 2026-09-03
-scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph presentation, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
+scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
 implementation_spec: docs/caesthetic/growth_score_spec.md
 related:
@@ -136,7 +136,15 @@ Graph-to-metric links are `evidence_only` and may reference only existing `gbp_c
 
 Before publication, a named human must approve entity/location resolution, expectation rules, semantic integrity and edge severity. Reviewer identity remains in the internal artifact and is not rendered to the client.
 
-### 3.2 Lead Intake boundary and Lead-to-Revenue Map
+### 3.2 Five derived, unscored decision views
+
+The report may reorganize the same approved Growth Score metric evidence into exactly five views under `growth-score-decision-views/1.0.0`: **Treatment Opportunity Matrix**, **Provider Visibility Map**, **Trust Chain**, categorical **Patient Friction Index**, and **Do Not Promote Yet by Treatment**. They are decision intelligence, not additional evidence collection. They add no source, surface, metric, weight or score and cannot automatically change Overall, the binding constraint, Focus Selection, Top 3 or Sprint scope.
+
+Treatment and provider matrices always use the exact Four Surfaces as columns. Trust Chain uses the reviewed identity, treatment, provider, proof and next-action links. Patient Friction Index uses categorical `clear / friction / broken / not_assessed` states across discovery, trust, enquiry and booking; it must not display a numeric score. A treatment-specific promotion hold is a named-human decision supported by existing evidence, blockers and revisit conditions. No approved hold is not equivalent to permission to promote.
+
+The first four views render by progressive disclosure inside `gap-map`, after the Four-Surface/Journey Graph context and before Focus Gaps. `Do Not Promote Yet by Treatment` renders inside `do-not-fund`, after the one canonical global Do Not Fund Yet decision. Unsupported cells remain gray / `Needs verification`; the renderer must not manufacture red states or conclusions from missing evidence. All human inferences retain internal method, assumptions and named review, without exposing reviewer identity in client HTML.
+
+### 3.3 Lead Intake boundary and Lead-to-Revenue Map
 
 `Lead Intake` is a **boundary node**, not a fifth surface. In the Free Growth Score it is gray / `NOT ASSESSED` unless valid evidence exists for a specific observable public enquiry-path fact.
 
@@ -294,7 +302,7 @@ The final client-facing visual sequence is canonical even though it is composed 
 
 1. **Owner-first Hero + Client Journey Map.** Title it `Where Clients Are Gained - and Lost`. Use the resolved client logo when provenance is reliable; otherwise use a neutral wordmark/initial fallback. Keep the approved centre/ring/four-orbit/right-legend/decision-block/Outside-In-strip composition defined in §3.1. The preferred owner tension is investment-first, e.g. `You have already invested in your practice. The question is: is that investment working as hard as it should?`. A stronger occupancy statement such as `why is it not filled with clients?` is allowed only when supported by owner-supplied context or evidence; it must not be fabricated from outside-in observation.
 2. **Four-Surface snapshot.** Four cards summarize Search / Maps, Website, Social and Reviews with `Protect / Watch / Fix now / Needs verification` and one owner-language sentence each.
-3. **Broken Connections Map.** Show technical and semantic route integrity between the four surfaces and Lead Intake from the canonical Journey Graph; do not require a complete 4×4 mesh.
+3. **Broken Connections Map + derived decision views.** Show technical and semantic route integrity between the four surfaces and Lead Intake from the canonical Journey Graph; do not require a complete 4×4 mesh. Then present the four unscored treatment/provider/trust/friction views from the existing evidence only.
 4. **Top 3 leaks.** Exactly one Primary + two Supporting. Primary is open by default; Supporting are collapsed by default. Closed state already states the problem and owner consequence. Expanded state includes `What we found`, `Why it matters`, `What it affects`, `Evidence`, and the repair path/DIY detail at the next disclosure level.
 5. **Competitive decision.** Lead with why a patient/client may choose another practice, then expose the deeper comparison matrix. End with `Defend / Close / Differentiate / Do not copy`.
 6. **Final system synthesis.** After evidence and competitors, before the commercial decision, state whether the findings represent isolated issues or one connected patient-decision system. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
@@ -306,11 +314,11 @@ The final client-facing visual sequence is canonical even though it is composed 
 
 The visual sequence above does not reorder or add machine sections:
 
-- `gap-map` contains owner-first hero, Hero Client Journey Map, Four-Surface snapshot and Broken Connections Map;
+- `gap-map` contains owner-first hero, Hero Client Journey Map, Four-Surface snapshot, Broken Connections Map, Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain and categorical Patient Friction Index;
 - `focus-gaps` contains the Top 3 Focus Gaps;
 - `sprint-fit` explains whether the verified Primary/Supporting work is suitable for a 30-day finite implementation without claiming purchase or results;
 - `repair-paths` contains complete DIY/implementation paths and coordination burden;
-- `do-not-fund` contains the canonical one `Do Not Fund Yet` decision;
+- `do-not-fund` contains the canonical one `Do Not Fund Yet` decision and the separate unscored human-approved `Do Not Promote Yet by Treatment` view;
 - `gap-inventory` contains the exhaustive inventory; an earlier compact summary/link may point to it but does not replace it;
 - `evidence-and-competitors` contains evidence drill-down, Journey Graph edge details and Competitive Decision Analysis;
 - `scores-and-methodology` keeps scores/methodology secondary;
@@ -526,16 +534,17 @@ Acceptance requires:
 5. source-level absence of client-visible reviewer/selector attribution and embedded walkthrough card/URL;
 6. Four Surfaces unchanged; Cross-Surface remains separate; Lead Intake/internal conversion is not rendered as a fifth surface;
 7. for new authoring: one reviewed `journeyGraph` artifact, both deterministic public views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
-8. Hero uses client-logo provenance/fallback rules, adaptive four-slot assignment and no invented success journey;
-9. Hero uses the exact canonical title and composition, colors each segment from its own edge, and shows no false green Social/Reviews → Lead Intake relationship;
-10. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow, shares the exact edge IDs/states, omits optional unassessed relationships and retains detailed evidence drill-down later;
-11. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis; its $500/credit card appears only from the explicit approved recommendation contract and replaces, rather than duplicates, the Sprint CTA;
-12. internal review anchors `1101–1109` are absent from final approved client source;
-13. mobile and desktop smoke with no body overflow and usable graph/evidence drill-down;
-14. privacy/noindex/sitemap gates;
-15. live production URL;
-16. deployed SHA;
-17. successful exact production smoke.
+8. one reviewed `decisionViews` artifact: all five views use only existing approved report evidence, retain the exact Four Surfaces, keep all automation flags false, render inference/hold review fail-closed and do not change Overall or Focus Selection;
+9. Hero uses client-logo provenance/fallback rules, adaptive four-slot assignment and no invented success journey;
+10. Hero uses the exact canonical title and composition, colors each segment from its own edge, and shows no false green Social/Reviews → Lead Intake relationship;
+11. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow, shares the exact edge IDs/states, omits optional unassessed relationships and retains detailed evidence drill-down later;
+12. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis; its $500/credit card appears only from the explicit approved recommendation contract and replaces, rather than duplicates, the Sprint CTA;
+13. internal review anchors `1101–1109` are absent from final approved client source;
+14. mobile and desktop smoke with no body overflow and usable graph/evidence drill-down;
+15. privacy/noindex/sitemap gates;
+16. live production URL;
+17. deployed SHA;
+18. successful exact production smoke.
 
 For protected reports, acceptance also includes unauthenticated gate, wrong-password rejection, valid session issuance and authenticated report/JSON checks.
 
@@ -545,6 +554,7 @@ Do not:
 
 - add a fifth surface;
 - create a separate Journey Graph score, require every surface-to-surface link or label an optional missing link red;
+- turn a decision view into a fifth surface, new source registry, numeric Patient Friction score or automatic promotion/priority decision;
 - represent `Lead Intake` or Lead-to-Revenue as a fifth public surface;
 - add a tenth machine section;
 - turn competitor analysis into a ranking or score;
@@ -561,5 +571,4 @@ Do not:
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
 The report should make the owner feel **clearer and more capable of making the next decision**, while keeping CAESTHETIC's commercial value grounded in evidence, coordination and accountable implementation rather than information asymmetry.
-
 

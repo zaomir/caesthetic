@@ -574,6 +574,93 @@ function estimateRows(estimates = []) {
           </article>`).join("");
 }
 
+const DECISION_VIEW_STATUS_LABELS = Object.freeze({
+  protect: "Protect",
+  watch: "Watch",
+  fix_now: "Fix now",
+  visible: "Visible",
+  partial: "Partial",
+  not_visible: "Not visible",
+  connected: "Connected",
+  friction: "Friction",
+  broken: "Confirmed break",
+  clear: "Clear",
+  not_assessed: "Needs verification",
+});
+
+function decisionViewCellHtml(item) {
+  const evidence = item.evidence_refs?.length ? `<small>Evidence: ${refs(item.evidence_refs)}</small>` : "";
+  const inference = item.assessment_basis === "human_inference" ? '<small class="cae-decision-view__inference">Human-reviewed inference</small>' : "";
+  return `<strong>${escapeHtml(DECISION_VIEW_STATUS_LABELS[item.status] || sentenceCase(item.status))}</strong><span>${escapeHtml(item.summary)}</span>${evidence}${inference}`;
+}
+
+function decisionViewNotAssessedHtml(title, description) {
+  return `<details class="cae-decision-view" data-view-status="not_assessed">
+    <summary>${escapeHtml(title)} <span class="cae-status-pill">Needs verification</span></summary>
+    <div><p>${escapeHtml(description)}</p><p class="cae-report-note">Missing evidence stays unscored and does not create a gap, funding decision or promotion approval.</p></div>
+  </details>`;
+}
+
+function treatmentOpportunityMatrixHtml(view) {
+  if (view.status !== "assessed") return decisionViewNotAssessedHtml("Treatment Opportunity Matrix", "Treatment-by-surface evidence has not been reviewed.");
+  return `<details class="cae-decision-view" data-decision-view="treatment-opportunity-matrix" open>
+    <summary>Treatment Opportunity Matrix <span class="cae-status-pill">UNSCORED</span></summary>
+    <div class="cae-table-scroll"><table><thead><tr><th>Treatment</th>${SURFACE_NAV.map((surface) => `<th>${escapeHtml(surface.label)}</th>`).join("")}</tr></thead><tbody>
+      ${view.items.map((treatment) => `<tr><th><strong>${escapeHtml(treatment.label)}</strong><small>${escapeHtml(sentenceCase(treatment.priority))} · ${treatment.observed_surface_count}/4 surfaces assessed</small></th>${SURFACE_NAV.map((surface) => `<td data-status="${escapeHtml(treatment.surfaces[surface.id].status)}">${decisionViewCellHtml(treatment.surfaces[surface.id])}</td>`).join("")}</tr>`).join("")}
+    </tbody></table></div>
+  </details>`;
+}
+
+function providerVisibilityMapHtml(view) {
+  if (view.status !== "assessed") return decisionViewNotAssessedHtml("Provider Visibility Map", "Provider identity and proof have not been reviewed across the Four Surfaces.");
+  return `<details class="cae-decision-view" data-decision-view="provider-visibility-map">
+    <summary>Provider Visibility Map <span class="cae-status-pill">UNSCORED</span></summary>
+    <div class="cae-table-scroll"><table><thead><tr><th>Provider</th>${SURFACE_NAV.map((surface) => `<th>${escapeHtml(surface.label)}</th>`).join("")}</tr></thead><tbody>
+      ${view.items.map((provider) => `<tr><th><strong>${escapeHtml(provider.label)}</strong><small>${escapeHtml(provider.role)} · ${provider.observed_surface_count}/4 surfaces assessed</small></th>${SURFACE_NAV.map((surface) => `<td data-status="${escapeHtml(provider.surfaces[surface.id].status)}">${decisionViewCellHtml(provider.surfaces[surface.id])}</td>`).join("")}</tr>`).join("")}
+    </tbody></table></div>
+  </details>`;
+}
+
+function trustChainHtml(view) {
+  if (view.status !== "assessed") return decisionViewNotAssessedHtml("Trust Chain", "No treatment-specific identity, provider, proof and next-action chain has been reviewed.");
+  const labels = { identity: "Identity", treatment: "Treatment", provider: "Provider", proof: "Proof", next_action: "Next action" };
+  return `<details class="cae-decision-view" data-decision-view="trust-chain">
+    <summary>Trust Chain <span class="cae-status-pill">UNSCORED</span></summary>
+    <div class="cae-decision-view__cards">${view.items.map((chain) => `<article data-status="${escapeHtml(chain.status)}"><h4>${escapeHtml(chain.label)}</h4><p>${chain.assessed_link_count}/5 links assessed · <strong>${escapeHtml(DECISION_VIEW_STATUS_LABELS[chain.status] || sentenceCase(chain.status))}</strong></p><ol>${Object.entries(chain.links).map(([id, link]) => `<li data-status="${escapeHtml(link.status)}"><span>${escapeHtml(labels[id])}</span>${decisionViewCellHtml(link)}</li>`).join("")}</ol></article>`).join("")}</div>
+  </details>`;
+}
+
+function patientFrictionIndexHtml(view) {
+  if (view.status !== "assessed") return decisionViewNotAssessedHtml("Patient Friction Index", "No treatment-specific public path has enough reviewed evidence for a categorical friction signal.");
+  const labels = { discovery: "Discovery", trust: "Trust", enquiry: "Enquiry", booking: "Booking" };
+  return `<details class="cae-decision-view" data-decision-view="patient-friction-index">
+    <summary>Patient Friction Index <span class="cae-status-pill">CATEGORICAL · UNSCORED</span></summary>
+    <div class="cae-decision-view__cards">${view.items.map((path) => `<article data-status="${escapeHtml(path.status)}"><h4>${escapeHtml(path.treatment_id)}</h4><p><strong>${escapeHtml(DECISION_VIEW_STATUS_LABELS[path.status] || sentenceCase(path.status))}</strong> · ${path.assessed_stage_count}/4 stages assessed · ${escapeHtml(sentenceCase(path.coverage_status))} coverage</p><ol>${Object.entries(path.stages).map(([id, stage]) => `<li data-status="${escapeHtml(stage.status)}"><span>${escapeHtml(labels[id])}</span>${decisionViewCellHtml(stage)}</li>`).join("")}</ol></article>`).join("")}</div>
+    <p class="cae-report-note">This index is a categorical view of reviewed public-path states. It is not a score and does not change Overall or Focus Selection.</p>
+  </details>`;
+}
+
+function growthScoreDecisionViewsHtml(decisionViews) {
+  return `<section class="cae-decision-views" data-artifact-version="${escapeHtml(decisionViews.artifact_version)}">
+    <p class="cae-kicker">Derived decision intelligence · Existing evidence only</p>
+    <h3 class="cae-report-subhead">Treatment, provider, trust and friction views</h3>
+    <p>These views reorganize the reviewed Growth Score evidence. They add no source, surface, weight, score or automatic priority decision.</p>
+    ${treatmentOpportunityMatrixHtml(decisionViews.treatment_opportunity_matrix)}
+    ${providerVisibilityMapHtml(decisionViews.provider_visibility_map)}
+    ${trustChainHtml(decisionViews.trust_chain)}
+    ${patientFrictionIndexHtml(decisionViews.patient_friction_index)}
+  </section>`;
+}
+
+function doNotPromoteYetByTreatmentHtml(view) {
+  if (view.status !== "assessed") return `<section class="cae-do-not-promote" data-view-status="not_assessed"><p class="cae-kicker">Do Not Promote Yet by Treatment · UNSCORED</p><h3>Needs verification</h3><p>No treatment-specific promotion hold has been approved. This is not permission to promote a treatment.</p></section>`;
+  return `<section class="cae-do-not-promote" data-decision-view="do-not-promote-yet-by-treatment">
+    <p class="cae-kicker">Do Not Promote Yet by Treatment · Human-approved</p>
+    <h3>Hold promotion until the named public-evidence blockers are closed</h3>
+    <div>${view.items.map((hold) => `<article><h4>${escapeHtml(hold.treatment_id)}</h4><p>${escapeHtml(hold.rationale)}</p><p><strong>Blockers:</strong></p><ul>${stringList(hold.blockers)}</ul><p><strong>Revisit when:</strong></p><ul>${stringList(hold.revisit_when)}</ul><small>Evidence: ${refs(hold.evidence_refs)} · Human-reviewed inference</small></article>`).join("")}</div>
+  </section>`;
+}
+
 const JOURNEY_GRAPH_SURFACE_ORDER = Object.freeze(["search", "website", "social", "reputation"]);
 const JOURNEY_GRAPH_SLOTS = Object.freeze([
   Object.freeze({ x: 380, y: 82 }),
@@ -1178,6 +1265,29 @@ function localizeReportHtml(html, locale) {
     ["An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>$2,500</span> Sprint total.", "Проверка разрешённого внутреннего пути только при наличии evidence. Если Check непосредственно продолжается следующим 30-дневным Growth Sprint CAESTHETIC по подтверждённому ограничению, $500 один раз засчитываются в общую стоимость Sprint <span data-cae-sprint-price>$2,500</span>."],
     ["No enquiry, booking, patient, revenue or ROI outcome is promised.", "Результат по обращениям, записям, пациентам, выручке или окупаемости не обещается."],
     ["What to protect, watch, fix or verify", "Что сохранить, наблюдать, исправить или проверить"],
+    ["Derived decision intelligence · Existing evidence only", "Производная аналитика решений · Только существующие evidence"],
+    ["Treatment, provider, trust and friction views", "Разрезы по услугам, специалистам, доверию и трению"],
+    ["These views reorganize the reviewed Growth Score evidence. They add no source, surface, weight, score or automatic priority decision.", "Эти представления систематизируют проверенные evidence Growth Score. Они не добавляют источник, поверхность, вес, балл или автоматический выбор приоритета."],
+    ["Treatment Opportunity Matrix", "Матрица возможностей по услугам"],
+    ["Treatment-by-surface evidence has not been reviewed.", "Evidence по услугам и поверхностям не проверены."],
+    ["Provider Visibility Map", "Карта видимости специалистов"],
+    ["Provider identity and proof have not been reviewed across the Four Surfaces.", "Идентичность и подтверждения специалистов не проверены по четырём поверхностям."],
+    ["Trust Chain", "Цепочка доверия"],
+    ["No treatment-specific identity, provider, proof and next-action chain has been reviewed.", "Цепочка идентичности, услуги, специалиста, подтверждений и следующего действия не проверена."],
+    ["Patient Friction Index", "Индекс трения на пути пациента"],
+    ["No treatment-specific public path has enough reviewed evidence for a categorical friction signal.", "Для категориального сигнала трения по услуге недостаточно проверенных evidence публичного пути."],
+    ["Do Not Promote Yet by Treatment · Human-approved", "Пока не продвигать по услугам · Утверждено человеком"],
+    ["Do Not Promote Yet by Treatment · UNSCORED", "Пока не продвигать по услугам · БЕЗ БАЛЛА"],
+    ["Hold promotion until the named public-evidence blockers are closed", "Не продвигать, пока указанные блокеры по публичным evidence не закрыты"],
+    ["No treatment-specific promotion hold has been approved. This is not permission to promote a treatment.", "Ограничение на продвижение конкретной услуги не утверждено. Это не разрешение продвигать услугу."],
+    ["Missing evidence stays unscored and does not create a gap, funding decision or promotion approval.", "Недостающие evidence остаются без оценки и не создают разрыв, решение о финансировании или разрешение на продвижение."],
+    ["This index is a categorical view of reviewed public-path states. It is not a score and does not change Overall or Focus Selection.", "Этот индекс — категориальное представление проверенных состояний публичного пути. Это не балл; он не меняет Overall или Focus Selection."],
+    ["Human-reviewed inference", "Вывод проверен человеком"],
+    ["Needs verification", "Нужна проверка"],
+    ["CATEGORICAL · UNSCORED", "КАТЕГОРИЯ · БЕЗ БАЛЛА"],
+    ["UNSCORED", "БЕЗ БАЛЛА"],
+    ["Revisit when:", "Вернуться, когда:"],
+    ["Blockers:", "Блокеры:"],
     ["Cross-Surface Connections Overview", "Обзор связей между поверхностями"],
     ["Primary representative route", "Главный репрезентативный маршрут"],
     ["Surface health", "Состояние поверхностей"],
@@ -1450,6 +1560,23 @@ function localizeReportHtml(html, locale) {
 }
 
 const PILOT_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
+  ["Treatment Opportunity Matrix", "Матрица возможностей по услугам"],
+  ["Treatment-by-surface evidence has not been reviewed.", "Evidence по услугам и поверхностям не проверены."],
+  ["Provider Visibility Map", "Карта видимости специалистов"],
+  ["Provider identity and proof have not been reviewed across the Four Surfaces.", "Идентичность и подтверждения специалистов не проверены по четырём поверхностям."],
+  ["Trust Chain", "Цепочка доверия"],
+  ["No treatment-specific identity, provider, proof and next-action chain has been reviewed.", "Цепочка идентичности, услуги, специалиста, подтверждений и следующего действия не проверена."],
+  ["Patient Friction Index", "Индекс трения на пути пациента"],
+  ["No treatment-specific public path has enough reviewed evidence for a categorical friction signal.", "Для категориального сигнала трения по услуге недостаточно проверенных evidence публичного пути."],
+  ["Do Not Promote Yet by Treatment", "Пока не продвигать по услугам"],
+  ["No treatment-specific promotion hold has been approved. This is not permission to promote a treatment.", "Ограничение на продвижение конкретной услуги не утверждено. Это не разрешение продвигать услугу."],
+  ["Missing evidence stays unscored and does not create a gap, funding decision or promotion approval.", "Недостающие evidence остаются без оценки и не создают разрыв, решение о финансировании или разрешение на продвижение."],
+  ["Derived decision intelligence", "Производная аналитика решений"],
+  ["Existing evidence only", "Только существующие evidence"],
+  ["Treatment, provider, trust and friction views", "Разрезы по услугам, специалистам, доверию и трению"],
+  ["These views reorganize the reviewed Growth Score evidence. They add no source, surface, weight, score or automatic priority decision.", "Эти представления систематизируют проверенные evidence Growth Score. Они не добавляют источник, поверхность, вес, балл или автоматический выбор приоритета."],
+  ["Needs verification", "Нужна проверка"],
+  ["UNSCORED", "БЕЗ БАЛЛА"],
   ["Playa de las Americas", "Плая-де-лас-Америкас"],
   ["Las Americas", "Лас-Америкас"],
   ["San Isidro", "Сан-Исидро"],
@@ -1710,6 +1837,7 @@ ${growthScoreIntroHtml(report)}
       ${isNetworkParent ? `${networkRiskProfileHtml(report)}${networkFocusDecisionHtml(report)}${networkComparisonHtml(report)}${networkJourneyAtlasHtml(report)}` : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
       ${isNetworkParent ? "" : surfaceSnapshotHtml(report, result)}
       ${isNetworkParent ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
+      ${growthScoreDecisionViewsHtml(result.decisionViews)}
       <div class="cae-gap-map__legend" aria-label="Gap Map legend">
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
@@ -1771,6 +1899,7 @@ ${growthScoreIntroHtml(report)}
         <p><strong>Revisit after:</strong></p>
         <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
       </article>
+      ${doNotPromoteYetByTreatmentHtml(result.decisionViews.do_not_promote_yet_by_treatment)}
     </div>
   </section>
 

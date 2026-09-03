@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  approveDecisionViewsNotAssessed,
   approveJourneyGraphNotAssessed,
   createGrowthScoreReportTemplate,
 } from "./growth-score-report-template.mjs";
@@ -206,6 +207,10 @@ const competitors = [
 
 const report = {
   ...template,
+  decisionViews: approveDecisionViewsNotAssessed(template.decisionViews, {
+    reviewedBy: "Амир",
+    reviewedAt: approvedAt,
+  }),
   journeyGraph: approveJourneyGraphNotAssessed(template.journeyGraph, {
     artifactId: "prestige-tenerife-2026-journey-graph-v1",
     reviewedBy: "Амир",

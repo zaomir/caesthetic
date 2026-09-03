@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.8
+version: 2.9
 created: 2026-08-30
-updated: 2026-09-02
+updated: 2026-09-03
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
 project_master: docs/ssot/CAESTHETIC.md
 related:
@@ -315,6 +315,7 @@ The robot compiles an internal, non-publishable report containing:
 - proposed binding constraint;
 - proposed competitor decisions;
 - proposed `Do Not Fund Yet`;
+- draft Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and candidate `Do Not Promote Yet by Treatment` holds, derived only from the already collected Growth Score evidence;
 - Repair Plan for every verified gap;
 - candidate risk order;
 - candidate Primary Gap and exactly two candidate Supporting Gaps;
@@ -353,7 +354,8 @@ The named manager reviews the internal report and must:
 11. allow at most one `start_in_30_days` gap;
 12. confirm the Primary Gap as the binding constraint;
 13. approve exactly one `Do Not Fund Yet`;
-14. record rationale, name and timestamp.
+14. approve or reject treatment mapping, provider resolution, trust inferences, friction classifications and every proposed treatment-specific promotion hold; absence of an approved hold is not permission to promote;
+15. record rationale, name and timestamp.
 
 The manager normally chooses from the robot's highest-risk candidates. The manager may reject or reorder them when evidence, dependency or 30-day feasibility requires it, but must record the reason. Human approval, not AI rank, controls publication.
 
@@ -374,7 +376,8 @@ Create an append-only review trail and freeze a versioned verified fact set. Fin
 - facts in the frozen set;
 - visibly labelled Class B items whose method and assumptions were approved;
 - the named-human Focus Selection;
-- the approved competitor decisions and Do Not Fund Yet.
+- the approved competitor decisions and Do Not Fund Yet;
+- the five reviewed decision views, whose references resolve only to existing frozen Growth Score evidence.
 
 Any new fact requires a new review event, fact-set version and approval. AI approval, an unnamed reviewer or a visually plausible draft is insufficient.
 
@@ -402,7 +405,7 @@ Then render exactly nine counted sections in this order:
 8. Scores and methodology (`scores-and-methodology`);
 9. Next step (`next-step`).
 
-The nine sections preserve the full v5 decision package: diagnosis and executive context live in Gap Map; complete remediation stays in Sprint Fit and Repair Paths; evidence, competitors, scores and limitations retain their dedicated combined sections; and Next step carries all four implementation paths, honest `Why CAESTHETIC / Why the 30-Day Sprint`, client ownership/no lock-in and the one optional CTA.
+The nine sections preserve the full v5 decision package: diagnosis, executive context and the four derived treatment/provider/trust/friction views live in Gap Map; the unscored `Do Not Promote Yet by Treatment` view lives with the global decision in Do Not Fund Yet; complete remediation stays in Sprint Fit and Repair Paths; evidence, competitors, scores and limitations retain their dedicated combined sections; and Next step carries all four implementation paths, honest `Why CAESTHETIC / Why the 30-Day Sprint`, client ownership/no lock-in and the one optional CTA. The derived views add no source, surface, weight, score, automatic constraint/Top 3 selection or automatic promotion decision.
 
 The page shows the exactly three human-approved highest-risk Focus Gaps first. Scores remain secondary, `/100` is absent from the hero, and there is one Sprint CTA.
 
@@ -602,6 +605,7 @@ An audit is deliverable only when all are true:
 - competitor proposal approved or corrected before full research;
 - only public, dated and reproducible evidence used;
 - Four Surfaces, Cross-Surface and applicable competitor analysis complete;
+- one reviewed `decisionViews` artifact presents the five unscored views from existing approved evidence only; unsupported mappings are `not_assessed`, all automation flags are false, and named-human inference/promotion-hold approval passes;
 - full Gap Inventory exists;
 - internal AI candidate risk order exists and is marked non-publishable;
 - named manager selected one Primary plus exactly two Supporting Gaps;

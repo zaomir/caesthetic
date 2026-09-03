@@ -73,6 +73,7 @@ protected_in_target:
   - scripts/caesthetic/render-growth-score.mjs
   - scripts/caesthetic/sync_agents_bidirectional.py
   - tests/caesthetic/growth-score-engine.test.mjs
+  - tests/caesthetic/growth-score-decision-views.test.mjs
   - tests/caesthetic/growth-score-journey-graph.test.mjs
   - tests/caesthetic/growth-score-renderer.test.mjs
   - tests/caesthetic/growth-score-publish-control-plane.test.mjs

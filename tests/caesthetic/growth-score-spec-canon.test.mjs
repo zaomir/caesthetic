@@ -5,6 +5,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 import {
   CANONICAL_METRICS,
+  DECISION_VIEWS_ARTIFACT_VERSION,
   GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
   JOURNEY_GRAPH_ARTIFACT_VERSION,
   scoreGrowthReport,
@@ -90,6 +91,14 @@ test("canonical authoring template derives exact metrics and fails closed", () =
   assert.equal(report.journeyGraph.assessment_status, "not_assessed");
   assert.equal(report.journeyGraph.automatic_score_change, false);
   assert.equal(report.journeyGraph.review.status, "pending");
+  assert.equal(report.decisionViews.artifact_version, DECISION_VIEWS_ARTIFACT_VERSION);
+  assert.equal(report.decisionViews.assessment_status, "not_assessed");
+  assert.equal(report.decisionViews.source_policy, "existing_growth_score_evidence_only");
+  assert.equal(report.decisionViews.automatic_score_change, false);
+  assert.equal(report.decisionViews.automatic_binding_constraint_selection, false);
+  assert.equal(report.decisionViews.automatic_focus_selection, false);
+  assert.equal(report.decisionViews.automatic_promotion_decision, false);
+  assert.equal(report.decisionViews.review.status, "pending");
 
   for (const surface of report.surfaces) {
     assert.deepEqual(
@@ -167,4 +176,30 @@ test("spec makes schema v5 authoritative and keeps v4 as historical read-only co
   assert.match(spec, /Nohy V Ruky[\s\S]{0,400}(?:server-side password|access_group_id|protected)/i);
   assert.match(spec, /Neither example supplies reusable facts, scores, sources, findings, Focus Selection, approval metadata or commercial language/i);
   assert.match(spec, /There is no other metric catalogue, scoring authority or renderer authority/i);
+});
+
+test("canon defines five unscored views over existing evidence without a fifth surface or automatic decision", () => {
+  const master = read("docs/ssot/CAESTHETIC.md");
+  const spec = read("docs/caesthetic/growth_score_spec.md");
+  const client = read("docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md");
+  const sop = read("docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md");
+  const combined = [master, spec, client, sop].join("\n");
+
+  for (const view of [
+    "Treatment Opportunity Matrix",
+    "Provider Visibility Map",
+    "Trust Chain",
+    "Patient Friction Index",
+    "Do Not Promote Yet by Treatment",
+  ]) assert.match(combined, new RegExp(view));
+  assert.match(spec, /growth-score-decision-views\/1\.0\.0/);
+  assert.match(spec, /existing_growth_score_evidence_only/);
+  assert.match(spec, /automatic_score_change[\s\S]{0,100}false/);
+  assert.match(spec, /automatic_binding_constraint_selection[\s\S]{0,100}false/);
+  assert.match(spec, /automatic_focus_selection[\s\S]{0,100}false/);
+  assert.match(spec, /automatic_promotion_decision[\s\S]{0,100}false/);
+  assert.match(client, /first four views render[\s\S]{0,160}`gap-map`/i);
+  assert.match(client, /Do Not Promote Yet by Treatment[\s\S]{0,160}`do-not-fund`/i);
+  assert.match(sop, /existing approved evidence only/i);
+  assert.match(spec, /LinkedIn\/Reddit ingestion/);
 });

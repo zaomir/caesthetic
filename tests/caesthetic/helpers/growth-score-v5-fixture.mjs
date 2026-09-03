@@ -1,5 +1,6 @@
 import {
   CANONICAL_METRICS,
+  DECISION_VIEWS_ARTIFACT_VERSION,
   GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
   JOURNEY_GRAPH_ARTIFACT_VERSION,
   SURFACE_WEIGHTS,
@@ -285,6 +286,97 @@ export function createJourneyGraphFixture() {
       severity_approved: true,
     },
   };
+}
+
+const decisionAssessment = (status, summary, evidence_refs, assessment_basis = "observed", extra = {}) => ({
+  status,
+  summary,
+  evidence_refs,
+  assessment_basis: status === "not_assessed" ? null : assessment_basis,
+  ...(assessment_basis === "human_inference" && status !== "not_assessed" ? {
+    method: "Named-human synthesis of approved Growth Score evidence.",
+    assumptions: ["Only the referenced public evidence is in scope."],
+  } : {}),
+  ...extra,
+});
+
+export function createDecisionViewsFixture(overrides = {}) {
+  const artifact = {
+    artifact_version: DECISION_VIEWS_ARTIFACT_VERSION,
+    assessment_status: "assessed",
+    source_policy: "existing_growth_score_evidence_only",
+    automatic_score_change: false,
+    automatic_binding_constraint_selection: false,
+    automatic_focus_selection: false,
+    automatic_promotion_decision: false,
+    treatments: [{
+      id: "neuromodulator",
+      label: "Neuromodulator",
+      priority: "priority",
+      surfaces: {
+        search: decisionAssessment("protect", "The treatment is observable in local discovery.", ["search.gbp_treatment_category_completeness"]),
+        website: decisionAssessment("fix_now", "Treatment detail does not yet support a confident next step.", ["website.treatment_clarity"], "human_inference"),
+        social: decisionAssessment("watch", "Treatment proof is present but incomplete.", ["social.priority_treatment_presence"]),
+        reputation: decisionAssessment("protect", "Treatment-linked public proof is observable.", ["reputation.treatment_clinician_proof"]),
+      },
+    }],
+    providers: [{
+      id: "provider-a",
+      label: "Provider A",
+      role: "Injector",
+      treatment_ids: ["neuromodulator"],
+      surfaces: {
+        search: decisionAssessment("not_assessed", "Provider visibility was not assessed in Search.", []),
+        website: decisionAssessment("visible", "Provider identity and credentials are observable.", ["website.clinician_trust_proof"]),
+        social: decisionAssessment("partial", "Provider expertise is visible but not consistently linked to treatment proof.", ["social.clinician_expertise"], "human_inference"),
+        reputation: decisionAssessment("visible", "Public proof names the provider and treatment.", ["reputation.treatment_clinician_proof"]),
+      },
+    }],
+    trust_chains: [{
+      id: "neuromodulator-provider-a",
+      label: "Neuromodulator trust chain",
+      treatment_id: "neuromodulator",
+      provider_id: "provider-a",
+      links: {
+        identity: decisionAssessment("connected", "Practice identity is coherent.", ["cross.identity_coherence"]),
+        treatment: decisionAssessment("friction", "Treatment context weakens between surfaces.", ["cross.treatment_presence"], "human_inference"),
+        provider: decisionAssessment("connected", "Named provider proof is observable.", ["website.clinician_trust_proof"]),
+        proof: decisionAssessment("friction", "Proof does not remain continuous to the decision point.", ["cross.proof_continuity"], "human_inference"),
+        next_action: decisionAssessment("broken", "The next action loses treatment context.", ["cross.conversion_continuity"]),
+      },
+    }],
+    friction_paths: [{
+      treatment_id: "neuromodulator",
+      stages: {
+        discovery: decisionAssessment("clear", "The treatment can be discovered.", ["search.gbp_treatment_category_completeness"]),
+        trust: decisionAssessment("friction", "Proof continuity is incomplete.", ["cross.proof_continuity"], "human_inference"),
+        enquiry: decisionAssessment("friction", "The first conversion step is not fully clear.", ["website.above_fold_conversion"], "human_inference"),
+        booking: decisionAssessment("broken", "The booking path contains a confirmed break.", ["website.booking_friction"]),
+      },
+    }],
+    promotion_holds: [{
+      treatment_id: "neuromodulator",
+      decision: "do_not_promote_yet",
+      rationale: "Additional promotion would send demand into a treatment path with a confirmed booking break.",
+      blockers: ["Repair and verify the treatment-specific booking path."],
+      revisit_when: ["The same public path passes the booking acceptance check."],
+      evidence_refs: ["website.booking_friction", "cross.conversion_continuity"],
+      assessment_basis: "human_inference",
+      method: "Named-human review of the treatment path against approved evidence.",
+      assumptions: ["No private operations evidence is inferred."],
+    }],
+    review: {
+      status: "approved",
+      reviewed_by: "Morgan Reed",
+      reviewed_at: "2026-08-11T13:00:00Z",
+      treatment_mapping_approved: true,
+      provider_resolution_approved: true,
+      trust_inferences_approved: true,
+      friction_classification_approved: true,
+      promotion_holds_approved: true,
+    },
+  };
+  return { ...artifact, ...overrides };
 }
 
 export function createV5Report(scores = { search: 40, website: 60, social: 80, reputation: 100, cross: 5 }, overrides = {}) {

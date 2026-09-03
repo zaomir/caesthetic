@@ -2,6 +2,7 @@
 import { fileURLToPath } from "node:url";
 import {
   CANONICAL_METRICS,
+  DECISION_VIEWS_ARTIFACT_VERSION,
   GROWTH_SCORE_REPORT_TEMPLATE_VERSION,
   GROWTH_SCORE_SCHEMA_VERSION,
   JOURNEY_GRAPH_ARTIFACT_VERSION,
@@ -206,6 +207,56 @@ export function approveJourneyGraphNotAssessed(graph, { artifactId, reviewedBy, 
   };
 }
 
+export function createDecisionViewsTemplate() {
+  return {
+    artifact_version: DECISION_VIEWS_ARTIFACT_VERSION,
+    assessment_status: "not_assessed",
+    source_policy: "existing_growth_score_evidence_only",
+    automatic_score_change: false,
+    automatic_binding_constraint_selection: false,
+    automatic_focus_selection: false,
+    automatic_promotion_decision: false,
+    treatments: [],
+    providers: [],
+    trust_chains: [],
+    friction_paths: [],
+    promotion_holds: [],
+    review: {
+      status: "pending",
+      reviewed_by: null,
+      reviewed_at: null,
+      treatment_mapping_approved: false,
+      provider_resolution_approved: false,
+      trust_inferences_approved: false,
+      friction_classification_approved: false,
+      promotion_holds_approved: false,
+    },
+  };
+}
+
+export function approveDecisionViewsNotAssessed(decisionViews, { reviewedBy, reviewedAt }) {
+  if (!decisionViews || typeof decisionViews !== "object") throw new TypeError("decisionViews template is required");
+  return {
+    ...decisionViews,
+    assessment_status: "not_assessed",
+    treatments: [],
+    providers: [],
+    trust_chains: [],
+    friction_paths: [],
+    promotion_holds: [],
+    review: {
+      status: "approved",
+      reviewed_by: reviewedBy,
+      reviewed_at: reviewedAt,
+      treatment_mapping_approved: true,
+      provider_resolution_approved: true,
+      trust_inferences_approved: true,
+      friction_classification_approved: true,
+      promotion_holds_approved: true,
+    },
+  };
+}
+
 export function createLegacyGrowthScoreV4ReportTemplate() {
   const competitors = [1, 2, 3].map(createCompetitorSlot);
   return {
@@ -345,6 +396,7 @@ export function createGrowthScoreReportTemplate() {
     rationale: "Pending named-human Focus Selection after the complete Gap Inventory is reviewed.",
   };
   report.journeyGraph = createJourneyGraphTemplate();
+  report.decisionViews = createDecisionViewsTemplate();
   return report;
 }
 

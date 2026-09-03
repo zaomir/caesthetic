@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  approveDecisionViewsNotAssessed,
   approveJourneyGraphNotAssessed,
   createGrowthScoreReportTemplate,
 } from "./growth-score-report-template.mjs";
@@ -209,6 +210,10 @@ const decision = (title, rationale, evidence_refs) => ({ title, rationale, evide
 const template = createGrowthScoreReportTemplate();
 const report = {
   ...template,
+  decisionViews: approveDecisionViewsNotAssessed(template.decisionViews, {
+    reviewedBy: "Travis Warner",
+    reviewedAt: approvedAt,
+  }),
   journeyGraph: approveJourneyGraphNotAssessed(template.journeyGraph, {
     artifactId: "nohy-v-ruky-odesa-2026-journey-graph-v1",
     reviewedBy: "Travis Warner",

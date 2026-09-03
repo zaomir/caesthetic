@@ -117,6 +117,11 @@ export const JOURNEY_GRAPH_METRIC_REFS = Object.freeze([
   "cross.positioning_coherence",
   "cross.proof_continuity",
 ]);
+export const DECISION_VIEWS_ARTIFACT_VERSION = "growth-score-decision-views/1.0.0";
+export const DECISION_VIEW_TREATMENT_STATUSES = Object.freeze(["protect", "watch", "fix_now", "not_assessed"]);
+export const DECISION_VIEW_PROVIDER_STATUSES = Object.freeze(["visible", "partial", "not_visible", "not_assessed"]);
+export const DECISION_VIEW_TRUST_STATUSES = Object.freeze(["connected", "friction", "broken", "not_assessed"]);
+export const DECISION_VIEW_FRICTION_STATUSES = Object.freeze(["clear", "friction", "broken", "not_assessed"]);
 export const VERTICAL_CONTEXTS = GROWTH_SCORE_VERTICAL_CONTEXTS;
 export const REPORT_LOCALES = GROWTH_SCORE_REPORT_LOCALES;
 export const GROWTH_SCORE_VERTICAL_SOURCES = Object.freeze([
@@ -175,6 +180,9 @@ const JOURNEY_GRAPH_ACTION_TYPES = Object.freeze([
   "other",
 ]);
 const JOURNEY_GRAPH_JOURNEY_KINDS = Object.freeze(["strongest", "primary_constraint", "supporting"]);
+const DECISION_VIEW_ASSESSMENT_BASES = Object.freeze(["observed", "human_inference"]);
+const DECISION_VIEW_TRUST_LINKS = Object.freeze(["identity", "treatment", "provider", "proof", "next_action"]);
+const DECISION_VIEW_FRICTION_STAGES = Object.freeze(["discovery", "trust", "enquiry", "booking"]);
 const NON_HUMAN_REVIEWER = /\b(?:ai|assistant|automation|automated|bot|model|system|anonymous|unknown|pending|unassigned)\b/i;
 
 export class EvidenceIncompleteError extends TypeError {
@@ -867,6 +875,231 @@ function validateEvidenceRefs(refs, context, evidenceIndex) {
   }
 }
 
+function emptyDecisionViews() {
+  const empty = (id) => Object.freeze({ id, status: "not_assessed", items: Object.freeze([]) });
+  return Object.freeze({
+    artifact_version: DECISION_VIEWS_ARTIFACT_VERSION,
+    assessment_status: "not_assessed",
+    treatment_opportunity_matrix: empty("treatment_opportunity_matrix"),
+    provider_visibility_map: empty("provider_visibility_map"),
+    trust_chain: empty("trust_chain"),
+    patient_friction_index: empty("patient_friction_index"),
+    do_not_promote_yet_by_treatment: empty("do_not_promote_yet_by_treatment"),
+  });
+}
+
+function validateDecisionViewAssessment(value, context, statuses, evidenceIndex) {
+  invariant(value && typeof value === "object" && !Array.isArray(value), `${context} must be an object`);
+  invariant(statuses.includes(value.status), `${context}.status is invalid`);
+  nonEmptyString(value.summary, `${context}.summary`);
+  invariant(Array.isArray(value.evidence_refs), `${context}.evidence_refs must be an array`);
+  if (value.status === "not_assessed") {
+    invariant(value.evidence_refs.length === 0, `${context}.evidence_refs must be empty when not_assessed`);
+    invariant(value.assessment_basis === null || value.assessment_basis === undefined, `${context}.assessment_basis must be null when not_assessed`);
+    return;
+  }
+  invariant(DECISION_VIEW_ASSESSMENT_BASES.includes(value.assessment_basis), `${context}.assessment_basis is invalid`);
+  validateEvidenceRefs(value.evidence_refs, context, evidenceIndex);
+  if (value.assessment_basis === "human_inference") {
+    nonEmptyString(value.method, `${context}.method`);
+    validateStringArray(value.assumptions, `${context}.assumptions`, { nonEmpty: true });
+  }
+}
+
+function decisionViewStatus(items) {
+  return items.length > 0 ? "assessed" : "not_assessed";
+}
+
+export function deriveGrowthScoreDecisionViews(artifact) {
+  if (!artifact || artifact.assessment_status !== "assessed") return emptyDecisionViews();
+  const treatmentItems = artifact.treatments.map((treatment) => Object.freeze({
+    id: treatment.id,
+    label: treatment.label,
+    priority: treatment.priority,
+    surfaces: Object.freeze(Object.fromEntries(REQUIRED_SURFACES.map((surface) => [surface, treatment.surfaces[surface]]))),
+    observed_surface_count: REQUIRED_SURFACES.filter((surface) => treatment.surfaces[surface].status !== "not_assessed").length,
+  }));
+  const providerItems = artifact.providers.map((provider) => Object.freeze({
+    id: provider.id,
+    label: provider.label,
+    role: provider.role,
+    treatment_ids: Object.freeze([...provider.treatment_ids]),
+    surfaces: Object.freeze(Object.fromEntries(REQUIRED_SURFACES.map((surface) => [surface, provider.surfaces[surface]]))),
+    observed_surface_count: REQUIRED_SURFACES.filter((surface) => provider.surfaces[surface].status !== "not_assessed").length,
+  }));
+  const trustRank = { connected: 1, not_assessed: 2, friction: 3, broken: 4 };
+  const trustItems = artifact.trust_chains.map((chain) => {
+    const assessedLinks = DECISION_VIEW_TRUST_LINKS.filter((id) => chain.links[id].status !== "not_assessed");
+    const weakest = assessedLinks.reduce((current, id) => (
+      trustRank[chain.links[id].status] > trustRank[current] ? chain.links[id].status : current
+    ), "connected");
+    return Object.freeze({
+      id: chain.id,
+      label: chain.label,
+      treatment_id: chain.treatment_id,
+      provider_id: chain.provider_id,
+      links: Object.freeze(Object.fromEntries(DECISION_VIEW_TRUST_LINKS.map((id) => [id, chain.links[id]]))),
+      status: assessedLinks.length ? weakest : "not_assessed",
+      assessed_link_count: assessedLinks.length,
+    });
+  });
+  const frictionItems = artifact.friction_paths.map((path) => {
+    const assessedStages = DECISION_VIEW_FRICTION_STAGES.filter((id) => path.stages[id].status !== "not_assessed");
+    const brokenCount = assessedStages.filter((id) => path.stages[id].status === "broken").length;
+    const frictionCount = assessedStages.filter((id) => path.stages[id].status === "friction").length;
+    return Object.freeze({
+      treatment_id: path.treatment_id,
+      stages: Object.freeze(Object.fromEntries(DECISION_VIEW_FRICTION_STAGES.map((id) => [id, path.stages[id]]))),
+      status: brokenCount ? "broken" : frictionCount ? "friction" : assessedStages.length ? "clear" : "not_assessed",
+      coverage_status: assessedStages.length === 0 ? "not_assessed" : assessedStages.length === DECISION_VIEW_FRICTION_STAGES.length ? "complete" : "partial",
+      assessed_stage_count: assessedStages.length,
+      friction_point_count: frictionCount,
+      confirmed_break_count: brokenCount,
+    });
+  });
+  const holdItems = artifact.promotion_holds.map((hold) => Object.freeze({ ...hold }));
+  return Object.freeze({
+    artifact_version: artifact.artifact_version,
+    assessment_status: artifact.assessment_status,
+    treatment_opportunity_matrix: Object.freeze({ id: "treatment_opportunity_matrix", status: decisionViewStatus(treatmentItems), items: Object.freeze(treatmentItems) }),
+    provider_visibility_map: Object.freeze({ id: "provider_visibility_map", status: decisionViewStatus(providerItems), items: Object.freeze(providerItems) }),
+    trust_chain: Object.freeze({ id: "trust_chain", status: decisionViewStatus(trustItems), items: Object.freeze(trustItems) }),
+    patient_friction_index: Object.freeze({ id: "patient_friction_index", status: decisionViewStatus(frictionItems), items: Object.freeze(frictionItems) }),
+    do_not_promote_yet_by_treatment: Object.freeze({ id: "do_not_promote_yet_by_treatment", status: decisionViewStatus(holdItems), items: Object.freeze(holdItems) }),
+  });
+}
+
+export function validateGrowthScoreDecisionViews(artifact, evidenceIndex, report, { publication = false } = {}) {
+  invariant(artifact && typeof artifact === "object" && !Array.isArray(artifact), "decisionViews must be an object");
+  invariant(artifact.artifact_version === DECISION_VIEWS_ARTIFACT_VERSION, `decisionViews.artifact_version must be ${DECISION_VIEWS_ARTIFACT_VERSION}`);
+  invariant(["assessed", "not_assessed"].includes(artifact.assessment_status), "decisionViews.assessment_status must be assessed or not_assessed");
+  invariant(artifact.source_policy === "existing_growth_score_evidence_only", "decisionViews.source_policy must be existing_growth_score_evidence_only");
+  for (const field of ["automatic_score_change", "automatic_binding_constraint_selection", "automatic_focus_selection", "automatic_promotion_decision"]) {
+    invariant(artifact[field] === false, `decisionViews.${field} must be false`);
+  }
+  for (const field of ["treatments", "providers", "trust_chains", "friction_paths", "promotion_holds"]) {
+    invariant(Array.isArray(artifact[field]), `decisionViews.${field} must be an array`);
+  }
+  if (artifact.assessment_status === "not_assessed") {
+    for (const field of ["treatments", "providers", "trust_chains", "friction_paths", "promotion_holds"]) {
+      invariant(artifact[field].length === 0, `decisionViews.${field} must be empty when not_assessed`);
+    }
+  } else {
+    invariant(artifact.treatments.length > 0, "decisionViews.treatments must not be empty when assessed");
+  }
+
+  const treatmentIds = new Set();
+  artifact.treatments.forEach((treatment, index) => {
+    const context = `decisionViews.treatments[${index}]`;
+    invariant(treatment && typeof treatment === "object" && !Array.isArray(treatment), `${context} must be an object`);
+    nonEmptyString(treatment.id, `${context}.id`);
+    invariant(!treatmentIds.has(treatment.id), `decisionViews.treatments has duplicate id ${treatment.id}`);
+    treatmentIds.add(treatment.id);
+    nonEmptyString(treatment.label, `${context}.label`);
+    invariant(["priority", "secondary", "observed"].includes(treatment.priority), `${context}.priority is invalid`);
+    invariant(treatment.surfaces && typeof treatment.surfaces === "object" && !Array.isArray(treatment.surfaces), `${context}.surfaces must be an object`);
+    invariant(Object.keys(treatment.surfaces).length === REQUIRED_SURFACES.length, `${context}.surfaces must contain exactly the Four Surfaces`);
+    REQUIRED_SURFACES.forEach((surface) => validateDecisionViewAssessment(
+      treatment.surfaces[surface],
+      `${context}.surfaces.${surface}`,
+      DECISION_VIEW_TREATMENT_STATUSES,
+      evidenceIndex,
+    ));
+  });
+
+  const providerIds = new Set();
+  artifact.providers.forEach((provider, index) => {
+    const context = `decisionViews.providers[${index}]`;
+    invariant(provider && typeof provider === "object" && !Array.isArray(provider), `${context} must be an object`);
+    nonEmptyString(provider.id, `${context}.id`);
+    invariant(!providerIds.has(provider.id), `decisionViews.providers has duplicate id ${provider.id}`);
+    providerIds.add(provider.id);
+    nonEmptyString(provider.label, `${context}.label`);
+    nonEmptyString(provider.role, `${context}.role`);
+    validateStringArray(provider.treatment_ids, `${context}.treatment_ids`);
+    provider.treatment_ids.forEach((id) => invariant(treatmentIds.has(id), `${context}.treatment_ids references unknown treatment ${id}`));
+    invariant(provider.surfaces && typeof provider.surfaces === "object" && !Array.isArray(provider.surfaces), `${context}.surfaces must be an object`);
+    invariant(Object.keys(provider.surfaces).length === REQUIRED_SURFACES.length, `${context}.surfaces must contain exactly the Four Surfaces`);
+    REQUIRED_SURFACES.forEach((surface) => validateDecisionViewAssessment(
+      provider.surfaces[surface],
+      `${context}.surfaces.${surface}`,
+      DECISION_VIEW_PROVIDER_STATUSES,
+      evidenceIndex,
+    ));
+  });
+
+  const trustIds = new Set();
+  artifact.trust_chains.forEach((chain, index) => {
+    const context = `decisionViews.trust_chains[${index}]`;
+    invariant(chain && typeof chain === "object" && !Array.isArray(chain), `${context} must be an object`);
+    nonEmptyString(chain.id, `${context}.id`);
+    invariant(!trustIds.has(chain.id), `decisionViews.trust_chains has duplicate id ${chain.id}`);
+    trustIds.add(chain.id);
+    nonEmptyString(chain.label, `${context}.label`);
+    invariant(treatmentIds.has(chain.treatment_id), `${context}.treatment_id references unknown treatment ${String(chain.treatment_id)}`);
+    invariant(chain.provider_id === null || providerIds.has(chain.provider_id), `${context}.provider_id references unknown provider ${String(chain.provider_id)}`);
+    invariant(chain.links && typeof chain.links === "object" && !Array.isArray(chain.links), `${context}.links must be an object`);
+    invariant(Object.keys(chain.links).length === DECISION_VIEW_TRUST_LINKS.length, `${context}.links must contain exactly the canonical trust links`);
+    DECISION_VIEW_TRUST_LINKS.forEach((link) => validateDecisionViewAssessment(
+      chain.links[link],
+      `${context}.links.${link}`,
+      DECISION_VIEW_TRUST_STATUSES,
+      evidenceIndex,
+    ));
+  });
+
+  const frictionTreatmentIds = new Set();
+  artifact.friction_paths.forEach((path, index) => {
+    const context = `decisionViews.friction_paths[${index}]`;
+    invariant(path && typeof path === "object" && !Array.isArray(path), `${context} must be an object`);
+    invariant(treatmentIds.has(path.treatment_id), `${context}.treatment_id references unknown treatment ${String(path.treatment_id)}`);
+    invariant(!frictionTreatmentIds.has(path.treatment_id), `decisionViews.friction_paths has duplicate treatment_id ${path.treatment_id}`);
+    frictionTreatmentIds.add(path.treatment_id);
+    invariant(path.stages && typeof path.stages === "object" && !Array.isArray(path.stages), `${context}.stages must be an object`);
+    invariant(Object.keys(path.stages).length === DECISION_VIEW_FRICTION_STAGES.length, `${context}.stages must contain exactly discovery, trust, enquiry and booking`);
+    DECISION_VIEW_FRICTION_STAGES.forEach((stage) => validateDecisionViewAssessment(
+      path.stages[stage],
+      `${context}.stages.${stage}`,
+      DECISION_VIEW_FRICTION_STATUSES,
+      evidenceIndex,
+    ));
+  });
+
+  const holdTreatmentIds = new Set();
+  artifact.promotion_holds.forEach((hold, index) => {
+    const context = `decisionViews.promotion_holds[${index}]`;
+    invariant(hold && typeof hold === "object" && !Array.isArray(hold), `${context} must be an object`);
+    invariant(treatmentIds.has(hold.treatment_id), `${context}.treatment_id references unknown treatment ${String(hold.treatment_id)}`);
+    invariant(!holdTreatmentIds.has(hold.treatment_id), `decisionViews.promotion_holds has duplicate treatment_id ${hold.treatment_id}`);
+    holdTreatmentIds.add(hold.treatment_id);
+    invariant(hold.decision === "do_not_promote_yet", `${context}.decision must be do_not_promote_yet`);
+    nonEmptyString(hold.rationale, `${context}.rationale`);
+    validateStringArray(hold.blockers, `${context}.blockers`, { nonEmpty: true });
+    validateStringArray(hold.revisit_when, `${context}.revisit_when`, { nonEmpty: true });
+    validateEvidenceRefs(hold.evidence_refs, context, evidenceIndex);
+    invariant(hold.assessment_basis === "human_inference", `${context}.assessment_basis must be human_inference`);
+    nonEmptyString(hold.method, `${context}.method`);
+    validateStringArray(hold.assumptions, `${context}.assumptions`, { nonEmpty: true });
+  });
+
+  const review = artifact.review;
+  invariant(review && typeof review === "object" && !Array.isArray(review), "decisionViews.review must be an object");
+  invariant(["pending", "approved", "rejected"].includes(review.status), "decisionViews.review.status is invalid");
+  if (publication) {
+    invariant(review.status === "approved", "decisionViews.review.status must be approved for publication");
+    namedHuman(review.reviewed_by, "decisionViews.review.reviewed_by");
+    validTimestamp(review.reviewed_at, "decisionViews.review.reviewed_at");
+    for (const field of ["treatment_mapping_approved", "provider_resolution_approved", "trust_inferences_approved", "friction_classification_approved", "promotion_holds_approved"]) {
+      invariant(review[field] === true, `decisionViews.review.${field} must be true for publication`);
+    }
+    invariant(
+      review.reviewed_by === report.humanDiagnosis?.reviewer?.name,
+      "decisionViews.review.reviewed_by must match humanDiagnosis.reviewer.name",
+    );
+  }
+  return deriveGrowthScoreDecisionViews(artifact);
+}
+
 function inferredEvidenceClass(refs, evidenceIndex) {
   return refs.every((ref) => evidenceIndex.get(ref).evidence_class === "A") ? "A" : "B";
 }
@@ -1452,6 +1685,9 @@ export function scoreGrowthReport(report) {
   invariant(report.crossSurface && typeof report.crossSurface === "object", "crossSurface is required");
   const crossSurface = scoreMetricGroup(report.crossSurface.metrics, CROSS_SURFACE_ID, "crossSurface");
   const evidenceIndex = buildEvidenceIndex(report);
+  const decisionViews = hasOwn(report, "decisionViews")
+    ? validateGrowthScoreDecisionViews(report.decisionViews, evidenceIndex, report, { publication: true })
+    : emptyDecisionViews();
   const diagnosisClasses = validateHumanDiagnosis(report, evidenceIndex);
   validateOwnerExecutionContract(report);
   const evidence = validatePublishedEvidence(report, diagnosisClasses);
@@ -1474,6 +1710,7 @@ export function scoreGrowthReport(report) {
     }),
     evidence,
     journeyGraph,
+    decisionViews,
   });
 }
 

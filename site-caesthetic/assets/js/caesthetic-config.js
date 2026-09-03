@@ -26,12 +26,32 @@ window.CAESTHETIC = {
     name: "Valerie Petra",
     role: "Growth Analyst",
     linkedin: "",
+    linkedinVerified: false,
     photo: "/assets/img/team/valerie-petra.svg",
   },
   /* Approved GA4 web stream. Meta stays dataLayer-only until separately approved. */
   ga4MeasurementId: "G-PNQB0W9YB2",
   metaPixelId: "",
 };
+
+/* Owner-facing accountability layer. The component itself decides which page types qualify. */
+(() => {
+  const href = "/assets/css/point-of-contact.css";
+  if (!document.querySelector(`link[href="${href}"]`)) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
+  }
+
+  const src = "/assets/js/point-of-contact.js";
+  if (!document.querySelector(`script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+})();
 
 /* Global Impeccable execution layer */
 (() => {

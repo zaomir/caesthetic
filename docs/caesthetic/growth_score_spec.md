@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.2.3
-updated: 2026-09-02
-scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
+version: 5.3.0
+updated: 2026-09-03
+scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, five derived decision views, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
 template_contract: growth-score-report-template/5.2.0
 intro_section: unnumbered
@@ -363,6 +363,35 @@ severity_approved = true
 
 The named reviewer approves entity/location resolution, whether a missing route was genuinely expected, semantic/context findings and `friction` versus `broken` severity. This internal audit trail is not rendered as personal attribution in the client report. A pending/rejected graph, unapproved evidence or unsupported red edge fails publication.
 
+### 3.4 Derived Growth Score decision views
+
+Every newly authored or republished report after 2026-09-03 carries a `decisionViews` artifact under `growth-score-decision-views/1.0.0`. The field remains optional at schema validation only for deterministic rendering of frozen earlier schema-v5 reports. The canonical authoring template always emits it; where reviewed evidence cannot support the mappings, publication uses a named-human-approved `assessment_status="not_assessed"` artifact with empty collections rather than deleting the slot or inventing a finding.
+
+The artifact reorganizes **only the report's existing approved metric evidence** (`source_policy="existing_growth_score_evidence_only"`). It has no independent source registry, URLs, scraped payloads or score inputs. Every non-empty `evidence_refs` item must resolve to a final approved Search, Website, Social, Reputation or Cross-Surface metric already present in the report.
+
+It derives exactly five owner decision views:
+
+1. **Treatment Opportunity Matrix** — treatment × exact Four Surfaces, with `protect | watch | fix_now | not_assessed` cells.
+2. **Provider Visibility Map** — resolved provider × exact Four Surfaces, with `visible | partial | not_visible | not_assessed` cells and explicit treatment links.
+3. **Trust Chain** — treatment/provider chains across `identity → treatment → provider → proof → next_action`, with `connected | friction | broken | not_assessed` links.
+4. **Patient Friction Index** — a categorical, unscored view across `discovery → trust → enquiry → booking`, with `clear | friction | broken | not_assessed`, explicit evidence coverage and no numeric index.
+5. **Do Not Promote Yet by Treatment** — zero or more human-approved treatment holds, each with blockers, revisit conditions, evidence references, method and assumptions. Zero holds means only that no hold was approved; it is **not** automatic permission to promote.
+
+Top-level isolation flags are required and immutable:
+
+```json
+{
+  "automatic_score_change": false,
+  "automatic_binding_constraint_selection": false,
+  "automatic_focus_selection": false,
+  "automatic_promotion_decision": false
+}
+```
+
+Every assessed cell declares `assessment_basis="observed"` or `"human_inference"`. A human inference additionally carries non-empty `method` and `assumptions`; unavailable evidence stays `not_assessed` with no evidence reference. Publication requires the named reviewer who approved `humanDiagnosis` to approve treatment mapping, provider resolution, trust inferences, friction classification and promotion holds. The first four views render inside `gap-map`; the fifth renders inside `do-not-fund`. They do not create a tenth section, fifth surface, new metric weight, new Overall input, binding constraint, Top 3 selection or Sprint scope.
+
+Deferred and out of scope for this version: Patient Language Map, Objection Map, LinkedIn/Reddit ingestion, manually supplied new source classes, free-source expansion, and paid enrichment/scraping such as Apify. These require a separate source/evidence contract and must not be inferred from the decision-view artifact.
+
 ## 4. Coverage and calculations
 
 For one surface, let `available_weight` be the sum of canonical component weights whose metric has human-verified Class A evidence, a final normalized score, and required approval. Class B estimates/inferences and `self_reported` intake context may support narrative but never fill observable score coverage.
@@ -497,7 +526,7 @@ The renderer must accept both `reportKind=real` and `reportKind=demo`; it must n
 
 The single production contract for every new approved report is **schema v5** with `templateVersion: "growth-score-report-template/5.2.0"`: `gap_inventory`, named-human `focus_selection`, an embedded `repair_plan` per gap, one unnumbered Intro and the exact nine-section renderer below. `site-caesthetic/assets/js/growth-score-engine.mjs` owns the metric/scoring, schema version, template version and schema-v5 validation authority; `scripts/caesthetic/render-growth-score.mjs` owns the client-facing presentation contract.
 
-`scripts/caesthetic/growth-score-report-template.mjs` is the fail-closed **canonical schema-v5 authoring template**. It imports and re-exports the engine-owned version constant; current builders and fixtures must import or derive that shared constant instead of hardcoding a divergent string. Its metric sets are derived directly from the production `CANONICAL_METRICS` export; it is not a second metric catalogue and callers cannot supply weights. The current template contains `gap_inventory`, `focus_selection` and embedded `repair_plan` fields and must not emit `top_priorities`, `problem_inventory`, `remediation_tasks` or stored `selected_for_repair`.
+`scripts/caesthetic/growth-score-report-template.mjs` is the fail-closed **canonical schema-v5 authoring template**. It imports and re-exports the engine-owned version constants; current builders and fixtures must import or derive those shared constants instead of hardcoding divergent strings. Its metric sets are derived directly from the production `CANONICAL_METRICS` export; it is not a second metric catalogue and callers cannot supply weights. The current template contains `gap_inventory`, `focus_selection`, embedded `repair_plan`, `journeyGraph` and `decisionViews` fields and must not emit `top_priorities`, `problem_inventory`, `remediation_tasks` or stored `selected_for_repair`.
 
 Running the template module directly prints a draft schema-v5 JSON scaffold. It starts with `reportState=draft`; every metric has `raw_value=null`, `normalized_score=null` and `reviewer_status=pending`; named-human approval is absent; evidence references and case facts remain explicit placeholders. It cannot render or publish until case evidence, named-human Focus Selection, the applicable Competitive Decision Analysis and all evidence references pass the production gates and the report is promoted truthfully to `approved_report`.
 
@@ -545,11 +574,11 @@ The Intro appears immediately before `gap-map` and is not assigned a cockpit num
 
 `vertical_context` adapts only nouns and context in this shared Intro, while `report_locale` localizes its copy. Neither may change facts, the binding constraint, Focus Selection or Do Not Fund Yet. Multi-Location uses the same Intro with network/location wording; no per-vertical or per-language Intro file is allowed.
 
-1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, canonical `Where Clients Are Gained - and Lost` Hero, Four-Surface snapshot, same-artifact Broken Connections Map and complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct.
+1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, canonical `Where Clients Are Gained - and Lost` Hero, Four-Surface snapshot, same-artifact Broken Connections Map, Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct.
 2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and exactly two Supporting gaps, visibly identified as human-approved, with rationale and binding-constraint link; selector identity stays in the internal audit trail.
 3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope.
 4. **Repair Paths** (`repair-paths`) — complete DIY-capable remediation plans for every selected gap: outcome, steps, dependencies, accountable role and observable `done_when`. A `start_in_30_days` item separates Day-30 outcome from beyond-Day-30 work.
-5. **Do Not Fund Yet** (`do-not-fund`) — exactly one named-human-approved recommendation, its evidence-backed rationale and explicit conditions for revisiting it.
+5. **Do Not Fund Yet** (`do-not-fund`) — exactly one named-human-approved global recommendation, its evidence-backed rationale and explicit conditions for revisiting it, plus the separate unscored human-approved `Do Not Promote Yet by Treatment` view.
 6. **Full Gap Inventory** (`gap-inventory`) — every reviewed gap, including unselected, backlog and `insufficient_evidence` items, with stable evidence and Repair Plan links.
 7. **Evidence and competitors** (`evidence-and-competitors`) — metric evidence, collection dates, Class A/B state, limitations, comparison matrix, competitor cards and Competitive Decision Analysis where applicable. Paid Ads remain a Demand Layer, not a fifth surface.
 8. **Scores and methodology** (`scores-and-methodology`) — Search, Website, Social and Reputation with 30/25/15/30 heuristic display weights; Cross-Surface remains separate; Overall appears only with sufficient coverage. Sources, windows, unavailable evidence, Class A ratio and methodology/limitations are disclosed here.
@@ -659,6 +688,8 @@ Growth Score is not complete until production tests prove all of the following:
 - hard failure below 80% Class A findings;
 - 30/25/15/30 overall math only when all four surfaces are sufficient;
 - Cross-Surface excluded from overall;
+- all five `decisionViews` derive only from existing approved report evidence; no new source registry, surface, weight or numeric friction score;
+- all four automation flags remain `false`; inference and treatment-promotion holds have named-human approval; missing evidence remains `not_assessed` and never becomes permission to promote;
 - a complete Gap Inventory and a named-human Focus Selection containing exactly one Primary plus exactly two Supporting gaps;
 - at least two selected gaps are `close_in_30_days`, no more than one is `start_in_30_days`, and every selected gap is verified and actionable;
 - every gap contains an executable Repair Plan; Day-30 and beyond-Day-30 outcomes are separated for `start_in_30_days` work;
@@ -675,5 +706,4 @@ Growth Score is not complete until production tests prove all of the following:
 - the active `Lead-to-Revenue Check · $500` direct-continuation Sprint credit rule, with all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
 
 Any legacy scorer may remain only as a thin CLI/import wrapper around the one production scoring authority. Two independent metric catalogues or scoring implementations are forbidden.
-
 

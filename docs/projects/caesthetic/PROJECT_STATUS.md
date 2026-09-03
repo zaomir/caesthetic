@@ -3,6 +3,14 @@
 **Updated:** 2026-09-03
 **Phase:** Phase 1 — proof + outbound readiness
 
+## Growth Score derived decision views — implementation (2026-09-03)
+
+- Schema-v5 now supports five derived, unscored views over the existing approved evidence layer: Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and Do Not Promote Yet by Treatment.
+- The first four views render inside `gap-map`; the fifth renders inside `do-not-fund`. The Intro plus exact nine-section cockpit, Four Surfaces and template version `growth-score-report-template/5.2.0` remain unchanged.
+- Contract `growth-score-decision-views/1.0.0` is fail-closed: no new source registry, score/weight/Overall mutation, automatic binding-constraint/Focus Selection or automatic promotion decision. Human inference and treatment-specific holds require named-human approval; missing evidence remains `not_assessed`.
+- Historical schema-v5 reports remain readable. New authoring always emits the artifact and may use an approved empty `not_assessed` state when the existing evidence does not support the views.
+- Deferred next phase only: Patient Language Map, Objection Map, manual/free/paid source expansion, LinkedIn/Reddit and paid enrichment such as Apify. None is implemented or treated as current evidence here.
+
 ## Lead-to-Revenue Check — sitewide runtime (2026-09-03)
 
 - Canonical route: `/lead-to-revenue-check/`; fixed price `$500` from the generated pricing SSOT.

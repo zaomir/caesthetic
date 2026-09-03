@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.22
+version: 3.23
 updated: 2026-09-03
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
@@ -250,6 +250,8 @@ Detailed metric catalogue and collection/scoring rules: `docs/caesthetic/growth_
 - **Reputation:** 90-day review velocity; rating; review depth; recency; response coverage/speed; negative-review handling; treatment/clinician proof in reviews.
 
 The **Cross-Surface Journey Graph** is the canonical evidence artifact for observable public asset/action routes to the `Lead Intake` boundary. It records nodes, edges, technical integrity, identity/location/treatment/offer/proof context integrity, evidence lineage, reachability, dead ends, loops and orphans. It renders the Hero Client Journey Map and Broken Connections Map from the same artifact inside the existing nine-section report. It is Cross-Surface evidence only: not a fifth surface, not a separate score and never an automatic score, binding-constraint or Focus-Selection input. A named human approves entity resolution, route expectations, semantic findings and edge severity before publication. Contract: `docs/caesthetic/growth_score_spec.md` §3.3 and `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` §3.1.
+
+The same approved Four-Surface evidence may also be reorganized into five **derived, unscored decision views**: `Treatment Opportunity Matrix`, `Provider Visibility Map`, `Trust Chain`, a categorical `Patient Friction Index`, and `Do Not Promote Yet by Treatment`. These views introduce no new source, surface, weight or numeric score; they cannot change Overall, select the binding constraint/Top 3, or create an automatic promotion decision. Unsupported cells remain `not_assessed`; every inference and every treatment-specific promotion hold requires named-human review. The first four views stay inside `gap-map`, while the fifth stays inside `do-not-fund`, preserving the exact nine-section cockpit. Contract: `docs/caesthetic/growth_score_spec.md` §3.4 and `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` §3.2.
 
 The canonical Hero title is **`Where Clients Are Gained - and Lost`**. Its deterministic HTML/SVG composition keeps the approved client-logo centre, gray `LEAD INTAKE · NOT ASSESSED` ring, exactly four surface nodes, evidence-state edges, right legend, Cross-Surface Connections Overview, decision block and Outside-In Diagnosis strip. An edge is colored only from its own reviewed Journey Graph state: no Social/Reviews → Lead Intake edge is green without approved edge evidence, an observed `no clear next step` may support a red Social break, an unverified Reviews route remains gray, and an optional/irrelevant unassessed relationship is not drawn.
 

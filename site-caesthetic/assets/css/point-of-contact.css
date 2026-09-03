@@ -1,0 +1,36 @@
+/* CAESTHETIC owner-facing point-of-contact component — token-only. */
+.cae-point-of-contact {
+  background: var(--cae-bg-2);
+  border-top: 1px solid var(--cae-border);
+  border-bottom: 1px solid var(--cae-border);
+}
+
+.cae-point-of-contact__person {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: var(--cae-space-7);
+  align-items: center;
+}
+
+.cae-point-of-contact__person img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-point-of-contact__person .cae-lead {
+  max-width: 62ch;
+}
+
+@media (max-width: 800px) {
+  .cae-point-of-contact__person {
+    grid-template-columns: 1fr;
+  }
+
+  .cae-point-of-contact__person img {
+    width: 112px;
+    height: 112px;
+  }
+}
