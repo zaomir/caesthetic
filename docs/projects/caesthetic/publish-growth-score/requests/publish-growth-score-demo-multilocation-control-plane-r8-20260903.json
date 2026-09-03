@@ -1,0 +1,11 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-demo-multilocation-control-plane-r8-20260903",
+  "type": "caesthetic_growth_score_publish",
+  "created_at": "2026-09-03T01:02:57.184Z",
+  "requested_by": "caesthetic-repository-agent",
+  "source_satellite_sha": "bf28a5348012a54981361c48172fbaff8bed3062",
+  "package_manifest_path": "docs/projects/caesthetic/publish-growth-score/artifacts/publish-growth-score-demo-multilocation-control-plane-r8-20260903/package.json",
+  "package_sha256": "8b2c3bbd7c3dbe9670812b391561084fe4974e0bec56cc56da78e39d17263f73",
+  "deploy": true
+}
