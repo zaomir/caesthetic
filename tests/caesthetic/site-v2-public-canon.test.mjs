@@ -92,6 +92,23 @@ test('Valerie Petra uses the founder-confirmed point-of-contact identity', () =>
   assert.doesNotMatch(about, /"sameAs"/);
 });
 
+test('About omits the Company section and retains every other section', () => {
+  assert.doesNotMatch(about, /<p class="cae-kicker">Company<\/p>/i);
+  assert.doesNotMatch(about, /CAESTHETIC is a trading name of OXFORD PROJECTS LTD/);
+  for (const marker of [
+    'About CAESTHETIC',
+    'Why we exist',
+    'Our view of growth',
+    'How we make decisions',
+    'What we believe',
+    'What we are',
+    'What we are not',
+    'How engagement starts',
+    'Evidence standard',
+    'Start with evidence',
+  ]) assert.ok(about.includes(marker), `missing About section: ${marker}`);
+});
+
 test('public contact identity is info@caesthetic.com', () => {
   const sources = [
     home,

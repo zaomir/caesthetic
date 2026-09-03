@@ -634,7 +634,7 @@
     "site-caesthetic/_handoff/pricing/LANE_C_HANDOFF.md": "2b8e5d47f3d15475cf713c53a5f1bdbfb537197c584f56c0ff148d391fd1c9af",
     "site-caesthetic/_handoff/pricing/PREP_MATRIX.md": "16db50996e5acaf7fb7405a1d66c2905cbb33ca08063eb68b8c192a63d15c6a7",
     "site-caesthetic/_handoff/pricing/QA_CHECKLIST.md": "c9faff5b93f251b869dbce22512a4a972887edc4a58f47c9fdb5b826249242f7",
-    "site-caesthetic/about/index.html": "f35d1ecd1acfb2b4c9ebe30cde69a1c384613381c8d6ce6308889cfdcb5844fe",
+    "site-caesthetic/about/index.html": "0cd0753d4db9184eedd36e84c2ac934a7775070a1d5e15b942ddb8d0c6a88e48",
     "site-caesthetic/assets/blog/why-clinic-ads-spend-rises-while-the-diary-stays-empty-cover.svg": "55245b11706d8a57dded3c0cc460f611a8041b14a0224a50beb61a8aa3bbaa4e",
     "site-caesthetic/assets/brand/README.md": "0085120922a2fdd8d5cb8bc27cf83b298d60efc41479449d49f76e82abdd50d6",
     "site-caesthetic/assets/brand/logo-long.png": "d0eb247c9694012ec953076c60a5563834aadce216198ec5db6c1c030a1462b3",
@@ -806,11 +806,11 @@
     "tests/caesthetic/resolve_account_test.py": "92cc3e8402be4b10fc28493f0eee21e1d32bdf2db009ab2624cd295f06f56596",
     "tests/caesthetic/run-pricing.mjs": "f2fc798fb3bb5ce838ff1ebba4161837519d043bee67aece469812d3a54e2461",
     "tests/caesthetic/satellite-growth-score-authoring.test.py": "a5aa93aa93f3ba2a22bb964f24b7a1be08f5bce6dff926dc942cafbc89e4db13",
-    "tests/caesthetic/site-v2-public-canon.test.mjs": "eedd5c38d29616f0343e569110fa37d1c800783905ac60327b8a6a91b7686ea7",
+    "tests/caesthetic/site-v2-public-canon.test.mjs": "00d5f0b869d96d8ee32f59e2e316bfda6e5ed9f8b68a7299c038f374e77c2b30",
     "tests/caesthetic/us-spa-ig-dolphin-phase1.test.mjs": "9273bbafd5b80f4a5b6c3f0312cb9b6166ff0244157957c7458d59f79b7826e6",
     "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T12:46:06Z",
+  "updated_at_utc": "2026-09-03T13:13:06Z",
   "version": 1
 }
