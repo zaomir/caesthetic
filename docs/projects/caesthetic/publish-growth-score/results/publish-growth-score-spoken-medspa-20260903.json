@@ -1,0 +1,22 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-spoken-medspa-20260903",
+  "type": "caesthetic_growth_score_publish",
+  "status": "error",
+  "source_satellite_sha": "90c034101f7a16f01732bd9d797d4fa3a2951b07",
+  "package_sha256": "dda0848377d0255277467bc30f0f6dfb035d6070da5a0efa14227c5c6dd9a990",
+  "canonical_imported_sha": null,
+  "deployed_sha": null,
+  "live_urls": [],
+  "smoke": {
+    "ok": false,
+    "checks": []
+  },
+  "errors": [
+    {
+      "code": "publish_failed",
+      "message": "humanDiagnosis.competitors.entries[0].repeated_positive_themes may be empty only when limitations state insufficient repetition"
+    }
+  ],
+  "updated_at": "2026-09-03T18:49:42.741Z"
+}
