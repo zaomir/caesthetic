@@ -235,6 +235,14 @@ export function createDecisionViewsTemplate() {
   };
 }
 
+export function createLeadToRevenueCheckDecisionTemplate() {
+  return {
+    recommendation: "not_recommended",
+    reason: "No approved evidence-backed Lead-to-Revenue Check recommendation has been recorded.",
+    evidence_refs: [],
+  };
+}
+
 export function approveDecisionViewsNotAssessed(decisionViews, { reviewedBy, reviewedAt }) {
   if (!decisionViews || typeof decisionViews !== "object") throw new TypeError("decisionViews template is required");
   return {
@@ -398,6 +406,7 @@ export function createGrowthScoreReportTemplate() {
   };
   report.journeyGraph = createJourneyGraphTemplate();
   report.decisionViews = createDecisionViewsTemplate();
+  report.leadToRevenueCheck = createLeadToRevenueCheckDecisionTemplate();
   return report;
 }
 

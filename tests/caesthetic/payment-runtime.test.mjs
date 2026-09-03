@@ -10,6 +10,7 @@ const config = readFileSync(resolve(SITE, 'assets/js/caesthetic-config.js'), 'ut
 const fn = readFileSync(resolve(REPO, 'supabase/functions/caesthetic-payment/index.ts'), 'utf8');
 const email = readFileSync(resolve(REPO, 'supabase/functions/_shared/caesthetic-billing-email.ts'), 'utf8');
 const migration = readFileSync(resolve(REPO, 'supabase/migrations/20260824113000_caesthetic_payment_runtime.sql'), 'utf8');
+const checkProductMigration = readFileSync(resolve(REPO, 'supabase/migrations/20260903190000_caesthetic_lead_to_revenue_check_product.sql'), 'utf8');
 const integrity = readFileSync(resolve(REPO, 'supabase/migrations/20260824114000_caesthetic_payment_integrity.sql'), 'utf8');
 const supabaseConfig = readFileSync(resolve(REPO, 'supabase/config.toml'), 'utf8');
 const cron = readFileSync(resolve(REPO, '.github/workflows/caesthetic-billing-cron.yml'), 'utf8');
@@ -66,6 +67,19 @@ test('reusable Wise link remains server-side and redirect completion is never pa
   assert.doesNotMatch(fn, /CAESTHETIC_WISE_OPEN_LINK/);
   assert.doesNotMatch(fn, /wise\.com\/pay\/business/i);
   assert.doesNotMatch(fn, /status:\s*"credited"[\s\S]{0,180}wise_redirect/i);
+});
+
+test('Lead-to-Revenue Check payment is fixed-price, written-scope-first and product-aware', () => {
+  assert.match(checkProductMigration, /'lead_to_revenue_check'/);
+  assert.match(checkProductMigration, /amount_minor\s*=\s*50000/);
+  assert.match(checkProductMigration, /upper\(currency\)\s*=\s*'USD'/);
+  assert.match(checkProductMigration, /nullif\(btrim\(sow_id\),\s*''\)\s+IS\s+NOT\s+NULL/i);
+  assert.match(fn, /lead_to_revenue_check:\s*"CAESTHETIC Lead-to-Revenue Check"/);
+  assert.match(fn, /lead_to_revenue_check_price_invalid/);
+  assert.match(fn, /lead_to_revenue_check_scope_not_confirmed/);
+  assert.match(fn, /product_data\]\[name\]", productLabel\(/);
+  assert.match(fn, /order\.product_code !== "growth_sprint"/);
+  assert.doesNotMatch(fn, /product_data\]\[name\]", "CAESTHETIC 30-Day Growth Sprint"/);
 });
 
 test('opaque token is stored only as hash and never persisted in billing outbox', () => {

@@ -543,6 +543,24 @@ growth_score_spec.md
 
 There is no other metric catalogue, scoring authority or renderer authority. A case builder may adapt verified case data and locale, but it cannot redefine the schema-v5 decision model or section order.
 
+New single-location and Multi-Location authoring starts with an explicit fail-closed
+`leadToRevenueCheck` decision:
+
+```json
+{
+  "recommendation": "not_recommended",
+  "reason": "No approved evidence-backed Lead-to-Revenue Check recommendation has been recorded.",
+  "evidence_refs": []
+}
+```
+
+Only a named-human-approved decision may change `recommendation` to `recommended`,
+and it must add a non-empty reason plus one or more approved evidence references.
+The renderer then supplies the canonical conditional-diagnostic explanation, current
+pricing and direct-continuation Sprint credit language; report data does not create a
+second price source. A Multi-Location focus child cannot carry a `recommended`
+decision because the network parent owns the package's single commercial decision.
+
 
 #### 6.0.1 Multi-Location authoring profile
 

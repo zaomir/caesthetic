@@ -408,6 +408,10 @@ export function validateMultiLocationFocusLocationReport(report) {
   string(audit.child_route, "audit.child_route");
   string(audit.focus_location_id, "audit.focus_location_id");
   invariant(audit.parent_route !== audit.child_route, "parent and child routes must differ");
+  invariant(
+    report.leadToRevenueCheck?.recommendation !== "recommended",
+    "Multi-Location focus child cannot recommend Lead-to-Revenue Check; the network parent owns the commercial decision",
+  );
   forbidAggregateNetworkScore(audit, "audit");
   return report;
 }

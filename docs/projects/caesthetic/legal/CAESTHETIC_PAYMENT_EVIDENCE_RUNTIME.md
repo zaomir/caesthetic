@@ -27,6 +27,20 @@ Stripe ACH:
 
 No payment provider may replace the CAESTHETIC invoice/order/payment-request model.
 
+### Lead-to-Revenue Check payment contract
+
+`lead_to_revenue_check` is an allowed commercial-order product only when:
+
+- the signed order references the confirmed written scope through `sow_id`;
+- the amount is exactly `50000` USD minor units;
+- the private payment request is created from that order;
+- the reusable Wise rail URL remains server-side in `CAESTHETIC_WISE_PAYMENT_LINK`;
+- redirect remains execution evidence only and never marks the request credited.
+
+Payment email, receipt and hosted-rail labels resolve from the allowlisted product
+code. The automatic 30-day Sprint activation path is restricted to
+`growth_sprint`; a paid Check cannot start a Sprint or create a Sprint service period.
+
 ## 3. Payer authorization
 
 Before leaving the private payment page, record:

@@ -153,6 +153,30 @@ test("Lead-to-Revenue Check renders only after an explicit evidence-backed recom
   assert.throws(() => renderGrowthReport(incomplete), /leadToRevenueCheck\.evidence_refs/);
 });
 
+test("Multi-Location focus child cannot create a second Lead-to-Revenue Check decision", () => {
+  const child = structuredClone(fixture);
+  child.audit = {
+    format: "multi_location",
+    profile_version: "multi-location-growth-score/1.2.0",
+    package_role: "focus_location",
+    project_id: "private-network",
+    access_group_id: "private-network-access",
+    parent_route: "/score/private-network-0123456789abcdef/",
+    child_route: "/score/private-network-0123456789abcdef/focus-location/",
+    focus_location_id: "focus",
+  };
+  child.leadToRevenueCheck = {
+    recommendation: "recommended",
+    reason: "The internal handoff requires separate evidence.",
+    evidence_refs: [child.humanDiagnosis.binding_constraint.evidence_refs[0]],
+  };
+
+  assert.throws(
+    () => renderGrowthReport(child),
+    /focus child cannot recommend Lead-to-Revenue Check/,
+  );
+});
+
 test("demo HTML is exact output of the reportKind-independent renderer", () => {
   for (const route of demoRoutes) {
     const directory = path.join(root, "site-caesthetic/score", route);

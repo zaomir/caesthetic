@@ -16,6 +16,7 @@ import {
   MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION,
   validateMultiLocationNetworkReport,
   validateMultiLocationPackage,
+  validateMultiLocationFocusLocationReport,
   validateMultiLocationRussianFirstTranslation,
 } from "../../scripts/caesthetic/multi-location-growth-score.mjs";
 import {
@@ -235,8 +236,12 @@ test("Multi-Location authoring profile extends schema v5 without a second score"
   assert.equal(parent.network.decision_intelligence.artifact_version, MULTI_LOCATION_DECISION_INTELLIGENCE_VERSION);
   assert.equal(parent.network.decision_intelligence.assessment_status, "not_assessed");
   assert.equal(parent.network.decision_intelligence.location_projections[0].decision_views.assessment_status, "not_assessed");
+  assert.equal(parent.leadToRevenueCheck.recommendation, "not_recommended");
+  assert.deepEqual(parent.leadToRevenueCheck.evidence_refs, []);
   assert.equal(child.schemaVersion, 5);
   assert.equal(child.audit.package_role, "focus_location");
+  assert.equal(child.leadToRevenueCheck.recommendation, "not_recommended");
+  assert.deepEqual(child.leadToRevenueCheck.evidence_refs, []);
   assert.equal("network" in child, false);
   assert.equal("network_score" in parent, false);
 });
@@ -245,6 +250,19 @@ test("validates one parent and one focus child with one shared ordered Top 3", (
   const { parent, child } = packageFixture();
   assert.equal(validateMultiLocationNetworkReport(parent), parent);
   assert.deepEqual(validateMultiLocationPackage(parent, child), { parent, child });
+});
+
+test("focus child cannot own the package Lead-to-Revenue Check recommendation", () => {
+  const { child } = packageFixture();
+  child.leadToRevenueCheck = {
+    recommendation: "recommended",
+    reason: "The post-enquiry path requires separate evidence.",
+    evidence_refs: [child.humanDiagnosis.binding_constraint.evidence_refs[0]],
+  };
+  assert.throws(
+    () => validateMultiLocationFocusLocationReport(child),
+    /focus child cannot recommend Lead-to-Revenue Check/,
+  );
 });
 
 test("fails closed on coverage, package priority or aggregate-score drift", () => {

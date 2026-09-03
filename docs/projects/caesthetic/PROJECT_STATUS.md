@@ -26,6 +26,8 @@
 - The route explains the eight-stage internal path, authorized non-clinical evidence boundary, least-privilege/PHI rule, deliverable and decision set, no-outcome-claim boundary and one-time direct-continuation Sprint credit.
 - Scope request remains written-order-first. The private payment summary resolves an allowlisted product label and does not trust arbitrary backend text.
 - Growth Score renderer is fail-closed: a commercial Check card requires `leadToRevenueCheck.recommendation="recommended"`, a reason and evidence references; otherwise only the gray internal boundary renders. A recommended Check replaces the Sprint CTA. Multi-Location focus children keep parent navigation and no second commercial CTA.
+- New single-location and Multi-Location authoring now emits an explicit `not_recommended` Check decision with no evidence refs. A named-human-approved reason plus evidence refs is required to switch it to `recommended`; focus children reject that commercial state.
+- Controlled payment runtime accepts `lead_to_revenue_check` only as a signed, written-scope-linked `$500 USD` order. Payment labels are product-aware, and only `growth_sprint` orders can trigger the automatic 30-day Sprint activation path.
 - Analytics: `lead_to_revenue_check_page_viewed` and `lead_to_revenue_check_scope_requested`. Production smoke includes page, price, inquiry and sitemap markers.
 
 ## Beauty Salons vertical — production (2026-08-28)

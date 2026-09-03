@@ -123,6 +123,13 @@ function requireReportContent(report) {
       requireArray(checkDecision.evidence_refs, "leadToRevenueCheck.evidence_refs");
       checkDecision.evidence_refs.forEach((ref, index) => requireNonEmptyString(ref, `leadToRevenueCheck.evidence_refs[${index}]`));
     }
+    if (
+      report.audit?.format === "multi_location"
+      && report.audit?.package_role === "focus_location"
+      && checkDecision.recommendation === "recommended"
+    ) {
+      throw new TypeError("Multi-Location focus child cannot recommend Lead-to-Revenue Check; the network parent owns the commercial decision");
+    }
   }
 
   requireNonEmptyString(diagnosis.objective_strength?.title, "humanDiagnosis.objective_strength.title");
