@@ -47,6 +47,12 @@ test("CAESTHETIC score access is fail-closed, Nohy stays protected and the Prest
   assert.doesNotMatch(sitemap, /prestige-ru-pilot-520-20260901-c6d8e2/);
   assert.match(cutover, /SCORE_PROTECTED_PATHS/);
   assert.match(cutover, /SCORE_PUBLIC_PATHS/);
+  assert.match(cutover, /select_cloudflare_auth/);
+  assert.match(cutover, /CLOUDFLARE_GLOBAL_API_KEY/);
+  assert.match(cutover, /X-Auth-Email/);
+  assert.match(cutover, /X-Auth-Key/);
+  assert.match(cutover, /auth_mode=\$\{CF_AUTH_MODE\}/);
+  assert.doesNotMatch(cutover, /echo "\$\{?(?:tok|key|email)\}?"/);
 });
 test("DEC-829 excludes client score artifacts and protects canonical Growth Score authorities", () => {
   const manifest = read("docs/projects/caesthetic/SYNC_MANIFEST.yml");
