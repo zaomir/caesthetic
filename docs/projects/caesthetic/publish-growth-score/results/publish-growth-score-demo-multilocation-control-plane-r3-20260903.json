@@ -1,0 +1,28 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-demo-multilocation-control-plane-r3-20260903",
+  "type": "caesthetic_growth_score_publish",
+  "status": "error",
+  "source_satellite_sha": "0d707512743ae6c3b90afdb24ef56358a842f7ca",
+  "package_sha256": "dd690752321d64d5656f46011ea6dcb9334c674b53f3a0cc57959e71b8eab625",
+  "audit_format": "multi_location",
+  "project_id": "synthetic-publish-control-plane-multilocation-20260902",
+  "visibility": "synthetic",
+  "live_urls": [
+    "https://caesthetic.com/score/demo-publish-control-plane-network/",
+    "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/"
+  ],
+  "updated_at": "2026-09-03T00:15:22.338Z",
+  "canonical_imported_sha": "1f771c184d48b14a96a227f69a859704f32976a0",
+  "deployed_sha": null,
+  "smoke": {
+    "ok": false,
+    "checks": []
+  },
+  "errors": [
+    {
+      "code": "deploy_failed",
+      "message": "publication deploy failed: 4/14843)\rUpdating files:  75% (11133/14843)\rUpdating files:  76% (11281/14843)\rUpdating files:  76% (11325/14843)\rUpdating files:  77% (11430/14843)\rUpdating files:  78% (11578/14843)\rUpdating files:  79% (11726/14843)\rUpdating files:  80% (11875/14843)\rUpdating files:  81% (12023/14843)\rUpdating files:  81% (12121/14843)\rUpdating files:  82% (12172/14843)\rUpdating files:  83% (12320/14843)\rUpdating files:  84% (12469/14843)\rUpdating files:  85% (12617/14843)\rUpdating files:  86% (12765/14843)\rUpdating files:  87% (12914/14843)\rUpdating files:  88% (13062/14843)\rUpdating files:  88% (13111/14843)\rUpdating files:  89% (13211/14843)\rUpdating files:  90% (13359/14843)\rUpdating files:  91% (13508/14843)\rUpdating files:  92% (13656/14843)\rUpdating files:  93% (13804/14843)\rUpdating files:  94% (13953/14843)\rUpdating files:  95% (14101/14843)\rUpdating files:  96% (14250/14843)\rUpdating files:  97% (14398/14843)\rUpdating files:  98% (14547/14843)\rUpdating files:  99% (14695/14843)\rUpdating files: 100% (14843/14843)\rUpdating files: 100% (14843/14843), done.\n2026/09/03 01:15:13 [warn] 1683015#1683015: protocol options redefined for 185.216.214.28:443 in /etc/nginx"
+    }
+  ]
+}
