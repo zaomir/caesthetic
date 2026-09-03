@@ -523,7 +523,9 @@ test("pricing pages consume finite labels and client-specific recurring terms", 
 
     await page.goto(`${baseUrl}/pricing/`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("[data-cae-score-price]").textContent(), "$17");
-    assert.equal(await page.locator("[data-cae-sprint-price]").textContent(), "$23");
+    const sprintPrices = await page.locator("[data-cae-sprint-price]").allTextContents();
+    assert.equal(sprintPrices.length, 2);
+    assert.deepEqual(sprintPrices, ["$23", "$23"]);
     assert.equal(await page.locator('[data-cae-growth-budget-model="management-inside-budget"]').textContent(), "Client-specific");
     assert.equal(await page.locator("[data-cae-system-base-price]").count(), 0);
     assert.equal(await page.evaluate(() => window.CAESTHETIC.recurringCommercialTerms), "client_specific");

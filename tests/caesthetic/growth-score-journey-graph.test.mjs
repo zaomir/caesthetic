@@ -249,9 +249,27 @@ test("outside-in Lead-to-Revenue map stays gray and publishes only the canonical
 
   assert.equal((block.match(/data-status="not_assessed"/g) || []).length, 8);
   assert.doesNotMatch(block, /data-status="(?:working|friction|confirmed_leak)"/);
-  assert.match(block, /Lead-to-Revenue Check/);
-  assert.match(block, /\$500/);
-  assert.match(block, /credited once toward the <span data-cae-sprint-price>\$2,500<\/span> Sprint total/);
+  assert.doesNotMatch(block, /data-cae-check-recommended|Lead-to-Revenue Check|\$500/);
   assert.match(block, /does not infer response, booking, attendance, consultation or payment performance/i);
   assert.doesNotMatch(block, /guaranteed|increase in (?:inquiries|bookings|revenue)|bad receptionist|broken CRM/i);
+
+  const recommendedHtml = renderGrowthReport(createV5Report(undefined, {
+    journeyGraph: createJourneyGraphFixture(),
+    leadToRevenueCheck: {
+      recommendation: "recommended",
+      reason: "Public evidence stops at Lead Intake, so the internal path remains unresolved.",
+      evidence_refs: ["website.booking_friction"],
+    },
+  }));
+  const recommendedStart = recommendedHtml.indexOf('class="cae-lead-revenue"');
+  const recommendedEnd = recommendedHtml.indexOf("</section>", recommendedStart);
+  const recommendedBlock = recommendedHtml.slice(recommendedStart, recommendedEnd);
+
+  assert.equal((recommendedBlock.match(/data-status="not_assessed"/g) || []).length, 8);
+  assert.match(recommendedBlock, /data-cae-check-recommended="true"/);
+  assert.match(recommendedBlock, /Lead-to-Revenue Check/);
+  assert.match(recommendedBlock, /\$500/);
+  assert.match(recommendedBlock, /credited once toward the <span data-cae-sprint-price>\$2,500<\/span> Sprint total/);
+  assert.match(recommendedBlock, /Supporting evidence:<\/strong> website\.booking_friction/);
+  assert.doesNotMatch(recommendedBlock, /guaranteed|increase in (?:inquiries|bookings|revenue)|bad receptionist|broken CRM/i);
 });

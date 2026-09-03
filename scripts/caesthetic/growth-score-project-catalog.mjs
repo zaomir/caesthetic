@@ -242,6 +242,7 @@ export function renderPublicCatalogHtml(publicCatalog) {
       <div class="cae-demo-list">${items}
       </div>
       <p class="cae-disclaimer">Every real audit uses public/open evidence, human approval, an unguessable noindex route and protected access. Synthetic examples do not represent client relationships or outcomes.</p>
+      <p>If a completed Score cannot determine what happens after an enquiry reaches the practice, the report may recommend the separate <a href="/lead-to-revenue-check/">Lead-to-Revenue Check</a>. That paid diagnostic uses only separately authorized internal evidence and is never inferred from this public catalog.</p>
       <a class="cae-btn cae-btn--primary" href="/growth-score/">Request a Growth Score</a>
     </div>
   </section>

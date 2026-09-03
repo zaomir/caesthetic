@@ -106,7 +106,7 @@ test("parity guard script references SYNC_MANIFEST and grainee-v2 deploy authori
   );
 });
 
-test("parity guard honors the manifest SOP exclusion and systemd extras", (t) => {
+test("parity guard includes the production SOP and systemd extras from the current manifest", (t) => {
   const root = mkdtempSync(resolve(tmpdir(), "caesthetic-parity-manifest-"));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   const write = (rel, value = rel) => {
@@ -122,7 +122,7 @@ test("parity guard honors the manifest SOP exclusion and systemd extras", (t) =>
 
   const rels = collectMirroredRels(root, parseSyncManifest(SYNC_MANIFEST));
   assert.ok(rels.has("docs/ssot/CAESTHETIC.md"));
-  assert.ok(!rels.has("docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md"));
+  assert.ok(rels.has("docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md"));
   assert.ok(rels.has("deploy/systemd/caesthetic-repo-sync.service"));
   assert.ok(rels.has("deploy/systemd/caesthetic-repo-sync.timer"));
   assert.ok(!rels.has("scripts/caesthetic/ignored.pyc"));
