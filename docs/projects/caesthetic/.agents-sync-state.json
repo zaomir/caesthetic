@@ -382,6 +382,7 @@
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r6-20260903.json": "5f19f52d54a03b03c85208c4aacb4875056c1e9c4ac2560cc554525d873ee0d1",
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r7-20260903.json": "aa44d641c502a2380481db1eff3811dd4719712cc892c0304b6054260262ee13",
     "docs/projects/caesthetic/publish-growth-score/results/publish-growth-score-demo-multilocation-control-plane-r8-20260903.json": "08b7295fad2092c3e56559a358d921deb07902cd0f5bca655f3c9b62676d3e7d",
+    "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-pin-only-v18-20260903.json": "2b6c05a2310542e49e6138d9535e0f544fb884446a0c0c7292d4abff35c5c423",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v10-20260902.json": "c7fab8a2018421aea4b095fb948de5a9654db9549a39c70d787d098c690eb6ee",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v11-20260902.json": "b368d7d6623be63a57fb753fa9691a183654a910f30e8ef0a67222b381f5d6bd",
     "docs/projects/caesthetic/publish-growth-score/server-requests/caesthetic-repo-sync-publish-bridge-v12-20260902.json": "f4ba64ef58bb26ef3ac34a86acd00d2e0e8ed5e7d409122639ef6ed59eea160a",
@@ -817,6 +818,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T18:35:51Z",
+  "updated_at_utc": "2026-09-03T18:36:31Z",
   "version": 1
 }
