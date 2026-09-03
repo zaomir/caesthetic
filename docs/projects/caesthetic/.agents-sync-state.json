@@ -260,8 +260,6 @@
     "docs/caesthetic/tz_domain_search.md": "ee40977c6a5e7fdbe923380ad48c443ba43bc220e7ed6173d42c2589ec9d2e97",
     "docs/caesthetic/tz_website_addendum.md": "978c8f91b9efa2951633b05e485a2509188d6f52cae61c03d7798226774def51",
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
-    "docs/founder-notes/DEC-829.md": "7ba0e2c37fb3fe998a5adb7fbff913be0cd1e8d79e4e9af4a617c5aa1b0ee6f2",
-    "docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md": "7b306bb8491c5cdb2afd2e2fb6a3d687cf6ef6e3b609df08b0c5d5fa797532d4",
     "docs/projects/caesthetic/AGENTS.md": "42d95c2cf1d36187531292f1d0a52334964ea91f7d75ec0890b1ca4c4385bf4c",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
     "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "d1ba59fb9ad027f5055d50898477ae07b2027b7dc2068da05021852e8a1991a2",
@@ -530,7 +528,7 @@
     "scripts/caesthetic/growth-score-intent-router.mjs": "b6b7361c53ee21375c407bce2f649cc5cfeabc22705dedbdf62482c9772beebd",
     "scripts/caesthetic/growth-score-ops-contract.mjs": "e68379ca2edd0cd706cfa0107bb593f15574f10f72c65530a73e75574bd666ea",
     "scripts/caesthetic/growth-score-ops.mjs": "ddf8bf0d2dfdc014aeb0fe2fe79b942542489cff0d95fb8b316ed321d0256385",
-    "scripts/caesthetic/growth-score-project-catalog.mjs": "f2338573f43c55087ff4b3dadc27c3d8a85dce68d5d4f40dc416e1e469b0734b",
+    "scripts/caesthetic/growth-score-project-catalog.mjs": "06e191407120ebb782cc10ed742c4baab753d2d6956c5b7caa3f47395e3e1601",
     "scripts/caesthetic/growth-score-qa-lead.mjs": "edf13119fa9f5c12b83e51cc9d42001f90dcf20168f77cacde4310e07fca6a3f",
     "scripts/caesthetic/growth-score-report-template.mjs": "b433cfb427f60603b834a220f4e1f361f3ee3027ea9aeefd6e16a595be9591a0",
     "scripts/caesthetic/growth-score-select-focus.mjs": "d578080934cda6c09f3727eda9b9840f94bc13216d27c455734f305b8baee659",
@@ -765,9 +763,9 @@
     "tests/caesthetic/growth-score-demos.test.mjs": "f491ef26ac28d8b6345d0832051ecbb2d7c413f9707bcd14f06e20cbe93cb5ae",
     "tests/caesthetic/growth-score-engine.test.mjs": "7f16003e78f5b5fad55056bd7721dd3359ed992003b06838b248b76a4afa44b5",
     "tests/caesthetic/growth-score-focus-selection.test.mjs": "58207c880a9a96ef7360fa7909174798cfaa78418aca2280dbae2105df5d17f9",
-    "tests/caesthetic/growth-score-funnel-analytics.test.mjs": "cc4747eab29ffd04b5fd5fa82eadcef7ff3ba277577be45b4e10e034ea269764",
-    "tests/caesthetic/growth-score-journey-graph.test.mjs": "27657702f0898ea654c4381b76eb206c4d8d1bbb47aa1cf9202cf5de97706245",
-    "tests/caesthetic/growth-score-lead-flow.test.mjs": "1ea2765cb641b8b5267a15da6713d10b8e9e9aea23b3c904cdae6cd29b5a6e87",
+    "tests/caesthetic/growth-score-funnel-analytics.test.mjs": "c302e2fbf52ebe4ff0c8114898db1a5897e7da5d431aba0c5ed2d106609daf99",
+    "tests/caesthetic/growth-score-journey-graph.test.mjs": "4204139b4dd8e0cb8fbf99b6f4018ef1544021701b7094e848054823d3945898",
+    "tests/caesthetic/growth-score-lead-flow.test.mjs": "5dc7ffdb19edf725d22aef24cfcdbbc6e1d626936b4d66aebee85740f7a30d78",
     "tests/caesthetic/growth-score-lead.test.mjs": "1b7cec5c70a642ba008e0ae556a0e55e18a06cef4c3f10445c2b6c7141abfb07",
     "tests/caesthetic/growth-score-mobile-ui.test.mjs": "d1abf6af331e67a6e62d974b3ecfe589ba99983a56d2f529599eb565d6cc4768",
     "tests/caesthetic/growth-score-ops-contract.test.mjs": "ff24f38759d6f609d756950d616aba09463fc61547a00f867ea1496e9c400345",
@@ -809,6 +807,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "bc22ceb62b5bc210746b127d7e6e83afec0f60a62f093a5a9700e6ad60557010"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T01:50:40Z",
+  "updated_at_utc": "2026-09-03T11:54:51Z",
   "version": 1
 }
