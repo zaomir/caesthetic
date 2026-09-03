@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Retention cycle placeholder</title>
+  <desc id="desc">Neutral lifecycle placeholder for a future approved case visual.</desc>
+  <rect width="1200" height="900" fill="#F5F7F8"/>
+  <circle cx="600" cy="450" r="245" fill="none" stroke="#A8B7BE" stroke-width="40"/>
+  <path d="M600 205A245 245 0 0 1 845 450" fill="none" stroke="#7B244B" stroke-width="40"/>
+  <path d="M845 450A245 245 0 0 1 600 695" fill="none" stroke="#1C3A4A" stroke-width="40"/>
+  <circle cx="600" cy="450" r="70" fill="#1C3A4A"/>
+  <text x="120" y="120" fill="#7B244B" font-family="monospace" font-size="28" letter-spacing="4">PLACEHOLDER / RETENTION CYCLE</text>
+  <text x="120" y="810" fill="#65747B" font-family="monospace" font-size="24">BASELINE AND OUTCOME PENDING</text>
+</svg>

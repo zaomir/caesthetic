@@ -1,0 +1,28 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-demo-multilocation-control-plane-r5-20260903",
+  "type": "caesthetic_growth_score_publish",
+  "status": "error",
+  "source_satellite_sha": "8bdcf315bc3aaa42635459cdcea54479f135205c",
+  "package_sha256": "f512e66ca870fe0bb23eb431c6a5fa8372f6b460fdf56a7f745da469f63f9abf",
+  "audit_format": "multi_location",
+  "project_id": "synthetic-publish-control-plane-multilocation-20260902",
+  "visibility": "synthetic",
+  "live_urls": [
+    "https://caesthetic.com/score/demo-publish-control-plane-network/",
+    "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/"
+  ],
+  "updated_at": "2026-09-03T00:31:33.672Z",
+  "canonical_imported_sha": "43434a8f024bcead722f025b8bba14792e58248e",
+  "deployed_sha": null,
+  "smoke": {
+    "ok": false,
+    "checks": []
+  },
+  "errors": [
+    {
+      "code": "deploy_failed",
+      "message": "publication deploy failed: 28% (4162/14862)\rUpdating files:  29% (4310/14862)\rUpdating files:  30% (4459/14862)\rUpdating files:  31% (4608/14862)\rUpdating files:  32% (4756/14862)\rUpdating files:  33% (4905/14862)\rUpdating files:  34% (5054/14862)\rUpdating files:  34% (5088/14862)\rUpdating files:  35% (5202/14862)\rUpdating files:  35% (5251/14862)\rUpdating files:  36% (5351/14862)\rUpdating files:  37% (5499/14862)\rUpdating files:  38% (5648/14862)\rUpdating files:  39% (5797/14862)\rUpdating files:  40% (5945/14862)\rUpdating files:  40% (5980/14862)\rUpdating files:  41% (6094/14862)\rUpdating files:  42% (6243/14862)\rUpdating files:  43% (6391/14862)\rUpdating files:  44% (6540/14862)\rUpdating files:  45% (6688/14862)\rUpdating files:  46% (6837/14862)\rUpdating files:  47% (6986/14862)\rUpdating files:  48% (7134/14862)\rUpdating files:  49% (7283/14862)\rUpdating files:  49% (7288/14862)\rUpdating files:  50% (7431/14862)\rUpdating files:  51% (7580/14862)\rUpdating files:  52% (7729/14862)\rUpdating files:  53% (7877/14862)\rUpdating files:  54% (8026/14862)\rUpdating files:  55% (8175/14862)\rUpdating files:  56% (8323/14862)\rUpdating files:  57% (8472/14862)\rUpdating files:  58% (8620/14862)\r"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-demo-multilocation-control-plane-r6-20260903",
+  "type": "caesthetic_growth_score_publish",
+  "status": "error",
+  "source_satellite_sha": "a55b54e246bf83c20483ac70f6d0c5b11d069a72",
+  "package_sha256": "4276a0a496cf99165d651bccb62396db01e1c53da47afbe37bbee2c66f0ec80d",
+  "audit_format": "multi_location",
+  "project_id": "synthetic-publish-control-plane-multilocation-20260902",
+  "visibility": "synthetic",
+  "live_urls": [
+    "https://caesthetic.com/score/demo-publish-control-plane-network/",
+    "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/"
+  ],
+  "updated_at": "2026-09-03T00:36:37.068Z",
+  "canonical_imported_sha": "9c74343473e533d8630071fbe3a590c30f72c882",
+  "deployed_sha": null,
+  "smoke": {
+    "ok": false,
+    "checks": []
+  },
+  "errors": [
+    {
+      "code": "deploy_failed",
+      "message": "publication deploy failed: [cf-cutover] token candidate rejected http=403\n[cf-cutover] token candidate rejected http=403\nBLOCKER: no Cloudflare token with Workers Scripts Edit (tried TOKEN2, TOKEN, CF_API_TOKEN)\n"
+    }
+  ]
+}

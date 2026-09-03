@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Multi-location placeholder</title>
+  <desc id="desc">Neutral network placeholder for a future approved case visual.</desc>
+  <rect width="1200" height="900" fill="#E9EEF0"/>
+  <path d="M600 390L300 570M600 390L900 570M600 390V220" stroke="#1C3A4A" stroke-width="14"/>
+  <rect x="510" y="310" width="180" height="160" fill="#F5F7F8" stroke="#7B244B" stroke-width="8"/>
+  <rect x="210" y="510" width="180" height="160" fill="#F5F7F8" stroke="#1C3A4A" stroke-width="4"/>
+  <rect x="810" y="510" width="180" height="160" fill="#F5F7F8" stroke="#1C3A4A" stroke-width="4"/>
+  <rect x="510" y="140" width="180" height="100" fill="#F5F7F8" stroke="#1C3A4A" stroke-width="4"/>
+  <text x="120" y="100" fill="#7B244B" font-family="monospace" font-size="28" letter-spacing="4">PLACEHOLDER / LOCATION SYSTEM</text>
+  <text x="120" y="810" fill="#65747B" font-family="monospace" font-size="24">VISUAL ONLY</text>
+</svg>

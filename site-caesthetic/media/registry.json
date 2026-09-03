@@ -1,0 +1,789 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-02",
+  "release_state": "protected_preview_only",
+  "notice": "Placeholder entries are not approved for public release. Replace registry entries only after rights, consent and evidence approval.",
+  "entries": {
+    "case.library.hero.abstract": {
+      "media_id": "case.library.hero.abstract",
+      "src": "/assets/case-studies/placeholders/library-hero.svg",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "placeholder",
+      "purpose": "Reserved case-library hero visual for protected design review.",
+      "alt": "",
+      "width": 1200,
+      "height": 1500,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-01.cover": {
+      "media_id": "case.placeholder.case-01.cover",
+      "src": "/assets/case-studies/placeholders/booking-path.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 01; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-02.cover": {
+      "media_id": "case.placeholder.case-02.cover",
+      "src": "/assets/case-studies/placeholders/booking-path.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 02; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-03.cover": {
+      "media_id": "case.placeholder.case-03.cover",
+      "src": "/assets/case-studies/placeholders/search-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 03; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-04.cover": {
+      "media_id": "case.placeholder.case-04.cover",
+      "src": "/assets/case-studies/placeholders/multi-location.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 04; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-05.cover": {
+      "media_id": "case.placeholder.case-05.cover",
+      "src": "/assets/case-studies/placeholders/reputation-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 05; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-06.cover": {
+      "media_id": "case.placeholder.case-06.cover",
+      "src": "/assets/case-studies/placeholders/booking-path.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 06; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-07.cover": {
+      "media_id": "case.placeholder.case-07.cover",
+      "src": "/assets/case-studies/placeholders/search-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 07; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-08.cover": {
+      "media_id": "case.placeholder.case-08.cover",
+      "src": "/assets/case-studies/placeholders/reputation-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 08; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-09.cover": {
+      "media_id": "case.placeholder.case-09.cover",
+      "src": "/assets/case-studies/placeholders/retention-cycle.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 09; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-10.cover": {
+      "media_id": "case.placeholder.case-10.cover",
+      "src": "/assets/case-studies/placeholders/multi-location.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 10; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-11.cover": {
+      "media_id": "case.placeholder.case-11.cover",
+      "src": "/assets/case-studies/placeholders/search-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 11; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-12.cover": {
+      "media_id": "case.placeholder.case-12.cover",
+      "src": "/assets/case-studies/placeholders/booking-path.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 12; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-13.cover": {
+      "media_id": "case.placeholder.case-13.cover",
+      "src": "/assets/case-studies/placeholders/reputation-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 13; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-14.cover": {
+      "media_id": "case.placeholder.case-14.cover",
+      "src": "/assets/case-studies/placeholders/search-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 14; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-15.cover": {
+      "media_id": "case.placeholder.case-15.cover",
+      "src": "/assets/case-studies/placeholders/search-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 15; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-16.cover": {
+      "media_id": "case.placeholder.case-16.cover",
+      "src": "/assets/case-studies/placeholders/multi-location.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 16; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-17.cover": {
+      "media_id": "case.placeholder.case-17.cover",
+      "src": "/assets/case-studies/placeholders/retention-cycle.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 17; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-18.cover": {
+      "media_id": "case.placeholder.case-18.cover",
+      "src": "/assets/case-studies/placeholders/booking-path.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 18; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-19.cover": {
+      "media_id": "case.placeholder.case-19.cover",
+      "src": "/assets/case-studies/placeholders/retention-cycle.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 19; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-20.cover": {
+      "media_id": "case.placeholder.case-20.cover",
+      "src": "/assets/case-studies/placeholders/multi-location.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 20; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-21.cover": {
+      "media_id": "case.placeholder.case-21.cover",
+      "src": "/assets/case-studies/placeholders/booking-path.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 21; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-22.cover": {
+      "media_id": "case.placeholder.case-22.cover",
+      "src": "/assets/case-studies/placeholders/multi-location.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 22; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-23.cover": {
+      "media_id": "case.placeholder.case-23.cover",
+      "src": "/assets/case-studies/placeholders/retention-cycle.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 23; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-24.cover": {
+      "media_id": "case.placeholder.case-24.cover",
+      "src": "/assets/case-studies/placeholders/search-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 24; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    },
+    "case.placeholder.case-25.cover": {
+      "media_id": "case.placeholder.case-25.cover",
+      "src": "/assets/case-studies/placeholders/reputation-surface.svg",
+      "type": "image",
+      "kind": "non-documentary-placeholder",
+      "state": "placeholder",
+      "purpose": "Reserved cover slot for case 25; replace only with approved evidence media.",
+      "alt": "",
+      "width": 1200,
+      "height": 900,
+      "rights": {
+        "status": "pending",
+        "source": null
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ]
+    }
+  }
+}
+

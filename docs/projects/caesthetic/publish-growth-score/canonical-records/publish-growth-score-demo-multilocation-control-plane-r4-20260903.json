@@ -1,0 +1,33 @@
+{
+  "contract_version": "caesthetic-growth-score-publish/1.0",
+  "request_id": "publish-growth-score-demo-multilocation-control-plane-r4-20260903",
+  "type": "caesthetic_growth_score_publish",
+  "status": "imported",
+  "source_satellite_sha": "b582d80c65c6c9d9411e337c8b95f37de0c6330f",
+  "package_sha256": "441959e68efbcba2ea60c65f0327d21db78dbd4a2cd0c855af52344d6209059d",
+  "audit_format": "multi_location",
+  "project_id": "synthetic-publish-control-plane-multilocation-20260902",
+  "visibility": "synthetic",
+  "live_urls": [
+    "https://caesthetic.com/score/demo-publish-control-plane-network/",
+    "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/"
+  ],
+  "updated_at": "2026-09-03T00:23:04.586Z",
+  "canonical_imported_sha": null,
+  "deployed_sha": null,
+  "imported_paths": [
+    "site-caesthetic/score/demo-publish-control-plane-network/focus-location/index.html",
+    "site-caesthetic/score/demo-publish-control-plane-network/focus-location/report.json",
+    "site-caesthetic/score/demo-publish-control-plane-network/index.html",
+    "site-caesthetic/score/demo-publish-control-plane-network/report.json"
+  ],
+  "validation": {
+    "ok": true,
+    "renderer_drift": false,
+    "canonical_tests": "passed"
+  },
+  "smoke": {
+    "ok": false,
+    "checks": []
+  }
+}

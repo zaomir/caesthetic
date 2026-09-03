@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Search surface placeholder</title>
+  <desc id="desc">Neutral interface placeholder for a future approved case visual.</desc>
+  <rect width="1200" height="900" fill="#E9EEF0"/>
+  <rect x="120" y="180" width="960" height="540" fill="#F5F7F8" stroke="#1C3A4A" stroke-width="4"/>
+  <circle cx="210" cy="270" r="44" fill="none" stroke="#7B244B" stroke-width="14"/>
+  <path d="M242 302L285 345M340 270H930M180 450H920M180 550H780M180 650H860" stroke="#1C3A4A" stroke-width="16"/>
+  <text x="120" y="120" fill="#7B244B" font-family="monospace" font-size="28" letter-spacing="4">PLACEHOLDER / SEARCH SURFACE</text>
+  <text x="120" y="810" fill="#65747B" font-family="monospace" font-size="24">NO CLIENT DATA</text>
+</svg>
