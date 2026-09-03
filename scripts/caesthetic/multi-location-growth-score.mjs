@@ -304,6 +304,201 @@ export function validateMultiLocationPackage(parent, child) {
   return { parent, child };
 }
 
+
+export const MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION = "multi-location-russian-first/1.0.0";
+const TRANSLATION_DELIVERY_LOCALES = new Set(["en", "es", "fr", "uk"]);
+
+function translationMetricCore(metrics = []) {
+  return metrics.map((metric) => ({
+    metric_id: metric.metric_id,
+    raw_value: metric.raw_value,
+    normalized_score: metric.normalized_score,
+    evidence_class: metric.evidence_class,
+    source: metric.source,
+    collected_at: metric.collected_at,
+    reviewer_status: metric.reviewer_status,
+  }));
+}
+
+function translationNetworkScopeCore(scope) {
+  if (!scope) return null;
+  return {
+    scope: scope.scope,
+    affected_location_ids: scope.affected_location_ids,
+    observed_in_reviewed_count: scope.observed_in_reviewed_count,
+    rollout_plan: {
+      pilot_location_id: scope.rollout_plan?.pilot_location_id,
+    },
+    execution_owner: scope.execution_owner,
+  };
+}
+
+function translationDecisionCore(report) {
+  const diagnosis = report.humanDiagnosis;
+  const network = report.network;
+  return {
+    schemaVersion: report.schemaVersion,
+    templateVersion: report.templateVersion,
+    verifiedFactSetVersion: report.verifiedFactSetVersion,
+    audit: {
+      format: report.audit?.format,
+      profile_version: report.audit?.profile_version,
+      package_role: report.audit?.package_role,
+      project_id: report.audit?.project_id,
+      access_group_id: report.audit?.access_group_id,
+      parent_route: report.audit?.parent_route,
+      child_route: report.audit?.child_route,
+      focus_location_id: report.audit?.focus_location_id,
+    },
+    surfaces: (report.surfaces || []).map((surface) => ({
+      id: surface.id,
+      metrics: translationMetricCore(surface.metrics),
+    })),
+    crossSurface: {
+      metrics: translationMetricCore(report.crossSurface?.metrics),
+    },
+    humanDiagnosis: {
+      reviewer_status: diagnosis?.reviewer_status,
+      reviewer: diagnosis?.reviewer,
+      strongest_surface: diagnosis?.strongest_surface,
+      binding_constraint: {
+        demand_stage: diagnosis?.binding_constraint?.demand_stage,
+        evidence_refs: diagnosis?.binding_constraint?.evidence_refs,
+        gap_ref: diagnosis?.binding_constraint?.gap_ref,
+      },
+      focus_selection: {
+        primary_gap_id: diagnosis?.focus_selection?.primary_gap_id,
+        supporting_gap_ids: diagnosis?.focus_selection?.supporting_gap_ids,
+        selected_by: diagnosis?.focus_selection?.selected_by,
+        selected_at: diagnosis?.focus_selection?.selected_at,
+      },
+      do_not_do: {
+        evidence_refs: diagnosis?.do_not_do?.evidence_refs,
+      },
+      gaps: (diagnosis?.gap_inventory || []).map((gap) => ({
+        id: gap.id,
+        diagnosis_state: gap.diagnosis_state,
+        surfaces: gap.surfaces,
+        journey_stage: gap.journey_stage,
+        evidence_refs: gap.evidence_refs,
+        sprint_fit: gap.sprint_fit,
+        network_scope: translationNetworkScopeCore(gap.network_scope),
+      })),
+    },
+    network: network ? {
+      id: network.id,
+      declared_location_count: network.declared_location_count,
+      reviewed_location_count: network.reviewed_location_count,
+      focus_location_id: network.focus_location_id,
+      focus_decision: {
+        not_business_performance_ranking: network.focus_decision?.not_business_performance_ranking,
+        criteria: (network.focus_decision?.criteria || []).map((criterion) => ({
+          id: criterion.id,
+          evidence_refs: criterion.evidence_refs,
+        })),
+      },
+      locations: (network.locations || []).map((location) => ({ id: location.id, state: location.state })),
+      shared_assets: (network.shared_assets || []).map((asset) => ({
+        id: asset.id,
+        surface: asset.surface,
+        public_url: asset.public_url,
+        used_by_location_ids: asset.used_by_location_ids,
+      })),
+      local_assets: (network.local_assets || []).map((asset) => ({
+        id: asset.id,
+        location_id: asset.location_id,
+        surface: asset.surface,
+        public_url: asset.public_url,
+      })),
+      location_graph_refs: network.location_graph_refs,
+      repeated_patterns: (network.repeated_patterns || []).map((pattern) => ({
+        id: pattern.id,
+        surface: pattern.surface,
+        affected_location_ids: pattern.affected_location_ids,
+        observed_in_reviewed_count: pattern.observed_in_reviewed_count,
+        evidence_refs: pattern.evidence_refs,
+      })),
+      comparison_matrix: (network.comparison_matrix || []).map((row) => ({
+        location_id: row.location_id,
+        cells: Object.fromEntries(SURFACES.map((surface) => [surface, {
+          state: row[surface]?.state,
+          evidence_refs: row[surface]?.evidence_refs,
+        }])),
+      })),
+      propagation_candidates: (network.propagation_candidates || []).map((candidate) => ({
+        id: candidate.id,
+        source_location_id: candidate.source_location_id,
+        surface: candidate.surface,
+        target_location_ids: candidate.target_location_ids,
+        evidence_refs: candidate.evidence_refs,
+      })),
+      publication_approval: network.publication_approval,
+    } : null,
+  };
+}
+
+function namedTranslationReviewer(value, label) {
+  string(value, label);
+  invariant(!/(?:^|\\b)(?:ai|bot|robot|assistant)(?:\\b|$)/i.test(value), `${label} must be a named human`);
+}
+
+export function validateMultiLocationRussianFirstTranslation({
+  workflow_version,
+  source,
+  localized,
+  delivery_locale,
+  manager_approval,
+  translation_qa,
+}) {
+  invariant(
+    workflow_version === MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION,
+    `workflow_version must be ${MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION}`,
+  );
+  object(source, "translation.source");
+  object(localized, "translation.localized");
+  validateMultiLocationPackage(source.parent, source.child);
+  validateMultiLocationPackage(localized.parent, localized.child);
+
+  invariant(source.parent.reportState === "approved_report" && source.child.reportState === "approved_report", "Russian parent and focus-location pilot must be approved reports");
+  invariant(source.parent.reportContext?.report_locale === "ru" && source.child.reportContext?.report_locale === "ru", "Multi-Location internal pilot must contain Russian parent and focus-location reports");
+  invariant(TRANSLATION_DELIVERY_LOCALES.has(delivery_locale), "delivery_locale must be en, es, fr or uk for translation");
+  invariant(localized.parent.reportContext?.report_locale === delivery_locale, "localized parent locale must match delivery_locale");
+  invariant(localized.child.reportContext?.report_locale === delivery_locale, "localized focus-location locale must match delivery_locale");
+
+  object(manager_approval, "translation.manager_approval");
+  invariant(manager_approval.status === "approved", "Russian Multi-Location pilot requires manager APPROVE");
+  namedTranslationReviewer(manager_approval.approved_by, "translation.manager_approval.approved_by");
+  string(manager_approval.approved_at, "translation.manager_approval.approved_at");
+  for (const report of [source.parent, source.child]) {
+    invariant(report.humanDiagnosis?.reviewer?.name === manager_approval.approved_by, "manager approval must match both Russian pilot reviewers");
+    invariant(report.humanDiagnosis?.reviewer?.approved_at === manager_approval.approved_at, "manager approval timestamp must match both Russian pilot reports");
+  }
+
+  object(translation_qa, "translation.translation_qa");
+  invariant(translation_qa.status === "approved", "localized Multi-Location package requires translation QA approval");
+  namedTranslationReviewer(translation_qa.reviewed_by, "translation.translation_qa.reviewed_by");
+  string(translation_qa.reviewed_at, "translation.translation_qa.reviewed_at");
+
+  invariant(
+    JSON.stringify(translationDecisionCore(source.parent)) === JSON.stringify(translationDecisionCore(localized.parent)),
+    "localized parent changed frozen decision facts",
+  );
+  invariant(
+    JSON.stringify(translationDecisionCore(source.child)) === JSON.stringify(translationDecisionCore(localized.child)),
+    "localized focus-location report changed frozen decision facts",
+  );
+
+  return Object.freeze({
+    workflow_version,
+    delivery_locale,
+    project_id: source.parent.audit.project_id,
+    focus_location_id: source.parent.network.focus_location_id,
+    approved_by: manager_approval.approved_by,
+    translation_qa_by: translation_qa.reviewed_by,
+    status: "translation_qa_approved",
+  });
+}
+
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>\"']/g, (character) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;",

@@ -9,7 +9,7 @@
 (function initGrowthCockpit() {
   "use strict";
 
-  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.0.0";
+  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.0";
   const STAGES = ["discovery", "trust", "enquiry", "booking", "treatment"];
   const SECTION_IDS = [
     "gap-map",
@@ -87,6 +87,7 @@
       inventoryAll: "All",
       inventoryNow: "Now",
       inventoryLater: "Later",
+      inventoryMonitor: "Monitor",
       inventoryUnknown: "Needs verification",
       openGap: "Open details",
       closeGap: "Close details",
@@ -168,6 +169,7 @@
       inventoryAll: "Все",
       inventoryNow: "Сейчас",
       inventoryLater: "Позже",
+      inventoryMonitor: "Наблюдать",
       inventoryUnknown: "Нужно проверить",
       openGap: "Открыть детали",
       closeGap: "Закрыть детали",
@@ -244,6 +246,7 @@
       inventoryAll: "Todas",
       inventoryNow: "Ahora",
       inventoryLater: "Más adelante",
+      inventoryMonitor: "Observar",
       inventoryUnknown: "Requiere verificación",
       openGap: "Abrir detalles",
       closeGap: "Cerrar detalles",
@@ -320,6 +323,7 @@
       inventoryAll: "Tous",
       inventoryNow: "Maintenant",
       inventoryLater: "Plus tard",
+      inventoryMonitor: "Surveiller",
       inventoryUnknown: "À vérifier",
       openGap: "Ouvrir les détails",
       closeGap: "Fermer les détails",
@@ -396,6 +400,7 @@
       inventoryAll: "Усі",
       inventoryNow: "Зараз",
       inventoryLater: "Пізніше",
+      inventoryMonitor: "Спостерігати",
       inventoryUnknown: "Потрібно перевірити",
       openGap: "Відкрити деталі",
       closeGap: "Закрити деталі",
@@ -433,6 +438,30 @@
 
   const locale = localeKey();
   const t = COPY[locale] || COPY.en;
+
+  function isNetworkParent() {
+    return reportData?.audit?.format === "multi_location" && reportData.audit.package_role === "network_parent";
+  }
+
+  function isFocusLocationChild() {
+    return reportData?.audit?.format === "multi_location" && reportData.audit.package_role === "focus_location";
+  }
+
+  function sectionTitle(id, index) {
+    if (!isNetworkParent()) return t.sectionTitles[index];
+    return document.getElementById(id)?.querySelector(".cae-h2")?.textContent?.trim() || t.sectionTitles[index];
+  }
+
+  function evidenceCountLabel(count) {
+    const forms = {
+      en: count === 1 ? "evidence source" : "evidence sources",
+      ru: count === 1 ? "источник" : (count > 1 && count < 5 ? "источника" : "источников"),
+      es: count === 1 ? "fuente" : "fuentes",
+      fr: count === 1 ? "source" : "sources",
+      uk: count === 1 ? "джерело" : (count > 1 && count < 5 ? "джерела" : "джерел"),
+    };
+    return `${count} ${forms[locale] || forms.en}`;
+  }
 
   function injectPresentationStyles() {
     if (document.querySelector('link[data-cae-mobile-report]')) return;
@@ -488,6 +517,7 @@
   }
 
   function setSectionCopy() {
+    if (isNetworkParent()) return;
     SECTION_IDS.forEach((id, index) => {
       const section = document.getElementById(id);
       if (!section) return;
@@ -526,7 +556,7 @@
       link.href = `#${id}`;
       link.dataset.sectionIndex = String(index + 1);
       link.innerHTML = `<span>${index + 1}</span><strong></strong>`;
-      link.querySelector("strong").textContent = t.sectionTitles[index];
+      link.querySelector("strong").textContent = sectionTitle(id, index);
       item.append(link);
       list.append(item);
     });
@@ -678,7 +708,7 @@
         meta.className = "cae-mobile-priority-meta";
         const sprint = gap.sprint_fit?.mode === "close_in_30_days" ? t.close30 : gap.sprint_fit?.mode === "start_in_30_days" ? t.start30 : t.later;
         const evidenceCount = Array.isArray(gap.evidence_refs) ? gap.evidence_refs.length : 0;
-        [sprint, `${evidenceCount} evidence`].forEach((label) => {
+        [sprint, evidenceCountLabel(evidenceCount)].forEach((label) => {
           const pill = document.createElement("span");
           pill.textContent = label;
           meta.append(pill);
@@ -705,6 +735,7 @@
   }
 
   function rebuildRepairPaths() {
+    if (isNetworkParent()) return;
     const section = document.getElementById("repair-paths");
     const wrap = section?.querySelector(":scope > .cae-wrap");
     const diagnosis = reportData?.humanDiagnosis;
@@ -773,7 +804,7 @@
     const filters = document.querySelector(".cae-report-filters");
     if (filters) {
       const buttons = Array.from(filters.querySelectorAll("[data-filter]"));
-      const labels = [t.inventoryAll, t.inventoryNow, t.inventoryLater, t.inventoryLater, t.inventoryUnknown];
+      const labels = [t.inventoryAll, t.inventoryNow, t.inventoryLater, t.inventoryMonitor, t.inventoryUnknown];
       buttons.forEach((button, index) => { button.textContent = labels[index] || button.textContent; });
     }
 
@@ -899,6 +930,7 @@
   }
 
   function rebuildNextStep() {
+    if (isNetworkParent() || isFocusLocationChild()) return;
     const section = document.getElementById("next-step");
     const wrap = section?.querySelector(":scope > .cae-wrap");
     if (!wrap || !reportData) return;
@@ -955,6 +987,10 @@
 
   function initStickySprint() {
     const sticky = document.querySelector(".cae-sticky-sprint");
+    if (isFocusLocationChild()) {
+      sticky?.remove();
+      return;
+    }
     const gate = document.getElementById("sprint-fit");
     if (!sticky || !gate) return;
     sticky.textContent = t.cta;
@@ -1009,8 +1045,6 @@
   async function boot() {
     injectPresentationStyles();
     removeClientVisibleAttribution();
-    setSectionCopy();
-    buildMobileNavigation();
     reportData = await loadReportData();
     if (reportData) {
       context = {
@@ -1020,7 +1054,11 @@
       };
       root.dataset.verticalContext = context.vertical_context;
       root.dataset.reportLocale = context.locale;
+      root.dataset.auditFormat = reportData.audit?.format || "single_location";
+      root.dataset.packageRole = reportData.audit?.package_role || "standalone";
     }
+    setSectionCopy();
+    buildMobileNavigation();
     rebuildDemandJourney();
     rebuildHero();
     enhanceFocusGaps();

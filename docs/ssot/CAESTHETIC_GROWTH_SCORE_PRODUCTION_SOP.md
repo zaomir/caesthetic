@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.7
+version: 2.8
 created: 2026-08-30
 updated: 2026-09-02
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
@@ -377,6 +377,12 @@ Create an append-only review trail and freeze a versioned verified fact set. Fin
 - the approved competitor decisions and Do Not Fund Yet.
 
 Any new fact requires a new review event, fact-set version and approval. AI approval, an unnamed reviewer or a visually plausible draft is insufficient.
+
+### 10.1 Russian-first approval and translation release
+
+For every new non-Russian deliverable, the manager reviews the complete internal pilot in Russian and records `APPROVE` before translation begins. The approved facts, evidence references, scores, binding constraint, ordered Top 3, Do Not Fund Yet and Repair Plans are frozen. Translation may change presentation language only and requires named-human translation QA.
+
+For Multi-Location, the Russian pilot always contains both the network parent and the focus-location child. They are approved and translated as one package. Release validation must compare both localized pages with both approved Russian pages and block publication when the project/access identity, fact-set version, focus location, evidence, scores or frozen decisions differ.
 
 ## 11. Client page contracts
 

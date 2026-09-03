@@ -23,7 +23,7 @@ const orderedSections = [
 ];
 
 test("mobile decision UI keeps the canonical nine-section machine order", () => {
-  assert.match(js, /growth-score-mobile-ui\/1\.0\.0/);
+  assert.match(js, /growth-score-mobile-ui\/1\.1\.0/);
   orderedSections.forEach((id) => assert.match(js, new RegExp(`"${id}"`)));
   assert.match(contract, /one unnumbered Intro and exactly nine machine sections/i);
   assert.doesNotMatch(contract, /tenth section|10-section cockpit/i);
@@ -72,6 +72,23 @@ test("one commercial CTA appears only after Sprint Fit", () => {
   assert.match(js, /\/sprint\//);
   assert.match(js, /\$2,500/);
   assert.match(contract, /CTA appears only after the reader reaches the 30-day feasibility section/i);
+});
+
+test("Multi-Location keeps its network decision story and one package CTA", () => {
+  assert.match(js, /function isNetworkParent/);
+  assert.match(js, /function isFocusLocationChild/);
+  assert.match(js, /if \(isNetworkParent\(\)\) return;/);
+  assert.match(js, /if \(isNetworkParent\(\) \|\| isFocusLocationChild\(\)\) return;/);
+  assert.match(js, /sticky\?\.remove\(\)/);
+  assert.match(js, /root\.dataset\.packageRole/);
+});
+
+test("Demand Journey copy remains separated and regular controls meet the 44px target", () => {
+  assert.match(css, /\.cae-score-report--mobile-story \.cae-mobile-demand-copy\s*\{[\s\S]*?display:\s*grid/);
+  assert.match(css, /\.cae-mobile-report-nav__brand\s*\{[\s\S]*?min-height:\s*44px/);
+  assert.doesNotMatch(css, /min-height:\s*42px/);
+  assert.match(js, /evidenceCountLabel/);
+  assert.match(js, /inventoryMonitor/);
 });
 
 test("analytics payload is limited to non-PII context", () => {

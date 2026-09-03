@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.5
+version: 1.6
 updated: 2026-09-02
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph presentation, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
@@ -250,6 +250,8 @@ Rules:
 - original evidence language remains preserved; translations/paraphrases are labelled where required;
 - historical reports created before this workflow are not retroactively represented as having passed it.
 
+For **Multi-Location**, the Russian internal pilot is one indivisible review package: the network parent and selected focus-location report are both rendered in Russian, carry the same frozen fact set, ordered Top 3, binding constraint and Do Not Fund Yet, and are approved together by the named manager. Only then may both pages enter translation. Translation QA must validate the parent-child pair together and fail closed if package identity, evidence, scores, focus location or any frozen decision changes.
+
 Vertical context and locale remain independent. Locale never changes metric IDs, scoring, evidence class, constraint or Focus Selection.
 
 ## 8. Mobile-first presentation and final visual canon
@@ -427,6 +429,8 @@ The package has one commercial decision and one Sprint CTA on the network parent
 Before publication, the internal `publication_approval` card must be `approved`, match the report's named-human reviewer, focus location and ordered Top 3, and confirm `public_sources_only=true`. The reviewer identity and timestamp remain outside client-facing HTML under §4.
 
 At approximately **360–430px**, the parent defaults to the focus location, renders locations as stacked cards rather than a compressed wide matrix, shows one representative path at a time, contains table overflow and preserves all evidence/state IDs. Desktop may show the comparison matrix, but the body must never overflow horizontally. Interactive links and disclosure summaries use at least 44px targets, and the presentation remains useful when JavaScript is unavailable.
+
+The progressive-enhancement layer may restyle or collapse approved content, but it may not replace network section titles with single-location copy, remove the CMO decision block, rebuild the network Repair Paths without ownership/rollout evidence, or add a Sprint CTA to the focus-location child. Demand Journey title, status and explanation remain separate readable blocks at every breakpoint.
 
 Internal review anchors remain **1101–1109** per page and are disambiguated by package role and location ID in review records. They still disappear from final client source.
 

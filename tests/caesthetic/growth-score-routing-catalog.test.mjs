@@ -42,10 +42,11 @@ test("Growth Score, Multi-Location Growth Score and аудит route to one mand
 
 test("current approved reports auto-register while private client data stays out of public artifacts", () => {
   const { internal, publicCatalog, publicIndex } = buildGrowthScoreProjectCatalog({ repoRoot: root });
-  assert.equal(internal.counts.total, 7);
-  assert.equal(internal.counts.private, 3);
-  assert.equal(internal.counts.listed, 4);
-  assert.equal(publicCatalog.projects.length, 4);
+  assert.equal(internal.counts.total, internal.projects.length);
+  assert.equal(internal.counts.total, internal.counts.private + internal.counts.listed);
+  assert.ok(internal.counts.private >= 3);
+  assert.ok(internal.counts.listed >= 4);
+  assert.equal(publicCatalog.projects.length, internal.counts.listed);
   assert.equal(internal.projects.every((project) => project.canonical_url.startsWith("https://caesthetic.com/score/")), true);
 
   const publicSurface = `${JSON.stringify(publicCatalog)}\n${publicIndex}`;

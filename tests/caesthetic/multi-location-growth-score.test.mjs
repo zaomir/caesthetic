@@ -9,8 +9,10 @@ import {
   MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
 } from "../../scripts/caesthetic/growth-score-report-template.mjs";
 import {
+  MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION,
   validateMultiLocationNetworkReport,
   validateMultiLocationPackage,
+  validateMultiLocationRussianFirstTranslation,
 } from "../../scripts/caesthetic/multi-location-growth-score.mjs";
 import {
   buildMultiLocationPresentationModel,
@@ -287,6 +289,54 @@ test("Multi-Location presentation localizes executive labels for the Russian pil
   assert.match(html, /Операционный план на 30 дней/);
   assert.match(html, /Решения директора по маркетингу/);
   assert.equal(parent.network.executive_summary.fix_first, "Repair the focus location’s public discovery path before expanding lower-priority work.");
+});
+
+test("Multi-Location translation is blocked until the Russian parent-child package is approved and QA preserves frozen decisions", () => {
+  const source = packageFixture();
+  source.parent.reportContext.report_locale = "ru";
+  source.child.reportContext.report_locale = "ru";
+
+  const localized = {
+    parent: clone(source.parent),
+    child: clone(source.child),
+  };
+  localized.parent.reportContext.report_locale = "en";
+  localized.child.reportContext.report_locale = "en";
+
+  const release = {
+    workflow_version: MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION,
+    source,
+    localized,
+    delivery_locale: "en",
+    manager_approval: {
+      status: "approved",
+      approved_by: source.parent.humanDiagnosis.reviewer.name,
+      approved_at: source.parent.humanDiagnosis.reviewer.approved_at,
+    },
+    translation_qa: {
+      status: "approved",
+      reviewed_by: "Taylor Quinn",
+      reviewed_at: "2026-09-02T15:00:00Z",
+    },
+  };
+
+  assert.deepEqual(validateMultiLocationRussianFirstTranslation(release), {
+    workflow_version: MULTI_LOCATION_RUSSIAN_FIRST_WORKFLOW_VERSION,
+    delivery_locale: "en",
+    project_id: source.parent.audit.project_id,
+    focus_location_id: source.parent.network.focus_location_id,
+    approved_by: source.parent.humanDiagnosis.reviewer.name,
+    translation_qa_by: "Taylor Quinn",
+    status: "translation_qa_approved",
+  });
+
+  const changedDecision = clone(release);
+  changedDecision.localized.parent.network.focus_location_id = "peer";
+  assert.throws(() => validateMultiLocationRussianFirstTranslation(changedDecision), /focus location|frozen decision facts/);
+
+  const pendingQa = clone(release);
+  pendingQa.translation_qa.status = "pending";
+  assert.throws(() => validateMultiLocationRussianFirstTranslation(pendingQa), /translation QA approval/);
 });
 
 test("published synthetic Multi-Location demo is one valid parent-child package", () => {

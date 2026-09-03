@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.0
-updated: 2026-09-01
+version: 1.1
+updated: 2026-09-02
 scope: mobile-first client presentation for Growth Score schema v5 reports
 parent: docs/caesthetic/growth_score_spec.md
 runtime:
@@ -101,3 +101,14 @@ Client interaction events may include only non-PII fields such as report kind, v
 ## 8. Versioning
 
 This UI is identified as `growth-score-mobile-ui/1.0.0`. It is a presentation layer over the current schema-v5 report contract. A report-template version bump is not required because no report field, validation rule, metric, evidence or section order changes.
+
+
+## Multi-Location preservation rules
+
+The responsive enhancement must detect `audit.format=multi_location` and `audit.package_role` before changing section copy or navigation.
+
+- The network parent keeps its server-rendered network titles, CMO decisions, ownership/rollout evidence and single package CTA.
+- The focus-location child keeps its link back to the network implementation decision and never receives another Sprint offer or sticky Sprint CTA.
+- The enhancement may collapse dense evidence, but it must not replace approved network content with the generic single-location story.
+- Demand Journey title, state and explanation render as separate blocks; filter and navigation controls use at least 44px targets.
+- Russian internal-review pages use Russian interface labels, including evidence counts and distinct `Позже` / `Наблюдать` inventory states.
