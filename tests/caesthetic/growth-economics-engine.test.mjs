@@ -42,7 +42,7 @@ function commercialSchedule(overrides = {}) {
 function approvedPerformance(overrides = {}) {
   return {
     mode: 'revenue_delta',
-    legalStatus: 'approved',
+    scheduleStatus: 'signed',
     baselineRevenueMonths: [90_000, 100_000, 110_000],
     currentMeasuredMonthRevenue: 130_000,
     agreedPerformanceRate: 0.2,
@@ -254,18 +254,30 @@ test('equal or lower measured revenue produces zero Performance Fee without nega
   }
 });
 
-test('Performance Fee legal gate fails closed without changing the Growth Budget', () => {
+test('Performance Fee requires a signed client-specific schedule without a healthcare legal gate', () => {
+  for (const scheduleStatus of ['draft', 'disabled', undefined]) {
+    const result = calculateGrowthEconomics(input({
+      performance: approvedPerformance({ scheduleStatus }),
+    }));
+
+    assert.equal(result.performance.status, 'not_activated');
+    assert.equal(result.performance.reason, 'signed_performance_schedule_required');
+    assert.equal(result.performance.fee, null);
+    assert.equal(result.growthBudget.status, 'complete');
+    assert.equal(result.growthBudget.carryOut, 5_750);
+    assert.equal(result.totalCommercialAmount, 10_500);
+  }
+});
+
+test('legacy healthcare legal-status fields do not block a signed Performance Fee schedule', () => {
   for (const legalStatus of ['pending', 'disabled', undefined]) {
     const result = calculateGrowthEconomics(input({
       performance: approvedPerformance({ legalStatus }),
     }));
 
-    assert.equal(result.performance.status, 'not_activated');
-    assert.equal(result.performance.reason, 'healthcare_legal_activation_required');
-    assert.equal(result.performance.fee, null);
-    assert.equal(result.growthBudget.status, 'complete');
-    assert.equal(result.growthBudget.carryOut, 5_750);
-    assert.equal(result.totalCommercialAmount, 10_500);
+    assert.equal(result.performance.status, 'complete');
+    assert.equal(result.performance.scheduleStatus, 'signed');
+    assert.equal(result.performance.fee, 6_000);
   }
 });
 
@@ -288,8 +300,8 @@ test('missing baseline, measured revenue or agreed rate is insufficient data, ne
 
 test('legacy AGC-share and fixed-milestone modes cannot become invoice calculations', () => {
   for (const performance of [
-    { mode: 'agc_share', legalStatus: 'approved', agreedPerformanceRate: 0.9 },
-    { mode: 'fixed_milestones', legalStatus: 'approved', milestones: [{ fixedBonus: 9_999 }] },
+    { mode: 'agc_share', scheduleStatus: 'signed', agreedPerformanceRate: 0.9 },
+    { mode: 'fixed_milestones', scheduleStatus: 'signed', milestones: [{ fixedBonus: 9_999 }] },
   ]) {
     const result = calculateGrowthEconomics(input({ performance }));
     assert.equal(result.performance.status, 'not_activated');

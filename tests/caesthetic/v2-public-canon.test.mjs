@@ -33,7 +33,7 @@ test("Growth System publishes ownership, economics v2.1 and maturity canon", () 
   assert.match(system, /Fixed Management Fee[\s\S]*inside the Growth Budget/i);
   assert.match(system, /Variable Growth Budget/i);
   assert.match(system, /Committed Growth Budget/i);
-  assert.match(system, /Performance Fee[\s\S]*verified positive growth[\s\S]*legal review[\s\S]*signed rider/i);
+  assert.match(system, /Performance Fee[\s\S]*verified positive growth[\s\S]*signed client-specific Commercial Schedule/i);
   assert.match(system, /Unused variable funds roll forward as the client's growth balance/i);
   assert.match(system, /Shipped → Adopted → Impact → Maturing/);
   assert.doesNotMatch(system, /data-cae-system-base-price|\$1,500|Total Growth Allocation|\b10\s*%|\$3,000|AGC share|performance cap/i);

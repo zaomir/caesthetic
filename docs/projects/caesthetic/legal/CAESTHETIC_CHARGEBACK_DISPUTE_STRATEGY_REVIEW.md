@@ -5,6 +5,8 @@
 Ревьюер роль: card-payments / chargeback risk consultant (банковская сторона), Stripe US practice
 Объект ревью: `docs/projects/caesthetic/legal/CAESTHETIC_CHARGEBACK_DISPUTE_STRATEGY_DRAFT.md` (§-ссылки ниже указывают туда)
 
+> **Supersession note · 2026-09-03.** Сохранённые ниже рекомендации consultant review о специальном healthcare legal gate являются историческим risk-анализом и не определяют текущий activation contract. Owner amendment к `DEC-866` и `CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md` разрешает medical/dental Attributed Sales Performance Fee по обычному подписанному Commercial Schedule и attribution rules без специальных legal/fiscal/advertising/privacy/fee-splitting activation gates. Клиническая независимость, no-PHI ledger, нулевой процент координатору/клиницисту и запрет двойного начисления сохранены.
+
 ## 0. Формат ревью и границы компетенции
 
 Это ревью двух типов вопросов, и они сознательно помечены по-разному:

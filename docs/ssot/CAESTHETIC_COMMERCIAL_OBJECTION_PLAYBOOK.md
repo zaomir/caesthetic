@@ -11,7 +11,7 @@ global_negotiation: docs/ssot/MARKETING_NEGOTIATION_STRATEGY.md
 
 # CAESTHETIC Commercial Objection Playbook
 
-Internal use only. This is not a contract and must use the actual client-specific Commercial Schedule. Never present a negotiation position or legally pending Performance Fee as an approved fact.
+Internal use only. This is not a contract and must use the actual client-specific Commercial Schedule. Never present a negotiation position or an unsigned/unverified Performance Fee as an approved fact.
 
 This playbook applies **when Growth Budget is the selected or offered commercial model**. Commercial model selection happens first under `docs/ssot/MARKETING_NEGOTIATION_STRATEGY.md`. Do not use these answers to force Growth Budget onto a client for whom Fixed Retainer, Hybrid or another approved model is the better fit. Client-specific rates in Expert Dental documents remain local and are not global defaults.
 

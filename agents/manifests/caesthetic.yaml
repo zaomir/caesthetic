@@ -89,7 +89,7 @@ definition_of_done:
   - CAESTHETIC master SSOT remains authoritative
   - Four-surface model preserved across Growth Score, Sprint and Growth System
   - Attributed Sales Performance Fee uses auditable collected sales or contribution, a signed schedule, refund/chargeback rules and no double counting
-  - Healthcare attributed-sales fees remain jurisdiction/legal/fiscal/contract gated; coordinator and clinician medical-sales percentages remain zero
+  - Medical and dental attributed-sales fees use the ordinary signed Commercial Schedule and attribution rules without special legal/fiscal/advertising/privacy/fee-splitting activation gates; coordinator and clinician medical-sales percentages remain zero
   - No fabricated proof or outcome guarantees
   - No prohibited review gating
   - Runtime changes shipped through caesthetic deploy target and production smoke

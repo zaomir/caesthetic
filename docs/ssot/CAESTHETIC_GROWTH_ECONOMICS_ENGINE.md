@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.1
+version: 2.2
 created: 2026-08-11
-updated: 2026-08-12
+updated: 2026-09-03
 scope: growth economics, Growth Budget, fixed management scope, revenue baseline and performance compensation
 parent: docs/ssot/CAESTHETIC.md
 client_schedule_pattern: docs/ssot/*_COMMERCIAL_SCHEDULE.md
@@ -16,7 +16,7 @@ This document is the canonical reusable policy for CAESTHETIC commercial economi
 
 It is a project adapter of `docs/ssot/MARKETING_SYSTEM_STANDARD.md`. It is not the global commercial-model authority and does not make Growth Budget the default or obligatory continuation after a Sprint. Fixed Retainer, Hybrid or another specifically approved model may be selected under the global canon. This engine then applies only if the signed schedule uses these layers.
 
-It is an operating specification, not legal, tax or accounting advice and not a signature-ready agreement. Every amount, percentage, negotiation floor, billing currency, revenue source and legal activation status is client-specific. No number in one client schedule may be copied to another client by default, and none of those numbers becomes a global default.
+It is an operating specification, not legal, tax or accounting advice and not a signature-ready agreement. Every amount, percentage, negotiation floor, billing currency, revenue source and activation status is client-specific. No number in one client schedule may be copied to another client by default, and none of those numbers becomes a global default.
 
 Historical documents may preserve earlier structures for audit, but they do not override this file or an active client-specific Commercial Schedule.
 
@@ -31,7 +31,7 @@ Historical documents may preserve earlier structures for audit, but they do not 
 | Fixed Management Fee | A mandatory, separately visible line inside the Growth Budget. Its amount is defined per client. |
 | External Growth Spend | Media, software, production, vendors, experiments and other approved inputs paid from the Growth Budget. |
 | Additional Work Fee | A separately scoped and priced fee for work outside the fixed management scope. It may be funded as an approved Growth Budget line or through a client top-up, but it is never silently included in the Fixed Management Fee. |
-| Performance Fee | Separate optional compensation above the Growth Budget, earned only under the signed client-specific formula and legal gate. Default OFF until those gates are complete. |
+| Performance Fee | Separate optional compensation above the Growth Budget, earned only under the signed client-specific formula and verified measurement/attribution rule. Default OFF until that schedule is signed. |
 
 The former reusable construction `base fee + Growth Budget` is superseded. The Fixed Management Fee is not added on top of the Growth Budget because it is already one of its required lines.
 
@@ -161,7 +161,7 @@ Every client schedule must contain:
 - rollover and termination reconciliation rules;
 - fixed-scope additions or exclusions;
 - Additional Work pricing/approval method;
-- Performance Fee rate and activation status;
+- Performance Fee rate and signed-schedule activation status;
 - baseline period, revenue definition, source of truth and closing procedure;
 - treatment of refunds, taxes, discounts, financing, extraordinary income and structural business changes;
 - dispute, audit and correction procedure.
@@ -220,11 +220,11 @@ Before invoicing Performance Fee, the monthly fact set must contain:
 
 Patient names or clinical details are not required for this calculation. Use the minimum financial evidence needed to verify the number.
 
-## 7. Healthcare legal activation gate
+## 7. Commercial Schedule activation
 
-A commercial formula does not establish legal availability. For a healthcare client, Performance Fee remains `disabled` or `pending` until qualified counsel reviews the actual jurisdiction, entity/ownership structure, services, referral and fee-splitting rules, corporate-practice restrictions, advertising rules and signed rider.
+Performance Fee remains `disabled` or `pending` until the client-specific Commercial Schedule is signed and defines the formula, rate, measurement or attribution rule, source of truth, refunds/corrections and closing procedure.
 
-The legal gate may disable or change Performance Fee without changing the Growth Budget or Fixed Management Fee. No team member may activate a percentage-based healthcare Performance Fee from this SSOT alone.
+Medical and dental clients use this same activation contract. No additional legal/fiscal/advertising/privacy/fee-splitting clearance status is required by this engine. Ordinary clinical, data-handling and contracting responsibilities remain outside the fee calculation and do not replace the signed schedule or evidence requirements.
 
 ## 8. Reporting
 
@@ -241,7 +241,7 @@ The Client Growth Statement must show separately:
 9. measured-month revenue;
 10. positive revenue difference;
 11. Performance Fee rate and amount, or `Not activated`;
-12. data quality, unresolved corrections and legal activation status.
+12. data quality, unresolved corrections and schedule activation status.
 
 Activity is not presented as impact. Missing or disputed numbers remain `Insufficient data` until resolved.
 
@@ -254,12 +254,12 @@ The commercial document stack is:
 3. Commercial Schedule / Growth Budget Schedule;
 4. Measurement Schedule;
 5. Additional Work SOWs, when required;
-6. jurisdiction-specific Performance Compensation Rider, when legally approved.
+6. client-specific Performance Compensation Schedule or rider, when selected.
 
-The absence or invalidity of a Performance Rider does not remove the client's Growth Budget obligation or convert unused Growth Budget into CAESTHETIC revenue.
+The absence or invalidity of a Performance Schedule or rider does not remove the client's Growth Budget obligation or convert unused Growth Budget into CAESTHETIC revenue.
 
 ## 10. Runtime status
 
 The deterministic runtime must receive all recurring commercial values from a client-specific schedule. It may not use reusable Fixed Management Fee, Growth Budget rate, Performance Fee rate or cap defaults.
 
-Until runtime and tests are explicitly synchronized with version 2.1, this document controls new commercial decisions and any incompatible legacy runtime preview must be labeled `superseded` and must not be used as an invoice calculation.
+Runtime and tests must require a signed performance schedule and must not require a separate healthcare legal-activation flag. Any incompatible legacy runtime preview must be labeled `superseded` and must not be used as an invoice calculation.

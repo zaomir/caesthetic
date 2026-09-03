@@ -313,7 +313,7 @@ Minimum monthly controls:
 - Product positioning, funnel, Sprint and Growth System authority: `docs/ssot/CAESTHETIC.md`
 - Global productization / Growth Control: `docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md`
 - Global evidence, adoption, impact and Impact Ledger: `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`
-- Economics, Growth Budget, revenue baseline, Performance Fee, legacy operational AGV/AGC analytics and legal-mode authority: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`
+- Economics, Growth Budget, revenue baseline, Performance Fee, legacy operational AGV/AGC analytics and schedule-activation authority: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`
 - Expert Dental historical plan/report source: `docs/ssot/EXPERT_DENTAL_MONTH_1_PLAN_AND_REPORTS.md`
 - Expert Dental/Raimov detailed operations and evidence layer: `docs/raimov/operations/expert-dental/PLANNING_AND_REPORTING.md`
 - Expert Dental client-specific legacy commercial history: `docs/ssot/EXPERT_DENTAL_GROWTH_OFFER.md`

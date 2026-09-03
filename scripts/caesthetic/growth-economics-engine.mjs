@@ -1,5 +1,5 @@
 /**
- * CAESTHETIC Growth Economics Engine v2.1.
+ * CAESTHETIC Growth Economics Engine v2.2.
  *
  * Pure, vertical-neutral calculations. Recurring commercial inputs come only
  * from a client-specific Commercial Schedule. There are no reusable fee,
@@ -269,13 +269,13 @@ function calculatePerformance(performance, warnings) {
       reason: 'unsupported_or_missing_performance_mode',
     };
   }
-  if (performance.legalStatus !== 'approved') {
+  if (performance.scheduleStatus !== 'signed') {
     return {
       status: 'not_activated',
       mode: 'revenue_delta',
       placement: 'above_growth_budget',
       fee: null,
-      reason: 'healthcare_legal_activation_required',
+      reason: 'signed_performance_schedule_required',
     };
   }
 
@@ -313,7 +313,7 @@ function calculatePerformance(performance, warnings) {
   return {
     status: 'complete',
     mode: 'revenue_delta',
-    legalStatus: 'approved',
+    scheduleStatus: 'signed',
     placement: 'above_growth_budget',
     frozen3MonthAverageRevenue,
     currentMeasuredMonthRevenue: money(performance.currentMeasuredMonthRevenue),

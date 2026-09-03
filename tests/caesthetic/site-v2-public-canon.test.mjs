@@ -67,7 +67,7 @@ test('Growth System publishes economics v2.1 money layers and evidence lifecycle
     'Committed Growth Budget',
     'Performance Fee',
     'verified positive growth',
-    'applicable legal review and a signed rider',
+    'signed client-specific Commercial Schedule',
     "Unused variable funds roll forward as the client's growth balance",
     'Shipped',
     'Adopted',

@@ -1,8 +1,8 @@
 ---
 title: CAESTHETIC — Attributed Sales Compensation Standard
-status: OWNER_APPROVED_COMMERCIAL_OPTION / CLIENT_SCHEDULE_AND_JURISDICTION_GATED
+status: OWNER_APPROVED_COMMERCIAL_OPTION / COMMERCIAL_SCHEDULE_AND_ATTRIBUTION_GATED
 type: ssot
-version: 1.0
+version: 1.1
 created: 2026-09-03
 last_updated: 2026-09-03
 owner: CAESTHETIC commercial operations
@@ -14,7 +14,8 @@ applies_to:
   - caesthetic
   - raim-smile-partnership-network
   - approved-client-partnership-programs
-  - future-non-medical-verticals
+  - medical-and-dental-verticals
+  - future-verticals
 ---
 
 # CAESTHETIC — Attributed Sales Compensation Standard
@@ -28,14 +29,16 @@ applies_to:
 **Attributed Sales Performance Fee**
 `плата CAESTHETIC как процент от атрибутированных фактически полученных продаж`.
 
-Это разрешённая коммерческая модель, а не автоматическое условие любого проекта. Она становится начисляемой только после подписанного Commercial Schedule, проверяемой атрибуции, определения базы, ставки, окна, возвратов, налогов и применимых юридических ограничений.
+Это разрешённая коммерческая модель, а не автоматическое условие любого проекта. Она становится начисляемой только после подписанного Commercial Schedule, проверяемой атрибуции, определения базы, ставки, окна, возвратов и двусторонней сверки.
 
-Для медицинских, стоматологических и иных регулируемых услуг owner approval разрешает модель **в принципе**, но не активирует её. До письменного country-specific legal/fiscal approval:
+Для медицинских и стоматологических продаж действует тот же activation contract, что и для других отраслей:
 
 ```text
-medical_attributed_sales_fee_status = LEGAL_FISCAL_ACTIVATION_GATED
-current_payable_rate = 0%
+medical_attributed_sales_fee_status = COMMERCIAL_SCHEDULE_AND_ATTRIBUTION_GATED
+current_payable_rate = CONTRACT_DEFINED
 ```
+
+Отдельные `legal`, `fiscal`, `advertising`, `privacy` и `fee-splitting` clearances не являются специальными activation gates модели. Это не отменяет обычные обязанности сторон, клиническую независимость или правила обработки данных; они применяются в соответствующих операционных контурах и не создают отдельный fee-specific статус `0% / NOT ACTIVE`.
 
 ## 1. Роль CAESTHETIC
 
@@ -145,8 +148,7 @@ PositiveAttributableContributionMargin
 - audit evidence и право на проверку;
 - dispute deadline;
 - termination и post-termination tail;
-- privacy/data-controller boundary;
-- для регулируемой отрасли — ссылку на письменный legal/fiscal clearance.
+- разрешённые поля attribution ledger и data-minimisation boundary.
 
 Отсутствие любого обязательного поля означает `NO_FEE_ACCRUAL`, а не право заполнить его задним числом.
 
@@ -169,11 +171,11 @@ Fixed management, launch, marketing integration и Coordination Fee могут �
 
 ## 8. Медицинские и стоматологические продажи
 
-Для healthcare применяются дополнительные fail-closed условия.
+Для healthcare не применяется отдельный набор fee-activation gates.
 
 ### 8.1. Что разрешено каноном
 
-CAESTHETIC **может** быть получателем договорного процента от Net Collected Attributed Sales, включая продажи медицинского оператора привлечённым CAESTHETIC пациентам, только после закрытия всех применимых legal/fiscal/advertising/privacy/fee-splitting gates.
+CAESTHETIC **может** быть получателем договорного процента от Net Collected Attributed Sales, включая продажи медицинского оператора привлечённым или документированно реактивированным CAESTHETIC пациентам, после подписания обычного Commercial Schedule и выполнения attribution/settlement rules этого стандарта.
 
 ### 8.2. Что остаётся неизменным
 
@@ -186,15 +188,17 @@ CAESTHETIC **может** быть получателем договорного
 - медицинский оператор выставляет медицинский счёт и отвечает за возврат;
 - запрещена скрытая paid ranking или передача пациента менее подходящему оператору ради большей комиссии.
 
-### 8.3. Текущий activation state
+### 8.3. Activation state
 
-До письменного заключения по конкретной юрисдикции и подписанного Commercial Schedule:
+После подписания Commercial Schedule и до подтверждения атрибуции конкретной продажи:
 
 ```text
-CAESTHETIC medical attributed-sales fee = PERMITTED_IN_CANON / NOT ACTIVE
+CAESTHETIC medical attributed-sales fee = CONTRACTED / PENDING ATTRIBUTION
 Coordinator medical sales percentage = 0%
 Clinician medical sales percentage = 0%
 ```
+
+После подтверждения source marker, attribution window, dedup, оплаты/возвратов и двусторонней сверки eligible sale становится `ACTIVE / PAYABLE` по договорной ставке. Дополнительный healthcare-specific clearance state не требуется.
 
 ## 9. Независимость координатора
 
@@ -257,9 +261,8 @@ sale recorded
 
 - `OWNER_APPROVED_OPTION` — модель может предлагаться и включаться в draft Commercial Schedule.
 - `CONTRACTED` — подписаны база, ставка, атрибуция и расчёт.
-- `LEGAL_FISCAL_CLEARED` — закрыты применимые отраслевые/юрисдикционные gates.
-- `ACTIVE` — data path и settlement test пройдены на тестовой записи.
-- `SUSPENDED` — конфликт данных, legal change, privacy incident или просроченная сверка.
+- `ACTIVE` — data path и settlement test пройдены на тестовой записи; eligible sales могут начисляться по договорной ставке.
+- `SUSPENDED` — конфликт данных, спор по оплате/возврату или просроченная сверка.
 - `CLOSED` — расчёт завершён, tail и corrections закрыты.
 
 Нельзя называть модель действующей только потому, что она утверждена в этом документе.
@@ -279,4 +282,4 @@ sale recorded
 
 ---
 
-**Owner decision 2026-09-03:** CAESTHETIC may earn an agreed percentage of verified sales to customers it sourced or documentably reactivated. Healthcare activation remains fail-closed until jurisdiction-specific legal/fiscal approval; coordinator and clinician sales incentives remain zero.
+**Owner decision amended 2026-09-03:** CAESTHETIC may earn an agreed percentage of verified sales to customers it sourced or documentably reactivated. Medical and dental activation uses the ordinary signed Commercial Schedule and attribution rules without special legal/fiscal/advertising/privacy/fee-splitting activation gates; coordinator and clinician medical-sales percentages remain zero.
