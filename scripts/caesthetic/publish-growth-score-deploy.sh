@@ -9,16 +9,15 @@ SECRETS_FILE="${CAESTHETIC_PUBLISH_SECRETS_FILE:-/etc/evo/secrets.env}"
 [[ "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "invalid expected SHA" >&2; exit 2; }
 git -C "$CANONICAL_ROOT" cat-file -e "${EXPECTED_SHA}^{commit}" || { echo "canonical imported SHA is missing" >&2; exit 3; }
 test -r "$SECRETS_FILE" || { echo "missing root-owned deploy environment" >&2; exit 4; }
-
-WORKTREE="$(mktemp -d /tmp/caesthetic-score-publish.XXXXXX)"
-cleanup() {
-  git -C "$CANONICAL_ROOT" worktree remove --force "$WORKTREE" >/dev/null 2>&1 || true
-  rm -rf -- "$WORKTREE" >/dev/null 2>&1 || true
+[[ "$(git -C "$CANONICAL_ROOT" rev-parse HEAD)" == "$EXPECTED_SHA" ]] || {
+  echo "canonical checkout is not pinned to imported SHA" >&2
+  exit 7
 }
-trap cleanup EXIT
-rmdir "$WORKTREE"
-git -C "$CANONICAL_ROOT" worktree add --detach "$WORKTREE" "$EXPECTED_SHA"
-ROOT="$WORKTREE"
+[[ -z "$(git -C "$CANONICAL_ROOT" status --porcelain)" ]] || {
+  echo "canonical checkout is dirty before deploy" >&2
+  exit 8
+}
+ROOT="$CANONICAL_ROOT"
 
 set -a
 # shellcheck disable=SC1090

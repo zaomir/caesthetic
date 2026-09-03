@@ -225,6 +225,9 @@ test("server timer uses one lock and a fixed publication command without paid Ac
   assert.match(runner, /flock -n "\$LOCK"/);
   assert.match(service, /TimeoutStartSec=1800/);
   assert.match(deploy, /CAESTHETIC_SKIP_NGINX_SYNC=1/);
+  assert.match(deploy, /canonical checkout is not pinned to imported SHA/);
+  assert.match(deploy, /canonical checkout is dirty before deploy/);
+  assert.doesNotMatch(deploy, /worktree add/);
   assert.match(canonicalDeploy, /skip nginx sync for report-only publication/);
   if (fs.existsSync(workflowPath)) {
     assert.doesNotMatch(fs.readFileSync(workflowPath, "utf8"), /caesthetic_growth_score_publish/);
