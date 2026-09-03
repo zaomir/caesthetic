@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Case library placeholder</title>
+  <desc id="desc">Neutral abstract editorial layout reserved for an approved case library visual.</desc>
+  <rect width="1200" height="1500" fill="#E9EEF0"/>
+  <path d="M0 220H1200M0 1280H1200M230 0V1500M970 0V1500" stroke="#A8B7BE" stroke-width="2"/>
+  <rect x="230" y="220" width="740" height="1060" fill="#F5F7F8" stroke="#1C3A4A" stroke-width="4"/>
+  <path d="M310 390H890M310 510H760M310 630H860M310 900H890M310 1020H690" stroke="#1C3A4A" stroke-width="18"/>
+  <circle cx="820" cy="1020" r="72" fill="none" stroke="#7B244B" stroke-width="18"/>
+  <text x="310" y="320" fill="#7B244B" font-family="monospace" font-size="28" letter-spacing="4">PLACEHOLDER / HERO</text>
+  <text x="310" y="1190" fill="#65747B" font-family="monospace" font-size="24">case.library.hero.abstract</text>
+</svg>

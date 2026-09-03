@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Reputation surface placeholder</title>
+  <desc id="desc">Neutral evidence placeholder for a future approved case visual.</desc>
+  <rect width="1200" height="900" fill="#F5F7F8"/>
+  <path d="M120 180H1080M120 720H1080" stroke="#A8B7BE" stroke-width="2"/>
+  <rect x="150" y="290" width="250" height="260" fill="#E9EEF0" stroke="#1C3A4A" stroke-width="4"/>
+  <rect x="475" y="250" width="250" height="340" fill="#E9EEF0" stroke="#7B244B" stroke-width="8"/>
+  <rect x="800" y="320" width="250" height="200" fill="#E9EEF0" stroke="#1C3A4A" stroke-width="4"/>
+  <path d="M200 370H350M200 420H320M525 340H675M525 400H640M850 390H1000M850 440H960" stroke="#1C3A4A" stroke-width="14"/>
+  <text x="120" y="120" fill="#7B244B" font-family="monospace" font-size="28" letter-spacing="4">PLACEHOLDER / REPUTATION</text>
+  <text x="120" y="810" fill="#65747B" font-family="monospace" font-size="24">EVIDENCE PENDING</text>
+</svg>
