@@ -19,6 +19,16 @@ Wise:
 - operator reconciliation remains valid;
 - redirect or page completion never means `credited`.
 
+### 2.1 Wise candidate URL review — 2026-09-03
+
+- Candidate runtime payment URL supplied for review: `https://wise.com/pay/r/kwMcyJYZK6SpTxc`.
+- Live verification returned HTTP 200, requested `500 USD` and displayed the payee as `Rovlex International Ltd`.
+- The CAESTHETIC master SSOT identifies the legal entity as `OXFORD PROJECTS LTD`.
+- Status: `candidate_only / BLOCKED_WRONG_PAYEE_IDENTITY`.
+- Do not populate `CAESTHETIC_WISE_PAYMENT_LINK`, issue a production Check payment request or treat the candidate as an approved CAESTHETIC rail until the provider-side payee identity matches the canonical legal entity and the operator re-verifies the live page.
+
+This records the candidate and its verification result without activating or changing the payment runtime.
+
 Stripe ACH:
 - code-side ACH Checkout is already prepared with `us_bank_account`;
 - it is fail-closed unless `STRIPE_SECRET_KEY` is configured;
