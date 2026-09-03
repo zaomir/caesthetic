@@ -752,12 +752,13 @@ const JOURNEY_GRAPH_SLOTS = Object.freeze([
   Object.freeze({ x: 380, y: 438 }),
   Object.freeze({ x: 110, y: 260 }),
 ]);
-const JOURNEY_GRAPH_PROSPECTS = Object.freeze([
-  Object.freeze({ x: 42, y: 66 }),
-  Object.freeze({ x: 718, y: 66 }),
-  Object.freeze({ x: 380, y: 502 }),
-]);
 const JOURNEY_GRAPH_CENTER = Object.freeze({ x: 380, y: 260 });
+const APPROVED_HERO_ASSET = Object.freeze({
+  src: "/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png",
+  sha256: "6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47",
+  width: 6912,
+  height: 3456,
+});
 const journeySurfaceLabels = Object.freeze({
   search: "Search / Maps",
   website: "Website",
@@ -778,76 +779,6 @@ const SURFACE_STATUS_LABELS = Object.freeze({
   needs_verification: "NEEDS VERIFICATION",
 });
 
-function permutations(values) {
-  if (values.length <= 1) return [values];
-  return values.flatMap((value, index) => permutations(values.filter((_, itemIndex) => itemIndex !== index))
-    .map((rest) => [value, ...rest]));
-}
-
-function segmentCrosses(a, b, c, d) {
-  const orientation = (p, q, r) => Math.sign((q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y));
-  return orientation(a, b, c) !== orientation(a, b, d) && orientation(c, d, a) !== orientation(c, d, b);
-}
-
-function journeySurfaceSequence(artifact, journey) {
-  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
-  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
-  const sequence = [];
-  const appendNode = (nodeId) => {
-    const node = nodeById.get(nodeId);
-    const id = node?.kind === "lead_intake" ? "lead_intake" : node?.surface;
-    if (id && sequence.at(-1) !== id) sequence.push(id);
-  };
-  journey.edge_ids.forEach((edgeId, index) => {
-    const edge = edgeById.get(edgeId);
-    if (!edge) return;
-    if (index === 0) appendNode(edge.from);
-    appendNode(edge.to);
-  });
-  return sequence;
-}
-
-export function selectJourneyGraphLayout(artifact) {
-  const candidates = permutations(JOURNEY_GRAPH_SURFACE_ORDER);
-  const scored = candidates.map((order) => {
-    const coordinates = Object.fromEntries(order.map((surface, index) => [surface, JOURNEY_GRAPH_SLOTS[index]]));
-    coordinates.lead_intake = JOURNEY_GRAPH_CENTER;
-    const journeySegments = artifact.representative_journeys.map((journey) => {
-      const sequence = journeySurfaceSequence(artifact, journey);
-      const points = [JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot], ...sequence.map((surface) => coordinates[surface])].filter(Boolean);
-      return points.slice(1).map((point, index) => [points[index], point]);
-    });
-    let crossings = 0;
-    for (let left = 0; left < journeySegments.length; left += 1) {
-      for (let right = left + 1; right < journeySegments.length; right += 1) {
-        journeySegments[left].forEach(([a, b]) => journeySegments[right].forEach(([c, d]) => {
-          if ([a, b].includes(c) || [a, b].includes(d)) return;
-          if (segmentCrosses(a, b, c, d)) crossings += 1;
-        }));
-      }
-    }
-    const length = journeySegments.flat().reduce((sum, [a, b]) => sum + Math.hypot(b.x - a.x, b.y - a.y), 0);
-    const preferredDeviation = order.reduce((sum, surface, index) => sum + Math.abs(JOURNEY_GRAPH_SURFACE_ORDER.indexOf(surface) - index), 0);
-    return { order, coordinates, cost: [crossings, Math.round(length), preferredDeviation] };
-  });
-  scored.sort((a, b) => {
-    for (let index = 0; index < a.cost.length; index += 1) {
-      if (a.cost[index] !== b.cost[index]) return a.cost[index] - b.cost[index];
-    }
-    return a.order.join("|").localeCompare(b.order.join("|"));
-  });
-  return Object.freeze(scored[0]);
-}
-
-function journeyStatus(artifact, journey) {
-  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
-  const statuses = journey.edge_ids.map((edgeId) => edgeById.get(edgeId)?.status).filter(Boolean);
-  if (statuses.includes("broken")) return "broken";
-  if (statuses.includes("friction")) return "friction";
-  if (statuses.includes("not_assessed")) return "not_assessed";
-  return "clean";
-}
-
 function surfaceStatus(report, result, surfaceId) {
   if (!result.surfaces[surfaceId]?.sufficient) return "needs_verification";
   const surface = report.surfaces.find((item) => item.id === surfaceId);
@@ -857,21 +788,6 @@ function surfaceStatus(report, result, surfaceId) {
   return "watch";
 }
 
-function practiceIdentitySvg(report) {
-  const logo = report.practice?.logo;
-  if (logo?.src && ["approved", "verified"].includes(logo.provenance)) {
-    return `<image class="cae-journey-graph__logo" href="${escapeHtml(logo.src)}" x="-44" y="-44" width="88" height="88" preserveAspectRatio="xMidYMid meet"><title>${escapeHtml(logo.alt || `${report.practice.name} logo`)}</title></image>`;
-  }
-  const initials = String(report.practice?.name || "Practice")
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 3)
-    .map((part) => part[0])
-    .join("")
-    .toUpperCase();
-  return `<text class="cae-journey-graph__wordmark" text-anchor="middle" dominant-baseline="middle"><title>Practice identity fallback: ${escapeHtml(report.practice.name)}</title><tspan data-brand>${escapeHtml(initials)}</tspan></text>`;
-}
-
 function graphSurfaceNodeSvg(report, result, surface, point) {
   const status = surfaceStatus(report, result, surface);
   return `<g class="cae-journey-graph__surface" data-surface="${surface}" data-surface-status="${status}" transform="translate(${point.x} ${point.y})">
@@ -879,11 +795,6 @@ function graphSurfaceNodeSvg(report, result, surface, point) {
     <text class="cae-journey-graph__surface-label" y="-7" text-anchor="middle">${escapeHtml(journeySurfaceLabels[surface])}</text>
     <text class="cae-journey-graph__surface-status" y="17" text-anchor="middle">${escapeHtml(SURFACE_STATUS_LABELS[status])}</text>
   </g>`;
-}
-
-function graphNodeCoordinate(node, layout) {
-  if (!node) return null;
-  return node.kind === "lead_intake" ? JOURNEY_GRAPH_CENTER : layout.coordinates[node.surface];
 }
 
 function brokenMarkerSvg(from, to, edgeId) {
@@ -902,100 +813,11 @@ function graphMarkersSvg(prefix) {
   return `<defs>${Object.keys(JOURNEY_GRAPH_STATUS_LABELS).map((status) => `<marker id="${prefix}-${status}" class="cae-journey-graph__marker" data-status="${status}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker>`).join("")}</defs>`;
 }
 
-function primaryJourneyMobileHtml(artifact) {
-  const journey = artifact.representative_journeys.find((item) => item.kind === "primary_constraint")
-    || artifact.representative_journeys[0];
-  if (!journey) return `<p class="cae-report-note">No representative route was assessed. No connection is inferred.</p>`;
-  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
-  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
-  const rows = journey.edge_ids.map((edgeId) => {
-    const edge = edgeById.get(edgeId);
-    if (!edge) return "";
-    const fromNode = nodeById.get(edge.from);
-    const toNode = nodeById.get(edge.to);
-    const from = fromNode?.kind === "lead_intake" ? "Lead Intake" : journeySurfaceLabels[fromNode?.surface];
-    const to = toNode?.kind === "lead_intake" ? "Lead Intake" : journeySurfaceLabels[toNode?.surface];
-    return `<li data-edge-id="${escapeHtml(edge.id)}" data-status="${edge.status}"><span>${escapeHtml(from)}</span><b aria-hidden="true">→</b><span>${escapeHtml(to)}</span><strong>${escapeHtml(JOURNEY_GRAPH_STATUS_LABELS[edge.status])}</strong></li>`;
-  }).join("");
-  return `<div class="cae-journey-graph__mobile" data-mobile-primary-journey><p class="cae-kicker">Primary representative route</p><ol>${rows}</ol></div>`;
-}
-
-function graphLegendHtml(report, result, graphAnalysis) {
-  const counts = Object.fromEntries(Object.keys(JOURNEY_GRAPH_STATUS_LABELS).map((status) => [
-    status,
-    graphAnalysis.surface_edges.filter((edge) => edge.status === status).length,
-  ]));
-  const surfaceRows = JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => {
-    const status = surfaceStatus(report, result, surface);
-    return `<li><span data-surface-status="${status}"></span><b>${escapeHtml(journeySurfaceLabels[surface])}</b><em>${escapeHtml(SURFACE_STATUS_LABELS[status])}</em></li>`;
-  }).join("");
-  return `<aside class="cae-journey-graph__panel" aria-label="Journey map legend">
-    <section><h4>Surface health</h4><ul>${surfaceRows}</ul></section>
-    <section><h4>Journey paths</h4><div class="cae-journey-graph__legend"><span data-status="clean">CLEAN</span><span data-status="friction">FRICTION</span><span data-status="broken">BROKEN</span><span data-status="not_assessed">NOT ASSESSED</span></div></section>
-    <section><h4>Cross-Surface Connections Overview</h4><p><strong>${counts.clean}</strong> clean · <strong>${counts.friction}</strong> friction · <strong>${counts.broken}</strong> broken · <strong>${counts.not_assessed}</strong> not assessed</p><p>${escapeHtml(report.crossSurface.summary)}</p></section>
-  </aside>`;
-}
-
-function heroJourneyMapHtml(report, result, graphAnalysis) {
+function heroJourneyMapHtml(report) {
   const artifact = report.journeyGraph;
   if (!artifact) return "";
-  const layout = selectJourneyGraphLayout(artifact);
-  const nodeById = new Map(artifact.nodes.map((node) => [node.id, node]));
-  const edgeById = new Map(artifact.edges.map((edge) => [edge.id, edge]));
-  const seenEdges = new Set();
-  const routes = artifact.representative_journeys.map((journey) => {
-    const firstEdge = edgeById.get(journey.edge_ids[0]);
-    const firstPoint = graphNodeCoordinate(nodeById.get(firstEdge?.from), layout);
-    const prospect = JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot];
-    const entry = firstPoint ? `<line class="cae-journey-graph__entry" x1="${prospect.x}" y1="${prospect.y}" x2="${firstPoint.x}" y2="${firstPoint.y}"><title>${escapeHtml(journey.label)} · representative entry</title></line>` : "";
-    const edges = journey.edge_ids.map((edgeId) => {
-      if (seenEdges.has(edgeId)) return "";
-      seenEdges.add(edgeId);
-      const edge = edgeById.get(edgeId);
-      if (!edge) return "";
-      return journeyEdgeSvg(edge, graphNodeCoordinate(nodeById.get(edge.from), layout), graphNodeCoordinate(nodeById.get(edge.to), layout), "cae-hero-arrow");
-    }).join("");
-    return entry + edges;
-  }).join("");
-  const remainingPublishedEdges = artifact.edges
-    .filter((edge) => !(edge.expectation === "optional" && edge.status === "not_assessed"))
-    .filter((edge) => !seenEdges.has(edge.id))
-    .map((edge) => journeyEdgeSvg(
-      edge,
-      graphNodeCoordinate(nodeById.get(edge.from), layout),
-      graphNodeCoordinate(nodeById.get(edge.to), layout),
-      "cae-hero-arrow",
-    ))
-    .join("");
-  const reachability = graphAnalysis.reachability.map((route) => `<li><strong>${escapeHtml(artifact.nodes.find((node) => node.id === route.entry_node_id)?.label || route.entry_node_id)}:</strong> ${escapeHtml(route.route_status)}${route.shortest_clean_hops === null ? "" : ` · ${route.shortest_clean_hops} clean hop${route.shortest_clean_hops === 1 ? "" : "s"}`}</li>`).join("");
-  return `<figure class="cae-journey-graph" data-graph-view="hero" data-artifact-id="${escapeHtml(artifact.artifact_id)}">
-    <figcaption><strong>Where Clients Are Gained - and Lost</strong><span>Evidence-backed public paths across exactly four surfaces. These are representative routes, not tracked individual patients.</span></figcaption>
-    <div class="cae-journey-graph__layout">
-      <div>
-      <div class="cae-journey-graph__canvas cae-journey-graph__canvas--desktop">
-      <svg viewBox="0 0 760 540" role="img" aria-labelledby="cae-journey-hero-title cae-journey-hero-desc">
-        <title id="cae-journey-hero-title">Where Clients Are Gained - and Lost</title>
-        <desc id="cae-journey-hero-desc">Evidence-backed public routes through Search, Website, Social and Reviews toward the gray Lead Intake boundary.</desc>
-        ${graphMarkersSvg("cae-hero-arrow")}
-        <circle class="cae-journey-graph__intake-ring" cx="380" cy="260" r="88"></circle>
-        ${routes}${remainingPublishedEdges}
-        ${artifact.representative_journeys.map((journey) => {
-          const point = JOURNEY_GRAPH_PROSPECTS[journey.prospect_slot];
-          return `<g class="cae-journey-graph__prospect" transform="translate(${point.x} ${point.y})"><circle r="18"></circle><text y="34" text-anchor="middle">Prospect ${journey.prospect_slot + 1}</text></g>`;
-        }).join("")}
-        ${JOURNEY_GRAPH_SURFACE_ORDER.map((surface) => graphSurfaceNodeSvg(report, result, surface, layout.coordinates[surface])).join("")}
-        <text class="cae-journey-graph__intake-label" x="380" y="166" text-anchor="middle">LEAD INTAKE</text>
-        <text class="cae-journey-graph__intake-state" x="380" y="361" text-anchor="middle">NOT ASSESSED</text>
-        <g class="cae-journey-graph__intake" transform="translate(380 260)"><circle r="58"></circle>${practiceIdentitySvg(report)}</g>
-      </svg>
-      </div>
-      ${primaryJourneyMobileHtml(artifact)}
-      </div>
-      ${graphLegendHtml(report, result, graphAnalysis)}
-    </div>
-    ${reachability ? `<ul class="cae-journey-graph__routes">${reachability}</ul>` : ""}
-    <div class="cae-journey-graph__decision-grid"><article><span>Primary Constraint</span><strong>${escapeHtml(report.humanDiagnosis.binding_constraint.title)}</strong></article><article><span>What This Means</span><p>${escapeHtml(report.humanDiagnosis.binding_constraint.statement)}</p></article><article><span>Impact</span><p>${escapeHtml(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === report.humanDiagnosis.focus_selection.primary_gap_id)?.why_it_matters || report.humanDiagnosis.current_state.constraint_detail)}</p></article></div>
-    <div class="cae-journey-graph__outside-in"><strong>OUTSIDE-IN DIAGNOSIS</strong><span>Public evidence only · Lead Intake and internal conversion remain NOT ASSESSED without authorized internal evidence.</span></div>
+  return `<figure class="cae-approved-hero-asset" data-graph-view="hero" data-artifact-id="${escapeHtml(artifact.artifact_id)}" data-approved-asset-sha256="${APPROVED_HERO_ASSET.sha256}">
+    <img src="${APPROVED_HERO_ASSET.src}" width="${APPROVED_HERO_ASSET.width}" height="${APPROVED_HERO_ASSET.height}" alt="Where Clients Are Gained - and Lost" decoding="async">
   </figure>`;
 }
 

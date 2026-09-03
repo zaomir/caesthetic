@@ -1,19 +1,25 @@
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import {
   JOURNEY_GRAPH_ARTIFACT_VERSION,
   analyzeJourneyGraph,
   scoreGrowthReport,
   validateJourneyGraphArtifact,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
-import {
-  renderGrowthReport,
-  selectJourneyGraphLayout,
-} from "../../scripts/caesthetic/render-growth-score.mjs";
+import { renderGrowthReport } from "../../scripts/caesthetic/render-growth-score.mjs";
 import {
   createJourneyGraphFixture,
   createV5Report,
 } from "./helpers/growth-score-v5-fixture.mjs";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const approvedHeroAsset = "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png";
+const approvedHeroSrc = "/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png";
+const approvedHeroSha256 = "6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47";
 
 test("Cross-Surface Journey Graph is one reviewed evidence artifact and never a fifth surface", () => {
   const baseline = createV5Report();
@@ -152,35 +158,34 @@ test("metric links are evidence-only and restricted to existing approved metrics
   assert.throws(() => validateJourneyGraphArtifact(scoreMutation, { publication: true }), /automatic_score_change must be false/);
 });
 
-test("one artifact deterministically renders both adaptive Hero and fixed Broken Connections views", () => {
+test("approved Hero is the exact immutable raster while the artifact still renders Broken Connections", () => {
   const graph = createJourneyGraphFixture();
   const report = createV5Report(undefined, { journeyGraph: graph });
   const html = renderGrowthReport(report);
-  const layout = selectJourneyGraphLayout(graph);
+  const assetBytes = fs.readFileSync(path.join(root, approvedHeroAsset));
+  const assetHash = crypto.createHash("sha256").update(assetBytes).digest("hex");
+  const heroStart = html.indexOf('<figure class="cae-approved-hero-asset"');
+  const heroEnd = html.indexOf("</figure>", heroStart);
+  const hero = html.slice(heroStart, heroEnd + "</figure>".length);
+  const rendererSource = fs.readFileSync(path.join(root, "scripts/caesthetic/render-growth-score.mjs"), "utf8");
 
-  assert.equal(new Set(layout.order).size, 4);
-  assert.deepEqual([...layout.order].sort(), ["reputation", "search", "social", "website"]);
+  assert.equal(assetHash, approvedHeroSha256);
+  assert.equal(assetBytes.length, 1231338);
   assert.equal((html.match(/data-artifact-id="fixture-journey-graph-v1"/g) || []).length, 2);
   assert.match(html, /data-graph-view="hero"/);
-  assert.match(html, /Where Clients Are Gained - and Lost/);
-  assert.match(html, /LEAD INTAKE/);
-  assert.match(html, /NOT ASSESSED/);
-  assert.match(html, /Surface health/);
-  assert.match(html, /PROTECT|WATCH|FIX NOW|NEEDS VERIFICATION/);
-  assert.match(html, /Cross-Surface Connections Overview/);
-  assert.match(html, /Primary Constraint/);
-  assert.match(html, /What This Means/);
-  assert.match(html, /OUTSIDE-IN DIAGNOSIS/);
-  assert.match(html, /data-mobile-primary-journey/);
+  assert.match(hero, new RegExp(`src="${approvedHeroSrc.replaceAll("/", "\\/")}"`));
+  assert.match(hero, new RegExp(`data-approved-asset-sha256="${approvedHeroSha256}"`));
+  assert.match(hero, /width="6912" height="3456"/);
+  assert.match(hero, /alt="Where Clients Are Gained - and Lost"/);
+  assert.equal((hero.match(/<img\b/g) || []).length, 1);
+  assert.doesNotMatch(hero, /<(?:svg|canvas|picture)\b|srcset=|<figcaption\b|data-edge-id=|data-mobile-primary-journey/);
+  assert.doesNotMatch(rendererSource, /function\s+(?:selectJourneyGraphLayout|practiceIdentitySvg|primaryJourneyMobileHtml|graphLegendHtml)\b/);
   assert.match(html, /Broken Connections Map/);
   assert.ok(html.indexOf("Broken Connections Map") < html.indexOf('id="focus-gaps"'));
-  assert.match(html, /representative routes, not tracked individual patients/i);
-  assert.match(html, /data-edge-id="social-to-intake-missing" data-status="broken"/);
-  assert.match(html, /data-edge-id="website-to-intake" data-status="clean"/);
   assert.match(html, /social-to-intake-missing/);
 });
 
-test("Hero and Broken Connections use exact edge states without false green Lead Intake links", () => {
+test("Broken Connections uses exact edge states while the locked Hero remains isolated", () => {
   const graph = createJourneyGraphFixture();
   graph.edges.push({
     id: "reviews-to-intake-unverified",
@@ -233,7 +238,7 @@ test("Hero and Broken Connections use exact edge states without false green Lead
   const hero = html.slice(html.indexOf('data-graph-view="hero"'), html.indexOf("</figure>", html.indexOf('data-graph-view="hero"')));
   assert.doesNotMatch(html, /data-edge-id="optional-reviews-to-social"/);
   assert.match(html, /data-edge-id="reviews-to-intake-unverified" data-status="not_assessed"/);
-  assert.match(hero, /data-edge-id="reviews-to-intake-unverified" data-status="not_assessed"/);
+  assert.doesNotMatch(hero, /data-edge-id=/);
   assert.doesNotMatch(hero, /data-edge-id="optional-reviews-to-social"/);
   assert.doesNotMatch(html, /data-edge-id="reviews-to-intake-unverified" data-status="clean"/);
   assert.match(html, /data-edge-id="social-to-intake-missing" data-status="broken"/);

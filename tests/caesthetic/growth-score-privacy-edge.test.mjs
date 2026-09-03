@@ -78,6 +78,7 @@ test("DEC-829 excludes client score artifacts and protects canonical Growth Scor
   for (const privateArtifact of [
     "site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
     "site-caesthetic/docs/website-studio/site-caesthetic-score-nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8.md",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
     "site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/",
     "site-caesthetic/docs/website-studio/site-caesthetic-score-prestige-ru-pilot-520-20260901-c6d8e2.md",
   ]) {

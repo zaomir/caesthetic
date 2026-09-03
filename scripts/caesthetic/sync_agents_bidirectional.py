@@ -71,6 +71,7 @@ EXCLUDE_REL_PREFIXES = (
     "site-caesthetic/docs/website-studio/site-caesthetic-score-aesthetemed-public-evidence-7c3e91b4a8f26d50.md",
     "site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
     "site-caesthetic/docs/website-studio/site-caesthetic-score-nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8.md",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
     "site-caesthetic/score/prestige-ru-preview-20260901-a7f3d9/",
     "site-caesthetic/score/prestige-ru-manager-preview-20260901-b4c2e7/",
     "site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/",

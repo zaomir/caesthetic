@@ -66,6 +66,7 @@ Authorable Growth Score paths include:
 - `site-caesthetic/assets/js/growth-score-engine.mjs`
 - `site-caesthetic/assets/js/growth-cockpit.js`
 - `site-caesthetic/assets/css/growth-report*.css`
+- `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png`
 - `tests/caesthetic/growth-score-*.test.mjs`
 
 Rules for a satellite-only agent:
@@ -77,6 +78,10 @@ Rules for a satellite-only agent:
 5. Never edit excluded private client routes/packs in the satellite; those intentionally do not sync.
 6. Never deploy from `zaomir/caesthetic`. After the change reaches `grainee-v2`, canonical tests/deploy/smoke run from `grainee-v2`.
 7. If the same protected file changed concurrently in both repos, stop and report the conflict instead of trying to force satellite content over `grainee-v2`.
+
+### Locked `Where Clients Are Gained - and Lost` visual
+
+The exact mirrored PNG above is the only approved visual for this Growth Score section. Its required SHA-256 is `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`. Do not generate, redraw, trace, reconstruct, translate, recolor, crop, overlay or substitute it with HTML, SVG, canvas, CSS or another image/derivative. A replacement requires explicit owner approval and synchronized canon plus hash-guard updates in both repositories.
 
 The executable guard for this contract is `tests/caesthetic/satellite-growth-score-authoring.test.py`.
 

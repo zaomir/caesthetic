@@ -323,9 +323,19 @@
   }
 }
 
-/* Canonical Hero Client Journey Map — deterministic HTML/SVG translation of
-   the approved editorial composition. State always comes from report evidence. */
-.cae-score-report .cae-journey-graph,
+/* The approved Hero is one immutable raster asset. Do not crop, redraw,
+   translate, recolor or replace it with responsive HTML/SVG. */
+.cae-score-report .cae-approved-hero-asset {
+  margin: var(--cae-space-8) 0;
+}
+
+.cae-score-report .cae-approved-hero-asset img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The separate Broken Connections view remains evidence-driven HTML/SVG. */
 .cae-score-report .cae-journey-graph-block {
   --cae-graph-clean: var(--cae-data-positive);
   --cae-graph-friction: var(--cae-data-warning);
@@ -333,32 +343,6 @@
   --cae-graph-unassessed: var(--cae-muted-2);
   border-radius: var(--cae-radius);
   background: var(--cae-bg-2);
-}
-
-.cae-score-report .cae-journey-graph > figcaption {
-  max-width: 54rem;
-  margin-inline: auto;
-  text-align: center;
-}
-
-.cae-score-report .cae-journey-graph > figcaption strong {
-  font-size: clamp(2rem, 4vw, 3.7rem);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.035em;
-}
-
-.cae-score-report .cae-journey-graph > figcaption span {
-  max-width: 44rem;
-  margin: var(--cae-space-2) auto 0;
-  font-size: var(--cae-text-base);
-}
-
-.cae-score-report .cae-journey-graph__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
-  gap: var(--cae-space-5);
-  align-items: stretch;
 }
 
 .cae-score-report .cae-journey-graph__canvas--desktop svg {
@@ -448,80 +432,11 @@
   fill: var(--cae-data-neutral);
 }
 
-.cae-score-report .cae-journey-graph__wordmark {
-  fill: var(--cae-text-strong);
-  font-family: var(--cae-font-display);
-  font-size: 28px;
-  font-weight: 600;
-}
-
-.cae-score-report .cae-journey-graph__logo {
-  clip-path: circle(44px at center);
-}
-
-.cae-score-report .cae-journey-graph__panel {
-  display: grid;
-  align-content: start;
-  border: 1px solid var(--cae-border-data);
-  background: var(--cae-bg);
-}
-
-.cae-score-report .cae-journey-graph__panel section {
-  padding: var(--cae-space-5);
-  border-bottom: 1px solid var(--cae-border-data);
-}
-
-.cae-score-report .cae-journey-graph__panel section:last-child { border-bottom: 0; }
-.cae-score-report .cae-journey-graph__panel h4 {
-  margin: 0 0 var(--cae-space-3);
-  font-family: var(--cae-font-mono);
-  font-size: var(--cae-text-xs);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.cae-score-report .cae-journey-graph__panel ul {
-  display: grid;
-  gap: var(--cae-space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.cae-score-report .cae-journey-graph__panel li {
-  display: grid;
-  grid-template-columns: .75rem minmax(0, 1fr) auto;
-  gap: var(--cae-space-2);
-  align-items: center;
-  font-size: var(--cae-text-xs);
-}
-
-.cae-score-report .cae-journey-graph__panel li > span {
-  width: .65rem;
-  height: .65rem;
-  border-radius: 50%;
-  background: var(--cae-data-neutral);
-}
-
 .cae-score-report [data-surface-status="protect"] > span:first-child { background: var(--cae-data-positive); }
 .cae-score-report [data-surface-status="watch"] > span:first-child { background: var(--cae-data-warning); }
 .cae-score-report [data-surface-status="fix_now"] > span:first-child { background: var(--cae-data-negative); }
 .cae-score-report [data-surface-status="needs_verification"] > span:first-child { background: var(--cae-data-neutral); }
 
-.cae-score-report .cae-journey-graph__panel em {
-  color: var(--cae-muted);
-  font-family: var(--cae-font-mono);
-  font-size: .62rem;
-  font-style: normal;
-}
-
-.cae-score-report .cae-journey-graph__panel .cae-journey-graph__legend {
-  display: grid;
-  gap: var(--cae-space-2);
-  margin: 0;
-}
-
-.cae-score-report .cae-journey-graph__decision-grid,
 .cae-score-report .cae-surface-snapshot > div {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -531,13 +446,11 @@
   background: var(--cae-border-data);
 }
 
-.cae-score-report .cae-journey-graph__decision-grid article,
 .cae-score-report .cae-surface-snapshot article {
   padding: var(--cae-space-5);
   background: var(--cae-bg);
 }
 
-.cae-score-report .cae-journey-graph__decision-grid span,
 .cae-score-report .cae-surface-snapshot header span {
   display: block;
   margin-bottom: var(--cae-space-2);
@@ -548,25 +461,7 @@
   text-transform: uppercase;
 }
 
-.cae-score-report .cae-journey-graph__decision-grid p,
 .cae-score-report .cae-surface-snapshot p { margin-bottom: 0; }
-
-.cae-score-report .cae-journey-graph__outside-in {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--cae-space-4);
-  align-items: center;
-  margin: var(--cae-space-5) calc(var(--cae-space-6) * -1) calc(var(--cae-space-6) * -1);
-  padding: var(--cae-space-4) var(--cae-space-6);
-  background: var(--cae-accent);
-  color: var(--cae-bg);
-}
-
-.cae-score-report .cae-journey-graph__outside-in strong {
-  font-family: var(--cae-font-mono);
-  font-size: var(--cae-text-xs);
-  letter-spacing: .08em;
-}
 
 .cae-score-report .cae-surface-snapshot { margin: var(--cae-space-8) 0; }
 .cae-score-report .cae-surface-snapshot > div { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -630,8 +525,6 @@
 .cae-score-report .cae-lead-revenue__check small { grid-column: 2; color: var(--cae-muted); }
 
 @media (max-width: 800px) {
-  .cae-score-report .cae-journey-graph__layout,
-  .cae-score-report .cae-journey-graph__decision-grid,
   .cae-score-report .cae-surface-snapshot > div,
   .cae-score-report .cae-lead-revenue__check {
     grid-template-columns: 1fr;
@@ -665,11 +558,6 @@
     color: var(--cae-muted);
     font-family: var(--cae-font-mono);
     font-size: .68rem;
-  }
-  .cae-score-report .cae-journey-graph__outside-in {
-    grid-template-columns: 1fr;
-    margin: var(--cae-space-5) calc(var(--cae-space-4) * -1) calc(var(--cae-space-4) * -1);
-    padding: var(--cae-space-4);
   }
   .cae-score-report .cae-lead-revenue { padding: var(--cae-space-4); }
   .cae-score-report .cae-lead-revenue ol { grid-template-columns: 1fr; }

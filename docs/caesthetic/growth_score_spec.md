@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.3.1
+version: 5.3.2
 updated: 2026-09-03
 scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, five derived decision views, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
@@ -343,6 +343,10 @@ The production authority deterministically derives:
 
 Reachability asks whether each observable entry can reach `lead_intake` through a clean or friction route. It does not demand a complete 4×4 link matrix. A loop is a traversable cycle; an orphan is an observed public asset not reachable from any approved entry; a dead end is an observed public asset with no traversable outgoing next step.
 
+#### Locked Hero visual isolation
+
+The Journey Graph artifact remains mandatory and drives validation, derived analysis, Broken Connections and evidence drill-down. It does **not** dynamically draw the `Where Clients Are Gained - and Lost` Hero. That Hero is one immutable owner-approved PNG at `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png`, SHA-256 `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`. The renderer may only emit the exact raster through one `<img>` with its intrinsic `6912×3456` dimensions and proportional CSS scaling. HTML, SVG, canvas, CSS or image-derivative substitution fails the renderer contract. A change requires explicit owner approval, canon update and matching hash-guard update.
+
 `representative_journeys[]` contains no more than three continuous edge-id paths: `strongest`, `primary_constraint` and/or `supporting`, each assigned to one of the three fixed prospect slots. These are representative evidence-backed paths, never claims about tracked individual patients.
 
 Renderer-state rule: each visible public segment uses the status of its own referenced edge. A journey-level worst state may summarize a path in text but may not recolor clean/not-assessed neighboring segments. Hero and Broken Connections Map are projections of the same edge registry. Optional `not_assessed` relationships are excluded from the owner-facing aggregate; a conditional unverified Reviews → Lead Intake route remains gray; a Social → Lead Intake route may be red only when the approved edge evidence confirms the break or no clear next step.
@@ -596,7 +600,7 @@ The Intro appears immediately before `gap-map` and is not assigned a cockpit num
 
 `vertical_context` adapts only nouns and context in this shared Intro, while `report_locale` localizes its copy. Neither may change facts, the binding constraint, Focus Selection or Do Not Fund Yet. Multi-Location uses the same Intro with network/location wording; no per-vertical or per-language Intro file is allowed.
 
-1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, canonical `Where Clients Are Gained - and Lost` Hero, Four-Surface snapshot, same-artifact Broken Connections Map, Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct.
+1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, immutable approved `Where Clients Are Gained - and Lost` PNG, Four-Surface snapshot, Journey-Graph-driven Broken Connections Map, Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct.
 2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and exactly two Supporting gaps, visibly identified as human-approved, with rationale and binding-constraint link; selector identity stays in the internal audit trail.
 3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope.
 4. **Repair Paths** (`repair-paths`) — complete DIY-capable remediation plans for every selected gap: outcome, steps, dependencies, accountable role and observable `done_when`. A `start_in_30_days` item separates Day-30 outcome from beyond-Day-30 work.

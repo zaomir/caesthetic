@@ -3,6 +3,13 @@
 **Updated:** 2026-09-03
 **Phase:** Phase 1 — proof + outbound readiness
 
+## Growth Score approved Hero asset lock (2026-09-03)
+
+- The `Where Clients Are Gained - and Lost` section now displays only the owner-approved PNG at `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png`.
+- Exact authority: SHA-256 `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`, `1,231,338` bytes, `6912×3456`.
+- The former adaptive HTML/SVG Hero reconstruction and mobile substitute are disabled. Replacement, redraw, translation, crop, recolor, overlay or transformed derivative requires explicit owner approval and a new canon/hash guard.
+- Four Surfaces, schema v5, Journey Graph evidence, human review, Broken Connections and all scoring/priority isolation contracts remain unchanged.
+
 ## Multi-Location decision intelligence — implementation (2026-09-03)
 
 - New authoring uses additive profile `multi-location-growth-score/1.2.0`; schema v5, template `growth-score-report-template/5.2.0`, Four Surfaces, weights, Overall, binding constraint and named-human Top 3 rules are unchanged.

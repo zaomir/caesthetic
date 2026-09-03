@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active_implementation_profile
-version: 1.2
+version: 1.3
 updated: 2026-09-02
 scope: canonical Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics, Broken Connections Map and Lead-to-Revenue visual branch
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
@@ -27,61 +27,34 @@ The shared report template across aesthetic, dental and beauty contexts uses thi
 
 The story is mapped inside the existing Intro + nine canonical machine sections. It does not create a tenth section or a separate report product.
 
-Production diagnostic visuals are deterministic HTML/SVG components, not AI-generated raster images.
+The `Where Clients Are Gained - and Lost` Hero is the one explicit exception to dynamic diagnostic rendering: it is the immutable owner-approved raster defined in §2. Broken Connections and the remaining evidence-driven diagnostic views keep their deterministic renderer contracts.
 
 ## 2. Hero Client Journey Map
 
-Purpose: show the patient/client viewpoint before Lead Intake.
+Purpose: show the approved owner-facing explanation of how clients are gained and lost before Lead Intake.
 
 Canonical title: **`Where Clients Are Gained - and Lost`**.
 
-Geometry:
+The sole visual authority is the owner-uploaded file copied byte-for-byte to:
 
-- resolved client logo is fixed in the centre; use a neutral wordmark/initial fallback if provenance is not reliable;
-- a separate `LEAD INTAKE` ring surrounds the logo and marks the boundary between the public patient-decision system and the internal conversion/patient-operations layer;
-- exactly four fixed orbital slots surround the centre;
-- those slots are populated by `Search / Maps`, `Website`, `Social`, `Reviews`;
-- up to three prospect entry positions sit outside the orbit;
-- representative evidence-backed journeys move from prospect entries through surface nodes toward Lead Intake;
-- green = clean, amber = friction, red = confirmed break, gray = not assessed;
-- Primary Constraint receives `FIX FIRST` emphasis; Supporting Gaps remain secondary;
-- Cross-Surface Consistency may be shown as an orbit/connection state, never as a fifth surface.
+`site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png`
 
-Approved composition:
+- SHA-256: `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`;
+- byte length: `1,231,338`;
+- intrinsic dimensions: `6912×3456`;
+- MIME: `image/png`.
 
-- client logo/fallback in the centre;
-- gray `LEAD INTAKE` ring plus `NOT ASSESSED`;
-- four surface nodes with `PROTECT / WATCH / FIX NOW / NEEDS VERIFICATION`;
-- individually state-colored `CLEAN / FRICTION / BROKEN / NOT ASSESSED` segments;
-- right legend and `Cross-Surface Connections Overview`;
-- `Primary Constraint / What This Means / Impact` block;
-- bottom `Outside-In Diagnosis` strip.
-
-The raster reference is composition-only. Production is deterministic HTML/SVG and must not embed or trace the raster asset.
-
-The four surface identities never change. Only their assignment to the four orbital slots may be permuted.
-
-### Adaptive surface assignment
-
-Evaluate all `4! = 24` surface-to-slot permutations. Choose the deterministic minimum-cost layout, minimizing in order:
-
-1. route crossings;
-2. label/edge-marker collisions;
-3. route bends and avoidable length;
-4. distance from prospect entry to its first journey node;
-5. deviation from preferred canonical orientation.
-
-The centre, Lead Intake ring, orbital coordinates and prospect positions remain fixed. This preserves one recognizable template while keeping client-specific routes readable.
+The renderer emits this exact file through one `<img>`. It must not generate, trace, redraw, reconstruct, translate, recolor, crop, annotate or overlay the visual in HTML, SVG, canvas, CSS or another image format. It must not create an alternate mobile composition or transformed `srcset` derivative. Proportional viewport scaling of the intact PNG is allowed. Substitution is forbidden without explicit owner approval, a canon change and a new hash guard.
 
 ### Representative journeys
 
-Render no more than three continuous evidence-backed paths:
+Retain no more than three continuous evidence-backed paths in the machine artifact:
 
 1. `strongest` — best observable route toward Lead Intake, if one exists;
 2. `primary_constraint` — route containing the main verified friction/break;
 3. `supporting` — materially different route showing another relevant dependency.
 
-These are representative paths, not claims about tracked individual patients. If evidence is incomplete, render fewer paths or gray segments. Never invent a green success path for visual balance.
+These are representative paths, not claims about tracked individual patients. They support analysis, Broken Connections and evidence drill-down; they do not alter the locked Hero raster. If evidence is incomplete, keep paths absent or gray in the evidence-driven views. Never invent a green success path for visual balance.
 
 ## 3. Cross-Surface Journey Graph
 
@@ -313,9 +286,8 @@ They are presentation-review metadata, not machine-section numbers or evidence. 
 
 At mobile width:
 
-- use a mobile graph composition rather than shrinking the desktop visual;
-- emphasize one representative hero journey at a time, defaulting to the Primary Constraint path;
-- preserve one visible Primary path without JavaScript;
+- show the same exact approved Hero PNG, scaled proportionally with no crop, redraw, overlay or substitute;
+- keep Journey Graph evidence and representative-route detail outside the locked Hero in the existing evidence-driven views;
 - stack Four-Surface cards;
 - preserve Broken Connections edge identity/state in a mobile graph;
 - show Primary Focus Gap open and Supporting collapsed;
@@ -328,7 +300,7 @@ At mobile width:
 
 The three complementary diagnostic visuals answer three different questions:
 
-1. **Hero Client Journey Map — patient viewpoint:** where can the prospect experience a clean path, friction or confirmed break before Lead Intake?
+1. **Hero Client Journey Map — approved explanatory viewpoint:** the exact owner-approved visual, without dynamic evidence binding or substitution.
 2. **Broken Connections Map — system viewpoint:** which public transitions are missing, broken, misdirected, circular or semantically inconsistent?
 3. **Lead-to-Revenue Map — internal operating viewpoint:** what happens after enquiry, and which stages are genuinely assessed?
 

@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.9
+version: 2.0
 updated: 2026-09-03
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
@@ -114,21 +114,21 @@ The **Cross-Surface Journey Graph** is the canonical machine-readable evidence a
 
 Every newly approved or republished report uses one `journeyGraph` artifact under `cross-surface-journey-graph/1.0.0`. Frozen v5.2 reports created before 2026-09-02 may remain unchanged for deterministic historical rendering. New authoring may publish the artifact as reviewed `not_assessed` when evidence is unavailable; it may not omit the artifact or convert missing evidence to red.
 
-The same artifact renders two client-facing views inside the existing nine-section machine contract:
+The existing nine-section machine contract contains two related but deliberately separate client-facing views:
 
-1. **Hero Client Journey Map** inside `gap-map`: fixed client-logo centre and Lead Intake ring, four fixed orbital coordinates, up to three fixed prospect entries and no more than three representative evidence-backed paths. The renderer automatically evaluates all 24 assignments of Search / Maps, Website, Social and Reviews to the orbital coordinates and chooses the deterministic lowest-cost layout by crossings, label collisions, route geometry and canonical-orientation deviation.
-2. **Broken Connections Map** also inside the visual `gap-map` chapter, after the Four-Surface snapshot and before the Focus Gaps presentation. It uses one fixed canonical surface order for report-to-report comparability. Detailed source/destination/evidence drill-down remains in section 7 `evidence-and-competitors`. Aggregate arrows link the four surfaces and Lead Intake; every shown assessed edge resolves to source, destination, observed behavior, why it matters, evidence/date and repair implication.
+1. **Hero Client Journey Map** inside `gap-map`: the immutable owner-approved raster asset defined below. It is a fixed explanatory visual and is not dynamically rendered from report data.
+2. **Broken Connections Map** also inside the visual `gap-map` chapter, after the Four-Surface snapshot and before the Focus Gaps presentation. It remains rendered from the reviewed `journeyGraph` artifact and uses one fixed canonical surface order for report-to-report comparability. Detailed source/destination/evidence drill-down remains in section 7 `evidence-and-competitors`. Aggregate arrows link the four surfaces and Lead Intake; every shown assessed edge resolves to source, destination, observed behavior, why it matters, evidence/date and repair implication.
 
 Both views use one state system: green `clean`, amber `friction`, red `broken`, gray `not_assessed`. An absent optional cross-link is not drawn as a defect. Red requires either an observed technical/context/next-action failure or a human-approved route expectation whose absence was confirmed.
 
-The canonical Hero title is exactly **`Where Clients Are Gained - and Lost`**. The approved composition is deterministic HTML/SVG: client logo or approved fallback in the centre; a separate gray `LEAD INTAKE` ring labelled `NOT ASSESSED`; four surface nodes with `PROTECT / WATCH / FIX NOW / NEEDS VERIFICATION`; individually state-colored route segments; a right-hand legend; `Cross-Surface Connections Overview`; `Primary Constraint / What This Means / Impact`; and a bottom `Outside-In Diagnosis` strip. Surface health and edge state are distinct. No route inherits green from a neighboring surface or from the best/worst state of an entire representative journey.
+The canonical Hero title is exactly **`Where Clients Are Gained - and Lost`**. Its sole approved visual is `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-6b0945610ff55196.png` with SHA-256 `6b0945610ff551967ea13f020c350231bcc354604e91b53e2ae1494291678e47`, `1,231,338` bytes and intrinsic dimensions `6912×3456`. The renderer must emit one ordinary `<img>` for this exact PNG and may only scale it proportionally. No HTML/SVG/canvas/CSS reconstruction, tracing, crop, recolor, translation, responsive redraw, generated substitute, `srcset` derivative or client-specific overlay is permitted. Replacement requires explicit owner approval and a canon plus hash-guard update. The image is explanatory; it does not override or invent report evidence.
 
 Specific edge rules are fail-closed:
 
 - Social → Lead Intake is `broken` only when approved evidence supports the actual technical/context/next-action failure, including an observed `no clear next step`;
 - Reviews → Lead Intake is `not_assessed` when the route was not verified;
 - no edge is drawn for an optional/irrelevant relationship that was not assessed;
-- Hero and Broken Connections Map must expose the same edge IDs, states and evidence lineage from the one `journeyGraph` artifact.
+- Broken Connections Map and section 7 evidence drill-down must expose the same edge IDs, states and evidence lineage from the one `journeyGraph` artifact; the immutable Hero image contains no runtime edge binding.
 
 The artifact retains asset nodes, edges, `technical_integrity`, `context_integrity` across identity/location/treatment/offer/proof, evidence sources and dates, entry-to-Lead-Intake reachability, max 2–3 hop paths, dead ends, loops, orphans and break classifications. Exact schema and validation rules are owned by `docs/caesthetic/growth_score_spec.md` and `site-caesthetic/assets/js/growth-score-engine.mjs`.
 
@@ -292,7 +292,8 @@ Approved visual grammar:
 - editorial decision cards with restrained radius;
 - strict rectangular evidence tables;
 - Primary Constraint visually outweighs supporting context;
-- deterministic HTML/SVG for diagnostic maps; AI-generated raster art is not the production diagnostic renderer.
+- the exact owner-approved PNG for the `Where Clients Are Gained - and Lost` Hero, with no substitute or redraw;
+- deterministic HTML/SVG only for the separate evidence-driven diagnostic maps such as Broken Connections; no AI-generated raster may replace either contract.
 
 Visual refinement must never alter the machine contract, Four Surfaces, evidence, Focus Selection or commercial truthfulness.
 
@@ -300,7 +301,7 @@ Visual refinement must never alter the machine contract, Four Surfaces, evidence
 
 The final client-facing visual sequence is canonical even though it is composed inside the nine-section machine contract:
 
-1. **Owner-first Hero + Client Journey Map.** Title it `Where Clients Are Gained - and Lost`. Use the resolved client logo when provenance is reliable; otherwise use a neutral wordmark/initial fallback. Keep the approved centre/ring/four-orbit/right-legend/decision-block/Outside-In-strip composition defined in §3.1. The preferred owner tension is investment-first, e.g. `You have already invested in your practice. The question is: is that investment working as hard as it should?`. A stronger occupancy statement such as `why is it not filled with clients?` is allowed only when supported by owner-supplied context or evidence; it must not be fabricated from outside-in observation.
+1. **Owner-first Hero + Client Journey Map.** Display only the exact owner-approved `Where Clients Are Gained - and Lost` PNG defined in §3.1, without a client-specific logo, overlay, caption, translation, redraw or mobile substitute. The preferred owner tension may remain in the surrounding report copy, e.g. `You have already invested in your practice. The question is: is that investment working as hard as it should?`. A stronger occupancy statement such as `why is it not filled with clients?` is allowed only when supported by owner-supplied context or evidence; it must not be fabricated from outside-in observation.
 2. **Four-Surface snapshot.** Four cards summarize Search / Maps, Website, Social and Reviews with `Protect / Watch / Fix now / Needs verification` and one owner-language sentence each.
 3. **Broken Connections Map + derived decision views.** Show technical and semantic route integrity between the four surfaces and Lead Intake from the canonical Journey Graph; do not require a complete 4×4 mesh. Then present the four unscored treatment/provider/trust/friction views from the existing evidence only.
 4. **Top 3 leaks.** Exactly one Primary + two Supporting. Primary is open by default; Supporting are collapsed by default. Closed state already states the problem and owner consequence. Expanded state includes `What we found`, `Why it matters`, `What it affects`, `Evidence`, and the repair path/DIY detail at the next disclosure level.

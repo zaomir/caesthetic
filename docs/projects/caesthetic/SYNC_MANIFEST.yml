@@ -38,6 +38,7 @@ excludes:
   # Named-client protected reports and their QA manifests remain production-only.
   - site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/**
   - site-caesthetic/docs/website-studio/site-caesthetic-score-nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8.md
+  - site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/**
   # Client-specific manager previews remain in the production repository only.
   - site-caesthetic/score/prestige-ru-preview-20260901-a7f3d9/**
   - site-caesthetic/score/prestige-ru-manager-preview-20260901-b4c2e7/**
