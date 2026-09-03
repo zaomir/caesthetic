@@ -21,7 +21,8 @@ window.CAESTHETIC = {
   approvedSprintPaymentPolicy: "signed_order_then_controlled_payment_request",
   phoneDisplay: "",
   phoneE164: "",
-  legalEntity: "OXFORD PROJECTS LTD",
+  legalEntity: "OXFORD PROJETS",
+  companyAddress: "#100, 600 W 7th St, Los Angeles, California 90017, US",
   analyst: {
     name: "Valerie Petra",
     role: "Growth Analyst",

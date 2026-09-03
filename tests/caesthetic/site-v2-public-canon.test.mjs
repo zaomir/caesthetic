@@ -22,6 +22,28 @@ const sitemap = read('sitemap.xml');
 const config = read('assets/js/caesthetic-config.js');
 const pointOfContact = read('assets/js/point-of-contact.js');
 const pricingArtifact = read('assets/js/caesthetic-pricing.generated.js');
+const companyIdentitySources = [
+  home,
+  score,
+  sprint,
+  system,
+  about,
+  support,
+  privacyAlias,
+  termsAlias,
+  footer,
+  config,
+  read('lead-to-revenue-check/index.html'),
+  read('pay/index.html'),
+  read('legal/privacy/index.html'),
+  read('legal/terms/index.html'),
+  read('legal/cookies/index.html'),
+  read('legal/payment-terms/index.html'),
+  read('beauty-salons/index.html'),
+  read('es/salones-de-belleza/index.html'),
+  read('ru/salony-krasoty/index.html'),
+  read('fr/salons-de-beaute/index.html'),
+];
 
 test('homepage publishes v2 positioning and canonical owner problems', () => {
   assert.match(home, /The growth operating system for independent aesthetic practices\./);
@@ -94,7 +116,7 @@ test('Valerie Petra uses the founder-confirmed point-of-contact identity', () =>
 
 test('About omits the Company section and retains every other section', () => {
   assert.doesNotMatch(about, /<p class="cae-kicker">Company<\/p>/i);
-  assert.doesNotMatch(about, /CAESTHETIC is a trading name of OXFORD PROJECTS LTD/);
+  assert.doesNotMatch(about, /CAESTHETIC is (?:a trading name of|operated by) OXFORD PROJETS/);
   for (const marker of [
     'About CAESTHETIC',
     'Why we exist',
@@ -139,9 +161,9 @@ test('Customer Support publishes safe contact and legal details', () => {
   assert.match(support, /<h1 class="cae-h1">Customer Support<\/h1>/);
   assert.match(support, /mailto:info@caesthetic\.com/);
   assert.match(support, /We aim to respond within one business day/);
-  assert.match(support, /OXFORD PROJECTS LTD/);
-  assert.match(support, /Company number 16953799/);
-  assert.match(support, /128 City Road, London, United Kingdom, EC1V 2NX/);
+  assert.match(support, /OXFORD PROJETS/);
+  assert.match(support, /#100, 600 W 7th St, Los Angeles, California 90017, US/);
+  assert.doesNotMatch(support, /OXFORD PROJECTS LTD|16953799|128 City Road/);
   for (const href of ['/legal/privacy/', '/legal/terms/', '/legal/cookies/']) {
     assert.ok(support.includes(`href="${href}"`), `missing support legal link: ${href}`);
   }
@@ -160,13 +182,32 @@ test('Stripe-facing legal aliases resolve to canonical policies and publish comp
   assert.match(termsAlias, /http-equiv="refresh" content="0; url=\/legal\/terms\/"/);
   assert.match(termsAlias, /rel="canonical" href="https:\/\/caesthetic\.com\/legal\/terms\/"/);
   for (const source of [privacyAlias, termsAlias, footer]) {
-    assert.match(source, /OXFORD PROJECTS LTD/);
-    assert.match(source, /16953799/);
-    assert.match(source, /128 City Road, London, United Kingdom, EC1V 2NX/);
+    assert.match(source, /OXFORD PROJETS/);
+    assert.match(source, /#100, 600 W 7th St, Los Angeles, California 90017, US/);
+    assert.doesNotMatch(source, /OXFORD PROJECTS LTD|16953799|128 City Road|Registered in England and Wales/);
     assert.match(source, /info@caesthetic\.com/);
   }
   assert.match(privacyAlias + termsAlias, /noindex,follow/);
   assert.doesNotMatch(sitemap, /https:\/\/caesthetic\.com\/(?:privacy|terms)\//);
+});
+
+test('public company identity uses the supplied Los Angeles details everywhere it is emitted', () => {
+  const combined = companyIdentitySources.join('\n');
+  assert.match(combined, /OXFORD PROJETS/);
+  assert.match(combined, /#100, 600 W 7th St/);
+  assert.match(combined, /Los Angeles/);
+  assert.match(combined, /California/);
+  assert.match(combined, /90017/);
+  assert.doesNotMatch(combined, /OXFORD PROJECTS LTD|128 City Road|16953799|Berkeley Square House|London W1J 6BD/);
+
+  for (const source of [home, score, sprint, system, about, read('lead-to-revenue-check/index.html')]) {
+    assert.match(source, /"legalName": "OXFORD PROJETS"/);
+    assert.match(source, /"streetAddress": "#100, 600 W 7th St"/);
+    assert.match(source, /"addressLocality": "Los Angeles"/);
+    assert.match(source, /"addressRegion": "California"/);
+    assert.match(source, /"postalCode": "90017"/);
+    assert.match(source, /"addressCountry": "US"/);
+  }
 });
 
 test('public pricing artifact contains only public product prices and client-specific recurring terms', () => {

@@ -39,7 +39,7 @@ decision: docs/founder-notes/DEC-737_website-studio-standard.md
 
 - [x] Destination is the existing canonical Privacy Policy.
 - [x] Alias is outside the sitemap and marked `noindex,follow`.
-- [x] OXFORD PROJECTS LTD, company number, registered office and support email match supplied details.
+- [x] OXFORD PROJETS, Los Angeles company address and support email match supplied details.
 - [x] No payment, refund, result or response-time guarantee is introduced.
 - [x] Route/canon tests pass; production HTTP and destination smoke required after deploy.
 - [x] Score ≥85/100; no category below 70%; no P0 blockers.
