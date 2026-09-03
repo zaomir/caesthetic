@@ -236,9 +236,9 @@ test("deploy and Agent API smoke markers still match the public demo hub", () =>
   assert.match(productionSmoke, /automatic_score_change must be false/);
   assert.match(productionSmoke, /! grep -Fq 'cae-report-walkthrough'/);
   assert.doesNotMatch(productionSmoke, /grep -Fq 'cae-report-walkthrough' "\$walkthrough_file"/);
-  assert.match(protectedSmoke, /! grep -Fq 'Travis Warner'/);
-  assert.match(protectedSmoke, /cross-surface-journey-graph\/1\.0\.0/);
-  assert.match(protectedSmoke, /assessment_status !== "not_assessed"/);
+  assert.match(protectedSmoke, /score-pin-runtime\.mjs" smoke-passwords/);
+  assert.match(protectedSmoke, /access_group_id="\$\{2:-nvr-odesa-2026-08-31\}"/);
+  assert.match(protectedSmoke, /valid 4-digit PIN session issuance/);
   assert.match(hub, /Four surfaces\. One separate consistency check\./);
   assert.match(demo, /SYNTHETIC DEMO/);
 });

@@ -117,6 +117,7 @@ PROTECTED_PREFIXES = (
     "scripts/caesthetic/publish-growth-score-control-plane.mjs",
     "scripts/caesthetic/publish-growth-score-deploy.sh",
     "scripts/caesthetic/render-growth-score.mjs",
+    "scripts/caesthetic/score-pin-runtime.mjs",
     "scripts/caesthetic/sync_agents_bidirectional.py",
     "tests/caesthetic/growth-score-engine.test.mjs",
     "tests/caesthetic/growth-score-decision-views.test.mjs",
