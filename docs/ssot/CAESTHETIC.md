@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.21
-updated: 2026-09-02
+version: 3.22
+updated: 2026-09-03
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -12,11 +12,13 @@ related:
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
   - docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   - docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
+  - docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
   - docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md
   - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md
   - docs/founder-notes/DEC-862_raim-smile-caesthetic-partnership-economics-and-vip-access.md
+  - docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
   - docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md
 supersedes: docs/caesthetic/CAESTHETIC_SSOT.md
 ---
@@ -447,9 +449,11 @@ For CAESTHETIC this is primarily a **Reputation** Sprint module. Do not copy 4â€
 
 ### RAIM SMILE client-specific partnership carve-out
 
-Under `DEC-862`, CAESTHETIC is the separate Partnership Network Operator and employer/compensation owner for the RAIM SMILE Partner & VIP Coordinator. This is a client-specific operating mandate, not a reusable public CAESTHETIC medical offer and not authority over diagnosis or treatment.
+Under `DEC-862` and its partial supersession by `DEC-866`, CAESTHETIC is the separate Partnership Network Operator and employer/compensation owner for the RAIM SMILE Partner & VIP Coordinator. This is a client-specific operating mandate, not a reusable public CAESTHETIC medical offer and not authority over diagnosis or treatment.
 
-For approved partner/VIP SmileCare 12 activations, the owner-approved model is 30% of actually collected/non-refunded membership revenue as a Partnership Distribution & Management Fee plus 100% of a separate Coordination Fee to CAESTHETIC, subject to legal/fiscal/labour counsel, signed schedules and max-use economics. CAESTHETIC/coordinator treatment revenue share is `0%`; diagnosis, `Perio` assignment, treatment-plan value/acceptance/collection are never compensation events. Exact authority: `docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md`.
+For approved partner/VIP SmileCare 12 activations, the owner-approved model is 30% of actually collected/non-refunded membership revenue as a Partnership Distribution & Management Fee plus 100% of a separate Coordination Fee to CAESTHETIC, subject to legal/fiscal/labour counsel, signed schedules and max-use economics.
+
+`DEC-866` additionally permits an **Attributed Sales Performance Fee** for verified collected sales to customers sourced or documentably reactivated by CAESTHETIC. This is a contract-specific option, not an active medical commission. For medical/dental sales the current payable rate is `0% / NOT ACTIVE` until written jurisdiction-specific legal/fiscal/advertising/privacy/fee-splitting clearance, a signed medical-operator Commercial Schedule, approved attribution/data controls and a reconciled test settlement all exist. Coordinator medical sales percentage and clinician referral/sales percentage remain `0%`; diagnosis, `Perio` assignment, treatment-plan value/acceptance/collection are never their compensation events. Exact authority: `docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md` and `docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md`.
 
 This carve-out does not change CAESTHETIC public pricing, Growth Score/Sprint/Growth System economics or public runtime.
 - Never manufacture unfinished work to force Month 2 or retainer.

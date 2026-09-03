@@ -30,6 +30,7 @@ allowed_paths:
   - docs/projects/caesthetic/**
   - docs/caesthetic/**
   - docs/ssot/CAESTHETIC*.md
+  - docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
   - docs/research/caesthetic/**
   - docs/audits/caesthetic/**
   - scripts/caesthetic/**
@@ -53,6 +54,8 @@ topics:
     roots:
       - site-caesthetic/score/
   growth_economics: docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
+  attributed_sales_compensation: docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md
+  attributed_sales_compensation_decision: docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
   growth_system_operating_model: docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   owner_marketing_questions: docs/ssot/CAESTHETIC_OWNER_MARKETING_QUESTIONS.md
   entertainment_voc_topic_bank: docs/ssot/CAESTHETIC_ENTERTAINMENT_VOC_TOPIC_BANK.md
@@ -67,7 +70,7 @@ commands:
   sync: cd /var/www/grainee-v2 && git pull --ff-only origin main
   sync_bidirectional: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
   smoke: curl -fsS -o /dev/null -w '%{http_code}' https://caesthetic.com/
-  test: node --test tests/caesthetic/growth-score-*.test.mjs
+  test: node --test tests/caesthetic/growth-score-*.test.mjs tests/caesthetic/attributed-sales-compensation-canon.test.mjs
   agent_policy_check: node --test tests/global-growth-score-audit-routing.test.mjs
   render_check: node scripts/caesthetic/render-growth-score.mjs --check
 
@@ -82,6 +85,8 @@ definition_of_done:
   - Audit full research remains blocked before named-manager Research Alignment approval
   - CAESTHETIC master SSOT remains authoritative
   - Four-surface model preserved across Growth Score, Sprint and Growth System
+  - Attributed Sales Performance Fee uses auditable collected sales or contribution, a signed schedule, refund/chargeback rules and no double counting
+  - Healthcare attributed-sales fees remain jurisdiction/legal/fiscal/contract gated; coordinator and clinician medical-sales percentages remain zero
   - No fabricated proof or outcome guarantees
   - No prohibited review gating
   - Runtime changes shipped through caesthetic deploy target and production smoke
