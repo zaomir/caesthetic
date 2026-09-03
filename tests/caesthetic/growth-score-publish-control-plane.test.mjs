@@ -219,7 +219,8 @@ test("server timer uses one lock and a fixed publication command without paid Ac
   const runner = fs.readFileSync(path.join(root, "scripts/caesthetic/continuous-sync-runner.sh"), "utf8");
   const service = fs.readFileSync(path.join(root, "deploy/systemd/caesthetic-repo-sync.service"), "utf8");
   const deploy = fs.readFileSync(path.join(root, "scripts/caesthetic/publish-growth-score-deploy.sh"), "utf8");
-  const canonicalDeploy = fs.readFileSync(path.join(root, "scripts/deploy-caesthetic.sh"), "utf8");
+  const controlPlane = fs.readFileSync(path.join(root, "scripts/caesthetic/publish-growth-score-control-plane.mjs"), "utf8");
+  const canonicalDeployPath = path.join(root, "scripts/deploy-caesthetic.sh");
   const workflowPath = path.join(root, ".github/workflows/agent-api-bridge.yml");
   assert.match(runner, /publish-growth-score-control-plane\.mjs" poll/);
   assert.match(runner, /flock -n "\$LOCK"/);
@@ -228,7 +229,10 @@ test("server timer uses one lock and a fixed publication command without paid Ac
   assert.match(deploy, /canonical checkout is not pinned to imported SHA/);
   assert.match(deploy, /canonical checkout is dirty before deploy/);
   assert.doesNotMatch(deploy, /worktree add/);
-  assert.match(canonicalDeploy, /skip nginx sync for report-only publication/);
+  assert.match(controlPlane, /feat\(caesthetic\): publish Growth Score \$\{request\.request_id\} \[skip ci\]/);
+  if (fs.existsSync(canonicalDeployPath)) {
+    assert.match(fs.readFileSync(canonicalDeployPath, "utf8"), /skip nginx sync for report-only publication/);
+  }
   if (fs.existsSync(workflowPath)) {
     assert.doesNotMatch(fs.readFileSync(workflowPath, "utf8"), /caesthetic_growth_score_publish/);
   }

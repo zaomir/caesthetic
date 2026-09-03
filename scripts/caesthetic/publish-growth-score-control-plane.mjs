@@ -569,7 +569,7 @@ export function processRequest({ canonical, satellite, requestFile, noDeploy = f
       });
       writeJson(canonicalRecord, record);
       written.push(toPosix(path.relative(canonical, canonicalRecord)));
-      importedSha = commitPush(canonical, written, `feat(caesthetic): publish Growth Score ${request.request_id}`);
+      importedSha = commitPush(canonical, written, `feat(caesthetic): publish Growth Score ${request.request_id} [skip ci]`);
       record.canonical_imported_sha = importedSha;
     } else {
       invariant(record.source_satellite_sha === request.source_satellite_sha && record.package_sha256 === request.package_sha256, "request_id already used by different payload", "idempotency_conflict");
