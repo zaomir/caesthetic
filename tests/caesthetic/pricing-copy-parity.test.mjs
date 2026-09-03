@@ -41,7 +41,7 @@ test("public pricing copy consumes finite product values and keeps recurring ter
   );
   assert.match(pricingPage, /data-cae-growth-budget-model="management-inside-budget">Client-specific</);
   assert.match(pricingPage, /Growth Budget includes the Fixed Management Fee/i);
-  assert.match(pricingPage, /Performance Fee may be activated only where legally available/i);
+  assert.match(pricingPage, /Performance Fee may be activated only through a signed client-specific Commercial Schedule/i);
   assert.doesNotMatch(pricingPage, /data-cae-system-base-price/);
   assert.doesNotMatch(pricingPage, /Sprint Extension/i);
   assert.doesNotMatch(pricingPage, /\b10\s*%|\$1,500|\$3,000/i);

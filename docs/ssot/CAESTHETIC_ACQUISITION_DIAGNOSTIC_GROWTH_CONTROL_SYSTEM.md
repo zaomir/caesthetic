@@ -1096,7 +1096,7 @@ company-level queue
 
 Do not reuse clinic cold-email copy or the 1,886 Instantly clinic universe for partner outreach. Do not claim a leak/constraint before a requested Score. No partner campaign is approved merely because a company appears in the queue.
 
-Commercial revenue-share/fixed/barter models require separate approval/legal review; they are not assumed by this SSOT.
+Commercial revenue-share/fixed/barter models require a separately approved and signed Commercial Schedule; they are not assumed by this SSOT. Attributed Sales Performance Fee activation follows `CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md` and has no separate healthcare-only legal/fiscal/advertising/privacy/fee-splitting gate.
 
 ---
 

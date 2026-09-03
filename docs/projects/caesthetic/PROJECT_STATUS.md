@@ -63,7 +63,7 @@ Known limits:
 - Growth Score: free; one schema-v5 engine/template (`growth-score-report-template/5.2.0`); 3-stage minimal intake; AI-assisted four-surface research and draft; named-human-approved evidence, Gap Inventory, exact Top 3 Focus Selection and Repair Plans; one unnumbered Intro before the private exact nine-section owner cockpit plus Valerie Petra walkthrough.
 - Sprint 1: $2,500 / 30 days; finite scoped implementation + longer-horizon processes started.
 - Sprint Extension: $2,500 per additional 30 days; optional, unpublished, post-Day-30 finite implementation continuation.
-- Growth System: optional recurring operating ownership under one client-specific Growth Budget; the visible Fixed Management Fee sits inside the budget, variable inputs use the remaining approved funds, and any legally available Performance Fee is separate above it. No reusable recurring amount, rate or cap.
+- Growth System: optional recurring operating ownership under one client-specific Growth Budget; the visible Fixed Management Fee sits inside the budget, variable inputs use the remaining approved funds, and any contractually activated Performance Fee is separate above it. No reusable recurring amount, rate or cap.
 - Sprint scope: approximately 3–6 Category A constraints and 1–5 Category B maturing processes, governed by access, before-evidence, live-evidence, revenue-recovery, Client Growth Statement and Build-vs-Configure gates; no artificial Month-2 backlog.
 - Reporting: detailed internal operations/evidence plus a short mobile-first Client Growth Statement that separates shipped activity, adoption, verified impact and objectively maturing work.
 - Economics and measurement authority: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`.

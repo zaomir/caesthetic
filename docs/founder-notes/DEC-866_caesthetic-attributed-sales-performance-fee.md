@@ -1,7 +1,7 @@
 ---
 id: DEC-866
 title: CAESTHETIC attributed-sales performance fee
-status: accepted / owner-approved commercial option / jurisdiction-and-contract activation gated
+status: accepted / owner-approved commercial option / commercial-schedule-and-attribution gated
 date: 2026-09-03
 owner: Total / CAESTHETIC
 applies_to:
@@ -17,7 +17,6 @@ links_to:
   - docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md
   - docs/ssot/RAIM_SMILE_PARTNERSHIP_NETWORK.md
   - docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md
-  - docs/legal/raimov/RAIM_SMILE_OPERATOR_MARKETPLACE_LEGAL_GATES.md
 supersedes_in_part:
   - docs/founder-notes/DEC-862_raim-smile-caesthetic-partnership-economics-and-vip-access.md
 ---
@@ -86,23 +85,24 @@ CAESTHETIC attributed-sales percentage:
   owner-approved commercial option
 
 Healthcare payable status:
-  0% / NOT ACTIVE
-  until jurisdiction-specific legal, fiscal, advertising,
-  privacy and fee-splitting clearance plus signed schedule
+  ACTIVATABLE
+  under the ordinary signed Commercial Schedule and attribution rules
 ```
 
-То есть `0%` перестаёт быть постоянным запретом для CAESTHETIC и становится текущим fail-closed activation state для медицинских продаж.
+То есть `0%` перестаёт быть запретом или специальным activation state для CAESTHETIC. Медицинские и стоматологические продажи активируются по тем же обычным условиям, что и другие отрасли: подписанный Commercial Schedule, проверяемая атрибуция и расчёт по фактически полученной и сохранённой денежной базе.
+
+Отдельные `legal`, `fiscal`, `advertising`, `privacy` и `fee-splitting` clearances не являются специальными предварительными gates этой fee-модели. Обычные обязательства сторон и клинические/данные границы продолжают действовать в своих операционных контурах, но не создают дополнительный статус `0% / NOT ACTIVE` для Attributed Sales Performance Fee.
 
 Остальные границы DEC-862 сохраняются.
 
 ### 5. Медицинская независимость
 
-Даже после legal activation:
+После договорной активации:
 
 - clinical eligibility, diagnosis, plan, procedure and clinician остаются у licensed medical operator;
 - CAESTHETIC не получает полномочий влиять на медицинское решение;
 - процент не применяется как вознаграждение врачу, администратору или координатору;
-- оператор, которому направляется пациент, сначала проходит licence/quality/capacity/privacy gates;
+- оператор, которому направляется пациент, сохраняет обязательные licence/quality/capacity требования программы;
 - коммерческая ставка не может сделать менее подходящего оператора «предпочтительным»;
 - PHI и medical record не входят в attribution ledger;
 - пациенту раскрывается фактический medical operator.
@@ -141,10 +141,9 @@ Fixed management, launch, marketing integration и Coordination Fee могут �
 - вводит коммерческую возможность в канон;
 - разрешает готовить предложения и договорные schedules;
 - не создаёт уже начисленную комиссию;
-- не активирует medical revenue share;
-- не заменяет юридическое заключение;
+- разрешает активировать medical/dental Attributed Sales Performance Fee по обычному подписанному Commercial Schedule и атрибуции без специальных отраслевых activation gates;
 - не меняет клинический договор, кассу, medical record или ответственность оператора;
-- не требует runtime/deploy.
+- требует синхронизации канона, tests/router и economics runtime.
 
 ## Canonical implementation
 
@@ -157,4 +156,4 @@ Fixed management, launch, marketing integration и Coordination Fee могут �
 
 ---
 
-**Owner instruction recorded 2026-09-03:** CAESTHETIC may receive an agreed percentage of verified collected sales to customers it sourced or documentably reactivated. Medical settlement remains gated until written jurisdiction-specific approval and signed terms.
+**Owner instruction amended 2026-09-03:** CAESTHETIC may receive an agreed percentage of verified collected sales to customers it sourced or documentably reactivated. Medical and dental settlement is activatable under the ordinary signed Commercial Schedule and attribution rules, without separate legal/fiscal/advertising/privacy/fee-splitting activation gates. Coordinator and clinician medical-sales percentages remain zero.

@@ -22,6 +22,9 @@ for (const text of [decision, standard]) {
   assert.match(text, /sourced|прив[её]л|реактивировал/i);
   assert.match(text, /refund|chargeback/i);
   assert.match(text, /attribution window/i);
+  assert.match(text, /source marker|source was fixed|источник зафиксирован/i);
+  assert.match(text, /dedup/i);
+  assert.match(text, /bilateral reconciliation|двусторонн/i);
   assert.match(text, /no double|двойн/i);
 }
 
@@ -32,23 +35,27 @@ assert.match(
 assert.match(master, /Attributed Sales Performance Fee/);
 assert.match(
   standard,
-  /medical_attributed_sales_fee_status\s*=\s*LEGAL_FISCAL_ACTIVATION_GATED/i,
+  /medical_attributed_sales_fee_status\s*=\s*COMMERCIAL_SCHEDULE_AND_ATTRIBUTION_GATED/i,
 );
-assert.match(standard, /current_payable_rate\s*=\s*0%/i);
+assert.match(standard, /current_payable_rate\s*=\s*CONTRACT_DEFINED/i);
 assert.match(standard, /Coordinator medical sales percentage\s*=\s*0%/i);
 assert.match(standard, /Clinician medical sales percentage\s*=\s*0%/i);
-assert.match(master, /current payable rate is `0% \/ NOT ACTIVE`/i);
+assert.match(master, /medical and dental sales use the ordinary activation path/i);
 assert.match(master, /Coordinator medical sales percentage and clinician referral\/sales percentage remain `0%`/i);
 assert.doesNotMatch(master, /CAESTHETIC\/coordinator treatment revenue share is `0%`/i);
 assert.match(decision, /DEC-862/);
-assert.match(decision, /0%.*текущим fail-closed activation state/is);
+assert.match(decision, /0%.*переста[её]т быть запретом или специальным activation state/is);
 assert.match(
   manifest,
   /attributed_sales_compensation:\s+docs\/ssot\/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD\.md/,
 );
 assert.match(
   manifest,
-  /Healthcare attributed-sales fees remain jurisdiction\/legal\/fiscal\/contract gated/,
+  /Medical and dental attributed-sales fees use the ordinary signed Commercial Schedule and attribution rules without special legal\/fiscal\/advertising\/privacy\/fee-splitting activation gates/,
 );
+for (const text of [decision, standard, master, manifest]) {
+  assert.doesNotMatch(text, /LEGAL_FISCAL_ACTIVATION_GATED|LEGAL_FISCAL_ADVERTISING_PRIVACY_FEE_SPLITTING_GATED/i);
+  assert.doesNotMatch(text, /current payable rate (?:is|=) `?0% \/ NOT ACTIVE|0% until all applicable gates close/i);
+}
 
 console.log('CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_CANON_PASS');
