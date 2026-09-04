@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { renderGrowthReport } from "./render-growth-score.mjs";
 import { OWNER_BRIEF_LAYOUT_CONTRACT } from "./owner-brief-contract.mjs";
-import { CHECK500_STYLE_CONTRACT } from "./check500-contract.mjs";
+import { CHECK500_STYLE_CONTRACT } from "./growth-score-report-template.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 export const sourceSlug = "spoken-medspa-snellville-9d7f3a5c2e184b61";

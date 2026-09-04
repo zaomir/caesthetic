@@ -2,7 +2,7 @@ import {
   CHECK500_COPY_CONTRACT,
   CHECK500_PLACEMENT_CONTRACT,
   CHECK500_STYLE_CONTRACT,
-} from "./check500-contract.mjs";
+} from "./growth-score-report-template.mjs";
 
 export const OWNER_BRIEF_LAYOUT_CONTRACT = "owner-brief/2.1.0";
 export const PREVIOUS_OWNER_BRIEF_LAYOUT_CONTRACT = "owner-brief/2.0.0";

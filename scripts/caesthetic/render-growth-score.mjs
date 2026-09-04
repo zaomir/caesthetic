@@ -37,7 +37,7 @@ import {
   CHECK500_PLACEMENT_CONTRACT,
   CHECK500_STYLE_CONTRACT,
   CHECK500_STYLE_REFERENCE_SHA256,
-} from "./check500-contract.mjs";
+} from "./growth-score-report-template.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");

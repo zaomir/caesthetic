@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 import { fileURLToPath } from "node:url";
+import {
+  CHECK500_COPY_CONTRACT,
+  CHECK500_PARENT_PLACEMENTS,
+  CHECK500_PLACEMENT_CONTRACT,
+  CHECK500_STYLE_CONTRACT,
+  CHECK500_STYLE_REFERENCE,
+  CHECK500_STYLE_REFERENCE_SHA256,
+} from "./growth-score-report-template.mjs";
 
 export const GROWTH_SCORE_AUDIT_INTENT = "growth_score_audit";
 export const GROWTH_SCORE_AUDIT_OPENING_RU = "Вы создаёте новый аудит? Ответьте на вопросы.";
@@ -90,7 +98,58 @@ export function mentionsGrowthScoreAudit(value) {
   return /(?:^|\s)аудит(?:а|у|ом|е|ы|ов|ам|ами|ах)?(?:\s|$)/u.test(text.trim());
 }
 
-export function routeGrowthScoreAuditIntent(value, { active_intent = null } = {}) {
+const normalizeAuditFormat = (value) => normalize(value).replaceAll(" ", "_");
+
+export function resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role = null } = {}) {
+  const format = normalizeAuditFormat(audit_format);
+  const role = normalizeAuditFormat(package_role);
+  const check500 = (ownsPlacements) => Object.freeze({
+    copy_contract: CHECK500_COPY_CONTRACT,
+    placement_contract: CHECK500_PLACEMENT_CONTRACT,
+    style_contract: CHECK500_STYLE_CONTRACT,
+    style_reference: CHECK500_STYLE_REFERENCE,
+    style_reference_sha256: CHECK500_STYLE_REFERENCE_SHA256,
+    placements: Object.freeze(ownsPlacements ? [...CHECK500_PARENT_PLACEMENTS] : []),
+    placement_owner: ownsPlacements ? "this_report" : "network_parent",
+  });
+
+  if (["single", "single_location", "one_location"].includes(format)) {
+    if (role && !["single", "single_location"].includes(role)) {
+      throw new TypeError("single-location audit cannot use a Multi-Location package role");
+    }
+    return Object.freeze({
+      audit_format: "single_location",
+      package_role: "single_location",
+      template_module: "scripts/caesthetic/growth-score-report-template.mjs",
+      template_factory: "createGrowthScoreReportTemplate",
+      template_arguments: null,
+      check500: check500(true),
+    });
+  }
+
+  if (["multi", "multi_location", "network"].includes(format)) {
+    const packageRole = role || "network_parent";
+    if (!["network_parent", "focus_location"].includes(packageRole)) {
+      throw new TypeError("Multi-Location package_role must be network_parent or focus_location");
+    }
+    return Object.freeze({
+      audit_format: "multi_location",
+      package_role: packageRole,
+      template_module: "scripts/caesthetic/growth-score-report-template.mjs",
+      template_factory: "createMultiLocationGrowthScoreReportTemplate",
+      template_arguments: Object.freeze({ packageRole }),
+      check500: check500(packageRole === "network_parent"),
+    });
+  }
+
+  throw new TypeError("audit_format must resolve to single_location or multi_location");
+}
+
+export function routeGrowthScoreAuditIntent(value, {
+  active_intent = null,
+  audit_format = null,
+  package_role = null,
+} = {}) {
   if (!mentionsGrowthScoreAudit(value)) {
     return Object.freeze({ matched: false, canonical_intent: null, action: null });
   }
@@ -104,6 +163,9 @@ export function routeGrowthScoreAuditIntent(value, { active_intent = null } = {}
       repository_context: "any_supported_repository",
       source_policy: "public_open_sources_only",
       questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
+      template_route: audit_format
+        ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role })
+        : null,
     });
   }
 
@@ -117,6 +179,9 @@ export function routeGrowthScoreAuditIntent(value, { active_intent = null } = {}
     source_policy: "public_open_sources_only",
     full_research_gate: "named_manager_research_alignment_approval",
     questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
+    template_route: audit_format
+      ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role })
+      : null,
   });
 }
 

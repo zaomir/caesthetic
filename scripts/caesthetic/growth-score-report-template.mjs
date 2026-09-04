@@ -7,12 +7,29 @@ import {
   GROWTH_SCORE_SCHEMA_VERSION,
   JOURNEY_GRAPH_ARTIFACT_VERSION,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
-import { createCheck500PresentationContract } from "./check500-contract.mjs";
 
 export { GROWTH_SCORE_REPORT_TEMPLATE_VERSION };
 export const LEGACY_GROWTH_SCORE_V4_TEMPLATE_VERSION = "growth-score-report-template/4.0.0";
 export const MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION = "multi-location-growth-score/1.2.0";
 export const MULTI_LOCATION_GROWTH_SCORE_LEGACY_PROFILE_VERSION = "multi-location-growth-score/1.1.0";
+export const CHECK500_COPY_CONTRACT = "check500-section/en-US/1.0.0";
+export const CHECK500_PLACEMENT_CONTRACT = "check500-two-placement/1.0.0";
+export const CHECK500_STYLE_CONTRACT = "check500-style/1.0.0";
+export const CHECK500_STYLE_REFERENCE = "docs/ssot/assets/caesthetic/check500-section-style-v1.png";
+export const CHECK500_STYLE_REFERENCE_SHA256 = "1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375";
+export const CHECK500_PARENT_PLACEMENTS = Object.freeze(["mid_report", "final_alternative"]);
+
+export function createCheck500PresentationContract({ ownsPlacements = true } = {}) {
+  return {
+    check500_copy_contract: CHECK500_COPY_CONTRACT,
+    check500_placement_contract: CHECK500_PLACEMENT_CONTRACT,
+    check500_style_contract: CHECK500_STYLE_CONTRACT,
+    check500_style_reference: CHECK500_STYLE_REFERENCE,
+    check500_style_reference_sha256: CHECK500_STYLE_REFERENCE_SHA256,
+    check500_placements: ownsPlacements ? [...CHECK500_PARENT_PLACEMENTS] : [],
+    check500_placement_owner: ownsPlacements ? "this_report" : "network_parent",
+  };
+}
 
 const labels = Object.freeze({
   search: "Search",

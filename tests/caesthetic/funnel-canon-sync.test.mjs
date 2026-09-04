@@ -36,7 +36,10 @@ test("Growth Score report commercial routing stays renderer-owned and follows th
 
   assert.doesNotMatch(config, /document\.documentElement\.getAttribute\("data-page"\)[\s\S]{0,240}growth-score-report/);
   assert.match(config, /report commercial routing is renderer-owned/i);
-  assert.match(renderer, /check500-section\/en-US\/1\.0\.0/);
+  assert.match(renderer, /CHECK500_COPY_CONTRACT/);
+  assert.match(renderer, /CHECK500_STYLE_CONTRACT/);
+  assert.match(template, /check500-section\/en-US\/1\.0\.0/);
+  assert.match(template, /check500-style\/1\.0\.0/);
   assert.match(renderer, /Check My Lead-to-Revenue Path/);
   assert.match(template, /recommendation: "not_recommended"/);
   assert.match(standard, /exactly two always-visible Check500 placements/i);
