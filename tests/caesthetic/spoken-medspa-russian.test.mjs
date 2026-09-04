@@ -124,6 +124,10 @@ test("Russian Spoken report preserves unchanged evidence and aligns the Top 3 to
     "Сделать блог регулярной системой",
     "Регулярно собирать честные отзывы и улучшить ответы",
   ]);
+  assert.equal(
+    report.humanDiagnosis.focus_selection.rationale,
+    "Исправление этих трёх разрывов поможет пациенту быстрее найти нужную услугу, убедиться в выборе и перейти к записи.",
+  );
   const score = scoreGrowthReport(report);
   assert.equal(score.overall.status, "insufficient_evidence");
   assert.equal(score.overall.rawScore, null);

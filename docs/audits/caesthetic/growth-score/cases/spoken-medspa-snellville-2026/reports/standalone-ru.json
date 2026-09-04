@@ -1,7 +1,7 @@
 {
   "schemaVersion": 5,
   "reportState": "approved_report",
-  "reportVersion": "spoken-medspa-snellville-public-evidence/ru/1.6.1",
+  "reportVersion": "spoken-medspa-snellville-public-evidence/ru/1.6.2",
   "verifiedFactSetVersion": "spoken-medspa-snellville-2026-09-04/4444-v1",
   "reportKind": "real",
   "templateVersion": "growth-score-report-template/5.2.0",
@@ -685,7 +685,7 @@
       ],
       "selected_by": "Valerie Petra",
       "selected_at": "2026-09-03T13:51:02Z",
-      "rationale": "Эти три ограничения напрямую соответствуют продукту 4444: карта точных запросов, регулярный контент и система честных отзывов с содержательными ответами."
+      "rationale": "Исправление этих трёх разрывов поможет пациенту быстрее найти нужную услугу, убедиться в выборе и перейти к записи."
     },
     "do_not_do": {
       "title": "Пока не увеличивать рекламный бюджет на Botox и филлеры",

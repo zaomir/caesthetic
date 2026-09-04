@@ -187,7 +187,7 @@ function translateStrings(value) {
 }
 
 function applyPlainOwnerCopy(report) {
-  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.6.1";
+  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.6.2";
   report.verifiedFactSetVersion = "spoken-medspa-snellville-2026-09-04/4444-v1";
   report.disclosure = "Отчёт составлен по открытым источникам. Мы не проверяли внутренние процессы, данные пациентов, выручку и результаты лечения.";
   report.executiveSummary = "У Spoken уже есть сильная страница Botox, активный блог и высокий рейтинг в Google. Главная задача — связать точные запросы пациентов, регулярные материалы и работу с отзывами в одну систему.";
@@ -286,7 +286,7 @@ function applyPlainOwnerCopy(report) {
   diagnosis.current_state.constraint_label = "Запросы, контент и отзывы ещё не работают как одна система";
   diagnosis.current_state.constraint_detail = "У клиники уже есть нужные части. Теперь их нужно связать: выбрать точные запросы, распределить их между четырьмя каналами и поддерживать единый смысл в публикациях, отзывах и ответах владельца.";
   diagnosis.current_state.priority_line = "Сначала собрать карту запросов. Затем привязать к ней план блога и постоянную систему честных отзывов с содержательными ответами владельца.";
-  diagnosis.focus_selection.rationale = "Эти три ограничения напрямую соответствуют продукту 4444: карта точных запросов, регулярный контент и система честных отзывов с содержательными ответами.";
+  diagnosis.focus_selection.rationale = "Исправление этих трёх разрывов поможет пациенту быстрее найти нужную услугу, убедиться в выборе и перейти к записи.";
 
   const copyByGap = {
     "SMS-26-01": {
