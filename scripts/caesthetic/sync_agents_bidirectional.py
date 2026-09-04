@@ -557,9 +557,24 @@ def main() -> int:
     if len(actions) > 50:
         print(f"  ... +{len(actions) - 50} more")
 
+    mirror = sync_mirror(grainee, sat, run_out(["git", "rev-parse", "HEAD"], cwd=grainee), False)
+    print(
+        "expert-mirror: "
+        f"files={mirror['files']} changed={len(mirror['changed'])} removed={len(mirror['removed'])} "
+        f"writeback={len(mirror['writeback_changed'])} "
+        f"writeback_removed={len(mirror['writeback_removed'])} "
+        f"conflicts={len(mirror['conflicts'])} "
+        f"authority_violations={len(mirror['authority_violations'])}"
+    )
+    if mirror["conflicts"] or mirror["authority_violations"]:
+        for rel in mirror["conflicts"]:
+            print(f"  expert-conflict\t{rel}")
+        for rel in mirror["authority_violations"]:
+            print(f"  expert-authority-violation\t{rel}")
+        print("BLOCKED: Expert Dental mirror authority or concurrent-edit violation", file=sys.stderr)
+        return 2
+
     if not args.apply:
-        mirror = sync_mirror(grainee, sat, run_out(["git", "rev-parse", "HEAD"], cwd=grainee), False)
-        print(f"expert-mirror: files={mirror['files']} changed={len(mirror['changed'])} removed={len(mirror['removed'])}")
         print("DRY-RUN complete (no writes)")
         return 0
 
@@ -612,13 +627,20 @@ def main() -> int:
         copy_file(conf_path, sat / CONFLICTS_REL)
 
     mirror = sync_mirror(grainee, sat, run_out(["git", "rev-parse", "HEAD"], cwd=grainee), True)
-    summary = f"g2s={len(g2s)} s2g={len(s2g)} conflicts={len(conflicts)} expert_mirror_changed={len(mirror['changed'])}"
+    summary = (
+        f"g2s={len(g2s)} s2g={len(s2g)} conflicts={len(conflicts)} "
+        f"expert_mirror_changed={len(mirror['changed'])} "
+        f"expert_writeback={len(mirror['writeback_changed'])} "
+        f"expert_writeback_removed={len(mirror['writeback_removed'])}"
+    )
     write_marker(grainee, sat, summary)
 
     mapped_files = sorted(
         (collect_rels(grainee) | collect_rels(sat))
         | {a.rel for a in actions}
         | {MIRROR_DEST}
+        | set(mirror["writeback_changed"])
+        | set(mirror["writeback_removed"])
         | {STATE_REL, MARKER_REL, CONFLICTS_REL}
     )
 
@@ -629,6 +651,15 @@ def main() -> int:
             mapped_files,
             True,
             args.push,
+        )
+        # The grainee commit above is the authority for direct mirror
+        # writeback. Refresh the generated manifest to that exact committed
+        # SHA before committing the satellite side.
+        mirror = sync_mirror(
+            grainee,
+            sat,
+            run_out(["git", "rev-parse", "HEAD"], cwd=grainee),
+            True,
         )
         git_commit_push(
             sat,

@@ -192,6 +192,10 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("$DATA_ROOT/satellite", installer)
         self.assertIn("git clone --shared --no-checkout", installer)
         self.assertIn("sparse-checkout set", installer)
+        self.assertIn("docs/external/grainee-v2/expert-dental", installer)
+        self.assertIn("docs/projects/raimovdental", installer)
+        self.assertIn("docs/legal/raimov/expert-dental", installer)
+        self.assertIn("apps/expert-esign", installer)
         self.assertNotIn("copy_git_auth_config", installer)
         self.assertIn('git clone --shared --no-checkout "$authority_repo"', installer)
         self.assertIn("checkout -B main refs/remotes/origin/main", installer)
@@ -247,7 +251,9 @@ class DecideDeletionTest(unittest.TestCase):
         test_bin.mkdir()
         fake_flock = test_bin / "flock"
         fake_flock.write_text(
-            "#!/bin/sh\n"
+            # Keep exported Bash functions intact on Linux. /bin/sh is dash on
+            # GitHub runners and drops BASH_FUNC_* variables before exec.
+            "#!/usr/bin/env bash\n"
             "[ \"$1\" = \"-n\" ] && shift\n"
             "shift\n"
             "exec \"$@\"\n"

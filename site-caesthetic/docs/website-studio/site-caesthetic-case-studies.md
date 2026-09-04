@@ -1,14 +1,26 @@
 ---
 owner: Design + Engineering
-status: draft_visual_review
+status: implemented_noindex_review
 project: caesthetic
 route: /case-studies/
-updated: 2026-09-02
+updated: 2026-09-04
 standards: [docs/ssot/WEBSITE_STUDIO_STANDARD.md, docs/ssot/IMPECCABLE_WEBSITE_AGENT_STANDARD.md, docs/ssot/IMAGE_ASSET_REGISTRY.md]
-release: blocked_placeholder_content
+release: production_noindex_test_content
 ---
 
-# WEBSITE STUDIO QA MANIFEST — CAESTHETIC Case Studies Preview
+# WEBSITE STUDIO QA MANIFEST — CAESTHETIC Case Studies
+
+## 2026-09-04 implementation
+
+- Page architecture is now `Hero → How we work → Case studies → CTA` in one continuous document with two section anchors.
+- `How we work` exposes the canonical evidence-to-impact method in five owner-readable stages without changing the underlying operating loop.
+- Goal chips moved into Case studies and now act as the same filter state as the goal select.
+- Featured case is shown only for the unfiltered catalog; filtered results do not compete with an unrelated featured record.
+- Catalog cards expose market, practice type, scale, constraint, first intervention, Before, After, delta, timeframe and evidence level.
+- Desktop uses a two-column ruled evidence library; mobile uses a one-column sequence and a native filter sheet.
+- Filter state is shareable in the URL and the Full Case Page receives a validated same-origin return path.
+- Catalog and Full Case Page continue to fail closed on unavailable published data. Placeholder JSON remains a test fixture and is not a runtime fallback.
+- The route remains `noindex,nofollow,noarchive` while the only published record is an explicitly labeled synthetic workflow test.
 
 ## Canon read
 

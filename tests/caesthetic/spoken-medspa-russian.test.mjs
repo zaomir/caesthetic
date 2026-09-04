@@ -56,6 +56,10 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.equal(report.presentation.commercial_contract, "caesthetic-4444-commercial-core/1.0.0");
   assert.equal(report.presentation.check500_placement_contract, "check500-two-placement/1.0.0");
   assert.equal(report.presentation.check500_style_contract, "check500-style/1.0.0");
+  assert.equal(
+    report.presentation.owner_copy.greeting.body,
+    "Мы проверили путь вашего пациента: как он находит Spoken, сравнивает клиники и выбирает, куда записаться. Ниже — три главные помехи и простой план действий.",
+  );
   assert.equal(report.audit.public_direct_link, true);
   assert.equal(report.audit.access_group_id, null);
   assert.equal(isAllowedRealScoreOutput(report, htmlPath), true);

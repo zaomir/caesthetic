@@ -1,14 +1,22 @@
 ---
 owner: Design + Engineering
-status: draft_visual_review
+status: implemented_noindex_review
 project: caesthetic
 route: /case-studies/case/
-updated: 2026-09-02
+updated: 2026-09-04
 standards: [docs/ssot/WEBSITE_STUDIO_STANDARD.md, docs/ssot/IMPECCABLE_WEBSITE_AGENT_STANDARD.md, docs/ssot/IMAGE_ASSET_REGISTRY.md]
-release: blocked_placeholder_content
+release: production_noindex_test_content
 ---
 
-# WEBSITE STUDIO QA MANIFEST — CAESTHETIC Full Case Preview
+# WEBSITE STUDIO QA MANIFEST — CAESTHETIC Full Case Page
+
+## 2026-09-04 implementation
+
+- Catalog context is preserved through a validated same-origin `return` path and session scroll position.
+- Previous/next case navigation retains the original catalog return destination.
+- Linked audits render only when permission is approved, redaction is verified and access is not internal-only.
+- Case detail view and approved audit-open actions emit non-PII analytics events when a data layer is present.
+- Audit-card colors and typography now use the CAESTHETIC design tokens rather than local hardcoded values.
 
 ## Impeccable discovery
 

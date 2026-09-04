@@ -4,6 +4,38 @@
   var goalLabels = { bookings: 'More bookings', conversion: 'Better conversion', retention: 'Retention', reputation: 'Reputation', 'multi-location': 'Multi-location' };
   var relevanceLabels = { 'closest-match': 'Closest practice match', 'adjacent-model': 'Adjacent operating model', 'transferable-pattern': 'Transferable operating pattern' };
   var evidenceLabels = { verified: 'Verified evidence', client_reported: 'Client-reported result', modeled: 'Modeled result' };
+  var returnPath = '/case-studies/#case-library';
+
+  function track(eventName, detail) {
+    if (!Array.isArray(window.dataLayer)) return;
+    window.dataLayer.push(Object.assign({ event: eventName }, detail || {}));
+  }
+
+  function safeReturnPath(value) {
+    if (!value) return '';
+    try {
+      var url = new URL(value, window.location.origin);
+      if (url.origin !== window.location.origin) return '';
+      if (url.pathname.indexOf('/case-studies/') !== 0 || url.pathname.indexOf('/case-studies/case/') === 0) return '';
+      return url.pathname + url.search + (url.hash || '#case-library');
+    } catch (error) {
+      return '';
+    }
+  }
+
+  function configureReturnPath() {
+    var params = new URLSearchParams(window.location.search);
+    var candidate = safeReturnPath(params.get('return'));
+    if (!candidate) {
+      try { candidate = safeReturnPath(sessionStorage.getItem('cae.caseCatalogReturn')); } catch (error) { candidate = ''; }
+    }
+    returnPath = candidate || returnPath;
+    document.querySelectorAll('[data-case-back]').forEach(function (link) { link.href = returnPath; });
+  }
+
+  function caseDetailHref(id) {
+    return '/case-studies/case/?id=' + encodeURIComponent(id) + '&return=' + encodeURIComponent(returnPath);
+  }
 
   function setText(selector, value, fallback) {
     var node = document.querySelector(selector);
@@ -79,7 +111,7 @@
   }
   function renderLinkedAudit(item) {
     var audit = item.linkedAudit;
-    if (!audit || !audit.url) return;
+    if (!audit || !audit.url || audit.permission !== 'approved' || audit.redactionStatus !== 'verified' || audit.accessLevel === 'internal_only') return;
     var section = document.querySelector('[data-audit-section]');
     var nav = document.querySelector('[data-audit-nav]');
     var link = document.querySelector('[data-audit-link]');
@@ -90,6 +122,7 @@
     setText('[data-audit-meta]', [audit.pageCount ? audit.pageCount + ' pages' : '', audit.reviewedDate ? 'Reviewed ' + audit.reviewedDate : ''].filter(Boolean).join(' · '), 'Redaction verified');
     link.href = audit.url;
     link.textContent = audit.accessLevel === 'request_nda' ? 'Request the extended audit' : 'Open anonymized audit';
+    link.addEventListener('click', function () { track('case_audit_open', { case_id: item.id, access_level: audit.accessLevel }); });
   }
   function renderPagination(item, cases) {
     var index = cases.indexOf(item);
@@ -101,8 +134,8 @@
       document.querySelector('[data-case-pagination]').hidden = true;
       return;
     }
-    previousLink.href = '/case-studies/case/?id=' + encodeURIComponent(previous.id);
-    nextLink.href = '/case-studies/case/?id=' + encodeURIComponent(next.id);
+    previousLink.href = caseDetailHref(previous.id);
+    nextLink.href = caseDetailHref(next.id);
     setText('[data-prev-title]', previous.title);
     setText('[data-next-title]', next.title);
   }
@@ -147,6 +180,7 @@
     cover.setAttribute('alt', 'Illustrative cover for ' + item.title);
     if (window.CAESTHETIC_MEDIA) window.CAESTHETIC_MEDIA.resolve(document.querySelector('[data-case-cover-slot]'));
     document.querySelector('[data-case-content]').hidden = false;
+    track('case_detail_view', { case_id: item.id, evidence_level: item.evidenceLevel || 'documented' });
   }
   function showError() {
     document.querySelector('[data-case-content]').hidden = true;
@@ -154,6 +188,7 @@
     document.title = 'Case unavailable | CAESTHETIC';
   }
 
+  configureReturnPath();
   var requestedId = new URLSearchParams(window.location.search).get('id');
   if (!requestedId) return showError();
   fetch('/case-studies/intake/api/public-cases?id=' + encodeURIComponent(requestedId), { credentials: 'same-origin' })

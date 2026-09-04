@@ -60,11 +60,13 @@ git fetch origin main -q && git pull --ff-only origin main
 
 **Expert Dental from a CAESTHETIC-only workspace:** read the generated
 `docs/external/grainee-v2/expert-dental/` reference tree in
-`zaomir/caesthetic`. It mirrors this repository one-way and is never an
-editable legal/runtime SSOT. Only non-PHI proposals under
-`docs/projects/caesthetic/expert-dental-contributions/` may sync back through
-DEC-829; patient records, PHI, secrets, private folders and raw recordings are
-excluded.
+`zaomir/caesthetic`. It is a hybrid bidirectional working mirror: non-PHI
+project documents under `docs/projects/healthcare-ecosystem/`,
+`docs/projects/raimovdental/` and `docs/raimov/` sync back to the same relative
+paths here. Legal, runtime, SSOT, deploy and agent-routing files remain
+one-way from `grainee-v2`; patient records, PHI, secrets, private folders and
+raw recordings are excluded. After every writeback this repository remains
+the only authority.
 
 **Registry:** `agents/registry.yaml` (`version: 2` — `domains:` + `projects:`)  
 **Manifests:** `agents/manifests/<id>.yaml` (`type: knowledge-domain` or runtime project)  

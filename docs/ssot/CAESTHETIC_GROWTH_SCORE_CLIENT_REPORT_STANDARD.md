@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.7
+version: 2.8
 updated: 2026-09-04
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -312,6 +312,8 @@ Presentation rules:
 - a sticky CTA may be used only late in the report when it does not interrupt reading; disable it on mobile when it degrades the decision flow.
 - in the owner-brief audit template, place one clearly labelled report-share action near the beginning and one after the final report content; on supported mobile devices both use the native sharing sheet, with a clean-URL copy fallback elsewhere;
 - render the owner-brief “studied links” block as a visually quiet list of ordinary text links without cards, borders or colored backgrounds; show at most one representative URL per source hostname and never repeat separate pages of the same site;
+- render the “Studied links” / **«Изученные ссылки»** label with the same metadata typography role or design token as the report address/date line: the same font style, size and weight, without a separate heading accent;
+- in the Russian greeting/Intro block, render the signature line **«Валерия Петра · CAESTHETIC»** in italic without changing its text or presenting it as reviewer/selector attribution;
 
 Approved visual grammar:
 
@@ -330,6 +332,12 @@ Approved visual grammar:
 - deterministic HTML/SVG only for the separate evidence-driven diagnostic maps such as Broken Connections; no AI-generated raster may replace either contract.
 
 Visual refinement must never alter the machine contract, Four Surfaces, evidence, Focus Selection or commercial truthfulness.
+
+### 8.0.1 Design-feedback continuity
+
+Explicit user/owner feedback about Growth Score presentation is an active design input for subsequent report work. The latest explicit instruction for the same element supersedes earlier design feedback; a newer or higher-authority SSOT rule wins if there is a conflict.
+
+Reusable accepted feedback must be recorded in this standard or the active implementation profile before it is applied across reports; chat or model memory alone is not authority. Design feedback may refine hierarchy, typography, spacing, interaction and presentation copy, but it may not change evidence, scores, the Four Surfaces, the machine contract, privacy controls or commercial truthfulness.
 
 ### 8.1 Canonical owner-facing visual sequence
 

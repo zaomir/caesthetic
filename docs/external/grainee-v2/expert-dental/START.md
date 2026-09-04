@@ -39,10 +39,10 @@ python3 scripts/runtime/validate_runtime_state.py
 
 An Expert Dental task started from the CAESTHETIC satellite must read
 `docs/external/grainee-v2/expert-dental/.mirror-manifest.json` and the mirrored
-RAIMOV/Expert Dental authorities. That path is generated read-only. Only
-non-PHI proposals under `docs/projects/caesthetic/expert-dental-contributions/`
-are eligible for satellite-to-grainee writeback; legal and runtime authority
-remains here in `grainee-v2`.
+RAIMOV/Expert Dental authorities. Allowlisted non-PHI project documents inside
+that mirror sync bidirectionally to their same relative paths here. Legal,
+runtime, SSOT, deploy and agent-routing files remain protected one-way;
+authority remains here in `grainee-v2`.
 
 ## Global cross-project routing
 

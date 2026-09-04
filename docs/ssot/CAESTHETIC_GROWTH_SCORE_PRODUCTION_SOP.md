@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.4
+version: 3.5
 created: 2026-08-30
 updated: 2026-09-04
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
@@ -272,7 +272,7 @@ Allowed:
 - public Maps/GBP, SERP, directories and reproducible public geo-grid evidence;
 - public website pages and measured PageSpeed/Lighthouse data;
 - public booking/enquiry navigation only up to non-submission;
-- public social profiles and dated content samples;
+- public, practice-owned social profiles and dated content samples, using the automated collector governed by `docs/caesthetic/growth_score_spec.md` §2.3 when public access and platform rules permit reliable collection;
 - public ratings, reviews and owner responses under disclosed windows;
 - public competitor surfaces using the same comparison task.
 

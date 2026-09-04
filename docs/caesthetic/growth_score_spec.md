@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.3.7
+version: 5.3.8
 updated: 2026-09-04
 scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, five derived decision views, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
@@ -155,6 +155,24 @@ Mystery shopping must use a real monitored inbox and truthful, non-clinical word
 | `local_offer_clarity` | 10 | Clear local practice, service and location proposition | Anchored observation of bio and current content, without treating keyword repetition as quality |
 
 The social sample window, accounts inspected and collection date must be recorded. Inactive or inaccessible accounts are not assumed to perform poorly without evidence: inaccessible evidence is unavailable.
+
+#### Automated Social public-evidence collector
+
+An automated public-evidence collector is allowed and recommended for the Social surface when public access and platform rules permit reliable, reproducible collection. It may inspect Instagram, Facebook, TikTok, YouTube and other profiles only after the profile has been resolved as belonging to the practice or target location through an official link, matching public identity or another recorded ownership-resolution basis.
+
+For every inspected profile, the candidate-evidence record retains:
+
+- the canonical public profile URL, platform and ownership-resolution basis;
+- collection date/time and the exact sample window;
+- the date of the latest observable post and deterministic publishing frequency over that window;
+- observable presence of priority services, named specialists/clinicians and target geography;
+- the public profile-to-enquiry/booking path and its reproducible destination;
+- observed language consistency with Website, Search/GBP and Reputation evidence; and
+- a dated sample of posts with their public URLs or another reproducible public path.
+
+Collector output remains candidate evidence. AI/robot automation may collect and pre-classify the observations and propose metric states, but it may not approve a final Social metric, material Social conclusion, binding constraint, Top 3 Focus Selection or final Growth Score. Those decisions require the canonical named-human evidence and report approval.
+
+If a platform requires authentication, blocks permitted automated access, exposes only unstable or incomplete data, or the observation cannot be confirmed reliably, the affected account or metric is unavailable. The report must show `Insufficient evidence` / `Not assessed`; automation must not guess, infer hidden activity, use a bypass or convert absence of access into a negative finding.
 
 ### 2.4 Reputation — 30% outer weight
 

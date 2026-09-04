@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.29
+version: 3.30
 updated: 2026-09-04
 scope: CAESTHETIC master strategy and product-funnel canon
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -58,6 +58,8 @@ Patients evaluate one practice across four decision surfaces:
 4. **Reputation / Reviews**
 
 **Canonical aliases:** `4444` and `Четверки` always mean this CAESTHETIC Four Surfaces model. They do not mean an arbitrary group of four and must not be expanded into a fifth surface.
+
+A blog, resources hub or individual article is Website content, not a fifth surface. Its reuse or distribution through Social, Google Business Profile and other 4444 touchpoints is cross-surface execution, not an additional scored surface.
 
 **Cross-Surface Consistency** is a cross-surface metric, not a fifth surface. Every stage uses this same model.
 

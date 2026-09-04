@@ -1,7 +1,7 @@
-version: 1
+version: 2
 authority_repo: zaomir/grainee-v2
 satellite_repo: zaomir/caesthetic
-direction: grainee-v2-to-caesthetic-only
+direction: hybrid-bidirectional-allowlisted
 mirror_destination: docs/external/grainee-v2/expert-dental
 source_trees:
   - docs/projects/healthcare-ecosystem
@@ -21,8 +21,34 @@ excluded:
   - staff credential evidence and all binary media
   - binary package archives and generated build output
 writeback_allowlist:
-  - docs/projects/caesthetic/expert-dental-contributions/**
+  - docs/projects/healthcare-ecosystem/**
+  - docs/projects/raimovdental/**
+  - docs/raimov/**
+writeback_file_types:
+  - md
+  - json
+  - jsonl
+  - yaml
+  - yml
+  - txt
+  - csv
+  - tsv
+protected_one_way:
+  - docs/legal/raimov/expert-dental/**
+  - apps/expert-esign/**
+  - docs/ssot/RAIMOV*.md
+  - docs/ssot/EXPERT_DENTAL*.md
+  - docs/ssot/ELITE_DENTAL*.md
+  - AGENTS.md
+  - START.md
+  - agents/manifests/**
+  - .github/workflows/**
+  - scripts/raimov/**
+legacy_intake_path: docs/projects/caesthetic/expert-dental-contributions/**
 authority_rules:
-  - legal and runtime changes are forbidden in the mirror
+  - allowlisted non-PHI project-document edits sync from the mirror to the same relative path in grainee-v2
+  - legal, runtime, SSOT, deploy and agent-rule changes are forbidden from the mirror
   - conflicting legal/runtime content resolves to grainee-v2
+  - concurrent divergent edits to an allowlisted file stop fail-closed for reconciliation
+  - after every writeback grainee-v2 main remains the only authority
   - CAESTHETIC trees continue to use DEC-829 bidirectional sync

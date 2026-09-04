@@ -104,6 +104,9 @@ prepare_isolated_clone() {
     git -C "$target_repo" sparse-checkout set \
       site-caesthetic docs/projects/caesthetic docs/caesthetic \
       docs/audits/caesthetic scripts/caesthetic tests/caesthetic docs/ssot \
+      docs/external/grainee-v2/expert-dental \
+      docs/projects/healthcare-ecosystem docs/projects/raimovdental docs/raimov \
+      docs/legal/raimov/expert-dental apps/expert-esign .github/workflows scripts/raimov \
       agents/manifests deploy/systemd deploy/nginx vds/cron \
       infra/cloudflare scripts/agent-api
     git -C "$authority_repo" fetch "$authority_remote" main -q

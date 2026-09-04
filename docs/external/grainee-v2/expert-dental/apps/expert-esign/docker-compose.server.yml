@@ -1,4 +1,0 @@
-services:
-  waha:
-    ports:
-      - "127.0.0.1:${WAHA_HOST_PORT:-3000}:3000"
