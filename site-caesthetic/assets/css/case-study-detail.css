@@ -1,4 +1,4 @@
-/* CAESTHETIC full case-study route — protected visual prototype. */
+/* CAESTHETIC full case-study route. */
 
 .cae-case-detail__breadcrumb {
   display: flex;
@@ -33,6 +33,9 @@
   gap: var(--cae-space-12);
   align-items: stretch;
 }
+
+.cae-case-detail__hero-cover .cae-media-slot__frame { aspect-ratio: 4 / 5; }
+.cae-case-detail__hero-cover figcaption { margin-top: var(--cae-space-2); }
 
 .cae-case-detail__intro .cae-h1 {
   max-width: 16ch;
@@ -214,6 +217,34 @@
 }
 
 .cae-case-snapshot-grid > div:last-child dd { color: var(--cae-signal); }
+.cae-case-snapshot-grid--five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+.cae-case-metrics { border-bottom: 1px solid var(--cae-border); }
+.cae-case-metrics__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .55fr); gap: var(--cae-space-12); align-items: end; margin-bottom: var(--cae-space-10); }
+.cae-case-metrics__head > p { color: var(--cae-muted); }
+.cae-case-metric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--cae-space-4); }
+.cae-case-metric { display: grid; align-content: start; padding: var(--cae-space-6); border: 1px solid var(--cae-border); border-top: 3px solid var(--cae-border-strong); background: var(--cae-bg); }
+.cae-case-metric--primary { grid-column: 1 / -1; border-top-color: var(--cae-signal); background: var(--cae-bg-2); }
+.cae-case-metric__head { display: flex; justify-content: space-between; gap: var(--cae-space-4); color: var(--cae-muted); font: 600 var(--cae-text-xs)/1.3 var(--cae-font-mono); letter-spacing: .05em; text-transform: uppercase; }
+.cae-case-metric__head b { color: var(--cae-signal); text-align: right; }
+.cae-case-metric > .cae-h3 { margin-top: var(--cae-space-5); }
+.cae-case-metric__flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--cae-space-4); align-items: center; margin-top: var(--cae-space-6); }
+.cae-case-metric__point { min-width: 0; }
+.cae-case-metric__point span { display: block; color: var(--cae-muted); font: 600 10px/1.3 var(--cae-font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.cae-case-metric__point strong { display: block; margin-top: var(--cae-space-2); color: var(--cae-text-strong); font: 400 clamp(1.4rem, 3vw, 2.6rem)/1.05 var(--cae-font-display); overflow-wrap: anywhere; }
+.cae-case-metric__arrow { color: var(--cae-signal); font-size: var(--cae-text-2xl); }
+.cae-case-metric__delta { width: fit-content; margin-top: var(--cae-space-5); padding: 5px 12px; background: var(--cae-signal-light); color: var(--cae-signal); font: 700 var(--cae-text-sm)/1.4 var(--cae-font-mono); }
+.cae-case-metric__definition, .cae-case-metric__caveat { margin-top: var(--cae-space-4); color: var(--cae-muted); font-size: var(--cae-text-sm); }
+.cae-case-metric__caveat { padding-top: var(--cae-space-4); border-top: 1px solid var(--cae-border); }
+.cae-case-metric__meta { margin: var(--cae-space-5) 0 0; }
+.cae-case-metric__meta > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: var(--cae-space-4); padding: var(--cae-space-2) 0; border-top: 1px solid var(--cae-border); }
+.cae-case-metric__meta dt { color: var(--cae-muted); font: 600 var(--cae-text-xs)/1.4 var(--cae-font-mono); text-transform: uppercase; }
+.cae-case-metric__meta dd { margin: 0; font: 400 var(--cae-text-xs)/1.5 var(--cae-font-mono); }
+
+.cae-case-diagnosis-evidence, .cae-case-attribution { margin-top: var(--cae-space-8); padding: var(--cae-space-5); border-left: 3px solid var(--cae-signal); background: var(--cae-bg-2); }
+.cae-case-diagnosis-evidence p, .cae-case-attribution p { margin-top: var(--cae-space-2); color: var(--cae-muted); }
+.cae-case-workstreams--plain li { grid-template-columns: 44px minmax(0, 1fr); }
+.cae-case-workstreams--plain li > p { margin: 0; color: var(--cae-text-strong); font-size: var(--cae-text-lg); }
 
 .cae-case-detail__story-grid {
   display: grid;
@@ -461,6 +492,9 @@
   .cae-case-sequence li:nth-child(4) { border-left: 0; }
   .cae-case-ledger__table { grid-template-columns: 1fr; }
   .cae-case-ledger__table > div:nth-child(even) { border-left: 0; }
+  .cae-case-snapshot-grid--five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cae-case-snapshot-grid--five > div:nth-child(4) { border-left: 0; border-top: 1px solid var(--cae-border); }
+  .cae-case-snapshot-grid--five > div:nth-child(5) { border-top: 1px solid var(--cae-border); }
 }
 
 @media (max-width: 768px) {
@@ -470,10 +504,13 @@
   .cae-case-detail__hero-grid { grid-template-columns: 1fr; }
   .cae-case-detail__intro .cae-h1 { max-width: 15ch; font-size: clamp(2.65rem, 11vw, 3.7rem); }
   .cae-case-executive { order: 2; }
+  .cae-case-detail__hero-cover { display: none; }
   .cae-case-detail__cover { grid-template-columns: 116px minmax(0, 1fr); }
   .cae-case-snapshot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cae-case-snapshot-grid > div:nth-child(3) { border-left: 0; }
   .cae-case-detail__story-grid { grid-template-columns: 1fr; }
+  .cae-case-metrics__head, .cae-case-metric-grid { grid-template-columns: 1fr; }
+  .cae-case-metric--primary { grid-column: auto; }
   .cae-case-detail__contents { position: static; }
   .cae-case-detail__contents > p:last-child { display: none; }
   .cae-case-detail__contents nav { display: flex; overflow-x: auto; border-bottom: 1px solid var(--cae-border); scrollbar-width: thin; }
@@ -504,6 +541,12 @@
   .cae-case-executive__disclosure > div { grid-template-columns: 1fr; gap: var(--cae-space-1); padding-inline: var(--cae-space-3); }
   .cae-case-detail__cover { display: none; }
   .cae-case-snapshot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cae-case-snapshot-grid--five { grid-template-columns: 1fr; }
+  .cae-case-snapshot-grid--five > div { border-left: 0 !important; border-top: 1px solid var(--cae-border); }
+  .cae-case-metric { padding: var(--cae-space-5) var(--cae-space-4); }
+  .cae-case-metric__flow { grid-template-columns: 1fr; gap: var(--cae-space-3); }
+  .cae-case-metric__arrow { transform: rotate(90deg); justify-self: start; }
+  .cae-case-metric__meta > div { grid-template-columns: 1fr; gap: var(--cae-space-1); }
   .cae-case-snapshot-grid > div { min-height: 86px; padding: var(--cae-space-3); }
   .cae-case-snapshot-grid > div:nth-child(3) { border-left: 0; }
   .cae-case-snapshot-grid > div:nth-child(n+3) { border-top: 1px solid var(--cae-border); }
