@@ -1,5 +1,5 @@
 # Maps zaomir/caesthetic → grainee-v2 paths (identical relative paths).
-version: 1
+version: 3
 source_repo: zaomir/caesthetic
 target_repo: zaomir/grainee-v2
 direction: bidirectional  # DEC-829
@@ -14,6 +14,12 @@ ssot_globs:
   - docs/ssot/CAESTHETIC*.md
 extra_files:
   - agents/manifests/caesthetic.yaml
+  - docs/founder-notes/DEC-829.md
+  - docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
+  - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
+  - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
+  - docs/projects/caesthetic/EXPERT_DENTAL_MIRROR.yml
+  - scripts/caesthetic/expert_dental_mirror.py
   - deploy/systemd/caesthetic-repo-sync.service
   - deploy/systemd/caesthetic-repo-sync.timer
 excludes:
@@ -25,18 +31,75 @@ excludes:
   - .git
   - .DS_Store
   - __pycache__
-  # Audit Factory policy is canonical only in grainee-v2. The satellite keeps
-  # a pointer file at this path so a second editable SSOT cannot drift again.
-  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
+  - "*.pyc"
+  - "*.pyo"
   - site-caesthetic/private/**
   - site-caesthetic/score/aurora-medspa-x7k9m2/**
   - site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/**
   - site-caesthetic/docs/website-studio/site-caesthetic-score-aesthetemed-public-evidence-7c3e91b4a8f26d50.md
+  # Named-client protected reports and their QA manifests remain production-only.
+  - site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/**
+  - site-caesthetic/docs/website-studio/site-caesthetic-score-nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8.md
+  - site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/**
+  # Client-specific manager previews remain in the production repository only.
+  - site-caesthetic/score/prestige-ru-preview-20260901-a7f3d9/**
+  - site-caesthetic/score/prestige-ru-manager-preview-20260901-b4c2e7/**
+  - site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/**
+  - site-caesthetic/docs/website-studio/site-caesthetic-score-prestige-ru-pilot-520-20260901-c6d8e2.md
   - docs/projects/caesthetic/operations/ig-growth/footage/**
   - docs/projects/caesthetic/operations/ig-growth/daily-growth-note/footage/**
   - docs/projects/caesthetic/clients/**
   - docs/projects/caesthetic/operations/growth-score-board.jsonl
   - docs/projects/caesthetic/operations/ig-growth/editorial-story-card/_hex-mark-52.png
 protected_in_target:
+  - deploy/systemd/caesthetic-repo-sync.service
+  - deploy/systemd/caesthetic-repo-sync.timer
   - site-caesthetic/**
-  - site-caesthetic/src/config/pricing.ts
+  - docs/founder-notes/DEC-829.md
+  - docs/ssot/CAESTHETIC.md
+  - docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md
+  - docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md
+  - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
+  - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
+  - docs/projects/caesthetic/EXPERT_DENTAL_MIRROR.yml
+  - scripts/caesthetic/expert_dental_mirror.py
+  - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
+  - docs/caesthetic/growth_score_spec.md
+  - docs/caesthetic/competitive_decision_analysis.md
+  - docs/projects/caesthetic/ROUTER.md
+  - scripts/caesthetic/build-spoken-medspa-russian.mjs
+  - scripts/caesthetic/growth-score-report-template.mjs
+  - scripts/caesthetic/growth-score-select-focus.mjs
+  - scripts/caesthetic/growth-score-workflow.mjs
+  - scripts/caesthetic/multi-location-decision-view-model.mjs
+  - scripts/caesthetic/multi-location-growth-score-view-model.mjs
+  - scripts/caesthetic/multi-location-growth-score.mjs
+  - scripts/caesthetic/owner-brief-contract.mjs
+  - scripts/caesthetic/install-continuous-sync.sh
+  - scripts/caesthetic/publish-growth-score-control-plane.mjs
+  - scripts/caesthetic/publish-growth-score-deploy.sh
+  - scripts/caesthetic/render-growth-score.mjs
+  - scripts/caesthetic/score-pin-runtime.mjs
+  - scripts/caesthetic/sync_agents_bidirectional.py
+  - tests/caesthetic/growth-score-engine.test.mjs
+  - tests/caesthetic/growth-score-decision-views.test.mjs
+  - tests/caesthetic/growth-score-journey-graph.test.mjs
+  - tests/caesthetic/growth-score-renderer.test.mjs
+  - tests/caesthetic/report-design-directives.test.mjs
+  - tests/caesthetic/growth-score-publish-control-plane.test.mjs
+  - tests/caesthetic/growth-score-routing-catalog.test.mjs
+  - tests/caesthetic/growth-score-spec-canon.test.mjs
+  - tests/caesthetic/outbound-domain-identity.test.mjs
+  - tests/caesthetic/owner-brief-contract.test.mjs
+  - tests/caesthetic/spoken-medspa-russian.test.mjs
+  - tests/caesthetic/agents_sync_bidirectional_test.py
+  - tests/caesthetic/satellite-growth-score-authoring.test.py
+  - docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json
+  - docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json
+  - scripts/caesthetic/asset-worker/poll.mjs
+  - scripts/caesthetic/asset-worker/repo-sync-worker.mjs
+  - scripts/caesthetic/caesthetic-repo-sync-contract.mjs
+  - scripts/caesthetic/continuous-sync-runner.sh

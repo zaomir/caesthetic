@@ -1,0 +1,144 @@
+id: raimovdental
+name: RAIMOV Ecosystem
+status: active
+phase: 1
+
+read_first:
+  - docs/projects/raimovdental/AGENTS.md
+  - docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md
+  - docs/projects/raimovdental/ROUTER.md
+
+allowed_paths:
+  - site-raimovdental/**
+  - research/raimov-profile/**
+  - docs/projects/raimovdental/**
+  - docs/raimov/**
+  - docs/copy/raimov/**
+  - docs/legal/raimov/**
+  - docs/legal-templates/raimov/**
+  - docs/audits/raimov/**
+  - docs/research/raimov/**
+  - docs/ssot/RAIMOV*.md
+  - docs/ssot/RAIM_SMILE*.md
+  - docs/ssot/EXPERT_DENTAL*.md
+  - docs/ssot/ELITE_DENTAL*.md
+  - docs/ssot/BALAM.md
+  - docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md
+  - docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
+  - scripts/raimov/**
+  - tests/raimov/**
+  - tests/raimovdental/**
+
+forbidden_paths:
+  - package.json
+  - site-evo/**
+
+protected_paths:
+  - research/raimov-profile/evidence/**
+  - site-raimovdental/src/config/pricing.ts
+
+topics:
+  master_index: docs/ssot/RAIMOV.md
+  architecture: docs/ssot/RAIMOV_ECOSYSTEM_PROJECT_ARCHITECTURE.md
+  whole_person_brand: docs/ssot/RAIMOV_WHOLE_PERSON_BRAND.md
+  personal_brand_model_superseded: docs/ssot/RAIMOV_PERSONAL_BRAND_MODEL.md
+  personal_brand_operations: docs/raimov/personal-brand/README.md
+  professional_whole_person_study_club: docs/raimov/professional/whole-person-study-club/README.md
+  whole_person_treatment_planning_intensive: docs/raimov/academy/WHOLE_PERSON_TREATMENT_PLANNING_INTENSIVE.md
+  academy_future: docs/raimov/academy/README.md
+  patient_routing_boundary: docs/raimov/patient-routing/README.md
+  evidence_public_profile_boundary: docs/raimov/evidence-public-profile/README.md
+  copy_runtime_boundary: docs/raimov/copy-runtime-boundaries/README.md
+  strategy: docs/ssot/EXPERT_DENTAL_RAIMOV_ELITE_STRATEGY.md
+  raim_smile_master_business_content: docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md
+  raim_smile_brand_protocol: docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md
+  raim_smile_partnership_network: docs/ssot/RAIM_SMILE_PARTNERSHIP_NETWORK.md
+  raim_smile_partner_program_decision: docs/founder-notes/DEC-865_raim-smile-clinic-funded-premium-tier-programs.md
+  caesthetic_attributed_sales_decision: docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
+  caesthetic_attributed_sales_compensation: docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md
+  raim_smile_partner_program_matrix: docs/raimov/partnerships/RAIM_SMILE_PARTNER_PROGRAM_MATRIX.md
+  raim_smile_partnership_page: docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_PAGE_STRATEGY_V3.md
+  raim_smile_partner_packages: docs/raimov/partnerships/PARTNER_PACKAGES.md
+  raim_smile_partner_coordinator: docs/raimov/partnerships/GULBARA_VIP_COORDINATOR.md
+  raim_smile_partnership_economics: docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md
+  raim_smile_vip_access: docs/raimov/partnerships/RAIM_SMILE_VIP_ACCESS_CONTRACT.md
+  raim_smile_partner_pipeline: docs/raimov/partnerships/BISHKEK_PARTNER_PIPELINE.md
+  raim_smile_smilecare_12_product: docs/ssot/RAIM_SMILE_SMILECARE_12_PRODUCT_STANDARD.md
+  raim_smile_smilecare_12_contract: docs/raimov/operations/expert-dental/membership/smilecare12-product.contract.json
+  raim_smile_smilecare_12_pilot: docs/raimov/operations/expert-dental/membership/PILOT_GATE_CHECKLIST.md
+  raim_smile_smilecare_12_migration: docs/raimov/partnerships/SMILECARE_12_NAMING_MIGRATION.md
+  raim_smile_operator_network: docs/ssot/RAIM_SMILE_OPERATOR_NETWORK_AND_ROUTING_MODEL.md
+  raim_smile_current_operator_crm: docs/raimov/patient-funnel/RAIM_SMILE_LEAD_ROUTING_CRM_CONTRACT.md
+  raim_smile_multi_operator_routing: docs/raimov/patient-funnel/RAIM_SMILE_MULTI_OPERATOR_ROUTING_CONTRACT.md
+  raim_smile_operator_registry: docs/raimov/operations/RAIM_SMILE_OPERATOR_REGISTRY_STANDARD.md
+  raim_smile_marketplace_legal: docs/legal/raimov/RAIM_SMILE_OPERATOR_MARKETPLACE_LEGAL_GATES.md
+  raim_smile_second_opinion: docs/raimov/patient-funnel/RAIM_SMILE_SECOND_OPINION_PRODUCT.md
+  raim_smile_treatment_coordinator: docs/raimov/operations/expert-dental/RAIM_SMILE_TREATMENT_COORDINATOR_STANDARD.md
+  balam_strategy: docs/ssot/RAIMOV_BALAM.md
+  balam_brand: docs/ssot/BALAM.md
+  balam_project: docs/projects/raimovdental/balam/README.md
+  balam_preview: site-raimovdental/balam-preview/
+  access_continuity: docs/ssot/RAIMOV_ACCESS_CONTINUITY_SYSTEM.md
+  patient_motivation: docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md
+  month_1_retrospective: docs/ssot/EXPERT_DENTAL_MONTH_1_RETROSPECTIVE.md
+  expert_dental_p0_legal_evidence: docs/legal/raimov/expert-dental/EXPERT_DENTAL_P0_LEGAL_EVIDENCE_OPERATING_MODEL.md
+  reputation_review_hub: docs/raimov/operations/expert-dental/reputation/POST_VISIT_FEEDBACK_LOOP.md
+  reputation_implementation: docs/raimov/operations/expert-dental/reputation/IMPLEMENTATION_PLAN_ATOMIC.md
+  reputation_runtime: site-raimovdental/feedback-hub/server.mjs
+  project_status: docs/raimov/PROJECT_STATUS.md
+  routing: docs/projects/raimovdental/ROUTER.md
+  media_rights: research/raimov-profile/
+  pricing:
+    ssot: docs/ssot/RAIMOV.md
+    code:
+      - site-raimovdental/src/config/pricing.ts
+
+test_heuristic:
+  - tests/raimovdental/
+  - tests/raimov/
+  - scripts/raimov/check-feedback-hub.mjs
+
+commands:
+  sync: cd /var/www/grainee-v2 && git pull --ff-only origin main
+  sync_from_agents: bash scripts/raimov/sync-agents-bidirectional.sh --apply
+  seed_agents: bash scripts/raimov/sync-agents-bidirectional.sh --apply
+  sync_bidirectional: bash scripts/raimov/sync-agents-bidirectional.sh --apply --commit --push
+  build: node scripts/build-raimovdental.mjs
+  deploy: DEPLOY_ASSUME_YES=1 bash scripts/deploy-static-all.sh
+  deploy_feedback_hub: bash scripts/raimov/deploy-feedback-hub.sh
+  smoke: curl -fsS -o /dev/null -w '%{http_code}' https://raimovdental.com/
+  test: node tests/raimovdental/run-all.mjs
+  test_feedback_hub: node scripts/raimov/check-feedback-hub.mjs
+
+deploy_target: raimovdental
+agents_satellite_repo: zaomir/raimovdental
+agents_satellite_path: /var/www/raimovdental
+agents_sync: bash scripts/raimov/sync-agents-bidirectional.sh --apply --commit --push
+agents_seed: bash scripts/raimov/sync-agents-bidirectional.sh --apply --commit --push
+
+definition_of_done:
+  - Correct RAIMOV authority and namespace used
+  - Personal-brand work reads RAIMOV_WHOLE_PERSON_BRAND.md; Second Opinion remains patient entry, Assessment/Study Club/Intensive remain NOT_LAUNCHED and Academy future/gated
+  - Any RAIM SMILE business, product, partnership, content or site task reads docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md first as the single master strategy
+  - RAIM SMILE keeps Expert Dental as current operator only; portable operator/routing work reads DEC-859 and operator-network SSOT
+  - RAIM SMILE partnership work reads the Partnership Network SSOT and Partner Program Matrix, requires measurable recurring distribution and keeps Gulbara non-clinical
+  - Baseline partner SmileCare 12 gift inventory is clinic-funded, capped, opt-in and capacity-gated; Premium tier labels and family allocations are not named-partner claims before a signed pilot charter
+  - A live partner dashboard is deferred; first pilots use privacy-safe aggregate reporting
+  - CAESTHETIC is the separate partner operator/employer; 30% applies only to actual collected partner/VIP SmileCare 12 membership revenue, and CAESTHETIC may also receive a contract-defined percentage of verified collected sales from customers it sourced or documentably reactivated under DEC-866
+  - Medical attributed-sales settlement uses the ordinary signed Commercial Schedule and attribution rules without special legal/fiscal/advertising/privacy/fee-splitting activation gates; coordinator and clinician medical-sales percentages stay zero, and the same monetary base is never charged twice
+  - Phone is a VIP eligibility key, not password; no first-step OTP; active match reveals only Call/WhatsApp coordinator and runtime remains unimplemented until registry/security/privacy/staffing/release gates pass
+  - SmileCare 12 target work reads the product standard and machine-readable contract; G0 is closed and DEC-861 approves only the current-binding public naming cutover
+  - RAIM SMILE · SmileCare 12 is the current public name; legacy SKU ids, prices and benefits remain unchanged while expanded v2, trademark, fiscal, capacity, ledger and pilot gates stay fail-closed
+  - Essential, Perio and Kids & Teens are assigned only by the licensed operator; Family Account never transfers benefits or exposes clinical tier to a partner
+  - Highest commercial bid is applied only after licence, quality, capacity, privacy, disclosure and patient-consent gates
+  - Medical data never enters multi-operator bid rounds, partner CRM or attributed-sales ledger
+  - BALAM work reads docs/ssot/RAIMOV_BALAM.md first and stays presentation-only until Atabek GO
+  - Evidence, medical, legal and media-rights gates preserved
+  - RAIMOV.md and project status updated if SSOT or release state drifted
+  - "Review Hub: `/feedback/`→stars; 1–3★ recovery only; 4–5★ `/write` then `/maps`; no anonymous map shortcuts"
+  - Review Hub compliance gate passes when that runtime is changed
+  - RU/EN parity checked on changed routes
+  - No patient-identifiable data or secrets committed
+
+owners:
+  shared_router: platform

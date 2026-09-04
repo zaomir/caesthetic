@@ -35,6 +35,8 @@ install -d -m 755 "$INSTALL_ROOT" "$SYSTEMD_ROOT"
 install -d -m 700 "$DATA_ROOT"
 install -m 755 "$SOURCE_ROOT/scripts/caesthetic/sync_agents_bidirectional.py" \
   "$INSTALL_ROOT/sync_agents_bidirectional.py"
+install -m 755 "$SOURCE_ROOT/scripts/caesthetic/expert_dental_mirror.py" \
+  "$INSTALL_ROOT/expert_dental_mirror.py"
 install -m 755 "$SOURCE_ROOT/scripts/caesthetic/continuous-sync-runner.sh" \
   "$INSTALL_ROOT/continuous-sync-runner.sh"
 install -m 644 "$SOURCE_ROOT/deploy/systemd/caesthetic-repo-sync.service" \

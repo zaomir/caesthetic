@@ -28,6 +28,7 @@ allowed_paths:
   - .aider.conf.yml
   - site-caesthetic/**
   - docs/projects/caesthetic/**
+  - docs/external/grainee-v2/expert-dental/**
   - docs/caesthetic/**
   - docs/ssot/CAESTHETIC*.md
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
@@ -72,6 +73,8 @@ topics:
   reel_automation: docs/ssot/CAESTHETIC_REEL_AUTOMATION.md
   project_status: docs/projects/caesthetic/PROJECT_STATUS.md
   routing: docs/projects/caesthetic/ROUTER.md
+  expert_dental_reference: docs/external/grainee-v2/expert-dental/.mirror-manifest.json
+  expert_dental_contributions: docs/projects/caesthetic/expert-dental-contributions/
 
 commands:
   sync: cd /var/www/grainee-v2 && git pull --ff-only origin main

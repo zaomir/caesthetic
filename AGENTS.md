@@ -78,6 +78,23 @@ This repository is the **Cursor Agents** surface for CAESTHETIC.
 7. `CODING_STANDARDS.md` for review criteria
 8. `docs/compound-engineering/README.md` when using Compound Engineering
 
+## Expert Dental / RAIMOV task router
+
+When a task mentions Expert Dental, RAIMOV, RAIM SMILE, clinic legal forms,
+SQNS or electronic signing, read
+`docs/external/grainee-v2/expert-dental/.mirror-manifest.json`, then the mirrored
+`AGENTS.md`, `docs/projects/healthcare-ecosystem/AGENTS.md`,
+`docs/projects/raimovdental/AGENTS.md` and the relevant mirrored SSOT/legal
+files. The mirror is generated read-only from current `zaomir/grainee-v2`.
+
+- Never edit the mirror or treat it as a second SSOT.
+- Legal/runtime corrections route to `zaomir/grainee-v2` authority.
+- Only non-PHI project proposals may be written under
+  `docs/projects/caesthetic/expert-dental-contributions/`; DEC-829 syncs that
+  allowlisted tree back.
+- Never place patient records, PHI, secrets, credentials, private folders or
+  raw recordings in this repository.
+
 ## Compound Engineering execution layer
 
 Compound Engineering is an **execution and institutional-memory layer**, not a
@@ -133,6 +150,7 @@ or consolidating overlapping guidance instead of creating contradictory docs.
 - Edit protected pricing without gates
 - Commit secrets or client-identifiable data
 - Mirror or recreate `site-caesthetic/private/`
+- Edit `docs/external/grainee-v2/expert-dental/**`
 - Open `grainee-v2` for CAESTHETIC-only chats (use **this** project in Cursor Agents picker)
 - Let a CE artifact, autonomous pipeline or reviewer bypass Research Alignment, Focus Selection, publication, access, sync, deployment or other canonical gates
 - Use the trivial fast path for behavior, policy, routing, pricing, privacy, publication, sync or deployment changes merely to avoid review

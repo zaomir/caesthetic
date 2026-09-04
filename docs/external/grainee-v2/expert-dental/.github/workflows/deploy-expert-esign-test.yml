@@ -1,0 +1,123 @@
+name: Deploy Expert E-sign Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/expert-esign/**'
+      - 'scripts/raimov/deploy-expert-esign-test.sh'
+      - '.github/workflows/deploy-expert-esign-test.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-expert-esign-test-vps2402
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: apps/expert-esign
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/expert-esign/package.json
+      - name: Install isolated dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Unit and runtime checks
+        run: |
+          npm run check
+          node --check lib/providers/mock.mjs
+          node --check lib/providers/zoho-sign.mjs
+          node --check lib/providers/docusign.mjs
+      - name: Build test-capable hardened image
+        run: docker build -f Dockerfile.runtime -t expert-esign-test:${GITHUB_SHA} .
+      - name: Test-mode contract
+        run: |
+          grep -Fq "test_mode_requires_synthetic_patient_prefix" server.mjs
+          grep -Fq "outbound_delivery_disabled_in_test_mode" server.mjs
+          grep -Fq '"status": "NOT_EFFECTIVE"' generated/legal-templates.json
+          ! grep -R --line-number '"status": "ACTIVE"' generated
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preflight approved VPS key
+        env:
+          OPS_SSH_KEY: ${{ secrets.VPS2402_SSH_KEY || secrets.DEPLOY_KEY || secrets.EVO_SSH_KEY }}
+        run: test -n "${OPS_SSH_KEY:-}" || { echo 'No approved VPS2402 SSH key'; exit 1; }
+      - name: Deploy isolated test runtime on VPS2402
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          DEPLOY_SHA: ${{ github.sha }}
+          DEPLOY_REF: ${{ github.ref_name }}
+        with:
+          host: ${{ secrets.VPS2402_HOST || '185.216.214.28' }}
+          username: ${{ secrets.VPS2402_SSH_USER || secrets.EVO_SSH_USER || 'root' }}
+          key: ${{ secrets.VPS2402_SSH_KEY || secrets.DEPLOY_KEY || secrets.EVO_SSH_KEY }}
+          envs: DEPLOY_SHA,DEPLOY_REF
+          command_timeout: 40m
+          script: |
+            set -euo pipefail
+            BASE_REPO=/var/www/grainee-v2
+            WORKTREE="/tmp/expert-esign-test-${DEPLOY_SHA}-$$"
+            cleanup() { git -C "$BASE_REPO" worktree remove --force "$WORKTREE" >/dev/null 2>&1 || true; }
+            trap cleanup EXIT
+            git -C "$BASE_REPO" fetch origin "refs/heads/${DEPLOY_REF}:refs/remotes/origin/${DEPLOY_REF}" -q
+            test "$(git -C "$BASE_REPO" rev-parse "refs/remotes/origin/${DEPLOY_REF}")" = "$DEPLOY_SHA"
+            git -C "$BASE_REPO" worktree prune
+            git -C "$BASE_REPO" worktree add --detach "$WORKTREE" "$DEPLOY_SHA"
+            cd "$WORKTREE"
+            bash scripts/raimov/deploy-expert-esign-test.sh
+      - name: External fail-closed smoke
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 24); do
+            page=$(curl -LsS -o /tmp/expert-esign-test.html -w '%{http_code}' --max-time 20 https://clinic.raimovdental.com/esign/ || true)
+            health=$(curl -LsS -o /tmp/expert-esign-test-health.json -w '%{http_code}' --max-time 20 https://clinic.raimovdental.com/esign/healthz || true)
+            if [ "$page" = 200 ] && [ "$health" = 200 ]; then break; fi
+            sleep 5
+          done
+          test "$page" = 200
+          test "$health" = 200
+          grep -Fq 'ТЕСТОВЫЙ РЕЖИМ' /tmp/expert-esign-test.html
+          python3 - <<'PY'
+          import json
+          h=json.load(open('/tmp/expert-esign-test-health.json'))
+          assert h.get('ok') is True, h
+          assert h.get('applicationMode') == 'test', h
+          assert h.get('testMode') is True, h
+          assert h.get('syntheticPatientPolicy', '').startswith('PREFIX_REQUIRED'), h
+          assert h.get('outboundDeliveryEnabled') is False, h
+          assert h.get('templatesMayBeCounselGated') is True, h
+          assert h.get('deployedSha') == '${{ github.sha }}', h
+          providers={p['name']:p for p in h.get('signatureProviders', [])}
+          assert providers.get('mock', {}).get('enabled') is True, providers
+          assert providers.get('zoho-sign', {}).get('enabled') is False, providers
+          assert providers.get('docusign', {}).get('enabled') is False, providers
+          print(json.dumps(h, ensure_ascii=False))
+          PY
+      - name: Deployment summary
+        run: |
+          {
+            echo '## Expert E-sign test runtime is live'
+            echo
+            echo "- source SHA: \`${GITHUB_SHA}\`"
+            echo '- URL: `https://clinic.raimovdental.com/esign/`'
+            echo '- mode: `test`'
+            echo '- accepted patients: synthetic prefixes only (`ТЕСТ`, `ДЕМО`, `TEST`, `DEMO`)'
+            echo '- WhatsApp delivery: disabled'
+            echo '- immutable test evidence storage: passed'
+            echo '- bootstrap credentials: root-only on VPS2402'
+          } >> "$GITHUB_STEP_SUMMARY"
