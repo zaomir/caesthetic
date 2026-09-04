@@ -23,6 +23,7 @@ const cataloguedRoutes = [
   "demo-publish-control-plane-network",
   "demo-publish-control-plane-network/focus-location",
 ];
+const commercialRoutes = cataloguedRoutes.filter((route) => !route.endsWith("/focus-location"));
 const orderedSections = [
   "gap-map",
   "focus-gaps",
@@ -204,6 +205,21 @@ test("all local links on the seven catalogued reports resolve to an element", ()
     const fragments = [...html.matchAll(/\bhref="#([^"]+)"/g)].map((match) => match[1]);
     const dead = fragments.filter((fragment) => !ids.has(fragment));
     assert.deepEqual(dead, [], `${route} has dead fragment links: ${dead.join(", ")}`);
+  }
+});
+
+test("all five catalogued commercial reports keep two Check placements and one Sprint CTA", () => {
+  for (const route of commercialRoutes) {
+    const html = fs.readFileSync(path.join(root, "site-caesthetic/score", route, "index.html"), "utf8");
+    assert.equal((html.match(/data-cae-check-inquiry/g) || []).length, 2, `${route} Check count`);
+    assert.equal((html.match(/data-cae-sprint-inquiry/g) || []).length, 1, `${route} Sprint count`);
+  }
+
+  for (const route of cataloguedRoutes.filter((item) => item.endsWith("/focus-location"))) {
+    const html = fs.readFileSync(path.join(root, "site-caesthetic/score", route, "index.html"), "utf8");
+    assert.equal((html.match(/data-cae-check-inquiry/g) || []).length, 0, `${route} Check count`);
+    assert.equal((html.match(/data-cae-sprint-inquiry/g) || []).length, 0, `${route} Sprint count`);
+    assert.equal((html.match(/data-cae-question/g) || []).length, 0, `${route} report Question count`);
   }
 });
 

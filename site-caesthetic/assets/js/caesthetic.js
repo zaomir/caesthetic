@@ -238,6 +238,10 @@
   }
 
   function initRequestModal() {
+    if (document.body.classList.contains("cae-score-report--focus-location")) {
+      qsa("[data-cae-question]").forEach(function (trigger) { trigger.remove(); });
+    }
+
     var requestButtons = qsa([
       "a[data-cae-request]",
       "button[data-cae-request]",

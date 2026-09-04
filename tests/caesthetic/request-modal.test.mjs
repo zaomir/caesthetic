@@ -33,6 +33,8 @@ test("request CTAs open one shared modal with exactly name and email fields", ()
   assert.match(js, /a\[data-cae-check-inquiry\]/);
   assert.match(js, /a\[data-cae-growth-system-inquiry\]/);
   assert.match(js, /a\[data-cae-question\]/);
+  assert.match(js, /cae-score-report--focus-location/);
+  assert.match(js, /qsa\("\[data-cae-question\]"\)\.forEach/);
   assert.match(js, /<dialog|createElement\("dialog"\)/);
   const modalSource = js.slice(js.indexOf('var dialog = document.createElement("dialog")'), js.indexOf("document.body.appendChild(dialog)"));
   const inputNames = [...modalSource.matchAll(/<input\b[^>]*\bname="([^"]+)"/g)].map((match) => match[1]);
@@ -46,6 +48,12 @@ test("request CTAs open one shared modal with exactly name and email fields", ()
   assert.match(css, /\.cae-request-modal/);
   assert.match(js, /requestLocale === "ru"/);
   assert.match(js, /Не удалось отправить запрос\. Попробуйте ещё раз\./);
+});
+
+test("footer question has a working no-JavaScript fallback instead of a dead fragment", () => {
+  const footer = readFileSync(resolve(site, "templates/footer.html"), "utf8");
+  assert.match(footer, /href="\/support\/" data-cae-question data-cae-intent="footer_question"/);
+  assert.doesNotMatch(footer, /href="#question"/);
 });
 
 test("request CTA pages contain no mailto buttons and load the modal runtime", () => {
