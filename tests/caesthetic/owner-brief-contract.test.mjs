@@ -18,7 +18,7 @@ test("owner brief v2.1 keeps one shared nine-section presentation contract", () 
   assert.equal(isOwnerBriefLayout(report), true);
   assert.equal(validateOwnerBriefPresentation(report), true);
   assert.equal(report.presentation.owner_copy.implementation_options.length, 3);
-  assert.equal(report.presentation.owner_copy.research_scope.links.length, 8);
+  assert.equal(report.presentation.owner_copy.research_scope.links.length, 3);
 });
 
 test("owner brief v2 fails closed on missing localization or a fourth implementation path", () => {
@@ -49,4 +49,8 @@ test("owner brief v2.1 publishes only approved HTTP(S) research links", () => {
   const credentialLink = clone(report);
   credentialLink.presentation.owner_copy.research_scope.links[0][1] = "https://user:secret@example.com/";
   assert.throws(() => validateOwnerBriefPresentation(credentialLink), /must not contain credentials/);
+
+  const duplicateSource = clone(report);
+  duplicateSource.presentation.owner_copy.research_scope.links.push(["Другая страница сайта", "https://www.spokenmedspa.com/blog"]);
+  assert.throws(() => validateOwnerBriefPresentation(duplicateSource), /contains duplicate pages from one source/);
 });

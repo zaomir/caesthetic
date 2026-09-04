@@ -187,7 +187,7 @@ function translateStrings(value) {
 }
 
 function applyPlainOwnerCopy(report) {
-  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.6.0";
+  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.6.1";
   report.verifiedFactSetVersion = "spoken-medspa-snellville-2026-09-04/4444-v1";
   report.disclosure = "Отчёт составлен по открытым источникам. Мы не проверяли внутренние процессы, данные пациентов, выручку и результаты лечения.";
   report.executiveSummary = "У Spoken уже есть сильная страница Botox, активный блог и высокий рейтинг в Google. Главная задача — связать точные запросы пациентов, регулярные материалы и работу с отзывами в одну систему.";
@@ -562,15 +562,9 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         kicker: "Что мы изучили",
         title: "Изученные ссылки",
         links: [
-          ["Главная страница Spoken", "https://www.spokenmedspa.com/"],
-          ["Страница Botox", "https://www.spokenmedspa.com/neurotoxins-snellville-ga"],
-          ["Страница филлеров", "https://www.spokenmedspa.com/dermal-fillers-snellville-ga"],
-          ["Блог Spoken", "https://www.spokenmedspa.com/blog"],
-          ["Карточка Spoken в Google", "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"],
-          ["О клинике", "https://www.spokenmedspa.com/about"],
-          ["Страница для новых пациентов", "https://www.spokenmedspa.com/clients"],
-          ["Академия Spoken", "https://www.spokenmedspa.com/spoken-aesthetic-academy"],
-          ["Социальные сети и запись", "https://msha.ke/spokenmedspa/"],
+          ["Сайт", "https://www.spokenmedspa.com/"],
+          ["Карты Google", "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"],
+          ["Социальные сети", "https://msha.ke/spokenmedspa/"],
         ],
       },
       intro: {

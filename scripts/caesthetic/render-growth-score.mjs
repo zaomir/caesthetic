@@ -460,8 +460,7 @@ function plainResearchScopeHtml(report) {
   </article>`;
   }
   return `<article class="cae-owner-research" data-owner-research-scope>
-    <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
-    <h2>${escapeHtml(copy.title)}</h2>
+    <h2 class="cae-owner-research__title">${escapeHtml(copy.title)}</h2>
     <ul class="cae-owner-research__links">${copy.links.map(([label, source]) => `<li><a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a></li>`).join("")}</ul>
   </article>`;
 }
@@ -2151,7 +2150,7 @@ function plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescriptio
   <meta name="description" content="${metaDescription}">
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
-  <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.1">
+  <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.2">
 </head>
 <body class="cae-score-report cae-score-report--plain-owner cae-score-report--brief">
 ${disclosure}

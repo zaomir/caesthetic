@@ -1,7 +1,7 @@
 {
   "schemaVersion": 5,
   "reportState": "approved_report",
-  "reportVersion": "spoken-medspa-snellville-public-evidence/ru/1.6.0",
+  "reportVersion": "spoken-medspa-snellville-public-evidence/ru/1.6.1",
   "verifiedFactSetVersion": "spoken-medspa-snellville-2026-09-04/4444-v1",
   "reportKind": "real",
   "templateVersion": "growth-score-report-template/5.2.0",
@@ -1290,39 +1290,15 @@
         "title": "Изученные ссылки",
         "links": [
           [
-            "Главная страница Spoken",
+            "Сайт",
             "https://www.spokenmedspa.com/"
           ],
           [
-            "Страница Botox",
-            "https://www.spokenmedspa.com/neurotoxins-snellville-ga"
-          ],
-          [
-            "Страница филлеров",
-            "https://www.spokenmedspa.com/dermal-fillers-snellville-ga"
-          ],
-          [
-            "Блог Spoken",
-            "https://www.spokenmedspa.com/blog"
-          ],
-          [
-            "Карточка Spoken в Google",
+            "Карты Google",
             "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"
           ],
           [
-            "О клинике",
-            "https://www.spokenmedspa.com/about"
-          ],
-          [
-            "Страница для новых пациентов",
-            "https://www.spokenmedspa.com/clients"
-          ],
-          [
-            "Академия Spoken",
-            "https://www.spokenmedspa.com/spoken-aesthetic-academy"
-          ],
-          [
-            "Социальные сети и запись",
+            "Социальные сети",
             "https://msha.ke/spokenmedspa/"
           ]
         ]

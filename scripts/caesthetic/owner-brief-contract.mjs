@@ -123,15 +123,19 @@ export function validateOwnerBriefPresentation(report) {
   if (presentation.layout_contract === OWNER_BRIEF_LAYOUT_CONTRACT) {
     requireText(copy.research_scope?.kicker, "owner_copy.research_scope.kicker");
     requireText(copy.research_scope?.title, "owner_copy.research_scope.title");
-    requireLinkItems(copy.research_scope?.links, "owner_copy.research_scope.links", { min: 4 });
+    requireLinkItems(copy.research_scope?.links, "owner_copy.research_scope.links", { min: 1 });
     const approvedSources = new Set([
       ...report.surfaces.flatMap((surface) => surface.metrics),
       ...report.crossSurface.metrics,
     ]
       .filter((metric) => metric.reviewer_status === "approved" && metric.source)
       .flatMap((metric) => metric.source.split(";").map((source) => source.trim()).filter(Boolean)));
+    const sourceHosts = new Set();
     for (const [, source] of copy.research_scope.links) {
       invariant(approvedSources.has(source), `owner_copy.research_scope.links contains an unapproved source: ${source}`);
+      const sourceHost = new URL(source).hostname.toLowerCase().replace(/^www\./, "");
+      invariant(!sourceHosts.has(sourceHost), `owner_copy.research_scope.links contains duplicate pages from one source: ${sourceHost}`);
+      sourceHosts.add(sourceHost);
     }
   } else {
     requireTupleItems(copy.research_scope?.items, "owner_copy.research_scope.items", { min: 4 });

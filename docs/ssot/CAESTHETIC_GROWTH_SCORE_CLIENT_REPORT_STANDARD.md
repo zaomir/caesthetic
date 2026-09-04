@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.6
+version: 2.7
 updated: 2026-09-04
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -311,6 +311,7 @@ Presentation rules:
 - do not create a third Check500 section or any Check500 section in a Multi-Location focus child;
 - a sticky CTA may be used only late in the report when it does not interrupt reading; disable it on mobile when it degrades the decision flow.
 - in the owner-brief audit template, place one clearly labelled report-share action near the beginning and one after the final report content; on supported mobile devices both use the native sharing sheet, with a clean-URL copy fallback elsewhere;
+- render the owner-brief “studied links” block as a visually quiet list of ordinary text links without cards, borders or colored backgrounds; show at most one representative URL per source hostname and never repeat separate pages of the same site;
 
 Approved visual grammar:
 
