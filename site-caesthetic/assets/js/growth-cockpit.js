@@ -9,8 +9,7 @@
 (function initGrowthCockpit() {
   "use strict";
 
-  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.3";
-  const STAGES = ["discovery", "trust", "enquiry", "booking", "treatment"];
+  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.4";
   const SECTION_IDS = [
     "gap-map",
     "focus-gaps",
@@ -46,7 +45,7 @@
         "Who will implement it",
       ],
       sectionKickers: [
-        "Constraint and demand journey",
+        "Constraint overview",
         "One primary and two supporting priorities",
         "Close · Start · Later",
         "Complete implementation instructions",
@@ -56,20 +55,6 @@
         "Scores are secondary navigation",
         "Four valid implementation paths",
       ],
-      journey: "Demand journey",
-      stages: {
-        discovery: "They find you",
-        trust: "They check you",
-        enquiry: "They contact you",
-        booking: "They book",
-        treatment: "They receive the service",
-      },
-      statuses: {
-        strong: "Working",
-        friction: "Friction",
-        constraint: "Main constraint",
-        unknown: "Not assessed",
-      },
       selectedPriorities: "Three priorities for action",
       primary: "Primary",
       supporting: "Supporting",
@@ -129,7 +114,7 @@
         "Кто будет внедрять",
       ],
       sectionKickers: [
-        "Ограничение и путь спроса",
+        "Главное ограничение",
         "Один главный и два поддерживающих приоритета",
         "Закрыть · Начать · Позже",
         "Полные инструкции по внедрению",
@@ -139,20 +124,6 @@
         "Баллы — вспомогательная навигация",
         "Четыре допустимых пути",
       ],
-      journey: "Путь спроса",
-      stages: {
-        discovery: "Находят вас",
-        trust: "Проверяют вас",
-        enquiry: "Обращаются",
-        booking: "Записываются",
-        treatment: "Получают услугу",
-      },
-      statuses: {
-        strong: "Работает",
-        friction: "Есть трение",
-        constraint: "Главное ограничение",
-        unknown: "Не оценивалось",
-      },
       selectedPriorities: "Три приоритета для действий",
       primary: "Главный",
       supporting: "Поддерживающий",
@@ -218,7 +189,7 @@
         "Quién lo implementará",
       ],
       sectionKickers: [
-        "Restricción y recorrido de demanda",
+        "Restricción principal",
         "Una prioridad principal y dos de apoyo",
         "Cerrar · Iniciar · Más adelante",
         "Instrucciones completas de implementación",
@@ -228,15 +199,6 @@
         "Las puntuaciones son navegación secundaria",
         "Cuatro caminos válidos",
       ],
-      journey: "Recorrido de demanda",
-      stages: {
-        discovery: "Te encuentran",
-        trust: "Te comprueban",
-        enquiry: "Contactan",
-        booking: "Reservan",
-        treatment: "Reciben el servicio",
-      },
-      statuses: { strong: "Funciona", friction: "Hay fricción", constraint: "Restricción principal", unknown: "No evaluado" },
       selectedPriorities: "Tres prioridades para actuar",
       primary: "Principal",
       supporting: "Apoyo",
@@ -295,7 +257,7 @@
         "Qui va le mettre en œuvre",
       ],
       sectionKickers: [
-        "Contrainte et parcours de demande",
+        "Contrainte principale",
         "Une priorité principale et deux de soutien",
         "Fermer · Commencer · Plus tard",
         "Instructions complètes de mise en œuvre",
@@ -305,15 +267,6 @@
         "Les scores sont une navigation secondaire",
         "Quatre chemins valides",
       ],
-      journey: "Parcours de demande",
-      stages: {
-        discovery: "Ils vous trouvent",
-        trust: "Ils vous vérifient",
-        enquiry: "Ils vous contactent",
-        booking: "Ils réservent",
-        treatment: "Ils reçoivent le service",
-      },
-      statuses: { strong: "Fonctionne", friction: "Friction", constraint: "Contrainte principale", unknown: "Non évalué" },
       selectedPriorities: "Trois priorités d'action",
       primary: "Principale",
       supporting: "Soutien",
@@ -372,7 +325,7 @@
         "Хто буде впроваджувати",
       ],
       sectionKickers: [
-        "Обмеження і шлях попиту",
+        "Головне обмеження",
         "Один головний і два підтримувальні пріоритети",
         "Закрити · Почати · Пізніше",
         "Повні інструкції з упровадження",
@@ -382,15 +335,6 @@
         "Бали — допоміжна навігація",
         "Чотири допустимі шляхи",
       ],
-      journey: "Шлях попиту",
-      stages: {
-        discovery: "Знаходять вас",
-        trust: "Перевіряють вас",
-        enquiry: "Звертаються",
-        booking: "Записуються",
-        treatment: "Отримують послугу",
-      },
-      statuses: { strong: "Працює", friction: "Є тертя", constraint: "Головне обмеження", unknown: "Не оцінено" },
       selectedPriorities: "Три пріоритети для дій",
       primary: "Головний",
       supporting: "Підтримувальний",
@@ -620,47 +564,6 @@
     setCurrent(0);
   }
 
-  function journeyStatusFromReport(stage) {
-    const explicit = reportData?.humanDiagnosis?.demand_journey?.find((item) => item.stage === stage);
-    if (explicit && ["strong", "friction", "constraint", "unknown"].includes(explicit.status)) return explicit;
-
-    const diagnosis = reportData?.humanDiagnosis;
-    if (diagnosis?.binding_constraint?.demand_stage === stage) {
-      return { stage, status: "constraint", summary: diagnosis.binding_constraint.statement || t.statuses.constraint };
-    }
-    const gaps = (diagnosis?.gap_inventory || []).filter((gap) => gap.journey_stage === stage);
-    const working = gaps.find((gap) => gap.diagnosis_state === "working");
-    if (working) return { stage, status: "strong", summary: working.why_it_matters || t.statuses.strong };
-    const friction = gaps.find((gap) => !["working", "insufficient_evidence"].includes(gap.diagnosis_state));
-    if (friction) return { stage, status: "friction", summary: friction.why_it_matters || t.statuses.friction };
-    return { stage, status: "unknown", summary: t.statuses.unknown };
-  }
-
-  function rebuildDemandJourney() {
-    const demand = document.querySelector(".cae-report-demand");
-    if (!demand) return;
-    demand.setAttribute("aria-label", t.journey);
-    const kicker = demand.querySelector(".cae-kicker");
-    if (kicker) kicker.textContent = t.journey;
-    const list = demand.querySelector("ol");
-    if (!list) return;
-    list.replaceChildren();
-    STAGES.forEach((stage) => {
-      const item = journeyStatusFromReport(stage);
-      const li = document.createElement("li");
-      li.className = "cae-report-demand__stage";
-      li.dataset.status = item.status;
-      li.setAttribute("aria-label", `${t.stages[stage]}. ${t.statuses[item.status]}. ${item.summary || ""}`);
-      li.innerHTML = `
-        <span class="cae-mobile-demand-dot" aria-hidden="true"></span>
-        <span class="cae-mobile-demand-copy"><strong></strong><small></small><em></em></span>`;
-      li.querySelector("strong").textContent = t.stages[stage];
-      li.querySelector("small").textContent = t.statuses[item.status];
-      li.querySelector("em").textContent = item.summary || "";
-      list.append(li);
-    });
-  }
-
   function rebuildHero() {
     const hero = document.querySelector(".cae-report-hero");
     const state = hero?.querySelector(".cae-report-state");
@@ -672,12 +575,6 @@
     if (stateKicker) stateKicker.textContent = t.primaryConstraint;
 
     state.querySelectorAll(".cae-report-note").forEach((node) => node.remove());
-    const demand = document.querySelector(".cae-report-demand");
-    if (demand && demand.parentElement !== state) {
-      const heading = state.querySelector("h2");
-      heading?.insertAdjacentElement("afterend", demand);
-    }
-
     const strengths = state.querySelector("ul");
     if (strengths) {
       const card = document.createElement("div");
@@ -1067,7 +964,6 @@
     }
     setSectionCopy();
     buildMobileNavigation();
-    rebuildDemandJourney();
     rebuildHero();
     enhanceFocusGaps();
     rebuildRepairPaths();

@@ -290,8 +290,7 @@ a.cae-report-walkthrough:hover {
 
 .cae-report-walkthrough span,
 .cae-report-diagnosis span,
-.cae-report-paths span,
-.cae-report-demand__stage-label {
+.cae-report-paths span {
   color: var(--cae-signal);
   font-family: var(--cae-font-mono);
   font-size: var(--cae-text-xs);
@@ -618,75 +617,6 @@ a.cae-report-walkthrough:hover {
   font-size: var(--cae-text-xs);
   letter-spacing: .08em;
   text-transform: uppercase;
-}
-
-/* ─── Demand system (horizontal journey + leak) ─── */
-
-.cae-report-demand {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  margin: var(--cae-space-8) 0 0;
-  border: 1px solid var(--cae-border-strong);
-  background: var(--cae-bg);
-}
-
-.cae-report-demand__stage {
-  position: relative;
-  flex: 1 1 8rem;
-  min-width: 0;
-  padding: var(--cae-space-5) var(--cae-space-4);
-  border-right: 1px solid var(--cae-border);
-  border-bottom: 1px solid var(--cae-border);
-}
-
-.cae-report-demand__stage:last-child {
-  border-right: 0;
-}
-
-.cae-report-demand__stage-num {
-  display: block;
-  margin-bottom: var(--cae-space-2);
-  color: var(--cae-muted-2);
-  font-family: var(--cae-font-mono);
-  font-size: var(--cae-text-xs);
-}
-
-.cae-report-demand__stage-title {
-  display: block;
-  margin-bottom: var(--cae-space-1);
-  color: var(--cae-text-strong);
-  font-family: var(--cae-font-display);
-  font-size: var(--cae-text-lg);
-  font-weight: 400;
-}
-
-.cae-report-demand__stage-sub {
-  display: block;
-  color: var(--cae-muted);
-  font-size: var(--cae-text-sm);
-  line-height: 1.45;
-}
-
-.cae-report-demand__stage.is-leak {
-  background: var(--cae-signal-light);
-  box-shadow: inset 0 3px 0 var(--cae-signal);
-}
-
-.cae-report-demand__stage.is-leak .cae-report-demand__stage-title,
-.cae-report-demand__stage.is-leak .cae-report-demand__stage-label {
-  color: var(--cae-signal);
-}
-
-.cae-report-demand__stage.is-leak::after {
-  display: block;
-  margin-top: var(--cae-space-3);
-  color: var(--cae-signal);
-  font-family: var(--cae-font-mono);
-  font-size: var(--cae-text-xs);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  content: "LEAK HERE";
 }
 
 /* ─── Top priorities ─── */
@@ -1381,9 +1311,6 @@ a.cae-report-walkthrough:hover {
     grid-template-columns: 1fr;
   }
 
-  .cae-report-demand__stage {
-    flex-basis: calc(50% - 1px);
-  }
 }
 
 @media (max-width: 800px) {
@@ -1470,11 +1397,6 @@ a.cae-report-walkthrough:hover {
 
   .cae-report-metric small {
     grid-column: auto;
-  }
-
-  .cae-report-demand__stage {
-    flex-basis: 100%;
-    border-right: 0;
   }
 
   .cae-report-filters {
@@ -1714,14 +1636,6 @@ a.cae-report-walkthrough:hover {
 
 .cae-score-report .cae-report-hero__grid > *,
 .cae-score-report .cae-report-state {
-  height: 100%;
-}
-
-.cae-score-report .cae-report-demand ol {
-  align-items: stretch;
-}
-
-.cae-score-report .cae-report-demand__stage {
   height: 100%;
 }
 

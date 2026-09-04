@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.1
-updated: 2026-09-03
+version: 2.2
+updated: 2026-09-04
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
 implementation_spec: docs/caesthetic/growth_score_spec.md
@@ -18,6 +18,7 @@ supersedes_scope:
   - client-visible reviewer/walkthrough requirements in older Growth Score report specs
   - report-presentation decisions that conflict with this standard
   - the proposed/next-version visual order in earlier Growth Score working material
+  - client-visible Demand Journey requirements in older presentation profiles
 ---
 
 # CAESTHETIC Growth Score — Client Report Standard
@@ -447,7 +448,7 @@ Before publication, the internal `publication_approval` card must be `approved`,
 
 At approximately **360–430px**, the parent defaults to the focus location, renders locations as stacked cards rather than a compressed wide matrix, shows one representative path at a time, contains table overflow and preserves all evidence/state IDs. Desktop may show the comparison matrix, but the body must never overflow horizontally. Interactive links and disclosure summaries use at least 44px targets, and the presentation remains useful when JavaScript is unavailable.
 
-The progressive-enhancement layer may restyle or collapse approved content, but it may not replace network section titles with single-location copy, remove the CMO decision block, rebuild the network Repair Paths without ownership/rollout evidence, or add a Sprint CTA to the focus-location child. Demand Journey title, status and explanation remain separate readable blocks at every breakpoint.
+The progressive-enhancement layer may restyle or collapse approved content, but it may not replace network section titles with single-location copy, remove the CMO decision block, rebuild the network Repair Paths without ownership/rollout evidence, or add a Sprint CTA to the focus-location child. Demand Journey remains machine/evidence data and is not rendered as a client-visible section.
 
 Internal review anchors remain **1101–1109** per page and are disambiguated by package role and location ID in review records. They still disappear from final client source.
 

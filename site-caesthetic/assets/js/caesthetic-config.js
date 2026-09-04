@@ -55,18 +55,6 @@ window.CAESTHETIC = {
   }
 })();
 
-/* Growth Score report-only layout repair. */
-(() => {
-  if (document.documentElement.dataset.page !== "growth-score-report") return;
-  const href = "/assets/css/growth-report-layout-fix.css";
-  if (!document.querySelector(`link[href="${href}"]`)) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  }
-})();
-
 /* Global Impeccable execution layer */
 (() => {
   const href = "/assets/css/caesthetic-impeccable.css";

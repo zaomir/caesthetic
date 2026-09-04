@@ -9,6 +9,7 @@ const js = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/growth-coc
 const css = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report-mobile.css"), "utf8");
 const reportCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report.css"), "utf8");
 const contract = fs.readFileSync(path.join(root, "docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md"), "utf8");
+const renderer = fs.readFileSync(path.join(root, "scripts/caesthetic/render-growth-score.mjs"), "utf8");
 
 const orderedSections = [
   "gap-map",
@@ -23,7 +24,7 @@ const orderedSections = [
 ];
 
 test("mobile decision UI keeps the canonical nine-section machine order", () => {
-  assert.match(js, /growth-score-mobile-ui\/1\.1\.3/);
+  assert.match(js, /growth-score-mobile-ui\/1\.1\.4/);
   orderedSections.forEach((id) => assert.match(js, new RegExp(`"${id}"`)));
   assert.match(contract, /one unnumbered Intro and exactly nine machine sections/i);
   assert.doesNotMatch(contract, /tenth section|10-section cockpit/i);
@@ -39,16 +40,13 @@ test("client-visible attribution and walkthrough cards are removed without weake
   assert.match(contract, /walkthrough may remain a separate delivery artifact/i);
 });
 
-test("demand journey is evidence-aware and never assumes earlier stages are green", () => {
-  assert.match(js, /demand_journey/);
-  assert.match(js, /binding_constraint\?\.demand_stage/);
-  assert.match(js, /diagnosis_state === "working"/);
-  assert.match(js, /status: "unknown"/);
-  assert.match(contract, /must never mark earlier stages green solely because they occur before the constraint/i);
-  for (const status of ["strong", "friction", "constraint"]) {
-    assert.match(css, new RegExp(`data-status="${status}"`));
-  }
-  assert.match(css, /--cae-mobile-unknown/);
+test("demand journey remains machine data and is absent from the client UI", () => {
+  assert.match(renderer, /binding_constraint\.demand_stage must be discovery\|trust\|enquiry\|booking\|treatment/);
+  assert.doesNotMatch(renderer, /class="cae-report-demand/);
+  assert.doesNotMatch(js, /rebuildDemandJourney|\.cae-report-demand|demand_journey/);
+  assert.doesNotMatch(css, /\.cae-report-demand|\.cae-mobile-demand/);
+  assert.doesNotMatch(reportCss, /\.cae-report-demand/);
+  assert.match(contract, /not rendered as a client-visible section/i);
 });
 
 test("presentation is mobile-first and progressively enhanced", () => {
@@ -83,17 +81,7 @@ test("Multi-Location keeps its network decision story and one package CTA", () =
   assert.match(js, /root\.dataset\.packageRole/);
 });
 
-test("Demand Journey copy remains separated and regular controls meet the 44px target", () => {
-  const demandListRule = css.match(/\.cae-score-report--mobile-story \.cae-report-demand ol\s*\{[\s\S]*?\}/)?.[0] || "";
-  const demandStageRule = css.match(/\.cae-score-report--mobile-story \.cae-report-demand__stage\s*\{[\s\S]*?\}/)?.[0] || "";
-  const desktopDemandRules = css.match(/@media \(min-width: 900px\)\s*\{[\s\S]*?@media \(max-width: 520px\)/)?.[0] || "";
-
-  assert.match(css, /\.cae-score-report--mobile-story \.cae-report-demand__stage > \.cae-mobile-demand-copy\s*\{[\s\S]*?display:\s*grid/);
-  assert.match(demandListRule, /grid-template-columns:\s*1fr/);
-  assert.match(demandStageRule, /height:\s*auto/);
-  assert.match(css, /\.cae-score-report--mobile-story \.cae-report-demand__stage \+ \.cae-report-demand__stage\s*\{[\s\S]*?margin-top:\s*0/);
-  assert.match(desktopDemandRules, /\.cae-score-report--mobile-story \.cae-report-demand ol\s*\{[\s\S]*?grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/);
-  assert.match(desktopDemandRules, /\.cae-score-report--mobile-story \.cae-report-demand__stage\s*\{[\s\S]*?height:\s*auto/);
+test("regular controls keep the 44px target after demand journey removal", () => {
   assert.match(js, /growth-report-mobile\.css\?v=1\.1\.3/);
   assert.match(css, /\.cae-mobile-report-nav__brand\s*\{[\s\S]*?min-height:\s*44px/);
   assert.doesNotMatch(css, /min-height:\s*42px/);

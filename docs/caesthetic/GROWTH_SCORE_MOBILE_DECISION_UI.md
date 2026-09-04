@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1.3
+version: 1.1.4
 updated: 2026-09-04
 scope: mobile-first client presentation for Growth Score schema v5 reports
 parent: docs/caesthetic/growth_score_spec.md
@@ -46,7 +46,7 @@ The machine IDs, evidence model and order remain canonical even when visible tit
 - Executive support cards use one aligned reading column; positive list items receive one presentation-layer check marker and must not include a second literal check in report HTML.
 - Touch targets are at least 44×44 px.
 - Body copy is 17–18 px with 1.5–1.6 line height.
-- The first screen shows practice identity, the main constraint, evidence-based demand journey, one strength and the first action.
+- The first screen shows practice identity, the main constraint, one strength and the first action.
 - Scores are not shown as the primary hero decision.
 - Evidence, competitors, methodology and full Repair Paths use progressive disclosure.
 - The commercial CTA appears only after the reader reaches the 30-day feasibility section.
@@ -63,22 +63,9 @@ Named-human approval remains mandatory and auditable in report data and workflow
 
 The walkthrough may remain a separate delivery artifact and internal workflow field. Removing it from the report UI does not weaken the approval gate.
 
-## 4. Demand journey
+## 4. Demand journey data
 
-The demand journey uses exactly five stages:
-
-`discovery → trust → enquiry → booking → treatment`
-
-Allowed client-visible states:
-
-- `strong` — green, evidence-backed working stage;
-- `friction` — amber, evidence-backed friction;
-- `constraint` — red, exactly the binding-constraint stage;
-- `unknown` — grey, not assessed or insufficient evidence.
-
-Colour is never the only signal. Every state includes a text label and accessible name.
-
-If the report does not yet contain explicit `humanDiagnosis.demand_journey`, the presentation layer derives only defensible states from the binding constraint and Gap Inventory. It must never mark earlier stages green solely because they occur before the constraint.
+`humanDiagnosis.demand_journey` and the canonical stages remain available to the machine/evidence contract. They are not rendered as a client-visible section. The Gap Map, approved Hero asset, Four-Surface snapshot and evidence-driven Journey Graph carry the client-facing diagnosis without a duplicate Demand Journey block.
 
 ## 5. Commercial presentation
 
@@ -101,7 +88,7 @@ Client interaction events may include only non-PII fields such as report kind, v
 
 ## 8. Versioning
 
-This UI is identified as `growth-score-mobile-ui/1.0.0`. It is a presentation layer over the current schema-v5 report contract. A report-template version bump is not required because no report field, validation rule, metric, evidence or section order changes.
+This UI is identified as `growth-score-mobile-ui/1.1.4`. It is a presentation layer over the current schema-v5 report contract. A report-template version bump is not required because no report field, validation rule, metric, evidence or section order changes.
 
 
 ## Multi-Location preservation rules
@@ -111,6 +98,5 @@ The responsive enhancement must detect `audit.format=multi_location` and `audit.
 - The network parent keeps its server-rendered network titles, CMO decisions, ownership/rollout evidence and single package CTA.
 - The focus-location child keeps its link back to the network implementation decision and never receives another Sprint offer or sticky Sprint CTA.
 - The enhancement may collapse dense evidence, but it must not replace approved network content with the generic single-location story.
-- Demand Journey title, state and explanation render as separate blocks; filter and navigation controls use at least 44px targets.
-- Demand Journey uses one vertical column below `900px`; the five-column desktop layout begins at `900px`, every desktop card shares the same top and bottom edge, and every stage grows to fit its full evidence explanation without overlapping the constraint copy below.
+- Demand Journey is not rendered as a client-visible block; filter and navigation controls use at least 44px targets.
 - Russian internal-review pages use Russian interface labels, including evidence counts and distinct `Позже` / `Наблюдать` inventory states.

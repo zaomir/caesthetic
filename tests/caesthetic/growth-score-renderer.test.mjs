@@ -383,7 +383,7 @@ test("approved report HTML has no deterministic render drift", () => {
   execFileSync(process.execPath, ["scripts/caesthetic/render-growth-score.mjs", "--check"], { cwd: root, stdio: "pipe" });
 });
 
-test("demand leak is driven by fixture demand_stage and is not hardcoded to Booking", () => {
+test("demand stage remains validated as machine data but is not rendered", () => {
   const cases = [
     ["demo-medical-aesthetics-search-gap", "discovery", "Discovery"],
     ["demo-injector-practice-booking-friction", "booking", "Booking"],
@@ -393,9 +393,8 @@ test("demand leak is driven by fixture demand_stage and is not hardcoded to Book
     const report = loadDemo(route);
     assert.equal(report.humanDiagnosis.binding_constraint.demand_stage, stage);
     const html = renderGrowthReport(report);
-    const leakMatch = html.match(/cae-report-demand__stage is-leak[\s\S]*?<span>([^<]+)<\/span>/);
-    assert.equal(leakMatch?.[1], label, `${route} must mark ${label} as the demand leak`);
-    assert.equal((html.match(/cae-report-demand__stage is-leak/g) || []).length, 1);
+    assert.doesNotMatch(html, /cae-report-demand/);
+    assert.doesNotMatch(html, new RegExp(`>${label}<`), `${route} must not expose the retired Demand Journey stage`);
   }
 });
 

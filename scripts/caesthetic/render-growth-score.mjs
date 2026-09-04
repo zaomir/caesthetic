@@ -343,21 +343,6 @@ ${competitors.entries.map((competitor) => `          <article class="cae-report-
 ${marketPracticeGapHtml(competitors.market_practice_gap)}`;
 }
 
-function demandSystemHtml(demandStage) {
-  return `
-        <div class="cae-report-demand" aria-label="Demand System">
-          <p class="cae-kicker">Demand System</p>
-          <ol>
-${DEMAND_STAGES.map((stage) => {
-    const isLeak = stage.id === demandStage;
-    return `            <li class="cae-report-demand__stage${isLeak ? " is-leak" : ""}">
-              <span>${escapeHtml(stage.label)}</span>${isLeak ? " <strong>LEAK HERE ↓</strong>" : ""}
-            </li>`;
-  }).join("\n")}
-          </ol>
-        </div>`;
-}
-
 function gapMarkerKind(gap, focus) {
   if (gap.id === focus.primary_gap_id) return { kind: "primary", mark: "1", label: "Primary Gap" };
   const supportIndex = focus.supporting_gap_ids.indexOf(gap.id);
@@ -1308,7 +1293,6 @@ function localizeReportHtml(html, locale) {
     ["No graph result changes a score automatically.", "Ни один результат графа не меняет балл автоматически."],
     ["Every confirmed hole. Only ", "Все подтверждённые разрывы. Для старта выбрано только "],
     [" selected to start.", "."],
-    ["Demand System", "Путь спроса"],
     [">Discovery<", ">Обнаружение<"],
     [">Trust<", ">Доверие<"],
     [">Enquiry<", ">Обращение<"],
@@ -1901,7 +1885,6 @@ ${growthScoreIntroHtml(report)}
       <p class="cae-kicker">Gap Map · Human-approved diagnosis</p>
       <h2 class="cae-h2">${isNetworkParent ? "Where growth is currently constrained" : `Every confirmed hole. Only ${focusCount} selected to start.`}</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
-      ${demandSystemHtml(diagnosis.binding_constraint.demand_stage)}
       ${isNetworkParent ? `${networkRiskProfileHtml(report)}${networkFocusDecisionHtml(report)}${networkComparisonHtml(report)}${networkJourneyAtlasHtml(report)}` : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
       ${isNetworkParent ? "" : surfaceSnapshotHtml(report, result)}
       ${isNetworkParent ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
