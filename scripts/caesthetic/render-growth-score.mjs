@@ -28,6 +28,10 @@ import {
   validateMultiLocationNetworkReport,
 } from "./multi-location-growth-score.mjs";
 import { buildMultiLocationPresentationModel } from "./multi-location-growth-score-view-model.mjs";
+import {
+  isOwnerBriefLayout,
+  validateOwnerBriefPresentation,
+} from "./owner-brief-contract.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");
@@ -80,7 +84,20 @@ const refs = (items = []) => escapeHtml(items.join(", "));
 const stringList = (items = []) => items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
 
 function isPlainOwnerReport(report) {
-  return report.presentation?.copy_profile === "plain_owner_ru";
+  return isOwnerBriefLayout(report) || report.presentation?.copy_profile === "plain_owner_ru";
+}
+
+function ownerUi(report) {
+  return report.presentation?.owner_copy?.ui || {};
+}
+
+function approvedMetricForRef(report, reference) {
+  const [surfaceId, metricId] = String(reference || "").split(".", 2);
+  const metrics = surfaceId === "cross"
+    ? report.crossSurface?.metrics
+    : report.surfaces?.find((surface) => surface.id === surfaceId)?.metrics;
+  const metric = metrics?.find((candidate) => candidate.metric_id === metricId);
+  return metric?.reviewer_status === "approved" && metric.finding && metric.source ? metric : null;
 }
 
 function hidesUnassessed(report) {
@@ -360,23 +377,39 @@ ${competitors.entries.map((competitor) => `          <article class="cae-report-
 ${marketPracticeGapHtml(competitors.market_practice_gap)}`;
 }
 
-function plainCompetitorSummaryHtml(report, { standalone = false } = {}) {
+function plainCompetitorSummaryHtml(report, { standalone = false, showHeading = true } = {}) {
   const competitors = report.humanDiagnosis.competitors;
   if (competitors.status !== "applicable") return "";
   const copy = report.presentation.owner_copy?.competitor || {};
   const summary = competitors.decision_summary;
+  const labels = copy.decision_labels || ["Сохранить", "Исправить", "Выделить", "Не копировать"];
   const decisionGroups = [
-    ["Сохранить", summary.defend],
-    ["Исправить", summary.close],
-    ["Выделить", summary.differentiate],
-    ["Не копировать", summary.do_not_copy],
+    [labels[0], summary.defend],
+    [labels[1], summary.close],
+    [labels[2], summary.differentiate],
+    [labels[3], summary.do_not_copy],
   ];
+  const ui = ownerUi(report);
   return `<section class="cae-owner-competitors${standalone ? " cae-owner-competitors--standalone" : ""}" data-owner-competitors>
-    <p class="cae-kicker">${escapeHtml(copy.kicker || "Исследование конкурентов")}</p>
+    ${showHeading ? `<p class="cae-kicker">${escapeHtml(copy.kicker || "Исследование конкурентов")}</p>` : ""}
     <h3 class="cae-report-subhead">${escapeHtml(copy.title || "Почему пациент может выбрать другую клинику")}</h3>
     <p>${escapeHtml(copy.intro || "Показаны только наблюдения, которые помогают принять решение.")}</p>
     <div class="cae-owner-competitors__cards">
-      ${competitors.entries.map((competitor) => `<article><h4>${escapeHtml(competitor.name)}</h4><p>${escapeHtml(competitor.observable_advantage)}</p></article>`).join("")}
+      ${competitors.entries.map((competitor) => {
+        const sources = competitor.sources || [];
+        const dates = [...new Set(sources.map((source) => source.collected_at).filter(Boolean))];
+        const distinctObservedAdvantage = competitor.observable_advantage !== competitor.patient_choice_reason;
+        return `<article>
+          <h4>${escapeHtml(competitor.name)}</h4>
+          <dl class="cae-owner-competitor-facts">
+            <div><dt>${escapeHtml(ui.why_included_label || "Почему включён")}</dt><dd>${escapeHtml(competitor.selection_reason)}</dd></div>
+            <div><dt>${escapeHtml(ui.why_chosen_label || "Почему пациент может выбрать")}</dt><dd>${escapeHtml(competitor.patient_choice_reason)}</dd></div>
+            ${distinctObservedAdvantage ? `<div><dt>${escapeHtml(ui.observed_advantage_label || "Что видно публично")}</dt><dd>${escapeHtml(competitor.observable_advantage)}</dd></div>` : ""}
+            ${dates.length ? `<div><dt>${escapeHtml(ui.source_date_label || "Проверено")}</dt><dd>${escapeHtml(dates.join(", "))}</dd></div>` : ""}
+          </dl>
+          ${sources.length ? sourceLinksHtml(sources.map((source) => source.url_or_snapshot), ui.open_source_label) : ""}
+        </article>`;
+      }).join("")}
     </div>
     <div class="cae-owner-competitors__decisions">
       ${decisionGroups.map(([label, items]) => `<article><span>${escapeHtml(label)}</span>${items.map((item) => `<h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.rationale)}</p>`).join("")}</article>`).join("")}
@@ -387,13 +420,14 @@ function plainCompetitorSummaryHtml(report, { standalone = false } = {}) {
 function plainResearchScopeHtml(report) {
   const copy = report.presentation.owner_copy?.research_scope;
   if (!copy) return "";
+  const ui = ownerUi(report);
   return `<article class="cae-owner-research" data-owner-research-scope>
     <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
     <h2>${escapeHtml(copy.title)}</h2>
     <p>${escapeHtml(copy.intro)}</p>
     <div class="cae-owner-research__cards">${copy.items.map(([title, body]) => `<article><h3>${escapeHtml(title)}</h3><p>${escapeHtml(body)}</p></article>`).join("")}</div>
     <details class="cae-owner-research__sources">
-      <summary>Открыть проверенные факты и источники</summary>
+      <summary>${escapeHtml(ui.open_sources_label || "Открыть проверенные факты и источники")}</summary>
       ${plainEvidenceHtml(report)}
     </details>
   </article>`;
@@ -405,30 +439,38 @@ function plainConstraintCardsHtml(report) {
   const selected = selectedFocusGapIds(focus)
     .map((id) => diagnosis.gap_inventory.find((gap) => gap.id === id))
     .filter(Boolean);
-  return `<div class="cae-focus-gaps cae-focus-gaps--equal" data-owner-three-constraints>${selected.map((gap, index) => `<article class="cae-focus-gap cae-focus-gap--plain" id="gap-${escapeHtml(gap.id)}" data-gap-role="constraint">
-    <p class="cae-focus-gap__rank cae-status-pill">Ограничение ${index + 1}</p>
+  const ui = ownerUi(report);
+  return `<div class="cae-focus-gaps cae-focus-gaps--equal" data-owner-three-constraints>${selected.map((gap, index) => {
+    const evidence = gap.evidence_refs.map((reference) => approvedMetricForRef(report, reference)).filter(Boolean);
+    return `<article class="cae-focus-gap cae-focus-gap--plain" id="gap-${escapeHtml(gap.id)}" data-gap-role="constraint">
+    <p class="cae-focus-gap__rank cae-status-pill">${escapeHtml(ui.constraint_label || "Ограничение")} ${index + 1}</p>
     <h3>${escapeHtml(gap.title)}</h3>
-    <p>${escapeHtml(gap.why_it_matters)}</p>
-    <p><strong>Нужный результат:</strong> ${escapeHtml(gap.repair_plan.outcome)}</p>
-  </article>`).join("")}</div>`;
+    ${evidence.length ? `<div class="cae-focus-gap__evidence"><h4>${escapeHtml(ui.observed_label || "Что увидели")}</h4><ul>${evidence.map((metric) => `<li>${escapeHtml(metric.finding)}</li>`).join("")}</ul></div>` : ""}
+    <p><strong>${escapeHtml(ui.impact_label || "Почему это важно")}:</strong> ${escapeHtml(gap.why_it_matters)}</p>
+    <p><strong>${escapeHtml(ui.outcome_label || "Нужный результат")}:</strong> ${escapeHtml(gap.repair_plan.outcome)}</p>
+    <div class="cae-focus-gap__done"><h4>${escapeHtml(ui.done_label || "Готово, когда")}</h4><ul>${stringList(gap.repair_plan.done_when)}</ul></div>
+  </article>`;
+  }).join("")}</div>`;
 }
 
-function sourceLinksHtml(sources = []) {
+function sourceLinksHtml(sources = [], label = "Открыть источник") {
   const unique = [...new Set(sources.filter(Boolean))];
-  return `<ul class="cae-owner-source-links">${unique.map((source) => `<li><a href="${escapeHtml(source)}" rel="noopener noreferrer">Открыть источник</a></li>`).join("")}</ul>`;
+  return `<ul class="cae-owner-source-links">${unique.map((source) => `<li><a href="${escapeHtml(source)}" rel="noopener noreferrer">${escapeHtml(label)}</a></li>`).join("")}</ul>`;
 }
 
 function plainEvidenceHtml(report) {
   const copy = report.presentation.owner_copy?.evidence || {};
+  const ui = ownerUi(report);
+  const labels = report.presentation.owner_copy?.surface_labels || surfaceLabels;
   const blocks = report.surfaces
     .filter(hasPublishedSurfaceEvidence)
     .map((surface) => {
       const metrics = surface.metrics.filter((metric) => metric.reviewer_status === "approved" && metric.finding && metric.source);
-      return `<details class="cae-report-evidence"><summary>${escapeHtml(surfaceLabels[surface.id] || surface.id)}</summary><ul>${metrics.map((metric) => `<li><p>${escapeHtml(metric.finding)}</p>${sourceLinksHtml(metric.source.split(";").map((source) => source.trim()))}</li>`).join("")}</ul></details>`;
+      return `<details class="cae-report-evidence"><summary>${escapeHtml(labels[surface.id] || surface.id)}</summary><ul>${metrics.map((metric) => `<li><p>${escapeHtml(metric.finding)}</p>${sourceLinksHtml(metric.source.split(";").map((source) => source.trim()), ui.open_source_label)}</li>`).join("")}</ul></details>`;
     });
   const crossMetrics = report.crossSurface.metrics.filter((metric) => metric.reviewer_status === "approved" && metric.finding && metric.source);
   if (crossMetrics.length) {
-    blocks.push(`<details class="cae-report-evidence"><summary>Связи между каналами</summary><ul>${crossMetrics.map((metric) => `<li><p>${escapeHtml(metric.finding)}</p>${sourceLinksHtml(metric.source.split(";").map((source) => source.trim()))}</li>`).join("")}</ul></details>`);
+    blocks.push(`<details class="cae-report-evidence"><summary>${escapeHtml(ui.cross_surface_label || "Связи между каналами")}</summary><ul>${crossMetrics.map((metric) => `<li><p>${escapeHtml(metric.finding)}</p>${sourceLinksHtml(metric.source.split(";").map((source) => source.trim()), ui.open_source_label)}</li>`).join("")}</ul></details>`);
   }
   const competitorSources = report.humanDiagnosis.competitors.status === "applicable"
     ? report.humanDiagnosis.competitors.entries.flatMap((competitor) => competitor.sources.map((source) => source.url_or_snapshot))
@@ -437,7 +479,7 @@ function plainEvidenceHtml(report) {
     <h3 class="cae-report-subhead">${escapeHtml(copy.title || "Проверенные факты и ссылки на источники")}</h3>
     <p>${escapeHtml(copy.intro || "Здесь можно открыть исходные страницы.")}</p>
     ${blocks.join("")}
-    ${competitorSources.length ? `<details class="cae-report-evidence"><summary>Сайты, использованные для сравнения</summary>${sourceLinksHtml(competitorSources)}</details>` : ""}
+    ${competitorSources.length ? `<details class="cae-report-evidence"><summary>${escapeHtml(ui.competitor_sources_label || "Сайты, использованные для сравнения")}</summary>${sourceLinksHtml(competitorSources, ui.open_source_label)}</details>` : ""}
   </div>`;
 }
 
@@ -1047,7 +1089,7 @@ function check500SectionHtml(report, placement) {
 function plainThirtyDayHtml(report) {
   const steps = report.presentation.owner_copy?.thirty_day_steps || [];
   return `<div class="cae-owner-thirty-day">${steps.map(([period, task]) => `<article><span>${escapeHtml(period)}</span><p>${escapeHtml(task)}</p></article>`).join("")}</div>
-    <p class="cae-report-note cae-owner-thirty-day-note">Это рекомендуемый порядок самостоятельной работы, а не заранее купленный объём услуг.</p>`;
+    <p class="cae-report-note cae-owner-thirty-day-note">${escapeHtml(report.presentation.owner_copy?.thirty_day_note || "Это рекомендуемый порядок самостоятельной работы, а не заранее купленный объём услуг.")}</p>`;
 }
 
 function plainRepairPathsHtml(report) {
@@ -1055,15 +1097,16 @@ function plainRepairPathsHtml(report) {
   const selected = selectedFocusGapIds(diagnosis.focus_selection)
     .map((id) => diagnosis.gap_inventory.find((gap) => gap.id === id))
     .filter(Boolean);
-  return `<p>Откройте нужное ограничение. Эти инструкции можно выполнить внутри команды или передать квалифицированным специалистам.</p>
-    <div class="cae-mobile-repair-list cae-owner-repair-accordions">${selected.map((gap, index) => `<details class="cae-mobile-repair"${index === 0 ? " open" : ""}>
+  const ui = ownerUi(report);
+  return `<p>${escapeHtml(ui.repair_intro || "Откройте нужное ограничение. Эти инструкции можно выполнить внутри команды или передать квалифицированным специалистам.")}</p>
+    <div class="cae-mobile-repair-list cae-owner-repair-accordions">${selected.map((gap, index) => `<details class="cae-mobile-repair">
       <summary><span>${index + 1}</span><strong>${escapeHtml(gap.title)}</strong><small>${escapeHtml(gap.repair_plan.outcome)}</small></summary>
       <div class="cae-mobile-repair__body">
-        <h3>Нужный результат</h3><p>${escapeHtml(gap.repair_plan.outcome)}</p>
-        <h3>Что сделать</h3><ol>${stringList(gap.repair_plan.diy_steps)}</ol>
-        ${gap.repair_plan.dependencies.length ? `<h3>Что понадобится</h3><p>${escapeHtml(gap.repair_plan.dependencies.join("; "))}</p>` : ""}
-        <h3>Кто может выполнить</h3><p>${escapeHtml(gap.repair_plan.owner_role)}</p>
-        <h3>Как проверить готовность</h3><ul>${stringList(gap.repair_plan.done_when)}</ul>
+        <h3>${escapeHtml(ui.repair_outcome_label || "Нужный результат")}</h3><p>${escapeHtml(gap.repair_plan.outcome)}</p>
+        <h3>${escapeHtml(ui.repair_steps_label || "Что сделать")}</h3><ol>${stringList(gap.repair_plan.diy_steps)}</ol>
+        ${gap.repair_plan.dependencies.length ? `<h3>${escapeHtml(ui.repair_dependencies_label || "Что понадобится")}</h3><p>${escapeHtml(gap.repair_plan.dependencies.join("; "))}</p>` : ""}
+        <h3>${escapeHtml(ui.repair_owner_label || "Кто может выполнить")}</h3><p>${escapeHtml(gap.repair_plan.owner_role)}</p>
+        <h3>${escapeHtml(ui.repair_done_label || "Как проверить готовность")}</h3><ul>${stringList(gap.repair_plan.done_when)}</ul>
       </div>
     </details>`).join("")}</div>`;
 }
@@ -1073,8 +1116,8 @@ function plainInternalBoundaryHtml(report, { embedded = false } = {}) {
   if (!copy) return "";
   const content = `<p>${escapeHtml(copy.body)}</p>
     <figure class="cae-lead-to-revenue-map-asset cae-owner-boundary__asset">
-      <img src="/assets/img/growth-score/lead-to-revenue-map-ru.svg" width="1600" height="900" alt="Карта непроверенного внутреннего пути от получения обращения до оплаты" loading="lazy" decoding="async">
-      <figcaption>Публичный аудит заканчивается до внутренних процессов. Для проверки этих этапов нужен разрешённый доступ к данным клиники.</figcaption>
+      <img src="${escapeHtml(copy.asset_src || "/assets/img/growth-score/lead-to-revenue-map-ru.svg")}" width="1600" height="900" alt="${escapeHtml(copy.asset_alt || "Карта пути от обращения до оплаты")}" loading="lazy" decoding="async">
+      <figcaption>${escapeHtml(copy.asset_caption)}</figcaption>
     </figure>
     ${plainCheck500Html(report, "mid")}`;
   if (embedded) return `<div class="cae-owner-boundary cae-owner-boundary--embedded" data-owner-internal-boundary>${content}</div>`;
@@ -1099,7 +1142,8 @@ function ownerGreetingHtml(report) {
 
 function plainConclusionHtml(report) {
   const conclusion = report.presentation.owner_copy?.conclusion || report.crossSurface.summary;
-  return `<article class="cae-owner-conclusion"><h3>Один порядок действий</h3><p>${escapeHtml(conclusion)}</p><p><strong>Сильная основа:</strong> ${escapeHtml(report.humanDiagnosis.objective_strength.title)}</p></article>`;
+  const ui = ownerUi(report);
+  return `<article class="cae-owner-conclusion"><h3>${escapeHtml(ui.conclusion_title || "Один порядок действий")}</h3><p>${escapeHtml(conclusion)}</p><p><strong>${escapeHtml(ui.strength_label || "Сильная основа")}:</strong> ${escapeHtml(report.humanDiagnosis.objective_strength.title)}</p></article>`;
 }
 
 function plainCommercialPriorityHtml(report) {
@@ -1119,8 +1163,11 @@ function plainCheck500Html(report, placement) {
   const check = report.presentation.owner_copy?.check500;
   const copy = check?.[placement];
   if (!check || !copy) return "";
-  const placementLabel = placement === "mid" ? "середина отчёта" : "конец отчёта";
-  return `<article class="cae-owner-check500" data-cae-check-placement="${placement}" data-check500-contract="${escapeHtml(report.presentation.check500_placement_contract || "")}" data-check500-copy-contract="${escapeHtml(check.copy_contract || "")}" aria-label="Дополнительная проверка за 500 долларов · ${placementLabel}">
+  const ui = ownerUi(report);
+  const placementLabel = placement === "mid"
+    ? ui.check_mid_placement_label || "середина отчёта"
+    : ui.check_final_placement_label || "конец отчёта";
+  return `<article class="cae-owner-check500" data-cae-check-placement="${placement}" data-check500-contract="${escapeHtml(report.presentation.check500_placement_contract || "")}" data-check500-copy-contract="${escapeHtml(check.copy_contract || "")}" aria-label="${escapeHtml(ui.check_aria_label || "Дополнительная проверка за 500 долларов")} · ${escapeHtml(placementLabel)}">
     <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
     <h2 class="cae-report-subhead">${escapeHtml(copy.title || check.title)}</h2>
     <p class="cae-owner-check500__product">${escapeHtml(check.product_line)}</p>
@@ -1134,12 +1181,13 @@ function plainCheck500Html(report, placement) {
 function plainCommercialNextStepHtml(report) {
   const offer = report.presentation.owner_copy?.sprint_offer || {};
   const reputation = report.presentation.owner_copy?.reputation_service;
-  const isBrief = report.presentation.layout_contract === "spoken-owner-brief/1.0.0";
-  const paths = [
-    ["Сделать внутри команды", report.implementation_paths.diy],
-    ["Передать своим специалистам", report.implementation_paths.other_provider],
-    [report.presentation.owner_copy?.caesthetic_path_title || "Поручить CAESTHETIC", report.presentation.owner_copy?.caesthetic_path_body || report.implementation_paths.caesthetic],
-    ...(!isBrief ? [["Отложить", report.implementation_paths.defer]] : []),
+  const isBrief = isOwnerBriefLayout(report);
+  const ui = ownerUi(report);
+  const paths = report.presentation.owner_copy?.implementation_options || [
+    { title: "Сделать внутри команды", body: report.implementation_paths.diy },
+    { title: "Передать своим специалистам", body: report.implementation_paths.other_provider },
+    { title: report.presentation.owner_copy?.caesthetic_path_title || "Поручить CAESTHETIC", body: report.presentation.owner_copy?.caesthetic_path_body || report.implementation_paths.caesthetic },
+    ...(!isBrief ? [{ title: "Отложить", body: report.implementation_paths.defer }] : []),
   ];
   const reputationHtml = reputation && !isBrief ? `<article class="cae-owner-offer cae-owner-offer--continuation" data-owner-reputation-service>
       <p class="cae-kicker">${escapeHtml(reputation.kicker)}</p>
@@ -1149,7 +1197,7 @@ function plainCommercialNextStepHtml(report) {
       <p><strong>Как продолжить:</strong> ${escapeHtml(reputation.delivery)}</p>
       <p class="cae-report-note">${escapeHtml(reputation.boundary)}</p>
     </article>` : "";
-  return `<div class="cae-owner-paths">${paths.map(([title, body], index) => `<article${index === 2 ? ' class="is-caesthetic"' : ""}><span>${index + 1}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(body)}</p></article>`).join("")}</div>
+  return `<div class="cae-owner-paths">${paths.map((path, index) => `<article${index === 2 ? ' class="is-caesthetic"' : ""}><span>${index + 1}</span><h3>${escapeHtml(path.title)}</h3><p>${escapeHtml(path.body)}</p>${path.coordination ? `<p><strong>${escapeHtml(ui.paths_coordination_label)}:</strong> ${escapeHtml(path.coordination)}</p>` : ""}${path.risk ? `<p><strong>${escapeHtml(ui.paths_risk_label)}:</strong> ${escapeHtml(path.risk)}</p>` : ""}</article>`).join("")}</div>
     ${reputationHtml}
     <article class="cae-owner-offer cae-owner-offer--sprint" data-owner-sprint-offer data-commercial-contract="${escapeHtml(report.presentation.commercial_contract || "")}">
       <p class="cae-kicker">${escapeHtml(offer.kicker || "Вариант с CAESTHETIC")}</p>
@@ -1157,9 +1205,12 @@ function plainCommercialNextStepHtml(report) {
       <p class="cae-owner-offer__price">${escapeHtml(offer.price || "$2,500 · 30 дней")}</p>
       <p>${escapeHtml(offer.body || report.why_caesthetic.sprint_boundary)}</p>
       ${offer.items?.length ? `<ul>${stringList(offer.items)}</ul>` : ""}
+      ${offer.client_input ? `<p><strong>${escapeHtml(ui.sprint_client_input_label)}:</strong> ${escapeHtml(offer.client_input)}</p>` : ""}
+      ${offer.acceptance ? `<p><strong>${escapeHtml(ui.sprint_acceptance_label)}:</strong> ${escapeHtml(offer.acceptance)}</p>` : ""}
+      ${offer.boundary ? `<p class="cae-report-note">${escapeHtml(offer.boundary)}</p>` : ""}
       <a class="cae-btn cae-btn--primary" href="/sprint/">${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
     </article>
-    ${isBrief ? '<p class="cae-owner-check500-intro"><strong>С чего начать:</strong> работу с CAESTHETIC начинаем с проверки за $500. Если после неё вы переходите к спринту, эти $500 засчитываются в общую стоимость $2,500. Проверку можно заказать отдельно.</p>' : ""}
+    ${isBrief ? `<p class="cae-owner-check500-intro"><strong>${escapeHtml(report.presentation.owner_copy?.check500?.final?.kicker || "С чего начать")}:</strong> ${escapeHtml(report.presentation.owner_copy?.check500?.final_intro || "Проверку за $500 можно заказать отдельно. При переходе к следующему подходящему спринту эти $500 засчитываются в общую стоимость $2,500.")}</p>` : ""}
     ${plainCheck500Html(report, "final")}`;
 }
 
@@ -2049,8 +2100,10 @@ function plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescriptio
   const diagnosis = report.humanDiagnosis;
   const titles = copy.section_titles;
   const kickers = copy.section_kickers;
+  const ui = ownerUi(report);
+  const locale = report.reportContext?.report_locale === "en" ? "en-US" : report.reportContext?.report_locale;
   return `<!doctype html>
-<html lang="ru" data-page="growth-score-report" data-report-kind="${escapeHtml(report.reportKind)}" data-layout-contract="${escapeHtml(report.presentation.layout_contract)}">
+<html lang="${escapeHtml(locale)}" data-page="growth-score-report" data-report-kind="${escapeHtml(report.reportKind)}" data-layout-contract="${escapeHtml(report.presentation.layout_contract)}" data-vertical-profile="${escapeHtml(report.presentation.vertical_profile || "")}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -2067,9 +2120,10 @@ ${disclosure}
   <section class="cae-report-hero" id="report-overview">
     <div class="cae-wrap">
       <header class="cae-report-header">
-        <p class="cae-kicker">Краткий обзор · Оценка роста</p>
+        <p class="cae-kicker">${escapeHtml(copy.header?.kicker || ui.header_kicker || "Краткий обзор · Оценка роста")}</p>
         <h1>${escapeHtml(report.practice.name)}</h1>
-        <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Подготовлено: ${escapeHtml(preparedDate)}</p>
+        <p class="cae-report-meta">${escapeHtml(report.practice.location)} · ${escapeHtml(copy.header?.prepared_label || ui.prepared_label || "Подготовлено")}: ${escapeHtml(preparedDate)}</p>
+        ${copy.assessment_state ? `<p class="cae-owner-assessment"><strong>${escapeHtml(ui.assessment_label)}:</strong> ${escapeHtml(copy.assessment_state)}</p>` : ""}
       </header>
       ${ownerGreetingHtml(report)}
       ${plainResearchScopeHtml(report)}
@@ -2113,7 +2167,9 @@ ${disclosure}
 
   <section class="cae-section cae-section--soft" id="repair-paths" data-cockpit-order="4">
     <div class="cae-wrap">
-      ${plainCompetitorSummaryHtml(report, { standalone: true })}
+      <p class="cae-kicker">${escapeHtml(kickers[3])}</p>
+      <h2 class="cae-h2">${escapeHtml(titles[3])}</h2>
+      ${plainCompetitorSummaryHtml(report, { standalone: true, showHeading: false })}
     </div>
   </section>
 
@@ -2124,7 +2180,7 @@ ${disclosure}
         <h2 class="cae-h2">${escapeHtml(titles[4])}</h2>
         <h3>${escapeHtml(diagnosis.do_not_do.title)}</h3>
         <p>${escapeHtml(diagnosis.do_not_do.rationale)}</p>
-        <p><strong>Вернуться после:</strong></p>
+        <p><strong>${escapeHtml(ui.revisit_label)}:</strong></p>
         <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
       </article>
     </div>
@@ -2222,7 +2278,8 @@ export function renderGrowthReport(report) {
     return new Intl.DateTimeFormat(locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(parsed);
   })();
 
-  const html = report.presentation?.layout_contract === "spoken-owner-brief/1.0.0"
+  if (isOwnerBriefLayout(report)) validateOwnerBriefPresentation(report);
+  const html = isOwnerBriefLayout(report)
     ? plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescription, disclosure, preparedDate })
     : `<!doctype html>
 <html lang="${report.reportContext?.report_locale === "en" ? "en-US" : report.reportContext?.report_locale}" data-page="growth-score-report" data-report-kind="${isPilot ? "pilot" : escapeHtml(report.reportKind)}"${isPilot ? ` data-template-version="${escapeHtml(report.templateVersion)}"` : ""}>

@@ -290,7 +290,7 @@
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
     "docs/projects/caesthetic/AGENTS.md": "1a6482141cc594b5271bb91f3f714e33a17b6bf683c84a9698c275128398db82",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
-    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "bed8b8373d655c2cd75bb728ce3c057039e5620b365589e09418251ce69dcfd0",
+    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "1b6977371ec3129116b1a7acabcc835ca3b5b3740cfe5c64b22a3cc32d9a8696",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "e172fc8257f69ae45515febb08b819a0c37bf71b0ce345c7a082c2e7ff423d96",
     "docs/projects/caesthetic/PROJECT_STATUS.md": "cc498557221adf1b267ba0b04823b503fd9782cc77012cb650e3e4178cb022b2",
@@ -635,7 +635,7 @@
     "scripts/caesthetic/render-daily-growth-note.py": "7251453e978f98bc997285f073feb18b2ce226ac6468b323e80e209db2f4ee87",
     "scripts/caesthetic/render-editorial-story-card.py": "9dff0f0e7ce74245b53298c2dfc1aa06e1bd24ab889f9d5d5990bcc3a5d294b1",
     "scripts/caesthetic/render-editorial-text-overlay.py": "88bc297a624da97b7ff79e1a002e08443dbfc8a20531eff89619ec9cb504503f",
-    "scripts/caesthetic/render-growth-score.mjs": "2b09ed68f65658bcc70ff6987ea9f8a95c4dbe02cfddd834b9a1b43b7dee2ef7",
+    "scripts/caesthetic/render-growth-score.mjs": "a621383305e3ec689afa424ae8fdb332388c93ab2b302c33a7bca028a54a605a",
     "scripts/caesthetic/render-ig-l5-cards.mjs": "f282d3f24a833ccf85221a3cd4e1d776d612f3cac36fb3766829167cbf81fac1",
     "scripts/caesthetic/render-ig-voc-batch.py": "11a4309f5322d2bc251f6ddc1efe25f113dfd58131a7a4b5675f0a01678e0303",
     "scripts/caesthetic/render-ig-w34-visuals.py": "384acec511079f81d3c5386f731b31f86288c997d02d6372437159cd4cce379f",
@@ -697,7 +697,7 @@
     "site-caesthetic/assets/css/case-study-detail.css": "7bd19d40840f6bd5cc4ec025a5ff7d47171e7b2af5e20533ddd2f0d3dd369073",
     "site-caesthetic/assets/css/growth-report-base.css": "6f9b4a170933751f4ad2f9bcc9f548c4e3ad27d96f21b1a15d7ded63f550966f",
     "site-caesthetic/assets/css/growth-report-mobile.css": "fb1ffc446587998bf789f7511d8e76c1ae5a7664a2855cd8ff579858f92c84be",
-    "site-caesthetic/assets/css/growth-report.css": "c0909314f5f02b3c152bd0a2c133f1cf203e2b49a62d6502e47553a0ad1c2c6d",
+    "site-caesthetic/assets/css/growth-report.css": "db73b6f13789ebb736644e4285a1d4ebf6583f71bf286eaa6b4a467f113f96b4",
     "site-caesthetic/assets/css/growth.css": "13294b3ccde8afeb73e56d6ec163c3145ea26c5427fbb5b42f583f390966948f",
     "site-caesthetic/assets/css/point-of-contact.css": "64e9b2fed1f17e9deadb6cf0c7407db2edbd1c495a23ca182fc9f7eaaa9674fa",
     "site-caesthetic/assets/css/tokens.css": "befd310d72a2ec466faea1715757e94bbb0808d33842a2825a1507a00335b07c",
@@ -869,6 +869,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T15:07:45Z",
+  "updated_at_utc": "2026-09-04T15:56:06Z",
   "version": 1
 }

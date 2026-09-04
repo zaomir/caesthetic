@@ -1201,6 +1201,63 @@
   text-align: center;
 }
 
+.cae-owner-assessment {
+  display: inline-block;
+  max-width: 760px;
+  margin: var(--cae-space-4) 0 0;
+  padding: var(--cae-space-3) var(--cae-space-4);
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-focus-gap__evidence {
+  margin-block: var(--cae-space-4);
+  padding-block: var(--cae-space-3);
+  border-block: 1px solid var(--cae-border);
+}
+
+.cae-focus-gap__evidence h4 {
+  margin: 0 0 var(--cae-space-2);
+}
+
+.cae-focus-gap__evidence ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.cae-focus-gap__done h4 {
+  margin: var(--cae-space-4) 0 var(--cae-space-2);
+}
+
+.cae-focus-gap__done ul {
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+}
+
+.cae-owner-competitor-facts {
+  display: grid;
+  gap: var(--cae-space-3);
+  margin: var(--cae-space-4) 0 0;
+}
+
+.cae-owner-competitor-facts div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.cae-owner-competitor-facts dt {
+  color: var(--cae-muted);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cae-owner-competitor-facts dd {
+  margin: 0;
+}
+
 .cae-score-report--plain-owner [data-brand] {
   display: inline;
 }
@@ -1338,6 +1395,12 @@
   grid-row: auto;
 }
 
+@media (min-width: 721px) {
+  .cae-score-report--mobile-story.cae-score-report--brief .cae-focus-gaps--equal {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .cae-owner-check500-intro {
   max-width: 760px;
   margin-top: var(--cae-space-6);
@@ -1363,12 +1426,26 @@
 
 .cae-owner-repair-accordions .cae-mobile-repair > summary {
   display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
+  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
   gap: 0.3rem var(--cae-space-3);
   min-height: 154px;
   padding: clamp(1.15rem, 2.5vw, 1.75rem);
   cursor: pointer;
   list-style: none;
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair > summary::after {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: start;
+  justify-self: end;
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair[open] > summary::after {
+  content: "−";
 }
 
 .cae-owner-repair-accordions .cae-mobile-repair > summary::-webkit-details-marker {
