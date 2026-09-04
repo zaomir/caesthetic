@@ -289,7 +289,7 @@
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
     "docs/projects/caesthetic/AGENTS.md": "1a6482141cc594b5271bb91f3f714e33a17b6bf683c84a9698c275128398db82",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
-    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "5def6d7c86db236ec07cc71be8b88b32a17f82ccd2299bd7f87cd48ec5cf169f",
+    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "bed8b8373d655c2cd75bb728ce3c057039e5620b365589e09418251ce69dcfd0",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "6263a4d87699f3f01bae46238ff17c565c2c884468f0b5cd5f7b1769e8211bc9",
     "docs/projects/caesthetic/PROJECT_STATUS.md": "d3174ee726c0fc8cc06d690a664fdae26cac68e92ae92a18e492171a45394458",
@@ -560,7 +560,7 @@
     "scripts/caesthetic/evidence/schema.mjs": "d86745e2209990534a6c3628eeee2ce4a2dcd0b207d80625f1c95022f623836c",
     "scripts/caesthetic/growth-economics-adapters.mjs": "f6b934385f7236939bfc81c27bbe2bcf5bda3a29d8921b690cb6a39966ec24dd",
     "scripts/caesthetic/growth-economics-engine.mjs": "11b7570b4f11c449a2257e31b32735b8cb8144189bd1f17e3c0441a1e1187ddb",
-    "scripts/caesthetic/growth-preview-production-smoke.mjs": "2abc6697280892a7ed4505a16ec5bf04be57da03d613dacbf3308d1bb834d3c8",
+    "scripts/caesthetic/growth-preview-production-smoke.mjs": "d55a1ef6043ac2f0153415e21ecccb89f00152405b8a132945c8cd166f7ce865",
     "scripts/caesthetic/growth-preview-wave.mjs": "884e89c4c35f5ca15bc12e0a1a16445f0f86d80780afa0ef2e7358166a84271a",
     "scripts/caesthetic/growth-score-engine.mjs": "52430f9cc877d5065e9b876f840d3ed91dcaee9ffd1d55325f73c8c5f38eb86e",
     "scripts/caesthetic/growth-score-funnel-report.mjs": "94d084778310ee1b7e79de3f45979735fc0af6ab2b351241293091b2e6b9e3c8",
@@ -866,6 +866,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T13:26:36Z",
+  "updated_at_utc": "2026-09-04T13:32:36Z",
   "version": 1
 }

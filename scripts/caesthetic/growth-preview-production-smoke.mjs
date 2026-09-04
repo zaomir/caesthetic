@@ -3,7 +3,19 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 
 const SUPABASE_URL = (process.env.SUPABASE_URL || "https://lwyumrgygbuowndwcsvc.supabase.co").replace(/\/$/, "");
-const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+const PROJECT_REF = "lwyumrgygbuowndwcsvc";
+async function resolveServiceKey() {
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) return process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const managementToken = process.env.SUPABASE_ACCESS_TOKEN || "";
+  if (!managementToken) return "";
+  const response = await fetch(`https://api.supabase.com/v1/projects/${PROJECT_REF}/api-keys`, {
+    headers: { Authorization: `Bearer ${managementToken}` },
+  });
+  if (!response.ok) throw new Error(`Supabase API-key lookup failed: ${response.status}`);
+  const keys = await response.json();
+  return String(keys.find((row) => row.name === "service_role")?.api_key || "");
+}
+const SERVICE_KEY = await resolveServiceKey();
 const BASE_URL = (process.env.CAESTHETIC_BASE_URL || "https://caesthetic.com").replace(/\/$/, "");
 const outputIndex = process.argv.indexOf("--output");
 const outputPath = outputIndex >= 0 ? process.argv[outputIndex + 1] : "";
