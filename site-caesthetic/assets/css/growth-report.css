@@ -1120,10 +1120,10 @@
   margin: 0 0 var(--cae-space-2);
 }
 
-.cae-owner-competitors__decisions span,
-.cae-owner-thirty-day span,
-.cae-owner-paths span,
-.cae-owner-boundary__map span {
+.cae-owner-competitors__decisions > article > span,
+.cae-owner-thirty-day > article > span,
+.cae-owner-paths > article > span,
+.cae-owner-boundary__map > article > span {
   display: block;
   margin-bottom: var(--cae-space-2);
   color: var(--cae-signal);
@@ -1141,10 +1141,68 @@
   margin-bottom: 0;
 }
 
+.cae-score-report--plain-owner [data-brand] {
+  display: inline;
+}
+
+.cae-score-report--plain-owner :is(
+  .cae-focus-gap,
+  .cae-report-problem,
+  .cae-report-evidence,
+  .cae-owner-competitors__cards article,
+  .cae-owner-competitors__decisions article,
+  .cae-owner-thirty-day article,
+  .cae-owner-paths article,
+  .cae-owner-offer
+) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cae-score-report--plain-owner :is(
+  .cae-focus-gap,
+  .cae-report-problem,
+  .cae-report-evidence,
+  .cae-owner-competitors,
+  .cae-owner-thirty-day,
+  .cae-owner-paths,
+  .cae-owner-offer
+) :is(h2, h3, h4, p, li, a, strong, small) {
+  overflow-wrap: anywhere;
+}
+
+.cae-score-report--plain-owner .cae-status-pill {
+  min-width: 0;
+  width: auto;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.cae-score-report--plain-owner .cae-owner-source-links,
+.cae-score-report--plain-owner .cae-owner-source-links li,
+.cae-score-report--plain-owner .cae-owner-source-links a {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cae-score-report--plain-owner .cae-report-evidence > ul {
+  min-width: 0;
+  padding-left: clamp(1rem, 4vw, 1.5rem);
+}
+
 .cae-owner-boundary {
   margin-top: clamp(2.5rem, 6vw, 5rem);
   padding-top: clamp(2rem, 5vw, 4rem);
   border-top: 1px solid var(--cae-border);
+}
+
+.cae-owner-boundary__asset {
+  margin-top: var(--cae-space-6);
+}
+
+.cae-score-report--plain-owner .cae-report-do-not-do > .cae-kicker {
+  color: var(--cae-mobile-danger, var(--cae-signal));
+  opacity: 1;
 }
 
 .cae-owner-boundary__map {

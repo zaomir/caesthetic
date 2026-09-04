@@ -192,7 +192,7 @@ function translateStrings(value) {
 }
 
 function applyPlainOwnerCopy(report) {
-  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.1.0";
+  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.2.0";
   report.disclosure = "Отчёт основан только на публичной информации. Внутренние процессы, данные пациентов, выручка и результаты лечения не изучались.";
   report.executiveSummary = "В интернете одновременно встречаются Spoken и старое название Jurney. Сайт также смешивает путь пациента с материалами Академии, а страница филлеров объясняет доверие слабее страницы Botox.";
   report.crossSurface.summary = "Три найденные проблемы связаны: сначала нужно убрать путаницу с названием, затем разделить аудитории и после этого усилить доверие к странице филлеров.";
@@ -302,7 +302,7 @@ function applyPlainOwnerCopy(report) {
   report.implementation_paths = {
     diy: "Выполнить изменения внутри команды по инструкциям из отчёта.",
     other_provider: "Передать инструкции своим специалистам или другому квалифицированному подрядчику.",
-    caesthetic: "Поручить CAESTHETIC согласованный объём работ на 30 дней.",
+    caesthetic: "Заказать у CAESTHETIC отдельную проверку внутреннего пути за $500. Если она сразу продолжается спринтом по найденному ограничению, эта сумма засчитывается в стоимость спринта.",
     defer: "Сохранить отчёт и вернуться к изменениям позже.",
   };
   report.why_caesthetic = {
@@ -318,6 +318,14 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
   report.reportContext.report_locale = "ru";
   report.reportContext.locale_source = "user_selected";
   applyPlainOwnerCopy(report);
+  report.leadToRevenueCheck = {
+    recommendation: "recommended",
+    reason: "Открытые данные показывают путь до обращения, но не позволяют проверить, что происходит после него. Перед выбором внутренних исправлений нужно отдельно проверить ответ, запись, визит и оплату.",
+    evidence_refs: [
+      "website.above_fold_conversion",
+      "cross.positioning_coherence",
+    ],
+  };
   report.presentation = {
     kind: "localized_client",
     strict_locale: "ru",
@@ -390,11 +398,11 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
       },
       conclusion: "Это не три отдельные проблемы, а одна последовательность. Сначала Spoken должна выглядеть как одна и та же клиника во всех каналах. После этого можно разделить аудитории, усилить доверие к услугам и только затем увеличивать привлечение.",
       offer: {
-        kicker: "Вариант с CAESTHETIC",
-        title: "30-дневный спринт роста",
-        price: "$2,500 · 30 дней",
-        body: "Мы согласуем письменный объём работ вокруг трёх подтверждённых приоритетов, координируем внедрение и проверяем результат. Отчёт не обязывает вас покупать услугу.",
-        cta: "Поручить внедрение CAESTHETIC",
+        kicker: "Дополнительное исследование",
+        title: "Проверка пути от обращения до оплаты",
+        price: "$500",
+        body: "Мы проверим только разрешённые внутренние данные: получение обращения, ответ, запись, визит и оплату. Если после проверки вы сразу переходите в спринт CAESTHETIC по найденному ограничению, $500 один раз засчитываются в общую стоимость спринта $2,500. Проверка не обещает рост выручки, число пациентов или окупаемость.",
+        cta: "Посмотреть условия проверки",
       },
     },
     official_names: [

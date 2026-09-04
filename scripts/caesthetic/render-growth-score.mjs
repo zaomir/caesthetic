@@ -1013,11 +1013,10 @@ function plainInternalBoundaryHtml(report) {
     <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
     <h3 class="cae-report-subhead">${escapeHtml(copy.title)}</h3>
     <p>${escapeHtml(copy.body)}</p>
-    <div class="cae-owner-boundary__map" role="img" aria-label="Путь от поиска до оплаты разделён на публичную и внутреннюю части">
-      <article><span>${escapeHtml(copy.public_label)}</span><strong>${escapeHtml(copy.public_path)}</strong></article>
-      <b aria-hidden="true">→</b>
-      <article><span>${escapeHtml(copy.private_label)}</span><strong>${escapeHtml(copy.private_path)}</strong></article>
-    </div>
+    <figure class="cae-lead-to-revenue-map-asset cae-owner-boundary__asset">
+      <img src="/assets/img/growth-score/lead-to-revenue-map-ru.svg" width="1600" height="900" alt="Карта непроверенного внутреннего пути от получения обращения до оплаты" loading="lazy" decoding="async">
+      <figcaption>Публичный аудит заканчивается до внутренних процессов. Для проверки этих этапов нужен разрешённый доступ к данным клиники.</figcaption>
+    </figure>
   </section>`;
 }
 
@@ -1040,19 +1039,20 @@ function plainConclusionHtml(report) {
 
 function plainCommercialNextStepHtml(report) {
   const offer = report.presentation.owner_copy?.offer || {};
+  const checkRecommended = isLeadToRevenueCheckRecommended(report);
   const paths = [
     ["Сделать внутри команды", report.implementation_paths.diy],
     ["Передать своим специалистам", report.implementation_paths.other_provider],
-    ["Поручить CAESTHETIC", report.implementation_paths.caesthetic],
+    [checkRecommended ? "Проверить внутренний путь с CAESTHETIC" : "Поручить CAESTHETIC", report.implementation_paths.caesthetic],
     ["Отложить", report.implementation_paths.defer],
   ];
   return `<div class="cae-owner-paths">${paths.map(([title, body], index) => `<article${index === 2 ? ' class="is-caesthetic"' : ""}><span>${index + 1}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(body)}</p></article>`).join("")}</div>
-    <article class="cae-owner-offer">
+    <article class="cae-owner-offer"${checkRecommended ? ' data-cae-check-recommended="true"' : ""}>
       <p class="cae-kicker">${escapeHtml(offer.kicker || "Вариант с CAESTHETIC")}</p>
       <h3>${escapeHtml(offer.title || "30-дневный спринт роста")}</h3>
       <p class="cae-owner-offer__price">${escapeHtml(offer.price || "$2,500 · 30 дней")}</p>
       <p>${escapeHtml(offer.body || report.why_caesthetic.sprint_boundary)}</p>
-      <a class="cae-btn cae-btn--primary" href="#request" data-cae-request>${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
+      <a class="cae-btn cae-btn--primary" href="${checkRecommended ? "/lead-to-revenue-check/" : "#request"}"${checkRecommended ? "" : " data-cae-request"}>${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
     </article>`;
 }
 
