@@ -1,18 +1,19 @@
 ---
 owner: CAESTHETIC
 status: mandatory_agent_adapter
-version: 2.5
+version: 2.6
 canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
+consistency_standard: docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md
 canonical_ref: zaomir/grainee-v2 origin/main resolved at run start
-updated: 2026-09-03
+updated: 2026-09-04
 ---
 
 # Growth Score audit — mandatory AI-agent enforcement
 
 This is a fail-closed execution adapter for every AI agent operating in
-`zaomir/caesthetic`. It does not replace or amend the canonical SSOT. If this
-adapter conflicts with the canonical file, stop, report `BLOCKED: audit policy
+CAESTHETIC through `zaomir/grainee-v2` or its `zaomir/caesthetic` satellite.
+It does not replace or amend the canonical SSOT. If this adapter conflicts with the canonical file, stop, report `BLOCKED: audit policy
 drift`, and use the canonical SSOT only after the conflict is resolved.
 
 ## 1. Universal pre-router
@@ -46,7 +47,7 @@ research into X.
 
 ## 2. Mandatory current-main authority preflight
 
-Before any substantive work, resolve the current `zaomir/caesthetic` `main`
+Before any substantive work, resolve the current `zaomir/grainee-v2` `main`
 and read these authorities from that same current ref, in order:
 
 1. `docs/ssot/CAESTHETIC.md`
@@ -55,12 +56,15 @@ and read these authorities from that same current ref, in order:
 4. `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md`
 5. `docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md`
 6. `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`
-7. for competitor work: `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`
-8. for evidence or impact work: `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`
-9. for publication work: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`
+7. `docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md`
+8. for competitor work: `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`
+9. for evidence or impact work: `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`
+10. for publication work: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`
 
-Items 1–6 are mandatory for every matched task. Items 7–9 become mandatory
-when the task reaches or requests the stated scope.
+Items 1–7 are mandatory for every matched task. Items 8–10 become mandatory
+when the task reaches or requests the stated scope. The consistency standard
+is the mandatory method module of the existing master/spec/SOP authorities,
+not a competing product canon or scoring authority.
 
 The authority order is:
 
@@ -135,6 +139,9 @@ Return a versioned Research Alignment Card containing:
 - Multi-Location topology where applicable;
 - proposed queries, geography, observation windows, review sample and path
   checks;
+- the method for selecting exactly 10 query phrases, query language/geography
+  and frequency provenance; discovery of Instagram, Facebook, TikTok and YouTube;
+  post text, video transcripts, user comments, practice replies and review coverage;
 - unknowns, exclusions and `Insufficient evidence` items;
 - planned research and the decisions reserved for the manager.
 
@@ -169,6 +176,39 @@ and the `$2,500` 30-Day Growth Sprint as CAESTHETIC's primary implementation act
 Name changes and isolated technical repairs remain evidence-backed instructions or
 dependencies, not the main product. The `$500` Lead-to-Revenue Check remains the
 secondary branch governed by `check500-two-placement/1.0.0`.
+
+### 6.1 First research block: Соответствие 4444
+
+Apply `caesthetic-4444-consistency-first/1.0.0` from
+`docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md` before the other full-research
+blocks, after named-manager Research Alignment approval.
+
+Freeze exactly 10 relevant long-tail query phrases with source, market, date,
+intent and verified/candidate frequency status. Use the same set across Search,
+Website, Social and Reputation. Produce the 10 × 4 correspondence matrix with
+source-level drill-down and explicit coverage; do not swap phrases per surface.
+
+Discover and verify ownership on Instagram, Facebook, TikTok and YouTube.
+Inspect available post text, video descriptions and video transcripts separately,
+then user comments, practice comment replies, reviews and owner review replies.
+A profile-only or follower-count check is not completed Social research.
+
+Keep `exact_match`, `semantic_match`, `contradiction`, `not_found_in_sample`
+and `insufficient_evidence` distinct. Inaccessible content is not an absent
+phrase. Human verification is required for automatic transcript matches. Keep
+practice-authored text separate from independent patient speech; never force
+keywords into reviews/comments, bypass access restrictions or invent frequency.
+
+The first diagnostic question is «Проверка соответствия ключевых фраз».
+A material, verified correspondence failure may be proposed as the first problem;
+it is not an automatic binding constraint or Top 3 selection. Show coherent
+language as a strength and unavailable evidence as unavailable. Preserve the
+full Gap Inventory, competitor work, existing weights and named-human decisions.
+
+For an existing case, resume its approved scope and query version. Do not restart
+an active interview or silently research, rescore, regenerate or publish a frozen
+report because the method changed. Ordinary editorial/design changes do not
+change the approved facts, Top 3 or other locales.
 
 ## 7. Human-only decisions and delivery gates
 

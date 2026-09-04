@@ -37,7 +37,7 @@
     "docs/ssot/RAIMOV_WHOLE_PERSON_BRAND.md": "adcfb7bce20a88c3e691f7529c9226162016314c2e63772fa69859bdc552cd61"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "9ed838e640a0b23bddcabb9e5be000892423ec97",
+  "source_sha": "0ec674f9f75b161393d22a0987f938e4f160c8a2",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

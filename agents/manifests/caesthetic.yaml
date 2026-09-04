@@ -52,6 +52,7 @@ topics:
   growth_score:
     ssot: docs/ssot/CAESTHETIC.md
     spec: docs/caesthetic/growth_score_spec.md
+    consistency: docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md
     audit_storage: docs/audits/caesthetic/growth-score/README.md
     audit_cases: docs/audits/caesthetic/growth-score/cases/
     code:
@@ -81,6 +82,7 @@ commands:
   sync_bidirectional: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
   smoke: curl -fsS -o /dev/null -w '%{http_code}' https://caesthetic.com/
   test: node --test tests/caesthetic/growth-score-*.test.mjs tests/caesthetic/attributed-sales-compensation-canon.test.mjs
+  consistency_policy_check: node --test tests/caesthetic/growth-score-4444-consistency-canon.test.mjs
   agent_policy_check: node --test tests/global-growth-score-audit-routing.test.mjs
   render_check: node scripts/caesthetic/render-growth-score.mjs --check
 
@@ -94,6 +96,7 @@ definition_of_done:
   - AI-agent policy check passes with no canonical version/commit drift
   - Audit full research remains blocked before named-manager Research Alignment approval
   - CAESTHETIC master SSOT remains authoritative
+  - First approved research block applies the 10-query Four-Surface consistency method with explicit coverage and human review
   - Four-surface model preserved across Growth Score, Sprint and Growth System
   - Attributed Sales Performance Fee uses auditable collected sales or contribution, a signed schedule, refund/chargeback rules and no double counting
   - Medical and dental attributed-sales fees use the ordinary signed Commercial Schedule and attribution rules without special legal/fiscal/advertising/privacy/fee-splitting activation gates; coordinator and clinician medical-sales percentages remain zero
