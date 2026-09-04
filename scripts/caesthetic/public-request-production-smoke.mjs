@@ -40,7 +40,11 @@ const response = await fetch(endpoint, {
 });
 const body = await response.json().catch(() => ({}));
 if (response.status !== 201 || body.ok !== true || !body.request_id || body.notification_sent !== true || body.qa_test !== true) {
-  throw new Error(`request capture failed closed: status=${response.status} error=${body.error || "invalid_response"}`);
+  throw new Error(
+    `request capture failed closed: status=${response.status} error=${body.error || "invalid_response"}`
+    + ` ok=${body.ok === true} request_id=${Boolean(body.request_id)}`
+    + ` notification_sent=${body.notification_sent === true} qa_test=${body.qa_test === true}`,
+  );
 }
 
 const select = await fetch(

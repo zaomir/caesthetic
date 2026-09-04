@@ -77,6 +77,7 @@ test("two-field request endpoint validates, rate-limits and stores requests priv
   assert.match(fn, /caesthetic_public_requests/);
   assert.match(fn, /operator_notification_failed/);
   assert.match(fn, /notification_sent:\s*true/);
+  assert.match(fn, /apiKey === serviceKey/);
   assert.match(productionSmoke, /request_row_created:\s*true/);
   assert.match(productionSmoke, /operator_notification_sent:\s*true/);
   assert.match(productionSmoke, /response\.status !== 201/);
