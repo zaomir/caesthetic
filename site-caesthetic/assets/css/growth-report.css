@@ -1205,6 +1205,132 @@
   background: var(--cae-bg);
 }
 
+/* Owner-facing 4444 method introduction: explanatory, not report evidence. */
+.cae-owner-method {
+  border-bottom: 1px solid var(--cae-border);
+}
+
+.cae-owner-method__intro {
+  max-width: 780px;
+  margin-top: var(--cae-space-5);
+  color: var(--cae-muted);
+  line-height: 1.65;
+}
+
+.cae-owner-method__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: center;
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.cae-owner-method__checks,
+.cae-owner-method__figure {
+  min-width: 0;
+}
+
+.cae-owner-method__checks > h3 {
+  margin: 0 0 var(--cae-space-4);
+  color: var(--cae-text-strong);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+}
+
+.cae-owner-method__checks article {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--cae-space-3);
+  padding: var(--cae-space-4) 0;
+  border-top: 1px solid var(--cae-border);
+}
+
+.cae-owner-method__checks article:last-child {
+  border-bottom: 1px solid var(--cae-border);
+}
+
+.cae-owner-method__checks article > span {
+  color: var(--cae-signal);
+  font-size: var(--cae-text-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.cae-owner-method__checks h4,
+.cae-owner-method__checks p {
+  margin: 0;
+}
+
+.cae-owner-method__checks h4 {
+  color: var(--cae-text-strong);
+  font-family: var(--cae-font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.cae-owner-method__checks p {
+  margin-top: var(--cae-space-1);
+  color: var(--cae-muted);
+  line-height: 1.5;
+}
+
+.cae-owner-method__figure {
+  margin: 0;
+}
+
+.cae-owner-method__diagram--desktop {
+  width: 100%;
+  height: auto;
+}
+
+.cae-owner-method__spokes path {
+  fill: none;
+  stroke: var(--cae-signal);
+  stroke-dasharray: 5 8;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.cae-owner-method__node rect {
+  fill: var(--cae-bg);
+  stroke: var(--cae-border-strong);
+  stroke-width: 1.5;
+}
+
+.cae-owner-method__node text,
+.cae-owner-method__center text {
+  fill: var(--cae-text-strong);
+  font-family: var(--cae-font);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cae-owner-method__center circle {
+  fill: var(--cae-signal-light);
+  stroke: var(--cae-signal);
+  stroke-width: 3;
+}
+
+.cae-owner-method__center text {
+  fill: var(--cae-signal);
+  font-family: var(--cae-font-display);
+  font-size: 21px;
+}
+
+.cae-owner-method__diagram--mobile {
+  display: none;
+}
+
+.cae-owner-method__conclusion {
+  max-width: 920px;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding-top: var(--cae-space-5);
+  border-top: 2px solid var(--cae-signal);
+  color: var(--cae-text-strong);
+  font-family: var(--cae-font-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  line-height: 1.45;
+}
+
 .cae-focus-gap--plain {
   align-content: start;
 }
@@ -1817,6 +1943,61 @@
 }
 
 @media (max-width: 720px) {
+  .cae-owner-method__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--cae-space-7);
+  }
+
+  .cae-owner-method__diagram--desktop {
+    display: none;
+  }
+
+  .cae-owner-method__diagram--mobile {
+    display: grid;
+    gap: var(--cae-space-4);
+    width: 100%;
+  }
+
+  .cae-owner-method__diagram--mobile > strong {
+    display: grid;
+    width: min(11rem, 100%);
+    aspect-ratio: 1;
+    justify-self: center;
+    place-items: center;
+    padding: var(--cae-space-4);
+    border: 2px solid var(--cae-signal);
+    border-radius: 50%;
+    background: var(--cae-signal-light);
+    color: var(--cae-signal);
+    font-family: var(--cae-font-display);
+    font-size: 1.55rem;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .cae-owner-method__diagram--mobile ol {
+    display: grid;
+    gap: 1px;
+    width: 100%;
+    background: var(--cae-border);
+  }
+
+  .cae-owner-method__diagram--mobile li {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: var(--cae-space-3);
+    min-width: 0;
+    padding: var(--cae-space-4);
+    background: var(--cae-bg);
+    color: var(--cae-text-strong);
+  }
+
+  .cae-owner-method__diagram--mobile li > span {
+    color: var(--cae-signal);
+    font-size: var(--cae-text-xs);
+    font-weight: 800;
+  }
+
   .cae-owner-intro__answers,
   .cae-owner-research__cards,
   .cae-owner-competitors__cards,

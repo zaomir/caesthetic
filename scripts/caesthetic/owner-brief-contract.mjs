@@ -137,6 +137,19 @@ export function validateOwnerBriefPresentation(report) {
       invariant(!sourceHosts.has(sourceHost), `owner_copy.research_scope.links contains duplicate pages from one source: ${sourceHost}`);
       sourceHosts.add(sourceHost);
     }
+    if (copy.method_intro !== undefined) {
+      for (const field of ["kicker", "title", "intro", "list_title", "center", "conclusion"]) {
+        requireText(copy.method_intro?.[field], `owner_copy.method_intro.${field}`);
+      }
+      invariant(
+        Array.isArray(copy.method_intro.surfaces) && copy.method_intro.surfaces.length === 4,
+        "owner_copy.method_intro.surfaces must contain exactly four surfaces",
+      );
+      for (const [index, surface] of copy.method_intro.surfaces.entries()) {
+        requireText(surface?.title, `owner_copy.method_intro.surfaces[${index}].title`);
+        requireText(surface?.body, `owner_copy.method_intro.surfaces[${index}].body`);
+      }
+    }
   } else {
     requireTupleItems(copy.research_scope?.items, "owner_copy.research_scope.items", { min: 4 });
   }

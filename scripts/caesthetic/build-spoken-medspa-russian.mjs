@@ -579,6 +579,32 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         ],
         note: "Сначала прочитайте три главные проблемы. Затем выберите способ внедрения и откройте пошаговые инструкции.",
       },
+      method_intro: {
+        kicker: "С чего начинается проверка",
+        title: "Проверяем соответствие во всех четырёх плоскостях",
+        intro: "Сначала мы определяем 10 ключевых фраз, по которым пациенты ищут ваши услуги. Затем проверяем, одинаково ли этот язык проходит через Google, сайт, социальные сети, отзывы и ответы вашей команды.",
+        list_title: "Что мы проверяем",
+        surfaces: [
+          {
+            title: "Поиск и Google",
+            body: "Услуги, описания, публикации, карточка компании.",
+          },
+          {
+            title: "Сайт и блог",
+            body: "Страницы услуг, статьи, ключевые формулировки, путь к записи.",
+          },
+          {
+            title: "Социальные сети",
+            body: "Instagram, Facebook, TikTok, YouTube; тексты постов, транскрипции видео, комментарии и ответы.",
+          },
+          {
+            title: "Отзывы и репутация",
+            body: "Отзывы пациентов, их формулировки, ответы владельца и повторяющиеся темы.",
+          },
+        ],
+        center: "10 ключевых фраз",
+        conclusion: "Это и есть соответствие. Пациент может начать путь с Google, Instagram, сайта или отзывов — но везде он должен узнавать ту же услугу, те же формулировки и тот же смысл.",
+      },
       section_titles: [
         "Три главные ограничения",
         "Краткая карта пути пациента",
@@ -698,6 +724,10 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
       "Spoken Aesthetic Academy",
       "Academy",
       "Google",
+      "Instagram",
+      "Facebook",
+      "TikTok",
+      "YouTube",
       "LinkedIn",
       "dermani MEDSPA® Snellville",
       "About Face Skin Care - Snellville",

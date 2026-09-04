@@ -201,6 +201,16 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.doesNotMatch(researchHtml, /cae-owner-research__cards|cae-owner-research__sources/);
   assert.doesNotMatch(researchHtml, /Мы изучили только открытые источники/);
   assert.match(storedHtml, /Как пользоваться отчётом/);
+  assert.match(storedHtml, /data-owner-method-intro/);
+  assert.match(storedHtml, /С чего начинается проверка/);
+  assert.match(storedHtml, /Проверяем соответствие во всех четырёх плоскостях/);
+  assert.match(storedHtml, /Сначала мы определяем 10 ключевых фраз/);
+  assert.equal(report.presentation.owner_copy.method_intro.surfaces.length, 4);
+  assert.deepEqual(
+    report.presentation.owner_copy.method_intro.surfaces.map(({ title }) => title),
+    ["Поиск и Google", "Сайт и блог", "Социальные сети", "Отзывы и репутация"],
+  );
+  assert.match(storedHtml, /Это и есть соответствие\. Пациент может начать путь/);
   assert.match(storedHtml, /Три главные ограничения/);
   assert.match(storedHtml, /data-owner-constraint-accordion/);
   assert.equal((storedHtml.match(/<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint"/g) || []).length, 3);
@@ -247,6 +257,8 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").repair_plan.day_30_outcome, /Система честного сбора отзывов запущена/);
 
   const constraintsIndex = storedHtml.indexOf('id="gap-map"');
+  const introIndex = storedHtml.indexOf('id="report-intro"');
+  const methodIndex = storedHtml.indexOf('id="method-intro"');
   const journeyIndex = storedHtml.indexOf('id="focus-gaps"');
   const internalIndex = storedHtml.indexOf('id="sprint-fit"');
   const competitorsIndex = storedHtml.indexOf("data-owner-competitors");
@@ -256,6 +268,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   const choicesIndex = storedHtml.indexOf('id="evidence-and-competitors"');
   const workOrderIndex = storedHtml.indexOf('id="scores-and-methodology"');
   const instructionsIndex = storedHtml.indexOf('id="next-step"');
+  assert.ok(introIndex < methodIndex && methodIndex < constraintsIndex);
   assert.ok(constraintsIndex < journeyIndex && journeyIndex < internalIndex);
   assert.ok(internalIndex < internalBoundaryIndex && internalBoundaryIndex < competitorsIndex);
   assert.ok(competitorsIndex < doNotFundIndex && doNotFundIndex < conclusionIndex);
