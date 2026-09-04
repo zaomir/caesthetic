@@ -2,7 +2,7 @@
   "authority": "zaomir/grainee-v2 main",
   "direction": "grainee-v2-to-caesthetic-only",
   "files": {
-    ".github/workflows/deploy-expert-esign-test.yml": "d1b8995c6365c81389444a1da883f8ee24afe33a01e98d8c4c7429dd2da8f3b4",
+    ".github/workflows/deploy-expert-esign-test.yml": "dfc916e5418de77dc264147806db7cdde263a9ed3017d0fca9fb91e967767f25",
     ".github/workflows/record-expert-esign-deploy.yml": "c6f32df20578b935cc4cb2b7d7561977dc03b0aa3cb22e9738b4284e93fffe5f",
     "AGENTS.md": "1253460bbe763130fc10324ecd46d98f7b3ce8c584531866c329e8b0a46a6587",
     "START.md": "2057059e586dbf77cf6f611895a5c5471000e4c8486c0d52c5ad1ce897e65006",
@@ -22,7 +22,7 @@
     "apps/expert-esign/lib/auth.mjs": "5c6769dd32d3fc595bee6bf1811075dbb16da12505b4017a745da7e61009860b",
     "apps/expert-esign/lib/core.mjs": "d10f8274fa22f46a43be5619a5ce369aaddb093987fbb02ef84b14aff745389e",
     "apps/expert-esign/lib/crm-contract.mjs": "258f1ba54c3bab5ef4c24802b1e8a57426959c672545b5e1cd0030eb72fc1e9d",
-    "apps/expert-esign/lib/db.mjs": "7f506106d14f9b5f14413c3059af09920d50ab59c5e45f6dda0f073e16a9a706",
+    "apps/expert-esign/lib/db.mjs": "33957bc5eee9658bc6ae4e7455b6635ee03a1367dd49ee64f367620500baac7f",
     "apps/expert-esign/lib/integrations.mjs": "3e4fbf9daf2c8a9d7e9b0393a02b99b8dc3fcb887ef6a19aad939cea3a61eede",
     "apps/expert-esign/lib/pdf.mjs": "87ede8bacb2af55cc8515af9c5dd8cbb4a738260b035add6b24fec94ae52e065",
     "apps/expert-esign/lib/providers/docusign.mjs": "72b33177eb9ed0b6a03cddf3e5a3966f9468e0fdd6de6b469dceaa44f96c2733",
@@ -44,8 +44,8 @@
     "apps/expert-esign/public/service-worker.js": "a20084383e07b3d9424bf5823a4f393264fa7ff9ce07309db04e68fa9cab6c2b",
     "apps/expert-esign/public/styles.css": "44f34f291671b04d9f7e1969958e7e1f18a92592556b25416eb423fa24f2c947",
     "apps/expert-esign/scripts/import-legal-templates.mjs": "60900bd0cc9f88cf89462d1c7123139e30935f2622a536744e3864bfdd678b89",
-    "apps/expert-esign/server.mjs": "5caa039cab5d683a86632bfbef60a33740bf649834c60548895d3b9c6642149c",
-    "apps/expert-esign/test/ci-environment.test.mjs": "03a58d8cabff3e09a9f87a9eff286e451196052d1d75e8592e6544053a6352f8",
+    "apps/expert-esign/server.mjs": "3ad840d00c09b70a6e176ec2be656dfb092b4e0cc3565c4bd5bd8aa521978a2a",
+    "apps/expert-esign/test/ci-environment.test.mjs": "b26352a3d946051f3afea0c8bace2e043395d410857dcfba9a601a506570e589",
     "apps/expert-esign/test/core.test.mjs": "a14c967464a7a9bdc850fdb32161965ad72ef36af7008aad6bb5e78e49c02d6f",
     "apps/expert-esign/test/provider-core.test.mjs": "49f62b40e508fec9dc178a6e5c6d2104347f655968ab81875042608c3596152f",
     "docs/legal/raimov/expert-dental/DOCUMENT_REGISTER.md": "c6a5a2a9a3eff98927f3be9b5c5edd80561eb633d742658a3d18a49f120e7ec3",
@@ -294,9 +294,9 @@
     "docs/ssot/RAIMOV_PERSONAL_BRAND_MODEL.md": "4b8af7d822b8a133c71b62e5d41b17739689f374a873f01f10c8b0bedc649a0a",
     "docs/ssot/RAIMOV_PUBLIC_PROFILE.md": "693362cc4f6bd7518747fb5b8bfbefb799d06d34ef8fe6fe36bd60102d57f09b",
     "docs/ssot/RAIMOV_WHOLE_PERSON_BRAND.md": "adcfb7bce20a88c3e691f7529c9226162016314c2e63772fa69859bdc552cd61",
-    "scripts/raimov/deploy-expert-esign-test.sh": "1f0fe52644d06165e0ec110de72f1b2f8234e7ac7cc1129d6aa4b506cb5cb535"
+    "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-read-through-mirror.v1",
-  "source_sha": "3134c8310837564f2e2240fd1734dd6444814ff0",
+  "source_sha": "1e06fdd6f07b246126897356bed9ad25649f39b3",
   "writeback": "forbidden; use docs/projects/caesthetic/expert-dental-contributions/"
 }

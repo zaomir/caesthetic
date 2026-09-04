@@ -290,6 +290,8 @@
     "docs/caesthetic/tz_domain_search.md": "ee40977c6a5e7fdbe923380ad48c443ba43bc220e7ed6173d42c2589ec9d2e97",
     "docs/caesthetic/tz_website_addendum.md": "978c8f91b9efa2951633b05e485a2509188d6f52cae61c03d7798226774def51",
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
+    "docs/founder-notes/DEC-829.md": "d73ecb01f9302d709502aa441c82120d84e017348f9117ecab8b16b484bd1268",
+    "docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md": "7b306bb8491c5cdb2afd2e2fb6a3d687cf6ef6e3b609df08b0c5d5fa797532d4",
     "docs/projects/caesthetic/AGENTS.md": "66352bd513dd255155a62a365385d8f6aea44fb1dc9bc5264146f77b88b68b56",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
     "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "1b6977371ec3129116b1a7acabcc835ca3b5b3740cfe5c64b22a3cc32d9a8696",
@@ -879,6 +881,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T20:08:20Z",
+  "updated_at_utc": "2026-09-04T20:39:17Z",
   "version": 1
 }

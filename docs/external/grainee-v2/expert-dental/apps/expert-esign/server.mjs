@@ -264,7 +264,8 @@ router.get('/api/templates', auth, asyncRoute(async (_req, res) => {
   const result = await pool.query(
     `SELECT id, template_code, version, title, status, category, required_approver_role,
             required_signer_types, retention_class, body_hash, effective_from, effective_until
-     FROM template_versions ORDER BY category, template_code, version DESC`,
+     FROM template_versions WHERE status <> 'RETIRED'
+     ORDER BY category, template_code, version DESC`,
   );
   res.json({ templates: result.rows, allowCounselGated });
 }));

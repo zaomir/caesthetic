@@ -22,8 +22,12 @@ test('GitHub Actions compose validation uses a synthetic env file', () => {
 
 test('runtime source keeps TEST and managed-device gates explicit', () => {
   const server = fs.readFileSync(path.resolve('server.mjs'), 'utf8');
+  const database = fs.readFileSync(path.resolve('lib/db.mjs'), 'utf8');
   assert.match(server, /test_mode_requires_synthetic_patient_prefix/);
   assert.match(server, /outbound_delivery_disabled_in_test_mode/);
   assert.match(server, /managed_signing_device_required/);
   assert.match(server, /provider_webhook_receipts/);
+  assert.match(server, /WHERE status <> 'RETIRED'/);
+  assert.match(database, /SET status='RETIRED'/);
+  assert.doesNotMatch(database, /SET status='RETIRED',\s*updated_at/);
 });

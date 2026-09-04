@@ -74,8 +74,11 @@ jobs:
             WORKTREE="/tmp/expert-esign-test-${DEPLOY_SHA}-$$"
             cleanup() { git -C "$BASE_REPO" worktree remove --force "$WORKTREE" >/dev/null 2>&1 || true; }
             trap cleanup EXIT
-            git -C "$BASE_REPO" fetch origin "refs/heads/${DEPLOY_REF}:refs/remotes/origin/${DEPLOY_REF}" -q
-            test "$(git -C "$BASE_REPO" rev-parse "refs/remotes/origin/${DEPLOY_REF}")" = "$DEPLOY_SHA"
+            # Deploy the immutable workflow SHA. `main` is allowed to advance
+            # while this run waits (for example through the 15-second sync
+            # service); tying deploy to the moving branch head creates a race.
+            git -C "$BASE_REPO" fetch --no-tags origin "$DEPLOY_SHA" -q
+            test "$(git -C "$BASE_REPO" cat-file -t "$DEPLOY_SHA")" = commit
             git -C "$BASE_REPO" worktree prune
             git -C "$BASE_REPO" worktree add --detach "$WORKTREE" "$DEPLOY_SHA"
             cd "$WORKTREE"

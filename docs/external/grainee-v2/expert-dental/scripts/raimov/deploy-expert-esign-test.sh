@@ -318,7 +318,8 @@ if include not in block:
 PY
 nginx -t
 systemctl reload nginx
-nginx -T 2>/dev/null | grep -Fq 'proxy_pass http://127.0.0.1:8788/esign/'
+nginx -T 2>/dev/null >/tmp/expert-esign-test-nginx.txt
+grep -Fq 'proxy_pass http://127.0.0.1:8788/esign/' /tmp/expert-esign-test-nginx.txt
 
 say "8/9 external smoke"
 code=000

@@ -74,6 +74,21 @@ export async function seedTemplates(pool) {
       ],
     );
   }
+  // Keep historical rows for referential/evidence integrity, but remove stale
+  // experimental templates from the current picker. Only the exact generated
+  // legal registry can remain non-retired.
+  await pool.query(
+    `UPDATE template_versions AS existing
+     SET status='RETIRED'
+     WHERE status <> 'RETIRED'
+       AND NOT EXISTS (
+         SELECT 1
+         FROM unnest($1::text[], $2::text[]) AS canonical(code, version)
+         WHERE canonical.code=existing.template_code
+           AND canonical.version=existing.version
+       )`,
+    [registry.templates.map((item) => item.code), registry.templates.map((item) => item.version)],
+  );
   return registry;
 }
 
