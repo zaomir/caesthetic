@@ -1,31 +1,31 @@
 {
   "schemaVersion": 5,
   "reportState": "approved_report",
-  "reportVersion": "spoken-medspa-snellville-public-evidence/1.0.0",
-  "verifiedFactSetVersion": "spoken-medspa-snellville-2026-09-03/1.0.0",
+  "reportVersion": "spoken-medspa-snellville-public-evidence/en/1.6.2",
+  "verifiedFactSetVersion": "spoken-medspa-snellville-2026-09-04/4444-v1",
   "reportKind": "real",
   "templateVersion": "growth-score-report-template/5.2.0",
   "reportContext": {
     "vertical_context": "aesthetic_practice",
     "report_locale": "en",
     "vertical_source": "human_resolved",
-    "locale_source": "human_resolved"
+    "locale_source": "user_selected"
   },
-  "disclosure": "Outside-in Growth Score using public evidence only. Internal operations, patient data, revenue and outcomes are not assessed.",
+  "disclosure": "This report uses public sources only. We did not assess internal operations, patient data, revenue, or treatment outcomes.",
   "practice": {
     "name": "Spoken Med Spa",
     "location": "2121 Fountain Drive, Suite M, Snellville, GA 30078, United States",
     "preparedAt": "2026-09-03",
     "preparedFor": "Ivy Cleveland"
   },
-  "executiveSummary": "Spoken has a strong Botox/Ivy authority asset. The binding constraint is incomplete identity/trust continuity after the Jurney-to-Spoken transition, with mixed patient/Academy routing and uneven filler proof continuity.",
+  "executiveSummary": "Spoken already has a strong Botox page, an active blog, and a high Google rating. The main task is to connect specific patient queries, consistent content, and reputation work into one system.",
   "surfaces": [
     {
       "id": "search",
       "summary": "Legacy identity friction; Search coverage unmeasured.",
       "owner_card": {
-        "strength": "Current brand is clear.",
-        "problem": "Legacy Jurney signals.",
+        "strength": "The Google listing shows a high rating and links to the website.",
+        "problem": "Specific queries for priority services are not allocated across the four surfaces.",
         "priority": "HIGH"
       },
       "metrics": [
@@ -54,13 +54,12 @@
         {
           "metric_id": "entity_integrity",
           "label": "entity_integrity",
-          "raw_value": "Spoken/Jurney",
+          "raw_value": null,
           "normalized_score": null,
           "evidence_class": "A",
-          "source": "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa; https://msha.ke/spokenmedspa/",
-          "collected_at": "2026-09-03",
-          "reviewer_status": "approved",
-          "finding": "Current Spoken and legacy Jurney signals coexist."
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending"
         },
         {
           "metric_id": "gbp_conversion_readiness",
@@ -101,8 +100,8 @@
       "id": "website",
       "summary": "Strong Botox/Ivy asset; routing/proof repair needed.",
       "owner_card": {
-        "strength": "Botox page + Ivy authority.",
-        "problem": "Mixed audiences and uneven filler proof.",
+        "strength": "Spoken has a strong Botox page and an active blog.",
+        "problem": "Service pages and articles are not connected through one map of specific queries.",
         "priority": "HIGH"
       },
       "metrics": [
@@ -120,13 +119,13 @@
         {
           "metric_id": "treatment_clarity",
           "label": "treatment_clarity",
-          "raw_value": "Botox/fillers",
+          "raw_value": "Botox, fillers, and related articles",
           "normalized_score": null,
           "evidence_class": "A",
-          "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/dermal-fillers-snellville-ga",
-          "collected_at": "2026-09-03",
+          "source": "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog",
+          "collected_at": "2026-09-04",
           "reviewer_status": "approved",
-          "finding": "Botox is clearer than fillers."
+          "finding": "Service pages and the active blog answer patient questions, but the public materials do not show one map of specific queries and where each query should be used."
         },
         {
           "metric_id": "mobile_performance",
@@ -266,9 +265,9 @@
       "id": "reputation",
       "summary": "Insufficient evidence.",
       "owner_card": {
-        "strength": "Directional reputation signal only.",
-        "problem": "Direct 90-day sample not retained.",
-        "priority": "MEDIUM"
+        "strength": "A 4.9 rating and about 250 reviews provide a strong trust foundation.",
+        "problem": "Consistent honest review collection and the quality of owner responses need an ongoing system.",
+        "priority": "HIGH"
       },
       "metrics": [
         {
@@ -285,13 +284,14 @@
         {
           "metric_id": "rating",
           "label": "rating",
-          "raw_value": null,
+          "raw_value": "4.9 with about 250 reviews",
           "normalized_score": null,
           "evidence_class": "A",
-          "source": null,
-          "collected_at": null,
-          "reviewer_status": "pending",
-          "unavailable_reason": "Insufficient evidence."
+          "source": "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+          "collected_at": "2026-09-04",
+          "reviewer_status": "approved",
+          "unavailable_reason": "Insufficient evidence.",
+          "finding": "Spoken has a strong 4.9 rating with about 250 reviews. This is a strong foundation that should be maintained consistently."
         },
         {
           "metric_id": "review_depth",
@@ -340,13 +340,14 @@
         {
           "metric_id": "negative_review_handling",
           "label": "negative_review_handling",
-          "raw_value": null,
+          "raw_value": "phone and front-desk communication appears repeatedly",
           "normalized_score": null,
           "evidence_class": "A",
-          "source": null,
-          "collected_at": null,
-          "reviewer_status": "pending",
-          "unavailable_reason": "Insufficient evidence."
+          "source": "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+          "collected_at": "2026-09-04",
+          "reviewer_status": "approved",
+          "unavailable_reason": "Insufficient evidence.",
+          "finding": "Several lower-rated reviews repeat concerns about phone and front-desk communication. Owner responses are present, but some are generic and one visible response does not address the complaint."
         },
         {
           "metric_id": "treatment_clinician_proof",
@@ -363,7 +364,7 @@
     }
   ],
   "crossSurface": {
-    "summary": "Identity, audience and proof friction observed.",
+    "summary": "The website, blog, Google presence, social media, reviews, and owner responses should use one demand language: consistent services, providers, location, and specific patient queries.",
     "metrics": [
       {
         "metric_id": "treatment_presence",
@@ -390,13 +391,13 @@
       {
         "metric_id": "proof_continuity",
         "label": "proof_continuity",
-        "raw_value": "uneven proof",
+        "raw_value": "content is not connected through one query map",
         "normalized_score": null,
         "evidence_class": "A",
-        "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/clients",
-        "collected_at": "2026-09-03",
+        "source": "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog; https://www.spokenmedspa.com/clients; https://msha.ke/spokenmedspa/",
+        "collected_at": "2026-09-04",
         "reviewer_status": "approved",
-        "finding": "Proof continuity is stronger on Botox than fillers."
+        "finding": "Useful content exists, but its connection to the same specific queries across the website, Google, and social media is not presented as one system."
       },
       {
         "metric_id": "conversion_continuity",
@@ -412,13 +413,12 @@
       {
         "metric_id": "identity_coherence",
         "label": "identity_coherence",
-        "raw_value": "Spoken/Jurney",
+        "raw_value": null,
         "normalized_score": null,
         "evidence_class": "A",
-        "source": "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa; https://msha.ke/spokenmedspa/",
-        "collected_at": "2026-09-03",
-        "reviewer_status": "approved",
-        "finding": "Current and legacy identity signals are not fully synchronized."
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending"
       }
     ]
   },
@@ -429,7 +429,7 @@
       "approved_at": "2026-09-03T13:51:02Z"
     },
     "objective_strength": {
-      "title": "Strong Botox/provider authority centered on Ivy Cleveland.",
+      "title": "Spoken has a strong Botox page, an active blog, and a 4.9 Google rating.",
       "evidence_refs": [
         "website.clinician_trust_proof",
         "website.treatment_clarity"
@@ -437,130 +437,146 @@
     },
     "strongest_surface": "website",
     "binding_constraint": {
-      "title": "Identity and trust continuity remain unsynchronized",
-      "statement": "Legacy Jurney signals and mixed audience paths create public friction before booking.",
+      "title": "Queries, content, and reviews are not yet one system",
+      "statement": "Specific patient queries have not yet been organized into one map, the blog is not connected to an ongoing four-surface content plan, and review growth and owner responses are not managed as a consistent system.",
       "demand_stage": "trust",
       "evidence_refs": [
-        "search.entity_integrity",
-        "cross.identity_coherence",
-        "cross.positioning_coherence"
+        "website.treatment_clarity",
+        "cross.proof_continuity",
+        "reputation.rating",
+        "reputation.negative_review_handling"
       ],
       "gap_ref": "SMS-26-01"
     },
     "current_state": {
       "strengths": [
-        "Strong Botox page and Ivy authority."
+        "The Botox page explains the service clearly and shows Ivy Cleveland's experience.",
+        "An active blog, a 4.9 rating, and about 250 reviews provide a strong trust foundation."
       ],
-      "constraint_label": "Identity/trust continuity",
-      "constraint_detail": "Rebrand, audience routing and proof are not fully synchronized.",
-      "priority_line": "Fix identity, then audiences, then filler proof."
+      "constraint_label": "Queries, content, and reviews do not yet work as one system",
+      "constraint_detail": "Spoken already has the necessary parts. The next step is to connect them: choose specific patient queries, allocate them across the four surfaces, and preserve one meaning in content, reviews, and owner responses.",
+      "priority_line": "First build the query map. Then connect it to a regular blog plan and an ongoing system for honest reviews and substantive owner responses."
     },
     "gap_inventory": [
       {
         "id": "SMS-26-01",
-        "title": "Legacy Jurney identity remains",
+        "title": "Build a map of specific patient queries",
         "diagnosis_state": "verified_gap",
         "surfaces": [
           "search",
+          "website",
+          "social",
+          "reputation",
           "cross_surface"
         ],
         "journey_stage": "trust",
         "evidence_refs": [
-          "search.entity_integrity",
-          "cross.identity_coherence"
+          "website.treatment_clarity",
+          "cross.proof_continuity"
         ],
-        "why_it_matters": "Identity uncertainty appears before booking.",
+        "why_it_matters": "Service pages and articles already answer different patient questions. Without one map, however, it is unclear which specific query should lead to which page and how that language should carry through Google, social media, reviews, and owner responses.",
         "sprint_fit": {
           "mode": "close_in_30_days"
         },
         "repair_plan": {
-          "outcome": "One current Spoken identity.",
+          "outcome": "Each priority service has specific booking-intent queries and a defined place where each query should be used.",
           "diy_steps": [
-            "Freeze current facts; inventory and update controlled endpoints; retain before/after evidence."
+            "Choose the priority services and questions patients ask before booking.",
+            "Collect core and long-tail queries with clear booking intent.",
+            "Approve consistent names for services, providers, and the location.",
+            "Allocate the queries across website pages, the blog, Google Business Profile, social media, reviews, and owner responses."
           ],
           "dependencies": [
-            "Confirmed current facts"
+            "A list of priority services plus confirmed provider and location details."
           ],
-          "owner_role": "Web/GBP/social owner",
+          "owner_role": "One person who approves the query map and shared vocabulary for all four surfaces.",
           "done_when": [
-            "Controlled surfaces match current Spoken facts."
+            "Every priority service has a set of specific queries with booking intent.",
+            "Every query is assigned to a page, article, post, or owner response."
           ]
         }
       },
       {
         "id": "SMS-26-02",
-        "title": "Patient and Academy journeys are mixed",
+        "title": "Turn the blog into a consistent system",
         "diagnosis_state": "verified_gap",
         "surfaces": [
           "website",
+          "search",
+          "social",
           "cross_surface"
         ],
         "journey_stage": "enquiry",
         "evidence_refs": [
-          "website.above_fold_conversion",
-          "cross.positioning_coherence"
+          "website.treatment_clarity",
+          "cross.proof_continuity"
         ],
-        "why_it_matters": "Different audiences share one action path.",
+        "why_it_matters": "The blog is active, with new articles published in August and September 2026. However, posts appear in batches, and the public materials do not show a consistent link between every article, a specific query, the relevant service page, Google, and social media.",
         "sprint_fit": {
           "mode": "close_in_30_days"
         },
         "repair_plan": {
-          "outcome": "Patient-first path + separate professional lane.",
+          "outcome": "The blog follows a clear schedule, answers real patient questions, and reinforces the same queries across all four surfaces.",
           "diy_steps": [
-            "Create a clear professional lane and separate patient vs Academy CTAs."
+            "Create an eight-week content plan around priority services and specific queries.",
+            "Give each article one patient question, one service page, and one clear next step toward booking.",
+            "After medical review, create shorter versions for Google and social media.",
+            "Review publication cadence monthly and confirm that the same meaning remains consistent across all four surfaces."
           ],
           "dependencies": [
-            "SMS-26-01"
+            "The approved query map and a person responsible for medical accuracy."
           ],
-          "owner_role": "UX/web owner",
+          "owner_role": "An editor and a qualified reviewer who confirms medical accuracy.",
           "done_when": [
-            "Priority patient journeys contain patient actions; Academy has one explicit entry."
-          ]
+            "The next eight weeks have topics, queries, owners, and publication dates.",
+            "Every article links to the relevant service page and a clear next step."
+          ],
+          "day_30_outcome": "An eight-week plan is approved. The first article is published and connected to its service page, Google, and social media.",
+          "beyond_day_30": "Continue publishing on schedule, update the query map, and carry one consistent meaning across all four surfaces."
         }
       },
       {
         "id": "SMS-26-03",
-        "title": "Filler trust continuity trails Botox",
+        "title": "Collect honest reviews consistently and improve owner responses",
         "diagnosis_state": "verified_gap",
         "surfaces": [
-          "website",
+          "reputation",
+          "search",
           "cross_surface"
         ],
         "journey_stage": "trust",
         "evidence_refs": [
-          "website.clinician_trust_proof",
-          "website.treatment_clarity",
-          "cross.proof_continuity"
+          "reputation.rating",
+          "reputation.negative_review_handling"
         ],
-        "why_it_matters": "Botox has a stronger Who/Trust/Proof chain.",
+        "why_it_matters": "A 4.9 rating with about 250 reviews is a strong foundation. About Face Skin Care has a 5.0 rating and 726 reviews, while several lower-rated Spoken reviews repeat concerns about phone and front-desk communication. Some owner responses are too generic.",
         "sprint_fit": {
           "mode": "start_in_30_days"
         },
         "repair_plan": {
-          "outcome": "A repeatable provider-led content, proof and reputation system for priority treatments.",
+          "outcome": "Every eligible patient receives the same honest review request, and every owner response addresses the review while protecting privacy.",
           "diy_steps": [
-            "Use the Botox page as the trust template and extend verified provider, treatment and proof context to fillers.",
-            "Launch a provider-led blog cadence around real patient questions, treatment decisions, aftercare and expectations; connect every article to the relevant treatment and booking path.",
-            "Repurpose each medically reviewed article into approved Website, Google Business Profile and Social content so the same trust story stays consistent across the Four Surfaces.",
-            "After capturing the direct reputation baseline, activate a compliant all-patient Google review request and response cadence with no filtering, incentives or review gating.",
-            "Review the content, review and proof pipeline monthly; retain source, consent and before/after evidence for every material update."
+            "Ask every eligible patient for an honest review under one consistent rule—without filtering, payment, incentives, or prewritten text.",
+            "Respond to each review substantively. Do not confirm treatment or disclose personal information.",
+            "Identify recurring review themes monthly and feed them into the website and blog plan.",
+            "Compare patient language and owner responses with the shared map of services, providers, and location without forcing keywords into patient speech."
           ],
           "dependencies": [
-            "SMS-26-01"
+            "One review-request rule, an accountable owner, and privacy-safe response guidance."
           ],
-          "owner_role": "Clinical-content/web owner",
-          "day_30_outcome": "The filler trust architecture, first provider-led article and its approved Website/GBP/Social distribution are live; the direct reputation baseline and compliant review workflow are ready.",
-          "beyond_day_30": "Continue the blog and cross-surface publishing cadence, request and answer genuine Google reviews without gating, refresh treatment proof and monitor Search, reputation and booking-path baselines.",
+          "owner_role": "One Spoken team member who owns review requests, responses, and recurring-theme review.",
+          "day_30_outcome": "The honest review-request system is live. New reviews receive substantive responses, and recurring themes are included in the content plan.",
+          "beyond_day_30": "Continue requesting honest reviews, respond substantively, and compare recurring themes with the four-surface plan each month.",
           "done_when": [
-            "Both priority pages pass one trust-chain checklist.",
-            "An approved editorial calendar and first complete content-to-distribution cycle are live.",
-            "The review workflow requests feedback from all eligible patients and records responses without sentiment filtering."
+            "Every eligible patient receives the same review request under one rule.",
+            "Owner responses address the review and do not disclose personal information.",
+            "Recurring review themes enter the improvement and content plan."
           ]
         }
       },
       {
         "id": "SMS-26-04",
-        "title": "Secondary page QA debt",
+        "title": "Remove stray and placeholder copy from secondary pages",
         "diagnosis_state": "monitor",
         "surfaces": [
           "website"
@@ -569,19 +585,19 @@
         "evidence_refs": [
           "website.treatment_clarity"
         ],
-        "why_it_matters": "Unrelated copy can reduce polish.",
+        "why_it_matters": "Unrelated copy weakens the overall website experience.",
         "sprint_fit": {
           "mode": "backlog"
         },
         "repair_plan": {
-          "outcome": "Reviewed relevant copy.",
+          "outcome": "Adjacent pages contain only reviewed, service-relevant copy.",
           "diy_steps": [
-            "QA priority/adjacent pages."
+            "Review adjacent pages and remove unrelated or placeholder content."
           ],
           "dependencies": [],
-          "owner_role": "Web owner",
+          "owner_role": "Website owner.",
           "done_when": [
-            "Known unrelated/placeholder copy removed."
+            "Known unrelated and placeholder copy is removed."
           ]
         }
       },
@@ -669,31 +685,34 @@
       ],
       "selected_by": "Valerie Petra",
       "selected_at": "2026-09-03T13:51:02Z",
-      "rationale": "Identity is the binding dependency."
+      "rationale": "Closing these three gaps will help patients find the right service, feel confident in their choice, and move toward booking."
     },
     "do_not_do": {
-      "title": "Do not scale paid Botox/filler demand before identity repair and Search/booking verification",
-      "rationale": "Demand shortage is unproven; destination friction is observable.",
+      "title": "Do not increase paid media for Botox or fillers yet",
+      "rationale": "First build the specific-query map, connect it to consistent content, and establish an honest review system with substantive owner responses. Otherwise, paid media would send more people into an inconsistent journey.",
       "evidence_refs": [
-        "search.entity_integrity",
-        "cross.identity_coherence",
-        "cross.positioning_coherence"
+        "website.treatment_clarity",
+        "cross.proof_continuity",
+        "reputation.rating",
+        "reputation.negative_review_handling"
       ],
       "revisit_after": [
-        "Current identity synchronized.",
-        "Audience paths separated.",
-        "Search and booking baselines verified."
+        "Specific booking-intent queries are selected for every priority service.",
+        "Queries are allocated across the website, blog, Google, social media, reviews, and owner responses.",
+        "A consistent content plan is approved and active.",
+        "The honest review-request and substantive-response system is active.",
+        "The journey from search to booking has been checked."
       ]
     },
     "competitors": {
       "status": "applicable",
       "selection_method": "Four approved local Snellville comparators.",
-      "sample_limitations": "Website evidence only; other comparable surfaces insufficient.",
+      "sample_limitations": "Websites were reviewed for four local alternatives. Google rating and review count were retained for Spoken, dermani MEDSPA® Snellville, About Face Skin Care, and A Defined Image Medical Wellness Centre; social media was not compared comprehensively.",
       "comparison_window": {
         "start": "2026-09-03",
-        "end": "2026-09-03"
+        "end": "2026-09-04"
       },
-      "review_sample_rule": "No review-theme conclusion without a direct comparable sample.",
+      "review_sample_rule": "We compare only visible ratings, review counts, recurring themes, and owner responses. We do not infer internal causes.",
       "branch_scope": "Spoken Med Spa, Snellville, GA",
       "entries": [
         {
@@ -702,15 +721,15 @@
           "competitor_type": "local",
           "selection_reason": "Approved local comparator.",
           "branch_scope": "Snellville, GA",
-          "patient_choice_reason": "Relevant local alternative.",
-          "observable_advantage": "Clear local treatment-to-booking architecture.",
-          "observable_gap": "Full Four-Surface sample not retained.",
+          "patient_choice_reason": "A clear service-to-booking path.",
+          "observable_advantage": "A clear service-to-booking path.",
+          "observable_gap": "4.8 rating with 196 reviews. Spoken has a higher rating and more reviews.",
           "repeat": "Adapt clear journey structure.",
           "improve": "Differentiate through Ivy authority.",
           "do_not_copy": "Do not copy claims/discounts as proof.",
           "strategic_implication": "Context only.",
-          "constraint_effect": "Supports identity repair first.",
-          "priority_effect": "No Top 3 change.",
+          "constraint_effect": "Helps compare offer clarity, review volume, and the quality of public trust.",
+          "priority_effect": "Supports the work on queries, content, and reviews.",
           "modernization_implication": "No superiority inferred.",
           "strengths": [
             "Clear local treatment-to-booking architecture."
@@ -718,13 +737,19 @@
           "weaknesses_or_risks": [
             "Incomplete sample."
           ],
-          "limitations": "Website-only context; review-theme repetition was not assessed and remains insufficient evidence.",
+          "limitations": "The rating and review-count comparison uses the visible Google listing on the review date. The full review corpus was not exported, so there is insufficient repetition to conclude comparative themes.",
           "sources": [
             {
               "url_or_snapshot": "https://dermanimedspa.com/schedule-online-snellville/",
               "source_type": "website",
               "collected_at": "2026-09-03",
               "sample_note": "Public website"
+            },
+            {
+              "url_or_snapshot": "https://www.google.com/maps/search/?api=1&query=dermani+MEDSPA+Snellville",
+              "source_type": "maps",
+              "collected_at": "2026-09-04",
+              "sample_note": "Public Google listing"
             }
           ],
           "surface_evidence": {
@@ -748,10 +773,11 @@
               "limitation": "Not retained."
             },
             "reputation": {
-              "status": "insufficient_evidence",
-              "finding": "Insufficient evidence.",
-              "evidence_refs": [],
-              "limitation": "Not retained."
+              "status": "observed",
+              "finding": "4.8 rating with 196 reviews. Spoken has a higher rating and more reviews.",
+              "evidence_refs": [
+                "reputation.rating"
+              ]
             }
           },
           "repeated_positive_themes": [],
@@ -766,15 +792,15 @@
           "competitor_type": "local",
           "selection_reason": "Approved local comparator.",
           "branch_scope": "Snellville, GA",
-          "patient_choice_reason": "Relevant local alternative.",
-          "observable_advantage": "Structured medical authority and treatment depth.",
-          "observable_gap": "Full Four-Surface sample not retained.",
+          "patient_choice_reason": "Providers and services are easy to understand.",
+          "observable_advantage": "Providers and services are easy to understand.",
+          "observable_gap": "5.0 rating with 726 reviews. This is substantially more review volume than Spoken.",
           "repeat": "Adapt clear journey structure.",
           "improve": "Differentiate through Ivy authority.",
           "do_not_copy": "Do not copy claims/discounts as proof.",
           "strategic_implication": "Context only.",
-          "constraint_effect": "Supports identity repair first.",
-          "priority_effect": "No Top 3 change.",
+          "constraint_effect": "Helps compare offer clarity, review volume, and the quality of public trust.",
+          "priority_effect": "Supports the work on queries, content, and reviews.",
           "modernization_implication": "No superiority inferred.",
           "strengths": [
             "Structured medical authority and treatment depth."
@@ -782,13 +808,19 @@
           "weaknesses_or_risks": [
             "Incomplete sample."
           ],
-          "limitations": "Website-only context; review-theme repetition was not assessed and remains insufficient evidence.",
+          "limitations": "The rating and review-count comparison uses the visible Google listing on the review date. The full review corpus was not exported, so there is insufficient repetition to conclude comparative themes.",
           "sources": [
             {
               "url_or_snapshot": "https://www.aboutfaceskin.com/",
               "source_type": "website",
               "collected_at": "2026-09-03",
               "sample_note": "Public website"
+            },
+            {
+              "url_or_snapshot": "https://www.google.com/maps/search/?api=1&query=About+Face+Skin+Care+Snellville",
+              "source_type": "maps",
+              "collected_at": "2026-09-04",
+              "sample_note": "Public Google listing"
             }
           ],
           "surface_evidence": {
@@ -812,10 +844,11 @@
               "limitation": "Not retained."
             },
             "reputation": {
-              "status": "insufficient_evidence",
-              "finding": "Insufficient evidence.",
-              "evidence_refs": [],
-              "limitation": "Not retained."
+              "status": "observed",
+              "finding": "5.0 rating with 726 reviews. This is substantially more review volume than Spoken.",
+              "evidence_refs": [
+                "reputation.rating"
+              ]
             }
           },
           "repeated_positive_themes": [],
@@ -830,15 +863,15 @@
           "competitor_type": "local",
           "selection_reason": "Approved local comparator.",
           "branch_scope": "Snellville, GA",
-          "patient_choice_reason": "Relevant local alternative.",
-          "observable_advantage": "Simple named-provider proposition.",
+          "patient_choice_reason": "The entire offer is organized around one named provider.",
+          "observable_advantage": "The entire offer is organized around one named provider.",
           "observable_gap": "Full Four-Surface sample not retained.",
           "repeat": "Adapt clear journey structure.",
           "improve": "Differentiate through Ivy authority.",
           "do_not_copy": "Do not copy claims/discounts as proof.",
           "strategic_implication": "Context only.",
-          "constraint_effect": "Supports identity repair first.",
-          "priority_effect": "No Top 3 change.",
+          "constraint_effect": "Helps compare offer clarity, review volume, and the quality of public trust.",
+          "priority_effect": "Supports the work on queries, content, and reviews.",
           "modernization_implication": "No superiority inferred.",
           "strengths": [
             "Simple named-provider proposition."
@@ -894,15 +927,15 @@
           "competitor_type": "local",
           "selection_reason": "Approved local comparator.",
           "branch_scope": "Snellville, GA",
-          "patient_choice_reason": "Relevant local alternative.",
-          "observable_advantage": "Local provider/injectables relevance.",
-          "observable_gap": "Full Four-Surface sample not retained.",
+          "patient_choice_reason": "The provider and injectable services are immediately visible.",
+          "observable_advantage": "The provider and injectable services are immediately visible.",
+          "observable_gap": "5.0 rating with 78 reviews. Spoken has substantially more review volume.",
           "repeat": "Adapt clear journey structure.",
           "improve": "Differentiate through Ivy authority.",
           "do_not_copy": "Do not copy claims/discounts as proof.",
           "strategic_implication": "Context only.",
-          "constraint_effect": "Supports identity repair first.",
-          "priority_effect": "No Top 3 change.",
+          "constraint_effect": "Helps compare offer clarity, review volume, and the quality of public trust.",
+          "priority_effect": "Supports the work on queries, content, and reviews.",
           "modernization_implication": "No superiority inferred.",
           "strengths": [
             "Local provider/injectables relevance."
@@ -910,13 +943,19 @@
           "weaknesses_or_risks": [
             "Incomplete sample."
           ],
-          "limitations": "Website-only context; review-theme repetition was not assessed and remains insufficient evidence.",
+          "limitations": "The rating and review-count comparison uses the visible Google listing on the review date. The full review corpus was not exported, so there is insufficient repetition to conclude comparative themes.",
           "sources": [
             {
               "url_or_snapshot": "https://adefinedimage.com/",
               "source_type": "website",
               "collected_at": "2026-09-03",
               "sample_note": "Public website"
+            },
+            {
+              "url_or_snapshot": "https://www.google.com/maps/search/?api=1&query=A+Defined+Image+Medical+Wellness+Centre+Snellville",
+              "source_type": "maps",
+              "collected_at": "2026-09-04",
+              "sample_note": "Public Google listing"
             }
           ],
           "surface_evidence": {
@@ -940,10 +979,11 @@
               "limitation": "Not retained."
             },
             "reputation": {
-              "status": "insufficient_evidence",
-              "finding": "Insufficient evidence.",
-              "evidence_refs": [],
-              "limitation": "Not retained."
+              "status": "observed",
+              "finding": "5.0 rating with 78 reviews. Spoken has substantially more review volume.",
+              "evidence_refs": [
+                "reputation.rating"
+              ]
             }
           },
           "repeated_positive_themes": [],
@@ -960,13 +1000,14 @@
             "entity_ref": "subject",
             "entity_name": "Spoken Med Spa",
             "entity_type": "subject",
-            "search": "Identity friction; geo-grid unmeasured.",
-            "website": "Strong Botox/Ivy; routing/proof gaps.",
-            "social": "Insufficient evidence",
-            "reputation": "Insufficient evidence",
+            "search": "The Google listing has a 4.9 rating with about 250 reviews. A map of specific service queries is not shown.",
+            "website": "Spoken has a strong Botox page and an active blog. They should be connected through one query map and a consistent content plan.",
+            "social": "Social content should repeat the approved queries and themes from the website and blog.",
+            "reputation": "Strong rating; consistent honest review collection and more substantive owner responses are needed.",
             "evidence_refs": [
-              "search.entity_integrity",
-              "website.clinician_trust_proof"
+              "website.treatment_clarity",
+              "reputation.rating",
+              "reputation.negative_review_handling"
             ]
           },
           {
@@ -976,9 +1017,10 @@
             "search": "Insufficient evidence",
             "website": "Clear local treatment-to-booking architecture.",
             "social": "Insufficient evidence",
-            "reputation": "Insufficient evidence",
+            "reputation": "4.8 rating with 196 reviews. Spoken has a higher rating and more reviews.",
             "evidence_refs": [
-              "website.treatment_clarity"
+              "website.treatment_clarity",
+              "reputation.rating"
             ]
           },
           {
@@ -988,9 +1030,10 @@
             "search": "Insufficient evidence",
             "website": "Structured medical authority and treatment depth.",
             "social": "Insufficient evidence",
-            "reputation": "Insufficient evidence",
+            "reputation": "5.0 rating with 726 reviews. This is substantially more review volume than Spoken.",
             "evidence_refs": [
-              "website.treatment_clarity"
+              "website.treatment_clarity",
+              "reputation.rating"
             ]
           },
           {
@@ -1012,9 +1055,10 @@
             "search": "Insufficient evidence",
             "website": "Local provider/injectables relevance.",
             "social": "Insufficient evidence",
-            "reputation": "Insufficient evidence",
+            "reputation": "5.0 rating with 78 reviews. Spoken has substantially more review volume.",
             "evidence_refs": [
-              "website.treatment_clarity"
+              "website.treatment_clarity",
+              "reputation.rating"
             ]
           }
         ]
@@ -1022,8 +1066,8 @@
       "decision_summary": {
         "defend": [
           {
-            "title": "Defend Ivy authority",
-            "rationale": "Named-provider authority is visible.",
+            "title": "Protect Ivy Cleveland's experience as a strength",
+            "rationale": "Ivy Cleveland's experience already supports trust in Spoken.",
             "evidence_refs": [
               "website.clinician_trust_proof"
             ]
@@ -1031,18 +1075,18 @@
         ],
         "close": [
           {
-            "title": "Close identity/trust gap",
-            "rationale": "Patients should not reconcile Spoken/Jurney signals.",
+            "title": "Grow review volume and improve owner responses",
+            "rationale": "Spoken has a strong rating, but About Face Skin Care has nearly three times as many reviews. Consistent honest review requests and substantive responses will help protect trust.",
             "evidence_refs": [
-              "search.entity_integrity",
-              "cross.identity_coherence"
+              "reputation.rating",
+              "reputation.negative_review_handling"
             ]
           }
         ],
         "differentiate": [
           {
-            "title": "Use injector-educator authority as trust evidence",
-            "rationale": "Use education as expertise evidence without superiority claims.",
+            "title": "Show Ivy Cleveland's experience as an educator",
+            "rationale": "This verified fact supports experience without an inflated claim.",
             "evidence_refs": [
               "website.clinician_trust_proof"
             ]
@@ -1050,8 +1094,8 @@
         ],
         "do_not_copy": [
           {
-            "title": "Do not copy visible tactics as proof",
-            "rationale": "Visibility does not establish ROI or clinical superiority.",
+            "title": "Do not copy discounts or inflated claims",
+            "rationale": "Discounts and broad claims do not prove quality or return on investment.",
             "evidence_refs": [
               "website.treatment_clarity"
             ]
@@ -1078,16 +1122,16 @@
     }
   },
   "implementation_paths": {
-    "diy": "Implement in-house.",
-    "other_provider": "Use another qualified provider.",
-    "defer": "Preserve evidence and revisit later.",
-    "caesthetic": "Ask CAESTHETIC to scope selected work separately."
+    "diy": "Implement the complete plan with the Spoken team.",
+    "other_provider": "Assign individual workstreams to your existing specialists.",
+    "caesthetic": "Ask CAESTHETIC to run a $2,500 30-Day Growth Sprint that aligns all four surfaces around the primary priority.",
+    "defer": "Keep the report and revisit it later."
   },
   "why_caesthetic": {
-    "evidence_advantage": "Evidence and dependency order are assembled.",
-    "coordination_advantage": "Repair spans identity, website, Search destinations and proof.",
-    "sprint_boundary": "No task is automatic; written 30-Day Sprint scope is separate. Sprint price: $2,500.",
-    "ownership": "Report and repair paths may be used without CAESTHETIC; no lock-in."
+    "evidence_advantage": "The facts and dependency order are already assembled.",
+    "coordination_advantage": "CAESTHETIC aligns Google, the website, social media, reviews, and owner responses.",
+    "sprint_boundary": "We implement one agreed priority in 30 days. The exact scope is confirmed in writing. Price: $2,500.",
+    "ownership": "Spoken keeps the report and instructions and may use them without CAESTHETIC."
   },
   "methodology": {
     "sources": [
@@ -1161,10 +1205,290 @@
     "subject_type": "aesthetic_practice",
     "format": "single_location",
     "package_role": "standalone",
-    "access_group_id": "spoken-medspa-snellville-2026-09-03"
+    "access_group_id": "spoken-medspa-snellville-2026-09-03",
+    "public_direct_link": false
   },
   "catalog": {
     "visibility": "private",
     "public_listing_approved": false
+  },
+  "leadToRevenueCheck": {
+    "recommendation": "recommended",
+    "reason": "Public evidence shows only the journey up to the enquiry. Response, booking, attendance, and payment require a separate review of authorized internal evidence.",
+    "evidence_refs": [
+      "website.above_fold_conversion",
+      "cross.positioning_coherence"
+    ]
+  },
+  "presentation": {
+    "kind": "localized_client",
+    "strict_locale": "en",
+    "copy_profile": "plain_owner_en",
+    "layout_contract": "owner-brief/2.1.0",
+    "vertical_profile": "med_spa",
+    "hide_unassessed": true,
+    "commercial_contract": "caesthetic-4444-commercial-core/1.0.0",
+    "check500_placement_contract": "check500-two-placement/1.0.0",
+    "check500_style_contract": "check500-style/1.0.0",
+    "owner_copy": {
+      "header": {
+        "kicker": "Executive brief · Growth Score",
+        "prepared_label": "Prepared"
+      },
+      "assessment_state": "Facts verified. Action plan ready.",
+      "ui": {
+        "header_kicker": "Executive brief · Growth Score",
+        "prepared_label": "Prepared",
+        "assessment_label": "Status",
+        "constraint_label": "Constraint",
+        "observed_label": "What we found",
+        "impact_label": "Why it matters",
+        "outcome_label": "What should change",
+        "done_label": "How to know it is complete",
+        "open_sources_label": "Open facts and sources",
+        "open_source_label": "Open source",
+        "cross_surface_label": "Connections across the four surfaces",
+        "competitor_sources_label": "Competitor sources",
+        "why_included_label": "Why included",
+        "why_chosen_label": "Why a patient may choose them",
+        "observed_advantage_label": "What is visible",
+        "source_date_label": "Reviewed",
+        "repair_intro": "Open the relevant item. Complete it in-house or assign it to your specialists.",
+        "repair_outcome_label": "What should change",
+        "repair_steps_label": "What to do",
+        "repair_dependencies_label": "What is needed",
+        "repair_owner_label": "Who owns it",
+        "repair_done_label": "How to verify",
+        "revisit_label": "When to revisit paid media",
+        "paths_coordination_label": "How to coordinate",
+        "paths_risk_label": "Risk",
+        "sprint_client_input_label": "What we need from Spoken",
+        "sprint_acceptance_label": "What we verify on Day 30",
+        "conclusion_title": "What to do first",
+        "strength_label": "What is already working",
+        "check_aria_label": "Lead-to-Revenue Check for $500",
+        "check_mid_placement_label": "middle of report",
+        "check_final_placement_label": "end of report"
+      },
+      "surface_labels": {
+        "search": "Search",
+        "website": "Website",
+        "social": "Social",
+        "reputation": "Reviews and owner responses",
+        "cross_surface": "Connections across the four surfaces"
+      },
+      "greeting": {
+        "kicker": "A note from Valerie",
+        "title": "Hello, Ivy.",
+        "body": "We reviewed your patient's journey: how they find Spoken, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
+        "signature": "Valerie Petra · CAESTHETIC"
+      },
+      "research_scope": {
+        "kicker": "What we reviewed",
+        "title": "Sources reviewed",
+        "links": [
+          [
+            "Website",
+            "https://www.spokenmedspa.com/"
+          ],
+          [
+            "Google Maps",
+            "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"
+          ],
+          [
+            "Social media",
+            "https://msha.ke/spokenmedspa/"
+          ]
+        ]
+      },
+      "intro": {
+        "kicker": "How to use this report",
+        "title": "What this report will show you",
+        "items": [
+          "where a patient may leave",
+          "what competitors make easier to understand",
+          "what to fix in 30 days",
+          "what not to fund yet",
+          "how to implement the changes in-house or with specialists"
+        ],
+        "note": "Start with the three main constraints. Then choose an implementation path and open the step-by-step instructions."
+      },
+      "method_intro": {
+        "kicker": "Where the review begins",
+        "title": "How Connect4 checks consistency across all four surfaces",
+        "intro": "First, we identify 10 key phrases patients use to find your services. Then we check whether the same language carries through Google, the website, social media, reviews, and your team's responses.",
+        "list_title": "What we check",
+        "surfaces": [
+          {
+            "title": "Search and Google",
+            "body": "Services, descriptions, posts, and the business profile."
+          },
+          {
+            "title": "Website and blog",
+            "body": "Service pages, articles, key wording, and the path to booking."
+          },
+          {
+            "title": "Social media",
+            "body": "Instagram, Facebook, TikTok, and YouTube; post copy, video transcripts, comments, and replies."
+          },
+          {
+            "title": "Reviews and reputation",
+            "body": "Patient reviews, their wording, owner responses, and recurring themes."
+          }
+        ],
+        "center": "Connect4",
+        "conclusion": "This is Connect4 consistency. A patient may start with Google, Instagram, the website, or reviews—but they should recognize the same service, the same wording, and the same meaning everywhere."
+      },
+      "section_titles": [
+        "The three primary constraints",
+        "A brief map of the patient journey",
+        "What cannot be verified without practice data",
+        "Competitor research",
+        "STOP",
+        "CONCLUSION",
+        "Choose who will implement the changes",
+        "Order of work",
+        "Step-by-step instructions"
+      ],
+      "section_kickers": [
+        "What gets in the way of booking",
+        "Patient journey",
+        "What happens after a patient enquiry",
+        "What competitors make easier to understand",
+        "Do not fund yet",
+        "Primary conclusion",
+        "Three implementation paths",
+        "30-day plan",
+        "For your team and specialists"
+      ],
+      "thirty_day_steps": [
+        [
+          "Days 1–7",
+          "Choose priority services. Collect core and long-tail queries with clear booking intent."
+        ],
+        [
+          "Days 8–14",
+          "Approve consistent service, provider, and location names. Allocate queries across the website, blog, Google, social media, reviews, and owner responses."
+        ],
+        [
+          "Days 15–21",
+          "Create an eight-week content plan. Publish the first article and connect it to the relevant service page, Google, and social media."
+        ],
+        [
+          "Days 22–30",
+          "Launch one honest review request for every eligible patient and substantive owner responses."
+        ],
+        [
+          "Day 30",
+          "Recheck demand language across all four surfaces, verify the path to booking, and record the result."
+        ]
+      ],
+      "thirty_day_note": "This is the recommended order for in-house implementation, not a pre-purchased scope of services.",
+      "internal_boundary": {
+        "kicker": "What happens after a patient enquiry",
+        "title": "What cannot be verified without practice data",
+        "body": "Public sources show only the journey up to the enquiry. Finding losses after that point requires authorized internal evidence about response, booking, attendance, consultation, and payment.",
+        "public_label": "Visible without access",
+        "public_path": "Search → website → enquiry",
+        "private_label": "Requires authorized access",
+        "private_path": "Response → booking → attendance → consultation → payment",
+        "asset_src": "/assets/img/growth-score/lead-to-revenue-map-en.svg",
+        "asset_alt": "Patient journey after an enquiry, from response through payment",
+        "asset_caption": "Public sources do not show these stages. Reviewing them requires authorized practice data."
+      },
+      "competitor": {
+        "kicker": "Competitor comparison",
+        "title": "Why a patient may choose another practice",
+        "intro": "We reviewed the websites of four local practices. Below is only what matters to Spoken's decision.",
+        "decision_labels": [
+          "Defend",
+          "Close",
+          "Differentiate",
+          "Do not copy"
+        ]
+      },
+      "evidence": {
+        "title": "Verified facts and source links",
+        "intro": "The report shows only conclusions that can be checked. The original sources are available here."
+      },
+      "conclusion": "Start with the map of specific patient queries. Then connect it to a regular blog, Google, social media, reviews, and owner responses. This turns three separate activities into one Connect4 system.",
+      "caesthetic_path_title": "Ask CAESTHETIC to implement",
+      "caesthetic_path_body": "CAESTHETIC keeps one meaning and one set of names consistent across Google, the website, social media, reviews, and owner responses.",
+      "implementation_options": [
+        {
+          "title": "Implement in-house",
+          "body": "Assign one accountable owner and complete the plan with the Spoken team.",
+          "coordination": "One person approves the names, sequence, and acceptance criteria across all four surfaces.",
+          "risk": "Without shared oversight, Google, the website, social media, reviews, and owner responses may drift apart again."
+        },
+        {
+          "title": "Use your existing specialists",
+          "body": "Assign workstreams to your specialists while keeping overall coordination inside Spoken.",
+          "coordination": "One coordinator gives every specialist the same names, phrases, and acceptance criteria.",
+          "risk": "Each specialist may improve an individual channel without improving the complete patient journey."
+        },
+        {
+          "title": "Ask CAESTHETIC to implement",
+          "body": "Give CAESTHETIC the primary Connect4 priority: align all four surfaces.",
+          "coordination": "We preserve one meaning and one set of names across Google, the website, social media, reviews, and owner responses.",
+          "risk": "Spoken must provide timely medical review, the required access, and one accountable decision-maker."
+        }
+      ],
+      "sprint_offer": {
+        "kicker": "Primary recommendation",
+        "title": "Align all four surfaces in 30 days",
+        "price": "$2,500 · 30 days",
+        "body": "CAESTHETIC aligns Google, the website, social media, reviews, and owner responses. The exact worklist is confirmed in writing before the Sprint begins.",
+        "items": [
+          "Core and specific patient queries for priority services.",
+          "Consistent names and query allocation across all four surfaces.",
+          "Regular content, honest review requests, and substantive owner responses.",
+          "A Day-30 recheck across all four surfaces."
+        ],
+        "client_input": "Confirmed service and provider names, medically reviewed copy, required access, and one accountable decision-maker.",
+        "acceptance": "Changes are live. All four surfaces are checked again. The result and remaining issues are recorded.",
+        "boundary": "No specific rankings, patient volume, revenue, or return on investment are promised.",
+        "cta": "Discuss the 30-Day Growth Sprint"
+      },
+      "check500": {
+        "copy_contract": "check500-section/en-US/1.0.0",
+        "product_line": "Lead-to-Revenue Check · $500",
+        "price": "$500",
+        "title": "Do all your enquiries make it to a booking?",
+        "body": "See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where enquiries may be getting lost.",
+        "cta": "Check My Lead-to-Revenue Path",
+        "fine_print": "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total.",
+        "boundary": "The Check does not promise a specific revenue, patient, or return-on-investment outcome.",
+        "mid": {
+          "kicker": "Review the internal journey"
+        },
+        "final": {
+          "kicker": "If you prefer a smaller first step"
+        },
+        "final_intro": "The $500 Check is available separately and is not required before the Sprint."
+      }
+    },
+    "official_names": [
+      "CAESTHETIC",
+      "Connect4",
+      "Spoken Med Spa",
+      "Spoken",
+      "Ivy",
+      "Ivy Cleveland",
+      "Botox",
+      "Spoken Aesthetic Academy",
+      "Academy",
+      "Google",
+      "Instagram",
+      "Facebook",
+      "TikTok",
+      "YouTube",
+      "LinkedIn",
+      "dermani MEDSPA® Snellville",
+      "About Face Skin Care - Snellville",
+      "About Face Skin Care",
+      "Harper Haus Aesthetics & Wellness",
+      "A Defined Image Medical Wellness Centre"
+    ]
   }
 }

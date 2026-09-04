@@ -10,8 +10,21 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../
 export const sourceSlug = "spoken-medspa-snellville-9d7f3a5c2e184b61";
 export const slug = `${sourceSlug}-rus`;
 export const sourceReportPath = path.join(repoRoot, "site-caesthetic", "score", sourceSlug, "report.json");
+export const englishReportPath = sourceReportPath;
+export const englishHtmlPath = path.join(repoRoot, "site-caesthetic", "score", sourceSlug, "index.html");
 export const reportPath = path.join(repoRoot, "site-caesthetic", "score", slug, "report.json");
 export const htmlPath = path.join(repoRoot, "site-caesthetic", "score", slug, "index.html");
+export const englishAuditReportPath = path.join(
+  repoRoot,
+  "docs",
+  "audits",
+  "caesthetic",
+  "growth-score",
+  "cases",
+  "spoken-medspa-snellville-2026",
+  "reports",
+  "standalone.json",
+);
 export const auditReportPath = path.join(
   repoRoot,
   "docs",
@@ -429,12 +442,15 @@ function applyPlainOwnerCopy(report) {
   for (const competitor of diagnosis.competitors.entries) {
     const benchmark = reputationBenchmarks[competitor.id];
     if (!benchmark) continue;
-    competitor.sources.push({
+    const sourceEntry = {
       url_or_snapshot: benchmark.source,
       source_type: "maps",
       collected_at: "2026-09-04",
       sample_note: "Публичная карточка Google",
-    });
+    };
+    const existingIndex = competitor.sources.findIndex((candidate) => candidate.url_or_snapshot === benchmark.source);
+    if (existingIndex >= 0) competitor.sources[existingIndex] = sourceEntry;
+    else competitor.sources.push(sourceEntry);
     competitor.surface_evidence.reputation = {
       status: "observed",
       finding: benchmark.finding,
@@ -482,8 +498,563 @@ function applyPlainOwnerCopy(report) {
   };
 }
 
+function applyPlainOwnerCopyEnglish(report) {
+  report.reportVersion = "spoken-medspa-snellville-public-evidence/en/1.6.2";
+  report.verifiedFactSetVersion = "spoken-medspa-snellville-2026-09-04/4444-v1";
+  report.disclosure = "This report uses public sources only. We did not assess internal operations, patient data, revenue, or treatment outcomes.";
+  report.executiveSummary = "Spoken already has a strong Botox page, an active blog, and a high Google rating. The main task is to connect specific patient queries, consistent content, and reputation work into one system.";
+  report.crossSurface.summary = "The website, blog, Google presence, social media, reviews, and owner responses should use one demand language: consistent services, providers, location, and specific patient queries.";
+
+  const findMetric = (surfaceId, metricId) => report.surfaces
+    .find((surface) => surface.id === surfaceId)
+    ?.metrics.find((metric) => metric.metric_id === metricId);
+  const findCrossMetric = (metricId) => report.crossSurface.metrics
+    .find((metric) => metric.metric_id === metricId);
+  const resetMetric = (metric) => {
+    Object.assign(metric, {
+      raw_value: null,
+      normalized_score: null,
+      evidence_class: "A",
+      source: null,
+      collected_at: null,
+      reviewer_status: "pending",
+    });
+    delete metric.finding;
+  };
+  resetMetric(findMetric("search", "entity_integrity"));
+  resetMetric(findCrossMetric("identity_coherence"));
+
+  Object.assign(findMetric("website", "treatment_clarity"), {
+    raw_value: "Botox, fillers, and related articles",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "Service pages and the active blog answer patient questions, but the public materials do not show one map of specific queries and where each query should be used.",
+  });
+  Object.assign(findCrossMetric("proof_continuity"), {
+    raw_value: "content is not connected through one query map",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog; https://www.spokenmedspa.com/clients; https://msha.ke/spokenmedspa/",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "Useful content exists, but its connection to the same specific queries across the website, Google, and social media is not presented as one system.",
+  });
+  Object.assign(findMetric("reputation", "rating"), {
+    raw_value: "4.9 with about 250 reviews",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "Spoken has a strong 4.9 rating with about 250 reviews. This is a strong foundation that should be maintained consistently.",
+  });
+  Object.assign(findMetric("reputation", "negative_review_handling"), {
+    raw_value: "phone and front-desk communication appears repeatedly",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "Several lower-rated reviews repeat concerns about phone and front-desk communication. Owner responses are present, but some are generic and one visible response does not address the complaint.",
+  });
+
+  const searchCard = report.surfaces.find((surface) => surface.id === "search")?.owner_card;
+  const websiteCard = report.surfaces.find((surface) => surface.id === "website")?.owner_card;
+  const reputationCard = report.surfaces.find((surface) => surface.id === "reputation")?.owner_card;
+  Object.assign(searchCard, {
+    strength: "The Google listing shows a high rating and links to the website.",
+    problem: "Specific queries for priority services are not allocated across the four surfaces.",
+    priority: "HIGH",
+  });
+  Object.assign(websiteCard, {
+    strength: "Spoken has a strong Botox page and an active blog.",
+    problem: "Service pages and articles are not connected through one map of specific queries.",
+    priority: "HIGH",
+  });
+  Object.assign(reputationCard, {
+    strength: "A 4.9 rating and about 250 reviews provide a strong trust foundation.",
+    problem: "Consistent honest review collection and the quality of owner responses need an ongoing system.",
+    priority: "HIGH",
+  });
+
+  const diagnosis = report.humanDiagnosis;
+  diagnosis.objective_strength.title = "Spoken has a strong Botox page, an active blog, and a 4.9 Google rating.";
+  diagnosis.binding_constraint.title = "Queries, content, and reviews are not yet one system";
+  diagnosis.binding_constraint.statement = "Specific patient queries have not yet been organized into one map, the blog is not connected to an ongoing four-surface content plan, and review growth and owner responses are not managed as a consistent system.";
+  diagnosis.binding_constraint.evidence_refs = [
+    "website.treatment_clarity",
+    "cross.proof_continuity",
+    "reputation.rating",
+    "reputation.negative_review_handling",
+  ];
+  diagnosis.binding_constraint.gap_ref = "SMS-26-01";
+  diagnosis.current_state.strengths = [
+    "The Botox page explains the service clearly and shows Ivy Cleveland's experience.",
+    "An active blog, a 4.9 rating, and about 250 reviews provide a strong trust foundation.",
+  ];
+  diagnosis.current_state.constraint_label = "Queries, content, and reviews do not yet work as one system";
+  diagnosis.current_state.constraint_detail = "Spoken already has the necessary parts. The next step is to connect them: choose specific patient queries, allocate them across the four surfaces, and preserve one meaning in content, reviews, and owner responses.";
+  diagnosis.current_state.priority_line = "First build the query map. Then connect it to a regular blog plan and an ongoing system for honest reviews and substantive owner responses.";
+  diagnosis.focus_selection.rationale = "Closing these three gaps will help patients find the right service, feel confident in their choice, and move toward booking.";
+
+  const copyByGap = {
+    "SMS-26-01": {
+      title: "Build a map of specific patient queries",
+      surfaces: ["search", "website", "social", "reputation", "cross_surface"],
+      evidence_refs: ["website.treatment_clarity", "cross.proof_continuity"],
+      why_it_matters: "Service pages and articles already answer different patient questions. Without one map, however, it is unclear which specific query should lead to which page and how that language should carry through Google, social media, reviews, and owner responses.",
+      outcome: "Each priority service has specific booking-intent queries and a defined place where each query should be used.",
+      diy_steps: [
+        "Choose the priority services and questions patients ask before booking.",
+        "Collect core and long-tail queries with clear booking intent.",
+        "Approve consistent names for services, providers, and the location.",
+        "Allocate the queries across website pages, the blog, Google Business Profile, social media, reviews, and owner responses.",
+      ],
+      dependencies: ["A list of priority services plus confirmed provider and location details."],
+      owner_role: "One person who approves the query map and shared vocabulary for all four surfaces.",
+      done_when: [
+        "Every priority service has a set of specific queries with booking intent.",
+        "Every query is assigned to a page, article, post, or owner response.",
+      ],
+    },
+    "SMS-26-02": {
+      title: "Turn the blog into a consistent system",
+      surfaces: ["website", "search", "social", "cross_surface"],
+      evidence_refs: ["website.treatment_clarity", "cross.proof_continuity"],
+      why_it_matters: "The blog is active, with new articles published in August and September 2026. However, posts appear in batches, and the public materials do not show a consistent link between every article, a specific query, the relevant service page, Google, and social media.",
+      outcome: "The blog follows a clear schedule, answers real patient questions, and reinforces the same queries across all four surfaces.",
+      diy_steps: [
+        "Create an eight-week content plan around priority services and specific queries.",
+        "Give each article one patient question, one service page, and one clear next step toward booking.",
+        "After medical review, create shorter versions for Google and social media.",
+        "Review publication cadence monthly and confirm that the same meaning remains consistent across all four surfaces.",
+      ],
+      dependencies: ["The approved query map and a person responsible for medical accuracy."],
+      owner_role: "An editor and a qualified reviewer who confirms medical accuracy.",
+      day_30_outcome: "An eight-week plan is approved. The first article is published and connected to its service page, Google, and social media.",
+      beyond_day_30: "Continue publishing on schedule, update the query map, and carry one consistent meaning across all four surfaces.",
+      done_when: [
+        "The next eight weeks have topics, queries, owners, and publication dates.",
+        "Every article links to the relevant service page and a clear next step.",
+      ],
+    },
+    "SMS-26-03": {
+      title: "Collect honest reviews consistently and improve owner responses",
+      surfaces: ["reputation", "search", "cross_surface"],
+      evidence_refs: ["reputation.rating", "reputation.negative_review_handling"],
+      why_it_matters: "A 4.9 rating with about 250 reviews is a strong foundation. About Face Skin Care has a 5.0 rating and 726 reviews, while several lower-rated Spoken reviews repeat concerns about phone and front-desk communication. Some owner responses are too generic.",
+      outcome: "Every eligible patient receives the same honest review request, and every owner response addresses the review while protecting privacy.",
+      diy_steps: [
+        "Ask every eligible patient for an honest review under one consistent rule—without filtering, payment, incentives, or prewritten text.",
+        "Respond to each review substantively. Do not confirm treatment or disclose personal information.",
+        "Identify recurring review themes monthly and feed them into the website and blog plan.",
+        "Compare patient language and owner responses with the shared map of services, providers, and location without forcing keywords into patient speech.",
+      ],
+      dependencies: ["One review-request rule, an accountable owner, and privacy-safe response guidance."],
+      owner_role: "One Spoken team member who owns review requests, responses, and recurring-theme review.",
+      day_30_outcome: "The honest review-request system is live. New reviews receive substantive responses, and recurring themes are included in the content plan.",
+      beyond_day_30: "Continue requesting honest reviews, respond substantively, and compare recurring themes with the four-surface plan each month.",
+      done_when: [
+        "Every eligible patient receives the same review request under one rule.",
+        "Owner responses address the review and do not disclose personal information.",
+        "Recurring review themes enter the improvement and content plan.",
+      ],
+    },
+    "SMS-26-04": {
+      title: "Remove stray and placeholder copy from secondary pages",
+      why_it_matters: "Unrelated copy weakens the overall website experience.",
+      outcome: "Adjacent pages contain only reviewed, service-relevant copy.",
+      diy_steps: ["Review adjacent pages and remove unrelated or placeholder content."],
+      dependencies: [],
+      owner_role: "Website owner.",
+      done_when: ["Known unrelated and placeholder copy is removed."],
+    },
+  };
+  for (const gap of diagnosis.gap_inventory) {
+    const copy = copyByGap[gap.id];
+    if (!copy) continue;
+    gap.title = copy.title;
+    if (copy.surfaces) gap.surfaces = copy.surfaces;
+    if (copy.evidence_refs) gap.evidence_refs = copy.evidence_refs;
+    gap.why_it_matters = copy.why_it_matters;
+    gap.repair_plan = {
+      ...gap.repair_plan,
+      outcome: copy.outcome,
+      diy_steps: copy.diy_steps,
+      dependencies: copy.dependencies,
+      owner_role: copy.owner_role,
+      ...(copy.day_30_outcome ? { day_30_outcome: copy.day_30_outcome } : {}),
+      ...(copy.beyond_day_30 ? { beyond_day_30: copy.beyond_day_30 } : {}),
+      done_when: copy.done_when,
+    };
+  }
+
+  diagnosis.do_not_do.title = "Do not increase paid media for Botox or fillers yet";
+  diagnosis.do_not_do.rationale = "First build the specific-query map, connect it to consistent content, and establish an honest review system with substantive owner responses. Otherwise, paid media would send more people into an inconsistent journey.";
+  diagnosis.do_not_do.evidence_refs = [
+    "website.treatment_clarity",
+    "cross.proof_continuity",
+    "reputation.rating",
+    "reputation.negative_review_handling",
+  ];
+  diagnosis.do_not_do.revisit_after = [
+    "Specific booking-intent queries are selected for every priority service.",
+    "Queries are allocated across the website, blog, Google, social media, reviews, and owner responses.",
+    "A consistent content plan is approved and active.",
+    "The honest review-request and substantive-response system is active.",
+    "The journey from search to booking has been checked.",
+  ];
+
+  const competitorCopy = {
+    "dermani-medspa-snellville": "A clear service-to-booking path.",
+    "about-face-snellville": "Providers and services are easy to understand.",
+    "harper-haus": "The entire offer is organized around one named provider.",
+    "a-defined-image": "The provider and injectable services are immediately visible.",
+  };
+  for (const competitor of diagnosis.competitors.entries) {
+    competitor.patient_choice_reason = competitorCopy[competitor.id] || competitor.patient_choice_reason;
+    competitor.observable_advantage = competitorCopy[competitor.id] || competitor.observable_advantage;
+    competitor.constraint_effect = "Helps compare offer clarity, review volume, and the quality of public trust.";
+    competitor.priority_effect = "Supports the work on queries, content, and reviews.";
+  }
+  diagnosis.competitors.sample_limitations = "Websites were reviewed for four local alternatives. Google rating and review count were retained for Spoken, dermani MEDSPA® Snellville, About Face Skin Care, and A Defined Image Medical Wellness Centre; social media was not compared comprehensively.";
+  diagnosis.competitors.review_sample_rule = "We compare only visible ratings, review counts, recurring themes, and owner responses. We do not infer internal causes.";
+  diagnosis.competitors.comparison_window = { start: "2026-09-03", end: "2026-09-04" };
+
+  const reputationBenchmarks = {
+    "dermani-medspa-snellville": {
+      finding: "4.8 rating with 196 reviews. Spoken has a higher rating and more reviews.",
+      source: "https://www.google.com/maps/search/?api=1&query=dermani+MEDSPA+Snellville",
+    },
+    "about-face-snellville": {
+      finding: "5.0 rating with 726 reviews. This is substantially more review volume than Spoken.",
+      source: "https://www.google.com/maps/search/?api=1&query=About+Face+Skin+Care+Snellville",
+    },
+    "a-defined-image": {
+      finding: "5.0 rating with 78 reviews. Spoken has substantially more review volume.",
+      source: "https://www.google.com/maps/search/?api=1&query=A+Defined+Image+Medical+Wellness+Centre+Snellville",
+    },
+  };
+  for (const competitor of diagnosis.competitors.entries) {
+    const benchmark = reputationBenchmarks[competitor.id];
+    if (!benchmark) continue;
+    const sourceEntry = {
+      url_or_snapshot: benchmark.source,
+      source_type: "maps",
+      collected_at: "2026-09-04",
+      sample_note: "Public Google listing",
+    };
+    const existingIndex = competitor.sources.findIndex((candidate) => candidate.url_or_snapshot === benchmark.source);
+    if (existingIndex >= 0) competitor.sources[existingIndex] = sourceEntry;
+    else competitor.sources.push(sourceEntry);
+    competitor.surface_evidence.reputation = {
+      status: "observed",
+      finding: benchmark.finding,
+      evidence_refs: ["reputation.rating"],
+    };
+    competitor.observable_gap = benchmark.finding;
+    competitor.limitations = "The rating and review-count comparison uses the visible Google listing on the review date. The full review corpus was not exported, so there is insufficient repetition to conclude comparative themes.";
+  }
+  for (const row of diagnosis.competitors.comparison_matrix.rows) {
+    if (row.entity_ref === "subject") {
+      row.search = "The Google listing has a 4.9 rating with about 250 reviews. A map of specific service queries is not shown.";
+      row.website = "Spoken has a strong Botox page and an active blog. They should be connected through one query map and a consistent content plan.";
+      row.social = "Social content should repeat the approved queries and themes from the website and blog.";
+      row.reputation = "Strong rating; consistent honest review collection and more substantive owner responses are needed.";
+      row.evidence_refs = ["website.treatment_clarity", "reputation.rating", "reputation.negative_review_handling"];
+      continue;
+    }
+    const benchmark = reputationBenchmarks[row.entity_ref];
+    if (benchmark) {
+      row.reputation = benchmark.finding;
+      row.evidence_refs = [...new Set([...row.evidence_refs, "reputation.rating"])];
+    }
+  }
+  diagnosis.competitors.decision_summary.defend[0].title = "Protect Ivy Cleveland's experience as a strength";
+  diagnosis.competitors.decision_summary.defend[0].rationale = "Ivy Cleveland's experience already supports trust in Spoken.";
+  diagnosis.competitors.decision_summary.close[0].title = "Grow review volume and improve owner responses";
+  diagnosis.competitors.decision_summary.close[0].rationale = "Spoken has a strong rating, but About Face Skin Care has nearly three times as many reviews. Consistent honest review requests and substantive responses will help protect trust.";
+  diagnosis.competitors.decision_summary.close[0].evidence_refs = ["reputation.rating", "reputation.negative_review_handling"];
+  diagnosis.competitors.decision_summary.differentiate[0].title = "Show Ivy Cleveland's experience as an educator";
+  diagnosis.competitors.decision_summary.differentiate[0].rationale = "This verified fact supports experience without an inflated claim.";
+  diagnosis.competitors.decision_summary.do_not_copy[0].title = "Do not copy discounts or inflated claims";
+  diagnosis.competitors.decision_summary.do_not_copy[0].rationale = "Discounts and broad claims do not prove quality or return on investment.";
+
+  report.implementation_paths = {
+    diy: "Implement the complete plan with the Spoken team.",
+    other_provider: "Assign individual workstreams to your existing specialists.",
+    caesthetic: "Ask CAESTHETIC to run a $2,500 30-Day Growth Sprint that aligns all four surfaces around the primary priority.",
+    defer: "Keep the report and revisit it later.",
+  };
+  report.why_caesthetic = {
+    evidence_advantage: "The facts and dependency order are already assembled.",
+    coordination_advantage: "CAESTHETIC aligns Google, the website, social media, reviews, and owner responses.",
+    sprint_boundary: "We implement one agreed priority in 30 days. The exact scope is confirmed in writing. Price: $2,500.",
+    ownership: "Spoken keeps the report and instructions and may use them without CAESTHETIC.",
+  };
+}
+
+export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceReportPath, "utf8"))) {
+  const report = structuredClone(source);
+  report.reportContext.report_locale = "en";
+  report.reportContext.locale_source = "user_selected";
+  applyPlainOwnerCopyEnglish(report);
+  report.leadToRevenueCheck = {
+    recommendation: "recommended",
+    reason: "Public evidence shows only the journey up to the enquiry. Response, booking, attendance, and payment require a separate review of authorized internal evidence.",
+    evidence_refs: [
+      "website.above_fold_conversion",
+      "cross.positioning_coherence",
+    ],
+  };
+  report.presentation = {
+    kind: "localized_client",
+    strict_locale: "en",
+    copy_profile: "plain_owner_en",
+    layout_contract: OWNER_BRIEF_LAYOUT_CONTRACT,
+    vertical_profile: "med_spa",
+    hide_unassessed: true,
+    commercial_contract: "caesthetic-4444-commercial-core/1.0.0",
+    check500_placement_contract: "check500-two-placement/1.0.0",
+    check500_style_contract: CHECK500_STYLE_CONTRACT,
+    owner_copy: {
+      header: {
+        kicker: "Executive brief · Growth Score",
+        prepared_label: "Prepared",
+      },
+      assessment_state: "Facts verified. Action plan ready.",
+      ui: {
+        header_kicker: "Executive brief · Growth Score",
+        prepared_label: "Prepared",
+        assessment_label: "Status",
+        constraint_label: "Constraint",
+        observed_label: "What we found",
+        impact_label: "Why it matters",
+        outcome_label: "What should change",
+        done_label: "How to know it is complete",
+        open_sources_label: "Open facts and sources",
+        open_source_label: "Open source",
+        cross_surface_label: "Connections across the four surfaces",
+        competitor_sources_label: "Competitor sources",
+        why_included_label: "Why included",
+        why_chosen_label: "Why a patient may choose them",
+        observed_advantage_label: "What is visible",
+        source_date_label: "Reviewed",
+        repair_intro: "Open the relevant item. Complete it in-house or assign it to your specialists.",
+        repair_outcome_label: "What should change",
+        repair_steps_label: "What to do",
+        repair_dependencies_label: "What is needed",
+        repair_owner_label: "Who owns it",
+        repair_done_label: "How to verify",
+        revisit_label: "When to revisit paid media",
+        paths_coordination_label: "How to coordinate",
+        paths_risk_label: "Risk",
+        sprint_client_input_label: "What we need from Spoken",
+        sprint_acceptance_label: "What we verify on Day 30",
+        conclusion_title: "What to do first",
+        strength_label: "What is already working",
+        check_aria_label: "Lead-to-Revenue Check for $500",
+        check_mid_placement_label: "middle of report",
+        check_final_placement_label: "end of report",
+      },
+      surface_labels: {
+        search: "Search",
+        website: "Website",
+        social: "Social",
+        reputation: "Reviews and owner responses",
+        cross_surface: "Connections across the four surfaces",
+      },
+      greeting: {
+        kicker: "A note from Valerie",
+        title: "Hello, Ivy.",
+        body: "We reviewed your patient's journey: how they find Spoken, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
+        signature: "Valerie Petra · CAESTHETIC",
+      },
+      research_scope: {
+        kicker: "What we reviewed",
+        title: "Sources reviewed",
+        links: [
+          ["Website", "https://www.spokenmedspa.com/"],
+          ["Google Maps", "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"],
+          ["Social media", "https://msha.ke/spokenmedspa/"],
+        ],
+      },
+      intro: {
+        kicker: "How to use this report",
+        title: "What this report will show you",
+        items: [
+          "where a patient may leave",
+          "what competitors make easier to understand",
+          "what to fix in 30 days",
+          "what not to fund yet",
+          "how to implement the changes in-house or with specialists",
+        ],
+        note: "Start with the three main constraints. Then choose an implementation path and open the step-by-step instructions.",
+      },
+      method_intro: {
+        kicker: "Where the review begins",
+        title: "How Connect4 checks consistency across all four surfaces",
+        intro: "First, we identify 10 key phrases patients use to find your services. Then we check whether the same language carries through Google, the website, social media, reviews, and your team's responses.",
+        list_title: "What we check",
+        surfaces: [
+          { title: "Search and Google", body: "Services, descriptions, posts, and the business profile." },
+          { title: "Website and blog", body: "Service pages, articles, key wording, and the path to booking." },
+          { title: "Social media", body: "Instagram, Facebook, TikTok, and YouTube; post copy, video transcripts, comments, and replies." },
+          { title: "Reviews and reputation", body: "Patient reviews, their wording, owner responses, and recurring themes." },
+        ],
+        center: "Connect4",
+        conclusion: "This is Connect4 consistency. A patient may start with Google, Instagram, the website, or reviews—but they should recognize the same service, the same wording, and the same meaning everywhere.",
+      },
+      section_titles: [
+        "The three primary constraints",
+        "A brief map of the patient journey",
+        "What cannot be verified without practice data",
+        "Competitor research",
+        "STOP",
+        "CONCLUSION",
+        "Choose who will implement the changes",
+        "Order of work",
+        "Step-by-step instructions",
+      ],
+      section_kickers: [
+        "What gets in the way of booking",
+        "Patient journey",
+        "What happens after a patient enquiry",
+        "What competitors make easier to understand",
+        "Do not fund yet",
+        "Primary conclusion",
+        "Three implementation paths",
+        "30-day plan",
+        "For your team and specialists",
+      ],
+      thirty_day_steps: [
+        ["Days 1–7", "Choose priority services. Collect core and long-tail queries with clear booking intent."],
+        ["Days 8–14", "Approve consistent service, provider, and location names. Allocate queries across the website, blog, Google, social media, reviews, and owner responses."],
+        ["Days 15–21", "Create an eight-week content plan. Publish the first article and connect it to the relevant service page, Google, and social media."],
+        ["Days 22–30", "Launch one honest review request for every eligible patient and substantive owner responses."],
+        ["Day 30", "Recheck demand language across all four surfaces, verify the path to booking, and record the result."],
+      ],
+      thirty_day_note: "This is the recommended order for in-house implementation, not a pre-purchased scope of services.",
+      internal_boundary: {
+        kicker: "What happens after a patient enquiry",
+        title: "What cannot be verified without practice data",
+        body: "Public sources show only the journey up to the enquiry. Finding losses after that point requires authorized internal evidence about response, booking, attendance, consultation, and payment.",
+        public_label: "Visible without access",
+        public_path: "Search → website → enquiry",
+        private_label: "Requires authorized access",
+        private_path: "Response → booking → attendance → consultation → payment",
+        asset_src: "/assets/img/growth-score/lead-to-revenue-map-en.svg",
+        asset_alt: "Patient journey after an enquiry, from response through payment",
+        asset_caption: "Public sources do not show these stages. Reviewing them requires authorized practice data.",
+      },
+      competitor: {
+        kicker: "Competitor comparison",
+        title: "Why a patient may choose another practice",
+        intro: "We reviewed the websites of four local practices. Below is only what matters to Spoken's decision.",
+        decision_labels: ["Defend", "Close", "Differentiate", "Do not copy"],
+      },
+      evidence: {
+        title: "Verified facts and source links",
+        intro: "The report shows only conclusions that can be checked. The original sources are available here.",
+      },
+      conclusion: "Start with the map of specific patient queries. Then connect it to a regular blog, Google, social media, reviews, and owner responses. This turns three separate activities into one Connect4 system.",
+      caesthetic_path_title: "Ask CAESTHETIC to implement",
+      caesthetic_path_body: "CAESTHETIC keeps one meaning and one set of names consistent across Google, the website, social media, reviews, and owner responses.",
+      implementation_options: [
+        {
+          title: "Implement in-house",
+          body: "Assign one accountable owner and complete the plan with the Spoken team.",
+          coordination: "One person approves the names, sequence, and acceptance criteria across all four surfaces.",
+          risk: "Without shared oversight, Google, the website, social media, reviews, and owner responses may drift apart again.",
+        },
+        {
+          title: "Use your existing specialists",
+          body: "Assign workstreams to your specialists while keeping overall coordination inside Spoken.",
+          coordination: "One coordinator gives every specialist the same names, phrases, and acceptance criteria.",
+          risk: "Each specialist may improve an individual channel without improving the complete patient journey.",
+        },
+        {
+          title: "Ask CAESTHETIC to implement",
+          body: "Give CAESTHETIC the primary Connect4 priority: align all four surfaces.",
+          coordination: "We preserve one meaning and one set of names across Google, the website, social media, reviews, and owner responses.",
+          risk: "Spoken must provide timely medical review, the required access, and one accountable decision-maker.",
+        },
+      ],
+      sprint_offer: {
+        kicker: "Primary recommendation",
+        title: "Align all four surfaces in 30 days",
+        price: "$2,500 · 30 days",
+        body: "CAESTHETIC aligns Google, the website, social media, reviews, and owner responses. The exact worklist is confirmed in writing before the Sprint begins.",
+        items: [
+          "Core and specific patient queries for priority services.",
+          "Consistent names and query allocation across all four surfaces.",
+          "Regular content, honest review requests, and substantive owner responses.",
+          "A Day-30 recheck across all four surfaces.",
+        ],
+        client_input: "Confirmed service and provider names, medically reviewed copy, required access, and one accountable decision-maker.",
+        acceptance: "Changes are live. All four surfaces are checked again. The result and remaining issues are recorded.",
+        boundary: "No specific rankings, patient volume, revenue, or return on investment are promised.",
+        cta: "Discuss the 30-Day Growth Sprint",
+      },
+      check500: {
+        copy_contract: "check500-section/en-US/1.0.0",
+        product_line: "Lead-to-Revenue Check · $500",
+        price: "$500",
+        title: "Do all your enquiries make it to a booking?",
+        body: "See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where enquiries may be getting lost.",
+        cta: "Check My Lead-to-Revenue Path",
+        fine_print: "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total.",
+        boundary: "The Check does not promise a specific revenue, patient, or return-on-investment outcome.",
+        mid: {
+          kicker: "Review the internal journey",
+        },
+        final: {
+          kicker: "If you prefer a smaller first step",
+        },
+        final_intro: "The $500 Check is available separately and is not required before the Sprint.",
+      },
+    },
+    official_names: [
+      "CAESTHETIC",
+      "Connect4",
+      "Spoken Med Spa",
+      "Spoken",
+      "Ivy",
+      "Ivy Cleveland",
+      "Botox",
+      "Spoken Aesthetic Academy",
+      "Academy",
+      "Google",
+      "Instagram",
+      "Facebook",
+      "TikTok",
+      "YouTube",
+      "LinkedIn",
+      "dermani MEDSPA® Snellville",
+      "About Face Skin Care - Snellville",
+      "About Face Skin Care",
+      "Harper Haus Aesthetics & Wellness",
+      "A Defined Image Medical Wellness Centre",
+    ],
+  };
+  report.audit = {
+    ...report.audit,
+    project_id: source.audit.project_id,
+    access_group_id: source.audit.access_group_id,
+    public_direct_link: false,
+  };
+  report.catalog = {
+    visibility: "private",
+    public_listing_approved: false,
+  };
+  return report;
+}
+
 export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceReportPath, "utf8"))) {
-  const report = translateStrings(structuredClone(source));
+  const report = translateStrings(buildEnglishReport(source));
   report.reportContext.report_locale = "ru";
   report.reportContext.locale_source = "user_selected";
   applyPlainOwnerCopy(report);
@@ -585,22 +1156,10 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         intro: "Сначала мы определяем 10 ключевых фраз, по которым пациенты ищут ваши услуги. Затем проверяем, одинаково ли этот язык проходит через Google, сайт, социальные сети, отзывы и ответы вашей команды.",
         list_title: "Что мы проверяем",
         surfaces: [
-          {
-            title: "Поиск и Google",
-            body: "Услуги, описания, публикации, карточка компании.",
-          },
-          {
-            title: "Сайт и блог",
-            body: "Страницы услуг, статьи, ключевые формулировки, путь к записи.",
-          },
-          {
-            title: "Социальные сети",
-            body: "Instagram, Facebook, TikTok, YouTube; тексты постов, транскрипции видео, комментарии и ответы.",
-          },
-          {
-            title: "Отзывы и репутация",
-            body: "Отзывы пациентов, их формулировки, ответы владельца и повторяющиеся темы.",
-          },
+          { title: "Поиск и Google", body: "Услуги, описания, публикации, карточка компании." },
+          { title: "Сайт и блог", body: "Страницы услуг, статьи, ключевые формулировки, путь к записи." },
+          { title: "Социальные сети", body: "Instagram, Facebook, TikTok, YouTube; тексты постов, транскрипции видео, комментарии и ответы." },
+          { title: "Отзывы и репутация", body: "Отзывы пациентов, их формулировки, ответы владельца и повторяющиеся темы." },
         ],
         center: "10 ключевых фраз",
         conclusion: "Это и есть соответствие. Пациент может начать путь с Google, Instagram, сайта или отзывов — но везде он должен узнавать ту же услугу, те же формулировки и тот же смысл.",
@@ -740,8 +1299,9 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
     for (const metric of surface.metrics) metric.label = METRIC_LABELS_RU[metric.metric_id];
   }
   for (const metric of report.crossSurface.metrics) metric.label = METRIC_LABELS_RU[metric.metric_id];
+  const { public_direct_link: _sourcePublicDirectLink, ...sourceAudit } = report.audit;
   report.audit = {
-    ...report.audit,
+    ...sourceAudit,
     project_id: source.audit.project_id,
     access_group_id: null,
     translation_of_project_id: source.audit.project_id,
@@ -759,19 +1319,31 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
   return report;
 }
 
+export const englishReport = buildEnglishReport();
 export const report = buildRussianReport();
 
-export function writeRussianReport() {
-  const serialized = `${JSON.stringify(report, null, 2)}\n`;
+export function writeSpokenReports() {
+  const englishSerialized = `${JSON.stringify(englishReport, null, 2)}\n`;
+  for (const target of [englishReportPath, englishAuditReportPath]) {
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, englishSerialized);
+  }
+  fs.writeFileSync(englishHtmlPath, renderGrowthReport(englishReport));
+
+  const russianSerialized = `${JSON.stringify(report, null, 2)}\n`;
   for (const target of [reportPath, auditReportPath]) {
     fs.mkdirSync(path.dirname(target), { recursive: true });
-    fs.writeFileSync(target, serialized);
+    fs.writeFileSync(target, russianSerialized);
   }
   fs.writeFileSync(htmlPath, renderGrowthReport(report));
 }
 
+export const writeRussianReport = writeSpokenReports;
+
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
-  writeRussianReport();
+  writeSpokenReports();
+  console.log(`Built ${path.relative(repoRoot, englishReportPath)}`);
+  console.log(`Rendered ${path.relative(repoRoot, englishHtmlPath)}`);
   console.log(`Built ${path.relative(repoRoot, reportPath)}`);
   console.log(`Rendered ${path.relative(repoRoot, htmlPath)}`);
 }

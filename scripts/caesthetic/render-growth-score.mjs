@@ -1248,7 +1248,7 @@ function plainCommercialNextStepHtml(report) {
       <a class="cae-btn cae-btn--primary" ${reportCommercialLinkAttrs(report, "sprint")}>${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
     </article>
     ${plainCheck500Html(report, "final")}
-    <button class="cae-btn cae-btn--ghost" type="button" data-cae-question data-cae-intent="growth_score_report_question">Задать вопрос</button>`;
+    <button class="cae-btn cae-btn--ghost" type="button" data-cae-question data-cae-intent="growth_score_report_question">${escapeHtml(report.reportContext?.report_locale === "en" ? "Ask a question" : "Задать вопрос")}</button>`;
 }
 
 function leadToRevenueMapHtml(report) {

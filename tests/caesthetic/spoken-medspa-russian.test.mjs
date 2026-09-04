@@ -4,7 +4,11 @@ import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 import {
+  buildEnglishReport,
   buildRussianReport,
+  englishHtmlPath,
+  englishReport,
+  englishReportPath,
   htmlPath,
   report,
   reportPath,
@@ -18,9 +22,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const source = JSON.parse(fs.readFileSync(sourceReportPath, "utf8"));
 const stored = JSON.parse(fs.readFileSync(reportPath, "utf8"));
 const storedHtml = fs.readFileSync(htmlPath, "utf8");
+const storedEnglish = JSON.parse(fs.readFileSync(englishReportPath, "utf8"));
+const storedEnglishHtml = fs.readFileSync(englishHtmlPath, "utf8");
 const sharedRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/caesthetic.js"), "utf8");
 const pointOfContactRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/point-of-contact.js"), "utf8");
 const analyticsRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/analytics.js"), "utf8");
+const handoff = fs.readFileSync(path.join(
+  root,
+  "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/SPOKEN_MED_SPA_SESSION_HANDOFF_2026-09-04.md",
+), "utf8");
 
 const metricFingerprint = (value, excluded = new Set()) => ({
   surfaces: value.surfaces.map((surface) => ({
@@ -136,7 +146,7 @@ test("Russian Spoken report preserves unchanged evidence and aligns the Top 3 to
   assert.equal(score.overall.status, "insufficient_evidence");
   assert.equal(score.overall.rawScore, null);
   assert.equal(source.reportContext.report_locale, "en");
-  assert.match(source.executiveSummary, /binding constraint/i);
+  assert.match(source.executiveSummary, /specific patient queries/i);
 });
 
 test("Russian Spoken client text contains no English terms outside approved proper names", () => {
@@ -211,7 +221,6 @@ test("Russian Spoken report presents the approved owner-first sequence without e
     ["Поиск и Google", "Сайт и блог", "Социальные сети", "Отзывы и репутация"],
   );
   assert.match(storedHtml, /Это и есть соответствие\. Пациент может начать путь/);
-  assert.doesNotMatch(storedHtml, /<svg class="cae-owner-method__diagram/);
   assert.match(storedHtml, /Три главные ограничения/);
   assert.match(storedHtml, /data-owner-constraint-accordion/);
   assert.equal((storedHtml.match(/<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint"/g) || []).length, 3);
@@ -257,9 +266,9 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.equal(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").title, "Регулярно собирать честные отзывы и улучшить ответы");
   assert.match(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").repair_plan.day_30_outcome, /Система честного сбора отзывов запущена/);
 
-  const constraintsIndex = storedHtml.indexOf('id="gap-map"');
   const introIndex = storedHtml.indexOf('id="report-intro"');
   const methodIndex = storedHtml.indexOf('id="method-intro"');
+  const constraintsIndex = storedHtml.indexOf('id="gap-map"');
   const journeyIndex = storedHtml.indexOf('id="focus-gaps"');
   const internalIndex = storedHtml.indexOf('id="sprint-fit"');
   const competitorsIndex = storedHtml.indexOf("data-owner-competitors");
@@ -353,11 +362,91 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(reportCss, /\.cae-score-report \.cae-check500-section \.cae-btn,\s*\n\.cae-score-report \.cae-owner-check500 \.cae-btn\s*\{[^}]*background:\s*#7B244B;[^}]*color:\s*#FFFFFF;/s);
 });
 
-test("Russian route is noindex and the English route remains unchanged and protected", () => {
+test("English Spoken report carries the complete approved Russian decision state in US English", () => {
+  assert.equal(englishReport.reportContext.report_locale, "en");
+  assert.equal(englishReport.presentation.kind, "localized_client");
+  assert.equal(englishReport.presentation.strict_locale, "en");
+  assert.equal(englishReport.presentation.copy_profile, "plain_owner_en");
+  assert.equal(englishReport.presentation.layout_contract, report.presentation.layout_contract);
+  assert.equal(englishReport.verifiedFactSetVersion, report.verifiedFactSetVersion);
+  assert.deepEqual(storedEnglish, englishReport);
+  assert.deepEqual(buildEnglishReport(source), englishReport);
+  assert.equal(storedEnglishHtml, renderGrowthReport(storedEnglish));
+  assert.equal(renderReportFile(englishReportPath, { outputPath: englishHtmlPath, check: true }), true);
+  assert.equal(isAllowedRealScoreOutput(englishReport, englishHtmlPath), true);
+
+  const selectedIds = (value) => [
+    value.humanDiagnosis.focus_selection.primary_gap_id,
+    ...value.humanDiagnosis.focus_selection.supporting_gap_ids,
+  ];
+  assert.deepEqual(selectedIds(englishReport), selectedIds(report));
+  const evidenceFingerprint = (value) => JSON.parse(JSON.stringify(metricFingerprint(value), (key, item) => key === "raw_value" ? undefined : item));
+  assert.deepEqual(evidenceFingerprint(englishReport), evidenceFingerprint(report));
+  assert.deepEqual(
+    {
+      selected_by: englishReport.humanDiagnosis.focus_selection.selected_by,
+      selected_at: englishReport.humanDiagnosis.focus_selection.selected_at,
+      evidence_refs: englishReport.humanDiagnosis.binding_constraint.evidence_refs,
+      do_not_fund_refs: englishReport.humanDiagnosis.do_not_do.evidence_refs,
+    },
+    {
+      selected_by: report.humanDiagnosis.focus_selection.selected_by,
+      selected_at: report.humanDiagnosis.focus_selection.selected_at,
+      evidence_refs: report.humanDiagnosis.binding_constraint.evidence_refs,
+      do_not_fund_refs: report.humanDiagnosis.do_not_do.evidence_refs,
+    },
+  );
+  assert.deepEqual(
+    selectedIds(englishReport).map((id) => englishReport.humanDiagnosis.gap_inventory.find((gap) => gap.id === id).title),
+    [
+      "Build a map of specific patient queries",
+      "Turn the blog into a consistent system",
+      "Collect honest reviews consistently and improve owner responses",
+    ],
+  );
+  assert.equal(
+    englishReport.presentation.owner_copy.greeting.body,
+    "We reviewed your patient's journey: how they find Spoken, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
+  );
+
+  const introIndex = storedEnglishHtml.indexOf('id="report-intro"');
+  const methodIndex = storedEnglishHtml.indexOf('id="method-intro"');
+  const constraintsIndex = storedEnglishHtml.indexOf('id="gap-map"');
+  assert.ok(introIndex < methodIndex && methodIndex < constraintsIndex);
+  assert.match(storedEnglishHtml, /How Connect4 checks consistency across all four surfaces/);
+  assert.match(storedEnglishHtml, /First, we identify 10 key phrases/);
+  assert.deepEqual(
+    englishReport.presentation.owner_copy.method_intro.surfaces.map(({ title }) => title),
+    ["Search and Google", "Website and blog", "Social media", "Reviews and reputation"],
+  );
+  assert.match(storedEnglishHtml, /Instagram, Facebook, TikTok, and YouTube/);
+  assert.match(storedEnglishHtml, /This is Connect4 consistency\. A patient may start/);
+  assert.match(storedEnglishHtml, /cae-owner-method__diagram--desktop/);
+  assert.match(storedEnglishHtml, /lead-to-revenue-map-en\.svg/);
+  assert.equal((storedEnglishHtml.match(/data-cae-report-share="(?:start|end)"/g) || []).length, 2);
+  assert.equal((storedEnglishHtml.match(/>Share report</g) || []).length, 2);
+  assert.equal((storedEnglishHtml.match(/data-cae-check-placement="(?:mid|final)"/g) || []).length, 2);
+  assert.equal((storedEnglishHtml.match(/Do all your enquiries make it to a booking\?/g) || []).length, 2);
+  assert.equal((storedEnglishHtml.match(/Lead-to-Revenue Check · \$500/g) || []).length, 2);
+  assert.equal((storedEnglishHtml.match(/Check My Lead-to-Revenue Path/g) || []).length, 2);
+  assert.equal((storedEnglishHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
+  assert.equal((storedEnglishHtml.match(/data-cae-question/g) || []).length, 1);
+  assert.match(storedEnglishHtml, />Ask a question</);
+  assert.doesNotMatch(storedEnglishHtml, /[А-Яа-яЁё]/);
+  assert.doesNotMatch(storedEnglishHtml, /Legacy Jurney|mixed patient\/Academy|filler trust continuity/i);
+  assert.match(handoff, /Russian is the working language/);
+  assert.match(handoff, /English is the final client language/);
+  assert.match(handoff, /Every approved Russian decision/);
+
+  assert.doesNotMatch(storedEnglishHtml, />4444</);
+});
+
+test("Both routes are noindex while English remains protected and Russian remains direct-link", () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(root, "infra/cloudflare/brands/caesthetic.manifest.json"), "utf8"));
   assert.ok(manifest.scorePublicPaths.includes(`/score/${slug}/`));
   assert.ok(manifest.scoreProtectedPaths.some((entry) => entry.prefix === "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/"));
   assert.doesNotMatch(JSON.stringify(manifest.scoreProtectedPaths), new RegExp(`${slug}/`));
   assert.match(storedHtml, /noindex,nofollow,noarchive,nosnippet/);
+  assert.match(storedEnglishHtml, /noindex,nofollow,noarchive,nosnippet/);
   assert.equal(source.reportContext.report_locale, "en");
 });

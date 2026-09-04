@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Lead-to-Revenue Path</title>
+  <desc id="description">Eight internal practice stages. Every stage is marked not assessed because authorized access to internal data is required.</desc>
+  <rect width="1600" height="900" fill="#f5f1ea"/>
+  <rect x="44" y="44" width="1512" height="812" rx="28" fill="#fffdf9" stroke="#d5cdc2" stroke-width="2"/>
+
+  <text x="92" y="120" fill="#102847" font-family="Georgia, serif" font-size="54" font-weight="700">Lead-to-Revenue Path</text>
+  <text x="92" y="170" fill="#4f5968" font-family="Arial, sans-serif" font-size="25">Public evidence does not show what happens inside the practice after an enquiry.</text>
+  <rect x="1232" y="86" width="250" height="54" rx="27" fill="#f4e7eb"/>
+  <text x="1357" y="121" text-anchor="middle" fill="#8f2442" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="1.5">ACCESS REQUIRED</text>
+
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(92 224)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">1</text>
+      <text x="28" y="100" fill="#102847" font-size="27" font-weight="700">Lead</text>
+      <text x="28" y="134" fill="#102847" font-size="27" font-weight="700">received</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+    <g transform="translate(454 224)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">2</text>
+      <text x="28" y="117" fill="#102847" font-size="27" font-weight="700">First response</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+    <g transform="translate(816 224)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">3</text>
+      <text x="28" y="100" fill="#102847" font-size="27" font-weight="700">Lead</text>
+      <text x="28" y="134" fill="#102847" font-size="27" font-weight="700">qualification</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+    <g transform="translate(1178 224)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">4</text>
+      <text x="28" y="117" fill="#102847" font-size="27" font-weight="700">Booking</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+
+    <g transform="translate(92 446)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">5</text>
+      <text x="28" y="117" fill="#102847" font-size="27" font-weight="700">Confirmation</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+    <g transform="translate(454 446)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">6</text>
+      <text x="28" y="117" fill="#102847" font-size="27" font-weight="700">Attendance</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+    <g transform="translate(816 446)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">7</text>
+      <text x="28" y="117" fill="#102847" font-size="27" font-weight="700">Consultation</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+    <g transform="translate(1178 446)">
+      <rect width="330" height="190" rx="22" fill="#f8f6f1" stroke="#c8c1b8" stroke-width="2"/>
+      <circle cx="42" cy="42" r="24" fill="#e6e2dc"/>
+      <text x="42" y="50" text-anchor="middle" fill="#102847" font-size="22" font-weight="700">8</text>
+      <text x="28" y="117" fill="#102847" font-size="27" font-weight="700">Payment</text>
+      <text x="28" y="170" fill="#68717e" font-size="17" font-weight="700" letter-spacing="1">NOT ASSESSED</text>
+    </g>
+  </g>
+
+  <rect x="92" y="690" width="1416" height="112" rx="22" fill="#f4e7eb"/>
+  <circle cx="142" cy="746" r="26" fill="#8f2442"/>
+  <text x="142" y="755" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="26" font-weight="700">?</text>
+  <text x="190" y="731" fill="#102847" font-family="Arial, sans-serif" font-size="24" font-weight="700">Authorized internal data is required to find the actual point of loss.</text>
+  <text x="190" y="772" fill="#4f5968" font-family="Arial, sans-serif" font-size="21">Without it, we cannot conclude how the team, booking, attendance, or payment performs.</text>
+</svg>
+
