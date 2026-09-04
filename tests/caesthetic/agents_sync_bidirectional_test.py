@@ -198,6 +198,7 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("push --dry-run", installer)
         self.assertIn("CAESTHETIC_SYNC_SATELLITE_AUTHORITY_REMOTE", installer)
         self.assertIn("CAESTHETIC_REPO_SYNC_QUARANTINED", installer)
+        self.assertIn('"$INSTALL_ROOT/expert_dental_mirror.py"', installer)
         self.assertIn("timeout 30s systemctl stop caesthetic-repo-sync.service", installer)
         self.assertIn("systemctl reset-failed caesthetic-repo-sync.service", installer)
         self.assertIn("systemctl start --no-block caesthetic-repo-sync.service", installer)

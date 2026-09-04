@@ -25,6 +25,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from expert_dental_mirror import MIRROR_DEST, sync_mirror
+
 GRAINEE_DEFAULT = Path("/var/www/grainee-v2")
 SAT_DEFAULT = Path("/var/www/caesthetic")
 SAT_URL = os.environ.get(
@@ -50,6 +53,8 @@ EXTRA_FILES = [
     "docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md",
     "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
     "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
+    "docs/projects/caesthetic/EXPERT_DENTAL_MIRROR.yml",
+    "scripts/caesthetic/expert_dental_mirror.py",
     "deploy/systemd/caesthetic-repo-sync.service",
     "deploy/systemd/caesthetic-repo-sync.timer",
 ]
@@ -105,6 +110,8 @@ PROTECTED_PREFIXES = (
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md",
     "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
     "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
+    "docs/projects/caesthetic/EXPERT_DENTAL_MIRROR.yml",
+    "scripts/caesthetic/expert_dental_mirror.py",
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md",
     "docs/caesthetic/growth_score_spec.md",
     "docs/caesthetic/competitive_decision_analysis.md",
@@ -551,11 +558,9 @@ def main() -> int:
         print(f"  ... +{len(actions) - 50} more")
 
     if not args.apply:
+        mirror = sync_mirror(grainee, sat, run_out(["git", "rev-parse", "HEAD"], cwd=grainee), False)
+        print(f"expert-mirror: files={mirror['files']} changed={len(mirror['changed'])} removed={len(mirror['removed'])}")
         print("DRY-RUN complete (no writes)")
-        return 0
-
-    if not actions:
-        print("Nothing to sync; skipping writes/commits")
         return 0
 
     for a in actions:
@@ -606,12 +611,14 @@ def main() -> int:
         conf_path.write_text("\n".join(lines) + "\n")
         copy_file(conf_path, sat / CONFLICTS_REL)
 
-    summary = f"g2s={len(g2s)} s2g={len(s2g)} conflicts={len(conflicts)}"
+    mirror = sync_mirror(grainee, sat, run_out(["git", "rev-parse", "HEAD"], cwd=grainee), True)
+    summary = f"g2s={len(g2s)} s2g={len(s2g)} conflicts={len(conflicts)} expert_mirror_changed={len(mirror['changed'])}"
     write_marker(grainee, sat, summary)
 
     mapped_files = sorted(
         (collect_rels(grainee) | collect_rels(sat))
         | {a.rel for a in actions}
+        | {MIRROR_DEST}
         | {STATE_REL, MARKER_REL, CONFLICTS_REL}
     )
 
@@ -637,8 +644,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-    "scripts/caesthetic/asset-worker/poll.mjs",
-    "scripts/caesthetic/asset-worker/repo-sync-worker.mjs",
-    "scripts/caesthetic/caesthetic-repo-sync-contract.mjs",
-    "scripts/caesthetic/continuous-sync-runner.sh",
-    "scripts/caesthetic/sync_agents_bidirectional.py",

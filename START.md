@@ -10,6 +10,13 @@
 4. Прочитай `docs/projects/caesthetic/AGENTS.md` + `agents/manifests/caesthetic.yaml`.
 5. Для нетривиальной разработки/изменения workflow прочитай `STRATEGY.md`, `CODING_STANDARDS.md` и `docs/compound-engineering/README.md`.
 
+Если задача относится к Expert Dental / RAIMOV, сначала открой
+`docs/external/grainee-v2/expert-dental/.mirror-manifest.json` и следуй
+зеркальным AGENTS/SSOT. Это односторонняя read-only проекция из
+`grainee-v2`, а не второй SSOT. Не-PHI предложения создаются только в
+`docs/projects/caesthetic/expert-dental-contributions/`; legal/runtime в
+зеркале не редактируются.
+
 **Важно:** Growth Score pre-router и mandatory enforcement применяются до любых Compound Engineering skills, планов или автономных pipeline.
 
 ## Где правда

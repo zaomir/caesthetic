@@ -1,0 +1,3 @@
+# Preserve authoritative read-through mirror bytes exactly, including legacy
+# Markdown hard-break spaces. Drift is checked by SHA-256 manifest instead.
+docs/external/grainee-v2/expert-dental/** -whitespace

@@ -1,0 +1,32 @@
+{
+  "name": "@raimov/expert-esign",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Expert Dental P0: doctor approval, administrator-led tablet signing, immutable evidence storage and WAHA delivery.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "NODE_ENV=development node --watch server.mjs",
+    "templates:write": "node scripts/import-legal-templates.mjs",
+    "templates:check": "node scripts/import-legal-templates.mjs --check",
+    "test": "node --test test/*.test.mjs",
+    "check": "npm run templates:check && node --check server.mjs && node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.890.0",
+    "archiver": "^7.0.1",
+    "argon2": "^0.44.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jose": "^6.1.0",
+    "otplib": "^12.0.1",
+    "pdfkit": "^0.17.2",
+    "pg": "^8.16.3",
+    "qrcode": "^1.5.4",
+    "zod": "^4.1.8"
+  }
+}

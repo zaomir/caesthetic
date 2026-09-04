@@ -1,0 +1,23 @@
+id: healthcare-ecosystem
+name: Healthcare Ecosystem
+type: knowledge-domain
+status: active
+
+read_first:
+  - docs/projects/healthcare-ecosystem/AGENTS.md
+  - docs/projects/healthcare-ecosystem/ROUTER.md
+  - docs/ssot/PROJECT_DOMAIN_REGISTRY.md
+
+allowed_paths:
+  - docs/projects/healthcare-ecosystem/**
+  - docs/ssot/PROJECT_*.md
+  - docs/ssot/RAIMOV*.md
+  - docs/ssot/EXPERT_DENTAL_*.md
+
+forbidden_paths: []
+
+deploy_target: null
+
+topics:
+  architecture: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
+  domain_registry: docs/ssot/PROJECT_DOMAIN_REGISTRY.md

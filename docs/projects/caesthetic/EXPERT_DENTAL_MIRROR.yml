@@ -1,0 +1,28 @@
+version: 1
+authority_repo: zaomir/grainee-v2
+satellite_repo: zaomir/caesthetic
+direction: grainee-v2-to-caesthetic-only
+mirror_destination: docs/external/grainee-v2/expert-dental
+source_trees:
+  - docs/projects/healthcare-ecosystem
+  - docs/projects/raimovdental
+  - docs/raimov
+  - docs/legal/raimov/expert-dental
+  - apps/expert-esign
+ssot_globs:
+  - docs/ssot/RAIMOV*.md
+  - docs/ssot/EXPERT_DENTAL*.md
+  - docs/ssot/ELITE_DENTAL*.md
+excluded:
+  - PHI and patient records
+  - secrets and credentials
+  - private folders
+  - raw recordings and media
+  - staff credential evidence and all binary media
+  - binary package archives and generated build output
+writeback_allowlist:
+  - docs/projects/caesthetic/expert-dental-contributions/**
+authority_rules:
+  - legal and runtime changes are forbidden in the mirror
+  - conflicting legal/runtime content resolves to grainee-v2
+  - CAESTHETIC trees continue to use DEC-829 bidirectional sync

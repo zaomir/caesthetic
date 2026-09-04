@@ -1,0 +1,705 @@
+{
+  "schema": "expert-esign.legal-template-import.v1",
+  "authority": "docs/legal/raimov/expert-dental/package/markdown + VERSION_REGISTRY.md",
+  "generatedFrom": {
+    "tabletManifest": "docs/legal/raimov/expert-dental/package/tablet/manifest.json",
+    "tabletManifestSha256": "0b2a401f76f501623abedb863064904da193178d65908c6a684a1421dc95abc9",
+    "versionRegistry": "docs/legal/raimov/expert-dental/VERSION_REGISTRY.md",
+    "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+    "approvalRecord": "docs/legal/raimov/expert-dental/package/APPROVAL_RECORD_2026-08-30.md",
+    "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae"
+  },
+  "counselApproval": {
+    "status": "APPROVED_OWNER_REPORTED",
+    "approvedAt": "2026-08-30",
+    "record": "../APPROVAL_RECORD_2026-08-30.md",
+    "evidenceAttachment": "PENDING_ARCHIVE_ATTACHMENT"
+  },
+  "activationRule": "Runtime cannot activate a template unless VERSION_REGISTRY contains an exact IN_USE row. Current registry contains none.",
+  "templates": [
+    {
+      "code": "ED-CLI-004",
+      "version": "1.0.0",
+      "title": "Подтверждение получения рекомендаций",
+      "category": "cli",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-CLI-004_aftercare-acknowledgment.md",
+      "sourceSha256": "4a36b3f52640c1eb76731ea7c7915cbd8a19b467670f409708a967a71684c4c5",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Подтверждение получения рекомендаций",
+          "paragraphs": [
+            "---\ndoc_id: ED-CLI-004\nversion: 0.1-draft\ntitle: Подтверждение получения рекомендаций\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Подтверждение получения рекомендаций\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-CLI-004**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Рекомендации\n\nПроцедура/дата: __________  Лекарства только по назначению врача: __________  Гигиена/питание/ограничения: __________\n\n## Red flags\n\nСимптомы и канал срочного обращения, утверждённые врачом: __________\n\n## Follow-up\n\nДата/условие контрольного визита: __________\n\n## Доставка\n\nКопия получена: бумага / защищённая ссылка / иной утверждённый канал. Дата/время отправки: __________  Дата/время подтверждения: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-CMP-001",
+      "version": "1.0.0",
+      "title": "Форма претензии / обращения пациента",
+      "category": "cmp",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-CMP-001_complaint-form.md",
+      "sourceSha256": "a07b078d9717e311b866a4905862dfcabd72280573b4e5f5189eedc6b31eb304",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Форма претензии / обращения пациента",
+          "paragraphs": [
+            "---\ndoc_id: ED-CMP-001\nversion: 0.1-draft\ntitle: Форма претензии / обращения пациента\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Форма претензии / обращения пациента\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-CMP-001**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Заявитель и case\n\nФИО/контакт: __________  Patient/Case ID: __________  Представитель и полномочия: __________\n\n## Обращение\n\nДата события, сотрудники, факты, ожидаемое решение, приложенные материалы: __________\n\n## Безопасность\n\nЕсть ли боль/отёк/кровотечение/иная срочность: __________  Клинический triage выполнен: __________\n\n## Приём\n\nComplaint ID: __________  Принял: __________  Дата/время: __________  Legal hold/preservation event: __________  Ответственный и counsel-approved срок ответа: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-CMP-005",
+      "version": "1.0.0",
+      "title": "Возврат / соглашение об урегулировании",
+      "category": "cmp",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-CMP-005_refund-settlement.md",
+      "sourceSha256": "a42b76ee027c15105e216b8199adc6e6f696cda57f297358fe2795147174dead",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Возврат / соглашение об урегулировании",
+          "paragraphs": [
+            "---\ndoc_id: ED-CMP-005\nversion: 0.1-draft\ntitle: Возврат / соглашение об урегулировании\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Возврат / соглашение об урегулировании\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-CMP-005**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Основание\n\nComplaint/refund ID: __________  Позиция пациента: __________  Clinical review отдельно: __________  Документ не является автоматическим признанием нарушения.\n\n## Расчёт\n\nПолучено: __________  Фактически оказано: __________  Документированные прямые расходы: __________  Решение/сумма/способ: __________\n\n## Условия\n\nContinuity/remediation, сроки и способ оплаты, выдача документов: __________. Никакое условие не отменяет неотчуждаемые права пациента.\n\n## Согласования\n\nBusiness owner: __________  Finance: __________  Counsel/insurer, если gate применим: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-CON-001",
+      "version": "1.0.0",
+      "title": "Рамочный договор платных стоматологических услуг",
+      "category": "con",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": true,
+      "releaseBlocked": false,
+      "evidenceBlocked": false,
+      "medicalReviewPending": false,
+      "tabletStatus": "COUNSEL_APPROVED_TABLET_QA",
+      "requiredApproverRole": null,
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CONTRACT_10Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-CON-001_framework-services-agreement.md",
+      "sourceSha256": "47efd08109b9f047ad0a90a90f840981cfc27cd52ce9d95e545286e514818265",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Рамочный договор платных стоматологических услуг",
+          "paragraphs": [
+            "---\ndoc_id: ED-CON-001\nversion: 0.1-draft\ntitle: Рамочный договор платных стоматологических услуг\nowner: Expert Dental legal owner\nstatus: COUNSEL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Рамочный договор платных стоматологических услуг\n\n> **COUNSEL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-CON-001**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Предмет\n\nКлиника оказывает только те услуги и этапы, которые отражены в подписанном плане лечения/смете и допустимы подтверждённой лицензией, местом и допуском назначенного врача. Этот договор не заменяет отдельное ИДС.\n\n## Оплата и документы\n\nСтоимость, валюта, этапы, аванс, чеки, возвраты и прямые документированные расходы указываются в плане/смете и финансовых документах. Не включённые позиции не считаются согласованными.\n\n## Коммуникации и копии\n\nПациент выбирает разрешённые каналы связи. Клинические документы выдаются безопасным способом; факт и время выдачи фиксируются.\n\n## Изменения и споры\n\nИзменение объёма, цены, метода, срока или прогноза требует новой change-plan form до изменённого этапа. Претензия фиксируется без признания вины и запускает preservation/legal-hold workflow, где применимо.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: N/A unless counsel requires\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-CON-002",
+      "version": "1.0.0",
+      "title": "Соглашение об электронном документообороте и планшетной подписи",
+      "category": "con",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": true,
+      "releaseBlocked": false,
+      "evidenceBlocked": false,
+      "medicalReviewPending": false,
+      "tabletStatus": "COUNSEL_APPROVED_TABLET_QA",
+      "requiredApproverRole": null,
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CONTRACT_10Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-CON-002_electronic-signing-agreement.md",
+      "sourceSha256": "3d158a8b15a71d6a26f42ef01a30f214620daf676d9eed1a18fd6fd94bafe2ac",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Соглашение об электронном документообороте и планшетной подписи",
+          "paragraphs": [
+            "---\ndoc_id: ED-CON-002\nversion: 0.1-draft\ntitle: Соглашение об электронном документообороте и планшетной подписи\nowner: Expert Dental legal owner\nstatus: COUNSEL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Соглашение об электронном документообороте и планшетной подписи\n\n> **COUNSEL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-CON-002**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Статус\n\nЭто проект соглашения. Стилус на планшете не называется ОЭП/квалифицированной подписью и не применяется к реальным пациентам до письменного заключения юриста КР по конкретной ceremony.\n\n## Ceremony\n\nОчная проверка личности; показ полного финального документа; binding к DOC-ID/version/hash; server timestamp; device/session; подпись пациента/представителя и врача; immutable artifact; audit trail; выдача копии.\n\n## Согласие на способ\n\nПациент выбирает допустимый counsel-approved способ и может запросить бумажный fallback. Отказ от электронного канала не лишает медицинской помощи в пределах применимого процесса.\n\n## Ошибки и изменения\n\nПосле подписи документ не переписывается. Ошибка исправляется датированным addendum/superseding version. Backdating и повторное использование изображения подписи запрещены.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: N/A unless counsel requires\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-IDS-002",
+      "version": "1.0.0",
+      "title": "ИДС — терапия и реставрация",
+      "category": "ids",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-IDS-002_consent-therapy.md",
+      "sourceSha256": "69a51194a425e64111e3d00083809cd7f2bd6576e63a7b857a72bcd24eba1ec8",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "ИДС — терапия и реставрация",
+          "paragraphs": [
+            "---\ndoc_id: ED-IDS-002\nversion: 0.1-draft\ntitle: ИДС — терапия и реставрация\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# ИДС — терапия и реставрация\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-IDS-002**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Вмешательство\n\nДиагноз/зуб: __________  Предлагаемое лечение/материалы: __________  Цель: восстановление поражённых тканей и функции в пределах согласованного плана.\n\n## Альтернативы\n\nНаблюдение при допустимости, иные реставрационные методы, эндодонтическое/ортопедическое лечение, удаление либо отказ — только по индивидуальной оценке врача.\n\n## Существенные риски\n\nБоль/чувствительность, необходимость коррекции, скол/износ/изменение цвета, повреждение пульпы, последующее эндодонтическое или иное лечение, аллергическая реакция, непредсказуемость срока службы.\n\n## Индивидуальные обстоятельства\n\nОсобые риски, прогноз, ограничения и ответы врача: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-IDS-003",
+      "version": "1.0.0",
+      "title": "ИДС — эндодонтическое лечение",
+      "category": "ids",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-IDS-003_consent-endodontics.md",
+      "sourceSha256": "360c74fc1eb1ec9fc6a54de5f8e25c94fd187818ae98780e4f2ded0abb2761ec",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "ИДС — эндодонтическое лечение",
+          "paragraphs": [
+            "---\ndoc_id: ED-IDS-003\nversion: 0.1-draft\ntitle: ИДС — эндодонтическое лечение\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# ИДС — эндодонтическое лечение\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-IDS-003**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Вмешательство\n\nДиагноз/зуб: __________  Этапы: доступ, обработка/дезинфекция, пломбирование каналов, временное/постоянное восстановление: __________\n\n## Альтернативы\n\nПерелечивание, хирургический эндодонтический вариант, удаление, наблюдение при допустимости или отказ: __________\n\n## Существенные риски\n\nБоль/отёк, flare-up, неполное выявление каналов, перфорация, поломка инструмента, выведение материала, трещина/перелом зуба, необходимость повторного лечения/операции/удаления, неполное заживление.\n\n## После лечения\n\nНеобходимость окончательного восстановления и контрольных визитов объяснена. Индивидуальные ограничения: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-IDS-004",
+      "version": "1.0.0",
+      "title": "ИДС — хирургия / удаление зуба",
+      "category": "ids",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": true,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_EVIDENCE_BLOCKED",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-IDS-004_consent-surgery-extraction.md",
+      "sourceSha256": "cb53a2759b5fa0c2b8f1f3d943c74fcb2ee9904d932d150e3e5732743c074666",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "ИДС — хирургия / удаление зуба",
+          "paragraphs": [
+            "---\ndoc_id: ED-IDS-004\nversion: 0.1-draft\ntitle: ИДС — хирургия / удаление зуба\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# ИДС — хирургия / удаление зуба\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-IDS-004**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED, BLOCKED_EVIDENCE**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## OPEN GAP\n\nХирургический профиль лицензии и credentials врача не подтверждены. До clearance использовать запрещено.\n\n## Вмешательство\n\nДиагноз/зуб/сторона, вид удаления/операции, анестезия и план: __________\n\n## Альтернативы\n\nСохранение/эндодонтическое/пародонтологическое/ортопедическое лечение, наблюдение при допустимости, направление либо отказ: __________\n\n## Существенные риски\n\nБоль, кровотечение, отёк, инфекция, сухая лунка, повреждение соседних структур, фрагмент корня, сообщение с пазухой, повреждение нерва с изменением чувствительности, перелом, повторная операция/госпитализация.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-IDS-005",
+      "version": "1.0.0",
+      "title": "ИДС — имплантация",
+      "category": "ids",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": true,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_EVIDENCE_BLOCKED",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-IDS-005_consent-implantation.md",
+      "sourceSha256": "8ecc73cb8548a1c458adc8b818b6ce502fcdaae924913073fa1d26eea85e8e6a",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "ИДС — имплантация",
+          "paragraphs": [
+            "---\ndoc_id: ED-IDS-005\nversion: 0.1-draft\ntitle: ИДС — имплантация\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# ИДС — имплантация\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-IDS-005**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED, BLOCKED_EVIDENCE**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## OPEN GAP\n\nИмплантологический/хирургический профиль, оборудование и credentials врача не подтверждены. До clearance использовать запрещено.\n\n## Вмешательство\n\nОбласть, система импланта, этапность, необходимость навигации/временной конструкции: __________. Костная пластика/синус-лифтинг требуют отдельного ИДС.\n\n## Альтернативы\n\nМостовидная/съёмная конструкция, сохранение зуба, отсутствие замещения, направление или отказ: __________\n\n## Существенные риски\n\nНеинтеграция/потеря импланта, инфекция, кровотечение, повреждение нерва/пазухи/соседних структур, дефицит тканей, эстетические ограничения, поломка компонентов, периимплантит, дополнительные операции и расходы.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-IDS-008",
+      "version": "1.0.0",
+      "title": "ИДС — ортопедия",
+      "category": "ids",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": true,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_EVIDENCE_BLOCKED",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-IDS-008_consent-prosthodontics.md",
+      "sourceSha256": "e4ac0c7c8ba332e08ed38b9737efc49b185d36d33558597e74c131721521e613",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "ИДС — ортопедия",
+          "paragraphs": [
+            "---\ndoc_id: ED-IDS-008\nversion: 0.1-draft\ntitle: ИДС — ортопедия\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# ИДС — ортопедия\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-IDS-008**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED, BLOCKED_EVIDENCE**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## OPEN GAP\n\nПрофиль лицензии и credentials конкретного врача не подтверждены. До clearance использовать запрещено.\n\n## Вмешательство\n\nКонструкция/зубы/этапы, препарирование, временная конструкция, лаборатория, примерки, фиксация: __________\n\n## Альтернативы\n\nРеставрация, имплантация, съёмное/несъёмное протезирование, наблюдение, удаление или отказ — по индивидуальной оценке.\n\n## Существенные риски\n\nЧувствительность/боль, необходимость эндодонтии, скол/расцементировка/износ, несоответствие оттенка, адаптация прикуса/речи, воспаление, ограниченный срок службы, повторное изготовление при документированных показаниях.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-IDS-009",
+      "version": "1.0.0",
+      "title": "ИДС — ортодонтия",
+      "category": "ids",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": true,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_EVIDENCE_BLOCKED",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-IDS-009_consent-orthodontics.md",
+      "sourceSha256": "e7fffd38491627d4933c979ba17ad04f24a7bedf96574b249783623cec5e2a60",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "ИДС — ортодонтия",
+          "paragraphs": [
+            "---\ndoc_id: ED-IDS-009\nversion: 0.1-draft\ntitle: ИДС — ортодонтия\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# ИДС — ортодонтия\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED / BLOCKED_EVIDENCE. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-IDS-009**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED, BLOCKED_EVIDENCE**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## OPEN GAP\n\nПрофиль лицензии и credentials конкретного врача не подтверждены. Документ не может применяться до clearance service/provider matrix.\n\n## Вмешательство\n\nДиагноз, цели, аппарат/элайнеры/брекеты, предполагаемый срок, контроль и ретенция: __________\n\n## Альтернативы\n\nНаблюдение, иная аппаратура, комбинированное лечение, хирургический маршрут либо отказ: __________\n\n## Существенные риски\n\nДискомфорт, травма слизистой, кариес/декальцинация, воспаление дёсен, резорбция корней, изменение прикуса/ВНЧС-симптомов, рецидив, поломка/потеря аппарата, необходимость продления/смены плана; результат зависит от биологии и соблюдения режима.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-MKT-001",
+      "version": "1.0.0",
+      "title": "Согласие на медицинскую фото-/видеофиксацию",
+      "category": "mkt",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-MKT-001_medical-photo-consent.md",
+      "sourceSha256": "d4655b284c4f2e4afcfd30c175ae942086c811d556969588f04ea51a05a366c9",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Согласие на медицинскую фото-/видеофиксацию",
+          "paragraphs": [
+            "---\ndoc_id: ED-MKT-001\nversion: 0.1-draft\ntitle: Согласие на медицинскую фото-/видеофиксацию\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Согласие на медицинскую фото-/видеофиксацию\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-MKT-001**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Цель\n\nФиксация диагностики, планирования, динамики и клинической записи. Это согласие не разрешает рекламу, соцсети, сайт, обучение или публикацию.\n\n## Объём\n\nОбласть/тип изображения, устройство и ограничения: __________\n\n## Доступ и хранение\n\nТолько в утверждённой клинической системе; личные телефоны, camera roll и личные облака сотрудников запрещены. Срок — по утверждённой retention schedule (OPEN GAP).\n\n## Выбор\n\nСогласен(на) / не согласен(на). Последствия отказа для возможности документировать/оказать конкретную помощь объясняет врач: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-MKT-002",
+      "version": "1.0.0",
+      "title": "Отдельное согласие на маркетинговое использование фото/видео",
+      "category": "mkt",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": true,
+      "releaseBlocked": false,
+      "evidenceBlocked": false,
+      "medicalReviewPending": false,
+      "tabletStatus": "COUNSEL_APPROVED_TABLET_QA",
+      "requiredApproverRole": null,
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-MKT-002_marketing-media-consent.md",
+      "sourceSha256": "16b98958096bbd37c1e0aaa6cb0114aee8b465683583a213ffbdf913d43c5a63",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Отдельное согласие на маркетинговое использование фото/видео",
+          "paragraphs": [
+            "---\ndoc_id: ED-MKT-002\nversion: 0.1-draft\ntitle: Отдельное согласие на маркетинговое использование фото/видео\nowner: Expert Dental legal owner\nstatus: COUNSEL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Отдельное согласие на маркетинговое использование фото/видео\n\n> **COUNSEL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-MKT-002**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Добровольность\n\nОтказ не влияет на лечение, цену, качество, доступность услуг, возврат или иные права пациента.\n\n## Конкретный scope\n\nМатериалы: __________  Каналы: сайт / соцсети / печать / презентации / другое: __________  География/аудитория: __________  Срок: __________  Имя/анонимность: __________\n\n## Запрет расширения\n\nНовые материалы, цели, каналы или существенная переработка требуют нового согласия. Передача третьим лицам: __________\n\n## Отзыв\n\nОтзыв действует на будущие контролируемые использования; уже законно опубликованные/распространённые копии могут иметь технические ограничения. Канал отзыва: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: N/A unless counsel requires\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-PAT-002",
+      "version": "1.0.0",
+      "title": "Анкета состояния здоровья, лекарств и аллергий",
+      "category": "pat",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-PAT-002_health-questionnaire.md",
+      "sourceSha256": "23e8d433ec143cbedb12cda93e91cff4750e2f1fa805c24d715894ff3fd5a706",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Анкета состояния здоровья, лекарств и аллергий",
+          "paragraphs": [
+            "---\ndoc_id: ED-PAT-002\nversion: 0.1-draft\ntitle: Анкета состояния здоровья, лекарств и аллергий\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Анкета состояния здоровья, лекарств и аллергий\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-PAT-002**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Идентификация и актуальность\n\nФИО: __________  Дата рождения: __________  Patient ID: __________  Дата/время заполнения: __________  Язык/помощь при заполнении: __________\n\n## Состояния и риски\n\nОтметьте и уточните: аллергии; беременность/лактация; сердечно-сосудистые заболевания; нарушения свёртывания; диабет; заболевания печени/почек; инфекции; эпилепсия; астма; онкология; операции/госпитализации; реакции на анестезию; курение/алкоголь; иное: __________\n\n## Лекарства\n\nПостоянные и недавние препараты, антикоагулянты, бисфосфонаты/антирезорбтивные средства, гормоны, антибиотики и БАД: __________\n\n## Подтверждение\n\nЯ сообщил(а) известные мне сведения и обязуюсь сообщать об изменениях. Врач проверил critical alerts и отметил решение: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-PAT-003",
+      "version": "1.0.0",
+      "title": "План лечения и смета — входит / не входит",
+      "category": "pat",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-PAT-003_treatment-plan-estimate.md",
+      "sourceSha256": "fdb5e6dbadfdba862f275d808f5b4de2db69e4e3df3a681389ec3b19a1259672",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "План лечения и смета — входит / не входит",
+          "paragraphs": [
+            "---\ndoc_id: ED-PAT-003\nversion: 0.1-draft\ntitle: План лечения и смета — входит / не входит\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# План лечения и смета — входит / не входит\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-PAT-003**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Клиническая основа\n\nЖалобы/диагноз: __________  Врач: __________  Альтернативы, включая наблюдение/отказ: __________  Прогноз и существенные ограничения: __________\n\n## Этапы и смета\n\nДля каждого этапа: код/описание; зуб/область; исполнитель; срок; цена; валюта; статус «ВХОДИТ» или «НЕ ВХОДИТ»; предпосылки; отдельные лабораторные/диагностические/лекарственные расходы.\n\n## Граница цены\n\nИтог по включённым позициям: __________. Не входят: __________. Цена и сроки не гарантируются за пределами явно согласованных этапов; существенное изменение оформляется ED-PAT-005 до выполнения.\n\n## Решение пациента\n\nВыбранный вариант: __________  Вопросы и ответы: __________  Отдельные ИДС: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-PAT-005",
+      "version": "1.0.0",
+      "title": "Изменение плана лечения и стоимости",
+      "category": "pat",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-PAT-005_change-plan-cost.md",
+      "sourceSha256": "cb6729d12b5154e38b294c00a75b94c970fe4599b59c0a8f5a5174fdb4793f6d",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Изменение плана лечения и стоимости",
+          "paragraphs": [
+            "---\ndoc_id: ED-PAT-005\nversion: 0.1-draft\ntitle: Изменение плана лечения и стоимости\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Изменение плана лечения и стоимости\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-PAT-005**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Исходная версия\n\nCase ID: __________  План/версия/дата: __________  Причина изменения и новые клинические данные: __________\n\n## Изменение\n\nЧто отменяется/заменяется/добавляется; новый метод, объём, исполнитель, сроки, прогноз: __________\n\n## Стоимость\n\nИзменение цены: __________  Новое «входит»: __________  Новое «не входит»: __________  Уже оплачено/оказано: __________\n\n## Согласование\n\nИзменённый этап не начинается до подписи и, где применимо, нового профильного ИДС.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-PAT-006",
+      "version": "1.0.0",
+      "title": "Отказ от вмешательства / диагностики / рекомендации",
+      "category": "pat",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-PAT-006_refusal.md",
+      "sourceSha256": "17372ebc79896c7e33387c6c50b3139c4cd70c21aa0d5e83ded493468682d159",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Отказ от вмешательства / диагностики / рекомендации",
+          "paragraphs": [
+            "---\ndoc_id: ED-PAT-006\nversion: 0.1-draft\ntitle: Отказ от вмешательства / диагностики / рекомендации\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Отказ от вмешательства / диагностики / рекомендации\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-PAT-006**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Предложение врача\n\nРекомендованное действие, причина, срочность и альтернативы: __________\n\n## Последствия отказа\n\nИндивидуально объяснённые риски отсрочки/отказа и red flags для срочного обращения: __________\n\n## Решение пациента\n\nОтказываюсь от: __________  Причина (необязательно): __________  Получил(а) ответы и понимаю возможность изменить решение.\n\n## Continuity\n\nБезопасный следующий шаг/маршрут и дата контроля: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-PAT-007",
+      "version": "1.0.0",
+      "title": "Несовершеннолетний пациент / представитель",
+      "category": "pat",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": false,
+      "releaseBlocked": true,
+      "evidenceBlocked": false,
+      "medicalReviewPending": true,
+      "tabletStatus": "COUNSEL_APPROVED_MEDICAL_REVIEW_PENDING",
+      "requiredApproverRole": "doctor",
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-PAT-007_minor-representative.md",
+      "sourceSha256": "11e7d020a18670bffbdee86d68f3d79a1b26a4123e28a7a97985191fd828aa0d",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Несовершеннолетний пациент / представитель",
+          "paragraphs": [
+            "---\ndoc_id: ED-PAT-007\nversion: 0.1-draft\ntitle: Несовершеннолетний пациент / представитель\nowner: Expert Dental legal owner + clinic medical director\nstatus: COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Несовершеннолетний пациент / представитель\n\n> **COUNSEL_REVIEW_REQUIRED / MEDICAL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-PAT-007**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner + clinic medical director**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED, MEDICAL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Пациент\n\nФИО: __________  Дата рождения: __________  Документ/способ проверки: __________\n\n## Представитель\n\nФИО: __________  Связь/основание полномочий: __________  Документ и срок полномочий: __________  Контакт: __________\n\n## Проверка\n\nПроверил сотрудник: __________  Дата/время: __________  Ограничения/конфликт/второй представитель: __________\n\n## Consent/assent\n\nКто вправе подписать конкретный документ определяется counsel-approved matrix (OPEN GAP). Мнение/assent ребёнка фиксируется с учётом возраста и понимания: __________\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: ____________________\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "ED-PRV-001",
+      "version": "1.0.0",
+      "title": "Уведомление и применимое согласие на персональные данные",
+      "category": "prv",
+      "status": "NOT_EFFECTIVE",
+      "legalApprovalStatus": "COUNSEL_APPROVED_OWNER_CONFIRMED",
+      "effective": false,
+      "testEligible": true,
+      "releaseBlocked": false,
+      "evidenceBlocked": false,
+      "medicalReviewPending": false,
+      "tabletStatus": "COUNSEL_APPROVED_TABLET_QA",
+      "requiredApproverRole": null,
+      "requiredSigners": [
+        "patient"
+      ],
+      "retentionClass": "CLINICAL_25Y_PROVISIONAL",
+      "source": "markdown/patient-facing/ED-PRV-001_privacy-notice-consent.md",
+      "sourceSha256": "3106c63b352cac380dadc4b75998a2e0aec7582ec5bebe659be0f7558abfc670",
+      "versionRegistrySha256": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+      "approvalRecordSha256": "d07a488556c467df4ccb616e48c6d7cd51ca4bdb848526e79e8e42d0e67016ae",
+      "fields": [],
+      "acknowledgements": [
+        "Документ прочитан полностью",
+        "Вопросы заданы до подписания"
+      ],
+      "sections": [
+        {
+          "heading": "Уведомление и применимое согласие на персональные данные",
+          "paragraphs": [
+            "---\ndoc_id: ED-PRV-001\nversion: 0.1-draft\ntitle: Уведомление и применимое согласие на персональные данные\nowner: Expert Dental legal owner\nstatus: COUNSEL_REVIEW_REQUIRED\neffective_date: \"[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]\"\njurisdiction: Kyrgyz Republic\nlanguage: ru\napproved_for_real_patient_use: false\n---\n\n# Уведомление и применимое согласие на персональные данные\n\n> **COUNSEL_REVIEW_REQUIRED. НЕ ДЛЯ РЕАЛЬНЫХ ПАЦИЕНТОВ И НЕ IN_USE.** Требуются письменные approvals, evidence gates, регистрация версии и go-live акт.\n\n## Контроль документа\n\n- DOC-ID: **ED-PRV-001**\n- Version: **0.1-draft**\n- Owner: **Expert Dental legal owner**\n- Effective date: **[EFFECTIVE DATE — AFTER COUNSEL/MEDICAL APPROVAL]**\n- Required approvals: **COUNSEL_REVIEW_REQUIRED**\n- Empty-template SHA256: `[CALCULATE AFTER APPROVAL; current draft hash is recorded in package manifest]`\n- Supersedes: none\n- Retention class/period: `[OPEN GAP — COUNSEL-APPROVED SCHEDULE REQUIRED]`\n\n## Подтверждённые реквизиты и границы\n\nИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Владелец и контакты\n\nВладелец персональных записей/контролирующая роль и контакт для запросов: [OPEN GAP — COUNSEL CONFIRMATION]. Клинический оператор: ИП Раимова Камилла Саидовна; лицензия №4879 от 15.01.2026; г. Бишкек, проспект Эркиндик, 43; подтверждённый scope на представленном листе: стоматологическая помощь общей практики амбулаторно; 5 стоматологических кресел. Иные профили, приложения, разрешения и credentials: OPEN GAP.\n\n## Цели и данные\n\nИдентификация, запись, диагностика и лечение, договор/оплата, безопасность, коммуникации и защита прав. Категории, основания, обязательность и последствия непредоставления заполняются по approved data map.\n\n## Получатели и места\n\nCRM/DMS, клиническое хранилище, лаборатория/imaging, IT/cloud, WAHA/WhatsApp и трансграничные передачи: [OPEN GAP — processor/location register].\n\n## Права и сроки\n\nДоступ, исправление, ограничение, возражение и удаление — в применимых пределах. Медицинские/юридические записи могут сохраняться по обязательному сроку и legal hold. Конкретные сроки: OPEN GAP. Отдельное consent используется только там, где counsel подтверждает это основание.\n\n## Подписи и временные метки\n\nПациент / представитель: ____________________  ФИО: ____________________  Роль/основание: ____________________\n\nВрач / уполномоченный сотрудник (по применимости): ____________________  ФИО/роль: ____________________\n\nДата/время сервера (UTC): ____________________  Местное время и timezone: ____________________\n\nDevice/session ID или номер бумажного экземпляра: ____________________\n\nDOC-ID / version / final document hash: ____________________\n\n## Выдача копии\n\nКопия выдана/отправлена способом: ____________________  Получатель: ____________________\n\nДата/время отправки: ____________________  Дата/время получения/подтверждения: ____________________\n\nЯ подтверждаю получение доступной мне копии: ____________________\n\n## Запрет backdating и управление версиями\n\nПодпись относится только к полному финальному документу с указанными DOC-ID, version и hash. Документ нельзя датировать задним числом, переписывать после подписи или заменять «на месте». Исправление создаётся текущей датой как отдельное дополнение/новая версия со ссылкой на исходный объект. Изображение подписи нельзя хранить или повторно использовать отдельно от подписанного документа.\n\n## Approval block\n\n- Legal reviewer / date / decision: ____________________\n- Medical reviewer / date / decision: N/A unless counsel requires\n- Owner release decision / date: ____________________\n- Registry entry / effective version: ____________________\n- Go-live evidence: ____________________\n"
+          ]
+        }
+      ]
+    }
+  ]
+}

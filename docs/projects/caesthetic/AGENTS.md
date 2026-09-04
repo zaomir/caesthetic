@@ -44,6 +44,14 @@ Production root: `site-caesthetic/`
 Deploy target: `caesthetic`  
 Public domain: `caesthetic.com`
 
+## Expert Dental reference from this workspace
+
+Use `docs/external/grainee-v2/expert-dental/` for complete allowlisted project
+knowledge mirrored from `grainee-v2`. Verify `.mirror-manifest.json` before
+reading. The tree is generated and read-only. Cross-project non-PHI proposals
+belong in `docs/projects/caesthetic/expert-dental-contributions/`; never write
+legal wording, runtime code, PHI, credentials or raw recordings there.
+
 ## Agents satellite (DEC-829)
 
 - Agents GitHub project: `zaomir/caesthetic` (local `/var/www/caesthetic`).
