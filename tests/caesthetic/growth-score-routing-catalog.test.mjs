@@ -8,6 +8,7 @@ import {
   GROWTH_SCORE_AUDIT_INTENT,
   GROWTH_SCORE_AUDIT_OPENING_RU,
   mentionsGrowthScoreAudit,
+  resolveGrowthScoreAuditTemplateRoute,
   routeGrowthScoreAuditIntent,
 } from "../../scripts/caesthetic/growth-score-intent-router.mjs";
 import {
@@ -38,6 +39,46 @@ test("Growth Score, Multi-Location Growth Score and аудит route to one mand
   }
   assert.equal(mentionsGrowthScoreAudit("Нужно обновить pricing"), false);
   assert.equal(mentionsGrowthScoreAudit("Исследуем аудиторию"), false);
+});
+
+test("approved audit formats route fail-closed to Check500-bound report templates", () => {
+  const single = resolveGrowthScoreAuditTemplateRoute({ audit_format: "single-location" });
+  assert.equal(single.template_factory, "createGrowthScoreReportTemplate");
+  assert.equal(single.package_role, "single_location");
+  assert.deepEqual(single.check500.placements, ["mid_report", "final_alternative"]);
+
+  const parent = routeGrowthScoreAuditIntent("Создай Multi-Location Growth Score", {
+    active_intent: GROWTH_SCORE_AUDIT_INTENT,
+    audit_format: "multi_location",
+    package_role: "network_parent",
+  }).template_route;
+  assert.equal(parent.template_factory, "createMultiLocationGrowthScoreReportTemplate");
+  assert.deepEqual(parent.template_arguments, { packageRole: "network_parent" });
+  assert.deepEqual(parent.check500.placements, ["mid_report", "final_alternative"]);
+
+  const child = resolveGrowthScoreAuditTemplateRoute({
+    audit_format: "network",
+    package_role: "focus-location",
+  });
+  assert.equal(child.check500.placement_owner, "network_parent");
+  assert.deepEqual(child.check500.placements, []);
+
+  for (const route of [single, parent, child]) {
+    assert.equal(route.check500.copy_contract, "check500-section/en-US/1.0.0");
+    assert.equal(route.check500.placement_contract, "check500-two-placement/1.0.0");
+    assert.equal(route.check500.style_contract, "check500-style/1.0.0");
+    assert.equal(route.check500.style_reference, "docs/ssot/assets/caesthetic/check500-section-style-v1.png");
+    assert.equal(route.check500.style_reference_sha256, "1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375");
+  }
+
+  assert.throws(
+    () => resolveGrowthScoreAuditTemplateRoute({ audit_format: "generic" }),
+    /single_location or multi_location/,
+  );
+  assert.throws(
+    () => resolveGrowthScoreAuditTemplateRoute({ audit_format: "single", package_role: "focus_location" }),
+    /cannot use a Multi-Location package role/,
+  );
 });
 
 test("current approved reports auto-register while private client data stays out of public artifacts", () => {

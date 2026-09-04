@@ -32,6 +32,12 @@ import {
   isOwnerBriefLayout,
   validateOwnerBriefPresentation,
 } from "./owner-brief-contract.mjs";
+import {
+  CHECK500_COPY_CONTRACT,
+  CHECK500_PLACEMENT_CONTRACT,
+  CHECK500_STYLE_CONTRACT,
+  CHECK500_STYLE_REFERENCE_SHA256,
+} from "./check500-contract.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");
@@ -1091,11 +1097,11 @@ function reportCommercialLinkAttrs(report, kind) {
 function check500SectionHtml(report, placement) {
   if (isMultiLocationFocusChild(report)) return "";
   const copy = report.reportContext?.report_locale === "ru" ? CHECK500_COPY_RU : CHECK500_COPY;
-  return `<section class="cae-check500-section" data-copy-contract="check500-section/en-US/1.0.0" data-cae-check-placement="${placement}">
+  return `<section class="cae-check500-section cae-check500-section--${placement}" data-copy-contract="${CHECK500_COPY_CONTRACT}" data-placement-contract="${CHECK500_PLACEMENT_CONTRACT}" data-style-contract="${CHECK500_STYLE_CONTRACT}" data-style-reference-sha256="${CHECK500_STYLE_REFERENCE_SHA256}" data-cae-check-placement="${placement}">
     <h2 class="cae-h2">${copy.heading}</h2>
-    <p><strong>${copy.product}</strong></p>
-    <p>${copy.body}</p>
-    <a class="cae-btn cae-btn--outline" ${reportCommercialLinkAttrs(report, "check")}>${copy.cta}</a>
+    <p class="cae-check500-section__product">${copy.product}</p>
+    <p class="cae-check500-section__body">${copy.body}</p>
+    <a class="cae-btn cae-btn--primary" ${reportCommercialLinkAttrs(report, "check")}>${copy.cta}</a>
     <p class="cae-report-note">${copy.finePrint}</p>
   </section>`;
 }
@@ -1181,14 +1187,12 @@ function plainCheck500Html(report, placement) {
   const placementLabel = placement === "mid"
     ? ui.check_mid_placement_label || "середина отчёта"
     : ui.check_final_placement_label || "конец отчёта";
-  return `<article class="cae-owner-check500" data-cae-check-placement="${placement}" data-check500-contract="${escapeHtml(report.presentation.check500_placement_contract || "")}" data-check500-copy-contract="${escapeHtml(check.copy_contract || "")}" aria-label="${escapeHtml(ui.check_aria_label || "Дополнительная проверка за 500 долларов")} · ${escapeHtml(placementLabel)}">
-    <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
+  return `<article class="cae-owner-check500 cae-owner-check500--${placement}" data-cae-check-placement="${placement}" data-check500-contract="${escapeHtml(report.presentation.check500_placement_contract || "")}" data-check500-copy-contract="${escapeHtml(check.copy_contract || "")}" data-check500-style-contract="${escapeHtml(report.presentation.check500_style_contract || "")}" data-style-reference-sha256="${CHECK500_STYLE_REFERENCE_SHA256}" aria-label="${escapeHtml(ui.check_aria_label || "Дополнительная проверка за 500 долларов")} · ${escapeHtml(placementLabel)}">
     <h2 class="cae-report-subhead">${escapeHtml(copy.title || check.title)}</h2>
     <p class="cae-owner-check500__product">${escapeHtml(check.product_line)}</p>
-    <p>${escapeHtml(copy.body || check.body)}</p>
-    <a class="cae-btn cae-btn--outline" ${reportCommercialLinkAttrs(report, "check")}>${escapeHtml(copy.cta || check.cta)}</a>
+    <p class="cae-owner-check500__body">${escapeHtml(copy.body || check.body)}</p>
+    <a class="cae-btn cae-btn--primary" ${reportCommercialLinkAttrs(report, "check")}>${escapeHtml(copy.cta || check.cta)}</a>
     <p class="cae-report-note">${escapeHtml(check.fine_print)}</p>
-    <p class="cae-report-note">${escapeHtml(check.boundary)}</p>
   </article>`;
 }
 
@@ -1224,7 +1228,6 @@ function plainCommercialNextStepHtml(report) {
       ${offer.boundary ? `<p class="cae-report-note">${escapeHtml(offer.boundary)}</p>` : ""}
       <a class="cae-btn cae-btn--primary" ${reportCommercialLinkAttrs(report, "sprint")}>${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
     </article>
-    ${isBrief ? `<p class="cae-owner-check500-intro"><strong>${escapeHtml(report.presentation.owner_copy?.check500?.final?.kicker || "С чего начать")}:</strong> ${escapeHtml(report.presentation.owner_copy?.check500?.final_intro || "Проверку за $500 можно заказать отдельно. При переходе к следующему подходящему спринту эти $500 засчитываются в общую стоимость $2,500.")}</p>` : ""}
     ${plainCheck500Html(report, "final")}
     <button class="cae-btn cae-btn--ghost" type="button" data-cae-question data-cae-intent="growth_score_report_question">Задать вопрос</button>`;
 }

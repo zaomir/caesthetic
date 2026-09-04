@@ -721,6 +721,125 @@
   }
 }
 
+/* Check500 reusable section — check500-style/1.0.0. */
+.cae-score-report .cae-check500-section,
+.cae-score-report .cae-owner-check500 {
+  position: relative;
+  box-sizing: border-box;
+  width: min(100%, 1120px);
+  max-width: none;
+  margin: clamp(2.5rem, 7vw, 5.5rem) auto 0;
+  padding: clamp(3.75rem, 8vw, 7rem) clamp(1.25rem, 6vw, 5rem) clamp(3rem, 7vw, 5.75rem);
+  border: 0;
+  border-top: 2px solid #0B2438;
+  border-bottom: 2px solid #0B2438;
+  border-radius: 0;
+  background: #F0EDE6;
+  box-shadow: none;
+  color: #0B2438;
+  text-align: center;
+}
+
+.cae-score-report .cae-check500-section::before,
+.cae-score-report .cae-owner-check500::before {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  width: 0.78rem;
+  height: 0.78rem;
+  border: 0.2rem solid #F0EDE6;
+  border-radius: 50%;
+  background: #7B244B;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.cae-score-report .cae-check500-section h2,
+.cae-score-report .cae-owner-check500 h2 {
+  max-width: 980px;
+  margin: 0 auto;
+  color: #0B2438;
+  font-family: var(--cae-font-display);
+  font-size: clamp(2.65rem, 6vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.cae-score-report .cae-check500-section h2::after,
+.cae-score-report .cae-owner-check500 h2::after {
+  display: block;
+  width: clamp(4.5rem, 10vw, 7rem);
+  height: 0.2rem;
+  margin: clamp(1.5rem, 3vw, 2.25rem) auto;
+  background: #7B244B;
+  content: "";
+}
+
+.cae-score-report .cae-check500-section__product,
+.cae-score-report .cae-owner-check500__product {
+  margin: 0;
+  color: #0B2438;
+  font-size: clamp(1.1rem, 2.3vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.cae-score-report .cae-check500-section__body,
+.cae-score-report .cae-owner-check500__body {
+  max-width: 780px;
+  margin: clamp(1.35rem, 3vw, 2rem) auto 0;
+  color: #0B2438;
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  line-height: 1.65;
+}
+
+.cae-score-report .cae-check500-section .cae-btn,
+.cae-score-report .cae-owner-check500 .cae-btn {
+  box-sizing: border-box;
+  width: min(100%, 660px);
+  min-height: 3.65rem;
+  margin: clamp(1.75rem, 4vw, 2.75rem) auto 0;
+  border: 1px solid #7B244B;
+  border-radius: 0;
+  background: #7B244B;
+  box-shadow: none;
+  color: #FFFFFF;
+  white-space: normal;
+}
+
+.cae-score-report .cae-check500-section .cae-report-note,
+.cae-score-report .cae-owner-check500 .cae-report-note {
+  max-width: 720px;
+  margin: clamp(1.25rem, 3vw, 1.9rem) auto 0;
+  color: #0B2438;
+  font-size: clamp(0.76rem, 1.25vw, 0.9rem);
+  line-height: 1.55;
+}
+
+.cae-score-report .cae-check500-section--final_alternative,
+.cae-score-report .cae-owner-check500--final {
+  width: min(100%, 980px);
+}
+
+.cae-score-report .cae-check500-section--final_alternative h2,
+.cae-score-report .cae-owner-check500--final h2 {
+  font-size: clamp(2.25rem, 5vw, 4.65rem);
+}
+
+@media (max-width: 720px) {
+  .cae-score-report .cae-check500-section,
+  .cae-score-report .cae-owner-check500 {
+    padding: 3.5rem 1rem 3rem;
+  }
+
+  .cae-score-report .cae-check500-section .cae-btn,
+  .cae-score-report .cae-owner-check500 .cae-btn {
+    width: 100%;
+  }
+}
+
 /* Multi-Location v1.1 executive decision layer */
 .cae-network-decision-summary {
   margin: var(--cae-space-6) 0;

@@ -7,6 +7,7 @@ import {
   GROWTH_SCORE_SCHEMA_VERSION,
   JOURNEY_GRAPH_ARTIFACT_VERSION,
 } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
+import { createCheck500PresentationContract } from "./check500-contract.mjs";
 
 export { GROWTH_SCORE_REPORT_TEMPLATE_VERSION };
 export const LEGACY_GROWTH_SCORE_V4_TEMPLATE_VERSION = "growth-score-report-template/4.0.0";
@@ -407,6 +408,7 @@ export function createGrowthScoreReportTemplate() {
   report.journeyGraph = createJourneyGraphTemplate();
   report.decisionViews = createDecisionViewsTemplate();
   report.leadToRevenueCheck = createLeadToRevenueCheckDecisionTemplate();
+  report.presentation = createCheck500PresentationContract();
   return report;
 }
 
@@ -442,6 +444,7 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
     throw new TypeError("packageRole must be network_parent or focus_location");
   }
   const report = createGrowthScoreReportTemplate();
+  report.presentation = createCheck500PresentationContract({ ownsPlacements: packageRole === "network_parent" });
   report.audit = {
     format: "multi_location",
     profile_version: MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,

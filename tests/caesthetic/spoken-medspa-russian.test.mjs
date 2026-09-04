@@ -55,6 +55,7 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.equal(report.presentation.hide_unassessed, true);
   assert.equal(report.presentation.commercial_contract, "caesthetic-4444-commercial-core/1.0.0");
   assert.equal(report.presentation.check500_placement_contract, "check500-two-placement/1.0.0");
+  assert.equal(report.presentation.check500_style_contract, "check500-style/1.0.0");
   assert.equal(report.audit.public_direct_link, true);
   assert.equal(report.audit.access_group_id, null);
   assert.equal(isAllowedRealScoreOutput(report, htmlPath), true);
@@ -223,18 +224,18 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.equal((storedHtml.match(/data-cae-check-placement="final"/g) || []).length, 1);
   assert.equal((storedHtml.match(/data-check500-contract="check500-two-placement\/1\.0\.0"/g) || []).length, 2);
   assert.equal((storedHtml.match(/data-check500-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((storedHtml.match(/data-check500-style-contract="check500-style\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((storedHtml.match(/data-style-reference-sha256="1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375"/g) || []).length, 2);
   assert.equal((storedHtml.match(/Все ли обращения доходят до записи\?/g) || []).length, 2);
   assert.equal((storedHtml.match(/Проверка пути от обращения до оплаты · \$500/g) || []).length, 2);
   assert.equal((storedHtml.match(/Проверить обращения за \$500/g) || []).length, 2);
-  assert.equal((storedHtml.match(/\$500 войдут в его стоимость \$2,500/g) || []).length, 3);
+  assert.equal((storedHtml.match(/\$500 войдут в его стоимость \$2,500/g) || []).length, 2);
   assert.equal((storedHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
   assert.equal((storedHtml.match(/data-cae-question/g) || []).length, 1);
   assert.equal((storedHtml.match(/href="#request"/g) || []).length, 3);
   assert.doesNotMatch(storedHtml, /href="\/(?:lead-to-revenue-check|sprint)\/"/);
   assert.match(storedHtml, /data-owner-sprint-offer/);
-  assert.match(storedHtml, /Если сначала нужен меньший шаг:/);
-  assert.match(storedHtml, /Она не обязательна перед спринтом/);
-  assert.match(storedHtml, /Проверку за \$500 можно заказать отдельно/);
+  assert.doesNotMatch(storedHtml, /Если сначала нужен меньший шаг|Она не обязательна перед спринтом|Проверку за \$500 можно заказать отдельно/);
   assert.doesNotMatch(storedHtml, /С чего начать:<\/strong>.*начинаем с проверки за \$500/);
   assert.equal((storedHtml.match(/class="cae-mobile-repair"/g) || []).length, 3);
   assert.doesNotMatch(storedHtml, /<details class="cae-mobile-repair" open>/);
@@ -275,7 +276,9 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(reportCss, /\.cae-score-report--brief \.cae-owner-constraint-accordion\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\);/s);
   assert.match(reportCss, /\.cae-owner-constraint > summary::after\s*\{[^}]*content:\s*"\+";/s);
   assert.match(reportCss, /\.cae-owner-constraint\[open\] > summary::after\s*\{[^}]*content:\s*"−";/s);
-  assert.match(reportCss, /\.cae-owner-check500,\s*\n\.cae-owner-offer,\s*\n\.cae-owner-conclusion\s*\{[^}]*padding:\s*clamp\(1\.15rem, 2\.5vw, 1\.75rem\);/s);
+  assert.match(reportCss, /Check500 reusable section — check500-style\/1\.0\.0/);
+  assert.match(reportCss, /\.cae-score-report \.cae-check500-section,\s*\n\.cae-score-report \.cae-owner-check500\s*\{[^}]*border-top:\s*2px solid #0B2438;[^}]*border-bottom:\s*2px solid #0B2438;[^}]*background:\s*#F0EDE6;[^}]*text-align:\s*center;/s);
+  assert.match(reportCss, /\.cae-score-report \.cae-check500-section \.cae-btn,\s*\n\.cae-score-report \.cae-owner-check500 \.cae-btn\s*\{[^}]*background:\s*#7B244B;[^}]*color:\s*#FFFFFF;/s);
 });
 
 test("Russian route is noindex and the English route remains unchanged and protected", () => {

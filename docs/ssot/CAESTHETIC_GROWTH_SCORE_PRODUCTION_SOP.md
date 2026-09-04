@@ -606,6 +606,8 @@ The router normalizes case, Unicode dashes and spacing, then resolves all of the
 
 The only allowed initial action is `start_manager_interview`. The router returns the exact Russian opening, the complete questionnaire, `public_open_sources_only` and the `named_manager_research_alignment_approval` gate. It does not start research, select competitors or create a draft report from a bare mention.
 
+After `audit_format` is answered, `scripts/caesthetic/growth-score-intent-router.mjs` is the fail-closed template router. `single_location` resolves only to `createGrowthScoreReportTemplate()`. `multi_location` resolves only to `createMultiLocationGrowthScoreReportTemplate({ packageRole: "network_parent" })` for the package parent and the same factory with `packageRole: "focus_location"` for the location child. Every resolved route carries `check500-section/en-US/1.0.0`, `check500-two-placement/1.0.0`, `check500-style/1.0.0` and the locked reference hash. The single-location report and network parent own `mid_report` plus `final_alternative`; the focus child owns neither. Unknown formats, mixed roles or missing Multi-Location roles outside the parent default fail closed instead of falling through to a generic template.
+
 ## 19. Catalog and site route contract
 
 | Route/artifact | Purpose | Visibility |

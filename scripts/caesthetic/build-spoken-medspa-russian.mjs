@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { renderGrowthReport } from "./render-growth-score.mjs";
 import { OWNER_BRIEF_LAYOUT_CONTRACT } from "./owner-brief-contract.mjs";
+import { CHECK500_STYLE_CONTRACT } from "./check500-contract.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 export const sourceSlug = "spoken-medspa-snellville-9d7f3a5c2e184b61";
@@ -355,6 +356,7 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
     hide_unassessed: true,
     commercial_contract: "caesthetic-4444-commercial-core/1.0.0",
     check500_placement_contract: "check500-two-placement/1.0.0",
+    check500_style_contract: CHECK500_STYLE_CONTRACT,
     owner_copy: {
       header: {
         kicker: "Краткий обзор · Оценка роста",

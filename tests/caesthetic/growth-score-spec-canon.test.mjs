@@ -15,6 +15,7 @@ import {
   createGrowthScoreReportTemplate,
   createLeadToRevenueCheckDecisionTemplate,
   createLegacyGrowthScoreV4ReportTemplate,
+  createMultiLocationGrowthScoreReportTemplate,
 } from "../../scripts/caesthetic/growth-score-report-template.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -104,6 +105,13 @@ test("canonical authoring template derives exact metrics and fails closed", () =
   assert.match(report.leadToRevenueCheck.reason, /No case-specific Lead-to-Revenue Check recommendation/);
   assert.deepEqual(report.leadToRevenueCheck.evidence_refs, []);
   assert.deepEqual(report.leadToRevenueCheck, createLeadToRevenueCheckDecisionTemplate());
+  assert.equal(report.presentation.check500_copy_contract, "check500-section/en-US/1.0.0");
+  assert.equal(report.presentation.check500_placement_contract, "check500-two-placement/1.0.0");
+  assert.equal(report.presentation.check500_style_contract, "check500-style/1.0.0");
+  assert.equal(report.presentation.check500_style_reference, "docs/ssot/assets/caesthetic/check500-section-style-v1.png");
+  assert.equal(report.presentation.check500_style_reference_sha256, "1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375");
+  assert.deepEqual(report.presentation.check500_placements, ["mid_report", "final_alternative"]);
+  assert.equal(report.presentation.check500_placement_owner, "this_report");
 
   for (const surface of report.surfaces) {
     assert.deepEqual(
@@ -123,6 +131,17 @@ test("canonical authoring template derives exact metrics and fails closed", () =
 
   assert.throws(() => scoreGrowthReport(report));
   assert.doesNotMatch(JSON.stringify(report), /Aesthetemed|Alex Goldman|aesthetemed\.com/i);
+});
+
+test("Multi-Location templates keep Check500 on the network parent only", () => {
+  const parent = createMultiLocationGrowthScoreReportTemplate({ packageRole: "network_parent" });
+  const child = createMultiLocationGrowthScoreReportTemplate({ packageRole: "focus_location" });
+  assert.deepEqual(parent.presentation.check500_placements, ["mid_report", "final_alternative"]);
+  assert.equal(parent.presentation.check500_placement_owner, "this_report");
+  assert.equal(parent.presentation.check500_style_contract, "check500-style/1.0.0");
+  assert.deepEqual(child.presentation.check500_placements, []);
+  assert.equal(child.presentation.check500_placement_owner, "network_parent");
+  assert.equal(child.presentation.check500_style_contract, "check500-style/1.0.0");
 });
 
 test("legacy v4 scaffold is explicit and cannot masquerade as the current template", () => {

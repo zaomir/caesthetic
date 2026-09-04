@@ -141,6 +141,12 @@ test("score navigation is compact, four-surface, approximate and secondary", () 
 test("Lead-to-Revenue Check renders universally without displacing the evidence-backed Sprint CTA", () => {
   const defaultHtml = renderGrowthReport(fixture);
   assert.equal((defaultHtml.match(/data-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((defaultHtml.match(/data-style-contract="check500-style\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((defaultHtml.match(/data-placement-contract="check500-two-placement\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((defaultHtml.match(/data-style-reference-sha256="1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375"/g) || []).length, 2);
+  assert.match(defaultHtml, /cae-check500-section--mid_report/);
+  assert.match(defaultHtml, /cae-check500-section--final_alternative/);
+  assert.equal((defaultHtml.match(/cae-check500-section[^>]*>[\s\S]*?<a class="cae-btn cae-btn--primary"/g) || []).length, 2);
   assert.equal((defaultHtml.match(/data-cae-check-inquiry/g) || []).length, 2);
   assert.equal((defaultHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
   assert.match(defaultHtml, /Do all your enquiries make it to a booking\?/);
@@ -154,6 +160,7 @@ test("Lead-to-Revenue Check renders universally without displacing the evidence-
   };
   const recommendedHtml = renderGrowthReport(recommended);
   assert.equal((recommendedHtml.match(/data-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((recommendedHtml.match(/data-style-contract="check500-style\/1\.0\.0"/g) || []).length, 2);
   assert.equal((recommendedHtml.match(/data-cae-check-inquiry/g) || []).length, 2);
   assert.equal((recommendedHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
   assert.doesNotMatch(recommendedHtml, /Public evidence cannot resolve the post-enquiry booking handoff/);

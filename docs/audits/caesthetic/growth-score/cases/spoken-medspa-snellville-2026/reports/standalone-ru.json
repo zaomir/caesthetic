@@ -1198,6 +1198,7 @@
     "hide_unassessed": true,
     "commercial_contract": "caesthetic-4444-commercial-core/1.0.0",
     "check500_placement_contract": "check500-two-placement/1.0.0",
+    "check500_style_contract": "check500-style/1.0.0",
     "owner_copy": {
       "header": {
         "kicker": "Краткий обзор · Оценка роста",

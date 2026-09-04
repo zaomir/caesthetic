@@ -1,9 +1,16 @@
+import {
+  CHECK500_COPY_CONTRACT,
+  CHECK500_PLACEMENT_CONTRACT,
+  CHECK500_STYLE_CONTRACT,
+} from "./check500-contract.mjs";
+
 export const OWNER_BRIEF_LAYOUT_CONTRACT = "owner-brief/2.1.0";
 export const PREVIOUS_OWNER_BRIEF_LAYOUT_CONTRACT = "owner-brief/2.0.0";
 export const LEGACY_SPOKEN_OWNER_BRIEF_LAYOUT_CONTRACT = "spoken-owner-brief/1.0.0";
 export const OWNER_BRIEF_COMMERCIAL_CONTRACT = "caesthetic-4444-commercial-core/1.0.0";
-export const OWNER_BRIEF_CHECK500_PLACEMENT_CONTRACT = "check500-two-placement/1.0.0";
-export const OWNER_BRIEF_CHECK500_COPY_CONTRACT = "check500-section/en-US/1.0.0";
+export const OWNER_BRIEF_CHECK500_PLACEMENT_CONTRACT = CHECK500_PLACEMENT_CONTRACT;
+export const OWNER_BRIEF_CHECK500_COPY_CONTRACT = CHECK500_COPY_CONTRACT;
+export const OWNER_BRIEF_CHECK500_STYLE_CONTRACT = CHECK500_STYLE_CONTRACT;
 
 export const OWNER_BRIEF_SECTION_IDS = Object.freeze([
   "gap-map",
@@ -110,6 +117,7 @@ export function validateOwnerBriefPresentation(report) {
   invariant(OWNER_BRIEF_VERTICAL_PROFILES.includes(presentation.vertical_profile), "owner brief vertical profile is unsupported");
   invariant(presentation.commercial_contract === OWNER_BRIEF_COMMERCIAL_CONTRACT, "owner brief commercial contract is invalid");
   invariant(presentation.check500_placement_contract === OWNER_BRIEF_CHECK500_PLACEMENT_CONTRACT, "owner brief Check500 placement contract is invalid");
+  invariant(presentation.check500_style_contract === OWNER_BRIEF_CHECK500_STYLE_CONTRACT, "owner brief Check500 style contract is invalid");
   invariant(copy.check500?.copy_contract === OWNER_BRIEF_CHECK500_COPY_CONTRACT, "owner brief Check500 copy contract is invalid");
 
   if (presentation.layout_contract === OWNER_BRIEF_LAYOUT_CONTRACT) {
