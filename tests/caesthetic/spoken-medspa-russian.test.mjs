@@ -22,10 +22,10 @@ const sharedRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js
 const pointOfContactRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/point-of-contact.js"), "utf8");
 const analyticsRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/analytics.js"), "utf8");
 
-const metricFingerprint = (value) => ({
+const metricFingerprint = (value, excluded = new Set()) => ({
   surfaces: value.surfaces.map((surface) => ({
     id: surface.id,
-    metrics: surface.metrics.map((metric) => ({
+    metrics: surface.metrics.filter((metric) => !excluded.has(`${surface.id}.${metric.metric_id}`)).map((metric) => ({
       metric_id: metric.metric_id,
       raw_value: metric.raw_value,
       normalized_score: metric.normalized_score,
@@ -35,7 +35,7 @@ const metricFingerprint = (value) => ({
       reviewer_status: metric.reviewer_status,
     })),
   })),
-  crossSurface: value.crossSurface.metrics.map((metric) => ({
+  crossSurface: value.crossSurface.metrics.filter((metric) => !excluded.has(`cross.${metric.metric_id}`)).map((metric) => ({
     metric_id: metric.metric_id,
     raw_value: metric.raw_value,
     normalized_score: metric.normalized_score,
@@ -68,9 +68,17 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.doesNotMatch(storedHtml, /Введите пароль|Пароль|Log in|Login|PIN/i);
 });
 
-test("Russian Spoken report preserves the approved fact set, evidence and Top 3", () => {
-  assert.equal(report.verifiedFactSetVersion, source.verifiedFactSetVersion);
-  assert.deepEqual(metricFingerprint(report), metricFingerprint(source));
+test("Russian Spoken report preserves unchanged evidence and aligns the Top 3 to sellable 4444 work", () => {
+  assert.equal(report.verifiedFactSetVersion, "spoken-medspa-snellville-2026-09-04/4444-v1");
+  const intentionallyUpdated = new Set([
+    "search.entity_integrity",
+    "website.treatment_clarity",
+    "reputation.rating",
+    "reputation.negative_review_handling",
+    "cross.proof_continuity",
+    "cross.identity_coherence",
+  ]);
+  assert.deepEqual(metricFingerprint(report, intentionallyUpdated), metricFingerprint(source, intentionallyUpdated));
   assert.equal(report.humanDiagnosis.binding_constraint.gap_ref, source.humanDiagnosis.binding_constraint.gap_ref);
   assert.deepEqual(
     {
@@ -86,8 +94,39 @@ test("Russian Spoken report preserves the approved fact set, evidence and Top 3"
       selected_at: source.humanDiagnosis.focus_selection.selected_at,
     },
   );
-  assert.deepEqual(report.humanDiagnosis.do_not_do.evidence_refs, source.humanDiagnosis.do_not_do.evidence_refs);
-  assert.deepEqual(scoreGrowthReport(report), scoreGrowthReport(source));
+  assert.deepEqual(report.humanDiagnosis.do_not_do.evidence_refs, [
+    "website.treatment_clarity",
+    "cross.proof_continuity",
+    "reputation.rating",
+    "reputation.negative_review_handling",
+  ]);
+  const searchIdentity = report.surfaces.find((surface) => surface.id === "search").metrics.find((metric) => metric.metric_id === "entity_integrity");
+  const crossIdentity = report.crossSurface.metrics.find((metric) => metric.metric_id === "identity_coherence");
+  for (const metric of [searchIdentity, crossIdentity]) {
+    assert.equal(metric.raw_value, null);
+    assert.equal(metric.source, null);
+    assert.equal(metric.collected_at, null);
+    assert.equal(metric.reviewer_status, "pending");
+    assert.equal("finding" in metric, false);
+  }
+  const rating = report.surfaces.find((surface) => surface.id === "reputation").metrics.find((metric) => metric.metric_id === "rating");
+  const reviewHandling = report.surfaces.find((surface) => surface.id === "reputation").metrics.find((metric) => metric.metric_id === "negative_review_handling");
+  assert.equal(rating.reviewer_status, "approved");
+  assert.match(rating.finding, /4,9 и около 250 отзывов/);
+  assert.equal(reviewHandling.reviewer_status, "approved");
+  assert.match(reviewHandling.finding, /общения по телефону и на стойке регистрации/);
+  const topThree = [
+    report.humanDiagnosis.focus_selection.primary_gap_id,
+    ...report.humanDiagnosis.focus_selection.supporting_gap_ids,
+  ].map((id) => report.humanDiagnosis.gap_inventory.find((gap) => gap.id === id).title);
+  assert.deepEqual(topThree, [
+    "Собрать карту точных запросов",
+    "Сделать блог регулярной системой",
+    "Регулярно собирать честные отзывы и улучшить ответы",
+  ]);
+  const score = scoreGrowthReport(report);
+  assert.equal(score.overall.status, "insufficient_evidence");
+  assert.equal(score.overall.rawScore, null);
   assert.equal(source.reportContext.report_locale, "en");
   assert.match(source.executiveSummary, /binding constraint/i);
 });
@@ -122,9 +161,13 @@ test("Russian Spoken client text contains no English terms outside approved prop
   assert.match(sharedRuntime, /Нужны только имя и электронная почта/);
   assert.doesNotMatch(sharedRuntime, /russian \? "[^"\n]*(?:email|Order)[^"\n]*"/i);
   assert.match(storedHtml, /Оценка роста/);
-  assert.match(storedHtml, /Согласовать слова и данные во всех четырёх каналах/);
-  assert.match(storedHtml, /Разделить путь пациента и путь специалиста/);
-  assert.match(storedHtml, /Усилить страницу филлеров/);
+  assert.match(storedHtml, /Собрать карту точных запросов/);
+  assert.match(storedHtml, /Сделать блог регулярной системой/);
+  assert.match(storedHtml, /Регулярно собирать честные отзывы и улучшить ответы/);
+  const retiredObservation = new RegExp(["ju", "rney"].join(""), "i");
+  assert.doesNotMatch(storedHtml, retiredObservation);
+  assert.doesNotMatch(JSON.stringify(stored), retiredObservation);
+  assert.doesNotMatch(fs.readFileSync(path.join(root, "scripts/caesthetic/build-spoken-medspa-russian.mjs"), "utf8"), retiredObservation);
   const mobileCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report-mobile.css"), "utf8");
   assert.match(
     mobileCss,
@@ -142,11 +185,12 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   const researchStart = storedHtml.indexOf('data-owner-research-scope');
   const researchEnd = storedHtml.indexOf('</article>', researchStart);
   const researchHtml = storedHtml.slice(researchStart, researchEnd);
-  assert.equal((researchHtml.match(/<li><a /g) || []).length, 8);
-  assert.equal((researchHtml.match(/target="_blank"/g) || []).length, 8);
+  assert.equal((researchHtml.match(/<li><a /g) || []).length, 9);
+  assert.equal((researchHtml.match(/target="_blank"/g) || []).length, 9);
   assert.match(researchHtml, />Главная страница <span data-brand>Spoken<\/span><\/a>/);
   assert.match(researchHtml, />Страница <span data-brand>Botox<\/span><\/a>/);
-  assert.match(researchHtml, />Блог о переходе к <span data-brand>Spoken<\/span><\/a>/);
+  assert.match(researchHtml, />Блог <span data-brand>Spoken<\/span><\/a>/);
+  assert.match(researchHtml, />Карточка <span data-brand>Spoken<\/span> в <span data-brand>Google<\/span><\/a>/);
   assert.doesNotMatch(researchHtml, /cae-owner-research__cards|cae-owner-research__sources/);
   assert.doesNotMatch(researchHtml, /Мы изучили только открытые источники/);
   assert.match(storedHtml, /Как пользоваться отчётом/);
@@ -186,8 +230,8 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.doesNotMatch(storedHtml, /data-owner-reputation-service/);
   assert.match(storedHtml, /без отбора, оплаты и готового текста/);
   assert.match(storedHtml, /Не подтверждать лечение и не раскрывать личные данные/);
-  assert.equal(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").title, "Усилить страницу филлеров");
-  assert.match(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").repair_plan.day_30_outcome, /Сбор отзывов и ответы владельца/);
+  assert.equal(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").title, "Регулярно собирать честные отзывы и улучшить ответы");
+  assert.match(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").repair_plan.day_30_outcome, /Система честного сбора отзывов запущена/);
 
   const constraintsIndex = storedHtml.indexOf('id="gap-map"');
   const journeyIndex = storedHtml.indexOf('id="focus-gaps"');

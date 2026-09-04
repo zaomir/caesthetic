@@ -27,11 +27,8 @@ export const auditReportPath = path.join(
 const EXACT_TRANSLATIONS = new Map(Object.entries({
   "Outside-in Growth Score using public evidence only. Internal operations, patient data, revenue and outcomes are not assessed.": "Оценка роста снаружи внутрь, основанная только на публичных доказательствах. Внутренние процессы, данные пациентов, выручка и результаты не оценивались.",
   "2121 Fountain Drive, Suite M, Snellville, GA 30078, United States": "2121 Фаунтин-драйв, помещение M, Снеллвилл, Джорджия 30078, США",
-  "Spoken has a strong Botox/Ivy authority asset. The binding constraint is incomplete identity/trust continuity after the Jurney-to-Spoken transition, with mixed patient/Academy routing and uneven filler proof continuity.": "У Spoken есть сильная опора доверия: страница Botox и профессиональная репутация Ivy Cleveland. Главное ограничение — незавершённая согласованность идентичности и доверия после перехода от Jurney к Spoken, смешение маршрутов пациентов и Академии, а также неравномерная связность доказательств по филлерам.",
   "Legacy identity friction; Search coverage unmeasured.": "Старая идентичность создаёт трение; охват в поиске не измерен.",
   "Current brand is clear.": "Текущий бренд обозначен ясно.",
-  "Legacy Jurney signals.": "Сохранились сигналы старого бренда Jurney.",
-  "Current Spoken and legacy Jurney signals coexist.": "В открытых источниках одновременно встречаются названия Spoken и Jurney.",
   "Strong Botox/Ivy asset; routing/proof repair needed.": "Страница Botox понятна и показывает опыт Ivy Cleveland. Другие части пути нужно привести к тому же уровню.",
   "Botox page + Ivy authority.": "Понятная страница Botox и опыт Ivy Cleveland.",
   "Mixed audiences and uneven filler proof.": "На сайте смешаны материалы для пациентов и специалистов. Страница филлеров объяснена слабее.",
@@ -45,15 +42,12 @@ const EXACT_TRANSLATIONS = new Map(Object.entries({
   "Identity, audience and proof friction observed.": "Обнаружено трение в идентичности, разделении аудиторий и связности доказательств.",
   "Patient and professional journeys are not consistently separated.": "Путь пациента и путь специалиста разделены не везде.",
   "Proof continuity is stronger on Botox than fillers.": "На странице Botox больше причин доверять услуге, чем на странице филлеров.",
-  "Current and legacy identity signals are not fully synchronized.": "Старое название Jurney заменено не во всех открытых источниках.",
   "Strong Botox/provider authority centered on Ivy Cleveland.": "Сильная страница Botox и профессиональный авторитет Ivy Cleveland.",
   "Identity and trust continuity remain unsynchronized": "Согласованность идентичности и доверия остаётся незавершённой",
-  "Legacy Jurney signals and mixed audience paths create public friction before booking.": "Устаревшие сигналы Jurney и смешанные маршруты аудиторий создают публичное трение до записи.",
   "Strong Botox page and Ivy authority.": "Сильная страница Botox и профессиональный авторитет Ivy Cleveland.",
   "Identity/trust continuity": "Согласованность идентичности и доверия",
   "Rebrand, audience routing and proof are not fully synchronized.": "Переход на новый бренд, маршруты аудиторий и доказательства синхронизированы не полностью.",
   "Fix identity, then audiences, then filler proof.": "Сначала исправить идентичность, затем разделить аудитории и после этого усилить доказательства по филлерам.",
-  "Legacy Jurney identity remains": "Сохранилась устаревшая идентичность Jurney",
   "Identity uncertainty appears before booking.": "Неопределённость идентичности возникает до записи.",
   "One current Spoken identity.": "Единая актуальная идентичность Spoken.",
   "Freeze current facts; inventory and update controlled endpoints; retain before/after evidence.": "Зафиксировать актуальные данные, составить перечень управляемых точек контакта, обновить их и сохранить доказательства состояния до и после.",
@@ -133,7 +127,6 @@ const EXACT_TRANSLATIONS = new Map(Object.entries({
   "Defend Ivy authority": "Сохранить профессиональный авторитет Ivy Cleveland",
   "Named-provider authority is visible.": "Профессиональный авторитет названного специалиста виден.",
   "Close identity/trust gap": "Закрыть разрыв в идентичности и доверии",
-  "Patients should not reconcile Spoken/Jurney signals.": "Пациенты не должны самостоятельно сопоставлять сигналы Spoken и Jurney.",
   "Use injector-educator authority as trust evidence": "Использовать авторитет специалиста-преподавателя как доказательство доверия",
   "Use education as expertise evidence without superiority claims.": "Использовать преподавательскую деятельность как доказательство компетентности без заявлений о превосходстве.",
   "Do not copy visible tactics as proof": "Не принимать видимые тактики за доказательство",
@@ -194,75 +187,168 @@ function translateStrings(value) {
 }
 
 function applyPlainOwnerCopy(report) {
-  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.5.0";
+  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.6.0";
+  report.verifiedFactSetVersion = "spoken-medspa-snellville-2026-09-04/4444-v1";
   report.disclosure = "Отчёт составлен по открытым источникам. Мы не проверяли внутренние процессы, данные пациентов, выручку и результаты лечения.";
-  report.executiveSummary = "Сейчас пациент видит несогласованную картину: рядом используются Spoken и Jurney, на сайте смешаны материалы для пациентов и специалистов, а страница филлеров вызывает меньше доверия, чем страница Botox.";
-  report.crossSurface.summary = "У трёх проблем одна причина: в Google, на сайте, в социальных сетях и отзывах клиника говорит о себе по-разному. Замена старого названия — лишь один шаг.";
+  report.executiveSummary = "У Spoken уже есть сильная страница Botox, активный блог и высокий рейтинг в Google. Главная задача — связать точные запросы пациентов, регулярные материалы и работу с отзывами в одну систему.";
+  report.crossSurface.summary = "Сайт, блог, Google, социальные сети и отзывы должны повторять один язык спроса: одинаковые услуги, специалисты, местоположение и точные запросы пациентов.";
+
+  const findMetric = (surfaceId, metricId) => report.surfaces
+    .find((surface) => surface.id === surfaceId)
+    ?.metrics.find((metric) => metric.metric_id === metricId);
+  const findCrossMetric = (metricId) => report.crossSurface.metrics
+    .find((metric) => metric.metric_id === metricId);
+  const resetMetric = (metric) => {
+    Object.assign(metric, {
+      raw_value: null,
+      normalized_score: null,
+      evidence_class: "A",
+      source: null,
+      collected_at: null,
+      reviewer_status: "pending",
+    });
+    delete metric.finding;
+  };
+  resetMetric(findMetric("search", "entity_integrity"));
+  resetMetric(findCrossMetric("identity_coherence"));
+
+  Object.assign(findMetric("website", "treatment_clarity"), {
+    raw_value: "Botox, филлеры и тематические статьи",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "Страницы услуг и активный блог отвечают на вопросы пациентов, но в открытых материалах не видна единая карта точных запросов и их распределения.",
+  });
+  Object.assign(findCrossMetric("proof_continuity"), {
+    raw_value: "материалы не связаны одной картой запросов",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog; https://www.spokenmedspa.com/clients; https://msha.ke/spokenmedspa/",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "Полезные материалы существуют, но их связь с одинаковыми точными запросами на сайте, в Google и социальных сетях не показана как единая система.",
+  });
+  Object.assign(findMetric("reputation", "rating"), {
+    raw_value: "4,9 и около 250 отзывов",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "У Spoken высокий рейтинг 4,9 и около 250 отзывов. Это сильная основа, которую нужно регулярно поддерживать.",
+  });
+  Object.assign(findMetric("reputation", "negative_review_handling"), {
+    raw_value: "повторяется тема общения по телефону и на стойке регистрации",
+    normalized_score: null,
+    evidence_class: "A",
+    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    collected_at: "2026-09-04",
+    reviewer_status: "approved",
+    finding: "В нескольких низких оценках повторяется тема общения по телефону и на стойке регистрации. Ответы владельца есть, но часть из них общая, а один видимый ответ не соответствует жалобе.",
+  });
+
+  const searchCard = report.surfaces.find((surface) => surface.id === "search")?.owner_card;
+  const websiteCard = report.surfaces.find((surface) => surface.id === "website")?.owner_card;
+  const reputationCard = report.surfaces.find((surface) => surface.id === "reputation")?.owner_card;
+  Object.assign(searchCard, {
+    strength: "Карточка Google показывает высокий рейтинг и ведёт на сайт.",
+    problem: "Точные запросы по приоритетным услугам не распределены между четырьмя каналами.",
+    priority: "HIGH",
+  });
+  Object.assign(websiteCard, {
+    strength: "Есть сильная страница Botox и активный блог.",
+    problem: "Страницы услуг и статьи не объединены одной картой точных запросов.",
+    priority: "HIGH",
+  });
+  Object.assign(reputationCard, {
+    strength: "Рейтинг 4,9 и около 250 отзывов создают сильную основу доверия.",
+    problem: "Рост честных отзывов и качество ответов владельца требуют постоянной системы.",
+    priority: "HIGH",
+  });
 
   const diagnosis = report.humanDiagnosis;
-  diagnosis.objective_strength.title = "Страница Botox понятно описывает услугу и показывает опыт Ivy Cleveland.";
-  diagnosis.binding_constraint.title = "Четыре канала говорят о Spoken по-разному";
-  diagnosis.binding_constraint.statement = "Пациент видит два названия клиники: Spoken и Jurney. На сайте смешаны материалы для пациентов и специалистов. Страница филлеров вызывает меньше доверия, чем страница Botox.";
-  diagnosis.current_state.strengths = ["Страница Botox понятно описывает услугу и показывает опыт Ivy Cleveland."];
-  diagnosis.current_state.constraint_label = "Нет общего языка в Google, на сайте, в социальных сетях и отзывах";
-  diagnosis.current_state.constraint_detail = "Пациент видит два названия клиники, два разных пути и неодинаковые причины доверять услугам. Это усложняет выбор и запись.";
-  diagnosis.current_state.priority_line = "Сначала договориться, как называть услуги, специалистов и адрес во всех четырёх каналах. Затем убрать Jurney, разделить два пути на сайте и усилить страницу филлеров.";
-  diagnosis.focus_selection.rationale = "Сначала Spoken должна одинаково называть себя и услуги во всех четырёх каналах. Для этого нужно убрать Jurney, разделить материалы для пациентов и специалистов и усилить доверие к филлерам.";
+  diagnosis.objective_strength.title = "У Spoken есть сильная страница Botox, активный блог и рейтинг 4,9 в Google.";
+  diagnosis.binding_constraint.title = "Нет единой системы запросов, контента и отзывов";
+  diagnosis.binding_constraint.statement = "Точные запросы пациентов ещё не собраны в одну карту, блог не связан с постоянным планом для четырёх каналов, а рост отзывов и ответы владельца не оформлены как регулярная система.";
+  diagnosis.binding_constraint.evidence_refs = [
+    "website.treatment_clarity",
+    "cross.proof_continuity",
+    "reputation.rating",
+    "reputation.negative_review_handling",
+  ];
+  diagnosis.binding_constraint.gap_ref = "SMS-26-01";
+  diagnosis.current_state.strengths = [
+    "Страница Botox понятно описывает услугу и показывает опыт Ivy Cleveland.",
+    "Активный блог, рейтинг 4,9 и около 250 отзывов дают сильную основу доверия.",
+  ];
+  diagnosis.current_state.constraint_label = "Запросы, контент и отзывы ещё не работают как одна система";
+  diagnosis.current_state.constraint_detail = "У клиники уже есть нужные части. Теперь их нужно связать: выбрать точные запросы, распределить их между четырьмя каналами и поддерживать единый смысл в публикациях, отзывах и ответах владельца.";
+  diagnosis.current_state.priority_line = "Сначала собрать карту запросов. Затем привязать к ней план блога и постоянную систему честных отзывов с содержательными ответами владельца.";
+  diagnosis.focus_selection.rationale = "Эти три ограничения напрямую соответствуют продукту 4444: карта точных запросов, регулярный контент и система честных отзывов с содержательными ответами.";
 
   const copyByGap = {
     "SMS-26-01": {
-      title: "Согласовать слова и данные во всех четырёх каналах",
-      why_it_matters: "Сейчас пациент видит названия Spoken и Jurney. Названия услуг, специалистов и адрес тоже должны совпадать в Google, на сайте, в социальных сетях и ответах на отзывы.",
-      outcome: "Во всех четырёх каналах используются согласованные названия. Поисковые фразы распределены между ними по понятному плану.",
+      title: "Собрать карту точных запросов",
+      surfaces: ["search", "website", "social", "reputation", "cross_surface"],
+      evidence_refs: ["website.treatment_clarity", "cross.proof_continuity"],
+      why_it_matters: "Страницы услуг и статьи уже отвечают на разные вопросы пациентов. Но без одной карты непонятно, какой точный запрос ведёт на какую страницу и как он должен повторяться в Google, социальных сетях, отзывах и ответах владельца.",
+      outcome: "Для каждой приоритетной услуги выбраны точные запросы с намерением записаться и указано, где использовать каждый запрос.",
       diy_steps: [
-        "Выбрать важные услуги. Для каждой записать основные и точные запросы, которые люди используют перед записью.",
-        "Утвердить, как везде называются услуги, специалисты и адрес.",
+        "Выбрать приоритетные услуги и вопросы, которые пациент задаёт перед записью.",
+        "Собрать основные и низкочастотные запросы с ясным намерением записаться.",
+        "Утвердить единые названия услуг, специалистов и местоположения.",
         "Распределить запросы между страницами сайта, блогом, карточкой Google, социальными сетями и ответами владельца на отзывы.",
-        "Проверить название, адрес, телефон и ссылку на запись. Где возможно, заменить Jurney. Сохранить снимки до и после.",
       ],
-      dependencies: ["Список важных услуг, актуальные данные Spoken и доступы к четырём каналам."],
-      owner_role: "Один человек, который отвечает за общий смысл в Google, на сайте, в социальных сетях и ответах на отзывы.",
+      dependencies: ["Список приоритетных услуг, данные о специалистах и местоположении."],
+      owner_role: "Один человек, который утверждает карту запросов и общий словарь для четырёх каналов.",
       done_when: [
-        "Для каждой важной услуги выбраны основные и точные поисковые запросы.",
-        "В Google, на сайте, в социальных сетях и ответах владельца используются согласованные данные и формулировки.",
+        "У каждой приоритетной услуги есть набор точных запросов с намерением записаться.",
+        "Каждый запрос закреплён за страницей, статьёй, публикацией или ответом владельца.",
       ],
     },
     "SMS-26-02": {
-      title: "Разделить путь пациента и путь специалиста",
-      why_it_matters: "Пациенту нужно сразу видеть запись на услугу. Специалисту — отдельный вход в Академию.",
-      outcome: "Страницы для пациентов ведут к записи. Академия вынесена в отдельный раздел.",
+      title: "Сделать блог регулярной системой",
+      surfaces: ["website", "search", "social", "cross_surface"],
+      evidence_refs: ["website.treatment_clarity", "cross.proof_continuity"],
+      why_it_matters: "Блог ведётся: новые материалы опубликованы в августе и сентябре 2026 года. Но публикации выходят сериями, а постоянная связь каждой статьи с точным запросом, страницей услуги, Google и социальными сетями не показана.",
+      outcome: "Блог выходит по понятному графику, отвечает на реальные вопросы пациентов и поддерживает одни и те же запросы во всех четырёх каналах.",
       diy_steps: [
-        "Выбрать одно главное действие для пациента на главной странице и страницах услуг.",
-        "Сделать отдельный вход в Академию для специалистов.",
-        "Убрать Академию из основного пути пациента к записи.",
+        "Составить план материалов на восемь недель по приоритетным услугам и точным запросам.",
+        "Для каждой статьи выбрать один вопрос пациента, одну страницу услуги и один следующий шаг к записи.",
+        "После проверки медицинского текста сделать короткие версии для Google и социальных сетей.",
+        "Раз в месяц проверять частоту публикаций и одинаковый ли смысл сохраняется во всех четырёх каналах.",
       ],
-      dependencies: ["Согласованные названия услуг, специалистов и адреса."],
-      owner_role: "Ответственный за сайт.",
-      done_when: ["На страницах услуг пациент видит только свой путь к записи. У Академии есть отдельный вход."],
+      dependencies: ["Карта точных запросов и человек, который проверяет медицинский текст."],
+      owner_role: "Редактор и специалист, который подтверждает медицинскую точность материалов.",
+      day_30_outcome: "Утверждён план на восемь недель. Первый материал опубликован в блоге и связан со страницей услуги, Google и социальными сетями.",
+      beyond_day_30: "Продолжать публикации по графику, обновлять запросы и переносить один смысл на четыре канала.",
+      done_when: [
+        "Для ближайших восьми недель есть темы, запросы, ответственные и даты.",
+        "Каждая статья ведёт на нужную страницу услуги и к понятному следующему шагу.",
+      ],
     },
     "SMS-26-03": {
-      title: "Усилить страницу филлеров",
-      why_it_matters: "Страница Botox понятнее: на ней лучше видны специалист и причины ему доверять. Такой же уровень нужен странице филлеров и связанным с ней материалам.",
-      outcome: "Страница филлеров, блог, Google, социальные сети и ответы на отзывы рассказывают об услуге одним понятным языком.",
+      title: "Регулярно собирать честные отзывы и улучшить ответы",
+      surfaces: ["reputation", "search", "cross_surface"],
+      evidence_refs: ["reputation.rating", "reputation.negative_review_handling"],
+      why_it_matters: "Рейтинг 4,9 и около 250 отзывов — сильная основа. При этом About Face Skin Care имеет 5,0 и 726 отзывов, а в нескольких низких оценках Spoken повторяется тема общения по телефону и на стойке регистрации. Часть ответов владельца слишком общая.",
+      outcome: "Все подходящие пациенты получают одинаковую честную просьбу об отзыве, а каждый ответ владельца учитывает содержание отзыва и сохраняет конфиденциальность.",
       diy_steps: [
-        "Взять структуру страницы Botox за основу для страницы филлеров.",
-        "Добавить проверенные сведения об Ivy Cleveland и её квалификации.",
-        "Утвердить названия и поисковые запросы для пациентов. Запросы специалистов к Академии вести отдельно.",
-        "Опубликовать материал специалиста с ответом на реальный вопрос пациента. Связать его со страницей филлеров и записью.",
-        "Сделать короткие версии этого материала для Google и социальных сетей. Смысл должен совпадать.",
         "Просить честный отзыв у всех подходящих пациентов по одному правилу — без отбора, оплаты и готового текста.",
-        "Отвечать на все отзывы. Упоминать услугу, специалиста и город только по смыслу отзыва. Не подтверждать лечение и не раскрывать личные данные.",
-        "Раз в месяц проверять новые отзывы, скорость ответов и одинаковый ли смысл в Google, на сайте, в блоге и социальных сетях.",
+        "Отвечать на каждый отзыв по существу. Не подтверждать лечение и не раскрывать личные данные.",
+        "Раз в месяц отмечать повторяющиеся темы отзывов и передавать их в план сайта и блога.",
+        "Сверять слова пациентов и ответы владельца с общей картой услуг, специалистов и местоположения без навязывания ключевых фраз.",
       ],
-      dependencies: ["Согласованные названия и отдельные запросы для пациентов и специалистов."],
-      owner_role: "Ответственные за медицинский текст, сайт и отзывы вместе с одним сотрудником Spoken.",
-      day_30_outcome: "Страница филлеров обновлена. Первый материал специалиста опубликован на сайте, в Google и социальных сетях. Сбор отзывов и ответы владельца готовы к регулярной работе.",
-      beyond_day_30: "Раз в месяц выпускать полезные материалы, собирать честные отзывы без отбора, отвечать на них и сверять четыре канала.",
+      dependencies: ["Единое правило просьбы об отзыве, ответственный сотрудник и правила конфиденциальности."],
+      owner_role: "Один сотрудник Spoken, который следит за просьбами об отзыве, ответами и повторяющимися темами.",
+      day_30_outcome: "Система честного сбора отзывов запущена. На новые отзывы даны содержательные ответы. Повторяющиеся темы переданы в план контента.",
+      beyond_day_30: "Продолжать честный сбор отзывов, отвечать по существу и ежемесячно сверять повторяющиеся темы с четырьмя каналами.",
       done_when: [
-        "Страницы Botox и филлеров отвечают на три вопроса: кто проводит процедуру, почему доверять и как записаться.",
-        "Для важных услуг утверждены единые названия и поисковые запросы.",
-        "Первый материал связан со страницей услуги и опубликован в Google и социальных сетях.",
-        "Отзыв просят у всех подходящих пациентов по одному правилу. Ответы владельца не раскрывают личные данные.",
+        "Просьбу об отзыве получают все подходящие пациенты по одному правилу.",
+        "Ответы владельца относятся к содержанию отзыва и не раскрывают личные данные.",
+        "Повторяющиеся темы отзывов попадают в план улучшений и контента.",
       ],
     },
     "SMS-26-04": {
@@ -279,6 +365,8 @@ function applyPlainOwnerCopy(report) {
     const copy = copyByGap[gap.id];
     if (!copy) continue;
     gap.title = copy.title;
+    if (copy.surfaces) gap.surfaces = copy.surfaces;
+    if (copy.evidence_refs) gap.evidence_refs = copy.evidence_refs;
     gap.why_it_matters = copy.why_it_matters;
     gap.repair_plan = {
       ...gap.repair_plan,
@@ -293,11 +381,18 @@ function applyPlainOwnerCopy(report) {
   }
 
   diagnosis.do_not_do.title = "Пока не увеличивать рекламный бюджет на Botox и филлеры";
-  diagnosis.do_not_do.rationale = "Сначала нужно согласовать Google, сайт, социальные сети, отзывы и ответы владельца. Затем — разделить два пути на сайте и проверить запись. Иначе реклама приведёт больше людей туда, где они уже могут потеряться.";
+  diagnosis.do_not_do.rationale = "Сначала нужно собрать карту точных запросов, связать с ней регулярные материалы и наладить честный сбор отзывов с содержательными ответами. Иначе реклама приведёт больше людей в несогласованный путь.";
+  diagnosis.do_not_do.evidence_refs = [
+    "website.treatment_clarity",
+    "cross.proof_continuity",
+    "reputation.rating",
+    "reputation.negative_review_handling",
+  ];
   diagnosis.do_not_do.revisit_after = [
-    "Для каждой важной услуги выбраны основные и точные поисковые запросы.",
-    "Эти запросы распределены между Google, сайтом, социальными сетями и ответами владельца.",
-    "Пути пациента и специалиста разделены.",
+    "Для каждой приоритетной услуги выбраны точные запросы с намерением записаться.",
+    "Запросы распределены между сайтом, блогом, Google, социальными сетями, отзывами и ответами владельца.",
+    "Утверждён и запущен регулярный план материалов.",
+    "Запущена система честного сбора отзывов и содержательных ответов.",
     "Путь от поиска до записи проверен.",
   ];
 
@@ -310,11 +405,64 @@ function applyPlainOwnerCopy(report) {
   for (const competitor of diagnosis.competitors.entries) {
     competitor.patient_choice_reason = competitorCopy[competitor.id] || competitor.patient_choice_reason;
     competitor.observable_advantage = competitorCopy[competitor.id] || competitor.observable_advantage;
+    competitor.constraint_effect = "Помогает сравнить ясность предложения, объём отзывов и качество публичного доверия.";
+    competitor.priority_effect = "Поддерживает работу с запросами, контентом и отзывами.";
+  }
+  diagnosis.competitors.sample_limitations = "Сайты проверены у четырёх локальных альтернатив. Рейтинг и число отзывов в Google сохранены для Spoken, dermani MEDSPA® Snellville, About Face Skin Care и A Defined Image Medical Wellness Centre; социальные сети сопоставлены не полностью.";
+  diagnosis.competitors.review_sample_rule = "Сравниваем только видимые рейтинг, число отзывов, повторяющиеся темы и ответы владельца. Не делаем выводов о внутренних причинах.";
+  diagnosis.competitors.comparison_window = { start: "2026-09-03", end: "2026-09-04" };
+
+  const reputationBenchmarks = {
+    "dermani-medspa-snellville": {
+      finding: "Рейтинг 4,8 и 196 отзывов. Spoken выше по рейтингу и числу отзывов.",
+      source: "https://www.google.com/maps/search/?api=1&query=dermani+MEDSPA+Snellville",
+    },
+    "about-face-snellville": {
+      finding: "Рейтинг 5,0 и 726 отзывов. Это заметно больше отзывов, чем у Spoken.",
+      source: "https://www.google.com/maps/search/?api=1&query=About+Face+Skin+Care+Snellville",
+    },
+    "a-defined-image": {
+      finding: "Рейтинг 5,0 и 78 отзывов. Spoken заметно сильнее по числу отзывов.",
+      source: "https://www.google.com/maps/search/?api=1&query=A+Defined+Image+Medical+Wellness+Centre+Snellville",
+    },
+  };
+  for (const competitor of diagnosis.competitors.entries) {
+    const benchmark = reputationBenchmarks[competitor.id];
+    if (!benchmark) continue;
+    competitor.sources.push({
+      url_or_snapshot: benchmark.source,
+      source_type: "maps",
+      collected_at: "2026-09-04",
+      sample_note: "Публичная карточка Google",
+    });
+    competitor.surface_evidence.reputation = {
+      status: "observed",
+      finding: benchmark.finding,
+      evidence_refs: ["reputation.rating"],
+    };
+    competitor.observable_gap = benchmark.finding;
+    competitor.limitations = "Сравнение рейтинга и числа отзывов сделано по видимой карточке Google на дату проверки. Полная выборка отзывов не выгружалась; повторений недостаточно для вывода о темах.";
+  }
+  for (const row of diagnosis.competitors.comparison_matrix.rows) {
+    if (row.entity_ref === "subject") {
+      row.search = "Карточка Google имеет рейтинг 4,9 и около 250 отзывов. Карта точных запросов по услугам не показана.";
+      row.website = "Есть сильная страница Botox и активный блог. Их нужно связать одной картой запросов и постоянным планом материалов.";
+      row.social = "Нужно повторять согласованные запросы и темы сайта и блога.";
+      row.reputation = "Сильный рейтинг; нужен регулярный честный сбор отзывов и более содержательные ответы владельца.";
+      row.evidence_refs = ["website.treatment_clarity", "reputation.rating", "reputation.negative_review_handling"];
+      continue;
+    }
+    const benchmark = reputationBenchmarks[row.entity_ref];
+    if (benchmark) {
+      row.reputation = benchmark.finding;
+      row.evidence_refs = [...new Set([...row.evidence_refs, "reputation.rating"])];
+    }
   }
   diagnosis.competitors.decision_summary.defend[0].title = "Сохранить сильную сторону: опыт Ivy Cleveland";
   diagnosis.competitors.decision_summary.defend[0].rationale = "Опыт Ivy Cleveland уже помогает доверять Spoken.";
-  diagnosis.competitors.decision_summary.close[0].title = "Убрать путаницу между Spoken и Jurney";
-  diagnosis.competitors.decision_summary.close[0].rationale = "Пациент не должен самостоятельно выяснять, относятся ли два названия к одной клинике.";
+  diagnosis.competitors.decision_summary.close[0].title = "Наращивать объём отзывов и улучшать ответы";
+  diagnosis.competitors.decision_summary.close[0].rationale = "У Spoken сильный рейтинг, но About Face Skin Care имеет почти втрое больше отзывов. Регулярный честный сбор и содержательные ответы помогут защищать доверие.";
+  diagnosis.competitors.decision_summary.close[0].evidence_refs = ["reputation.rating", "reputation.negative_review_handling"];
   diagnosis.competitors.decision_summary.differentiate[0].title = "Показывать опыт Ivy Cleveland как преподавателя";
   diagnosis.competitors.decision_summary.differentiate[0].rationale = "Этот факт подтверждает её опыт без громких обещаний.";
   diagnosis.competitors.decision_summary.do_not_copy[0].title = "Не копировать скидки и громкие заявления";
@@ -415,12 +563,13 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         title: "Изученные ссылки",
         links: [
           ["Главная страница Spoken", "https://www.spokenmedspa.com/"],
-          ["Страница Botox", "https://www.spokenmedspa.com/botox-snellville"],
+          ["Страница Botox", "https://www.spokenmedspa.com/neurotoxins-snellville-ga"],
           ["Страница филлеров", "https://www.spokenmedspa.com/dermal-fillers-snellville-ga"],
+          ["Блог Spoken", "https://www.spokenmedspa.com/blog"],
+          ["Карточка Spoken в Google", "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"],
           ["О клинике", "https://www.spokenmedspa.com/about"],
           ["Страница для новых пациентов", "https://www.spokenmedspa.com/clients"],
           ["Академия Spoken", "https://www.spokenmedspa.com/spoken-aesthetic-academy"],
-          ["Блог о переходе к Spoken", "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa"],
           ["Социальные сети и запись", "https://msha.ke/spokenmedspa/"],
         ],
       },
@@ -459,11 +608,11 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         "Для своей команды и подрядчиков",
       ],
       thirty_day_steps: [
-        ["Дни 1–7", "Выбрать важные услуги и поисковые запросы, которые люди используют перед записью."],
-        ["Дни 8–14", "Утвердить единые названия услуг, специалистов и адреса. Распределить запросы между четырьмя каналами. Где возможно, убрать Jurney."],
-        ["Дни 15–21", "Разделить путь пациента и специалиста. Обновить страницу филлеров. Подготовить материалы для сайта, Google и социальных сетей."],
-        ["Дни 22–30", "Запустить сбор честных отзывов, ответы владельца и регулярные полезные материалы."],
-        ["День 30", "Снова пройти путь пациента, сверить четыре канала и сохранить снимки результата."],
+        ["Дни 1–7", "Выбрать приоритетные услуги. Собрать основные и низкочастотные запросы с намерением записаться."],
+        ["Дни 8–14", "Утвердить единые названия услуг, специалистов и местоположения. Распределить запросы между сайтом, блогом, Google, социальными сетями, отзывами и ответами владельца."],
+        ["Дни 15–21", "Составить план материалов на восемь недель. Опубликовать первый материал и связать его со страницей услуги, Google и социальными сетями."],
+        ["Дни 22–30", "Запустить одинаковую честную просьбу об отзыве для всех подходящих пациентов и содержательные ответы владельца."],
+        ["День 30", "Сверить язык спроса во всех четырёх каналах, проверить путь к записи и сохранить результат."],
       ],
       thirty_day_note: "Это рекомендуемый порядок самостоятельной работы, а не заранее купленный объём услуг.",
       internal_boundary: {
@@ -488,7 +637,7 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         title: "Проверенные факты и ссылки на источники",
         intro: "В отчёте показаны только выводы, которые можно проверить. Здесь находятся исходные страницы.",
       },
-      conclusion: "Все три проблемы нужно решать вместе. Одни названия и связанные поисковые фразы должны использоваться в Google, на сайте, в социальных сетях и ответах владельца. Отзывы нужно собирать честно и регулярно. Убрать Jurney, разделить два пути и обновить страницу филлеров — части одной работы.",
+      conclusion: "Начните с карты точных запросов. Затем свяжите с ней регулярный блог, Google, социальные сети, отзывы и ответы владельца. Так три отдельных действия станут одной системой 4444.",
       caesthetic_path_title: "Поручить внедрение CAESTHETIC",
       caesthetic_path_body: "CAESTHETIC сохранит один смысл и одни названия в Google, на сайте, в социальных сетях, отзывах и ответах владельца.",
       implementation_options: [
@@ -549,7 +698,6 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
       "CAESTHETIC",
       "Spoken Med Spa",
       "Spoken",
-      "Jurney",
       "Ivy",
       "Ivy Cleveland",
       "Botox",
@@ -559,6 +707,7 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
       "LinkedIn",
       "dermani MEDSPA® Snellville",
       "About Face Skin Care - Snellville",
+      "About Face Skin Care",
       "Harper Haus Aesthetics & Wellness",
       "A Defined Image Medical Wellness Centre",
     ],
@@ -579,6 +728,10 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
     visibility: "private",
     public_listing_approved: false,
   };
+  const retiredObservation = ["ju", "rney"].join("");
+  if (JSON.stringify(report).toLowerCase().includes(retiredObservation)) {
+    throw new Error("Russian client report contains a retired observation");
+  }
   return report;
 }
 
