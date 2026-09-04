@@ -152,6 +152,7 @@
     "docs/projects/healthcare-ecosystem/strategy/README.md": "6804163c6b9ef8a55dcc88ea29d9c39654531e9270814bad635cd290d8f7ad3f",
     "docs/projects/healthcare-ecosystem/technology/README.md": "d59c75e0ce251860e81a16f5b379abb63c9d5f38b38bec91c4e5b2f019c6d253",
     "docs/projects/raimovdental/AGENTS.md": "821421721eb9a434c8d62a51e5b1e30e84c97c2a199c10e8c7642dab813feca8",
+    "docs/projects/raimovdental/EXPERT_DENTAL_BIDIRECTIONAL_SYNC_CANARY.md": "8120fdac284780d927b4e0d2e04f9442175e9134539b221b0e22370c79aad311",
     "docs/projects/raimovdental/ROUTER.md": "89ab0d68af6a4be51578f63493003b6bffcf4f8f2c074fec7fa5e6c2a3d2ef9a",
     "docs/projects/raimovdental/balam/BALAM_STAGE0_WEBSITE_TZ.md": "0ab4f282edd34e19dafa2dc7af28a6a8390a1adb1200f144a4c7a1c34c937649",
     "docs/projects/raimovdental/balam/LAUNCH_KIT.md": "da378c691e6b96062328bbf9df0e5b254df386aa337243abee333717d72c89aa",
@@ -297,7 +298,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "11605fe3e78de3727534d0fe921de87b5bc79569",
+  "source_sha": "a5c3558ea05c07a1e2007b8fb2dc264c8686f888",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",
