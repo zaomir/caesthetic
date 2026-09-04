@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 
-test("CAESTHETIC score access is fail-closed and every real client report is PIN-protected", (t) => {
+test("CAESTHETIC score access is fail-closed except for explicitly allowlisted direct-link reports", (t) => {
   if (!fs.existsSync(path.join(root, "infra/cloudflare/router/src/index.ts"))) {
     t.skip("runtime router is intentionally absent from the public satellite repository");
     return;
@@ -51,7 +51,17 @@ test("CAESTHETIC score access is fail-closed and every real client report is PIN
     assert.match(entry.pinSalt, /^caesthetic:/);
     assert.match(entry.pinHash, /^[0-9a-f]{64}$/);
   }
-  assert.deepEqual(manifest.scorePublicPaths, []);
+  assert.deepEqual(manifest.scorePublicPaths, [
+    "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/",
+  ]);
+  assert.equal(
+    manifest.scoreProtectedPaths.some((entry) => entry.prefix === "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/"),
+    true,
+  );
+  assert.equal(
+    manifest.scoreProtectedPaths.some((entry) => entry.prefix === "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/"),
+    false,
+  );
   if (prestigePilot) {
     assert.match(prestigePilot, /data-report-kind="pilot"/);
     assert.match(prestigePilot, /noindex,nofollow,noarchive,nosnippet/);

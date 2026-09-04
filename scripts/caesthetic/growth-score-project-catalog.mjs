@@ -78,10 +78,13 @@ function recordFromReport({ report, reportFile, repoRoot, scoreRoot }) {
     report_state: report.reportState,
     schema_version: report.schemaVersion,
     prepared_at: report.practice?.preparedAt ?? report.subject?.preparedAt ?? null,
+    report_locale: report.reportContext?.report_locale ?? "en",
     catalog_visibility: visibility,
     listed_name: listedName,
     listed_location: listedLocation,
     access_group_id: report.audit?.access_group_id ?? null,
+    translation_of_route: report.audit?.translation_of_route ?? null,
+    public_direct_link: report.audit?.public_direct_link === true,
     route,
     canonical_url: `https://caesthetic.com${route}`,
     source_path: toPosix(path.relative(repoRoot, reportFile)),
@@ -91,6 +94,7 @@ function recordFromReport({ report, reportFile, repoRoot, scoreRoot }) {
 function reportReference(record) {
   return {
     role: record.package_role,
+    locale: record.report_locale,
     route: record.route,
     canonical_url: record.canonical_url,
     schema_version: record.schema_version,
@@ -109,6 +113,27 @@ function groupProjectRecords(records) {
   return [...grouped.values()].map((bucket) => {
     if (bucket.length === 1) {
       return { ...bucket[0], report_refs: [reportReference(bucket[0])] };
+    }
+    if (bucket.every((record) => record.audit_format === "single_location")) {
+      const canonical = bucket.find((record) => record.translation_of_route == null);
+      const translations = bucket.filter((record) => record !== canonical);
+      if (
+        !canonical
+        || translations.length !== bucket.length - 1
+        || translations.some((record) => record.translation_of_route !== canonical.route)
+      ) {
+        throw new TypeError(`Duplicate single-location project_id without valid locale variants: ${bucket[0].project_id}`);
+      }
+      return {
+        ...canonical,
+        locale_variants: translations.map((record) => ({
+          locale: record.report_locale,
+          route: record.route,
+          canonical_url: record.canonical_url,
+          public_direct_link: record.public_direct_link,
+        })),
+        report_refs: [canonical, ...translations].map(reportReference),
+      };
     }
     if (bucket.length !== 2 || bucket.some((record) => record.audit_format !== "multi_location")) {
       throw new TypeError(`Duplicate audit project_id without one valid Multi-Location pair: ${bucket[0].project_id}`);

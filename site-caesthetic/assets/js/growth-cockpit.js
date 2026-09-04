@@ -108,7 +108,8 @@
     },
     ru: {
       brand: "CAESTHETIC",
-      report: "GROWTH SCORE",
+      report: "ОЦЕНКА РОСТА",
+      homeLabel: "Главная CAESTHETIC",
       menu: "Разделы отчёта",
       close: "Закрыть",
       primaryConstraint: "Главное ограничение",
@@ -182,11 +183,18 @@
       scoreUnknown: "Недостаточно данных",
       pathways: ["Сделать внутри команды", "Отдать своему подрядчику", "Отложить", "Поручить CAESTHETIC"],
       whyCaesthetic: "Почему CAESTHETIC — самый простой исполнитель",
-      sprintTitle: "30-Day Growth Sprint",
-      sprintCopy: "Мы подготовим письменный scope вокруг подтверждённых приоритетов. Scope согласуется отдельно; мы не обещаем ranking, пациентов, выручку или ROI.",
+      sprintTitle: "30-ДНЕВНЫЙ СПРИНТ РОСТА",
+      sprintCopy: "Мы подготовим письменный объём работ вокруг подтверждённых приоритетов. Объём согласуется отдельно; мы не обещаем позиции в поиске, пациентов, выручку или окупаемость инвестиций.",
       sprintPrice: "$2,500 · 30 дней",
       cta: "Поручить внедрение CAESTHETIC",
       noCommitment: "Отчёт не обязывает вас покупать услугу.",
+      burdenLabels: {
+        diagnosed_issues: "выявленных разрывов",
+        high_priority_fixes: "приоритетных исправления",
+        systems_involved: "задействованные системы",
+        dependencies: "зависимости",
+        specialist_roles: "роли специалистов",
+      },
     },
     es: {
       brand: "CAESTHETIC",
@@ -541,7 +549,7 @@
     const nav = document.createElement("header");
     nav.className = "cae-mobile-report-nav";
     nav.innerHTML = `
-      <a class="cae-mobile-report-nav__brand" href="/" aria-label="CAESTHETIC home">${t.brand}</a>
+      <a class="cae-mobile-report-nav__brand" href="/" aria-label="${t.homeLabel || "CAESTHETIC home"}">${t.brand}</a>
       <span class="cae-mobile-report-nav__practice"></span>
       <button class="cae-mobile-report-nav__progress" type="button" aria-haspopup="dialog" aria-expanded="false">1 / 9</button>`;
     nav.querySelector(".cae-mobile-report-nav__practice").textContent = practiceName;
@@ -965,7 +973,7 @@
     numeric.forEach(([key, value]) => {
       const item = document.createElement("p");
       item.innerHTML = `<strong>${value}</strong><span></span>`;
-      item.querySelector("span").textContent = key.replaceAll("_", " ");
+      item.querySelector("span").textContent = t.burdenLabels?.[key] || key.replaceAll("_", " ");
       burdenNode.append(item);
     });
 

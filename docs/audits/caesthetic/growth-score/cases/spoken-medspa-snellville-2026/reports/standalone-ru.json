@@ -1,0 +1,1184 @@
+{
+  "schemaVersion": 5,
+  "reportState": "approved_report",
+  "reportVersion": "spoken-medspa-snellville-public-evidence/ru/1.0.0",
+  "verifiedFactSetVersion": "spoken-medspa-snellville-2026-09-03/1.0.0",
+  "reportKind": "real",
+  "templateVersion": "growth-score-report-template/5.2.0",
+  "reportContext": {
+    "vertical_context": "aesthetic_practice",
+    "report_locale": "ru",
+    "vertical_source": "human_resolved",
+    "locale_source": "user_selected"
+  },
+  "disclosure": "Оценка роста снаружи внутрь, основанная только на публичных доказательствах. Внутренние процессы, данные пациентов, выручка и результаты не оценивались.",
+  "practice": {
+    "name": "Spoken Med Spa",
+    "location": "2121 Фаунтин-драйв, помещение M, Снеллвилл, Джорджия 30078, США",
+    "preparedAt": "2026-09-03",
+    "preparedFor": "Ivy Cleveland"
+  },
+  "executiveSummary": "У Spoken есть сильная опора доверия: страница Botox и профессиональная репутация Ivy Cleveland. Главное ограничение — незавершённая согласованность идентичности и доверия после перехода от Jurney к Spoken, смешение маршрутов пациентов и Академии, а также неравномерная связность доказательств по филлерам.",
+  "surfaces": [
+    {
+      "id": "search",
+      "summary": "Старая идентичность создаёт трение; охват в поиске не измерен.",
+      "owner_card": {
+        "strength": "Текущий бренд обозначен ясно.",
+        "problem": "Сохранились сигналы старого бренда Jurney.",
+        "priority": "HIGH"
+      },
+      "metrics": [
+        {
+          "metric_id": "map_visibility",
+          "label": "видимость на картах",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "gbp_treatment_category_completeness",
+          "label": "полнота категорий и услуг в профиле компании Google",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "entity_integrity",
+          "label": "целостность данных о компании",
+          "raw_value": "Spoken/Jurney",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa; https://msha.ke/spokenmedspa/",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "Текущая идентичность Spoken сосуществует с устаревшими сигналами Jurney."
+        },
+        {
+          "metric_id": "gbp_conversion_readiness",
+          "label": "готовность профиля компании в Google к обращению",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "freshness",
+          "label": "актуальность",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "branded_search_control",
+          "label": "контроль поиска по бренду",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        }
+      ]
+    },
+    {
+      "id": "website",
+      "summary": "Страница Botox и авторитет Ivy Cleveland сильны; маршрутизацию и связность доказательств нужно исправить.",
+      "owner_card": {
+        "strength": "Страница Botox и профессиональный авторитет Ivy Cleveland.",
+        "problem": "Аудитории смешаны, а доказательства по филлерам представлены неравномерно.",
+        "priority": "HIGH"
+      },
+      "metrics": [
+        {
+          "metric_id": "booking_friction",
+          "label": "трение на пути к записи",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "treatment_clarity",
+          "label": "ясность приоритетных услуг",
+          "raw_value": "Botox/fillers",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/dermal-fillers-snellville-ga",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "Предложение Botox раскрыто яснее, чем предложение филлеров."
+        },
+        {
+          "metric_id": "mobile_performance",
+          "label": "производительность на мобильных устройствах",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "above_fold_conversion",
+          "label": "ясность первого экрана",
+          "raw_value": "patient/academy",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/; https://www.spokenmedspa.com/spoken-aesthetic-academy",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "Предложения для пациентов и Академии находятся в одном публичном маршруте."
+        },
+        {
+          "metric_id": "clinician_trust_proof",
+          "label": "доказательства доверия к специалисту",
+          "raw_value": "Ivy Cleveland",
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/about",
+          "collected_at": "2026-09-03",
+          "reviewer_status": "approved",
+          "finding": "На сайте видны квалификация Ivy Cleveland как практикующей медсестры и её профессиональный авторитет специалиста и преподавателя инъекционных методик."
+        },
+        {
+          "metric_id": "mystery_shopper",
+          "label": "проверочное обращение",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "technical_booking_integrity",
+          "label": "техническая исправность записи",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "summary": "Недостаточно доказательств.",
+      "owner_card": {
+        "strength": "Существует фирменная страница со ссылками.",
+        "problem": "Датированная выборка не сохранена.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "priority_treatment_presence",
+          "label": "присутствие приоритетных услуг",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "clinician_expertise",
+          "label": "экспертность специалистов",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "proof_quality",
+          "label": "качество доказательств",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "recency",
+          "label": "актуальность",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "profile_to_booking",
+          "label": "путь от профиля к записи",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "local_offer_clarity",
+          "label": "ясность локального предложения",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        }
+      ]
+    },
+    {
+      "id": "reputation",
+      "summary": "Недостаточно доказательств.",
+      "owner_card": {
+        "strength": "Есть только ориентировочный сигнал о репутации.",
+        "problem": "Прямая выборка за 90 дней не сохранена.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "review_velocity_90d",
+          "label": "скорость поступления отзывов за 90 дней",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "rating",
+          "label": "рейтинг",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "review_depth",
+          "label": "содержательность отзывов",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "recency",
+          "label": "актуальность",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "response_coverage",
+          "label": "доля отзывов с ответом",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "response_speed",
+          "label": "скорость ответа",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "negative_review_handling",
+          "label": "работа с негативными отзывами",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        },
+        {
+          "metric_id": "treatment_clinician_proof",
+          "label": "упоминания услуг и специалистов в отзывах",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Недостаточно доказательств."
+        }
+      ]
+    }
+  ],
+  "crossSurface": {
+    "summary": "Обнаружено трение в идентичности, разделении аудиторий и связности доказательств.",
+    "metrics": [
+      {
+        "metric_id": "treatment_presence",
+        "label": "присутствие услуг",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Недостаточно доказательств."
+      },
+      {
+        "metric_id": "positioning_coherence",
+        "label": "согласованность позиционирования",
+        "raw_value": "mixed audiences",
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": "https://www.spokenmedspa.com/; https://msha.ke/spokenmedspa/",
+        "collected_at": "2026-09-03",
+        "reviewer_status": "approved",
+        "finding": "Маршруты пациентов и профессиональной аудитории разделены непоследовательно."
+      },
+      {
+        "metric_id": "proof_continuity",
+        "label": "связность доказательств",
+        "raw_value": "uneven proof",
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": "https://www.spokenmedspa.com/botox-snellville; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/clients",
+        "collected_at": "2026-09-03",
+        "reviewer_status": "approved",
+        "finding": "Связность доказательств сильнее для Botox, чем для филлеров."
+      },
+      {
+        "metric_id": "conversion_continuity",
+        "label": "непрерывность пути к обращению",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Недостаточно доказательств."
+      },
+      {
+        "metric_id": "identity_coherence",
+        "label": "согласованность идентичности",
+        "raw_value": "Spoken/Jurney",
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa; https://msha.ke/spokenmedspa/",
+        "collected_at": "2026-09-03",
+        "reviewer_status": "approved",
+        "finding": "Текущие и устаревшие сигналы идентичности синхронизированы не полностью."
+      }
+    ]
+  },
+  "humanDiagnosis": {
+    "reviewer_status": "approved",
+    "reviewer": {
+      "name": "Valerie Petra",
+      "approved_at": "2026-09-03T13:51:02Z"
+    },
+    "objective_strength": {
+      "title": "Сильная страница Botox и профессиональный авторитет Ivy Cleveland.",
+      "evidence_refs": [
+        "website.clinician_trust_proof",
+        "website.treatment_clarity"
+      ]
+    },
+    "strongest_surface": "website",
+    "binding_constraint": {
+      "title": "Согласованность идентичности и доверия остаётся незавершённой",
+      "statement": "Устаревшие сигналы Jurney и смешанные маршруты аудиторий создают публичное трение до записи.",
+      "demand_stage": "trust",
+      "evidence_refs": [
+        "search.entity_integrity",
+        "cross.identity_coherence",
+        "cross.positioning_coherence"
+      ],
+      "gap_ref": "SMS-26-01"
+    },
+    "current_state": {
+      "strengths": [
+        "Сильная страница Botox и профессиональный авторитет Ivy Cleveland."
+      ],
+      "constraint_label": "Согласованность идентичности и доверия",
+      "constraint_detail": "Переход на новый бренд, маршруты аудиторий и доказательства синхронизированы не полностью.",
+      "priority_line": "Сначала исправить идентичность, затем разделить аудитории и после этого усилить доказательства по филлерам."
+    },
+    "gap_inventory": [
+      {
+        "id": "SMS-26-01",
+        "title": "Сохранилась устаревшая идентичность Jurney",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "search",
+          "cross_surface"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "search.entity_integrity",
+          "cross.identity_coherence"
+        ],
+        "why_it_matters": "Неопределённость идентичности возникает до записи.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Единая актуальная идентичность Spoken.",
+          "diy_steps": [
+            "Зафиксировать актуальные данные, составить перечень управляемых точек контакта, обновить их и сохранить доказательства состояния до и после."
+          ],
+          "dependencies": [
+            "Подтверждённые актуальные данные"
+          ],
+          "owner_role": "Ответственный за сайт, профиль компании в Google и социальные сети",
+          "done_when": [
+            "Все управляемые поверхности соответствуют актуальным данным Spoken."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-02",
+        "title": "Маршруты пациентов и Академии смешаны",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website",
+          "cross_surface"
+        ],
+        "journey_stage": "enquiry",
+        "evidence_refs": [
+          "website.above_fold_conversion",
+          "cross.positioning_coherence"
+        ],
+        "why_it_matters": "Разные аудитории используют один маршрут действий.",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Маршрут прежде всего для пациента и отдельное направление для профессионалов.",
+          "diy_steps": [
+            "Создать понятное направление для профессионалов и разделить призывы к действию для пациентов и Академии."
+          ],
+          "dependencies": [
+            "SMS-26-01"
+          ],
+          "owner_role": "Ответственный за пользовательский путь и сайт",
+          "done_when": [
+            "В приоритетных маршрутах пациентов остаются только действия для пациентов, а у Академии есть отдельная явная точка входа."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-03",
+        "title": "Связность доверия по филлерам уступает Botox",
+        "diagnosis_state": "verified_gap",
+        "surfaces": [
+          "website",
+          "cross_surface"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "website.clinician_trust_proof",
+          "website.treatment_clarity",
+          "cross.proof_continuity"
+        ],
+        "why_it_matters": "Для Botox лучше выстроена цепочка «кто оказывает услугу — почему доверять — какие есть доказательства».",
+        "sprint_fit": {
+          "mode": "close_in_30_days"
+        },
+        "repair_plan": {
+          "outcome": "Единая структура доверия для Botox и филлеров.",
+          "diy_steps": [
+            "Использовать страницу Botox как образец, добавить к филлерам подтверждённые сведения о специалисте и доказательства, убрать нерелевантный текст."
+          ],
+          "dependencies": [
+            "SMS-26-01"
+          ],
+          "owner_role": "Ответственный за клинический контент и сайт",
+          "done_when": [
+            "Обе приоритетные страницы проходят единый перечень проверки цепочки доверия."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-04",
+        "title": "Недочёты контроля качества на второстепенных страницах",
+        "diagnosis_state": "monitor",
+        "surfaces": [
+          "website"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [
+          "website.treatment_clarity"
+        ],
+        "why_it_matters": "Нерелевантный текст снижает цельность и качество впечатления.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Проверенный релевантный текст.",
+          "diy_steps": [
+            "Проверить качество приоритетных и соседних страниц."
+          ],
+          "dependencies": [],
+          "owner_role": "Ответственный за сайт",
+          "done_when": [
+            "Известный нерелевантный и временный текст удалён."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-05",
+        "title": "Локальная видимость на картах не измерена",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "search"
+        ],
+        "journey_stage": "discovery",
+        "evidence_refs": [],
+        "why_it_matters": "Ручной поиск не позволяет определить географическую видимость.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Воспроизводимый исходный уровень видимости в поиске.",
+          "diy_steps": [
+            "Собрать утверждённые геосетки 5×5."
+          ],
+          "dependencies": [],
+          "owner_role": "Специалист по поиску",
+          "done_when": [
+            "Датированные геосетки сохранены."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-06",
+        "title": "Исходный уровень репутации за 90 дней не измерен",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "reputation"
+        ],
+        "journey_stage": "trust",
+        "evidence_refs": [],
+        "why_it_matters": "Снимки сторонних источников не образуют прямое сопоставимое окно.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Прямой исходный уровень репутации.",
+          "diy_steps": [
+            "Собрать прямую 90-дневную выборку по практике и конкурентам."
+          ],
+          "dependencies": [],
+          "owner_role": "Специалист по репутации",
+          "done_when": [
+            "Источник, период и выборка сохранены."
+          ]
+        }
+      },
+      {
+        "id": "SMS-26-07",
+        "title": "Внутренняя обработка обращений не оценивалась",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "cross_surface"
+        ],
+        "journey_stage": "booking",
+        "evidence_refs": [],
+        "why_it_matters": "Публичные доказательства не позволяют установить внутренние причины.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "Никаких неподтверждённых выводов о внутренних процессах.",
+          "diy_steps": [
+            "Не делать выводов о внутренних причинах."
+          ],
+          "dependencies": [],
+          "owner_role": "Владелец практики",
+          "done_when": [
+            "Внутренние причины остаются неоценёнными."
+          ]
+        }
+      }
+    ],
+    "focus_selection": {
+      "primary_gap_id": "SMS-26-01",
+      "supporting_gap_ids": [
+        "SMS-26-02",
+        "SMS-26-03"
+      ],
+      "selected_by": "Valerie Petra",
+      "selected_at": "2026-09-03T13:51:02Z",
+      "rationale": "Идентичность — ключевая зависимость для остальных исправлений."
+    },
+    "do_not_do": {
+      "title": "Не увеличивать платный спрос на Botox и филлеры до исправления идентичности и проверки поиска и записи",
+      "rationale": "Недостаток спроса не доказан, а трение в точках назначения наблюдается напрямую.",
+      "evidence_refs": [
+        "search.entity_integrity",
+        "cross.identity_coherence",
+        "cross.positioning_coherence"
+      ],
+      "revisit_after": [
+        "Актуальная идентичность синхронизирована.",
+        "Маршруты аудиторий разделены.",
+        "Исходные уровни поиска и записи подтверждены."
+      ]
+    },
+    "competitors": {
+      "status": "applicable",
+      "selection_method": "Четыре утверждённые локальные альтернативы в Снеллвилле.",
+      "sample_limitations": "Есть доказательства только по сайтам; для остальных сопоставимых поверхностей доказательств недостаточно.",
+      "comparison_window": {
+        "start": "2026-09-03",
+        "end": "2026-09-03"
+      },
+      "review_sample_rule": "Нельзя делать выводы по темам отзывов без прямой сопоставимой выборки.",
+      "branch_scope": "Spoken Med Spa, Снеллвилл, Джорджия",
+      "entries": [
+        {
+          "id": "dermani-medspa-snellville",
+          "name": "dermani MEDSPA® Snellville",
+          "competitor_type": "local",
+          "selection_reason": "Утверждённая локальная альтернатива.",
+          "branch_scope": "Снеллвилл, Джорджия",
+          "patient_choice_reason": "Релевантная локальная альтернатива.",
+          "observable_advantage": "Чёткая локальная структура пути от услуги до записи.",
+          "observable_gap": "Полная выборка по четырём поверхностям не сохранена.",
+          "repeat": "Адаптировать ясную структуру пути клиента.",
+          "improve": "Отстроиться за счёт профессионального авторитета Ivy Cleveland.",
+          "do_not_copy": "Не копировать заявления и скидки, принимая их за доказательство.",
+          "strategic_implication": "Только контекст для решения.",
+          "constraint_effect": "Поддерживает первоочередное исправление идентичности.",
+          "priority_effect": "Не меняет утверждённую тройку приоритетов.",
+          "modernization_implication": "Превосходство не предполагается.",
+          "strengths": [
+            "Чёткая локальная структура пути от услуги до записи."
+          ],
+          "weaknesses_or_risks": [
+            "Неполная выборка."
+          ],
+          "limitations": "Контекст только по сайту; повторяемость тем в отзывах не оценивалась, поэтому доказательств недостаточно.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://dermanimedspa.com/schedule-online-snellville/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Публичный сайт"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Чёткая локальная структура пути от услуги до записи.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        },
+        {
+          "id": "about-face-snellville",
+          "name": "About Face Skin Care - Snellville",
+          "competitor_type": "local",
+          "selection_reason": "Утверждённая локальная альтернатива.",
+          "branch_scope": "Снеллвилл, Джорджия",
+          "patient_choice_reason": "Релевантная локальная альтернатива.",
+          "observable_advantage": "Хорошо структурированы медицинский авторитет и глубина описания услуг.",
+          "observable_gap": "Полная выборка по четырём поверхностям не сохранена.",
+          "repeat": "Адаптировать ясную структуру пути клиента.",
+          "improve": "Отстроиться за счёт профессионального авторитета Ivy Cleveland.",
+          "do_not_copy": "Не копировать заявления и скидки, принимая их за доказательство.",
+          "strategic_implication": "Только контекст для решения.",
+          "constraint_effect": "Поддерживает первоочередное исправление идентичности.",
+          "priority_effect": "Не меняет утверждённую тройку приоритетов.",
+          "modernization_implication": "Превосходство не предполагается.",
+          "strengths": [
+            "Хорошо структурированы медицинский авторитет и глубина описания услуг."
+          ],
+          "weaknesses_or_risks": [
+            "Неполная выборка."
+          ],
+          "limitations": "Контекст только по сайту; повторяемость тем в отзывах не оценивалась, поэтому доказательств недостаточно.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://www.aboutfaceskin.com/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Публичный сайт"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Хорошо структурированы медицинский авторитет и глубина описания услуг.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        },
+        {
+          "id": "harper-haus",
+          "name": "Harper Haus Aesthetics & Wellness",
+          "competitor_type": "local",
+          "selection_reason": "Утверждённая локальная альтернатива.",
+          "branch_scope": "Снеллвилл, Джорджия",
+          "patient_choice_reason": "Релевантная локальная альтернатива.",
+          "observable_advantage": "Простое предложение, построенное вокруг названного специалиста.",
+          "observable_gap": "Полная выборка по четырём поверхностям не сохранена.",
+          "repeat": "Адаптировать ясную структуру пути клиента.",
+          "improve": "Отстроиться за счёт профессионального авторитета Ivy Cleveland.",
+          "do_not_copy": "Не копировать заявления и скидки, принимая их за доказательство.",
+          "strategic_implication": "Только контекст для решения.",
+          "constraint_effect": "Поддерживает первоочередное исправление идентичности.",
+          "priority_effect": "Не меняет утверждённую тройку приоритетов.",
+          "modernization_implication": "Превосходство не предполагается.",
+          "strengths": [
+            "Простое предложение, построенное вокруг названного специалиста."
+          ],
+          "weaknesses_or_risks": [
+            "Неполная выборка."
+          ],
+          "limitations": "Контекст только по сайту; повторяемость тем в отзывах не оценивалась, поэтому доказательств недостаточно.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://www.harperhauswellness.com/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Публичный сайт"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Простое предложение, построенное вокруг названного специалиста.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        },
+        {
+          "id": "a-defined-image",
+          "name": "A Defined Image Medical Wellness Centre",
+          "competitor_type": "local",
+          "selection_reason": "Утверждённая локальная альтернатива.",
+          "branch_scope": "Снеллвилл, Джорджия",
+          "patient_choice_reason": "Релевантная локальная альтернатива.",
+          "observable_advantage": "Релевантность локального специалиста и инъекционных услуг.",
+          "observable_gap": "Полная выборка по четырём поверхностям не сохранена.",
+          "repeat": "Адаптировать ясную структуру пути клиента.",
+          "improve": "Отстроиться за счёт профессионального авторитета Ivy Cleveland.",
+          "do_not_copy": "Не копировать заявления и скидки, принимая их за доказательство.",
+          "strategic_implication": "Только контекст для решения.",
+          "constraint_effect": "Поддерживает первоочередное исправление идентичности.",
+          "priority_effect": "Не меняет утверждённую тройку приоритетов.",
+          "modernization_implication": "Превосходство не предполагается.",
+          "strengths": [
+            "Релевантность локального специалиста и инъекционных услуг."
+          ],
+          "weaknesses_or_risks": [
+            "Неполная выборка."
+          ],
+          "limitations": "Контекст только по сайту; повторяемость тем в отзывах не оценивалась, поэтому доказательств недостаточно.",
+          "sources": [
+            {
+              "url_or_snapshot": "https://adefinedimage.com/",
+              "source_type": "website",
+              "collected_at": "2026-09-03",
+              "sample_note": "Публичный сайт"
+            }
+          ],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "website": {
+              "status": "observed",
+              "finding": "Релевантность локального специалиста и инъекционных услуг.",
+              "evidence_refs": [
+                "website.treatment_clarity"
+              ]
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Недостаточно доказательств.",
+              "evidence_refs": [],
+              "limitation": "Не сохранено."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": [
+            "website.treatment_clarity"
+          ]
+        }
+      ],
+      "comparison_matrix": {
+        "subject_name": "Spoken Med Spa",
+        "rows": [
+          {
+            "entity_ref": "subject",
+            "entity_name": "Spoken Med Spa",
+            "entity_type": "subject",
+            "search": "Трение в идентичности; геосетка не измерена.",
+            "website": "Сильны Botox и авторитет Ivy Cleveland; есть разрывы в маршрутах и доказательствах.",
+            "social": "Недостаточно доказательств",
+            "reputation": "Недостаточно доказательств",
+            "evidence_refs": [
+              "search.entity_integrity",
+              "website.clinician_trust_proof"
+            ]
+          },
+          {
+            "entity_ref": "dermani-medspa-snellville",
+            "entity_name": "dermani MEDSPA® Snellville",
+            "entity_type": "competitor",
+            "search": "Недостаточно доказательств",
+            "website": "Чёткая локальная структура пути от услуги до записи.",
+            "social": "Недостаточно доказательств",
+            "reputation": "Недостаточно доказательств",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          },
+          {
+            "entity_ref": "about-face-snellville",
+            "entity_name": "About Face Skin Care - Snellville",
+            "entity_type": "competitor",
+            "search": "Недостаточно доказательств",
+            "website": "Хорошо структурированы медицинский авторитет и глубина описания услуг.",
+            "social": "Недостаточно доказательств",
+            "reputation": "Недостаточно доказательств",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          },
+          {
+            "entity_ref": "harper-haus",
+            "entity_name": "Harper Haus Aesthetics & Wellness",
+            "entity_type": "competitor",
+            "search": "Недостаточно доказательств",
+            "website": "Простое предложение, построенное вокруг названного специалиста.",
+            "social": "Недостаточно доказательств",
+            "reputation": "Недостаточно доказательств",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          },
+          {
+            "entity_ref": "a-defined-image",
+            "entity_name": "A Defined Image Medical Wellness Centre",
+            "entity_type": "competitor",
+            "search": "Недостаточно доказательств",
+            "website": "Релевантность локального специалиста и инъекционных услуг.",
+            "social": "Недостаточно доказательств",
+            "reputation": "Недостаточно доказательств",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          }
+        ]
+      },
+      "decision_summary": {
+        "defend": [
+          {
+            "title": "Сохранить профессиональный авторитет Ivy Cleveland",
+            "rationale": "Профессиональный авторитет названного специалиста виден.",
+            "evidence_refs": [
+              "website.clinician_trust_proof"
+            ]
+          }
+        ],
+        "close": [
+          {
+            "title": "Закрыть разрыв в идентичности и доверии",
+            "rationale": "Пациенты не должны самостоятельно сопоставлять сигналы Spoken и Jurney.",
+            "evidence_refs": [
+              "search.entity_integrity",
+              "cross.identity_coherence"
+            ]
+          }
+        ],
+        "differentiate": [
+          {
+            "title": "Использовать авторитет специалиста-преподавателя как доказательство доверия",
+            "rationale": "Использовать преподавательскую деятельность как доказательство компетентности без заявлений о превосходстве.",
+            "evidence_refs": [
+              "website.clinician_trust_proof"
+            ]
+          }
+        ],
+        "do_not_copy": [
+          {
+            "title": "Не принимать видимые тактики за доказательство",
+            "rationale": "Видимая активность не доказывает окупаемость или клиническое превосходство.",
+            "evidence_refs": [
+              "website.treatment_clarity"
+            ]
+          }
+        ]
+      },
+      "market_practice_gap": {
+        "status": "insufficient_evidence",
+        "reason": "Полная выборка по четырём поверхностям не сохранена.",
+        "recommendations": []
+      }
+    },
+    "walkthrough": {
+      "status": "pending",
+      "url": null,
+      "placeholder": "Отдельный материал для передачи клиенту."
+    },
+    "coordination_burden": {
+      "diagnosed_issues": 7,
+      "high_priority_fixes": 3,
+      "systems_involved": 4,
+      "dependencies": 3,
+      "specialist_roles": 4
+    }
+  },
+  "implementation_paths": {
+    "diy": "Внедрить внутри команды.",
+    "other_provider": "Привлечь другого квалифицированного подрядчика.",
+    "defer": "Сохранить доказательства и вернуться к решению позже.",
+    "caesthetic": "Попросить CAESTHETIC отдельно определить объём выбранных работ."
+  },
+  "why_caesthetic": {
+    "evidence_advantage": "Доказательства и порядок зависимостей уже собраны.",
+    "coordination_advantage": "Исправления охватывают идентичность, сайт, точки назначения из поиска и доказательства.",
+    "sprint_boundary": "Ни одна задача не включается автоматически; письменный объём 30-дневного спринта подтверждается отдельно. Стоимость спринта: 2 500 долларов.",
+    "ownership": "Отчёт и пути исправления можно использовать без CAESTHETIC; привязки к подрядчику нет."
+  },
+  "methodology": {
+    "sources": [
+      "https://www.spokenmedspa.com/",
+      "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa",
+      "https://www.spokenmedspa.com/botox-snellville",
+      "https://www.spokenmedspa.com/dermal-fillers-snellville-ga",
+      "https://www.spokenmedspa.com/about",
+      "https://www.spokenmedspa.com/spoken-aesthetic-academy",
+      "https://www.spokenmedspa.com/clients",
+      "https://msha.ke/spokenmedspa/",
+      "https://dermanimedspa.com/schedule-online-snellville/",
+      "https://www.aboutfaceskin.com/",
+      "https://www.harperhauswellness.com/",
+      "https://adefinedimage.com/"
+    ],
+    "collectedAt": "2026-09-03",
+    "competitorSelection": "Четыре утверждённые локальные альтернативы.",
+    "limitations": "Не собраны геосетка 5×5, полная прямая проверка профиля компании в Google, датированная репрезентативная выборка социальных сетей, прямая сопоставимая 90-дневная выборка отзывов Google, измерение производительности, отправка обращения, запись на приём, данные внутренних процессов, пациентов, обращений, выручки или клинических результатов. Отсутствующие доказательства остаются недоступными."
+  },
+  "estimates": [],
+  "journeyGraph": {
+    "artifact_version": "cross-surface-journey-graph/1.0.0",
+    "artifact_id": "spoken-medspa-snellville-2026-journey-graph-v1",
+    "assessment_status": "not_assessed",
+    "max_hops": 3,
+    "automatic_score_change": false,
+    "evidence": [],
+    "nodes": [],
+    "edges": [],
+    "entry_node_ids": [],
+    "lead_intake_node_id": null,
+    "metric_links": [],
+    "representative_journeys": [],
+    "review": {
+      "status": "approved",
+      "reviewed_by": "Valerie Petra",
+      "reviewed_at": "2026-09-03T13:51:02Z",
+      "entity_resolution_approved": true,
+      "expectation_policy_approved": true,
+      "semantic_integrity_approved": true,
+      "severity_approved": true
+    }
+  },
+  "decisionViews": {
+    "artifact_version": "growth-score-decision-views/1.0.0",
+    "assessment_status": "not_assessed",
+    "source_policy": "existing_growth_score_evidence_only",
+    "automatic_score_change": false,
+    "automatic_binding_constraint_selection": false,
+    "automatic_focus_selection": false,
+    "automatic_promotion_decision": false,
+    "treatments": [],
+    "providers": [],
+    "trust_chains": [],
+    "friction_paths": [],
+    "promotion_holds": [],
+    "review": {
+      "status": "approved",
+      "reviewed_by": "Valerie Petra",
+      "reviewed_at": "2026-09-03T13:51:02Z",
+      "treatment_mapping_approved": true,
+      "provider_resolution_approved": true,
+      "trust_inferences_approved": true,
+      "friction_classification_approved": true,
+      "promotion_holds_approved": true
+    }
+  },
+  "audit": {
+    "project_id": "spoken-medspa-snellville-2026",
+    "subject_type": "aesthetic_practice",
+    "format": "single_location",
+    "package_role": "standalone",
+    "access_group_id": null,
+    "translation_of_project_id": "spoken-medspa-snellville-2026",
+    "translation_of_route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+    "public_direct_link": true
+  },
+  "catalog": {
+    "visibility": "private",
+    "public_listing_approved": false
+  },
+  "presentation": {
+    "kind": "localized_client",
+    "strict_locale": "ru",
+    "official_names": [
+      "CAESTHETIC",
+      "Spoken Med Spa",
+      "Spoken",
+      "Jurney",
+      "Ivy Cleveland",
+      "Botox",
+      "Spoken Aesthetic Academy",
+      "Academy",
+      "Google",
+      "dermani MEDSPA® Snellville",
+      "About Face Skin Care - Snellville",
+      "Harper Haus Aesthetics & Wellness",
+      "A Defined Image Medical Wellness Centre"
+    ]
+  }
+}

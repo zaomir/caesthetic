@@ -1272,7 +1272,10 @@ function validateCompetitiveSurfaceCell(cell, context, evidenceIndex) {
 function validateReviewThemes(themes, context, evidenceIndex, limitations) {
   invariant(Array.isArray(themes), `${context} must be an array`);
   if (themes.length === 0) {
-    invariant(/insufficient (?:repetition|evidence)/i.test(limitations), `${context} may be empty only when limitations state insufficient repetition`);
+    invariant(
+      /insufficient (?:repetition|evidence)|недостаточно (?:повторений|доказательств)|(?:повторений|доказательств) недостаточно/i.test(limitations),
+      `${context} may be empty only when limitations state insufficient repetition`,
+    );
     return;
   }
   themes.forEach((theme, index) => {

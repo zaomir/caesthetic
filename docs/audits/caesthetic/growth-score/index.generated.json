@@ -4,7 +4,7 @@
   "generated_from": "docs/audits/caesthetic/growth-score/cases/*/case.json",
   "counts": {
     "audits": 9,
-    "approved_report_records": 11
+    "approved_report_records": 12
   },
   "cases": [
     {
@@ -179,13 +179,16 @@
         "zaomir/caesthetic"
       ],
       "authoring_source_paths": [
-        "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json"
+        "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json",
+        "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json"
       ],
       "report_paths": [
-        "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json"
+        "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json",
+        "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json"
       ],
       "production_report_paths": [
-        "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json"
+        "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json",
+        "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json"
       ],
       "manifest_path": "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/case.json"
     },

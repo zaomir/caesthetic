@@ -544,6 +544,10 @@ html[data-page="growth-score-report"] {
   letter-spacing: 0.12em;
 }
 
+html[lang="ru"] .cae-score-report--mobile-story .cae-report-do-not-do::before {
+  content: "СТОП";
+}
+
 /* Gap Inventory */
 .cae-score-report--mobile-story .cae-report-filters {
   display: flex;

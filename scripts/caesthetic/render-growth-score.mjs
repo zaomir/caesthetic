@@ -1513,6 +1513,9 @@ const PILOT_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
   ["category leader", "лидер категории"],
   ["Primary Gap", "Главный разрыв"],
   ["Supporting Gap", "Поддерживающий разрыв"],
+  [" Surface ", " Поверхность "],
+  [" Journey ", " Путь "],
+  [" legend", ": обозначения"],
   ["Cross-Surface Consistency", "Согласованность четырёх поверхностей"],
   ["Cross-Surface", "Согласованность поверхностей"],
   ["Cross Surface", "Согласованность поверхностей"],
@@ -1600,6 +1603,100 @@ const PILOT_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
   ["Growth Advisor", "консультант по росту"],
 ]);
 
+const STRICT_RUSSIAN_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
+  ["Insufficient evidence", "Недостаточно доказательств"],
+  ["Недостаточно evidence", "Недостаточно доказательств"],
+  ["Подтверждённый backlog", "Подтверждённый отложенный вопрос"],
+  ["Пригодность для Sprint", "Пригодность для спринта"],
+  ["Граница Sprint:", "Граница спринта:"],
+  ["scope Sprint", "объём работ спринта"],
+  ["Scope Sprint", "Объём работ спринта"],
+  ["обязательствами Sprint", "обязательствами спринта"],
+  ["Sprint scope", "Объём работ спринта"],
+  ["Эта дорожная карта сформирована по Пригодность для Sprint.", "Эта дорожная карта сформирована по оценке пригодности для спринта."],
+  ["Эта дорожная карта сформирована по Пригодность для спринта.", "Эта дорожная карта сформирована по оценке пригодности для спринта."],
+  ["Treatment-by-surface evidence has not been reviewed.", "Доказательства по услугам и поверхностям не проверены."],
+  ["No treatment-specific public path has enough reviewed evidence for a categorical friction signal.", "Ни для одной услуги не собрано достаточно проверенных доказательств публичного пути, чтобы определить категорию трения."],
+  ["Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.", "Зависит от главного разрыва и не должно считаться отдельным обязательством спринта."],
+  ["Use this authorized internal-path diagnostic only when the public Growth Score cannot explain what happens after an enquiry reaches the practice.", "Используйте эту разрешённую проверку внутреннего пути только тогда, когда публичная оценка роста не объясняет, что происходит после поступления обращения в практику."],
+  ["Lead-to-Revenue Map from lead received through payment", "Карта пути от обращения к выручке: от получения обращения до оплаты"],
+  ["Lead-to-Revenue Map · Internal stages require authorized evidence.", "Карта пути от обращения к выручке · Для внутренних этапов нужны разрешённые доказательства."],
+  ["See when the Check applies", "Узнать, когда нужна проверка"],
+  ["What already works", "Что уже работает"],
+  ["Why it matters:", "Почему это важно:"],
+  ["No long initiative was started.", "Долгосрочные инициативы не запускались."],
+  ["Competitive comparison matrix", "Матрица сравнения альтернатив"],
+  ["Approximate Growth Score navigator", "Навигатор приблизительной оценки роста"],
+  ["Supporting Gap", "Поддерживающий разрыв"],
+  ["Map Visibility", "Видимость на картах"],
+  ["Gbp Treatment Category Completeness", "Полнота категорий и услуг в профиле компании Google"],
+  ["Entity Integrity", "Целостность данных о компании"],
+  ["Gbp Conversion Readiness", "Готовность профиля компании в Google к обращению"],
+  ["Freshness", "Актуальность"],
+  ["Branded Search Control", "Контроль поиска по бренду"],
+  ["Booking Friction", "Трение на пути к записи"],
+  ["Treatment Clarity", "Ясность приоритетных услуг"],
+  ["Mobile Performance", "Производительность на мобильных устройствах"],
+  ["Above Fold Conversion", "Ясность первого экрана"],
+  ["Clinician Trust Proof", "Доказательства доверия к специалисту"],
+  ["Mystery Shopper", "Проверочное обращение"],
+  ["Technical Booking Integrity", "Техническая исправность записи"],
+  ["Priority Treatment Presence", "Присутствие приоритетных услуг"],
+  ["Clinician Expertise", "Экспертность специалистов"],
+  ["Proof Quality", "Качество доказательств"],
+  ["Recency", "Актуальность"],
+  ["Profile To Booking", "Путь от профиля к записи"],
+  ["Local Offer Clarity", "Ясность локального предложения"],
+  ["Review Velocity 90d", "Скорость поступления отзывов за 90 дней"],
+  ["Rating", "Рейтинг"],
+  ["Review Depth", "Содержательность отзывов"],
+  ["Response Coverage", "Доля отзывов с ответом"],
+  ["Response Speed", "Скорость ответа"],
+  ["Negative Review Handling", "Работа с негативными отзывами"],
+  ["Treatment Clinician Proof", "Упоминания услуг и специалистов в отзывах"],
+  ["Treatment Presence", "Присутствие услуг"],
+  ["Positioning Coherence", "Согласованность позиционирования"],
+  ["Proof Continuity", "Связность доказательств"],
+  ["Conversion Continuity", "Непрерывность пути к обращению"],
+  ["Identity Coherence", "Согласованность идентичности"],
+  ["Cross-Surface Consistency", "Согласованность поверхностей"],
+  ["Cross Surface", "Согласованность поверхностей"],
+  ["Cross-Поверхность", "Согласованность поверхностей"],
+  ["Four approved local comparators.", "Четыре утверждённые локальные альтернативы."],
+  ["Private CAESTHETIC Four-Surface Growth Score.", "Закрытая оценка роста CAESTHETIC по четырём поверхностям."],
+  ["Private Growth Score", "Закрытая оценка роста"],
+  ["Growth Score orientation", "Навигация по оценке роста"],
+  ["Growth Score", "Оценка роста"],
+  ["30-Day Growth Sprint", "30-дневный спринт роста"],
+  ["Growth Sprint", "спринт роста"],
+  ["Sprint Fit", "Пригодность для спринта"],
+  ["Sprint", "спринт"],
+  ["Lead-to-Revenue Check", "Проверка пути от обращения к выручке"],
+  ["Lead Intake", "Приём обращения"],
+  ["Journey Graph", "граф путей"],
+  ["Four-Surface", "четырём поверхностям"],
+  ["Cross-Surface", "Согласованность поверхностей"],
+  ["Evidence", "Доказательства"],
+  ["evidence", "доказательства"],
+  ["Overall", "общая оценка"],
+  ["Focus Gaps", "фокусные разрывы"],
+  ["Focus Gap", "фокусный разрыв"],
+  ["DIY", "самостоятельные"],
+  ["CTA", "следующий шаг"],
+  ["ROI", "окупаемость"],
+  ["GBP", "профиль компании в Google"],
+  ["QA", "проверка качества"],
+  ["UX", "пользовательский путь"],
+  ["Class A", "класс А"],
+  ["CLASS A", "КЛАСС А"],
+  ["Class B", "класс Б"],
+  ["CLASS B", "КЛАСС Б"],
+  ["scope", "объём работ"],
+  ["Scope", "Объём работ"],
+  ["Backlog", "Отложено"],
+  ["backlog", "отложено"],
+]);
+
 const PILOT_EVIDENCE_LABELS = Object.freeze({
   "search.entity_integrity": "поиск: целостность сущности",
   "website.booking_friction": "сайт: путь к записи",
@@ -1611,7 +1708,7 @@ const PILOT_EVIDENCE_LABELS = Object.freeze({
   "cross.identity_coherence": "согласованность: идентичность",
 });
 
-function finalizePilotHtml(html, report) {
+function finalizeRussianHtml(html, report, { suppressRawMetricPayloads = false, strict = false } = {}) {
   const officialNames = [...new Set(report.presentation?.official_names || [])]
     .sort((left, right) => right.length - left.length);
   const replaceTextNode = (text) => {
@@ -1631,6 +1728,11 @@ function finalizePilotHtml(html, report) {
     for (const [ref, label] of Object.entries(PILOT_EVIDENCE_LABELS)) {
       output = output.replaceAll(ref, label);
     }
+    if (strict) {
+      for (const [source, target] of STRICT_RUSSIAN_VISIBLE_TEXT_REPLACEMENTS) {
+        output = output.replaceAll(source, target);
+      }
+    }
     for (const [source, target] of PILOT_VISIBLE_TEXT_REPLACEMENTS) {
       output = output.replaceAll(source, target);
     }
@@ -1645,17 +1747,52 @@ function finalizePilotHtml(html, report) {
     }
     return output;
   };
-  const withoutRawMetricPayloads = html.replace(
-    /(<li class="cae-report-metric">[\s\S]*?)<small>[\s\S]*?<\/small>([\s\S]*?<\/li>)/g,
-    "$1<small>Источники и исходные значения сохранены в проверяемом отчёте.</small>$2",
-  );
-  const bodyStart = withoutRawMetricPayloads.indexOf("<body");
-  const head = withoutRawMetricPayloads.slice(0, bodyStart);
-  const body = withoutRawMetricPayloads.slice(bodyStart)
+  const replaceAttributeValue = (text) => {
+    let output = text;
+    for (const [ref, label] of Object.entries(PILOT_EVIDENCE_LABELS)) {
+      output = output.replaceAll(ref, label);
+    }
+    if (strict) {
+      for (const [source, target] of STRICT_RUSSIAN_VISIBLE_TEXT_REPLACEMENTS) {
+        output = output.replaceAll(source, target);
+      }
+    }
+    for (const [source, target] of PILOT_VISIBLE_TEXT_REPLACEMENTS) {
+      output = output.replaceAll(source, target);
+    }
+    if (strict) {
+      output = output.replace(/\b(discovery|trust|enquiry|booking|treatment)\b/g, (stage) => ({
+        discovery: "обнаружения",
+        trust: "доверия",
+        enquiry: "обращения",
+        booking: "записи",
+        treatment: "услуги",
+      })[stage]);
+    }
+    return output;
+  };
+  const preparedHtml = suppressRawMetricPayloads
+    ? html.replace(
+      /(<li class="cae-report-metric">[\s\S]*?)<small>[\s\S]*?<\/small>([\s\S]*?<\/li>)/g,
+      "$1<small>Источники и исходные значения сохранены в проверяемом отчёте.</small>$2",
+    )
+    : html;
+  const localized = strict
+    ? preparedHtml.replace(/\b(aria-label|alt|title|content)="([^"]*)"/g, (_match, name, value) => `${name}="${replaceAttributeValue(value)}"`)
+    : preparedHtml;
+  const bodyStart = localized.indexOf("<body");
+  const head = strict
+    ? localized.slice(0, bodyStart).replace(/>([^<]*)</g, (_match, text) => `>${replaceAttributeValue(text)}<`)
+    : localized.slice(0, bodyStart);
+  const body = localized.slice(bodyStart)
     .replace(/(\d)T(?=\d)/g, "$1 ")
     .replace(/(\d)Z\b/g, "$1 по всемирному координированному времени")
     .replace(/>([^<]*)</g, (_match, text) => `>${replaceTextNode(text)}<`);
   return `${head}${body}`;
+}
+
+function finalizePilotHtml(html, report) {
+  return finalizeRussianHtml(html, report, { suppressRawMetricPayloads: true });
 }
 
 export function renderGrowthReport(report) {
@@ -1667,12 +1804,19 @@ export function renderGrowthReport(report) {
   const result = scoreGrowthReport(report);
   const isDemo = report.reportKind === "demo";
   const isPilot = report.presentation?.kind === "pilot";
+  const isLocalizedClient = report.presentation?.kind === "localized_client";
+  const isStrictRussian = isLocalizedClient && report.presentation?.strict_locale === "ru";
   const diagnosis = report.humanDiagnosis;
   const methodology = report.methodology;
   protectedRenderValues = [];
-  const reportLabel = isDemo ? "Growth Score" : "Private Growth Score";
+  const reportLabel = isStrictRussian ? "Оценка роста" : isDemo ? "Growth Score" : "Private Growth Score";
   const kicker = isDemo ? "SYNTHETIC DEMO" : reportLabel;
   const pageTitle = `${reportLabel} — ${escapeHtml(report.practice.name)} | CAESTHETIC`;
+  const metaDescription = isStrictRussian
+    ? "Оценка роста CAESTHETIC по четырём поверхностям."
+    : isDemo
+      ? "Fictional, synthetic Growth Score demonstration with no client relationship."
+      : "Private CAESTHETIC Four-Surface Growth Score.";
   const disclosure = isDemo
     ? `<div class="cae-demo-banner" role="note">SYNTHETIC DEMO — ${escapeHtml(report.disclosure)}</div>`
     : `<div class="cae-report-disclosure" role="note">${escapeHtml(report.disclosure)}</div>`;
@@ -1708,14 +1852,14 @@ export function renderGrowthReport(report) {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <title>${pageTitle}</title>
-  <meta name="description" content="${isDemo ? "Fictional, synthetic Growth Score demonstration with no client relationship." : "Private CAESTHETIC Four-Surface Growth Score."}">
+  <meta name="description" content="${metaDescription}">
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
   <link rel="stylesheet" href="/assets/css/growth-report.css">
 </head>
 <body class="cae-score-report${isNetworkParent ? " cae-score-report--multi-location" : ""}${isFocusLocationChild ? " cae-score-report--focus-location" : ""}">
 ${disclosure}
-${isPilot ? "" : '<div id="cae-header-slot"></div>'}
+${isPilot || isLocalizedClient ? "" : '<div id="cae-header-slot"></div>'}
 <main>
   <section class="cae-report-hero" id="report-overview">
     <div class="cae-wrap">
@@ -1915,7 +2059,7 @@ ${competitorRows(diagnosis.competitors)}
 
 </main>
 <a class="cae-sticky-sprint" href="#next-step" hidden>${isLeadToRevenueCheckRecommended(report) ? "View Check" : "View Sprint"}</a>
-${isPilot ? "" : '<div id="cae-footer-slot"></div>\n<script src="/assets/js/caesthetic-config.js"></script>\n<script src="/assets/js/caesthetic.js" defer></script>\n<script src="/assets/js/analytics.js" defer></script>'}
+${isPilot || isLocalizedClient ? "" : '<div id="cae-footer-slot"></div>\n<script src="/assets/js/caesthetic-config.js"></script>\n<script src="/assets/js/caesthetic.js" defer></script>\n<script src="/assets/js/analytics.js" defer></script>'}
 <script src="/assets/js/growth-cockpit.js" defer></script>
 </body>
 </html>
@@ -1926,7 +2070,9 @@ ${isPilot ? "" : '<div id="cae-footer-slot"></div>\n<script src="/assets/js/caes
     (rendered, [token, value]) => rendered.replaceAll(token, value),
     localizeReportHtml(html, report.reportContext?.report_locale),
   ).replace(/[ \t]+$/gm, "");
-  return isPilot ? finalizePilotHtml(rendered, report) : rendered;
+  if (isPilot) return finalizePilotHtml(rendered, report);
+  if (isStrictRussian) return finalizeRussianHtml(rendered, report, { strict: true });
+  return rendered;
 }
 
 export function isUnguessableScoreSlug(slug) {
@@ -1937,6 +2083,13 @@ export function isAllowedRealScoreOutput(report, outputPath) {
   const outputDirectory = path.dirname(outputPath);
   const outputSlug = path.basename(outputDirectory);
   if (isUnguessableScoreSlug(outputSlug)) return true;
+  if (
+    report?.audit?.public_direct_link === true
+    && report.audit.access_group_id == null
+    && typeof report.audit.translation_of_route === "string"
+    && isUnguessableScoreSlug(report.audit.translation_of_route.split("/").filter(Boolean).at(-1))
+    && outputSlug === `${report.audit.translation_of_route.split("/").filter(Boolean).at(-1)}-rus`
+  ) return true;
   if (
     report?.audit?.format === "multi_location"
     && report.audit.package_role === "focus_location"

@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 test("every current audit has one shared case and every approved report record is owned", () => {
   const index = buildAuditStorageIndex({ repoRoot: root });
   assert.equal(index.counts.audits, 9);
-  assert.equal(index.counts.approved_report_records, 11);
+  assert.equal(index.counts.approved_report_records, 12);
   assert.equal(new Set(index.cases.map((entry) => entry.audit_id)).size, index.cases.length);
   assert.equal(index.cases.some((entry) => entry.audit_id === "prestige-tenerife-2026"), true);
   assert.equal(index.cases.some((entry) => entry.audit_id === "spoken-medspa-snellville-2026"), true);
