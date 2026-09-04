@@ -241,6 +241,7 @@
     "docs/audits/caesthetic/evidence/2026-08-09T1553Z-phase1-rerun/screenshots/t768_home_nav-open.png": "eb0ec7baeb39220b433af1db5f70aed5a42505100f13f3f116035a60c0745067",
     "docs/audits/caesthetic/evidence/2026-08-09T1553Z-phase1-rerun/screenshots/t768_score_aurora-medspa-x7k9m2_.png": "05125d8e9dc7b2fbde402c56285af09beca6286f6d05730f71d74aedb44cfa97",
     "docs/audits/caesthetic/evidence/2026-08-09T1553Z-phase1-rerun/screenshots/t768_sprint_.png": "9ccf4102f7578a8d3da956b3b1f94cbb9be4e38398de33971db5d5bcf2415674",
+    "docs/audits/caesthetic/growth-preview/production-acceptance-20260904.json": "b30637233259b9c44cb71b60ffde5c5f163355b41af1ce2afabf13f0b415ff86",
     "docs/audits/caesthetic/growth-score-projects.generated.json": "042b8646981a167e1a486e58e81daba472d643b4c27112c1ed4bee587ff80b4b",
     "docs/audits/caesthetic/growth-score/README.md": "a7aabbf7d70f2aadaac644d7a5883b8ed146bcb16cea2b14fb6ef7fedb7b5882",
     "docs/audits/caesthetic/growth-score/audit-case.schema.json": "5e7759865fa74b4ea1ec0c4e58d5c5eaf1d5b84893e92e4b2bface6f2c83017d",
@@ -292,7 +293,7 @@
     "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "bed8b8373d655c2cd75bb728ce3c057039e5620b365589e09418251ce69dcfd0",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "6263a4d87699f3f01bae46238ff17c565c2c884468f0b5cd5f7b1769e8211bc9",
-    "docs/projects/caesthetic/PROJECT_STATUS.md": "d3174ee726c0fc8cc06d690a664fdae26cac68e92ae92a18e492171a45394458",
+    "docs/projects/caesthetic/PROJECT_STATUS.md": "59a0504fc931d9c6645cb366ef71b19862463d775688cbc4576f6b0ae4f6c466",
     "docs/projects/caesthetic/README.md": "98ad3804b8495741440f35e85a8fd2dee2eb738a619759bfd72261c6760d514a",
     "docs/projects/caesthetic/ROUTER.md": "7f9624ec039b6b84c7c02403504225ff501003dbe8dc9f5c958d5ad0692beef3",
     "docs/projects/caesthetic/SYNC_MANIFEST.yml": "19c62d1e1277d6d0a08a31190afd9d59848af59234c8b2be1de1faf440fd6fbb",
@@ -866,6 +867,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T13:32:36Z",
+  "updated_at_utc": "2026-09-04T13:36:36Z",
   "version": 1
 }

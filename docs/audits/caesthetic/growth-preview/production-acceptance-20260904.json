@@ -1,0 +1,56 @@
+{
+  "contract": "caesthetic-growth-preview-production-acceptance/1.0.0",
+  "checked_at": "2026-09-04T13:33:22.442Z",
+  "current_main_read_sha": "d27197fe8731c5167fbbd95dff2c3c0e4f82c678",
+  "implementation_merge_sha": "99350cf9bc6ef1fd7ff8d156853b451730d14dd3",
+  "migration": {
+    "workflow": "Supabase Migrations Push",
+    "run_id": 33877615647,
+    "conclusion": "success"
+  },
+  "worker": {
+    "deployed_sha": "34389405d89bde0110f4c696e93ea3571b43ab92",
+    "workflow_run_id": 33878148159,
+    "deploy_steps": "success",
+    "shared_smoke_conclusion": "failure_after_deploy",
+    "shared_smoke_unrelated_failure": "stale marker assertion for /case-studies/intake/guide/"
+  },
+  "function": {
+    "name": "submit-caesthetic-growth-score",
+    "deployed_from_sha": "8cb54de1ce050d984bb04c862665a7780a008ec9",
+    "workflow_run_id": 33878630219,
+    "conclusion": "success"
+  },
+  "synthetic_preview": {
+    "safe_route": "/preview/<synthetic-opaque-token>/",
+    "preview_id": "d3a3740e-a12a-4bf7-b7f6-f7bdbfbfee25",
+    "get": {
+      "status": 200,
+      "noindex": true,
+      "no_referrer": true,
+      "no_store": true,
+      "score_case_created": false
+    },
+    "continue": {
+      "status": 200,
+      "repeat_status": 200,
+      "idempotent": true,
+      "lead_id": "e0522cb0-9c97-45ef-af7a-ba0fdfda26c8",
+      "score_case_id": "1b5386c9-3d4a-4bbe-a029-442e2bdbc9b2",
+      "lead_status": "declined",
+      "case_state": "closed",
+      "outbox_jobs": 5
+    },
+    "analytics_events": [
+      "preview_issued",
+      "preview_opened",
+      "preview_rendered",
+      "preview_continued",
+      "score_case_created"
+    ],
+    "no_real_prospect_artifacts": true,
+    "no_live_working_synthetic_lead": true
+  },
+  "instantly_send_performed": false,
+  "remaining_preview_blocker": null
+}

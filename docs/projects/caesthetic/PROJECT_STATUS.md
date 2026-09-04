@@ -1,7 +1,17 @@
 # CAESTHETIC — Project Status
 
-**Updated:** 2026-09-03
+**Updated:** 2026-09-04
 **Phase:** Phase 1 — proof + outbound readiness
+
+## Private Growth Preview v1 — production (2026-09-04)
+
+- Private Growth Preview is live as an acquisition mechanic over approved pre-Score evidence, not a product or diagnosis. The permission boundary remains `Continue to My Free Growth Score`; only that atomic action creates or resolves the existing Growth Score lead, case, status and outbox.
+- Canonical implementation merged at `99350cf9bc6ef1fd7ff8d156853b451730d14dd3`. The schema migration completed in Supabase Migrations Push run `33877615647`.
+- The CAESTHETIC Worker deploy step completed for exact SHA `34389405d89bde0110f4c696e93ea3571b43ab92` in run `33878148159`. The shared post-deploy suite later failed on an unrelated stale marker for `/case-studies/intake/guide/`; this does not replace the dedicated Preview acceptance result.
+- `submit-caesthetic-growth-score` was deployed from workflow head `8cb54de1ce050d984bb04c862665a7780a008ec9`. Dedicated production smoke run `33878630219` passed: synthetic Preview GET returned HTTP 200 with `noindex`, `no-referrer` and `no-store`; GET created no Score case; Continue and repeat Continue returned HTTP 200 and the same lead/case; all five non-personal funnel events were present.
+- The synthetic QA lead `e0522cb0-9c97-45ef-af7a-ba0fdfda26c8` finished `declined` and QA case `1b5386c9-3d4a-4bbe-a029-442e2bdbc9b2` finished `closed`. No real prospect was used and no synthetic item remains a live working lead.
+- Instantly sending was not performed. Internal suppression is fail-closed; synchronous real-time Instantly suppression remains an explicit integration gap until an authoritative webhook or read capability exists.
+- Machine-readable acceptance evidence: `docs/audits/caesthetic/growth-preview/production-acceptance-20260904.json`.
 
 ## Lead-to-Revenue Map raster integrity (2026-09-04)
 
