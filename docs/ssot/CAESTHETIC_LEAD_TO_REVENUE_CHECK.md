@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1
+version: 1.2
 created: 2026-09-02
-updated: 2026-09-03
+updated: 2026-09-04
 scope: canonical commercial and evidence contract for the CAESTHETIC Lead-to-Revenue Check
 parent: docs/ssot/CAESTHETIC.md
 related:
@@ -14,6 +14,8 @@ related:
 supersedes_scope:
   - any prior statement that the Lead-to-Revenue Check price is proposed, configurable, non-canonical or awaiting pricing approval
   - any prior client-report or Journey Graph working note that suppresses the $500 amount solely because pricing authority had not approved it
+  - any prior rule that makes Lead-to-Revenue Check recommendation conditional on unresolved post-enquiry uncertainty
+  - any prior report-routing rule that permits a single-location or Multi-Location Growth Score to omit the Lead-to-Revenue Check recommendation section
 ---
 
 # CAESTHETIC Lead-to-Revenue Check — canonical contract
@@ -24,26 +26,28 @@ supersedes_scope:
 
 The Lead-to-Revenue Check is an evidence-gated internal conversion diagnostic for the path after a public enquiry reaches the practice. It is not a fifth surface, not part of the Four Surfaces score, not a general business audit and not a replacement for the free Growth Score.
 
-It is used when the outside-in Growth Score cannot responsibly determine what happens after `Lead Intake`, or when valid evidence indicates that the likely next constraint may sit inside the internal conversion / patient-operations layer.
+**Canonical recommendation rule:** the Lead-to-Revenue Check is **always recommended** in every approved CAESTHETIC Growth Score and every approved Multi-Location Growth Score. Every new report must contain the standard `Lead-to-Revenue Check · $500` recommendation section.
 
-The canonical sequence is conditional:
+This universal recommendation is a product-policy recommendation to verify the internal lead-to-revenue path after the outside-in assessment. It is **not** evidence that an internal leak, weak receptionist, broken CRM, staffing problem or any other internal cause exists. The internal path remains `Not assessed` / `Insufficient evidence` until authorized internal evidence supports a finding.
+
+The canonical sequence is:
 
 ```text
-Growth Score
-→ external constraint verified: 30-Day Growth Sprint ($2,500)
-OR
-→ internal conversion uncertainty: Lead-to-Revenue Check ($500)
-   → verified finite constraint: optional 30-Day Growth Sprint ($2,500 total)
+Growth Score — outside-in diagnosis across the Four Surfaces
+→ Lead-to-Revenue Check ($500) — always recommended as the internal-path verification layer
+→ independently, when an actionable constraint is verified: fix in-house / another provider / optional 30-Day Growth Sprint ($2,500)
 ```
 
-The public headline funnel remains `Growth Score → 30-Day Growth Sprint → optional Growth System`. The Check is a conditional diagnostic branch, not a mandatory extra step.
+The public headline funnel remains `Growth Score → 30-Day Growth Sprint → optional Growth System`. The Check is a standard recommended diagnostic complement to every Growth Score, but it does not become a fourth headline product and purchasing it is never mandatory.
 
 ## 2. Fixed commercial rule
 
 - Price: **$500**.
-- The price is canonical and may be rendered directly in an approved Growth Score report as `Lead-to-Revenue Check · $500` when the internal layer is a material unresolved decision.
-- If the client proceeds directly from this Check into the next CAESTHETIC 30-Day Growth Sprint addressing the verified constraint, the **$500 is credited once toward that Sprint**. The canonical Sprint total remains **$2,500**; the remaining balance after the credit is **$2,000**.
-- The credit is not a separate discount, cash-equivalent, refund promise or recurring balance. It applies only to the next CAESTHETIC Sprint purchased as the direct continuation of the Check.
+- Every approved Growth Score and Multi-Location Growth Score renders `Lead-to-Revenue Check · $500` as a standard recommendation.
+- Recommendation is universal; purchase remains optional.
+- If the client proceeds directly from this Check into the next CAESTHETIC 30-Day Growth Sprint addressing a verified constraint, the **$500 is credited once toward that Sprint**. The canonical Sprint total remains **$2,500**; the remaining balance after the credit is **$2,000**.
+- The credit is not a separate discount, cash-equivalent, refund promise or recurring balance. It applies only to the next qualifying CAESTHETIC Sprint purchased as the direct continuation of the Check.
+- The Check recommendation does not alter the Growth Score binding constraint, Top 3, Do Not Fund Yet or any Four-Surface score.
 - No revenue, patient, ROI, ranking or conversion outcome is guaranteed.
 
 ## 3. Evidence boundary
@@ -85,6 +89,8 @@ The Check may state observable facts such as:
 
 It may not infer a cause such as `bad receptionist`, `broken CRM`, `poor training` or `staffing shortage` unless the required evidence supports that conclusion.
 
+The universal recommendation to buy/use the Check is not itself an internal diagnostic finding and therefore does not require evidence references asserting an internal defect.
+
 ## 5. Owner-facing output
 
 The Check returns a compact decision package:
@@ -99,32 +105,47 @@ The Check returns a compact decision package:
 
 The Check does not automatically create a Sprint sale. If no material internal constraint is verified, say so and do not manufacture work.
 
-## 6. Growth Score presentation
+## 6. Mandatory Growth Score presentation
 
-In the free Growth Score, the `Lead Intake` ring remains the outside-in boundary. The Lead-to-Revenue Map is gray by default unless valid internal evidence already exists.
+In the free Growth Score, the `Lead Intake` ring remains the outside-in boundary. The Lead-to-Revenue Map remains gray by default unless valid internal evidence already exists.
 
-When the Check is the appropriate next diagnostic step, the report may show:
+**Every approved single-location Growth Score and every approved Multi-Location Growth Score must show the standard recommendation section:**
 
 **Lead-to-Revenue Check · $500**
 
-with concise language explaining that Growth Score shows how demand reaches the practice while the Check shows what happens after it arrives.
+Canonical explanation:
 
-The Check remains secondary to a directly verified external Sprint path. Do not insert it as an automatic upsell when the Growth Score has already established an actionable external binding constraint.
+> Growth Score shows how a prospective patient reaches the practice from the outside. Lead-to-Revenue Check verifies what happens after the enquiry arrives. It is recommended in every Growth Score because the outside-in assessment does not replace authorized internal-path evidence.
+
+The section must make clear that:
+
+- the Check is always recommended;
+- buying it is optional;
+- the recommendation does not mean an internal problem has already been found;
+- missing internal evidence stays gray / `Not assessed`;
+- an externally verified Sprint priority remains valid and is not displaced merely because the Check is also recommended.
+
+The Check recommendation is a persistent standard section, not a mutually exclusive replacement for the report's primary evidence-backed action. If the Growth Score verifies an external priority suitable for Sprint, the report may still present that primary action while also showing the standard Check recommendation section.
+
+For Multi-Location Growth Score, render one canonical network-level Check recommendation section in the parent report. Focus-location child views must not duplicate additional commercial Check sections.
 
 ## 7. Public runtime and report-routing contract
 
 - Canonical indexable product route: `/lead-to-revenue-check/`.
 - The primary header remains focused on the headline funnel. The Check is discoverable through the global footer and contextual decision boundaries on Growth Score, Pricing, Sprint, Growth System, About, Support, the audit catalog and relevant localized vertical pages.
 - Public pricing values come from `site-caesthetic/src/config/pricing.ts` through the generated pricing artifact. Runtime code must not create a second price source.
-- A Growth Score report shows the commercial Check card only when its approved source contains `leadToRevenueCheck.recommendation = "recommended"`, a non-empty reason and at least one evidence reference.
-- Absence of that field, or `recommendation = "not_recommended"`, keeps the internal map gray without a Check offer. The report's single late commercial CTA remains the Sprint unless the approved Check recommendation replaces it. A Multi-Location focus child never adds a second commercial CTA.
-- Canonical measurement events are `lead_to_revenue_check_page_viewed` and `lead_to_revenue_check_scope_requested`.
+- New Growth Score authoring must always emit `leadToRevenueCheck.recommendation = "recommended"`.
+- `leadToRevenueCheck.recommendation = "not_recommended"`, an absent `leadToRevenueCheck` block, or report logic that hides the standard Check section is non-canonical for newly authored single-location and Multi-Location reports.
+- The universal recommendation may use a canonical policy rationale and does not require evidence references alleging an internal problem. Any diagnostic claim inside the section still requires the normal evidence and named-human approval gates.
+- The Check section no longer replaces an evidence-backed Sprint CTA. The two answer different decisions: Check verifies the internal path; Sprint implements a verified priority constraint.
+- A Multi-Location parent renders one Check recommendation section; focus children do not add duplicate commercial CTAs.
+- Canonical measurement events remain `lead_to_revenue_check_page_viewed` and `lead_to_revenue_check_scope_requested`.
 - Scope is confirmed in writing before CAESTHETIC issues a private controlled payment request.
 
 ## 8. Authority and conflicts
 
-This file is the specific active pricing/evidence authority for the Lead-to-Revenue Check. It supplements `docs/ssot/CAESTHETIC.md` without changing the immutable Four Surfaces or the public headline funnel.
+This file is the specific active pricing/evidence/recommendation authority for the Lead-to-Revenue Check. It supplements `docs/ssot/CAESTHETIC.md` without changing the immutable Four Surfaces or the public headline funnel.
 
-Where older subordinate Growth Score documents say that the `$500` amount is proposed, configurable, non-canonical or awaiting pricing approval, **this file supersedes those statements as of 2026-09-02**.
+As of **2026-09-04**, this file supersedes subordinate rules that describe the Check recommendation as conditional, optional-to-render, hidden by default, mutually exclusive with the Sprint CTA, or dependent on first proving unresolved post-enquiry uncertainty.
 
-Any later change to the fixed `$500` price, Sprint credit rule or product role requires an explicit canon update.
+Any later change to the fixed `$500` price, universal recommendation rule, Sprint credit rule or product role requires an explicit canon update.
