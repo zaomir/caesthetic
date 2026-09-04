@@ -24,7 +24,8 @@ Read in order:
 11. For Reel automation, ElevenLabs/Kling access or “can we fully automate Reels”: `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (answer from §0)
 
 ## Invariants
-- `4444` and `Четверки` route only to the CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation.
+- `Connect4` is the exact public program name. `4444` and `Четверки` remain internal aliases for the same CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation. All new or revised public copy and visuals use Connect4; existing internal identifiers, paths and historical records stay stable. Naming authority: `docs/ssot/CAESTHETIC.md` §2.
+- Lead Intake is the separate fifth operational layer after an inquiry, never a fifth public surface or scoring dimension. For the Case Studies explainer, Paid Ads appears only later in Stop / Do Not Fund Yet.
 - Paid Ads is the Demand Layer that directs demand into 4444, not a fifth surface; scale it only when the verified binding constraint is insufficient qualified demand and the four surfaces, capacity and economics are ready.
 - Cross-Surface Consistency is not a fifth surface.
 - Growth Score: one schema-v5 engine/template/renderer for `aesthetic_practice`, `dental_practice` and `beauty_salon`; `report_locale` is `en`, `ru`, `es`, `fr` or `uk` and changes presentation only.
