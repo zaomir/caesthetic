@@ -95,7 +95,9 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
             "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
             "tests/caesthetic/growth-score-journey-graph.test.mjs",
             "tests/caesthetic/satellite-growth-score-authoring.test.py",
+            "tests/caesthetic/report-design-directives.test.mjs",
             "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png",
+            "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json",
         ):
             self.assertTrue(cae_sync.is_protected(rel), rel)
 
