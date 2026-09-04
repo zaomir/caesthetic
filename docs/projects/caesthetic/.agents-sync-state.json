@@ -714,8 +714,8 @@
     "site-caesthetic/assets/js/caesthetic-config.js": "b2ebd7342e386ad0acab765879cd5009d238096894c7050dcc9f047c5208fd89",
     "site-caesthetic/assets/js/caesthetic-pricing.generated.js": "ed91cf69c814d749fcccbc00e44307fc6117dcf1f43620b37bbed0b660038159",
     "site-caesthetic/assets/js/caesthetic.js": "934e2da9ad4d2d73a61364d7456ff69006e8bddeea5947f1fb64b0ee31499277",
-    "site-caesthetic/assets/js/case-studies.js": "7442e7208a3d43220c8f25cb1c6643617f6654f700b719d553a70e1c342d703b",
-    "site-caesthetic/assets/js/case-study-detail.js": "3d5ef0cef715f86cfdb48d2d3f860444ca76fe393615e45c599222d367fe8e5e",
+    "site-caesthetic/assets/js/case-studies.js": "2592068329db4630213007c8ced277b99f3aac63371076f34f47b0b4aaad6213",
+    "site-caesthetic/assets/js/case-study-detail.js": "6a465cf2844d5410481d61b1551388fc6aaa4b6277c67b1cbee2ef94e173615b",
     "site-caesthetic/assets/js/growth-cockpit.js": "021ff3d6cc1af910e45033e1669e9d162c52c40575144bd8e960d34dbadcbf86",
     "site-caesthetic/assets/js/growth-score-engine.mjs": "27e82cb1009ae6f7908055df3969cae7e676d5de27b523a75b3fce445efd0472",
     "site-caesthetic/assets/js/growth.js": "a0b2e06520b9a58c28b93d80628e380924e53ae2c2659cb83c4932bf475c20dc",
@@ -729,8 +729,8 @@
     "site-caesthetic/brand/logo-square.png": "5e7031f129cd59a538ad9e9ad99bea4f2656d96d9387bc71841608bf9ee0adf4",
     "site-caesthetic/brand/logo-square.svg": "9c16f91d5f25553b8af2bab4b0f5400fb9f67ac967d401d18b6b32d2a0e9cfd1",
     "site-caesthetic/case-studies/README.md": "7845a59ab2d1aef71f17598ae5e0d83d8fd7f2f19d2010cd061cb09e27f47298",
-    "site-caesthetic/case-studies/case/index.html": "b0d6353abf963c3299f002313ccea2c9da0cc883a3d18e66b4e9be8a8f5017be",
-    "site-caesthetic/case-studies/index.html": "136c6ea380622e12ad0601505fa109f9e77f494ec9d5d4a56a98b5d507dde05a",
+    "site-caesthetic/case-studies/case/index.html": "3243f9e44c596af986240ec03484426d3d7542ef7ab9a80c8a41141e76aed188",
+    "site-caesthetic/case-studies/index.html": "4805cef928f4dc0d258b0f6e4596fa49a2a488b4cacda6111909651907a35ad3",
     "site-caesthetic/case-studies/intake/index.html": "8de19329dfbb42b92bdb0f7e778b0272419fb159c4e76b5fa4f3dc7d8d6afb36",
     "site-caesthetic/docs/website-studio/home-impeccable-2026-08-01.md": "76338d925fd03594f0908851e6a7766f973161f7f72d48cbdb18af67dbc7d230",
     "site-caesthetic/docs/website-studio/site-caesthetic-beauty-salons.md": "c37f9517d4bbccd3d515314c9811d04d0a818fac46a99e1530362508fd46c8bd",
@@ -858,6 +858,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T02:17:21Z",
+  "updated_at_utc": "2026-09-04T02:33:05Z",
   "version": 1
 }

@@ -126,7 +126,7 @@
     setText('[data-case-title]', item.title);
     setText('[data-case-summary]', item.summary);
     setText('[data-relevance-label]', relevanceLabels[item.relevanceTier] || 'Practice relevance');
-    setText('[data-applicability]', applicability(item, primaryGoal));
+    setText('[data-applicability]', item.applicability || applicability(item, primaryGoal));
     setText('[data-baseline]', baseline);
     setText('[data-outcome]', outcome);
     setText('[data-timeframe]', timeframe);
@@ -139,10 +139,12 @@
     setText('[data-context-country]', item.country);
     setText('[data-context-model]', item.businessModel);
     setText('[data-context-evidence]', evidenceStatus);
-    setText('[data-owner-question]', ownerQuestions[primaryGoal] || ownerQuestions.bookings);
-    setText('[data-owner-context]', ownerContexts[primaryGoal] || ownerContexts.bookings);
-    setText('[data-context-copy]', 'The final ' + item.industry.toLowerCase() + ' case will establish the ' + item.businessModel.toLowerCase() + ' operating model, market context, decision path and commercial baseline before describing any intervention.');
-    setText('[data-workstream-copy]', workstreamCopy[primaryGoal] || workstreamCopy.bookings);
+    setText('[data-owner-question]', item.ownerQuestion || ownerQuestions[primaryGoal] || ownerQuestions.bookings);
+    setText('[data-owner-context]', item.ownerContext || item.bindingConstraint || ownerContexts[primaryGoal] || ownerContexts.bookings);
+    setText('[data-context-copy]', item.situationBefore || item.constraintEvidence || 'The final ' + item.industry.toLowerCase() + ' case will establish the ' + item.businessModel.toLowerCase() + ' operating model, market context, decision path and commercial baseline before describing any intervention.');
+    setText('[data-workstream-discovery]', item.constraintEvidence || 'Define the entry point, decision steps, handoffs and denominator before changing the experience.');
+    setText('[data-workstream-copy]', [item.workstreams, item.changeSequence].filter(Boolean).join(' ') || workstreamCopy[primaryGoal] || workstreamCopy.bookings);
+    setText('[data-workstream-adoption]', item.resultNarrative || item.practiceContribution || 'Document ownership, review the operating signal and verify that the change survives beyond launch.');
     setText('[data-ledger-baseline]', baseline === 'Baseline pending' ? 'Pending verified case data' : baseline);
     setText('[data-ledger-denominator]', denominator === 'Denominator pending' ? 'Pending verified case data' : denominator);
     setText('[data-ledger-timeframe]', timeframe === 'Timeframe pending' ? 'Pending verified case data' : timeframe);
@@ -176,19 +178,38 @@
     document.title = 'Case unavailable | CAESTHETIC';
   }
 
-  fetch('/assets/data/case-studies.placeholder.json', { credentials: 'same-origin' })
+  function loadPlaceholderCases() {
+    return fetch('/assets/data/case-studies.placeholder.json', { credentials: 'same-origin' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Case data unavailable');
+        return response.json();
+      })
+      .then(function (data) { return data.cases || []; });
+  }
+
+  var requestedId = new URLSearchParams(window.location.search).get('id') || 'case-01';
+
+  fetch('/case-studies/intake/api/public-cases', { credentials: 'same-origin' })
     .then(function (response) {
-      if (!response.ok) throw new Error('Case data unavailable');
+      if (!response.ok) throw new Error('Published case data unavailable');
       return response.json();
     })
     .then(function (data) {
-      var requestedId = new URLSearchParams(window.location.search).get('id') || 'case-01';
-      var item = data.cases.find(function (candidate) { return candidate.id === requestedId; });
-      if (!item) {
-        showError();
-        return;
-      }
-      setCase(item, data.cases);
+      var publicCases = Array.isArray(data.cases) ? data.cases : [];
+      var publishedItem = publicCases.find(function (candidate) { return candidate.id === requestedId; });
+      if (publishedItem) return { item: publishedItem, cases: publicCases };
+      return loadPlaceholderCases().then(function (placeholderCases) {
+        return { item: placeholderCases.find(function (candidate) { return candidate.id === requestedId; }), cases: placeholderCases };
+      });
+    })
+    .catch(function () {
+      return loadPlaceholderCases().then(function (placeholderCases) {
+        return { item: placeholderCases.find(function (candidate) { return candidate.id === requestedId; }), cases: placeholderCases };
+      });
+    })
+    .then(function (result) {
+      if (!result || !result.item) return showError();
+      setCase(result.item, result.cases);
     })
     .catch(showError);
 }());

@@ -122,6 +122,8 @@
     document.querySelector('[data-featured-meta]').textContent = [item.industry, item.country, item.businessModel].join(' · ');
     document.querySelector('[data-featured-outcome]').textContent = item.baseline + ' → ' + item.outcome.toLowerCase();
     document.querySelector('[data-featured-window]').textContent = item.timeframe;
+    document.querySelector('[data-featured-budget]').textContent = item.budgetContext || 'Context documented in case';
+    document.querySelector('[data-featured-status]').textContent = item.evidenceStatus;
 
     var featuredLink = document.querySelector('[data-featured-link]');
     featuredLink.href = '/case-studies/case/?id=' + encodeURIComponent(item.id);
@@ -246,7 +248,28 @@
     });
   }
 
-  fetch('/assets/data/case-studies.placeholder.json', { credentials: 'same-origin' })
+  function loadCaseData() {
+    return fetch('/case-studies/intake/api/public-cases', { credentials: 'same-origin' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Published case data unavailable');
+        return response.json();
+      })
+      .then(function (data) {
+        if (!data || !Array.isArray(data.cases) || data.cases.length === 0) {
+          throw new Error('No published cases yet');
+        }
+        return data;
+      })
+      .catch(function () {
+        return fetch('/assets/data/case-studies.placeholder.json', { credentials: 'same-origin' })
+          .then(function (response) {
+            if (!response.ok) throw new Error('Case data unavailable');
+            return response.json();
+          });
+      });
+  }
+
+  loadCaseData()
     .then(function (response) {
       if (!response.ok) throw new Error('Case data unavailable');
       return response.json();
@@ -267,7 +290,7 @@
       render();
     })
     .catch(function () {
-      list.replaceChildren(element('p', 'cae-case-data-error', 'Placeholder case data could not be loaded.'));
+      list.replaceChildren(element('p', 'cae-case-data-error', 'Case data could not be loaded.'));
       document.querySelector('[data-load-more]').hidden = true;
     });
 }());
