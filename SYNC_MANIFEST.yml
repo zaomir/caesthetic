@@ -3,6 +3,21 @@ version: 3
 source_repo: zaomir/caesthetic
 target_repo: zaomir/grainee-v2
 direction: bidirectional  # DEC-829
+expert_dental_mirror:
+  path: docs/external/grainee-v2/expert-dental
+  policy: docs/projects/caesthetic/EXPERT_DENTAL_MIRROR.yml
+  direction: hybrid-bidirectional-allowlisted
+  authority_after_sync: zaomir/grainee-v2
+  writeback_allowlist:
+    - docs/projects/healthcare-ecosystem/**
+    - docs/projects/raimovdental/**
+    - docs/raimov/**
+  protected_one_way:
+    - docs/legal/raimov/expert-dental/**
+    - apps/expert-esign/**
+    - docs/ssot/RAIMOV*.md
+    - docs/ssot/EXPERT_DENTAL*.md
+    - docs/ssot/ELITE_DENTAL*.md
 trees:
   - site-caesthetic
   - docs/projects/caesthetic
@@ -96,6 +111,7 @@ protected_in_target:
   - tests/caesthetic/owner-brief-contract.test.mjs
   - tests/caesthetic/spoken-medspa-russian.test.mjs
   - tests/caesthetic/agents_sync_bidirectional_test.py
+  - tests/caesthetic/expert_dental_mirror_test.py
   - tests/caesthetic/satellite-growth-score-authoring.test.py
   - docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json
   - docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json

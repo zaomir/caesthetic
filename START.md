@@ -12,10 +12,12 @@
 
 Если задача относится к Expert Dental / RAIMOV, сначала открой
 `docs/external/grainee-v2/expert-dental/.mirror-manifest.json` и следуй
-зеркальным AGENTS/SSOT. Это односторонняя read-only проекция из
-`grainee-v2`, а не второй SSOT. Не-PHI предложения создаются только в
-`docs/projects/caesthetic/expert-dental-contributions/`; legal/runtime в
-зеркале не редактируются.
+зеркальным AGENTS/SSOT. Это гибридное двустороннее зеркало, но не второй
+SSOT: non-PHI проектные документы в `docs/projects/healthcare-ecosystem/**`,
+`docs/projects/raimovdental/**` и `docs/raimov/**` можно редактировать прямо в
+зеркале — worker запишет их в те же пути `grainee-v2`. Legal/runtime/SSOT,
+deploy и agent-routing в зеркале остаются защищёнными и редактируются только
+через authority `grainee-v2`. Конкурирующие изменения блокируются fail-closed.
 
 **Важно:** Growth Score pre-router и mandatory enforcement применяются до любых Compound Engineering skills, планов или автономных pipeline.
 
