@@ -3,6 +3,12 @@
 **Updated:** 2026-09-03
 **Phase:** Phase 1 — proof + outbound readiness
 
+## Lead-to-Revenue Map raster integrity (2026-09-04)
+
+- The complete owner-approved raster is stored at `site-caesthetic/assets/img/growth-score/lead-to-revenue-map.png`: SHA-256 `9a2d659a52d26a1ea32626991856f7951e468a6602ff377e537155276480ccb6`, `1,528,541` bytes, `1536×1024`.
+- Runtime uses this exact PNG. Do not crop, re-encode, redraw, reconstruct or substitute it without explicit owner approval.
+- The report test locks the exact hash and dimensions and verifies the complete PNG chunk stream, terminal `IEND` and full image-data inflation so a truncated asset cannot ship again.
+
 ## Growth Score approved Hero asset lock (2026-09-03)
 
 - The `Where Clients Are Gained - and Lost` section now displays only the latest owner-approved PNG at `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png`.

@@ -289,7 +289,7 @@
     "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "706027151e391db26ece89ecafabdecd4fd1f7e204d7daf6338ee5439f5f1f48",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "6263a4d87699f3f01bae46238ff17c565c2c884468f0b5cd5f7b1769e8211bc9",
-    "docs/projects/caesthetic/PROJECT_STATUS.md": "28e820d0f3090ddca8c034e71c6ac79b5ecb965ebf0e0edcd0850600c7509c48",
+    "docs/projects/caesthetic/PROJECT_STATUS.md": "d3174ee726c0fc8cc06d690a664fdae26cac68e92ae92a18e492171a45394458",
     "docs/projects/caesthetic/README.md": "98ad3804b8495741440f35e85a8fd2dee2eb738a619759bfd72261c6760d514a",
     "docs/projects/caesthetic/ROUTER.md": "053f8ebc7e74fbaaf55bd20889117d79c29e2f8e741ebc19582446518deae3cf",
     "docs/projects/caesthetic/SYNC_MANIFEST.yml": "51c5c36021ddd7219a03e57457fdcda0432a78d4c54145d6243887e220038881",
@@ -697,7 +697,7 @@
     "site-caesthetic/assets/css/tokens.css": "befd310d72a2ec466faea1715757e94bbb0808d33842a2825a1507a00335b07c",
     "site-caesthetic/assets/data/case-studies.placeholder.json": "87b5673bcf1ffc7fe4bd532e9ebc5639d1c9b8f61171f110e4365ba1620e396c",
     "site-caesthetic/assets/data/case-study.schema.json": "69ad51b964b83af5dcdde73ab0746875b8494e1bc72ba4b915cbbe90ff4c2c53",
-    "site-caesthetic/assets/img/growth-score/lead-to-revenue-map.png": "35b3a0df3fdf9202e88fa7d0bc84637b7928f544818636f78da225e046e3e994",
+    "site-caesthetic/assets/img/growth-score/lead-to-revenue-map.png": "9a2d659a52d26a1ea32626991856f7951e468a6602ff377e537155276480ccb6",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05",
     "site-caesthetic/assets/img/hero-mesh.svg": "3b7f2860691166f78803a9b1d478e5811e805669ea45e782c295b7cbf6c2676c",
     "site-caesthetic/assets/img/hero-reference.png": "d36ad674e406f40cdb7a0997a8f2f9aaa7f5a19156e34cc738677671a0005da2",
@@ -845,7 +845,7 @@
     "tests/caesthetic/publish-request.test.mjs": "50a3989ac3213597e111b5b415df26d84aa761c13cdd9aad59d21e56e16f2310",
     "tests/caesthetic/reel-automation-ssot.test.mjs": "c64e432c0a574a5b9cbbca316dc4c377b7a8ad06774d9e2e2f220456f12b8aa3",
     "tests/caesthetic/reel-opening-master-v3-1.test.mjs": "14ef0fb8a53067c2d0abbd49097615696d4bed138d388c8af75c1af3e68edea1",
-    "tests/caesthetic/report-design-directives.test.mjs": "9771bd322c195e0beef5a7ab500ab4ccb82dc55bc1ee9da6490ee9bc663687fb",
+    "tests/caesthetic/report-design-directives.test.mjs": "6f1418a72a07f320de67f287ccf8edeaa8f4d641d0d0cf78e677134711bc71ba",
     "tests/caesthetic/request-modal.test.mjs": "29d21f3669b11b6ae014db81dcbc43efe624d1ef3ee027db779457680108e1ec",
     "tests/caesthetic/resolve_account_test.py": "92cc3e8402be4b10fc28493f0eee21e1d32bdf2db009ab2624cd295f06f56596",
     "tests/caesthetic/run-pricing.mjs": "f2fc798fb3bb5ce838ff1ebba4161837519d043bee67aece469812d3a54e2461",
@@ -855,6 +855,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T00:50:08Z",
+  "updated_at_utc": "2026-09-04T01:02:36Z",
   "version": 1
 }
