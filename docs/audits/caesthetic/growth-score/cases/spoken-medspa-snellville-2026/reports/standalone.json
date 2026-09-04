@@ -534,19 +534,27 @@
         ],
         "why_it_matters": "Botox has a stronger Who/Trust/Proof chain.",
         "sprint_fit": {
-          "mode": "close_in_30_days"
+          "mode": "start_in_30_days"
         },
         "repair_plan": {
-          "outcome": "Consistent Botox/filler trust architecture.",
+          "outcome": "A repeatable provider-led content, proof and reputation system for priority treatments.",
           "diy_steps": [
-            "Use Botox as template; add verified provider/proof to fillers; remove unrelated copy."
+            "Use the Botox page as the trust template and extend verified provider, treatment and proof context to fillers.",
+            "Launch a provider-led blog cadence around real patient questions, treatment decisions, aftercare and expectations; connect every article to the relevant treatment and booking path.",
+            "Repurpose each medically reviewed article into approved Website, Google Business Profile and Social content so the same trust story stays consistent across the Four Surfaces.",
+            "After capturing the direct reputation baseline, activate a compliant all-patient Google review request and response cadence with no filtering, incentives or review gating.",
+            "Review the content, review and proof pipeline monthly; retain source, consent and before/after evidence for every material update."
           ],
           "dependencies": [
             "SMS-26-01"
           ],
           "owner_role": "Clinical-content/web owner",
+          "day_30_outcome": "The filler trust architecture, first provider-led article and its approved Website/GBP/Social distribution are live; the direct reputation baseline and compliant review workflow are ready.",
+          "beyond_day_30": "Continue the blog and cross-surface publishing cadence, request and answer genuine Google reviews without gating, refresh treatment proof and monitor Search, reputation and booking-path baselines.",
           "done_when": [
-            "Both priority pages pass one trust-chain checklist."
+            "Both priority pages pass one trust-chain checklist.",
+            "An approved editorial calendar and first complete content-to-distribution cycle are live.",
+            "The review workflow requests feedback from all eligible patients and records responses without sentiment filtering."
           ]
         }
       },

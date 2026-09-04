@@ -82,12 +82,14 @@ protected_in_target:
   - tests/caesthetic/growth-score-decision-views.test.mjs
   - tests/caesthetic/growth-score-journey-graph.test.mjs
   - tests/caesthetic/growth-score-renderer.test.mjs
+  - tests/caesthetic/report-design-directives.test.mjs
   - tests/caesthetic/growth-score-publish-control-plane.test.mjs
   - tests/caesthetic/growth-score-routing-catalog.test.mjs
   - tests/caesthetic/growth-score-spec-canon.test.mjs
   - tests/caesthetic/outbound-domain-identity.test.mjs
   - tests/caesthetic/agents_sync_bidirectional_test.py
   - tests/caesthetic/satellite-growth-score-authoring.test.py
+  - docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json
   - scripts/caesthetic/asset-worker/poll.mjs
   - scripts/caesthetic/asset-worker/repo-sync-worker.mjs
   - scripts/caesthetic/caesthetic-repo-sync-contract.mjs
