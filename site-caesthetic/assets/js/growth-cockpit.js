@@ -891,61 +891,12 @@
     }
   }
 
-  function rebuildNextStep() {
-    if (isNetworkParent() || isFocusLocationChild()) return;
-    if (isPlainOwnerProfile()) return;
+  function preserveCanonicalNextStep() {
     const section = document.getElementById("next-step");
-    const wrap = section?.querySelector(":scope > .cae-wrap");
-    if (!wrap || !reportData) return;
-    wrap.replaceChildren();
-    const kicker = document.createElement("p");
-    kicker.className = "cae-kicker";
-    kicker.textContent = t.sectionKickers[8];
-    const title = document.createElement("h2");
-    title.className = "cae-h2";
-    title.textContent = t.sectionTitles[8];
-    const paths = document.createElement("div");
-    paths.className = "cae-mobile-paths";
-    const pathValues = [
-      reportData.implementation_paths?.diy,
-      reportData.implementation_paths?.other_provider,
-      reportData.implementation_paths?.defer,
-      reportData.implementation_paths?.caesthetic,
-    ];
-    t.pathways.forEach((label, index) => {
-      const article = document.createElement("article");
-      article.innerHTML = `<span>${index + 1}</span><h3></h3><p></p>`;
-      article.querySelector("h3").textContent = label;
-      article.querySelector("p").textContent = pathValues[index] || "";
-      if (index === 3) article.classList.add("is-caesthetic");
-      paths.append(article);
+    if (!section) return;
+    section.querySelectorAll("[data-cae-sprint-inquiry]").forEach((trigger) => {
+      trigger.addEventListener("click", () => track("growth_score_sprint_cta_click", { location: "next-step" }));
     });
-
-    const burden = reportData.humanDiagnosis?.coordination_burden || {};
-    const numeric = Object.entries(burden).filter(([, value]) => Number.isInteger(value));
-    const burdenNode = document.createElement("div");
-    burdenNode.className = "cae-mobile-burden";
-    numeric.forEach(([key, value]) => {
-      const item = document.createElement("p");
-      item.innerHTML = `<strong>${value}</strong><span></span>`;
-      item.querySelector("span").textContent = t.burdenLabels?.[key] || key.replaceAll("_", " ");
-      burdenNode.append(item);
-    });
-
-    const offer = document.createElement("article");
-    offer.className = "cae-mobile-sprint-offer";
-    offer.innerHTML = `<p class="cae-kicker"></p><h3></h3><p class="cae-mobile-sprint-price"></p><p class="cae-mobile-sprint-copy"></p><a class="cae-btn cae-btn--primary" href="/sprint/"></a><small></small>`;
-    offer.querySelector(".cae-kicker").textContent = t.whyCaesthetic;
-    offer.querySelector("h3").textContent = t.sprintTitle;
-    offer.querySelector(".cae-mobile-sprint-price").textContent = t.sprintPrice;
-    offer.querySelector(".cae-mobile-sprint-copy").textContent = t.sprintCopy;
-    offer.querySelector("a").textContent = t.cta;
-    offer.querySelector("small").textContent = t.noCommitment;
-    offer.querySelector("a").addEventListener("click", () => track("growth_score_sprint_cta_click", { location: "next-step" }));
-
-    wrap.append(kicker, title, paths);
-    if (numeric.length) wrap.append(burdenNode);
-    wrap.append(offer);
   }
 
   function initStickySprint() {
@@ -1030,7 +981,7 @@
     initInventoryFilters();
     enhanceCompetitors();
     enhanceScores();
-    rebuildNextStep();
+    preserveCanonicalNextStep();
     initStickySprint();
     initGapMapLinks();
     track("growth_score_mobile_ui_ready", { ui_version: CLIENT_UI_VERSION });

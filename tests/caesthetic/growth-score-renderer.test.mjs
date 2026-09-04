@@ -11,6 +11,7 @@ import { isAllowedRealScoreOutput, isUnguessableScoreSlug, renderGrowthReport, r
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const fixturePath = path.join(root, "site-caesthetic/score/demo-medical-aesthetics-search-gap/report.json");
 const fixture = JSON.parse(fs.readFileSync(fixturePath, "utf8"));
+const cockpitRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/growth-cockpit.js"), "utf8");
 const demoRoutes = [
   "demo-medical-aesthetics-search-gap",
   "demo-injector-practice-booking-friction",
@@ -221,6 +222,16 @@ test("all five catalogued commercial reports keep two Check placements and one S
     assert.equal((html.match(/data-cae-sprint-inquiry/g) || []).length, 0, `${route} Sprint count`);
     assert.equal((html.match(/data-cae-question/g) || []).length, 0, `${route} report Question count`);
   }
+});
+
+test("the hydrated cockpit preserves the server-rendered commercial decision", () => {
+  const start = cockpitRuntime.indexOf("function preserveCanonicalNextStep");
+  const end = cockpitRuntime.indexOf("function initStickySprint", start);
+  const nextStepRuntime = cockpitRuntime.slice(start, end);
+  assert.ok(start >= 0 && end > start);
+  assert.doesNotMatch(nextStepRuntime, /replaceChildren|innerHTML\s*=/);
+  assert.match(nextStepRuntime, /\[data-cae-sprint-inquiry\]/);
+  assert.doesNotMatch(cockpitRuntime, /function rebuildNextStep/);
 });
 
 test("the same renderer accepts an approved real report and enforces private route rules", () => {

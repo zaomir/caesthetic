@@ -726,7 +726,7 @@
     "site-caesthetic/assets/js/caesthetic.js": "bc59c966d8fa2d95bd62c03ae9a9ee76bb855c87bd63c7b17ceef848df54e2a8",
     "site-caesthetic/assets/js/case-studies.js": "6b2b39e301dc4f0ad376de571b6f0dd2e4d495680326589a763334a9e88fb3f9",
     "site-caesthetic/assets/js/case-study-detail.js": "83db2c57fa0909a122edac9d1adbcccd407938640b3dec33078b44cb6786740d",
-    "site-caesthetic/assets/js/growth-cockpit.js": "d598c779ee13d4701fb330c6c623855545dace36cf5c3330020126bfdab045cc",
+    "site-caesthetic/assets/js/growth-cockpit.js": "988ab16cf5a38a17bb5b3f0bc0bcd8f5162c64489db5d54ba220d4a8b0fb7550",
     "site-caesthetic/assets/js/growth-score-engine.mjs": "27e82cb1009ae6f7908055df3969cae7e676d5de27b523a75b3fce445efd0472",
     "site-caesthetic/assets/js/growth.js": "a0b2e06520b9a58c28b93d80628e380924e53ae2c2659cb83c4932bf475c20dc",
     "site-caesthetic/assets/js/media-registry.js": "0494fe5c86e440e77e2f4e7221676902c03899228ed7db8a3ca730fa28d1fd72",
@@ -837,7 +837,7 @@
     "tests/caesthetic/growth-score-prestige-pilot.test.mjs": "495e36365c3a8c262cedc71894ffeaae42a48eedf795a0c85739510fb9809e39",
     "tests/caesthetic/growth-score-privacy-edge.test.mjs": "8c70c7ea5c8bec2423f3ef7b5c7a4a50922fc55086d19a48df53cf52f3e11c40",
     "tests/caesthetic/growth-score-publish-control-plane.test.mjs": "5c949e4d55d5bc8766324d65f4a99ff5b4780a63ff4897d4c5ec8a6b3e57e597",
-    "tests/caesthetic/growth-score-renderer.test.mjs": "b74f62a57fc261a84920100a2e8ff4dc6e888799e8a62dceb975477874bf036e",
+    "tests/caesthetic/growth-score-renderer.test.mjs": "b25b4189fa71a7feacee9bc4a2b27f86bee42e3fe7bd33644bbcf61fbd8d1207",
     "tests/caesthetic/growth-score-routing-catalog.test.mjs": "59c97edf4c824a5a0105ba7b15e21fd0cb52e342b9b81a8e750fa3684ba8e982",
     "tests/caesthetic/growth-score-spec-canon.test.mjs": "80fa0e71d339f69f716e40650a1bc4154ce44a33aad9f524b48a96a00af00e47",
     "tests/caesthetic/growth-score-sprint-canon.test.mjs": "f6c44995a9811594e40fba9328d59b7a24f842aa0b05e19a9d9bee27d89a7aa2",
@@ -875,6 +875,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T16:51:07Z",
+  "updated_at_utc": "2026-09-04T17:00:21Z",
   "version": 1
 }
