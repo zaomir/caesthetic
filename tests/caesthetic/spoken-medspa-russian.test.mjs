@@ -48,6 +48,8 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.equal(report.reportContext.report_locale, "ru");
   assert.equal(report.presentation.kind, "localized_client");
   assert.equal(report.presentation.strict_locale, "ru");
+  assert.equal(report.presentation.copy_profile, "plain_owner_ru");
+  assert.equal(report.presentation.hide_unassessed, true);
   assert.equal(report.audit.public_direct_link, true);
   assert.equal(report.audit.access_group_id, null);
   assert.equal(isAllowedRealScoreOutput(report, htmlPath), true);
@@ -103,14 +105,47 @@ test("Russian Spoken client text contains no English terms outside approved prop
   const accessibleEnglishTerms = [...new Set(accessibleText.match(/[A-Za-z][A-Za-z0-9-]*/g) || [])].sort();
   assert.deepEqual(accessibleEnglishTerms, []);
   assert.match(storedHtml, /Оценка роста/);
-  assert.match(storedHtml, /Сохранилась устаревшая идентичность/);
-  assert.match(storedHtml, /Маршруты пациентов и Академии смешаны/);
-  assert.match(storedHtml, /Связность доверия по филлерам уступает/);
+  assert.match(storedHtml, /Убрать старое название/);
+  assert.match(storedHtml, /Разделить путь пациента и путь специалиста/);
+  assert.match(storedHtml, /Усилить страницу филлеров/);
   const mobileCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report-mobile.css"), "utf8");
   assert.match(
     mobileCss,
     /html\[lang="ru"\][^{]*\.cae-report-do-not-do::before\s*\{[^}]*content:\s*"СТОП"/s,
   );
+});
+
+test("Russian Spoken report presents the approved owner-first sequence without empty or duplicate blocks", () => {
+  assert.match(storedHtml, /Приветствие от Валерии/);
+  assert.match(storedHtml, /Валерия Петра/);
+  assert.match(storedHtml, /Пять ответов, которые помогут принять решение/);
+  assert.match(storedHtml, /data-owner-competitors/);
+  assert.match(storedHtml, /data-owner-internal-boundary/);
+  assert.match(storedHtml, /Инструкции по самостоятельному внедрению/);
+  assert.match(storedHtml, /Четыре допустимых пути/);
+
+  const focusIndex = storedHtml.indexOf('id="focus-gaps"');
+  const competitorsIndex = storedHtml.indexOf("data-owner-competitors");
+  const thirtyDayIndex = storedHtml.indexOf('id="sprint-fit"');
+  const internalBoundaryIndex = storedHtml.indexOf("data-owner-internal-boundary");
+  const doNotFundIndex = storedHtml.indexOf('id="do-not-fund"');
+  assert.ok(focusIndex < competitorsIndex && competitorsIndex < thirtyDayIndex);
+  assert.ok(thirtyDayIndex < internalBoundaryIndex && internalBoundaryIndex < doNotFundIndex);
+
+  assert.equal(report.humanDiagnosis.gap_inventory.filter((gap) => gap.diagnosis_state === "insufficient_evidence").length, 3);
+  assert.equal((storedHtml.match(/<article class="cae-report-problem/g) || []).length, 4);
+  assert.equal((storedHtml.match(/data-cae-request/g) || []).length, 1);
+  assert.doesNotMatch(storedHtml, /Недостаточно доказательств|Нужна проверка|Не оценивалось|Не оценено/);
+  assert.doesNotMatch(storedHtml, /Матрица возможностей|Карта видимости|Цепочка доверия|Индекс трения|Согласованность поверхностей/);
+  assert.doesNotMatch(storedHtml, /\$500|500 долларов|cae-report-burden/);
+  assert.doesNotMatch(storedHtml.replace(/<[^>]+>/g, " "), /SMS-\d{2}-\d{2}/);
+  const cockpitJs = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/growth-cockpit.js"), "utf8");
+  assert.match(cockpitJs, /function rebuildHero\(\) \{\s*if \(isPlainOwnerProfile\(\)\) return;/);
+  assert.match(cockpitJs, /function enhanceFocusGaps\(\) \{\s*if \(isPlainOwnerProfile\(\)\) return;/);
+  assert.match(cockpitJs, /function rebuildRepairPaths\(\) \{\s*if \(isNetworkParent\(\)\) return;\s*if \(isPlainOwnerProfile\(\)\) return;/);
+  assert.match(cockpitJs, /function enhanceInventory\(\) \{\s*if \(isPlainOwnerProfile\(\)\) return;/);
+  const reportCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report.css"), "utf8");
+  assert.match(reportCss, /\.cae-owner-offer \.cae-btn\s*\{[^}]*width:\s*100%;[^}]*white-space:\s*normal;/s);
 });
 
 test("Russian route is noindex and the English route remains unchanged and protected", () => {

@@ -1031,3 +1031,196 @@
   .cae-network-provider-groups,
   .cae-network-friction-grid { grid-template-columns: 1fr; }
 }
+
+/* Plain-owner presentation: concise client story over the same schema-v5 report. */
+.cae-score-report--plain-owner .cae-owner-greeting {
+  max-width: 780px;
+  margin: 0 0 var(--cae-space-8);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-left: 4px solid var(--cae-signal);
+  background: var(--cae-bg-2);
+}
+
+.cae-score-report--plain-owner .cae-owner-greeting h2,
+.cae-score-report--plain-owner .cae-owner-greeting p {
+  max-width: 62ch;
+}
+
+.cae-score-report--plain-owner .cae-owner-greeting__signature {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.cae-owner-intro__answers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--cae-space-3) var(--cae-space-6);
+  max-width: 920px;
+  margin: var(--cae-space-6) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cae-owner-intro__answers li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.cae-owner-intro__answers li::before {
+  position: absolute;
+  left: 0;
+  color: var(--cae-signal);
+  content: "✓";
+  font-weight: 800;
+}
+
+.cae-owner-intro__note {
+  max-width: 760px;
+  padding: var(--cae-space-4);
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-focus-gap--plain {
+  align-content: start;
+}
+
+.cae-owner-competitors {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  padding-top: clamp(2rem, 5vw, 4rem);
+  border-top: 1px solid var(--cae-border);
+}
+
+.cae-owner-competitors__cards,
+.cae-owner-competitors__decisions,
+.cae-owner-thirty-day,
+.cae-owner-paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--cae-space-4);
+  margin-top: var(--cae-space-6);
+}
+
+.cae-owner-competitors__cards article,
+.cae-owner-competitors__decisions article,
+.cae-owner-thirty-day article,
+.cae-owner-paths article,
+.cae-owner-offer,
+.cae-owner-conclusion {
+  padding: clamp(1.15rem, 2.5vw, 1.75rem);
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-owner-competitors__cards h4,
+.cae-owner-competitors__decisions h4,
+.cae-owner-paths h3,
+.cae-owner-offer h3,
+.cae-owner-conclusion h3 {
+  margin: 0 0 var(--cae-space-2);
+}
+
+.cae-owner-competitors__decisions span,
+.cae-owner-thirty-day span,
+.cae-owner-paths span,
+.cae-owner-boundary__map span {
+  display: block;
+  margin-bottom: var(--cae-space-2);
+  color: var(--cae-signal);
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cae-owner-competitors__cards p,
+.cae-owner-competitors__decisions p,
+.cae-owner-thirty-day p,
+.cae-owner-paths p {
+  margin-bottom: 0;
+}
+
+.cae-owner-boundary {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  padding-top: clamp(2rem, 5vw, 4rem);
+  border-top: 1px solid var(--cae-border);
+}
+
+.cae-owner-boundary__map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--cae-space-4);
+  margin-top: var(--cae-space-6);
+}
+
+.cae-owner-boundary__map article {
+  min-height: 132px;
+  padding: var(--cae-space-5);
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-owner-boundary__map b {
+  color: var(--cae-signal);
+  font-size: 1.6rem;
+}
+
+.cae-owner-source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cae-space-2);
+  margin: var(--cae-space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cae-owner-source-links a {
+  font-size: var(--cae-text-sm);
+}
+
+.cae-owner-conclusion {
+  max-width: 820px;
+  border-left: 4px solid var(--cae-signal);
+}
+
+.cae-owner-paths article.is-caesthetic,
+.cae-owner-offer {
+  border-color: var(--cae-signal);
+}
+
+.cae-owner-offer {
+  max-width: 760px;
+  margin-top: var(--cae-space-6);
+}
+
+.cae-owner-offer__price {
+  color: var(--cae-signal);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 800;
+}
+
+@media (max-width: 720px) {
+  .cae-owner-intro__answers,
+  .cae-owner-competitors__cards,
+  .cae-owner-competitors__decisions,
+  .cae-owner-thirty-day,
+  .cae-owner-paths,
+  .cae-owner-boundary__map {
+    grid-template-columns: 1fr;
+  }
+
+  .cae-owner-boundary__map b {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .cae-owner-offer .cae-btn {
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: var(--cae-space-3);
+    text-align: center;
+    white-space: normal;
+  }
+}

@@ -399,7 +399,12 @@
     return reportData?.audit?.format === "multi_location" && reportData.audit.package_role === "focus_location";
   }
 
+  function isPlainOwnerProfile() {
+    return reportData?.presentation?.copy_profile === "plain_owner_ru";
+  }
+
   function sectionTitle(id, index) {
+    if (isPlainOwnerProfile()) return reportData.presentation.owner_copy?.section_titles?.[index] || t.sectionTitles[index];
     if (!isNetworkParent()) return t.sectionTitles[index];
     return document.getElementById(id)?.querySelector(".cae-h2")?.textContent?.trim() || t.sectionTitles[index];
   }
@@ -449,14 +454,15 @@
     const neutralizePatterns = [
       /\bAmir\b/gi,
       /\bАмира?\b/gi,
-      /\bValerie Petra\b/gi,
-      /\bВалери(?:я)? Петра\b/gi,
       /\bSelected by\b[^.·<]*/gi,
       /\bApproved by\b[^.·<]*/gi,
       /\bReviewed by\b[^.·<]*/gi,
       /\bвыбрал(?:а)?\b[^.·<]*/gi,
       /\bутвердил(?:а)?\b[^.·<]*/gi,
     ];
+    if (!isPlainOwnerProfile()) {
+      neutralizePatterns.push(/\bValerie Petra\b/gi, /\bВалери(?:я)? Петра\b/gi);
+    }
 
     const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);
     const textNodes = [];
@@ -470,19 +476,22 @@
 
   function setSectionCopy() {
     if (isNetworkParent()) return;
+    const ownerCopy = isPlainOwnerProfile() ? reportData?.presentation?.owner_copy : null;
+    const sectionTitles = ownerCopy?.section_titles || t.sectionTitles;
+    const sectionKickers = ownerCopy?.section_kickers || t.sectionKickers;
     SECTION_IDS.forEach((id, index) => {
       const section = document.getElementById(id);
       if (!section) return;
-      section.dataset.clientTitle = t.sectionTitles[index];
+      section.dataset.clientTitle = sectionTitles[index];
       const wrap = section.querySelector(":scope > .cae-wrap");
       const kicker = wrap?.querySelector(":scope > .cae-kicker");
       const title = wrap?.querySelector(":scope > .cae-h2");
-      if (kicker) kicker.textContent = t.sectionKickers[index];
-      if (title) title.textContent = t.sectionTitles[index];
+      if (kicker) kicker.textContent = sectionKickers[index];
+      if (title) title.textContent = sectionTitles[index];
     });
 
     const focusTitle = document.querySelector("#focus-gaps .cae-h2");
-    if (focusTitle) focusTitle.textContent = t.selectedPriorities;
+    if (focusTitle && !isPlainOwnerProfile()) focusTitle.textContent = t.selectedPriorities;
     const focusRationale = document.querySelector("#focus-gaps .cae-h2 + p");
     if (focusRationale) focusRationale.classList.add("cae-mobile-focus-rationale");
   }
@@ -565,6 +574,7 @@
   }
 
   function rebuildHero() {
+    if (isPlainOwnerProfile()) return;
     const hero = document.querySelector(".cae-report-hero");
     const state = hero?.querySelector(".cae-report-state");
     if (!hero || !state) return;
@@ -595,6 +605,7 @@
   }
 
   function enhanceFocusGaps() {
+    if (isPlainOwnerProfile()) return;
     const focus = reportData?.humanDiagnosis?.focus_selection;
     const inventory = reportData?.humanDiagnosis?.gap_inventory || [];
     document.querySelectorAll(".cae-focus-gap").forEach((card) => {
@@ -613,7 +624,8 @@
         meta.className = "cae-mobile-priority-meta";
         const sprint = gap.sprint_fit?.mode === "close_in_30_days" ? t.close30 : gap.sprint_fit?.mode === "start_in_30_days" ? t.start30 : t.later;
         const evidenceCount = Array.isArray(gap.evidence_refs) ? gap.evidence_refs.length : 0;
-        [sprint, evidenceCountLabel(evidenceCount)].forEach((label) => {
+        const labels = isPlainOwnerProfile() ? [sprint] : [sprint, evidenceCountLabel(evidenceCount)];
+        labels.forEach((label) => {
           const pill = document.createElement("span");
           pill.textContent = label;
           meta.append(pill);
@@ -641,23 +653,27 @@
 
   function rebuildRepairPaths() {
     if (isNetworkParent()) return;
+    if (isPlainOwnerProfile()) return;
     const section = document.getElementById("repair-paths");
     const wrap = section?.querySelector(":scope > .cae-wrap");
     const diagnosis = reportData?.humanDiagnosis;
     if (!wrap || !diagnosis) return;
+    const ownerCopy = isPlainOwnerProfile() ? reportData.presentation.owner_copy : null;
     const focusIds = [diagnosis.focus_selection?.primary_gap_id, ...(diagnosis.focus_selection?.supporting_gap_ids || [])].filter(Boolean);
     const selected = focusIds.map((id) => diagnosis.gap_inventory.find((gap) => gap.id === id)).filter(Boolean);
 
     wrap.replaceChildren();
     const kicker = document.createElement("p");
     kicker.className = "cae-kicker";
-    kicker.textContent = t.sectionKickers[3];
+    kicker.textContent = ownerCopy?.section_kickers?.[3] || t.sectionKickers[3];
     const title = document.createElement("h2");
     title.className = "cae-h2";
-    title.textContent = t.sectionTitles[3];
+    title.textContent = ownerCopy?.section_titles?.[3] || t.sectionTitles[3];
     const intro = document.createElement("p");
     intro.className = "cae-report-intro";
-    intro.textContent = t.repairIntro;
+    intro.textContent = isPlainOwnerProfile()
+      ? "Откройте нужный приоритет. Инструкции можно выполнить внутри команды или передать любому квалифицированному специалисту."
+      : t.repairIntro;
     const list = document.createElement("div");
     list.className = "cae-mobile-repair-list";
 
@@ -706,6 +722,7 @@
   }
 
   function enhanceInventory() {
+    if (isPlainOwnerProfile()) return;
     const filters = document.querySelector(".cae-report-filters");
     if (filters) {
       const buttons = Array.from(filters.querySelectorAll("[data-filter]"));
@@ -836,6 +853,7 @@
 
   function rebuildNextStep() {
     if (isNetworkParent() || isFocusLocationChild()) return;
+    if (isPlainOwnerProfile()) return;
     const section = document.getElementById("next-step");
     const wrap = section?.querySelector(":scope > .cae-wrap");
     if (!wrap || !reportData) return;
@@ -949,7 +967,6 @@
 
   async function boot() {
     injectPresentationStyles();
-    removeClientVisibleAttribution();
     reportData = await loadReportData();
     if (reportData) {
       context = {
@@ -961,7 +978,9 @@
       root.dataset.reportLocale = context.locale;
       root.dataset.auditFormat = reportData.audit?.format || "single_location";
       root.dataset.packageRole = reportData.audit?.package_role || "standalone";
+      root.dataset.copyProfile = reportData.presentation?.copy_profile || "default";
     }
+    removeClientVisibleAttribution();
     setSectionCopy();
     buildMobileNavigation();
     rebuildHero();

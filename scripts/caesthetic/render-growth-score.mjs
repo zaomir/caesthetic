@@ -79,6 +79,23 @@ const sentenceCase = (value) => String(value ?? "")
 const refs = (items = []) => escapeHtml(items.join(", "));
 const stringList = (items = []) => items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
 
+function isPlainOwnerReport(report) {
+  return report.presentation?.copy_profile === "plain_owner_ru";
+}
+
+function hidesUnassessed(report) {
+  return isPlainOwnerReport(report) && report.presentation?.hide_unassessed === true;
+}
+
+function visibleGapInventory(report) {
+  if (!hidesUnassessed(report)) return report.humanDiagnosis.gap_inventory;
+  return report.humanDiagnosis.gap_inventory.filter((gap) => gap.diagnosis_state !== "insufficient_evidence");
+}
+
+function hasPublishedSurfaceEvidence(surface) {
+  return surface.metrics.some((metric) => metric.reviewer_status === "approved" && metric.finding && metric.source);
+}
+
 function requireNonEmptyString(value, label) {
   if (typeof value !== "string" || !value.trim()) throw new TypeError(`${label} is required`);
 }
@@ -343,6 +360,58 @@ ${competitors.entries.map((competitor) => `          <article class="cae-report-
 ${marketPracticeGapHtml(competitors.market_practice_gap)}`;
 }
 
+function plainCompetitorSummaryHtml(report) {
+  const competitors = report.humanDiagnosis.competitors;
+  if (competitors.status !== "applicable") return "";
+  const copy = report.presentation.owner_copy?.competitor || {};
+  const summary = competitors.decision_summary;
+  const decisionGroups = [
+    ["Сохранить", summary.defend],
+    ["Исправить", summary.close],
+    ["Выделить", summary.differentiate],
+    ["Не копировать", summary.do_not_copy],
+  ];
+  return `<section class="cae-owner-competitors" data-owner-competitors>
+    <p class="cae-kicker">${escapeHtml(copy.kicker || "Исследование конкурентов")}</p>
+    <h3 class="cae-report-subhead">${escapeHtml(copy.title || "Почему пациент может выбрать другую клинику")}</h3>
+    <p>${escapeHtml(copy.intro || "Показаны только наблюдения, которые помогают принять решение.")}</p>
+    <div class="cae-owner-competitors__cards">
+      ${competitors.entries.map((competitor) => `<article><h4>${escapeHtml(competitor.name)}</h4><p>${escapeHtml(competitor.observable_advantage)}</p></article>`).join("")}
+    </div>
+    <div class="cae-owner-competitors__decisions">
+      ${decisionGroups.map(([label, items]) => `<article><span>${escapeHtml(label)}</span>${items.map((item) => `<h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.rationale)}</p>`).join("")}</article>`).join("")}
+    </div>
+  </section>`;
+}
+
+function sourceLinksHtml(sources = []) {
+  const unique = [...new Set(sources.filter(Boolean))];
+  return `<ul class="cae-owner-source-links">${unique.map((source) => `<li><a href="${escapeHtml(source)}" rel="noopener noreferrer">Открыть источник</a></li>`).join("")}</ul>`;
+}
+
+function plainEvidenceHtml(report) {
+  const copy = report.presentation.owner_copy?.evidence || {};
+  const blocks = report.surfaces
+    .filter(hasPublishedSurfaceEvidence)
+    .map((surface) => {
+      const metrics = surface.metrics.filter((metric) => metric.reviewer_status === "approved" && metric.finding && metric.source);
+      return `<details class="cae-report-evidence"><summary>${escapeHtml(surfaceLabels[surface.id] || surface.id)}</summary><ul>${metrics.map((metric) => `<li><p>${escapeHtml(metric.finding)}</p>${sourceLinksHtml(metric.source.split(";").map((source) => source.trim()))}</li>`).join("")}</ul></details>`;
+    });
+  const crossMetrics = report.crossSurface.metrics.filter((metric) => metric.reviewer_status === "approved" && metric.finding && metric.source);
+  if (crossMetrics.length) {
+    blocks.push(`<details class="cae-report-evidence"><summary>Связи между каналами</summary><ul>${crossMetrics.map((metric) => `<li><p>${escapeHtml(metric.finding)}</p>${sourceLinksHtml(metric.source.split(";").map((source) => source.trim()))}</li>`).join("")}</ul></details>`);
+  }
+  const competitorSources = report.humanDiagnosis.competitors.status === "applicable"
+    ? report.humanDiagnosis.competitors.entries.flatMap((competitor) => competitor.sources.map((source) => source.url_or_snapshot))
+    : [];
+  return `<div class="cae-owner-evidence">
+    <h3 class="cae-report-subhead">${escapeHtml(copy.title || "Проверенные факты и ссылки на источники")}</h3>
+    <p>${escapeHtml(copy.intro || "Здесь можно открыть исходные страницы.")}</p>
+    ${blocks.join("")}
+    ${competitorSources.length ? `<details class="cae-report-evidence"><summary>Сайты, использованные для сравнения</summary>${sourceLinksHtml(competitorSources)}</details>` : ""}
+  </div>`;
+}
+
 function gapMarkerKind(gap, focus) {
   if (gap.id === focus.primary_gap_id) return { kind: "primary", mark: "1", label: "Primary Gap" };
   const supportIndex = focus.supporting_gap_ids.indexOf(gap.id);
@@ -385,7 +454,7 @@ ${gaps.map((gap) => {
         </ol>`;
 }
 
-function focusGapCards(gaps, focus, { networkView = null } = {}) {
+function focusGapCards(gaps, focus, { networkView = null, plainOwner = false } = {}) {
   const selected = selectedFocusGapIds(focus)
     .map((id) => gaps.find((gap) => gap.id === id))
     .filter(Boolean);
@@ -398,6 +467,16 @@ function focusGapCards(gaps, focus, { networkView = null } = {}) {
     const dependency = gap.id === focus.primary_gap_id
       ? "This is the Primary Gap. Supporting repairs depend on it."
       : `Depends on the Primary Gap: it should not be treated as a separate Sprint commitment.`;
+    if (plainOwner) {
+      const label = gap.id === focus.primary_gap_id ? "Главный приоритет" : "Поддерживающий приоритет";
+      return `
+          <article class="cae-focus-gap cae-focus-gap--plain" id="gap-${escapeHtml(gap.id)}" data-gap-role="${marker.kind}">
+            <p class="cae-focus-gap__rank cae-status-pill" aria-label="${escapeHtml(label)}">${FOCUS_RANKS[index]} · ${escapeHtml(label)}</p>
+            <h3>${escapeHtml(gap.title)}</h3>
+            <p>${escapeHtml(gap.why_it_matters)}</p>
+            <p><strong>Нужный результат:</strong> ${escapeHtml(gap.repair_plan.outcome)}</p>
+          </article>`;
+    }
     const networkGap = networkView?.selected_gaps.find((item) => item.id === gap.id);
     if (networkGap) {
       return `
@@ -540,9 +619,23 @@ function evidenceAccordion(report, result) {
   return surfaceBlocks + crossBlock;
 }
 
-function inventoryRows(inventory, focus) {
+function inventoryRows(inventory, focus, { plainOwner = false } = {}) {
   return inventory.map((gap) => {
     const marker = gapMarkerKind(gap, focus);
+    if (plainOwner) {
+      const label = gap.id === focus.primary_gap_id
+        ? "Главный приоритет"
+        : focus.supporting_gap_ids.includes(gap.id)
+          ? "Поддерживающий приоритет"
+          : "Дополнительная подтверждённая задача";
+      return `
+          <article class="cae-report-problem cae-report-problem--plain" id="inventory-${escapeHtml(gap.id)}">
+            <p class="cae-kicker"><span class="cae-status-pill">${escapeHtml(label)}</span></p>
+            <h3>${escapeHtml(gap.title)}</h3>
+            <p>${escapeHtml(gap.why_it_matters)}</p>
+            <p><strong>Нужный результат:</strong> ${escapeHtml(gap.repair_plan.outcome)}</p>
+          </article>`;
+    }
     const surfaces = gap.surfaces.map((surface) => surfaceLabels[surface] || surface).join(", ");
     return `
           <article class="cae-report-problem" id="inventory-${escapeHtml(gap.id)}" data-filter-group="${inventoryFilter(gap, focus)}" data-surface="${escapeHtml(gap.surfaces[0] || "")}">
@@ -889,6 +982,80 @@ function isLeadToRevenueCheckRecommended(report) {
   return report.leadToRevenueCheck?.recommendation === "recommended";
 }
 
+function plainThirtyDayHtml(report) {
+  const steps = report.presentation.owner_copy?.thirty_day_steps || [];
+  return `<div class="cae-owner-thirty-day">${steps.map(([period, task]) => `<article><span>${escapeHtml(period)}</span><p>${escapeHtml(task)}</p></article>`).join("")}</div>
+    <p class="cae-report-note">Это рекомендуемый порядок самостоятельной работы, а не заранее купленный объём услуг.</p>`;
+}
+
+function plainRepairPathsHtml(report) {
+  const diagnosis = report.humanDiagnosis;
+  const selected = selectedFocusGapIds(diagnosis.focus_selection)
+    .map((id) => diagnosis.gap_inventory.find((gap) => gap.id === id))
+    .filter(Boolean);
+  return `<p>Откройте нужный приоритет. Эти инструкции можно выполнить внутри команды или передать любому квалифицированному специалисту.</p>
+    <div class="cae-mobile-repair-list">${selected.map((gap, index) => `<details class="cae-mobile-repair"${index === 0 ? " open" : ""}>
+      <summary><span>${index + 1}</span><strong>${escapeHtml(gap.title)}</strong><small>${escapeHtml(gap.repair_plan.outcome)}</small></summary>
+      <div class="cae-mobile-repair__body">
+        <h3>Нужный результат</h3><p>${escapeHtml(gap.repair_plan.outcome)}</p>
+        <h3>Что сделать</h3><ol>${stringList(gap.repair_plan.diy_steps)}</ol>
+        ${gap.repair_plan.dependencies.length ? `<h3>Что понадобится</h3><p>${escapeHtml(gap.repair_plan.dependencies.join("; "))}</p>` : ""}
+        <h3>Кто может выполнить</h3><p>${escapeHtml(gap.repair_plan.owner_role)}</p>
+        <h3>Как проверить готовность</h3><ul>${stringList(gap.repair_plan.done_when)}</ul>
+      </div>
+    </details>`).join("")}</div>`;
+}
+
+function plainInternalBoundaryHtml(report) {
+  const copy = report.presentation.owner_copy?.internal_boundary;
+  if (!copy) return "";
+  return `<section class="cae-owner-boundary" data-owner-internal-boundary>
+    <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
+    <h3 class="cae-report-subhead">${escapeHtml(copy.title)}</h3>
+    <p>${escapeHtml(copy.body)}</p>
+    <div class="cae-owner-boundary__map" role="img" aria-label="Путь от поиска до оплаты разделён на публичную и внутреннюю части">
+      <article><span>${escapeHtml(copy.public_label)}</span><strong>${escapeHtml(copy.public_path)}</strong></article>
+      <b aria-hidden="true">→</b>
+      <article><span>${escapeHtml(copy.private_label)}</span><strong>${escapeHtml(copy.private_path)}</strong></article>
+    </div>
+  </section>`;
+}
+
+function ownerGreetingHtml(report) {
+  if (!isPlainOwnerReport(report)) return "";
+  const greeting = report.presentation.owner_copy?.greeting;
+  if (!greeting) return "";
+  return `<article class="cae-owner-greeting">
+    <p class="cae-kicker">${escapeHtml(greeting.kicker)}</p>
+    <h2>${escapeHtml(greeting.title)}</h2>
+    <p>${escapeHtml(greeting.body)}</p>
+    <p class="cae-owner-greeting__signature">${escapeHtml(greeting.signature)}</p>
+  </article>`;
+}
+
+function plainConclusionHtml(report) {
+  const conclusion = report.presentation.owner_copy?.conclusion || report.crossSurface.summary;
+  return `<article class="cae-owner-conclusion"><h3>Один порядок действий</h3><p>${escapeHtml(conclusion)}</p><p><strong>Сильная основа:</strong> ${escapeHtml(report.humanDiagnosis.objective_strength.title)}</p></article>`;
+}
+
+function plainCommercialNextStepHtml(report) {
+  const offer = report.presentation.owner_copy?.offer || {};
+  const paths = [
+    ["Сделать внутри команды", report.implementation_paths.diy],
+    ["Передать своим специалистам", report.implementation_paths.other_provider],
+    ["Поручить CAESTHETIC", report.implementation_paths.caesthetic],
+    ["Отложить", report.implementation_paths.defer],
+  ];
+  return `<div class="cae-owner-paths">${paths.map(([title, body], index) => `<article${index === 2 ? ' class="is-caesthetic"' : ""}><span>${index + 1}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(body)}</p></article>`).join("")}</div>
+    <article class="cae-owner-offer">
+      <p class="cae-kicker">${escapeHtml(offer.kicker || "Вариант с CAESTHETIC")}</p>
+      <h3>${escapeHtml(offer.title || "30-дневный спринт роста")}</h3>
+      <p class="cae-owner-offer__price">${escapeHtml(offer.price || "$2,500 · 30 дней")}</p>
+      <p>${escapeHtml(offer.body || report.why_caesthetic.sprint_boundary)}</p>
+      <a class="cae-btn cae-btn--primary" href="#request" data-cae-request>${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
+    </article>`;
+}
+
 function leadToRevenueMapHtml(report) {
   const checkDecision = report.leadToRevenueCheck;
   const recommendation = isLeadToRevenueCheckRecommended(report)
@@ -933,6 +1100,18 @@ function commercialNextStepHtml(report) {
 
 function growthScoreIntroHtml(report) {
   const locale = report.reportContext?.report_locale || "en";
+  if (isPlainOwnerReport(report)) {
+    const intro = report.presentation.owner_copy?.intro;
+    return `
+  <section class="cae-section cae-section--soft cae-owner-intro" id="report-intro" data-report-intro>
+    <div class="cae-wrap">
+      <p class="cae-kicker">${escapeHtml(intro.kicker)}</p>
+      <h2 class="cae-h2">${escapeHtml(intro.title)}</h2>
+      <ul class="cae-owner-intro__answers">${intro.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+      <p class="cae-owner-intro__note"><strong>${escapeHtml(intro.note)}</strong></p>
+    </div>
+  </section>`;
+  }
   const vertical = report.reportContext?.vertical_context || "aesthetic_practice";
   const isMultiLocation = report.audit?.format === "multi_location";
   const subjects = {
@@ -1790,6 +1969,7 @@ export function renderGrowthReport(report) {
   const isPilot = report.presentation?.kind === "pilot";
   const isLocalizedClient = report.presentation?.kind === "localized_client";
   const isStrictRussian = isLocalizedClient && report.presentation?.strict_locale === "ru";
+  const plainOwner = isPlainOwnerReport(report);
   const diagnosis = report.humanDiagnosis;
   const methodology = report.methodology;
   protectedRenderValues = [];
@@ -1817,9 +1997,12 @@ export function renderGrowthReport(report) {
     .filter(([field]) => Number.isInteger(burden[field]))
     .map(([field, label]) => `<p><strong>${escapeHtml(burden[field])}</strong> ${label}</p>`)
     .join("");
-  const inventoryCount = diagnosis.gap_inventory.length;
+  const visibleInventory = visibleGapInventory(report);
+  const inventoryCount = visibleInventory.length;
   const focus = diagnosis.focus_selection;
   const focusCount = selectedFocusGapIds(focus).length;
+  const ownerSectionTitles = report.presentation?.owner_copy?.section_titles || [];
+  const ownerSectionKickers = report.presentation?.owner_copy?.section_kickers || [];
   const preparedDate = (() => {
     const raw = report.practice.preparedAt;
     if (!isNetworkParent && !isFocusLocationChild) return raw;
@@ -1841,7 +2024,7 @@ export function renderGrowthReport(report) {
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
   <link rel="stylesheet" href="/assets/css/growth-report.css">
 </head>
-<body class="cae-score-report${isNetworkParent ? " cae-score-report--multi-location" : ""}${isFocusLocationChild ? " cae-score-report--focus-location" : ""}">
+<body class="cae-score-report${isNetworkParent ? " cae-score-report--multi-location" : ""}${isFocusLocationChild ? " cae-score-report--focus-location" : ""}${plainOwner ? " cae-score-report--plain-owner" : ""}">
 ${disclosure}
 ${isPilot || isLocalizedClient ? "" : '<div id="cae-header-slot"></div>'}
 <main>
@@ -1851,18 +2034,19 @@ ${isPilot || isLocalizedClient ? "" : '<div id="cae-header-slot"></div>'}
         <p class="cae-kicker">Executive Overview · ${kicker}</p>
         <h1>${escapeHtml(report.practice.name)}</h1>
         <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Prepared ${escapeHtml(preparedDate)}</p>
-        <p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${VALERIE.role}</p>
+        ${plainOwner ? "" : `<p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${VALERIE.role}</p>`}
       </header>
       ${executiveNetworkDecisionHtml(report)}
       ${networkCoverageHtml(report)}
       ${focusChildNavigationHtml(report)}
+      ${ownerGreetingHtml(report)}
       <div class="cae-report-hero__grid">
         <article class="cae-report-state">
           <p class="cae-kicker">Primary constraint</p>
           <h2 class="cae-h2">${escapeHtml(diagnosis.binding_constraint.title)}</h2>
           <p><strong>⚠ Main constraint:</strong> ${escapeHtml(diagnosis.current_state.constraint_label)}</p>
           <p>${escapeHtml(diagnosis.current_state.constraint_detail)}</p>
-          <p class="cae-report-note">Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.</p>
+          ${plainOwner ? "" : '<p class="cae-report-note">Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.</p>'}
         </article>
       </div>
       <div class="cae-report-hero__support-grid">
@@ -1882,49 +2066,51 @@ ${growthScoreIntroHtml(report)}
 
   <section class="cae-section" id="gap-map" data-cockpit-order="1">
     <div class="cae-wrap">
-      <p class="cae-kicker">Gap Map · Human-approved diagnosis</p>
-      <h2 class="cae-h2">${isNetworkParent ? "Where growth is currently constrained" : `Every confirmed hole. Only ${focusCount} selected to start.`}</h2>
+      <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[0]) : "Gap Map · Human-approved diagnosis"}</p>
+      <h2 class="cae-h2">${plainOwner ? escapeHtml(ownerSectionTitles[0]) : isNetworkParent ? "Where growth is currently constrained" : `Every confirmed hole. Only ${focusCount} selected to start.`}</h2>
       <p>${escapeHtml(diagnosis.binding_constraint.statement)}</p>
       ${isNetworkParent ? `${networkRiskProfileHtml(report)}${networkFocusDecisionHtml(report)}${networkComparisonHtml(report)}${networkJourneyAtlasHtml(report)}` : (result.journeyGraph ? heroJourneyMapHtml(report, result, result.journeyGraph) : "")}
-      ${isNetworkParent ? "" : surfaceSnapshotHtml(report, result)}
-      ${isNetworkParent ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
-      ${isNetworkParent && networkView.decision_intelligence
+      ${isNetworkParent || plainOwner ? "" : surfaceSnapshotHtml(report, result)}
+      ${isNetworkParent || plainOwner ? "" : (result.journeyGraph ? brokenConnectionsMapHtml(report, result, result.journeyGraph) : "")}
+      ${plainOwner ? "" : isNetworkParent && networkView.decision_intelligence
         ? networkDecisionIntelligenceHtml(networkView.decision_intelligence)
         : growthScoreDecisionViewsHtml(result.decisionViews)}
-      <div class="cae-gap-map__legend" aria-label="Gap Map legend">
+      ${plainOwner ? "" : `<div class="cae-gap-map__legend" aria-label="Gap Map legend">
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--primary" aria-hidden="true">1</b> Primary Gap</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--supporting" aria-hidden="true">2</b> Supporting Gaps</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--backlog" aria-hidden="true">•</b> Verified backlog</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--insufficient" aria-hidden="true">?</b> Insufficient evidence</span>
         <span class="cae-status-pill"><b class="cae-gap-map__symbol cae-gap-map__mark--working" aria-hidden="true">✓</b> Working / defend</span>
       </div>
-      ${gapMapHtml(diagnosis.gap_inventory, focus)}
+      ${gapMapHtml(diagnosis.gap_inventory, focus)}`}
     </div>
   </section>
 
   <section class="cae-section cae-section--soft" id="focus-gaps" data-cockpit-order="2">
     <div class="cae-wrap">
-      <p class="cae-kicker">Focus Gaps · Exactly Top 3</p>
-      <h2 class="cae-h2">${isNetworkParent ? "Three validated priorities" : "Exactly three human-approved holes"}</h2>
+      <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[1]) : "Focus Gaps · Exactly Top 3"}</p>
+      <h2 class="cae-h2">${plainOwner ? escapeHtml(ownerSectionTitles[1]) : isNetworkParent ? "Three validated priorities" : "Exactly three human-approved holes"}</h2>
       <p>${escapeHtml(focus.rationale)}</p>
-      ${isNetworkParent ? "" : `<ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>`}
-      <div class="cae-focus-gaps${isNetworkParent ? " cae-focus-gaps--network" : ""}">${focusGapCards(diagnosis.gap_inventory, focus, { networkView })}</div>
+      ${isNetworkParent || plainOwner ? "" : `<ol class="cae-focus-summary">${focusGapSummary(diagnosis.gap_inventory, focus)}</ol>`}
+      <div class="cae-focus-gaps${isNetworkParent ? " cae-focus-gaps--network" : ""}">${focusGapCards(diagnosis.gap_inventory, focus, { networkView, plainOwner })}</div>
+      ${plainOwner ? plainCompetitorSummaryHtml(report) : ""}
     </div>
   </section>
 
   <section class="cae-section" id="sprint-fit" data-cockpit-order="3">
     <div class="cae-wrap">
-      <p class="cae-kicker">Sprint Fit</p>
-      <h2 class="cae-h2">${isNetworkParent ? "30-day operational plan" : "What can honestly close, start, or wait"}</h2>
-      ${isNetworkParent ? networkOperationalPlanHtml(report) : sprintFitHtml(diagnosis.gap_inventory, focus)}
+      <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[2]) : "Sprint Fit"}</p>
+      <h2 class="cae-h2">${plainOwner ? escapeHtml(ownerSectionTitles[2]) : isNetworkParent ? "30-day operational plan" : "What can honestly close, start, or wait"}</h2>
+      ${plainOwner ? plainThirtyDayHtml(report) : isNetworkParent ? networkOperationalPlanHtml(report) : sprintFitHtml(diagnosis.gap_inventory, focus)}
+      ${plainOwner ? plainInternalBoundaryHtml(report) : ""}
     </div>
   </section>
 
   <section class="cae-section cae-section--soft" id="repair-paths" data-cockpit-order="4">
     <div class="cae-wrap">
-      <p class="cae-kicker">Repair paths</p>
-      <h2 class="cae-h2">${isNetworkParent ? "Ownership and rollout logic" : "Four valid ways forward"}</h2>
-      ${isNetworkParent ? networkOwnershipRolloutHtml(report) : ""}
+      <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[3]) : "Repair paths"}</p>
+      <h2 class="cae-h2">${plainOwner ? escapeHtml(ownerSectionTitles[3]) : isNetworkParent ? "Ownership and rollout logic" : "Four valid ways forward"}</h2>
+      ${plainOwner ? plainRepairPathsHtml(report) : `${isNetworkParent ? networkOwnershipRolloutHtml(report) : ""}
       <p>Want to implement the selected Focus Gaps yourself? You can.</p>
       <p><a class="cae-report-inline-link" href="#focus-gaps">View Focus Gap DIY steps</a></p>
       <div class="cae-report-paths">
@@ -1939,20 +2125,20 @@ ${growthScoreIntroHtml(report)}
         <p><strong>Sprint boundary:</strong> ${escapeHtml(report.why_caesthetic.sprint_boundary)}</p>
         <p><strong>Ownership:</strong> ${escapeHtml(report.why_caesthetic.ownership)}</p>
         <div class="cae-report-burden">${burdenRows}</div>
-      </div>
+      </div>`}
     </div>
   </section>
 
   <section class="cae-section" id="do-not-fund" data-cockpit-order="5">
     <div class="cae-wrap cae-wrap--narrow">
       <article class="cae-report-do-not-do">
-        <p class="cae-kicker">Do Not Fund Yet</p>
+        <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[4]) : "Do Not Fund Yet"}</p>
         <h2 class="cae-h2">${escapeHtml(diagnosis.do_not_do.title)}</h2>
         <p>${escapeHtml(diagnosis.do_not_do.rationale)}</p>
         <p><strong>Revisit after:</strong></p>
         <ul>${diagnosis.do_not_do.revisit_after.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
       </article>
-      ${isNetworkParent && networkView.decision_intelligence
+      ${plainOwner ? "" : isNetworkParent && networkView.decision_intelligence
         ? networkDoNotPromoteHtml(networkView.decision_intelligence)
         : doNotPromoteYetByTreatmentHtml(result.decisionViews.do_not_promote_yet_by_treatment)}
     </div>
@@ -1960,24 +2146,25 @@ ${growthScoreIntroHtml(report)}
 
   <section class="cae-section cae-section--soft" id="gap-inventory" data-cockpit-order="6">
     <div class="cae-wrap">
-      <p class="cae-kicker">Full Problem / Gap Inventory</p>
-      <h2 class="cae-h2">${inventoryCount} ${isNetworkParent ? "findings" : "holes"} reviewed</h2>
+      <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[5]) : "Full Problem / Gap Inventory"}</p>
+      <h2 class="cae-h2">${plainOwner ? escapeHtml(ownerSectionTitles[5]) : `${inventoryCount} ${isNetworkParent ? "findings" : "holes"} reviewed`}</h2>
       ${isNetworkParent ? networkPropagationHtml(report) : ""}
-      <div class="cae-report-filters" role="toolbar" aria-label="Filter gaps">
+      ${plainOwner ? "" : `<div class="cae-report-filters" role="toolbar" aria-label="Filter gaps">
         <button type="button" data-filter="all">All</button>
         <button type="button" data-filter="fix-now">Fix now</button>
         <button type="button" data-filter="fix-next">Fix next</button>
         <button type="button" data-filter="monitor">Monitor</button>
         <button type="button" data-filter="insufficient">Insufficient evidence</button>
-      </div>
-      <div class="cae-report-problems">${inventoryRows(diagnosis.gap_inventory, focus)}</div>
+      </div>`}
+      <div class="cae-report-problems">${inventoryRows(visibleInventory, focus, { plainOwner })}</div>
     </div>
   </section>
 
   <section class="cae-section" id="evidence-and-competitors" data-cockpit-order="7">
     <div class="cae-wrap">
-      <p class="cae-kicker">Evidence and competitors</p>
-      <h2 class="cae-h2">${isNetworkParent ? "Evidence behind the priorities" : "Why the selected holes are real"}</h2>
+      <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[6]) : "Evidence and competitors"}</p>
+      <h2 class="cae-h2">${plainOwner ? escapeHtml(ownerSectionTitles[6]) : isNetworkParent ? "Evidence behind the priorities" : "Why the selected holes are real"}</h2>
+      ${plainOwner ? plainEvidenceHtml(report) : `
       <p><strong>Objective strength:</strong> ${escapeHtml(diagnosis.objective_strength.title)}</p>
       <p><strong>Strongest surface:</strong> ${escapeHtml(surfaceLabels[diagnosis.strongest_surface] || diagnosis.strongest_surface)}</p>
       ${isNetworkParent ? networkCompetitorSummaryHtml(report) : ""}
@@ -1994,14 +2181,15 @@ ${growthScoreIntroHtml(report)}
       <h3 class="cae-report-subhead">Competitive Decision Analysis</h3>
 ${competitorRows(diagnosis.competitors)}
       <h3 class="cae-report-subhead">Metric drill-down</h3>
-      ${evidenceAccordion(report, result)}`}
+      ${evidenceAccordion(report, result)}`}`}
     </div>
   </section>
 
   <section class="cae-section cae-section--soft" id="scores-and-methodology" data-cockpit-order="8">
     <div class="cae-wrap">
-      <p class="cae-kicker">Approximate / secondary navigation</p>
-      <h2 class="cae-h2">Scores and methodology</h2>
+      <p class="cae-kicker">${plainOwner ? escapeHtml(ownerSectionKickers[7]) : "Approximate / secondary navigation"}</p>
+      <h2 class="cae-h2">${plainOwner ? escapeHtml(ownerSectionTitles[7]) : "Scores and methodology"}</h2>
+      ${plainOwner ? plainConclusionHtml(report) : `
       <p class="cae-report-intro">Search 30% · Website 25% · Social 15% · Reputation 30%. Scores do not determine Sprint scope.</p>
       ${isNetworkParent ? networkEvidenceBoundaryHtml(report) : ""}
       ${isNetworkParent ? networkMethodHtml(report) : `<div class="cae-report-score-nav" aria-label="Approximate Growth Score navigator">${surfaceNavigatorCards(report, result)}</div>`}
@@ -2017,12 +2205,13 @@ ${competitorRows(diagnosis.competitors)}
         </div>
         <div><h3>Class B assumptions</h3>${estimateRows(report.estimates)}</div>
       </div>
-      ${isDemo ? '<p><a class="cae-report-inline-link" href="/growth-score/#demo-growth-scores">View all synthetic demos</a></p>' : ""}
+      ${isDemo ? '<p><a class="cae-report-inline-link" href="/growth-score/#demo-growth-scores">View all synthetic demos</a></p>' : ""}`}
     </div>
   </section>
 
   <section class="cae-section cae-report-final" id="next-step" data-cockpit-order="9">
     <div class="cae-wrap">
+      ${plainOwner ? `<p class="cae-kicker">${escapeHtml(ownerSectionKickers[8])}</p><h2 class="cae-h2">${escapeHtml(ownerSectionTitles[8])}</h2>${plainCommercialNextStepHtml(report)}` : `
       <div class="cae-report-synthesis">
         <p class="cae-kicker">Final system synthesis</p>
         <h2 class="cae-h2">One connected decision system</h2>
@@ -2036,12 +2225,12 @@ ${competitorRows(diagnosis.competitors)}
         <h2 class="cae-h2">Return to the network implementation decision</h2>
         <p>This detailed location page does not add a second commercial decision.</p>
         ${focusChildNavigationHtml(report)}
-      ` : commercialNextStepHtml(report)}
+      ` : commercialNextStepHtml(report)}`}
     </div>
   </section>
 
 </main>
-<a class="cae-sticky-sprint" href="#next-step" hidden>${isLeadToRevenueCheckRecommended(report) ? "View Check" : "View Sprint"}</a>
+${plainOwner ? "" : `<a class="cae-sticky-sprint" href="#next-step" hidden>${isLeadToRevenueCheckRecommended(report) ? "View Check" : "View Sprint"}</a>`}
 ${isPilot || isLocalizedClient ? "" : '<div id="cae-footer-slot"></div>\n<script src="/assets/js/caesthetic-config.js"></script>\n<script src="/assets/js/caesthetic.js" defer></script>\n<script src="/assets/js/analytics.js" defer></script>'}
 <script src="/assets/js/growth-cockpit.js" defer></script>
 </body>
