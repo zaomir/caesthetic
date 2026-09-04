@@ -261,7 +261,9 @@ def sync_mirror(grainee: Path, satellite: Path, source_sha: str, apply: bool) ->
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate one-way Expert Dental reference mirror")
+    parser = argparse.ArgumentParser(
+        description="Reconcile the hybrid bidirectional Expert Dental reference mirror"
+    )
     parser.add_argument("--grainee", type=Path, required=True)
     parser.add_argument("--satellite", type=Path, required=True)
     parser.add_argument("--source-sha", required=True)

@@ -565,7 +565,7 @@
     "scripts/caesthetic/evidence/new-unit.mjs": "8e0e63b72aee1b6eacee9bacc12e02dbce291d6ebdf0358db905721ff4d86da3",
     "scripts/caesthetic/evidence/resolve-account.py": "90302a0eab56e3cf0fe9f4d059fcfdc71905da205974ed763fc0cf28a2c46e98",
     "scripts/caesthetic/evidence/schema.mjs": "d86745e2209990534a6c3628eeee2ce4a2dcd0b207d80625f1c95022f623836c",
-    "scripts/caesthetic/expert_dental_mirror.py": "ee8de97e87acc7270c19de79dce1fc5de688dcf02c0e83b9e75131da80e31668",
+    "scripts/caesthetic/expert_dental_mirror.py": "e30aced18aa2cd28fc8e7443e26dcfce674a9e41543874b95b48e42ee0606c1f",
     "scripts/caesthetic/growth-economics-adapters.mjs": "f6b934385f7236939bfc81c27bbe2bcf5bda3a29d8921b690cb6a39966ec24dd",
     "scripts/caesthetic/growth-economics-engine.mjs": "11b7570b4f11c449a2257e31b32735b8cb8144189bd1f17e3c0441a1e1187ddb",
     "scripts/caesthetic/growth-preview-production-smoke.mjs": "d55a1ef6043ac2f0153415e21ecccb89f00152405b8a132945c8cd166f7ce865",
@@ -882,6 +882,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T21:20:21Z",
+  "updated_at_utc": "2026-09-04T21:23:52Z",
   "version": 1
 }
