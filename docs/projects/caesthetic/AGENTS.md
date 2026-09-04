@@ -23,6 +23,10 @@ Read in order:
 10. For ship/deploy: `docs/ssot/CHATGPT_SERVER_OPS.md`
 11. For Reel automation, ElevenLabs/Kling access or “can we fully automate Reels”: `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (answer from §0)
 
+## Connect4 explanation
+
+For Connect4 concept, “How we work” copy, diagrams or Case Studies method explanation, read `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` after the master. Keep confirmed semantics separate from proposed visual layouts and copy; generated previews are not automatically approved assets. Update this concept SSOT rather than creating competing explanation canons.
+
 ## Invariants
 - `Connect4` is the exact public program name. `4444` and `Четверки` remain internal aliases for the same CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation. All new or revised public copy and visuals use Connect4; existing internal identifiers, paths and historical records stay stable. Naming authority: `docs/ssot/CAESTHETIC.md` §2.
 - Lead Intake is the separate fifth operational layer after an inquiry, never a fifth public surface or scoring dimension. For the Case Studies explainer, Paid Ads appears only later in Stop / Do Not Fund Yet.
