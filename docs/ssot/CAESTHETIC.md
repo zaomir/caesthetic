@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.25
-updated: 2026-09-03
+version: 3.26
+updated: 2026-09-04
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
@@ -17,6 +17,8 @@ related:
   - docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md
   - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md
+  - docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md
+  - docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md
   - docs/founder-notes/DEC-862_raim-smile-caesthetic-partnership-economics-and-vip-access.md
   - docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md
   - docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md
@@ -181,6 +183,12 @@ Public funnel:
 
 `Growth Score (free) → 30-Day Growth Sprint ($2,500) → optional Growth System`
 
+**Private Growth Preview** is an acquisition mechanic before the public funnel, not a fourth headline product, a mini Growth Score or a fifth surface. It may expose only approved pre-Score business identity, a current verified public signal/factual observation, source/date and the Four Surfaces framework. It may not expose a numeric/Overall Score, binding constraint, Gap Inventory, Top 3, Repair Plans, Do Not Fund Yet, causality, loss or ROI claim. `Continue to My Free Growth Score` is the explicit permission boundary that enters the existing Growth Score request and human-reviewed schema-v5 pipeline. Detailed authority: `docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md` §16.
+
+`qualified account → opaque private Preview link → approved pre-Score fact → explicit Continue → Growth Score request`
+
+Issuing the link performs no research, LLM work, crawl, screenshot or Score-case creation. Before `Continue`, the private page may show practice identity, one already-approved current qualification/enrichment/signal/timing fact, the four locked/unassessed surfaces and a neutral explanation of cross-surface consistency. It must not show a numeric Score, binding constraint, Gap Inventory, Top 3, Repair Plans, Do Not Fund Yet, loss/ROI/causality claim, or say/imply that a report is ready. `Continue to My Free Growth Score` is the explicit permission event; only then may the canonical lead/case/outbox and existing schema-v5 research plus named-human approval workflow begin. Contract: `docs/caesthetic/GROWTH_PREVIEW_V1.md`.
+
 The **Lead-to-Revenue Check ($500)** is a conditional paid diagnostic branch when the Growth Score cannot resolve material post-enquiry uncertainty from public evidence. It is not a mandatory stage or a fourth headline product. Its canonical public route is `/lead-to-revenue-check/`; it remains outside primary header navigation and appears in the footer plus contextually relevant decision boundaries. If it continues directly into the next CAESTHETIC Sprint for the verified constraint, its $500 fee is credited once toward the unchanged $2,500 Sprint total.
 
 The currently approved public recurring product is Growth System. Do not publish Fixed Retainer, Hybrid or Performance Compensation as public SKUs unless separately approved.
@@ -225,7 +233,7 @@ The canonical inbound route is `/growth-score/`, presented as three stages:
 2. **Required practice basics:** `Practice name` and `City, State`.
 3. **Thank you + optional enrichment:** the request is already complete; clearly say that the four required fields are enough to begin, then optionally ask for public website/GBP/Instagram/booking links, priority treatments, main concern, relevant competitors, preferred contact and permission for a truthful non-clinical enquiry-path test.
 
-Stage 3 abandonment or `Skip` remains a successful submission. Optional answers never become a hidden eligibility gate. Do not ask for revenue, budget, patient-level data/PHI, credentials or account/vendor access in the free intake. If the practice is ambiguous, ask for one public identifier later by email rather than increasing mandatory friction. A proactive/outbound Score built from public evidence is a separate acquisition path and must not be represented as owner-submitted intake.
+Stage 3 abandonment or `Skip` remains a successful submission. Optional answers never become a hidden eligibility gate. Do not ask for revenue, budget, patient-level data/PHI, credentials or account/vendor access in the free intake. If the practice is ambiguous, ask for one public identifier later by email rather than increasing mandatory friction. A Private Growth Preview is a separate acquisition path and must not be represented as owner-submitted intake or a completed Score. Full Score research/case creation begins only after the recipient explicitly continues.
 
 ### Manager-assigned audit factory
 
@@ -472,24 +480,23 @@ This carve-out does not change CAESTHETIC public pricing, Growth Score/Sprint/Gr
 
 ## 11. Current launch dependencies
 Founder/operator dependencies before scalable outbound:
-- complete Instantly warm-up and deliverability approval for registered sending accounts;
+- close current Instantly suppression, stop-handling, reply-routing and fresh placement gaps before any controlled send;
 - Valerie Petra walkthrough recording and quality-assurance capacity for every approved Growth Score;
 - Stripe/payment setup;
 - funnel analytics.
 
-Current research universe: **Scottsdale · Nashville · Charlotte · Tampa · Raleigh · Austin · Naples · Charleston · Greenville**. Collect contacts/evidence across all nine before final ranking/sequencing unless founder changes the plan.
+Current research universe: **Scottsdale · Nashville · Charlotte · Tampa · Raleigh · Austin · Naples · Charleston · Greenville**. These are market cells, not equal quotas. Select activation by current ICP/evidence/signal density and decision-maker reachability; do not weaken a cohort to force geographic symmetry.
 
 ### Email identity and sender-role registry
 
-Founder-confirmed on 2026-08-11. All mailboxes below are registered and were added to Instantly warm-up.
-
 | Role | Domain | Mailboxes | Operational boundary |
 |---|---|---|---|
-| Cold outbound | approved five-domain portfolio | Mailboxes individually approved under `CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md` | Cold campaigns only after mailbox-level warm-up and deliverability approval. |
+| Direct cold outbound | `caesthetic.co` | Eight registered inboxes; activate only with a real confirmed sender identity | Primary scalable pool. Valerie is the preferred Tier-A/initial-test sender. |
+| Historical/professional reactivation | `bototox.com`, `toxifillers.com` | Only real source-brand senders and a documented prior professional relationship/source basis | Separate branch into a complimentary CAESTHETIC Growth Score; never impersonate direct CAESTHETIC. |
 | Notifications | `caesthetic.com` | `notifications@caesthetic.com` | Transactional/system notifications; never use for cold outreach. |
 | Website | `caesthetic.com` | `info@caesthetic.com` | Designated public website contact. Updating live site copy is a separate runtime change and deploy. |
 
-Sender-role separation is mandatory: cold outreach stays on the five-domain portfolio approved by `CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md`; the primary `caesthetic.com` domain remains reserved for the public site and operational mail. Credentials, provider tokens and DNS secrets remain outside Git.
+Sender-role separation is mandatory. Do not use ROVLEX, BEBONOW, BEBOFIX, GRAINEE or EVO identities merely to add CAESTHETIC volume. One company has one active opening narrative across CAESTHETIC, BOTOTOX, TOXIFILLERS and ROVLEX; global suppression/conflict checks fail closed. The primary `caesthetic.com` domain remains reserved for the public site and operational mail. Full authority: `docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md`. Credentials, provider tokens and DNS secrets remain outside Git.
 
 ### Public business identity
 

@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.0
-updated: 2026-08-21
+version: 1.1
+updated: 2026-09-04
 scope: Growth Score intake, queue, status, notification and funnel contract
 parent: docs/ssot/CAESTHETIC.md
 related:
@@ -30,6 +30,8 @@ Required POST `intake_version=caesthetic-growth-score/2.0` + `intake_stage=requi
 4. outbox jobs: internal email, Telegram, customer acknowledgement (non-QA), manual-board task, funnel `lead_created`
 
 Optional enrichment updates context only. It never creates a second case, never re-notifies, never changes eligibility.
+
+Private Growth Preview GET never creates either object. Its explicit `Continue` POST atomically creates the same four intake artifacts with `source_kind=outbound_preview`, `source_preview_id` and campaign/sender attribution. The preview row is locked in the transaction; repeat Continue returns the same lead/case and creates no duplicate notification jobs. Known contact fields are resolved server-side. QA Preview requests create a declined lead plus closed case and are never working queue items.
 
 ## Owner, SLA, capacity
 
@@ -71,6 +73,8 @@ Retry visible to the operator. Dead-letter after bounded attempts. Customer ackn
 `lead_created` → `case_created` → `triaged` → `approved` → `delivered` → `sprint_inquiry`
 
 Store source/UTM class, case id, timestamps. Do not store name, email, phone or practice legal name in the analytics table.
+
+The separate Preview event stream is `preview_issued → preview_opened → preview_rendered → preview_continued → score_case_created`. It stores only non-personal acquisition dimensions defined by `docs/caesthetic/GROWTH_PREVIEW_V1.md`.
 
 ## CORS and abuse
 

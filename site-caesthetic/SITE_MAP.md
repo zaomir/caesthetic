@@ -23,7 +23,6 @@ funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 | `/ru/salony-krasoty/` | Russian beauty-salon vertical | Diagnose salon growth constraints in Russian | Same localized salon decision system | Start four-field Salon Growth Score | index |
 | `/fr/salons-de-beaute/` | French beauty-salon vertical | Diagnose salon growth constraints in French | Same localized salon decision system | Start four-field Salon Growth Score | index |
 | `/about/` | Public identity and legal operator | Understand the operating model | Entity details and evidence standard | Start with Growth Score | index |
-| `/outreach/` | Verify any approved CAESTHETIC portfolio email | Confirm sender domain, campaign role, evidence boundary and portfolio-wide opt-out | Five-domain registry, Four Surfaces, legal operator and suppression controls | Review Growth Score or verify sender / unsubscribe | noindex |
 | `/support/` | Customer support and safe-contact guidance | Resolve a service, billing, privacy or technical question | Verified support address and legal entity | Ask a Question (Name + Email) or direct email | index |
 | `/privacy/` | Compatibility alias for external merchant profiles | Reach the canonical Privacy Policy | Canonical redirect to `/legal/privacy/` | Continue to policy | noindex |
 | `/terms/` | Compatibility alias for external merchant profiles | Reach the canonical Terms of Use | Canonical redirect to `/legal/terms/` | Continue to terms | noindex |
@@ -44,7 +43,6 @@ funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 - `/sprint/` and `/pricing/` expose the $500 Check as a smaller optional paid route rather than a mandatory gateway.
 - A standalone or Multi-Location parent Growth Score final decision area shows Sprint + $500 Check + Question. If the Check is evidence-backed recommended, it may receive visual priority; otherwise Sprint normally remains primary.
 - A Multi-Location focus child does not create its own commercial decision and returns to the network parent.
-- `/outreach/` is outside primary navigation. It is reached from the five approved sender-domain entries, the global footer or direct verification links and hands the visitor into canonical product/legal routes.
 - The global footer links the isolated `/beauty-salons/` vertical; each salon locale links all four locale routes directly and uses the same four-field Score intake contract.
 - Every demo links back to the demo index. `/score/`, demos and all real report routes stay out of the public sitemap.
 
@@ -70,17 +68,18 @@ The public site does not contain a reusable Stripe/Wise checkout URL. Paid produ
 
 Stripe ACH is the recommended US-bank route where configured; Wise is the alternate provider rail. An eligible completed $500 Check may receive the one-time $500 credit toward the next $2,500 Sprint, leaving a $2,000 balance; written Order/backend state determines eligibility.
 
-## Sender portfolio contract
+## Sender-domain public-route contract
 
-| Sender entry | Role | Edge scope |
+| Sender entry | Edge scope | Public behavior |
 |---|---|---|
-| `https://caesthetic.co/` | Direct CAESTHETIC | Full host |
-| `https://bebofix.com/caesthetic/` | Fix Before You Fund | `/caesthetic/` only |
-| `https://bebonow.com/caesthetic/` | Booking Readiness Now | `/caesthetic/` only |
-| `https://bototox.com/caesthetic/` | Professional Aesthetic Practice Growth | `/caesthetic/` only |
-| `https://grainee.com/caesthetic/` | Search and Reputation Evidence | `/caesthetic/` only |
+| `https://caesthetic.co/` | Full host | 308 to canonical CAESTHETIC home, with safe attribution only |
+| `https://bebofix.com/caesthetic/` | `/caesthetic/` only | Retired bridge; HTTP 404 |
+| `https://bebonow.com/caesthetic/` | `/caesthetic/` only | Retired bridge; HTTP 404 |
+| `https://bototox.com/caesthetic/` | `/caesthetic/` only | No generic public historical-reactivation bridge; HTTP 404 |
+| `https://grainee.com/caesthetic/` | `/caesthetic/` only | Retired bridge; HTTP 404 |
+| `https://toxifillers.com/caesthetic/` | No CAESTHETIC Worker route | HTTP 404 from its owning runtime |
 
-The dedicated sender Worker routes each entry to `/outreach/` with fixed `sender_domain`, `campaign`, `utm_source` and `utm_medium`. It preserves only allowlisted attribution values and cannot redirect to a user-supplied destination. Existing roots on BeboFix, BeboNow, Bototox/Toxifillers and GRAINEE remain outside the CAESTHETIC route.
+The sender-domain Worker redirects only the direct `caesthetic.co` alias to `https://caesthetic.com/`, preserving only allowlisted attribution values. Retired/non-public bridges return 404 and cannot redirect to a user-supplied destination. Existing roots on BeboFix, BeboNow, Bototox/Toxifillers and GRAINEE remain outside the CAESTHETIC route.
 
 ## Locale contract
 
@@ -88,7 +87,7 @@ The salon routes are standalone static documents with reciprocal `hreflang` valu
 
 ## Redirects and legacy
 
-The retired Aurora sample remains a noindex explanation page and links to the labeled demos. `/privacy/` and `/terms/` are noindex compatibility aliases for external merchant settings and immediately hand off to the canonical `/legal/` routes. `/audit/`, `/audits/` and `/multi-location-growth-score/` preserve safe query/hash data and hand off to the canonical `/growth-score/` product route.
+The retired Aurora sample remains a noindex explanation page and links to the labeled demos. `/privacy/` and `/terms/` are noindex compatibility aliases for external merchant settings and immediately hand off to the canonical `/legal/` routes. `/audit/`, `/audits/` and `/multi-location-growth-score/` preserve safe query/hash data and hand off to the canonical `/growth-score/` product route. The retired outreach verification route has no redirect authority and returns HTTP 404.
 
 Salon aliases keep safe query/UTM and 301 to the English Beauty Salons route:
 

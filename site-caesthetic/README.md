@@ -1,7 +1,7 @@
 # CAESTHETIC — site-caesthetic
 
 **Canonical domain:** `caesthetic.com`  
-**Approved cold-outbound sender portfolio:** `bebofix.com` · `bebonow.com` · `caesthetic.co` · `bototox.com` · `grainee.com`  
+**Direct cold sender:** `caesthetic.co` · **conditional historical/professional senders:** `bototox.com`, `toxifillers.com`
 **Brand logos:** `assets/brand/logo-square.{svg,png}` (circular frames) · `assets/brand/logo-long.{svg,png}` (horizontal) · aliases under `/brand/`  
 **Public IA:** US independent aesthetic practices → Growth Score → conditional Lead-to-Revenue Check where internal outcome uncertainty remains → 30-Day Sprint → optional Growth System
 
@@ -17,7 +17,6 @@
 | `/growth-system/` | Optional recurring ownership · client-specific Growth Budget with its Fixed Management Fee inside |
 | `/pricing/` | Public comparison using generated pricing artifacts |
 | `/about/` | Corporate category, operating model and evidence standard; no Valerie identity block |
-| `/outreach/` | Noindex sender-portfolio verification page for recipients arriving from any approved sender domain; not a funnel stage or separate product |
 | `/legal/privacy/` | Privacy + CCPA/CPRA |
 | `/legal/terms/` | Terms |
 | `/score/[slug]/` | Private practice reports (`noindex`, not in sitemap) |
@@ -36,21 +35,22 @@ node --test tests/caesthetic/growth-score-*.test.mjs
 
 Every approved `site-caesthetic/score/**/report.json` is discovered automatically. The complete generated registry lives at `docs/audits/caesthetic/growth-score-projects.generated.json`; `/score/catalog.json` and `/score/index.html` contain only synthetic demos or client cases with explicit public-listing approval. Real client reports default to private.
 
-## Five-domain outbound portfolio
+## Sender-domain web behavior
 
-All five domains are approved CAESTHETIC sender identities under `docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md`:
+`docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md` is the send authority. The public website does not expose a sender-portfolio or outreach-verification hub.
 
-| Domain entry | Campaign role |
+| Domain entry | Public behavior |
 |---|---|
-| `https://caesthetic.co/` | Direct CAESTHETIC |
-| `https://bebofix.com/caesthetic/` | Fix Before You Fund |
-| `https://bebonow.com/caesthetic/` | Booking Readiness Now |
-| `https://bototox.com/caesthetic/` | Professional Aesthetic Practice Growth |
-| `https://grainee.com/caesthetic/` | Search and Reputation Evidence |
+| `https://caesthetic.co/` | Brand-domain handoff to the canonical CAESTHETIC home page |
+| `https://bebofix.com/caesthetic/` | Retired CAESTHETIC bridge; HTTP 404 |
+| `https://bebonow.com/caesthetic/` | Retired CAESTHETIC bridge; HTTP 404 |
+| `https://bototox.com/caesthetic/` | No generic public bridge; HTTP 404 |
+| `https://grainee.com/caesthetic/` | Retired CAESTHETIC bridge; HTTP 404 |
+| `https://toxifillers.com/caesthetic/` | No generic public bridge; HTTP 404 |
 
-`caesthetic.com` remains the one public product, legal and support site. The portfolio domains are campaign doors into the same Growth Score funnel. `caesthetic.co` may use a full-host sender edge; the other four use only `/caesthetic/`, preserving their existing roots.
+`caesthetic.com` remains the one public product, legal and support site. Removing a bridge does not change the owning product at the domain root. Historical/professional eligibility is established in campaign records and message identity, not by a public verification page.
 
-The Worker reads the fixed registry at `infra/cloudflare/caesthetic-outreach/domains.json`, attaches only the approved host/path routes and sends the recipient to the canonical noindex `/outreach/` page with fixed sender/campaign attribution. It does not accept arbitrary redirect targets.
+The Worker reads the fixed runtime registry at `infra/cloudflare/caesthetic-outreach/domains.json`. It redirects only `caesthetic.co` to the canonical home page and returns 404 for retired or non-public bridge paths. It does not accept arbitrary redirect targets.
 
 Operational invariants:
 
@@ -90,7 +90,7 @@ bash scripts/deploy-caesthetic.sh
 
 Origin: VPS2402 `185.216.214.28` → `/var/www/caesthetic.com/`  
 Canonical edge: Cloudflare Worker `grainee-caesthetic-public` (legacy redirects and protected reports in `infra/cloudflare/router`).  
-Sender portfolio edge: Worker codebase `grainee-caesthetic-outreach`, deployed into each owning Cloudflare account and attached only to the fixed routes in `domains.json`.
+Sender-domain cleanup edge: Worker codebase `grainee-caesthetic-outreach`, deployed into each owning Cloudflare account and attached only to the fixed routes in `domains.json`.
 
 ## Project docs (strategy, specs)
 

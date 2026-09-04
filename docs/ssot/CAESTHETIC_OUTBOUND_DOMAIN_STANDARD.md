@@ -1,166 +1,126 @@
 # CAESTHETIC_OUTBOUND_DOMAIN_STANDARD
 
 **Status:** active
-**Version:** 2.0
-**Effective:** 2026-09-03
+**Version:** 3.0
+**Effective:** 2026-09-04
 **Owner:** CAESTHETIC / founder
-**Supersedes:** Version 1.0, including the single-sender-domain restriction
-**Research basis:** `docs/research/caesthetic/OUTBOUND_DOMAIN_IDENTITY_REVIEW_2026-09-03.md`
+**Supersedes:** Version 2.0 five-domain sender portfolio
+**Related:** `CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md` · `CAESTHETIC_EMAIL_TO_IG.md` · `docs/founder-notes/DEC-845.md`
 
-## 1. Founder decision
+## 1. Decision
 
-CAESTHETIC uses an approved portfolio of five cold-outbound sender domains:
+The primary scalable CAESTHETIC cold-email sender pool is **`caesthetic.co`**. `caesthetic.com` is the protected public, production, support and transactional domain and is not used for cold outreach.
 
-- `bebofix.com`;
-- `bebonow.com`;
-- `caesthetic.co`;
-- `bototox.com`;
-- `grainee.com`.
+The earlier five-domain portfolio is withdrawn. `bebofix.com`, `bebonow.com`, `grainee.com`, `rovlex.com`, `evo.do` and their sender identities may not be used merely to add volume to a CAESTHETIC campaign. A different owned brand, mailbox or verification route does not authorize a second approach to the same company.
 
-Every domain above has status `approved_portfolio_sender_domain`. There is no project-level prohibition against using any of the five as a CAESTHETIC `From`, `Reply-To`, sender-verification link or campaign identity, provided the mailbox and campaign satisfy the operating contract in this standard.
+`bototox.com` and `toxifillers.com` have one narrow exception: a **separate historical/professional reactivation branch** may invite a practice to a complimentary CAESTHETIC Growth Score only when a real prior professional relationship or lawful source basis is recorded. They do not impersonate CAESTHETIC, do not inherit the direct CAESTHETIC narrative and do not enter the public supply-independent funnel story.
 
-`caesthetic.com` remains the canonical public website, product, legal, privacy and customer-support domain. The five sender domains are campaign doors into one CAESTHETIC funnel; they are not five separate products, five separate Growth Scores or five competing public sites.
+## 2. Domain roles
 
-## 2. Product role by domain
+| Domain / family | Status | Permitted role |
+|---|---|---|
+| `caesthetic.co` | primary cold sender pool | Direct CAESTHETIC signal-based and approved micro-email experiments. |
+| `caesthetic.com` | protected | Public site, private Preview/Score destinations, support and transactional mail only; never cold From/Reply-To. |
+| `bototox.com` | conditional | Honest historical/professional reactivation where the actual prior relationship/source basis is recorded. |
+| `toxifillers.com` | conditional | Same narrow historical/professional reactivation boundary as `bototox.com`. |
+| `rovlex.com` | separate product | Preserve ROVLEX campaign and product state; no CAESTHETIC volume substitution. |
+| `bebofix.com`, `bebonow.com`, `grainee.com`, `evo.do` | not authorized for CAESTHETIC cold volume | Keep their own product identities; no CAESTHETIC sender rotation. |
 
-| Domain | Campaign role | Approved verification entry | Assignment logic | Root behavior |
-|---|---|---|---|---|
-| `caesthetic.co` | **Direct CAESTHETIC** | `https://caesthetic.co/` | General owner/decision-maker outreach where the CAESTHETIC category itself is the relevant opening. | Full host may act as the CAESTHETIC sender-verification edge. |
-| `bebofix.com` | **Fix Before You Fund** | `https://bebofix.com/caesthetic/` | A current public signal shows new demand spend, a new site, a service launch or a new location; the permission question is whether to inspect the system before adding more spend. | Existing BeboFix root and product remain intact; only the narrow `/caesthetic/` route is used by CAESTHETIC. |
-| `bebonow.com` | **Booking Readiness Now** | `https://bebonow.com/caesthetic/` | A visible launch, provider, service or booking-path change creates a timely public-readiness question. No internal conversion claim is implied. | Existing root remains intact; only the narrow `/caesthetic/` route is used by CAESTHETIC. |
-| `bototox.com` | **Professional Aesthetic Practice Growth** | `https://bototox.com/caesthetic/` | Outreach to a professional-aesthetics audience where practice growth is relevant. The message must not imply order history, customer status or procurement knowledge. | Bototox/Toxifillers procurement remains a separate commercial motion; only `/caesthetic/` is the CAESTHETIC bridge. |
-| `grainee.com` | **Search and Reputation Evidence** | `https://grainee.com/caesthetic/` | The opening signal comes from Maps, Google Business Profile or public review evidence. The requested Growth Score still covers all four surfaces. | Existing GRAINEE/EVO/ROVLEX root remains intact; only `/caesthetic/` is the CAESTHETIC bridge. |
+## 3. Sender identity
 
-The campaign role controls the opening narrative. It does not authorize an unsupported diagnosis. Pre-Score remains qualification plus a verified public signal; the real Growth Score begins only after the practice requests it.
+Every cold email uses a real, approved human sender identity that matches the visible From name, mailbox and signature. A technical mailbox name is not proof that the person exists or is authorized.
 
-## 3. One product and one canonical destination
+- Valerie Petra remains the public CAESTHETIC identity and is the preferred sender for Tier A and initial controlled tests.
+- Other `caesthetic.co` inboxes may be activated only after their real sender identity, Reply-To ownership, monitoring and handoff are confirmed.
+- No mailbox may send as Valerie while displaying or replying as another invented person, and no service mailbox may present itself as a human.
+- `notifications@caesthetic.com` and `info@caesthetic.com` remain operational/website identities and are excluded from cold.
 
-All five domain routes hand off to the noindex sender-verification surface at:
-
-`https://caesthetic.com/outreach/`
-
-That surface must:
-
-1. identify all five approved sender domains and their campaign roles;
-2. identify `caesthetic.com` as the canonical product, legal and support site;
-3. explain the one-product/five-campaign-door model;
-4. preserve exactly the Four Surfaces — Search / Google Business Profile, Website, Social, Reputation / Reviews;
-5. state that CRM, call handling, reception, patient data, revenue and internal conversion remain not assessed without appropriate access;
-6. state that one opt-out suppresses CAESTHETIC marketing outreach across all five domains;
-7. publish the legal operator, postal address, verification contact and unsubscribe control;
-8. remain `noindex` and outside the primary product navigation.
-
-The route may preserve only approved attribution parameters. It must not accept an arbitrary redirect destination.
-
-## 4. Account-to-domain assignment
-
-The portfolio is not a rotation mechanism for repeatedly contacting the same prospect.
+## 4. One company, one narrative
 
 ```text
-one account
+one canonical company
 → one active opening narrative
-→ one assigned sender domain
+→ one assigned sender and domain
 → one active sequence
 ```
 
-Rules:
+This invariant applies across CAESTHETIC, BOTOTOX, TOXIFILLERS and ROVLEX, not only within one Instantly campaign. A company active in direct CAESTHETIC outreach is ineligible for the historical branch and every other opening motion. Non-response does not authorize changing domains to reset recognition or provider limits.
 
-- choose the domain from the strongest current verified signal, not randomly;
-- record `sender_domain`, `campaign_role`, `reason_for_relevance`, `source_url`, `verified_at`, `account_owner` and `wave_id` before send;
-- do not run concurrent opening sequences to one company from different portfolio domains;
-- do not move a non-responder to another domain merely to reset recognition or provider limits;
-- a material new signal may justify a later reassignment only after the prior sequence is closed and suppression is clear;
-- all five campaigns use the same master company/contact records and the same suppression system.
+Any reply stops the active automated sequence. Stop, unsubscribe, complaint, hard-bounce DNC or company-level conflict updates the shared suppression state and invalidates any active Private Growth Preview for that contact/account where the instruction applies.
 
-## 5. Message identity contract
+## 5. Direct CAESTHETIC message contract
 
-A CAESTHETIC message may originate from a mailbox on any approved portfolio domain. Every message must still make the commercial identity clear:
+The cold first touch:
 
-- the visible `From` name identifies the named sender and CAESTHETIC;
-- the signature states CAESTHETIC and, when the domain name is not self-explanatory, the campaign role or relationship;
-- `Reply-To` stays on the active sender mailbox or uses the documented CAESTHETIC support escalation at `info@caesthetic.com`;
-- the subject and originating domain are not deceptive;
-- the message contains one verified public signal, one relevance statement and one low-friction reply question;
-- the message does not claim that a Growth Score, binding constraint or internal diagnostic has already been completed;
-- the message does not request passwords, patient information, medical records, card details or payment;
-- the message does not promise rankings, patient volume, revenue, ROI or guaranteed growth;
-- the visible destination is the sender-domain verification route or `caesthetic.com`;
-- the message includes the legal postal address and a visible unsubscribe path.
+- is plain text;
+- uses one verified public signal/context when the selected variant requires it;
+- asks one reply/permission question and carries one CTA;
+- does not sell the Sprint, marketing services, SEO, ads, CRM or a call;
+- has no attachment, Calendly link, Sprint price, guarantee or unsupported loss/constraint claim;
+- does not claim a full report is ready or complete;
+- uses the approved copy contract/version recorded on the wave;
+- includes truthful sender/header identity, the legal postal address and an effective opt-out.
 
-Attachments, multiple CTAs, calendar links and price-led first touches remain outside the approved first-touch pattern.
+The direct default candidate is a link-free permission-first Private Growth Preview opener. A direct preview link is a separately measured experiment because it changes deliverability and intent behavior.
 
-## 6. Bototox and cross-product boundary
+## 6. Historical/professional reactivation contract
 
-Using `bototox.com` as an approved sender domain does not merge the procurement product with CAESTHETIC.
+The `bototox.com` / `toxifillers.com` branch is eligible only when all of the following are true:
 
-- Do not infer that a recipient bought from Bototox/Toxifillers.
-- Do not use order, account or treatment information as an outreach fact unless a separately authorized lawful workflow explicitly permits it.
-- Do not place product procurement and the Growth Score in the same first-touch offer.
-- An unsubscribe or do-not-contact instruction applies to CAESTHETIC marketing across the five-domain portfolio; the underlying product systems keep their own lawful transactional boundaries.
+1. a real prior professional relationship, enquiry, account or other lawful source basis is documented;
+2. current practice ICP, business identity, recipient role/email and suppression status pass;
+3. the visible sender and source brand are truthful;
+4. the message explains why that source brand is contacting the recipient and identifies CAESTHETIC as the separate Growth Score provider;
+5. the company has no active CAESTHETIC or ROVLEX opening narrative;
+6. the copy does not imply purchase history, treatment use or a prior conversation unless that exact fact is supported.
 
-The same principle applies to existing BeboFix and GRAINEE roots: the `/caesthetic/` bridge authorizes a transparent campaign relationship, not a silent rebranding of the root product.
+This branch may use a 9-word-style reactivation opener. It may not import an unqualified historical master directly into Instantly, and it may not be represented on the public CAESTHETIC site as part of the supply-independent product funnel.
 
-## 7. Technical readiness is per mailbox, not a domain prohibition
+## 7. Scaling architecture
 
-All five domains are approved in product policy. A specific mailbox or sending stream may nevertheless remain `HOLD` until its actual configuration is verified:
+Scale horizontally through cleared, warmed inboxes with real senders and—after evidence justifies it—additional **secondary CAESTHETIC sending domains**. Do not overload one inbox and do not borrow unrelated brand identities.
 
-1. working MX and reply handling;
-2. SPF, DKIM and DMARC with appropriate alignment;
-3. TLS and valid sending infrastructure identity;
-4. an approved aligned tracking configuration or no click tracking;
-5. one-click unsubscribe where required by the provider/sending class, plus a visible body unsubscribe;
-6. unsubscribe and global suppression processing within 48 hours;
-7. bounce, complaint and provider-block monitoring;
-8. verified business addresses and a reviewed audience source;
-9. gradual volume ramp rather than immediate bulk scaling.
+Per-inbox limits, cadence and ramp are operating/runbook values derived from current placement, bounce, complaint and follow-up capacity; they are not timeless product canon. Every run preserves:
 
-A technical `HOLD` is a readiness state for the mailbox or campaign, not a ban on the approved domain. The operator may activate each domain independently as its mailbox evidence becomes available.
+- current SPF/DKIM/DMARC and placement checks;
+- verified email and source quality;
+- shared suppression and cross-project conflict checks;
+- follow-up capacity, stop-on-reply and named reply routing;
+- bounce/spam/identity stop conditions;
+- controlled batch progression rather than a raw-master blast.
 
-## 8. Global suppression across the portfolio
+## 8. Private destination and tracking
 
-- One unsubscribe, explicit stop, complaint, hard bounce or do-not-contact instruction blocks CAESTHETIC marketing across all five domains.
-- Suppression is applied at contact and company level where the instruction requires it.
-- A suppressed address or practice may not be retried through a different sender domain.
-- A substantive reply stops the active automated sequence and receives a named human owner.
-- Domain performance is measured separately, but suppression and account ownership are shared.
+The destination for a Private Growth Preview is `https://caesthetic.com/preview/<opaque-token>/`. The token is unguessable and contains no recipient/company PII. Preview page, analytics, expiry, suppression and Continue behavior are governed by the acquisition SSOT; a sender domain is not a separate preview host or product.
 
-## 9. Minimum portfolio measurement
+The former public sender-portfolio page at `https://caesthetic.com/outreach/` is retired and has no redirect authority; it returns HTTP 404. Do not recreate a public outreach-verification hub under another route. The `caesthetic.co` web alias may hand off only to the canonical CAESTHETIC home. Legacy BeboFix, BeboNow, GRAINEE and generic BOTOTOX `/caesthetic/` bridges return 404 while their owning product roots remain unchanged. Historical/professional eligibility is established by documented source basis and truthful message identity, not by a public bridge page.
+
+## 9. Measurement
 
 Track at least:
 
 ```text
 sender_domain
-campaign_role
-mailbox
+sender_id
+campaign_variant
 wave_id
-sent
+signal_class
 delivered
 hard_bounce
-soft_bounce
 reply
 positive_reply
-unsubscribe
-complaint
-meeting_or_growth_score_request
+qualified_dialogue
+unsubscribe_or_stop
+preview_requested
+preview_opened
+preview_continued
+growth_score_requested
+score_delivered
+paid_sprint
 ```
 
-Compare domains only after audience, offer, verification quality and volume are sufficiently comparable. A high reply rate alone does not prove the domain caused the result.
+Open rate is diagnostic only. Compare senders or domains only after audience, copy, verification quality and volume are sufficiently comparable.
 
-## 10. Release contract
+## 10. Supersession record
 
-Production acceptance for the portfolio is:
-
-- `https://caesthetic.com/outreach/` → HTTP 200 with all five domain roles, Four Surfaces, legal identity and portfolio-wide opt-out;
-- `https://caesthetic.co/` and `www` → fixed sender edge → canonical verification page;
-- `https://bebofix.com/caesthetic/` and `www` → fixed sender edge → canonical verification page;
-- `https://bebonow.com/caesthetic/` and `www` → fixed sender edge → canonical verification page;
-- `https://bototox.com/caesthetic/` and `www` → fixed sender edge → canonical verification page;
-- `https://grainee.com/caesthetic/` and `www` → fixed sender edge → canonical verification page;
-- existing non-CAESTHETIC roots remain outside the CAESTHETIC Worker route;
-- any hostname carrying a narrow `/caesthetic/` Worker route must be Cloudflare-proxied with valid edge TLS; enabling proxy-only mode may not change the existing DNS record type or destination;
-- contract tests and production smoke pass;
-- the exact deployed SHA is recorded.
-
-## 11. Supersession note
-
-The founder decision on 2026-09-03 removed the Version 1.0 domain-level restrictions. Any older text saying that only `caesthetic.co` is authorized, or that the other four domains are prohibited for CAESTHETIC outbound, is superseded by this Version 2.0 standard.
+Version 2.0 (2026-09-03) authorized `bebofix.com`, `bebonow.com`, `caesthetic.co`, `bototox.com` and `grainee.com` as five interchangeable CAESTHETIC campaign doors. That decision is superseded. Version 3.0 restores coherent product identity: direct CAESTHETIC from `caesthetic.co`, protected `caesthetic.com`, and a narrow truthful historical branch through `bototox.com` / `toxifillers.com` only.

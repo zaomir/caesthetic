@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caesthetic.com/schemas/growth-preview-v1.schema.json",
+  "title": "CAESTHETIC GrowthPreview v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "preview_id", "account_id", "campaign_variant", "token_hash", "practice_name",
+    "city", "practice_state", "verified_signal", "signal_class", "evidence_ref",
+    "evidence_observed_at", "evidence_approved_at", "evidence_expires_at",
+    "preview_version", "state", "expires_at"
+  ],
+  "properties": {
+    "preview_id": { "type": "string", "format": "uuid" },
+    "account_id": { "type": "string", "minLength": 1 },
+    "contact_id": { "type": ["string", "null"] },
+    "campaign_id": { "type": ["string", "null"] },
+    "campaign_variant": { "type": "string", "minLength": 1 },
+    "sender_id": { "type": ["string", "null"] },
+    "sender_class": { "type": ["string", "null"] },
+    "token_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "practice_name": { "type": "string", "minLength": 1 },
+    "city": { "type": "string", "minLength": 1 },
+    "practice_state": { "type": "string", "minLength": 1 },
+    "site_url": { "type": ["string", "null"], "format": "uri" },
+    "verified_signal": { "type": "string", "minLength": 1 },
+    "signal_class": { "type": "string", "minLength": 1 },
+    "evidence_ref": { "type": "string", "minLength": 1 },
+    "evidence_observed_at": { "type": "string", "format": "date-time" },
+    "evidence_approved_at": { "type": "string", "format": "date-time" },
+    "evidence_expires_at": { "type": "string", "format": "date-time" },
+    "opening_narrative": { "type": "string", "minLength": 1 },
+    "preview_version": { "const": "caesthetic-growth-preview/1.0" },
+    "preview_payload": { "type": "object" },
+    "state": { "enum": ["issued", "opened", "rendered", "continued", "expired", "suppressed"] },
+    "issued_at": { "type": "string", "format": "date-time" },
+    "opened_at": { "type": ["string", "null"], "format": "date-time" },
+    "rendered_at": { "type": ["string", "null"], "format": "date-time" },
+    "continued_at": { "type": ["string", "null"], "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "suppressed_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

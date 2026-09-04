@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-updated: 2026-09-01
+updated: 2026-09-04
 scope: Growth Score operator queue, SLA, transitions, delivery
 related:
   - docs/founder-notes/DEC-848.md
@@ -12,6 +12,8 @@ related:
 # Growth Score — operator runbook
 
 Production authority stays in **grainee-v2** (DEC-829). The public satellite mirrors code; do not deploy from `zaomir/caesthetic`.
+
+Requests created by Private Growth Preview appear in the same queue with `source_kind=outbound_preview` and immutable `source_preview_id` attribution. They are real requests only after the recipient presses `Continue to My Free Growth Score`; Preview opens alone must never be triaged. Synthetic Preview smoke rows are `qa_test`, auto-closed, and must not be reopened.
 
 ## Daily operator loop
 
