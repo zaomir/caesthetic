@@ -238,7 +238,7 @@ export function createDecisionViewsTemplate() {
 export function createLeadToRevenueCheckDecisionTemplate() {
   return {
     recommendation: "not_recommended",
-    reason: "No approved evidence-backed Lead-to-Revenue Check recommendation has been recorded.",
+    reason: "No case-specific Lead-to-Revenue Check recommendation has been approved.",
     evidence_refs: [],
   };
 }
@@ -548,6 +548,12 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
         selected_gap_ids: [],
         public_sources_only: true,
       },
+    };
+  } else {
+    report.leadToRevenueCheck = {
+      recommendation: "not_recommended",
+      reason: "The Multi-Location network parent owns the package-level commercial decision.",
+      evidence_refs: [],
     };
   }
   return report;

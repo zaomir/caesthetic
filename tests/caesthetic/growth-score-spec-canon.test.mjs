@@ -100,11 +100,9 @@ test("canonical authoring template derives exact metrics and fails closed", () =
   assert.equal(report.decisionViews.automatic_focus_selection, false);
   assert.equal(report.decisionViews.automatic_promotion_decision, false);
   assert.equal(report.decisionViews.review.status, "pending");
-  assert.deepEqual(report.leadToRevenueCheck, {
-    recommendation: "not_recommended",
-    reason: "No approved evidence-backed Lead-to-Revenue Check recommendation has been recorded.",
-    evidence_refs: [],
-  });
+  assert.equal(report.leadToRevenueCheck.recommendation, "not_recommended");
+  assert.match(report.leadToRevenueCheck.reason, /No case-specific Lead-to-Revenue Check recommendation/);
+  assert.deepEqual(report.leadToRevenueCheck.evidence_refs, []);
   assert.deepEqual(report.leadToRevenueCheck, createLeadToRevenueCheckDecisionTemplate());
 
   for (const surface of report.surfaces) {

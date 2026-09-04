@@ -56,19 +56,10 @@ window.CAESTHETIC = {
   }
 })();
 
-/* Every rendered Growth Score gets the current funnel adapter, including reports
-   generated before the adapter existed. build:caesthetic still injects the same
-   script explicitly into newly generated report HTML; this loader is the runtime
-   compatibility layer and prevents old client reports from drifting. */
-(() => {
-  if (document.documentElement.getAttribute("data-page") !== "growth-score-report") return;
-  const src = "/assets/js/growth-report-funnel.js";
-  if (document.querySelector(`script[src="${src}"]`)) return;
-  const script = document.createElement("script");
-  script.src = src;
-  script.async = false;
-  document.head.appendChild(script);
-})();
+/* Growth Score report commercial routing is renderer-owned.
+   Do not auto-load /assets/js/growth-report-funnel.js: each eligible report owns
+   two always-visible Check sections plus at most one evidence-backed Sprint CTA;
+   Multi-Location focus children return to the parent decision instead. */
 
 /* Localized Beauty Salon shells use a separate footer/copy surface. */
 (() => {

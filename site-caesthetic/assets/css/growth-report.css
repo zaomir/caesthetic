@@ -1091,6 +1091,57 @@
   border-top: 1px solid var(--cae-border);
 }
 
+.cae-owner-competitors--standalone {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.cae-owner-research {
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 5vw, 4rem);
+  border-top: 1px solid var(--cae-border);
+}
+
+.cae-owner-research__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--cae-space-4);
+  margin-top: var(--cae-space-6);
+}
+
+.cae-owner-research__cards article {
+  min-width: 0;
+  padding: clamp(1.15rem, 2.5vw, 1.75rem);
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-owner-research__cards h3,
+.cae-owner-research__cards p {
+  margin-top: 0;
+}
+
+.cae-owner-research__cards p {
+  margin-bottom: 0;
+}
+
+.cae-owner-research__sources {
+  margin-top: var(--cae-space-6);
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-owner-research__sources > summary {
+  padding: var(--cae-space-4);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.cae-owner-research__sources > .cae-owner-evidence {
+  padding: 0 clamp(1.15rem, 2.5vw, 1.75rem) clamp(1.15rem, 2.5vw, 1.75rem);
+}
+
 .cae-owner-competitors__cards,
 .cae-owner-competitors__decisions,
 .cae-owner-thirty-day,
@@ -1277,6 +1328,73 @@
   border-color: var(--cae-signal);
 }
 
+.cae-score-report--brief .cae-focus-gaps--equal {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.cae-score-report--brief .cae-focus-gaps--equal .cae-focus-gap {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.cae-owner-check500-intro {
+  max-width: 760px;
+  margin-top: var(--cae-space-6);
+  padding: var(--cae-space-4);
+  border-left: 4px solid var(--cae-signal);
+  background: var(--cae-bg);
+}
+
+.cae-owner-repair-accordions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--cae-space-4);
+  margin-top: var(--cae-space-6);
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair {
+  min-width: 0;
+  overflow: clip;
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair > summary {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.3rem var(--cae-space-3);
+  min-height: 154px;
+  padding: clamp(1.15rem, 2.5vw, 1.75rem);
+  cursor: pointer;
+  list-style: none;
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair > summary::-webkit-details-marker {
+  display: none;
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair > summary > span {
+  grid-row: 1 / 3;
+  color: var(--cae-signal);
+  font-family: var(--cae-font-mono);
+  font-weight: 800;
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair > summary > small {
+  line-height: 1.45;
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair__body {
+  padding: 0 clamp(1.15rem, 2.5vw, 1.75rem) clamp(1.15rem, 2.5vw, 1.75rem);
+  border-top: 1px solid var(--cae-border);
+}
+
+.cae-owner-repair-accordions .cae-mobile-repair__body h3 {
+  margin: var(--cae-space-4) 0 var(--cae-space-2);
+}
+
 .cae-owner-offer {
   max-width: 760px;
   margin-top: var(--cae-space-6);
@@ -1302,11 +1420,17 @@
 
 @media (max-width: 720px) {
   .cae-owner-intro__answers,
+  .cae-owner-research__cards,
   .cae-owner-competitors__cards,
   .cae-owner-competitors__decisions,
   .cae-owner-thirty-day,
   .cae-owner-paths,
   .cae-owner-boundary__map {
+    grid-template-columns: 1fr;
+  }
+
+  .cae-score-report--brief .cae-focus-gaps--equal,
+  .cae-owner-repair-accordions {
     grid-template-columns: 1fr;
   }
 

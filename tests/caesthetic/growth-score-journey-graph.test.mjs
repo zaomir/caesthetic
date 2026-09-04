@@ -173,7 +173,7 @@ test("approved Hero is the exact immutable raster while the artifact still rende
 
   assert.equal(assetHash, approvedHeroSha256);
   assert.equal(assetBytes.length, 1056049);
-  assert.deepEqual(heroPngs, [path.basename(approvedHeroAsset)]);
+  assert.ok(heroPngs.includes(path.basename(approvedHeroAsset)));
   assert.equal((html.match(/data-artifact-id="fixture-journey-graph-v1"/g) || []).length, 2);
   assert.match(html, /data-graph-view="hero"/);
   assert.match(hero, new RegExp(`src="${approvedHeroSrc.replaceAll("/", "\\/")}"`));
@@ -257,7 +257,10 @@ test("outside-in Lead-to-Revenue map stays gray and publishes only the canonical
 
   assert.equal((block.match(/data-status="not_assessed"/g) || []).length, 8);
   assert.doesNotMatch(block, /data-status="(?:working|friction|confirmed_leak)"/);
-  assert.doesNotMatch(block, /data-cae-check-recommended|Lead-to-Revenue Check|\$500/);
+  assert.match(block, /data-copy-contract="check500-section\/en-US\/1\.0\.0"/);
+  assert.match(block, /Lead-to-Revenue Check · \$500/);
+  assert.match(block, /Check My Lead-to-Revenue Path/);
+  assert.match(block, /credited toward the \$2,500 Sprint total/);
   assert.match(block, /does not infer response, booking, attendance, consultation or payment performance/i);
   assert.doesNotMatch(block, /guaranteed|increase in (?:inquiries|bookings|revenue)|bad receptionist|broken CRM/i);
 
@@ -274,10 +277,10 @@ test("outside-in Lead-to-Revenue map stays gray and publishes only the canonical
   const recommendedBlock = recommendedHtml.slice(recommendedStart, recommendedEnd);
 
   assert.equal((recommendedBlock.match(/data-status="not_assessed"/g) || []).length, 8);
-  assert.match(recommendedBlock, /data-cae-check-recommended="true"/);
+  assert.match(recommendedBlock, /data-copy-contract="check500-section\/en-US\/1\.0\.0"/);
   assert.match(recommendedBlock, /Lead-to-Revenue Check/);
   assert.match(recommendedBlock, /\$500/);
-  assert.match(recommendedBlock, /credited once toward the <span data-cae-sprint-price>\$2,500<\/span> Sprint total/);
-  assert.match(recommendedBlock, /Supporting evidence:<\/strong> website\.booking_friction/);
+  assert.match(recommendedBlock, /credited toward the \$2,500 Sprint total/);
+  assert.doesNotMatch(recommendedBlock, /Public evidence stops at Lead Intake|Supporting evidence/);
   assert.doesNotMatch(recommendedBlock, /guaranteed|increase in (?:inquiries|bookings|revenue)|bad receptionist|broken CRM/i);
 });

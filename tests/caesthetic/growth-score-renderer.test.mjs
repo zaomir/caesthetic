@@ -129,11 +129,13 @@ test("score navigation is compact, four-surface, approximate and secondary", () 
   assert.match(html, /do not determine Sprint scope/i);
 });
 
-test("Lead-to-Revenue Check renders only after an explicit evidence-backed recommendation", () => {
+test("Lead-to-Revenue Check renders universally without displacing the evidence-backed Sprint CTA", () => {
   const defaultHtml = renderGrowthReport(fixture);
-  assert.doesNotMatch(defaultHtml, /cae-lead-revenue__check/);
-  assert.doesNotMatch(defaultHtml, /href="\/lead-to-revenue-check\/"/);
-  assert.equal((defaultHtml.match(/href="\/sprint\/"/g) || []).length, 1);
+  assert.equal((defaultHtml.match(/data-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((defaultHtml.match(/data-cae-check-inquiry/g) || []).length, 2);
+  assert.equal((defaultHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
+  assert.match(defaultHtml, /Do all your enquiries make it to a booking\?/);
+  assert.match(defaultHtml, /Check My Lead-to-Revenue Path/);
 
   const recommended = structuredClone(fixture);
   recommended.leadToRevenueCheck = {
@@ -142,11 +144,11 @@ test("Lead-to-Revenue Check renders only after an explicit evidence-backed recom
     evidence_refs: [recommended.humanDiagnosis.binding_constraint.evidence_refs[0]],
   };
   const recommendedHtml = renderGrowthReport(recommended);
-  assert.match(recommendedHtml, /data-cae-check-recommended="true"/);
-  assert.match(recommendedHtml, /Public evidence cannot resolve the post-enquiry booking handoff/);
-  assert.equal((recommendedHtml.match(/class="cae-btn cae-btn--primary" href="\/lead-to-revenue-check\/"/g) || []).length, 1);
-  assert.doesNotMatch(recommendedHtml, /href="\/sprint\/"/);
-  assert.match(recommendedHtml, />View Check<\/a>/);
+  assert.equal((recommendedHtml.match(/data-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((recommendedHtml.match(/data-cae-check-inquiry/g) || []).length, 2);
+  assert.equal((recommendedHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
+  assert.doesNotMatch(recommendedHtml, /Public evidence cannot resolve the post-enquiry booking handoff/);
+  assert.match(recommendedHtml, />View next steps<\/a>/);
 
   const incomplete = structuredClone(recommended);
   delete incomplete.leadToRevenueCheck.evidence_refs;
@@ -212,7 +214,8 @@ test("the same renderer accepts an approved real report and enforces private rou
   assert.doesNotMatch(html, /cae-demo-banner/);
   assert.doesNotMatch(html, /SYNTHETIC DEMO/);
   assert.match(html, /Synthetic private-route contract fixture\. No client relationship or real practice is represented\./);
-  assert.equal((html.match(/href="\/sprint\/"/g) || []).length, 1);
+  assert.equal((html.match(/data-cae-sprint-inquiry/g) || []).length, 1);
+  assert.equal((html.match(/data-cae-check-inquiry/g) || []).length, 2);
   assert.equal(isUnguessableScoreSlug("private-practice-9f3c7a2d1b6e4c80"), true);
   assert.equal(isUnguessableScoreSlug("private-practice"), false);
 
@@ -398,12 +401,13 @@ test("demand stage remains validated as machine data but is not rendered", () =>
   }
 });
 
-test("demo banner, CAESTHETIC byline, single Sprint CTA, DIY link and Class A/B labels render", () => {
+test("demo banner, CAESTHETIC byline, one Sprint CTA, Check500 section, DIY link and Class A/B labels render", () => {
   const html = renderGrowthReport(fixture);
   assert.match(html, /SYNTHETIC DEMO — Demonstration only\. Fictional practice, synthetic data, no client relationship/);
   assert.match(html, /Valerie Petra/);
   assert.match(html, /CAESTHETIC Growth Advisor/);
-  assert.equal((html.match(/href="\/sprint\/"/g) || []).length, 1);
+  assert.equal((html.match(/data-cae-sprint-inquiry/g) || []).length, 1);
+  assert.equal((html.match(/data-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
   assert.match(html, /class="cae-sticky-sprint" href="#next-step"/);
   assert.match(html, /href="#gap-/);
   assert.match(html, /CLASS A · VERIFIED|Class A/);
