@@ -18,6 +18,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const source = JSON.parse(fs.readFileSync(sourceReportPath, "utf8"));
 const stored = JSON.parse(fs.readFileSync(reportPath, "utf8"));
 const storedHtml = fs.readFileSync(htmlPath, "utf8");
+const sharedRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/caesthetic.js"), "utf8");
+const pointOfContactRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/point-of-contact.js"), "utf8");
+const analyticsRuntime = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/analytics.js"), "utf8");
 
 const metricFingerprint = (value) => ({
   surfaces: value.surfaces.map((surface) => ({
@@ -107,8 +110,18 @@ test("Russian Spoken client text contains no English terms outside approved prop
   accessibleText = accessibleText.replace(/SMS-\d{2}-\d{2}/g, " ").replace(/\bM\b/g, " ");
   const accessibleEnglishTerms = [...new Set(accessibleText.match(/[A-Za-z][A-Za-z0-9-]*/g) || [])].sort();
   assert.deepEqual(accessibleEnglishTerms, []);
+  assert.match(pointOfContactRuntime, /isRussian \? "Портрет Валерии Петры"/);
+  assert.match(pointOfContactRuntime, /Ваш контакт в CAESTHETIC/);
+  assert.match(pointOfContactRuntime, /Валерия объяснит выводы/);
+  assert.match(analyticsRuntime, /isRussian \? "Настройки аналитики"/);
+  assert.match(analyticsRuntime, /Мы используем аналитику, чтобы улучшать сайт/);
+  assert.match(analyticsRuntime, />Отказаться<\/button>/);
+  assert.match(analyticsRuntime, />Разрешить<\/button>/);
+  assert.match(sharedRuntime, /Мы ответим по электронной почте/);
+  assert.match(sharedRuntime, /Нужны только имя и электронная почта/);
+  assert.doesNotMatch(sharedRuntime, /russian \? "[^"\n]*(?:email|Order)[^"\n]*"/i);
   assert.match(storedHtml, /Оценка роста/);
-  assert.match(storedHtml, /Согласовать язык спроса и актуальные данные/);
+  assert.match(storedHtml, /Согласовать слова и данные во всех четырёх каналах/);
   assert.match(storedHtml, /Разделить путь пациента и путь специалиста/);
   assert.match(storedHtml, /Усилить страницу филлеров/);
   const mobileCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report-mobile.css"), "utf8");
@@ -130,7 +143,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   const researchHtml = storedHtml.slice(researchStart, researchEnd);
   assert.equal((researchHtml.match(/<li><a /g) || []).length, 8);
   assert.equal((researchHtml.match(/target="_blank"/g) || []).length, 8);
-  assert.match(researchHtml, />Сайт <span data-brand>Spoken<\/span><\/a>/);
+  assert.match(researchHtml, />Главная страница <span data-brand>Spoken<\/span><\/a>/);
   assert.match(researchHtml, />Страница <span data-brand>Botox<\/span><\/a>/);
   assert.match(researchHtml, />Блог о переходе к <span data-brand>Spoken<\/span><\/a>/);
   assert.doesNotMatch(researchHtml, /cae-owner-research__cards|cae-owner-research__sources/);
@@ -139,27 +152,27 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(storedHtml, /Три главные ограничения/);
   assert.match(storedHtml, /data-owner-constraint-accordion/);
   assert.equal((storedHtml.match(/<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint"/g) || []).length, 3);
-  assert.equal((storedHtml.match(/<summary><h3><span class="cae-focus-gap__rank cae-status-pill">Ограничение [123]<\/span>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<summary><h3><span class="cae-focus-gap__rank cae-status-pill">Проблема [123]<\/span>/g) || []).length, 3);
   assert.equal((storedHtml.match(/class="cae-owner-constraint__body"/g) || []).length, 3);
   assert.doesNotMatch(storedHtml, /<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint"[^>]*\sopen(?:\s|>)/);
   assert.equal((storedHtml.match(/class="cae-focus-gap__evidence"/g) || []).length, 3);
-  assert.equal((storedHtml.match(/<h4>Что увидели<\/h4>/g) || []).length, 3);
-  assert.equal((storedHtml.match(/<strong>Почему это важно:<\/strong>/g) || []).length, 3);
-  assert.equal((storedHtml.match(/<h4>Готово, когда<\/h4>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<h4>Что нашли<\/h4>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<strong>Почему это мешает:<\/strong>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<h4>Как понять, что готово<\/h4>/g) || []).length, 3);
   assert.match(storedHtml, /Краткая карта пути пациента/);
   assert.match(storedHtml, /data-owner-competitors/);
   assert.match(storedHtml, /data-owner-internal-boundary/);
   assert.match(storedHtml, />Что происходит после обращения пациента</);
   assert.match(storedHtml, /lead-to-revenue-map-ru\.svg/);
-  assert.match(storedHtml, /Карта непроверенного внутреннего пути от получения обращения до оплаты/);
+  assert.match(storedHtml, /Путь пациента после обращения: от ответа до оплаты/);
   assert.match(storedHtml, /Исследование конкурентов/);
   assert.match(storedHtml, /Почему включён/);
   assert.match(storedHtml, /Почему пациент может выбрать/);
   assert.match(storedHtml, /Проверено/);
-  assert.equal((storedHtml.match(/Понятный местный путь от страницы услуги к записи\./g) || []).length, 1);
+  assert.equal((storedHtml.match(/Понятный путь: услуга → запись\./g) || []).length, 1);
   assert.match(storedHtml, />СТОП</);
   assert.match(storedHtml, />ВЫВОДЫ</);
-  assert.match(storedHtml, /Выберите способ внедрения/);
+  assert.match(storedHtml, /Выберите, кто внедрит изменения/);
   assert.match(storedHtml, /Порядок работ/);
   assert.match(storedHtml, /Пошаговые инструкции/);
   assert.match(storedHtml, /class="cae-report-note cae-owner-thirty-day-note">Это рекомендуемый порядок самостоятельной работы/);
@@ -170,10 +183,10 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.doesNotMatch(storedHtml, /Четыре допустимых пути/);
   assert.doesNotMatch(storedHtml, /Полный реестр подтверждённых разрывов/);
   assert.doesNotMatch(storedHtml, /data-owner-reputation-service/);
-  assert.match(storedHtml, /без отбора, вознаграждений и подсказанного текста/);
-  assert.match(storedHtml, /не подтверждая факт лечения и не раскрывая личные сведения/);
+  assert.match(storedHtml, /без отбора, оплаты и готового текста/);
+  assert.match(storedHtml, /Не подтверждать лечение и не раскрывать личные данные/);
   assert.equal(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").title, "Усилить страницу филлеров");
-  assert.match(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").repair_plan.day_30_outcome, /система сбора честных отзывов/);
+  assert.match(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").repair_plan.day_30_outcome, /Сбор отзывов и ответы владельца/);
 
   const constraintsIndex = storedHtml.indexOf('id="gap-map"');
   const journeyIndex = storedHtml.indexOf('id="focus-gaps"');
@@ -196,8 +209,8 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   const pathsHtml = storedHtml.slice(storedHtml.indexOf('<div class="cae-owner-paths">'), storedHtml.indexOf('</div>', storedHtml.indexOf('<div class="cae-owner-paths">')));
   assert.equal((pathsHtml.match(/<article/g) || []).length, 3);
   assert.doesNotMatch(pathsHtml, /Отложить/);
-  assert.match(pathsHtml, /один замысел, один словарь/i);
-  assert.match(pathsHtml, /поиска и карточки <span data-brand>Google<\/span>, сайта, социальных сетей, отзывов и ответов владельца/);
+  assert.match(pathsHtml, /главный приоритет 4444: согласовать четыре канала/i);
+  assert.match(pathsHtml, /один смысл и одни названия в <span data-brand>Google<\/span>, на сайте, в социальных сетях, отзывах и ответах владельца/);
   assert.equal(report.leadToRevenueCheck.recommendation, "recommended");
   assert.ok(report.leadToRevenueCheck.reason.length > 0);
   assert.deepEqual(report.leadToRevenueCheck.evidence_refs, [
@@ -212,8 +225,8 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.equal((storedHtml.match(/data-check500-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
   assert.equal((storedHtml.match(/Все ли обращения доходят до записи\?/g) || []).length, 2);
   assert.equal((storedHtml.match(/Проверка пути от обращения до оплаты · \$500/g) || []).length, 2);
-  assert.equal((storedHtml.match(/Проверить путь от обращения до оплаты/g) || []).length, 2);
-  assert.equal((storedHtml.match(/стоимость проверки \$500 засчитывается в общую стоимость спринта \$2,500/g) || []).length, 2);
+  assert.equal((storedHtml.match(/Проверить обращения за \$500/g) || []).length, 2);
+  assert.equal((storedHtml.match(/\$500 войдут в его стоимость \$2,500/g) || []).length, 3);
   assert.equal((storedHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
   assert.equal((storedHtml.match(/data-cae-question/g) || []).length, 1);
   assert.equal((storedHtml.match(/href="#request"/g) || []).length, 3);
@@ -221,7 +234,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(storedHtml, /data-owner-sprint-offer/);
   assert.match(storedHtml, /Если сначала нужен меньший шаг:/);
   assert.match(storedHtml, /Она не обязательна перед спринтом/);
-  assert.match(storedHtml, /Проверку можно заказать отдельно/);
+  assert.match(storedHtml, /Проверку за \$500 можно заказать отдельно/);
   assert.doesNotMatch(storedHtml, /С чего начать:<\/strong>.*начинаем с проверки за \$500/);
   assert.equal((storedHtml.match(/class="cae-mobile-repair"/g) || []).length, 3);
   assert.doesNotMatch(storedHtml, /<details class="cae-mobile-repair" open>/);
@@ -232,12 +245,12 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.doesNotMatch(storedHtml, /Недостаточно доказательств|Нужна проверка|Не оценивалось|Не оценено/);
   assert.doesNotMatch(storedHtml, /Матрица возможностей|Карта видимости|Цепочка доверия|Индекс трения|Согласованность поверхностей/);
   assert.match(storedHtml, /\$500/);
-  assert.match(storedHtml, /засчитывается в общую стоимость спринта \$2,500/);
+  assert.match(storedHtml, /\$500 войдут в его стоимость \$2,500/);
   assert.match(storedHtml, /\$2,500 · 30 дней/);
-  assert.match(storedHtml, /Внедрить приоритет 4444 за 30 дней/);
+  assert.match(storedHtml, /Согласовать четыре канала за 30 дней/);
   assert.match(storedHtml, /Что нужно от <span data-brand>Spoken<\/span>/);
-  assert.match(storedHtml, /Проверка на 30-й день/);
-  assert.match(storedHtml, /не обещает позиции в поиске, количество пациентов, выручку или окупаемость/);
+  assert.match(storedHtml, /Что проверим на 30-й день/);
+  assert.match(storedHtml, /не обещаем конкретные позиции в поиске, число пациентов, выручку или окупаемость/);
   assert.doesNotMatch(storedHtml, /боится|сомневается/i);
   const middleCheckIndex = storedHtml.indexOf('data-cae-check-placement="mid"');
   const sprintOfferIndex = storedHtml.indexOf("data-owner-sprint-offer");

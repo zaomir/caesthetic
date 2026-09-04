@@ -57,6 +57,8 @@
   function render(slot) {
     var analyst = window.CAESTHETIC && window.CAESTHETIC.analyst;
     if (!analyst || !analyst.name || !analyst.role) return;
+    var isRussian = (document.documentElement.lang || "").toLowerCase().startsWith("ru");
+    var displayName = isRussian ? "Валерия Петра" : analyst.name;
 
     var section = el("section", "cae-section cae-point-of-contact");
     section.setAttribute("data-cae-point-of-contact-component", "");
@@ -69,26 +71,27 @@
       image.src = analyst.photo;
       image.width = 140;
       image.height = 140;
-      image.alt = "Portrait of " + analyst.name;
+      image.alt = isRussian ? "Портрет Валерии Петры" : "Portrait of " + analyst.name;
       image.loading = "lazy";
       image.decoding = "async";
       person.appendChild(image);
     }
 
     var copy = document.createElement("div");
-    copy.appendChild(el("p", "cae-kicker", "Your CAESTHETIC point of contact"));
-    copy.appendChild(el("h2", "cae-h2", analyst.name));
+    copy.appendChild(el("p", "cae-kicker", isRussian ? "Ваш контакт в CAESTHETIC" : "Your CAESTHETIC point of contact"));
+    copy.appendChild(el("h2", "cae-h2", displayName));
 
     var lead = el("p", "cae-lead");
-    lead.appendChild(document.createTextNode(
-      analyst.name + " · " + analyst.role +
-      " is your owner-facing point of contact for this process. She coordinates CAESTHETIC's work around the agreed scope, presents the findings, and makes sure you know what happens next. Specialist execution may involve other members of the distributed team; your owner-facing accountability stays clear."
+    lead.appendChild(document.createTextNode(isRussian
+      ? "Валерия объяснит выводы, согласует работу команды CAESTHETIC и расскажет, что будет дальше. К отдельным задачам могут подключаться другие специалисты, но за связь с вами отвечает Валерия."
+      : analyst.name + " · " + analyst.role +
+        " is your owner-facing point of contact for this process. She coordinates CAESTHETIC's work around the agreed scope, presents the findings, and makes sure you know what happens next. Specialist execution may involve other members of the distributed team; your owner-facing accountability stays clear."
     ));
     copy.appendChild(lead);
 
     if (analyst.linkedinVerified === true && validLinkedIn(analyst.linkedin)) {
       var actions = el("div", "cae-actions");
-      var link = el("a", "cae-btn cae-btn--outline", "View Valerie on LinkedIn");
+      var link = el("a", "cae-btn cae-btn--outline", isRussian ? "Валерия в LinkedIn" : "View Valerie on LinkedIn");
       link.href = analyst.linkedin;
       link.target = "_blank";
       link.rel = "noopener noreferrer";

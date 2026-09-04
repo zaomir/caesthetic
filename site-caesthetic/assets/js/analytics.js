@@ -151,17 +151,23 @@
 
   function showConsentBanner() {
     if (analyticsConsent() || document.querySelector("[data-cae-consent]")) return;
+    var isRussian = (document.documentElement.lang || "").toLowerCase().startsWith("ru");
     var banner = document.createElement("section");
     banner.className = "cae-consent";
     banner.setAttribute("data-cae-consent", "");
     banner.setAttribute("role", "dialog");
-    banner.setAttribute("aria-label", "Analytics preferences");
-    banner.innerHTML =
-      '<p>We use privacy-conscious analytics to understand site performance. Before acceptance, GA4 receives cookieless measurements only. No form answers or payment details are included. <a href="/legal/cookies/">Cookie Notice</a>.</p>' +
-      '<div class="cae-consent__actions">' +
-      '<button type="button" class="cae-btn cae-btn--ghost" data-cae-consent-reject>Reject analytics</button>' +
-      '<button type="button" class="cae-btn cae-btn--primary" data-cae-consent-accept>Accept analytics</button>' +
-      '</div>';
+    banner.setAttribute("aria-label", isRussian ? "Настройки аналитики" : "Analytics preferences");
+    banner.innerHTML = isRussian
+      ? '<p>Мы используем аналитику, чтобы улучшать сайт. До вашего согласия мы получаем только обезличенные данные. Ответы из форм и платёжные данные не передаются. <a href="/legal/cookies/">Как мы используем данные</a>.</p>' +
+        '<div class="cae-consent__actions">' +
+        '<button type="button" class="cae-btn cae-btn--ghost" data-cae-consent-reject>Отказаться</button>' +
+        '<button type="button" class="cae-btn cae-btn--primary" data-cae-consent-accept>Разрешить</button>' +
+        '</div>'
+      : '<p>We use privacy-conscious analytics to understand site performance. Before acceptance, GA4 receives cookieless measurements only. No form answers or payment details are included. <a href="/legal/cookies/">Cookie Notice</a>.</p>' +
+        '<div class="cae-consent__actions">' +
+        '<button type="button" class="cae-btn cae-btn--ghost" data-cae-consent-reject>Reject analytics</button>' +
+        '<button type="button" class="cae-btn cae-btn--primary" data-cae-consent-accept>Accept analytics</button>' +
+        '</div>';
     document.body.appendChild(banner);
     banner.querySelector("[data-cae-consent-accept]").addEventListener("click", function () {
       rememberAnalyticsConsent("granted");
