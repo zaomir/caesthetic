@@ -142,6 +142,7 @@ PROTECTED_PREFIXES = (
     "tests/caesthetic/owner-brief-contract.test.mjs",
     "tests/caesthetic/spoken-medspa-russian.test.mjs",
     "tests/caesthetic/agents_sync_bidirectional_test.py",
+    "tests/caesthetic/expert_dental_mirror_test.py",
     "tests/caesthetic/satellite-growth-score-authoring.test.py",
     "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json",
     "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json",

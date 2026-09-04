@@ -192,6 +192,13 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertIn("$DATA_ROOT/satellite", installer)
         self.assertIn("git clone --shared --no-checkout", installer)
         self.assertIn("sparse-checkout set", installer)
+        sparse_update = installer.index('git -C "$target_repo" sparse-checkout set')
+        clone_guard_end = installer.index(
+            '  git -C "$target_repo" remote set-url origin "$remote_url"'
+        )
+        last_clone_guard = installer.rfind("  fi", 0, sparse_update)
+        self.assertLess(last_clone_guard, sparse_update)
+        self.assertLess(sparse_update, clone_guard_end)
         self.assertIn("docs/external/grainee-v2/expert-dental", installer)
         self.assertIn("docs/projects/raimovdental", installer)
         self.assertIn("docs/legal/raimov/expert-dental", installer)
