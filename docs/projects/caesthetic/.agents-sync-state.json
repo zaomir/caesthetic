@@ -15,7 +15,7 @@
     "docs/audits/caesthetic/INTEGRATOR_MERGE_REPORT_2026-07-30.md": "746320e26bf3a79384bc8c959fb1cef17c2ef207b3560124ecc90c28224ccea2",
     "docs/audits/caesthetic/LANE_A_PAGE_INVENTORY_2026-07-30.md": "ef31911cfea4e81c3a5dd53a308c48bf79564a8fc01d8582a71954e0d065ace0",
     "docs/audits/caesthetic/LANE_C_SEO_ANALYTICS_PLAN_2026-07-30.md": "c6a937ea990b6babdc8fa674e5e4b5ed0418c61402e5f4535be8eb27c8440ed0",
-    "docs/audits/caesthetic/README.md": "f312b4e2c6cbf18d0909cfd3c405ce8ba680181619c2caf2988f4969c9091c18",
+    "docs/audits/caesthetic/README.md": "7943cfc6f563357be2b95c394188e4bfbd88e859de839471c651cd8ef61558db",
     "docs/audits/caesthetic/TASK-849_CONVERSION_INFRA_2026-08-21.md": "8d3d5be14a4333500a4259e4fa5d0e77878e9ffc71e10fa70dbac8203c3469e9",
     "docs/audits/caesthetic/TASK-849_TEST_LEAD_2026-08-21.json": "a5b898d38e1031b21db261a92a3eb198c3a83f96c46a26f1b685beaf71e62647",
     "docs/audits/caesthetic/evidence/2026-07-31-apple-rerun-regression/d1440-assessment.png": "206cf9519b6e32c64ea3cc9ad3cc4586e4bbbd1736f683f0f81fc881e585c860",
@@ -267,6 +267,8 @@
     "docs/audits/caesthetic/growth-score/cases/synthetic-publish-control-plane-multilocation-20260902/reports/focus-location.json": "c3f8148bfebb35bf3a312f24d44e120a886571a61aee3cc53c9480fab194db48",
     "docs/audits/caesthetic/growth-score/cases/synthetic-publish-control-plane-multilocation-20260902/reports/network-parent.json": "706b6dc8a535fc29be8a56d9ac7c1ac5b5111a36eaf6458717b4f592df8228aa",
     "docs/audits/caesthetic/growth-score/index.generated.json": "f65c99878684dfa47f49d1801358373314121b66bedb074d5a467e216c2db2bd",
+    "docs/audits/caesthetic/historical/expert-dental/README.md": "2c01bdf63553f34d011ccf1b3920121255ecddc307cfe6372969ab33cd478ac9",
+    "docs/audits/caesthetic/historical/expert-dental/competitive-baseline-2026-08-03.json": "6e931dd3983acb9c7e488d4deb3478a10cb90f39c84447879f386ff4881f66e9",
     "docs/caesthetic/00_INDEX.md": "e5f703febb8d66153a24c0db82803d33c3beba1ad233291eba70b8b7a447e14b",
     "docs/caesthetic/00_PIPELINE_PROTOCOL.md": "1f913ad23a9b313d41f157d1cfb094d8f6f98851a46cefe18d088f8b538ee1d4",
     "docs/caesthetic/CAESTHETIC_SSOT.md": "930130300c6c4e3a60751044a2757bf169952b50905f534d1b32afc944efa5ba",
@@ -873,6 +875,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T16:26:21Z",
+  "updated_at_utc": "2026-09-04T16:30:07Z",
   "version": 1
 }
