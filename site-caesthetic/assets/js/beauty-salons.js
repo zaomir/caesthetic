@@ -304,8 +304,8 @@
           utm_term: utm.utm_term || null,
           utm_content: utm.utm_content || ("beauty_salon_" + pageLocale),
           utm_id: utm.utm_id || null,
-          vertical: "beauty_salon",
-          locale: pageLocale
+          vertical_context: "beauty_salon",
+          report_locale: pageLocale
         };
         if (isQa(form)) payload.qa_marker = true;
 

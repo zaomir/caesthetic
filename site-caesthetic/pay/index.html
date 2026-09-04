@@ -50,30 +50,10 @@
         </div>
 
         <form id="payer-form" style="margin-top:var(--cae-space-6)">
-          <label>
-            Your full name
-            <input name="payer_name" autocomplete="name" required maxlength="160">
-          </label>
-          <label>
-            Your relationship to the practice
-            <select name="payer_relationship" required>
-              <option value="owner_or_officer">Owner or officer</option>
-              <option value="contracting_entity">Contracting entity</option>
-              <option value="authorized_third_party">Authorized third party</option>
-            </select>
-          </label>
-          <label>
-            Account you expect to use
-            <select name="payer_account_type" required>
-              <option value="individual">Personal / individual account</option>
-              <option value="company">Company / business account</option>
-              <option value="unknown">Not sure / provider decides</option>
-            </select>
-          </label>
-          <label style="display:flex;gap:.75rem;align-items:flex-start;margin-top:1rem">
-            <input type="checkbox" name="attest" required style="width:auto;margin-top:.3rem">
-            <span>I confirm that I control the account used for payment and am authorized to pay this invoice on behalf of the practice named above. A business or personal account that I control may be used.</span>
-          </label>
+          <label>Your full name<input name="payer_name" autocomplete="name" required maxlength="160"></label>
+          <label>Your relationship to the practice<select name="payer_relationship" required><option value="owner_or_officer">Owner or officer</option><option value="contracting_entity">Contracting entity</option><option value="authorized_third_party">Authorized third party</option></select></label>
+          <label>Account you expect to use<select name="payer_account_type" required><option value="individual">Personal / individual account</option><option value="company">Company / business account</option><option value="unknown">Not sure / provider decides</option></select></label>
+          <label style="display:flex;gap:.75rem;align-items:flex-start;margin-top:1rem"><input type="checkbox" name="attest" required style="width:auto;margin-top:.3rem"><span>I confirm that I control the account used for payment and am authorized to pay this invoice on behalf of the practice named above. A business or personal account that I control may be used.</span></label>
           <p class="cae-disclaimer">CAESTHETIC records this authorization for the commercial payment record. We do not receive your card number, bank login, or online-banking credentials. Payment is completed with the payment provider.</p>
           <div class="cae-payment-methods">
             <section class="cae-payment-method cae-payment-method--recommended">
@@ -85,10 +65,7 @@
               <div class="cae-payment-method__head"><strong>Already use Wise?</strong><span class="cae-payment-method__label">Alternative</span></div>
               <p class="cae-payment-method__copy">Open the reusable Wise payment link. The exact invoice amount and payer authorization remain recorded by CAESTHETIC.</p>
               <button type="submit" class="cae-btn" id="wise-pay-button" data-payment-action="authorize_wise">Open Wise payment link</button>
-              <div class="cae-wise-qr">
-                <p><strong>Paying from another device?</strong><br>Scan this QR code with your phone to open the same Wise flow.</p>
-                <img src="/assets/img/wise-qr-code.png" alt="Wise payment QR code" width="800" height="800" loading="lazy">
-              </div>
+              <div class="cae-wise-qr"><p><strong>Paying from another device?</strong><br>Scan this QR code with your phone to open the same Wise flow.</p><img src="/assets/img/wise-qr-code.png" alt="Wise payment QR code" width="800" height="800" loading="lazy"></div>
             </section>
           </div>
         </form>
@@ -173,7 +150,7 @@
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok || !data.redirect_url) {
-        if (data.error === 'payment_provider_not_configured') {
+        if (['payment_provider_not_configured', 'stripe_not_configured'].includes(data.error)) {
           fail(`Payment setup is being finalized. Your order remains valid; CAESTHETIC will notify you when payment is enabled. Questions: ${contact}.`);
         } else {
           fail(`We could not continue to the payment provider. Please contact ${contact}.`);

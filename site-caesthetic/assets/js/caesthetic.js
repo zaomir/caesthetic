@@ -1,25 +1,9 @@
 /**
- * CAESTHETIC — Clinical Editorial Intelligence
- * caesthetic.js v2.0
- *
- * Modules:
- *   shell      — load header + footer templates, set year, active nav link
- *   nav        — mobile menu toggle (hamburger ↔ close)
- *   dropdown   — Solutions keyboard-accessible desktop dropdown
- *   evidence   — IntersectionObserver appear + counter animation
- *   demandMap  — stage click / keyboard interaction
- *   form       — multi-step form + legacy enquiry mailto fallback
- *
- * Motion: all transitions respect prefers-reduced-motion via CSS;
- * counter animation is skipped when reduced motion is preferred.
+ * CAESTHETIC — shared public-site behavior.
+ * caesthetic.js v2.2
  */
-
 (function () {
   "use strict";
-
-  /* ──────────────────────────────────────────────────────────────
-     UTILS
-  ────────────────────────────────────────────────────────────── */
 
   var prefersReducedMotion = window.matchMedia
     ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -28,10 +12,6 @@
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
 
-  /* ──────────────────────────────────────────────────────────────
-     SHELL: load header.html + footer.html into slots
-  ────────────────────────────────────────────────────────────── */
-
   function loadSlot(path, slot) {
     if (!slot) return Promise.resolve();
     return fetch(path, { credentials: "same-origin" })
@@ -39,23 +19,13 @@
         if (!r.ok) throw new Error("Template load failed: " + path);
         return r.text();
       })
-      .then(function (html) {
-        slot.innerHTML = html;
-      });
+      .then(function (html) { slot.innerHTML = html; });
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     YEAR
-  ────────────────────────────────────────────────────────────── */
 
   function initYear() {
     var el = document.getElementById("cae-year");
     if (el) el.textContent = String(new Date().getFullYear());
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     ACTIVE NAV STATE
-  ────────────────────────────────────────────────────────────── */
 
   function initActiveNav() {
     var page = document.documentElement.getAttribute("data-page");
@@ -67,10 +37,6 @@
       }
     });
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     MOBILE NAV TOGGLE
-  ────────────────────────────────────────────────────────────── */
 
   function initMobileNav() {
     var nav = document.getElementById("cae-nav");
@@ -85,18 +51,8 @@
       document.documentElement.classList.toggle("cae-nav-open", isOpen);
     }
 
-    btn.addEventListener("click", function () {
-      setOpen(!nav.classList.contains("is-open"));
-    });
-
-    /* Close when a leaf nav link is clicked (keep open for in-menu toggles) */
-    qsa("a", nav).forEach(function (a) {
-      a.addEventListener("click", function () {
-        setOpen(false);
-      });
-    });
-
-    /* Close on Escape */
+    btn.addEventListener("click", function () { setOpen(!nav.classList.contains("is-open")); });
+    qsa("a", nav).forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("is-open")) {
         setOpen(false);
@@ -105,37 +61,17 @@
     });
   }
 
-  /* ──────────────────────────────────────────────────────────────
-     SOLUTIONS DROPDOWN (desktop + mobile)
-  ────────────────────────────────────────────────────────────── */
-
   function initDropdowns() {
     qsa(".cae-nav__dropdown-toggle").forEach(function (toggle) {
       var controlledId = toggle.getAttribute("aria-controls");
       var panel = controlledId ? document.getElementById(controlledId) : null;
       if (!panel) return;
 
-      function openDropdown() {
-        toggle.setAttribute("aria-expanded", "true");
-        panel.classList.add("is-open");
-      }
+      function openDropdown() { toggle.setAttribute("aria-expanded", "true"); panel.classList.add("is-open"); }
+      function closeDropdown() { toggle.setAttribute("aria-expanded", "false"); panel.classList.remove("is-open"); }
+      function toggleDropdown() { toggle.getAttribute("aria-expanded") === "true" ? closeDropdown() : openDropdown(); }
 
-      function closeDropdown() {
-        toggle.setAttribute("aria-expanded", "false");
-        panel.classList.remove("is-open");
-      }
-
-      function toggleDropdown() {
-        var isOpen = toggle.getAttribute("aria-expanded") === "true";
-        if (isOpen) { closeDropdown(); } else { openDropdown(); }
-      }
-
-      toggle.addEventListener("click", function (e) {
-        e.stopPropagation();
-        toggleDropdown();
-      });
-
-      /* Keyboard: Enter/Space to open, Escape to close */
+      toggle.addEventListener("click", function (e) { e.stopPropagation(); toggleDropdown(); });
       toggle.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -149,13 +85,9 @@
           if (firstLink) firstLink.focus();
         }
       });
-
-      /* Arrow-key navigation within dropdown */
       panel.addEventListener("keydown", function (e) {
         var links = qsa(".cae-nav__dropdown-link", panel);
-        var focused = document.activeElement;
-        var idx = links.indexOf(focused);
-
+        var idx = links.indexOf(document.activeElement);
         if (e.key === "ArrowDown") {
           e.preventDefault();
           var next = links[idx + 1] || links[0];
@@ -163,38 +95,25 @@
         } else if (e.key === "ArrowUp") {
           e.preventDefault();
           var prev = links[idx - 1];
-          if (prev) { prev.focus(); } else { toggle.focus(); closeDropdown(); }
+          if (prev) prev.focus(); else { toggle.focus(); closeDropdown(); }
         } else if (e.key === "Escape") {
           closeDropdown();
           toggle.focus();
-        } else if (e.key === "Tab") {
-          closeDropdown();
-        }
+        } else if (e.key === "Tab") closeDropdown();
       });
-
-      /* Click outside to close */
       document.addEventListener("click", function (e) {
         var item = toggle.closest(".cae-nav__item");
-        if (item && !item.contains(e.target)) {
-          closeDropdown();
-        }
+        if (item && !item.contains(e.target)) closeDropdown();
       });
     });
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     EVIDENCE STRIP: IntersectionObserver appear + counter
-  ────────────────────────────────────────────────────────────── */
 
   function countUp(el, target, duration) {
     var start = performance.now();
     var isFloat = String(target).indexOf(".") !== -1;
     var decimals = isFloat ? String(target).split(".")[1].length : 0;
-
     function step(now) {
-      var elapsed = now - start;
-      var progress = Math.min(elapsed / duration, 1);
-      /* ease-out cubic */
+      var progress = Math.min((now - start) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
       var value = eased * target;
       el.textContent = isFloat ? value.toFixed(decimals) : Math.round(value).toString();
@@ -206,92 +125,57 @@
   function initEvidenceStrips() {
     var strips = qsa(".cae-evidence-strip[data-animate='true']");
     if (!strips.length || typeof IntersectionObserver === "undefined") return;
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var strip = entry.target;
-          strip.classList.add("is-visible");
-
-          /* Animate numbers if reduced motion not preferred */
-          if (!prefersReducedMotion) {
-            qsa("[data-count]", strip).forEach(function (el, i) {
-              var target = parseFloat(el.getAttribute("data-count"));
-              if (!isNaN(target)) {
-                setTimeout(function () {
-                  countUp(el, target, 800);
-                }, i * 80);
-              }
-            });
-          }
-
-          observer.unobserve(strip);
-        });
-      },
-      { threshold: 0.2 }
-    );
-
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var strip = entry.target;
+        strip.classList.add("is-visible");
+        if (!prefersReducedMotion) {
+          qsa("[data-count]", strip).forEach(function (el, i) {
+            var target = parseFloat(el.getAttribute("data-count"));
+            if (!isNaN(target)) setTimeout(function () { countUp(el, target, 800); }, i * 80);
+          });
+        }
+        observer.unobserve(strip);
+      });
+    }, { threshold: 0.2 });
     strips.forEach(function (s) { observer.observe(s); });
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     DEMAND MAP: stage click / keyboard navigation
-  ────────────────────────────────────────────────────────────── */
 
   function initDemandMaps() {
     qsa(".cae-demand-map").forEach(function (map) {
       var stages = qsa(".cae-demand-map__stage", map);
-      /* Detail panel — placed immediately after .cae-demand-map in DOM */
       var detailPanel = map.nextElementSibling;
-      if (detailPanel && !detailPanel.classList.contains("cae-demand-map__detail")) {
-        detailPanel = null;
-      }
-
+      if (detailPanel && !detailPanel.classList.contains("cae-demand-map__detail")) detailPanel = null;
       stages.forEach(function (stage) {
         stage.setAttribute("tabindex", "0");
         stage.setAttribute("role", "button");
-
         function activateStage() {
           stages.forEach(function (s) { s.classList.remove("is-active"); });
           stage.classList.add("is-active");
-
           if (detailPanel) {
             var content = stage.getAttribute("data-detail") || "";
             if (content) {
               detailPanel.innerHTML = "<p>" + content + "</p>";
               detailPanel.classList.add("is-open");
-            } else {
-              detailPanel.classList.remove("is-open");
-            }
+            } else detailPanel.classList.remove("is-open");
           }
         }
-
         stage.addEventListener("click", activateStage);
         stage.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            activateStage();
-          }
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activateStage(); }
         });
       });
     });
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     MULTI-STEP FORM
-  ────────────────────────────────────────────────────────────── */
 
   function initMultiStepForms() {
     qsa(".cae-form[data-multistep]").forEach(function (form) {
       var steps = qsa(".cae-form-step", form);
       var progressSteps = qsa(".cae-form-progress__step", form);
       var currentStep = 0;
-
       function showStep(idx) {
-        steps.forEach(function (s, i) {
-          s.classList.toggle("is-active", i === idx);
-        });
+        steps.forEach(function (s, i) { s.classList.toggle("is-active", i === idx); });
         progressSteps.forEach(function (p, i) {
           p.classList.remove("is-current", "is-done");
           if (i < idx) p.classList.add("is-done");
@@ -299,42 +183,74 @@
         });
         currentStep = idx;
       }
-
       form.addEventListener("click", function (e) {
         var next = e.target.closest("[data-step-next]");
         var prev = e.target.closest("[data-step-prev]");
-
-        if (next && currentStep < steps.length - 1) {
-          showStep(currentStep + 1);
-        }
-        if (prev && currentStep > 0) {
-          showStep(currentStep - 1);
-        }
+        if (next && currentStep < steps.length - 1) showStep(currentStep + 1);
+        if (prev && currentStep > 0) showStep(currentStep - 1);
       });
-
       showStep(0);
     });
   }
 
-  /* ──────────────────────────────────────────────────────────────
-     SINGLE-STEP LEGACY ENQUIRY FORM (Growth Score is API-only in growth.js)
-  ────────────────────────────────────────────────────────────── */
-
   function initForms() {
-    qsa(".cae-form:not([data-multistep]):not([data-cae-score-form])").forEach(function (form) {
+    qsa(".cae-form:not([data-multistep]):not([data-cae-score-form]):not([data-cae-salon-score-form])").forEach(function (form) {
       var successEl = qs(".cae-form-success", form);
       if (successEl) successEl.hidden = true;
     });
   }
 
-  /* ──────────────────────────────────────────────────────────────
-     TWO-FIELD REQUEST MODAL
-  ────────────────────────────────────────────────────────────── */
+  function initSalonScoreLaunchers() {
+    var locale = (document.documentElement.getAttribute("data-locale") || document.documentElement.lang || "en").toLowerCase().split("-")[0];
+    var copy = {
+      en: { name: "Your name", email: "Work email", practice: "Salon name", city: "City, State", submit: "Start my free Salon Growth Score", success: "Request recorded. We will reply by email.", note: "Four required fields. No revenue or budget questions before the request is recorded." },
+      es: { name: "Nombre", email: "Email de trabajo", practice: "Nombre del salón", city: "Ciudad, Estado", submit: "Iniciar mi Salon Growth Score gratis", success: "Solicitud registrada. Responderemos por email.", note: "Cuatro campos obligatorios. Sin preguntas sobre ingresos o presupuesto antes de registrar la solicitud." },
+      ru: { name: "Имя", email: "Рабочий email", practice: "Название салона", city: "Город, регион", submit: "Начать бесплатный Salon Growth Score", success: "Запрос зарегистрирован. Мы ответим по email.", note: "Четыре обязательных поля. Без вопросов о выручке или бюджете до регистрации запроса." },
+      fr: { name: "Nom", email: "E-mail professionnel", practice: "Nom du salon", city: "Ville, État / région", submit: "Commencer mon Salon Growth Score gratuit", success: "Demande enregistrée. Nous répondrons par e-mail.", note: "Quatre champs obligatoires. Aucune question sur le chiffre d’affaires ou le budget avant l’enregistrement." }
+    }[locale] || null;
+    if (!copy) copy = { name: "Your name", email: "Work email", practice: "Salon name", city: "City, State", submit: "Start my free Salon Growth Score", success: "Request recorded. We will reply by email.", note: "Four required fields. No revenue or budget questions before the request is recorded." };
+
+    qsa(".cae-salon-form.cae-request-launch").forEach(function (mount) {
+      if (mount.querySelector("[data-cae-salon-score-form]")) return;
+      mount.classList.remove("cae-request-launch");
+      mount.innerHTML =
+        '<form class="cae-form cae-form--score" data-cae-salon-score-form novalidate>' +
+          '<div data-cae-salon-required>' +
+            '<label>' + copy.name + '<input name="name" required autocomplete="name" maxlength="80"></label>' +
+            '<label>' + copy.email + '<input type="email" name="email" required autocomplete="email" inputmode="email" maxlength="120"></label>' +
+            '<label>' + copy.practice + '<input name="practice_name" required autocomplete="organization" maxlength="120"></label>' +
+            '<label>' + copy.city + '<input name="city_state" required autocomplete="address-level2" maxlength="80"></label>' +
+            '<p class="cae-form-error" data-cae-salon-form-error role="alert" hidden></p>' +
+            '<button class="cae-btn cae-btn--primary" type="submit">' + copy.submit + '</button>' +
+            '<p class="cae-disclaimer">' + copy.note + '</p>' +
+          '</div>' +
+          '<p class="cae-form-success" data-cae-salon-form-success tabindex="-1" hidden>' + copy.success + '</p>' +
+        '</form>';
+    });
+
+    qsa(".cae-salon-footer__legal").forEach(function (node) {
+      node.innerHTML = node.innerHTML
+        .replace(/\s*Resultados no garantizados\.?/gi, "")
+        .replace(/\s*Результаты не гарантируются\.?/gi, "")
+        .replace(/\s*Résultats non garantis\.?/gi, "")
+        .replace(/\s*Results are not guaranteed\.?/gi, "");
+    });
+  }
 
   function initRequestModal() {
-    var requestButtons = qsa('a[data-cae-request], button[data-cae-request], a[data-cae-sprint-inquiry], a.cae-btn[href="/growth-score/"], a.cae-btn[href="#salon-score-form"], [data-cae-score-form] button[type="submit"], [data-cae-salon-score-form] button[type="submit"], .cae-form:not([data-multistep]) button[type="submit"]');
-    var requestForms = qsa(".cae-form:not([data-multistep]), [data-cae-score-form], [data-cae-salon-score-form]");
-    if (!requestButtons.length && !requestForms.length) return;
+    var requestButtons = qsa([
+      "a[data-cae-request]",
+      "button[data-cae-request]",
+      "a[data-cae-sprint-inquiry]",
+      "button[data-cae-sprint-inquiry]",
+      "a[data-cae-check-inquiry]",
+      "button[data-cae-check-inquiry]",
+      "a[data-cae-growth-system-inquiry]",
+      "button[data-cae-growth-system-inquiry]",
+      "a[data-cae-question]",
+      "button[data-cae-question]"
+    ].join(","));
+    if (!requestButtons.length) return;
 
     var dialog = document.createElement("dialog");
     dialog.className = "cae-request-modal";
@@ -342,9 +258,9 @@
     dialog.innerHTML =
       '<div class="cae-request-modal__panel">' +
         '<button class="cae-request-modal__close" type="button" aria-label="Close request form">×</button>' +
-        '<p class="cae-kicker">Request</p>' +
+        '<p class="cae-kicker" data-cae-request-kicker>Request</p>' +
         '<h2 class="cae-h2" id="cae-request-modal-title">Leave your details</h2>' +
-        '<p class="cae-request-modal__intro">We will reply by email.</p>' +
+        '<p class="cae-request-modal__intro" data-cae-request-intro>We will reply by email.</p>' +
         '<form class="cae-request-modal__form">' +
           '<label for="cae-request-name">Name</label>' +
           '<input id="cae-request-name" name="name" type="text" autocomplete="name" required>' +
@@ -359,48 +275,48 @@
     var form = qs("form", dialog);
     var close = qs(".cae-request-modal__close", dialog);
     var status = qs(".cae-request-modal__status", dialog);
+    var kicker = qs("[data-cae-request-kicker]", dialog);
+    var title = qs("#cae-request-modal-title", dialog);
+    var intro = qs("[data-cae-request-intro]", dialog);
     var activeTrigger = null;
-    var requestIntent = "";
+    var requestIntent = "CAESTHETIC request";
+    var requestKind = "request";
+
+    function metaFor(trigger) {
+      var explicitIntent = trigger && trigger.getAttribute("data-cae-intent");
+      if (trigger && trigger.hasAttribute("data-cae-sprint-inquiry")) return { kind:"sprint", intent:explicitIntent || "30_day_growth_sprint_2500", kicker:"30-Day Growth Sprint · $2,500", title:"Request your Sprint", intro:"Name and email only. We will confirm the practice-specific scope and send the written Order and private payment instructions.", submit:"Request Sprint" };
+      if (trigger && trigger.hasAttribute("data-cae-check-inquiry")) return { kind:"check", intent:explicitIntent || "lead_to_revenue_check_500", kicker:"Lead-to-Revenue Check · $500", title:"Start the Lead-to-Revenue Check", intro:"Name and email only. We will confirm the evidence scope, written Order and private payment instructions before payment.", submit:"Request the $500 Check" };
+      if (trigger && trigger.hasAttribute("data-cae-growth-system-inquiry")) return { kind:"growth_system", intent:explicitIntent || "growth_system_inquiry", kicker:"Growth System", title:"Ask about recurring ownership", intro:"Leave your name and email. Commercial scope and economics stay client-specific.", submit:"Send Growth System request" };
+      if (trigger && trigger.hasAttribute("data-cae-question")) return { kind:"question", intent:explicitIntent || "question", kicker:"Question", title:"Ask CAESTHETIC a question", intro:"Name and email only. We will reply by email and already know which page you asked from.", submit:"Send question" };
+      return { kind:"request", intent:explicitIntent || (trigger && trigger.textContent ? trigger.textContent.trim() : "CAESTHETIC request"), kicker:"Request", title:"Leave your details", intro:"Name and email only. We will reply by email.", submit:"Send request" };
+    }
 
     function closeDialog() {
       dialog.close();
       if (activeTrigger) activeTrigger.focus();
     }
-
     function openDialog(trigger) {
       activeTrigger = trigger || null;
-      requestIntent = trigger && trigger.textContent
-        ? trigger.textContent.trim()
-        : "CAESTHETIC request";
+      var meta = metaFor(trigger);
+      requestIntent = meta.intent;
+      requestKind = meta.kind;
+      kicker.textContent = meta.kicker;
+      title.textContent = meta.title;
+      intro.textContent = meta.intro;
       status.textContent = "";
       form.reset();
       var modalSubmit = qs('button[type="submit"]', form);
       modalSubmit.disabled = false;
-      modalSubmit.textContent = "Send request";
+      modalSubmit.textContent = meta.submit;
       dialog.showModal();
       qs('input[name="name"]', form).focus();
     }
 
     close.addEventListener("click", closeDialog);
-    dialog.addEventListener("click", function (event) {
-      if (event.target === dialog) closeDialog();
-    });
-
+    dialog.addEventListener("click", function (event) { if (event.target === dialog) closeDialog(); });
     requestButtons.forEach(function (button) {
-      button.addEventListener("click", function (event) {
-        event.preventDefault();
-        openDialog(button);
-      });
+      button.addEventListener("click", function (event) { event.preventDefault(); openDialog(button); });
     });
-
-    requestForms.forEach(function (requestForm) {
-      requestForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        openDialog(qs('button[type="submit"]', requestForm));
-      }, true);
-    });
-
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var submit = qs('button[type="submit"]', form);
@@ -418,8 +334,11 @@
         body: JSON.stringify(payload)
       }).then(function (response) {
         if (!response.ok) throw new Error("request_failed");
-        status.textContent = "Request sent. We will reply by email.";
+        status.textContent = requestKind === "question" ? "Question sent. We will reply by email." : "Request sent. We will reply by email with the next commercial step.";
         submit.textContent = "Sent";
+        if (window.caestheticAnalytics && typeof window.caestheticAnalytics.track === "function") {
+          window.caestheticAnalytics.track("caesthetic_request_submitted", { request_kind: requestKind, intent: requestIntent });
+        }
       }).catch(function () {
         status.textContent = "We could not send the request. Please try again.";
         submit.disabled = false;
@@ -427,39 +346,25 @@
     });
   }
 
-  /* ──────────────────────────────────────────────────────────────
-     RATING BAR ANIMATION (on scroll into view)
-  ────────────────────────────────────────────────────────────── */
-
   function initRatingBars() {
     var blocks = qsa(".cae-rating-dist");
     if (!blocks.length || typeof IntersectionObserver === "undefined") return;
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          qsa(".cae-rating-dist__bar-fill", entry.target).forEach(function (fill) {
-            var width = fill.getAttribute("data-width") || fill.style.width;
-            if (width && !prefersReducedMotion) {
-              fill.style.width = "0";
-              /* Force reflow then animate */
-              void fill.offsetWidth;
-              fill.style.width = width;
-            }
-          });
-          observer.unobserve(entry.target);
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        qsa(".cae-rating-dist__bar-fill", entry.target).forEach(function (fill) {
+          var width = fill.getAttribute("data-width") || fill.style.width;
+          if (width && !prefersReducedMotion) {
+            fill.style.width = "0";
+            void fill.offsetWidth;
+            fill.style.width = width;
+          }
         });
-      },
-      { threshold: 0.3 }
-    );
-
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
     blocks.forEach(function (b) { observer.observe(b); });
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     SMOOTH ANCHOR SCROLL (respects prefers-reduced-motion)
-  ────────────────────────────────────────────────────────────── */
 
   function initSmoothScroll() {
     document.addEventListener("click", function (e) {
@@ -472,10 +377,6 @@
       target.focus({ preventScroll: true });
     });
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     INIT: wire everything up after shell loads
-  ────────────────────────────────────────────────────────────── */
 
   function loadAnalytics() {
     if (document.querySelector('script[data-cae-analytics], script[src$="/assets/js/analytics.js"]')) return;
@@ -499,32 +400,22 @@
     initRatingBars();
     initSmoothScroll();
     loadAnalytics();
-    if (window.caestheticGrowth && typeof window.caestheticGrowth.preserveQueryOnLinks === "function") {
-      window.caestheticGrowth.preserveQueryOnLinks();
-    }
+    if (window.caestheticGrowth && typeof window.caestheticGrowth.preserveQueryOnLinks === "function") window.caestheticGrowth.preserveQueryOnLinks();
   }
-
-  /* ──────────────────────────────────────────────────────────────
-     MOUNT: load shell templates → then init
-  ────────────────────────────────────────────────────────────── */
 
   function mount() {
     Promise.all([
       loadSlot("/templates/header.html", document.getElementById("cae-header-slot")),
-      loadSlot("/templates/footer.html",  document.getElementById("cae-footer-slot"))
-    ])
-      .then(init)
-      .catch(function (err) {
-        /* Even if template load fails, init page-level functionality */
-        console.warn("[caesthetic.js] Shell load issue:", err);
-        init();
-      });
+      loadSlot("/templates/footer.html", document.getElementById("cae-footer-slot"))
+    ]).then(init).catch(function (err) {
+      console.warn("[caesthetic.js] Shell load issue:", err);
+      init();
+    });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", mount);
-  } else {
-    mount();
-  }
+  /* Run before the deferred beauty-salons adapter binds its form. */
+  initSalonScoreLaunchers();
 
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
+  else mount();
 })();

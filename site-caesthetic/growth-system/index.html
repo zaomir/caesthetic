@@ -36,10 +36,7 @@
       }
     },
     "areaServed": "US",
-    "audience": {
-      "@type": "BusinessAudience",
-      "audienceType": "Independent aesthetic practices"
-    }
+    "audience": {"@type": "BusinessAudience", "audienceType": "Independent aesthetic practices"}
   }
   </script>
 </head>
@@ -53,8 +50,9 @@
       <p class="cae-lead">CAESTHETIC becomes the external Growth + Patient Operations desk for the acquisition, conversion, retention and patient-operations layer. The Fixed Management Fee buys operating ownership—not a bank of hours, posts, campaigns, calls or tasks—and sits inside the Growth Budget.</p>
       <div class="cae-actions">
         <a class="cae-btn cae-btn--primary" href="/growth-score/">Start with a Growth Score</a>
-        <a class="cae-btn cae-btn--outline" href="#request" data-cae-request>Ask about recurring ownership</a>
+        <button class="cae-btn cae-btn--outline" type="button" data-cae-growth-system-inquiry data-cae-intent="growth_system_inquiry">Ask about recurring ownership</button>
       </div>
+      <p class="cae-disclaimer">The inquiry asks only for Name and Email. Recurring economics remain client-specific and are confirmed in writing.</p>
     </div>
   </section>
 
@@ -92,23 +90,11 @@
     <div class="cae-wrap">
       <h2 class="cae-h2">One Growth Budget. Its parts stay visible.</h2>
       <div class="cae-allocation-model" data-cae-growth-budget-model="management-inside-budget" aria-label="Growth System commercial layers">
-        <div>
-          <span>01 · Fixed part</span>
-          <strong>Fixed Management Fee</strong>
-          <p>A client-specific line inside the Growth Budget for recurring operating ownership.</p>
-        </div>
+        <div><span>01 · Fixed part</span><strong>Fixed Management Fee</strong><p>A client-specific line inside the Growth Budget for recurring operating ownership.</p></div>
         <b aria-hidden="true">+</b>
-        <div>
-          <span>02 · Variable part</span>
-          <strong>Variable Growth Budget</strong>
-          <p>Approved media, production, software usage, experiments, specialists and other growth inputs.</p>
-        </div>
+        <div><span>02 · Variable part</span><strong>Variable Growth Budget</strong><p>Approved media, production, software usage, experiments, specialists and other growth inputs.</p></div>
         <b aria-hidden="true">=</b>
-        <div>
-          <span>03 · Signed minimum</span>
-          <strong>Committed Growth Budget</strong>
-          <p>The complete client-specific monthly growth commitment. No reusable public amount applies.</p>
-        </div>
+        <div><span>03 · Signed minimum</span><strong>Committed Growth Budget</strong><p>The complete client-specific monthly growth commitment. No reusable public amount applies.</p></div>
       </div>
       <div class="cae-performance-layer">
         <h3 class="cae-h3">Performance Fee</h3>
@@ -136,23 +122,10 @@
   </section>
 
   <section class="cae-section cae-section--soft">
-    <div class="cae-wrap cae-split">
-      <div>
-        <h2 class="cae-h2">What became better in the practice in the last 30 days because of CAESTHETIC?</h2>
-      </div>
-      <div>
-        <p>The monthly owner surface prioritizes the three most important changes, verified conversion or recovery movement, Growth Budget allocation, experiments kept or stopped, maturing work and the next three owner-relevant actions.</p>
-        <p>Unavailable metrics read “Insufficient data” or “Not yet verifiable.” Activity is never worded as achieved impact.</p>
-      </div>
-    </div>
+    <div class="cae-wrap cae-split"><div><h2 class="cae-h2">What became better in the practice in the last 30 days because of CAESTHETIC?</h2></div><div><p>The monthly owner surface prioritizes the three most important changes, verified conversion or recovery movement, Growth Budget allocation, experiments kept or stopped, maturing work and the next three owner-relevant actions.</p><p>Unavailable metrics read “Insufficient data” or “Not yet verifiable.” Activity is never worded as achieved impact.</p></div></div>
     <div class="cae-wrap">
       <h2 class="cae-h2">Shipped → Adopted → Impact → Maturing</h2>
-      <ol class="cae-lifecycle" aria-label="Initiative lifecycle">
-        <li><span>01</span><strong>Shipped</strong><small>Live artifact and acceptance evidence.</small></li>
-        <li><span>02</span><strong>Adopted</strong><small>The intended workflow is actually in use.</small></li>
-        <li><span>03</span><strong>Impact</strong><small>A verified business effect is observable.</small></li>
-        <li><span>04</span><strong>Maturing</strong><small>Stable adoption or initial impact needs an objective longer horizon.</small></li>
-      </ol>
+      <ol class="cae-lifecycle" aria-label="Initiative lifecycle"><li><span>01</span><strong>Shipped</strong><small>Live artifact and acceptance evidence.</small></li><li><span>02</span><strong>Adopted</strong><small>The intended workflow is actually in use.</small></li><li><span>03</span><strong>Impact</strong><small>A verified business effect is observable.</small></li><li><span>04</span><strong>Maturing</strong><small>Stable adoption or initial impact needs an objective longer horizon.</small></li></ol>
       <p class="cae-disclaimer">An initiative may also be blocked, stopped or reversed. “Maturing” cannot hide an unstarted backlog.</p>
     </div>
   </section>
@@ -160,12 +133,13 @@
   <section class="cae-section">
     <div class="cae-wrap cae-wrap--narrow">
       <h2 class="cae-h2">Do not buy recurring activity before the constraint is clear.</h2>
-      <p class="cae-lead">The free Growth Score diagnoses Search, Website, Social and Reputation before any recurring operating scope is proposed. If the unresolved question sits after the enquiry enters the practice, the conditional <a href="/lead-to-revenue-check/">Lead-to-Revenue Check</a> examines that authorized internal path before recurring activity is funded.</p>
+      <p class="cae-lead">The free Growth Score diagnoses Search, Website, Social and Reputation before recurring operating scope is proposed. The <a href="/lead-to-revenue-check/">Lead-to-Revenue Check · <span data-cae-check-price>$500</span></a> is also always available as a smaller paid diagnostic of the authorized post-enquiry path; choosing it does not imply that an internal problem has been diagnosed and it is never mandatory before a Sprint.</p>
       <div class="cae-actions">
         <a class="cae-btn cae-btn--primary" href="/growth-score/">Get your Growth Score</a>
+        <button class="cae-btn cae-btn--outline" type="button" data-cae-check-inquiry data-cae-intent="lead_to_revenue_check_500">Start the $500 Check</button>
         <a class="cae-btn cae-btn--outline" href="/sprint/">Review the 30-Day Sprint</a>
       </div>
-      <p class="cae-disclaimer">CAESTHETIC does not guarantee patient volume, bookings, revenue, rankings or review outcomes.</p>
+      <p class="cae-disclaimer"><button class="cae-link-button" type="button" data-cae-question data-cae-intent="growth_system_question">Ask a question</button> if you are unsure which route fits. CAESTHETIC does not guarantee patient volume, bookings, revenue, rankings or review outcomes.</p>
     </div>
   </section>
 

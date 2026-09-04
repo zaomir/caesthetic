@@ -2,43 +2,73 @@
 owner: CAESTHETIC
 status: active
 project: caesthetic
-updated: 2026-09-03
+updated: 2026-09-04
 standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
+funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 ---
 
 # SITE_MAP — CAESTHETIC
 
 | URL | Purpose | Audience intent | Primary proof | CTA | Indexing |
 |---|---|---|---|---|---|
-| `/` | Positioning and entry | Understand the offer | Four-Surface model | Get Growth Score | index |
-| `/growth-score/` | Explain public-evidence diagnosis and show examples | Evaluate method | Three labeled demos | Request Growth Score | index |
-| `/lead-to-revenue-check/` | Explain the conditional internal-path diagnostic | Resolve internal outcome uncertainty after a Growth Score | Authorized evidence boundary, eight-stage path and fixed commercial terms | Request Check scope | index |
+| `/` | Positioning and entry | Understand the offer | Four-Surface model | Free Growth Score; $500 Check; $2,500 Sprint | index |
+| `/growth-score/` | Explain public-evidence diagnosis, show examples and accept the free request | Evaluate method / start diagnosis | Three labeled demos + dedicated four-field intake | Start free Growth Score | index |
+| `/lead-to-revenue-check/` | Explain the always-available smaller paid internal-path diagnostic | Start smaller before implementation or inspect post-enquiry uncertainty | Authorized evidence boundary, eight-stage path and fixed commercial terms | Start $500 Check | index |
 | `/audit/` · `/audits/` · `/multi-location-growth-score/` | Synonym compatibility aliases | Reach the canonical audit product | Canonical handoff | Continue to `/growth-score/` | noindex |
-| `/sprint/` | Explain finite implementation | Evaluate paid next step | Scope and fixed pricing | Request scope and payment instructions | index |
-| `/growth-system/` | Explain recurring operating ownership | Evaluate optional ongoing work | Growth Budget parts, minimum scope and evidence maturity | Discuss Growth System | index |
-| `/pricing/` | Compare the public product ladder | Understand commercial model | Generated public-stage pricing and client-specific recurring boundaries | Choose a stage | index |
-| `/beauty-salons/` | English beauty-salon vertical | Diagnose salon growth constraints | Salon demand route and synthetic evidence ledger | Request Salon Growth Score | index |
-| `/es/salones-de-belleza/` | Spanish beauty-salon vertical | Diagnose salon growth constraints in Spanish | Same localized salon decision system | Request Salon Growth Score | index |
-| `/ru/salony-krasoty/` | Russian beauty-salon vertical | Diagnose salon growth constraints in Russian | Same localized salon decision system | Request Salon Growth Score | index |
-| `/fr/salons-de-beaute/` | French beauty-salon vertical | Diagnose salon growth constraints in French | Same localized salon decision system | Request Salon Growth Score | index |
+| `/sprint/` | Explain finite implementation | Evaluate or request the paid implementation step | Scope and fixed pricing | Request Sprint · $2,500; start smaller with $500 Check | index |
+| `/growth-system/` | Explain recurring operating ownership | Evaluate optional ongoing work | Evidence/adoption/impact operating loop | Ask about Growth System | index |
+| `/pricing/` | Compare the public product ladder and optional tripwire | Understand commercial model | Generated public-stage pricing and client-specific recurring boundaries | Choose Score / Check / Sprint / System | index |
+| `/beauty-salons/` | English beauty-salon vertical | Diagnose salon growth constraints | Salon demand route and synthetic evidence ledger | Start four-field Salon Growth Score | index |
+| `/es/salones-de-belleza/` | Spanish beauty-salon vertical | Diagnose salon growth constraints in Spanish | Same localized salon decision system | Start four-field Salon Growth Score | index |
+| `/ru/salony-krasoty/` | Russian beauty-salon vertical | Diagnose salon growth constraints in Russian | Same localized salon decision system | Start four-field Salon Growth Score | index |
+| `/fr/salons-de-beaute/` | French beauty-salon vertical | Diagnose salon growth constraints in French | Same localized salon decision system | Start four-field Salon Growth Score | index |
 | `/about/` | Public identity and legal operator | Understand the operating model | Entity details and evidence standard | Start with Growth Score | index |
-| `/outreach/` | Verify any approved CAESTHETIC portfolio email | Confirm sender domain, campaign role, evidence boundary and portfolio-wide opt-out | Five-domain registry, Four Surfaces, legal operator and suppression controls | Review Growth Score or unsubscribe | noindex |
-| `/support/` | Customer support and safe-contact guidance | Resolve a service, billing, privacy or technical question | Verified support address and legal entity | Email customer support | index |
+| `/outreach/` | Verify any approved CAESTHETIC portfolio email | Confirm sender domain, campaign role, evidence boundary and portfolio-wide opt-out | Five-domain registry, Four Surfaces, legal operator and suppression controls | Review Growth Score or verify sender / unsubscribe | noindex |
+| `/support/` | Customer support and safe-contact guidance | Resolve a service, billing, privacy or technical question | Verified support address and legal entity | Ask a Question (Name + Email) or direct email | index |
 | `/privacy/` | Compatibility alias for external merchant profiles | Reach the canonical Privacy Policy | Canonical redirect to `/legal/privacy/` | Continue to policy | noindex |
 | `/terms/` | Compatibility alias for external merchant profiles | Reach the canonical Terms of Use | Canonical redirect to `/legal/terms/` | Continue to terms | noindex |
-| `/legal/cookies/` | Disclose measurement state | Understand tracking | Conditional analytics and no replay | Contact | index |
-| `/score/` | Safe project catalog | Inspect publishable examples | Synthetic or explicitly approved public cases only | Request Growth Score | noindex |
-| `/score/demo-medical-aesthetics-search-gap/` | Demonstrate the full written score structure | Inspect report structure | Synthetic evidence ledger | View all demos | noindex |
-| `/score/demo-injector-practice-booking-friction/` | Demonstrate insufficient evidence | Inspect publication threshold | Synthetic evidence ledger | View all demos | noindex |
-| `/score/demo-aesthetics-clinic-reputation-gap/` | Demonstrate safe reputation diagnosis | Inspect review policy | Synthetic evidence ledger | View all demos | noindex |
+| `/legal/cookies/` | Disclose measurement state | Understand tracking | Conditional analytics and no replay | Support / footer routes | index |
+| `/pay/` | Private payment shell | Pay a written Order | Order/invoice/token + payer authorization | Stripe ACH or Wise only with valid private token | noindex |
+| `/score/` | Safe project catalog | Inspect publishable examples | Synthetic or explicitly approved public cases only | Open report / Free Growth Score | noindex |
+| `/score/demo-medical-aesthetics-search-gap/` | Demonstrate the full written score structure | Inspect report structure | Synthetic evidence ledger | Sprint + $500 Check + Question decision block | noindex |
+| `/score/demo-injector-practice-booking-friction/` | Demonstrate insufficient evidence | Inspect publication threshold | Synthetic evidence ledger | Sprint + $500 Check + Question decision block | noindex |
+| `/score/demo-aesthetics-clinic-reputation-gap/` | Demonstrate safe reputation diagnosis | Inspect review policy | Synthetic evidence ledger | Sprint + $500 Check + Question decision block | noindex |
 
 ## Internal linking
 
-- `/` links to `/growth-score/` and `/growth-system/`; primary navigation remains focused on the aesthetic-practice funnel. The Lead-to-Revenue Check stays a conditional branch rather than a fourth mandatory stage.
+- `/` sends the primary acquisition path directly to the dedicated `/growth-score/` intake. The $500 Check is always available as a smaller paid tripwire and the $2,500 Sprint remains the implementation product.
+- The primary header stays focused on Growth Score, Sprint, Growth System, Pricing, About and Support. Case Studies remain direct-accessible but hidden from primary navigation while the catalog is still being populated.
+- The global footer exposes Free Growth Score, Lead-to-Revenue Check · $500, 30-Day Growth Sprint · $2,500, Growth System and an `Ask a question` escape hatch.
+- `/growth-score/` contains the dedicated four-field form (`Name`, `Work email`, `Practice name`, `City, State`). No generic popup precedes it.
+- `/lead-to-revenue-check/` is always accessible by customer choice. A Growth Score may separately *recommend* it only when the approved reason and supporting evidence satisfy the Check authority.
+- `/sprint/` and `/pricing/` expose the $500 Check as a smaller optional paid route rather than a mandatory gateway.
+- A standalone or Multi-Location parent Growth Score final decision area shows Sprint + $500 Check + Question. If the Check is evidence-backed recommended, it may receive visual priority; otherwise Sprint normally remains primary.
+- A Multi-Location focus child does not create its own commercial decision and returns to the network parent.
 - `/outreach/` is outside primary navigation. It is reached from the five approved sender-domain entries, the global footer or direct verification links and hands the visitor into canonical product/legal routes.
-- The global footer links the isolated `/beauty-salons/` vertical; each salon locale links all four locale routes directly.
-- `/growth-score/` links to every demo, the safe `/score/` catalog, the request form and the conditional `/lead-to-revenue-check/` branch. `/pricing/` links to every public product stage and conditional diagnostic.
-- Every demo links back to the demo index. `/score/`, demos and all real report routes stay out of the sitemap.
+- The global footer links the isolated `/beauty-salons/` vertical; each salon locale links all four locale routes directly and uses the same four-field Score intake contract.
+- Every demo links back to the demo index. `/score/`, demos and all real report routes stay out of the public sitemap.
+
+## Public form contract
+
+| Funnel | Visible named controls before payment |
+|---|---:|
+| Free Growth Score | 4 |
+| Salon Growth Score | 4 |
+| Sprint request | 2 |
+| Lead-to-Revenue Check request | 2 |
+| Growth System inquiry | 2 |
+| Ask a Question | 2 |
+| Private payment payer authorization | 4 |
+
+No pre-payment form may exceed four named controls. Delivery/access questions belong after the commercial step is confirmed and, where appropriate, after payment.
+
+## Payment routing
+
+The public site does not contain a reusable Stripe/Wise checkout URL. Paid products follow:
+
+`commercial request → written scope / signed Order → private /pay/?token=… → payer authorization → configured provider`
+
+Stripe ACH is the recommended US-bank route where configured; Wise is the alternate provider rail. An eligible completed $500 Check may receive the one-time $500 credit toward the next $2,500 Sprint, leaving a $2,000 balance; written Order/backend state determines eligibility.
 
 ## Sender portfolio contract
 

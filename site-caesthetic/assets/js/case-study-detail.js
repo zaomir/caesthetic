@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  var initialAuditNav = document.querySelector('[data-audit-nav]');
+  if (initialAuditNav && initialAuditNav.hidden) initialAuditNav.style.display = 'none';
+
   var goalLabels = {
     bookings: 'More bookings',
     conversion: 'Better conversion',
@@ -71,12 +74,20 @@
   }
 
   function renderLinkedAudit(item) {
-    var audit = item.linkedAudit;
-    if (!audit || audit.accessLevel === 'internal_only') return;
-
     var section = document.querySelector('[data-audit-section]');
     var nav = document.querySelector('[data-audit-nav]');
     var link = document.querySelector('[data-audit-link]');
+    var audit = item.linkedAudit;
+
+    if (!audit || audit.accessLevel === 'internal_only') {
+      if (nav) {
+        nav.hidden = true;
+        nav.style.display = 'none';
+      }
+      if (section) section.hidden = true;
+      return;
+    }
+
     var redaction = audit.redaction || {};
     var checksComplete = redaction.identifiersRemoved === true && redaction.patientDataRemoved === true &&
       redaction.linksReviewed === true && redaction.screenshotsReviewed === true && redaction.metadataRemoved === true;
@@ -85,6 +96,7 @@
 
     section.hidden = false;
     nav.hidden = false;
+    nav.style.removeProperty('display');
     setText('[data-audit-title]', audit.title || 'Anonymized source audit');
     setText('[data-audit-access]', audit.accessLevel === 'request_nda' ? 'Extended copy available by request / NDA' : 'Anonymized public copy');
     setText('[data-audit-meta]', [audit.pageCount ? audit.pageCount + ' pages' : '', audit.reviewedDate ? 'Reviewed ' + audit.reviewedDate : ''].filter(Boolean).join(' · ') || 'Review status pending');

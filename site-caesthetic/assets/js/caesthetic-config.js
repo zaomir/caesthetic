@@ -17,8 +17,9 @@ window.CAESTHETIC = {
   scoreTurnaround: "",
   contactEmail: "info@caesthetic.com",
   billingEmail: "info@caesthetic.com",
-  /* Signed Order -> private CAESTHETIC payment request -> Wise execution rail.
-     No reusable Wise/Stripe payment URL is stored in public runtime. */
+  /* Signed Order -> private CAESTHETIC payment request -> configured provider.
+     Stripe ACH is the recommended US-bank route and Wise is the alternative.
+     No reusable Stripe/Wise checkout URL is stored in public runtime. */
   approvedSprintPaymentPolicy: "signed_order_then_controlled_payment_request",
   phoneDisplay: "",
   phoneE164: "",
@@ -47,6 +48,43 @@ window.CAESTHETIC = {
   }
 
   const src = "/assets/js/point-of-contact.js";
+  if (!document.querySelector(`script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+})();
+
+/* Every rendered Growth Score gets the current funnel adapter, including reports
+   generated before the adapter existed. build:caesthetic still injects the same
+   script explicitly into newly generated report HTML; this loader is the runtime
+   compatibility layer and prevents old client reports from drifting. */
+(() => {
+  if (document.documentElement.getAttribute("data-page") !== "growth-score-report") return;
+  const src = "/assets/js/growth-report-funnel.js";
+  if (document.querySelector(`script[src="${src}"]`)) return;
+  const script = document.createElement("script");
+  script.src = src;
+  script.async = false;
+  document.head.appendChild(script);
+})();
+
+/* Localized Beauty Salon shells use a separate footer/copy surface. */
+(() => {
+  const salonPrefixes = [
+    "/beauty-salons",
+    "/es/salones-de-belleza",
+    "/ru/salony-krasoty",
+    "/fr/salons-de-beaute",
+  ];
+  const isSalonRoute = salonPrefixes.some((prefix) =>
+    location.pathname === prefix ||
+    location.pathname === `${prefix}/` ||
+    location.pathname.startsWith(`${prefix}/`)
+  );
+  if (!isSalonRoute) return;
+  const src = "/assets/js/salon-funnel-copy.js";
   if (!document.querySelector(`script[src="${src}"]`)) {
     const script = document.createElement("script");
     script.src = src;
