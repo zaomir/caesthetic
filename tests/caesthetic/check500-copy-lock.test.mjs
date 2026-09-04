@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import test from "node:test";
@@ -16,6 +17,9 @@ const siteContract = read("site-caesthetic/README.md");
 
 const COPY_ID = "check500-section/en-US/1.0.0";
 const PLACEMENT_ID = "check500-two-placement/1.0.0";
+const STYLE_ID = "check500-style/1.0.0";
+const STYLE_PATH = "docs/ssot/assets/caesthetic/check500-section-style-v1.png";
+const STYLE_SHA256 = "1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375";
 const LOCKED_FIELDS = [
   "- **H2:** `Do all your enquiries make it to a booking?`",
   "- **Product line:** `Lead-to-Revenue Check · $500`",
@@ -63,4 +67,27 @@ test("canon requires two always-visible Check500 placements without inventing an
   assert.match(master, /does not itself prove an internal leak/i);
   assert.match(reportStandard, /may not hide, delay, reorder or suppress either one/i);
   assert.match(reportSpec, /"recommendation": "not_recommended"/);
+});
+
+test("Check500 visual style is hash-locked and inherited by shared website and report contracts", () => {
+  const image = readFileSync(resolve(REPO, STYLE_PATH));
+  const sha256 = createHash("sha256").update(image).digest("hex");
+
+  assert.equal(sha256, STYLE_SHA256);
+  assert.equal(image.readUInt32BE(16), 1536);
+  assert.equal(image.readUInt32BE(20), 1024);
+  assert.match(check, new RegExp(`style_contract: ${STYLE_ID.replaceAll("/", "\\/")}`));
+  assert.ok(check.includes(`style_reference: ${STYLE_PATH}`));
+  assert.ok(check.includes(`style_reference_sha256: ${STYLE_SHA256}`));
+
+  for (const [name, source] of [
+    ["master", master],
+    ["client report standard", reportStandard],
+    ["detailed report spec", reportSpec],
+    ["production SOP", productionSop],
+    ["Journey Graph profile", journeyProfile],
+    ["website contract", siteContract],
+  ]) {
+    assert.ok(source.includes(STYLE_ID), `${name} must reference ${STYLE_ID}`);
+  }
 });

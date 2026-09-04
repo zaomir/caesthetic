@@ -1,12 +1,15 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.5
+version: 1.6
 created: 2026-09-02
 updated: 2026-09-04
 scope: canonical commercial and evidence contract for the CAESTHETIC Lead-to-Revenue Check
 copy_contract: check500-section/en-US/1.0.0
 placement_contract: check500-two-placement/1.0.0
+style_contract: check500-style/1.0.0
+style_reference: docs/ssot/assets/caesthetic/check500-section-style-v1.png
+style_reference_sha256: 1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375
 commercial_parent: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/CAESTHETIC.md
 related:
@@ -151,6 +154,27 @@ This is an exact copy lock:
 
 The section's question and phrase `may be getting lost` identify what the Check will examine; they do not state that a leak exists.
 
+### 7.1 Canonical visual style
+
+Style contract ID: **`check500-style/1.0.0`**.
+
+The approved reference raster is `docs/ssot/assets/caesthetic/check500-section-style-v1.png`, SHA-256 `1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375`, dimensions `1536×1024`. The hash identifies the exact owner-approved style reference. It is not the runtime copy source and must not replace accessible semantic HTML/CSS; the text lock above remains authoritative for every character, including the middle dot `·`.
+
+The visual language is locked as follows:
+
+- warm ivory `#F0EDE6` field with a very subtle tactile paper grain, no photograph and no decorative scene;
+- centered editorial composition with generous negative space and thin deep-navy horizontal rules at the top and bottom;
+- one small burgundy circular accent centered in the upper rule and one short burgundy rule between the H2 and product line;
+- oversized high-contrast deep-navy editorial serif H2, centered and allowed to wrap naturally to two lines on desktop;
+- bold deep-navy sans-serif product line, readable centered body copy in a narrower measure, and no additional labels or icons;
+- one wide centered burgundy `#7B244B` CTA with high-contrast white sans-serif text and restrained corners;
+- fine print centered immediately below the CTA in smaller deep-navy sans-serif text, clearly readable and visually subordinate;
+- no gradients, shadows, floating card shell, glass effects, stock photography, medical imagery, extra illustrations, browser chrome, badges, labels, extra copy or generic SaaS decoration.
+
+Responsive implementations preserve the same hierarchy and calm spacing. On mobile, the H2 and body reflow without shrinking below readable sizes, the CTA may become full-width inside the content gutter, the rules remain thin, and the fine print remains visible. The middle and final report placements use this same visual family; the final alternative-start instance remains one hierarchy step below the preceding primary Sprint offer without changing the locked Check500 copy.
+
+Any replacement of the reference PNG or material change to its palette, hierarchy, composition, typography relationship or decoration rules requires an explicit canon update, a new SHA-256 and a new style-contract version.
+
 ## 8. Public website and report-routing contract
 
 - Canonical indexable product route: `/lead-to-revenue-check/`.
@@ -169,4 +193,4 @@ This file is the specific active pricing/evidence/recommendation authority for t
 
 As of **2026-09-04**, this file supersedes subordinate rules that render the Check only once, hide it until self-selection, make it mutually exclusive with the Sprint CTA, automatically select it from passive behavior, or permit a Multi-Location focus child to duplicate the parent's commercial sections.
 
-Any later change to the fixed `$500` price, two-placement rule, Sprint credit rule, product role or `check500-section/en-US/1.0.0` wording requires an explicit canon update and a new contract version.
+Any later change to the fixed `$500` price, two-placement rule, Sprint credit rule, product role, `check500-section/en-US/1.0.0` wording or `check500-style/1.0.0` visual language requires an explicit canon update and a new contract version.

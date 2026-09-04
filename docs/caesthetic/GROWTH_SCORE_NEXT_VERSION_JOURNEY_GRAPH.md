@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active_implementation_profile
-version: 1.6
+version: 1.7
 updated: 2026-09-04
 scope: canonical Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics, Broken Connections Map and Lead-to-Revenue visual branch
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
@@ -248,7 +248,7 @@ In Free Growth Score, stages remain gray unless valid internal evidence exists. 
 
 If an upstream stage is red, downstream stages do not automatically become red; they remain gray if they were not reached/assessed. A factual no-response/drop-off observation does not by itself justify a causal diagnosis about staff, CRM, training or capacity.
 
-The active specific authority requires exactly two always-visible **`check500-two-placement/1.0.0`** sections on every approved single-location report and each Multi-Location parent: one immediately after the post-enquiry explanation or Lead-to-Revenue Map, and one at the end immediately after the primary `$2,500` Sprint offer as a smaller optional first engagement. A focus child renders neither. Both derive from **`check500-section/en-US/1.0.0`** or its approved locale lock. If the Check continues directly into the next qualifying CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited toward the $2,500 Sprint total. Visibility or interest does not change the map: it remains gray in an outside-in Growth Score and makes no enquiry, booking, patient, revenue, ROI or internal-cause claim without the required evidence.
+The active specific authority requires exactly two always-visible **`check500-two-placement/1.0.0`** sections on every approved single-location report and each Multi-Location parent: one immediately after the post-enquiry explanation or Lead-to-Revenue Map, and one at the end immediately after the primary `$2,500` Sprint offer as a smaller optional first engagement. A focus child renders neither. Both derive from **`check500-section/en-US/1.0.0`** or its approved locale lock and share **`check500-style/1.0.0`**. If the Check continues directly into the next qualifying CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited toward the $2,500 Sprint total. Visibility or interest does not change the map: it remains gray in an outside-in Growth Score and makes no enquiry, booking, patient, revenue, ROI or internal-cause claim without the required evidence.
 
 ## 10. Human review boundary
 

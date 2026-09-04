@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.3.6
+version: 5.3.7
 updated: 2026-09-04
 scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, five derived decision views, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
@@ -67,7 +67,7 @@ New reports start with `vertical_context: "unresolved"` and must resolve it befo
 
 `report_locale` may localize headings, surface display labels, explanatory copy and walkthrough narration. Canonical machine IDs, metric IDs, source URLs and source identifiers remain unchanged. Original evidence language and source text remain preserved; a translated or paraphrased evidence excerpt is labelled as a CAESTHETIC translation/paraphrase where needed. Translation may not change verified facts, evidence references, scores, binding constraint, Focus Gaps or Do Not Fund Yet. If a regulated or clinical term is uncertain, retain the source term beside cautious translated wording and do not invent a medical claim.
 
-The practice identity block may show the resolved type/context when useful, but never as a separate brand or product. Treatment/service examples and implementation-task nouns follow the resolved vertical while retaining the same task schema. Competitor Cards use the resolved comparable market. Any optional Sprint CTA remains the same CAESTHETIC 30-Day Growth Sprint, not a vertical-specific commercial product. The two `check500-two-placement/1.0.0` roles remain shared across verticals and locales; translations adapt wording, never placement, commercial meaning or evidence boundaries.
+The practice identity block may show the resolved type/context when useful, but never as a separate brand or product. Treatment/service examples and implementation-task nouns follow the resolved vertical while retaining the same task schema. Competitor Cards use the resolved comparable market. Any optional Sprint CTA remains the same CAESTHETIC 30-Day Growth Sprint, not a vertical-specific commercial product. The two `check500-two-placement/1.0.0` roles and `check500-style/1.0.0` visual language remain shared across verticals and locales; translations adapt wording, never placement, commercial meaning, evidence boundaries or the core visual hierarchy.
 
 Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the unnumbered Intro plus nine-section cockpit order, the funnel or pricing. One approved fact set and human judgment remain the source of truth across every localized presentation; do not create 3 × 5 copies of the template.
 
@@ -568,7 +568,8 @@ immediately after the post-enquiry explanation or Lead-to-Revenue Map, and the s
 in `next-step` immediately after the primary `$2,500` Sprint offer as a smaller optional
 first engagement. An absent or `not_recommended` state suppresses only a case-specific
 recommendation claim; it does not remove either placement. Report data does not create
-a second copy or price source. A Multi-Location focus child renders neither section.
+a second copy, price or style source. Both placements use `check500-style/1.0.0`; a
+Multi-Location focus child renders neither section.
 
 
 #### 6.0.1 Multi-Location authoring profile

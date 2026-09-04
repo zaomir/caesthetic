@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.5
+version: 2.6
 updated: 2026-09-04
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -193,6 +193,8 @@ The Check500 path is fail-closed for copy, evidence and placement. New authoring
 
 The locale-neutral `check500-two-placement/1.0.0` contract has two roles: middle context after the post-enquiry boundary, and a smaller optional first engagement immediately after the primary Sprint offer at the end. Every language version renders both sections, translates their meanings naturally and may not label the person as doubtful, afraid, confused, unqualified or unwilling to pay.
 
+Both placements inherit `check500-style/1.0.0`: warm ivory paper texture, centered editorial hierarchy, deep-navy serif H2, deep-navy sans-serif supporting copy, thin navy rules, restrained burgundy accents and one wide burgundy CTA. The final placement uses the same family but remains one hierarchy step below the preceding primary Sprint offer. The hash-locked reference and responsive/no-decoration rules live in `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md` §7.1.
+
 Page behavior may measure engagement with each placement, but it may not hide, delay, reorder or suppress either one. The UI must not automatically redirect, open checkout, change the approved diagnosis or interrupt a person who selects the Sprint. Behavior events must remain non-PII.
 
 ## 4. Client-visible human attribution and walkthrough separation
@@ -314,6 +316,7 @@ Approved visual grammar:
 - warm background `#F0EDE6`;
 - navy `#0B2438`;
 - burgundy signal/accent `#7B244B`;
+- both Check500 placements follow `check500-style/1.0.0` and its hash-locked reference rather than inventing a separate card treatment;
 - green/amber/red/gray reserved for diagnostic state, with text/icon duplication so color is never the only signal;
 - Source Serif 4 / IBM Plex family pairing;
 - content width approximately `1120px`;
