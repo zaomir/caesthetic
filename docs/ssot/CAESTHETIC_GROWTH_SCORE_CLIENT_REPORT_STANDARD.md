@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.3
+version: 2.4
 updated: 2026-09-04
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 parent: docs/ssot/CAESTHETIC.md
@@ -72,7 +72,7 @@ Canonical contract:
 - exactly **1 Primary Gap + 2 Supporting Gaps**;
 - no tenth report section;
 - no fifth surface;
-- one primary evidence-backed implementation CTA at most, plus the one universal Check500 section on a single-location report or Multi-Location parent; a Multi-Location focus child has navigation only.
+- one primary evidence-backed implementation CTA at most, plus exactly two always-visible Check500 placements on a single-location report or Multi-Location parent; a Multi-Location focus child has navigation only.
 
 The nine sections are exactly:
 
@@ -149,7 +149,7 @@ The first four views render by progressive disclosure inside `gap-map`, after th
 
 `Lead Intake` is a **boundary node**, not a fifth surface. In the Free Growth Score it is gray / `NOT ASSESSED` unless valid evidence exists for a specific observable public enquiry-path fact.
 
-The lower-page **Lead-to-Revenue Map** is the canonical internal-conversion visual branch. It uses the stages:
+The mid-report **Lead-to-Revenue Map** is the canonical internal-conversion visual branch. It uses the stages:
 
 `LEAD RECEIVED → RESPONSE → QUALIFICATION → BOOKING → CONFIRMATION → SHOW → CONSULTATION → PAYMENT`.
 
@@ -164,9 +164,13 @@ State system:
 
 A red upstream stage does **not** automatically make downstream stages red. Downstream stages remain gray when they were not reached or assessed. The map must not infer a weak receptionist, broken CRM, poor training or other internal cause from a no-response or drop-off fact alone.
 
-In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. The active specific pricing, recommendation and copy authority is `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`: every approved single-location report and every approved Multi-Location parent renders the exact **`check500-section/en-US/1.0.0`** section. The focus-location child does not duplicate it. The section states the current `$500` price and direct-continuation credit toward the next qualifying `$2,500` Sprint; it is not a results promise, refund balance or automatic upsell.
+In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. The active specific pricing, placement and copy authority is `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`. The first Check500 section appears immediately after this post-enquiry explanation or map. It states what the `$500` Check can examine and the direct-continuation credit toward the next qualifying `$2,500` Sprint; it is not a results promise, refund balance or automatic upsell.
 
-The standard Check500 section is fail-closed for copy and placement. New single-location authoring and Multi-Location parent authoring must contain `leadToRevenueCheck.recommendation = "recommended"`; the renderer supplies the locked copy instead of accepting case-specific paraphrases. The universal recommendation may use the canonical policy rationale with no evidence reference alleging an internal defect. Any case-specific diagnostic statement still requires approved evidence references and named-human approval. The section does not replace a separate evidence-backed Sprint CTA because Check verification and Sprint implementation answer different decisions.
+The Check500 path is fail-closed for copy, evidence and placement. New authoring must not mark it `recommended` merely because the outside-in report cannot assess the internal path. Any case-specific recommendation or diagnostic statement requires approved evidence references and named-human approval. An absent or `not_recommended` report recommendation suppresses the recommendation claim, but it removes neither of the two standard placements. The Check never blocks or replaces a separate evidence-backed Sprint CTA because uncertainty reduction and implementation answer different decisions.
+
+The locale-neutral `check500-two-placement/1.0.0` contract has two roles: middle context after the post-enquiry boundary, and a smaller optional first engagement immediately after the primary Sprint offer at the end. Every language version renders both sections, translates their meanings naturally and may not label the person as doubtful, afraid, confused, unqualified or unwilling to pay.
+
+Page behavior may measure engagement with each placement, but it may not hide, delay, reorder or suppress either one. The UI must not automatically redirect, open checkout, change the approved diagnosis or interrupt a person who selects the Sprint. Behavior events must remain non-PII.
 
 ## 4. Client-visible human attribution and walkthrough separation
 
@@ -277,9 +281,9 @@ Presentation rules:
 - long implementation and evidence content uses progressive disclosure / accordions where appropriate;
 - evidence tables must remain readable and use contained horizontal overflow rather than causing body overflow;
 - the body must not horizontally overflow at the production mobile acceptance width;
-- the primary implementation CTA and the universal Check500 section appear late, after the owner has seen the diagnosis, competitor evidence and system synthesis; both resolve through section 9 `next-step`;
+- the first Check500 section appears in the middle immediately after the Lead-to-Revenue Map; the second appears at the end immediately after the primary Sprint offer and remains visually secondary;
 - do not duplicate Sprint CTAs across sections;
-- do not duplicate the Check500 section across sections or in a Multi-Location focus child;
+- do not create a third Check500 section or any Check500 section in a Multi-Location focus child;
 - a sticky CTA may be used only late in the report when it does not interrupt reading; disable it on mobile when it degrades the decision flow.
 
 Approved visual grammar:
@@ -308,9 +312,9 @@ The final client-facing visual sequence is canonical even though it is composed 
 3. **Broken Connections Map + derived decision views.** Show technical and semantic route integrity between the four surfaces and Lead Intake from the canonical Journey Graph; do not require a complete 4×4 mesh. Then present the four unscored treatment/provider/trust/friction views from the existing evidence only.
 4. **Top 3 leaks.** Exactly one Primary + two Supporting. Primary is open by default; Supporting are collapsed by default. Closed state already states the problem and owner consequence. Expanded state includes `What we found`, `Why it matters`, `What it affects`, `Evidence`, and the repair path/DIY detail at the next disclosure level.
 5. **Competitive decision.** Lead with why a patient/client may choose another practice, then expose the deeper comparison matrix. End with `Defend / Close / Differentiate / Do not copy`.
-6. **Final system synthesis.** After evidence and competitors, before the commercial decision, state whether the findings represent isolated issues or one connected patient-decision system. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
-7. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The CAESTHETIC option is the 30-Day Growth Sprint at the canonical `$2,500` price. Any retail-equivalent comparison must pass §9.1.
-8. **Lead-to-Revenue Map.** Lower-page internal-conversion visual showing what is and is not assessed after enquiry. It is a boundary/diagnostic branch, not a fifth surface or automatic upsell.
+6. **Thirty-day fit + Lead-to-Revenue boundary.** Explain what can realistically change in 30 days, then show the internal-conversion map and the first contextual Check500 section. The map shows what is and is not assessed after enquiry; it is a boundary/diagnostic branch, not a fifth surface or proof of a leak.
+7. **Final system synthesis.** State whether the findings represent isolated issues or one connected patient-decision system. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
+8. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The primary CAESTHETIC option is the 30-Day Growth Sprint at the canonical `$2,500` price. Immediately after it, show the second Check500 section as a smaller optional first engagement. Any retail-equivalent comparison must pass §9.1.
 9. **What happens next + founder note.** Show a branching continuation rather than a forced ladder, then close with a short real-founder note. Valerie Petra may be shown only in a truthful approved role; no fabricated biography or handwritten signature.
 
 ### 8.2 Mapping to the immutable nine-section machine contract
@@ -319,13 +323,13 @@ The visual sequence above does not reorder or add machine sections:
 
 - `gap-map` contains owner-first hero, Hero Client Journey Map, Four-Surface snapshot, Broken Connections Map, Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain and categorical Patient Friction Index;
 - `focus-gaps` contains the Top 3 Focus Gaps;
-- `sprint-fit` explains whether the verified Primary/Supporting work is suitable for a 30-day finite implementation without claiming purchase or results;
+- `sprint-fit` explains whether the verified Primary/Supporting work is suitable for a 30-day finite implementation without claiming purchase or results, then contains the Lead-to-Revenue Map and the first contextual `check500-two-placement/1.0.0` section;
 - `repair-paths` contains complete DIY/implementation paths and coordination burden;
 - `do-not-fund` contains the canonical one `Do Not Fund Yet` decision and the separate unscored human-approved `Do Not Promote Yet by Treatment` view;
 - `gap-inventory` contains the exhaustive inventory; an earlier compact summary/link may point to it but does not replace it;
 - `evidence-and-competitors` contains evidence drill-down, Journey Graph edge details and Competitive Decision Analysis;
 - `scores-and-methodology` keeps scores/methodology secondary;
-- `next-step` begins with the final system synthesis, may restate the Do Not Fund decision compactly, then presents implementation choices, the Lead-to-Revenue Map, the one universal `check500-section/en-US/1.0.0`, and at most one separate evidence-backed implementation CTA; a Multi-Location focus child has navigation back to its parent and no commercial section or CTA.
+- `next-step` begins with the final system synthesis, may restate the Do Not Fund decision compactly, then presents implementation choices and the primary evidence-backed Sprint action. The second `check500-two-placement/1.0.0` section follows immediately as the smaller optional first engagement. A Multi-Location focus child has navigation back to its parent and no commercial section or CTA.
 
 This mapping is the authoritative way to preserve both the owner-story order and the schema-v5 machine contract.
 
@@ -443,7 +447,7 @@ There is no aggregate Network Score, average branch score, network-wide revenue 
 
 The Lead-to-Revenue Map remains gray/not assessed for the network and each branch under the public-only Free Growth Score unless separately permitted internal evidence exists. A public observation cannot be converted into a receptionist, CRM, staffing, training, conversion or revenue diagnosis.
 
-The package has one network-level Check500 section on the parent and may also have at most one evidence-backed implementation CTA there. The focus child replaces all commercial sections and CTAs with navigation back to the parent's implementation decision. The child may not create a second scope, second Top 3 or second commercial funnel.
+The package has exactly two network-level Check500 placements on the parent and may also have at most one evidence-backed implementation CTA there. The focus child replaces all commercial sections and CTAs with navigation back to the parent's implementation decision. The child may not create a second scope, second Top 3 or second commercial funnel.
 
 Before publication, the internal `publication_approval` card must be `approved`, match the report's named-human reviewer, focus location and ordered Top 3, and confirm `public_sources_only=true`. The reviewer identity and timestamp remain outside client-facing HTML under §4.
 
@@ -505,8 +509,8 @@ The owner keeps the delivered report, evidence pack, task plan and completed out
 
 The client-facing continuation is a decision tree, not an automatic sales ladder:
 
-- after every approved Growth Score → the standard Lead-to-Revenue Check is recommended to verify the separately authorized internal path; buying it remains optional and the recommendation does not prove a leak;
-- if the outside-in external constraint is verified and finite → optional 30-Day Growth Sprint;
+- if the outside-in external constraint is verified and finite and the owner is ready → optional 30-Day Growth Sprint;
+- at both standard report placements, the owner may choose the optional Lead-to-Revenue Check at `$500` to understand the post-enquiry path or begin with a smaller engagement;
 - after Day 30, if the constraint is resolved → the client may take the system and stop;
 - if a new/remaining finite verified constraint exists → optional Sprint 2 / Extension at `$2,500`;
 - if recurring ownership is justified → optional Growth System under client-specific terms.
@@ -539,7 +543,7 @@ Acceptance requires:
 1. canonical renderer validation and deterministic render-drift check;
 2. exact Intro + nine numbered sections;
 3. exactly one Primary + two Supporting Focus Gaps;
-4. at most one late evidence-backed implementation CTA plus exactly one late `check500-section/en-US/1.0.0` on a single-location report or Multi-Location parent; a focus child has neither;
+4. at most one late evidence-backed implementation CTA plus exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent; the first follows the post-enquiry map and the second follows the primary Sprint offer; a focus child has neither;
 5. source-level absence of client-visible reviewer/selector attribution and embedded walkthrough card/URL;
 6. Four Surfaces unchanged; Cross-Surface remains separate; Lead Intake/internal conversion is not rendered as a fifth surface;
 7. for new authoring: one reviewed `journeyGraph` artifact, both deterministic public views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
@@ -547,7 +551,7 @@ Acceptance requires:
 9. Hero uses client-logo provenance/fallback rules, adaptive four-slot assignment and no invented success journey;
 10. Hero uses the exact canonical title and composition, colors each segment from its own edge, and shows no false green Social/Reviews → Lead Intake relationship;
 11. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow, shares the exact edge IDs/states, omits optional unassessed relationships and retains detailed evidence drill-down later;
-12. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis; the universal Check500 section matches the exact copy contract, does not claim a leak and does not replace a separate evidence-backed Sprint CTA;
+12. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis; both Check placements match their copy/placement contracts, remain visible without behavior gating, do not claim a leak and do not replace a separate evidence-backed Sprint CTA;
 13. internal review anchors `1101–1109` are absent from final approved client source;
 14. mobile and desktop smoke with no body overflow and usable graph/evidence drill-down;
 15. privacy/noindex/sitemap gates;
@@ -575,7 +579,7 @@ Do not:
 - hide DIY instructions to manufacture sales dependence;
 - invent retail implementation prices, savings, ROI, patients or revenue;
 - use fake scarcity, fake countdowns or implied price increases;
-- suppress, paraphrase or contradict `check500-section/en-US/1.0.0`, turn its `$500` price/credit rule into a guaranteed-outcome claim, or treat the universal recommendation as evidence of an internal leak;
+- omit either Check500 placement, add a third placement, hide or reorder one from behavior, label the person as doubtful or afraid, automatically route them to the Check, paraphrase `check500-section/en-US/1.0.0`, turn its `$500` price/credit rule into a guaranteed-outcome claim, or treat Check interest as evidence of an internal leak;
 - publish a universal recurring fee that is not in current pricing/SSOT authority;
 - translate or localize in a way that changes evidence or the approved diagnosis.
 

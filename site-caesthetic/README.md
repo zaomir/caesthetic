@@ -39,7 +39,7 @@ Every approved `site-caesthetic/score/**/report.json` is discovered automaticall
 
 `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md` owns the single English copy source `check500-section/en-US/1.0.0`. Every relevant website surface that renders a full Check500 offer section must use its exact H2, product line, body, CTA and fine print in the locked order. Compact navigation, footer, comparison-table and legal references may use the canonical product label without repeating the full section.
 
-Every approved single-location Growth Score renders the same section. Every approved Multi-Location Growth Score renders it once on the network parent; the focus-location child remains navigation-only. The universal recommendation is not evidence that an internal leak exists, and it does not displace a separate evidence-backed Sprint action.
+Every approved single-location Growth Score and every approved Multi-Location parent renders exactly two always-visible `check500-two-placement/1.0.0` sections: one immediately after the post-enquiry explanation or Lead-to-Revenue Map, and one at the end immediately after the primary `$2,500` Sprint offer as a smaller optional first engagement. The focus-location child remains navigation-only. Behavior may measure engagement but may not hide, delay, reorder or suppress either section. Visibility or interest is not evidence that an internal leak exists, and the Check does not displace a separate evidence-backed Sprint action.
 
 ## Sender-domain web behavior
 

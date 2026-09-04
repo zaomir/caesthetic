@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.3.4
+version: 5.3.5
 updated: 2026-09-04
 scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, five derived decision views, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
@@ -66,7 +66,7 @@ New reports start with `vertical_context: "unresolved"` and must resolve it befo
 
 `report_locale` may localize headings, surface display labels, explanatory copy and walkthrough narration. Canonical machine IDs, metric IDs, source URLs and source identifiers remain unchanged. Original evidence language and source text remain preserved; a translated or paraphrased evidence excerpt is labelled as a CAESTHETIC translation/paraphrase where needed. Translation may not change verified facts, evidence references, scores, binding constraint, Focus Gaps or Do Not Fund Yet. If a regulated or clinical term is uncertain, retain the source term beside cautious translated wording and do not invent a medical claim.
 
-The practice identity block may show the resolved type/context when useful, but never as a separate brand or product. Treatment/service examples and implementation-task nouns follow the resolved vertical while retaining the same task schema. Competitor Cards use the resolved comparable market. Any optional Sprint CTA remains the same CAESTHETIC 30-Day Growth Sprint, not a vertical-specific commercial product. The universal Check500 section remains the shared CAESTHETIC contract and is never rewritten per vertical.
+The practice identity block may show the resolved type/context when useful, but never as a separate brand or product. Treatment/service examples and implementation-task nouns follow the resolved vertical while retaining the same task schema. Competitor Cards use the resolved comparable market. Any optional Sprint CTA remains the same CAESTHETIC 30-Day Growth Sprint, not a vertical-specific commercial product. The two `check500-two-placement/1.0.0` roles remain shared across verticals and locales; translations adapt wording, never placement, commercial meaning or evidence boundaries.
 
 Neither context field changes scoring weights, metric IDs, coverage, evidence classes, the unnumbered Intro plus nine-section cockpit order, the funnel or pricing. One approved fact set and human judgment remain the source of truth across every localized presentation; do not create 3 × 5 copies of the template.
 
@@ -547,25 +547,27 @@ growth_score_spec.md
 
 There is no other metric catalogue, scoring authority or renderer authority. A case builder may adapt verified case data and locale, but it cannot redefine the schema-v5 decision model or section order.
 
-New single-location and Multi-Location parent authoring starts with the universal
-`leadToRevenueCheck` recommendation:
+New single-location and Multi-Location parent authoring does not manufacture a
+`leadToRevenueCheck` recommendation merely because the internal path is unassessed.
+The absent/default state may be represented as:
 
 ```json
 {
-  "recommendation": "recommended",
-  "reason": "The outside-in Growth Score does not assess the authorized internal lead-to-revenue path.",
+  "recommendation": "not_recommended",
+  "reason": "No case-specific evidence-backed recommendation has been approved.",
   "evidence_refs": []
 }
 ```
 
-The universal recommendation is policy, not a finding, so the canonical policy reason
-does not require an evidence reference alleging an internal problem. Any case-specific
-diagnostic statement still requires one or more approved evidence references and the
-normal named-human approval. The renderer supplies the exact
-`check500-section/en-US/1.0.0` wording from
-`docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`; report data does not create a second
-copy or price source. A Multi-Location focus child cannot carry a `recommended`
-decision because the network parent owns the package's one Check500 section.
+Any case-specific recommendation or diagnostic statement requires one or more approved
+evidence references and the normal named-human approval. Independent of that report
+state, every single-location report and Multi-Location parent renders exactly two
+always-visible `check500-two-placement/1.0.0` sections: the first in `sprint-fit`
+immediately after the post-enquiry explanation or Lead-to-Revenue Map, and the second
+in `next-step` immediately after the primary `$2,500` Sprint offer as a smaller optional
+first engagement. An absent or `not_recommended` state suppresses only a case-specific
+recommendation claim; it does not remove either placement. Report data does not create
+a second copy or price source. A Multi-Location focus child renders neither section.
 
 
 #### 6.0.1 Multi-Location authoring profile
@@ -604,13 +606,13 @@ The Intro appears immediately before `gap-map` and is not assigned a cockpit num
 
 1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, immutable approved `Where Clients Are Gained - and Lost` PNG, Four-Surface snapshot, Journey-Graph-driven Broken Connections Map, Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct.
 2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and exactly two Supporting gaps, visibly identified as human-approved, with rationale and binding-constraint link; selector identity stays in the internal audit trail.
-3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope.
+3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope. After the post-enquiry explanation or Lead-to-Revenue Map, it renders the first contextual Check500 section.
 4. **Repair Paths** (`repair-paths`) — complete DIY-capable remediation plans for every selected gap: outcome, steps, dependencies, accountable role and observable `done_when`. A `start_in_30_days` item separates Day-30 outcome from beyond-Day-30 work.
 5. **Do Not Fund Yet** (`do-not-fund`) — exactly one named-human-approved global recommendation, its evidence-backed rationale and explicit conditions for revisiting it, plus the separate unscored human-approved `Do Not Promote Yet by Treatment` view.
 6. **Full Gap Inventory** (`gap-inventory`) — every reviewed gap, including unselected, backlog and `insufficient_evidence` items, with stable evidence and Repair Plan links.
 7. **Evidence and competitors** (`evidence-and-competitors`) — metric evidence, collection dates, Class A/B state, limitations, comparison matrix, competitor cards and Competitive Decision Analysis where applicable. Paid Ads remain a Demand Layer, not a fifth surface.
 8. **Scores and methodology** (`scores-and-methodology`) — Search, Website, Social and Reputation with 30/25/15/30 heuristic display weights; Cross-Surface remains separate; Overall appears only with sufficient coverage. Sources, windows, unavailable evidence, Class A ratio and methodology/limitations are disclosed here.
-9. **Next step** (`next-step`) — all four implementation paths: in-house, another provider, defer or a separately scoped CAESTHETIC engagement. It includes the honest `Why CAESTHETIC / Why the 30-Day Sprint` coordination rationale, client ownership/no-lock-in language, at most one optional evidence-backed Sprint CTA, and the one universal Check500 section without implying purchased scope, an internal leak or guaranteed results.
+9. **Next step** (`next-step`) — all four implementation paths: in-house, another provider, defer or a separately scoped CAESTHETIC engagement. It includes the honest `Why CAESTHETIC / Why the 30-Day Sprint` coordination rationale, client ownership/no-lock-in language and at most one optional evidence-backed Sprint CTA. Immediately after that primary Sprint offer, it renders the second Check500 section as a smaller optional first engagement, without implying purchased scope, an internal leak or guaranteed results.
 
 The consolidation preserves every decision layer from v5.1: executive diagnosis moves into Gap Map; remediation stays in Repair Paths and Sprint Fit; the score navigator and methodology remain together; evidence and competitor detail remain together; and implementation paths plus the honest CAESTHETIC coordination case remain in Next step. No evidence, diagnosis, remediation, implementation or methodology content may be dropped merely because the cockpit has fewer counted sections.
 
@@ -731,6 +733,6 @@ Growth Score is not complete until production tests prove all of the following:
 - render-drift check against generated report artifacts.
 - exact Hero title/composition; four surface statuses; gray `LEAD INTAKE · NOT ASSESSED`; same-artifact edge IDs/states in Hero and Broken Connections Map; no optional-unassessed edge and no false green Social/Reviews → Lead Intake;
 - mobile Hero primary-route composition and vertical Lead-to-Revenue pipeline with no body overflow;
-- the exact universal `check500-section/en-US/1.0.0`, including its direct-continuation Sprint credit rule, with all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
+- exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent, using the `check500-section/en-US/1.0.0` source lock and its direct-continuation Sprint credit rule, with the middle section after the post-enquiry map, the final section after the primary Sprint offer, all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
 
 Any legacy scorer may remain only as a thin CLI/import wrapper around the one production scoring authority. Two independent metric catalogues or scoring implementations are forbidden.

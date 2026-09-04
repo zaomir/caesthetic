@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.1
+version: 3.2
 created: 2026-08-30
 updated: 2026-09-04
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
@@ -407,9 +407,9 @@ Then render exactly nine counted sections in this order:
 8. Scores and methodology (`scores-and-methodology`);
 9. Next step (`next-step`).
 
-The nine sections preserve the full v5 decision package: diagnosis, executive context and the four derived treatment/provider/trust/friction views live in Gap Map; the unscored `Do Not Promote Yet by Treatment` view lives with the global decision in Do Not Fund Yet; complete remediation stays in Sprint Fit and Repair Paths; evidence, competitors, scores and limitations retain their dedicated combined sections; and Next step carries all four implementation paths, honest `Why CAESTHETIC / Why the 30-Day Sprint`, client ownership/no lock-in, at most one evidence-backed implementation CTA and the exact universal `check500-section/en-US/1.0.0`. The derived views add no source, surface, weight, score, automatic constraint/Top 3 selection or automatic promotion decision.
+The nine sections preserve the full v5 decision package: diagnosis, executive context and the four derived treatment/provider/trust/friction views live in Gap Map; the unscored `Do Not Promote Yet by Treatment` view lives with the global decision in Do Not Fund Yet; complete remediation stays in Sprint Fit and Repair Paths; evidence, competitors, scores and limitations retain their dedicated combined sections. Sprint Fit contains the post-enquiry explanation or Lead-to-Revenue Map followed by the first contextual Check500 section. Next step carries all four implementation paths, honest `Why CAESTHETIC / Why the 30-Day Sprint`, client ownership/no lock-in, at most one evidence-backed implementation CTA and the second Check500 section immediately after the primary Sprint offer. Both derive from `check500-section/en-US/1.0.0`. The derived views add no source, surface, weight, score, automatic constraint/Top 3 selection or automatic promotion decision.
 
-The page shows the exactly three human-approved highest-risk Focus Gaps first. Scores remain secondary, `/100` is absent from the hero, and there is at most one evidence-backed Sprint CTA plus the one standard Check500 section. The Check recommendation is universal policy, not proof of an internal leak.
+The page shows the exactly three human-approved highest-risk Focus Gaps first. Scores remain secondary, `/100` is absent from the hero, and there is at most one evidence-backed Sprint CTA plus exactly two always-visible `check500-two-placement/1.0.0` sections. Their standard visibility is product presentation, not proof of an internal leak or a case-specific recommendation.
 
 ### 11.2 Multi-Location Growth Score
 
@@ -460,7 +460,7 @@ The parent does not merge every location into one graph. In section 1 it renders
 
 The parent renders its exact approved Top 3 once in section 2 as compact decision cards. Client-visible card summaries show scope, affected-location count, pilot, observed surface/journey, why the issue matters, reachable result, accountable ownership, public baseline and Day-30 public check. Evidence IDs, dependencies, sprint detail and implementation instructions remain available under native progressive disclosure. Section 3 converts those same priorities into Days 1–10, 11–20, 21–30 and a Day-30 protect/iterate/scale decision. Section 4 shows HQ/local/shared responsibility and rollout gates. Section 6 may surface approved replication candidates. Section 8 makes the public-evidence boundary explicit. Section 9 asks the CMO to approve pilot, owners and scale gate. The first four locations are visible; larger registries and matrices retain additional rows under native disclosure. Raw package states and evidence references remain unchanged and auditable.
 
-A selected gap must affect the focus location directly or through a shared asset used by it. Other branch-only gaps remain below in the Full Network Gap Inventory. The package parent has the one universal Check500 section and may have at most one separate evidence-backed implementation CTA; the child has navigation back to the parent implementation decision and no commercial section or CTA.
+A selected gap must affect the focus location directly or through a shared asset used by it. Other branch-only gaps remain below in the Full Network Gap Inventory. The package parent has exactly two always-visible `check500-two-placement/1.0.0` sections and may have at most one separate evidence-backed implementation CTA: the first Check follows the post-enquiry explanation or map, and the second follows the primary Sprint offer. The child has navigation back to the parent implementation decision and no commercial section or CTA.
 
 ## 12. Password, privacy and access group
 
@@ -656,7 +656,7 @@ An audit is deliverable only when all are true:
 - internal location comparison appears once, before the Top 3, while external competitor and technical evidence remain progressive disclosures in section 7;
 - the Top 3 appears once as decision cards with complete detail available under native disclosure;
 - focus-child navigation clearly returns to the parent network analysis and the parent implementation decision;
-- the package exposes the exact universal `check500-section/en-US/1.0.0` and at most one evidence-backed implementation CTA on the parent, with navigation-only return on the child;
+- the package exposes exactly two always-visible `check500-two-placement/1.0.0` sections derived from `check500-section/en-US/1.0.0` and at most one evidence-backed implementation CTA on the parent, with navigation-only return on the child;
 - no aggregate Network Score, average location score, revenue inference or best/worst-business label is shown;
 - protected routes, common password session and robots controls pass QA;
 - walkthrough uses only approved content;
