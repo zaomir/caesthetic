@@ -1,0 +1,90 @@
+name: Record Expert E-sign Deploy Evidence
+
+on:
+  workflow_run:
+    workflows: ['Deploy Expert E-sign Test']
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: record-expert-esign-deploy
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Probe protected public surface
+        id: probe
+        shell: bash
+        run: |
+          set +e
+          html_code=$(curl -LsS -o /tmp/expert-esign.html -w '%{http_code}' --max-time 20 https://clinic.raimovdental.com/esign/)
+          health_code=$(curl -LsS -o /tmp/expert-esign-health.json -w '%{http_code}' --max-time 20 https://clinic.raimovdental.com/esign/healthz)
+          marker=false
+          health_ok=false
+          if [ "$html_code" = 200 ] && grep -Fq 'Expert Dental' /tmp/expert-esign.html; then marker=true; fi
+          if [ "$health_code" = 200 ]; then
+            python3 - <<'PY' >/tmp/health-ok 2>/dev/null
+          import json
+          h=json.load(open('/tmp/expert-esign-health.json'))
+          assert h.get('ok') is True
+          assert h.get('tundukIntegration') == 'DEFERRED_INTEGRATION_GATE'
+          assert h.get('applicationMode') == 'test'
+          assert h.get('outboundDeliveryEnabled') is False
+          assert h.get('deployedSha')
+          print('true')
+          PY
+            test "$(cat /tmp/health-ok 2>/dev/null)" = true && health_ok=true
+          fi
+          echo "html_code=$html_code" >> "$GITHUB_OUTPUT"
+          echo "health_code=$health_code" >> "$GITHUB_OUTPUT"
+          echo "marker=$marker" >> "$GITHUB_OUTPUT"
+          echo "health_ok=$health_ok" >> "$GITHUB_OUTPUT"
+          exit 0
+      - name: Write audit evidence
+        env:
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          HTML_CODE: ${{ steps.probe.outputs.html_code }}
+          HEALTH_CODE: ${{ steps.probe.outputs.health_code }}
+          MARKER: ${{ steps.probe.outputs.marker }}
+          HEALTH_OK: ${{ steps.probe.outputs.health_ok }}
+        run: |
+          mkdir -p docs/audits/expert-esign
+          cat > docs/audits/expert-esign/LAST_RUN.md <<EOF
+          # Expert E-sign TEST — last deployment evidence
+
+          - source_sha: \`${SOURCE_SHA}\`
+          - deploy_workflow_conclusion: \`${CONCLUSION}\`
+          - workflow_run: ${RUN_URL}
+          - recorded_at_utc: \`$(date -u +%Y-%m-%dT%H:%M:%SZ)\`
+          - public_url: \`https://clinic.raimovdental.com/esign/\`
+          - html_http: \`${HTML_CODE}\`
+          - health_http: \`${HEALTH_CODE}\`
+          - expected_marker: \`${MARKER}\`
+          - health_contract_ok: \`${HEALTH_OK}\`
+          - runtime_mode: \`SYNTHETIC_TEST_ONLY\`
+          - real_patient_use: \`BLOCKED_PENDING_MEDICAL_PRIVACY_LICENSE_CREDENTIAL_PROVIDER_RETENTION_PILOT_GATES\`
+          - legal_baseline: \`COUNSEL_APPROVED_OWNER_CONFIRMED\`
+          - templates: \`NO_IN_USE_FORMS\`
+          - tunduk_oep: \`DEFERRED_INTEGRATION_GATE\`
+          - waha_pairing: \`HUMAN_CONTROLLED_STEP_REQUIRED\`
+          - external_timestamp: \`RFC3161_TECHNICAL_EVIDENCE_NOT_QUALIFIED_PATIENT_SIGNATURE\`
+          EOF
+      - name: Commit evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/audits/expert-esign/LAST_RUN.md
+          git commit -m 'docs(expert-esign): record protected deploy evidence [skip ci]' || exit 0
+          # Rebase only after the generated evidence is committed; pulling with
+          # an unstaged LAST_RUN.md makes Git fail before it can record the run.
+          git pull --rebase origin main
+          git push origin HEAD:main
