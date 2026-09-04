@@ -525,23 +525,82 @@ html[data-page="growth-score-report"] {
 /* Stop card */
 .cae-score-report--mobile-story .cae-report-do-not-do {
   position: relative;
+  display: grid;
+  gap: 0;
   overflow: hidden;
-  padding: 1.35rem 1.25rem 1.35rem 1.5rem;
+  padding: clamp(1.5rem, 5vw, 2rem);
   border: 1px solid rgba(159, 47, 67, 0.25);
   border-left: 6px solid var(--cae-mobile-danger);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.74);
+  background: var(--cae-mobile-card-strong);
+  box-shadow: var(--cae-mobile-shadow);
+  color: var(--cae-mobile-ink);
 }
 
 .cae-score-report--mobile-story .cae-report-do-not-do::before {
   display: block;
-  margin-bottom: 0.75rem;
+  margin: 0 0 0.75rem;
   color: var(--cae-mobile-danger);
   content: "STOP";
   font-family: var(--cae-font-mono);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.12em;
+}
+
+.cae-score-report--mobile-story .cae-report-do-not-do > .cae-kicker {
+  margin: 0 0 0.85rem;
+  color: var(--cae-mobile-danger);
+  font-weight: 700;
+}
+
+.cae-score-report--mobile-story .cae-report-do-not-do > .cae-h2 {
+  max-width: 20ch;
+  margin: 0 0 1.5rem;
+  color: var(--cae-mobile-ink);
+  font-size: clamp(2rem, 7vw, 3.15rem);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.cae-score-report--mobile-story .cae-report-do-not-do > p:not(.cae-kicker),
+.cae-score-report--mobile-story .cae-report-do-not-do > small {
+  margin: 0;
+  color: var(--cae-mobile-muted);
+  font-size: clamp(1rem, 2.4vw, 1.125rem);
+  line-height: 1.55;
+}
+
+.cae-score-report--mobile-story .cae-report-do-not-do > p:nth-of-type(3) {
+  margin-top: 1.5rem;
+  color: var(--cae-mobile-ink);
+}
+
+.cae-score-report--mobile-story .cae-report-do-not-do > p:nth-of-type(3) strong {
+  color: var(--cae-mobile-danger);
+  font-family: var(--cae-font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cae-score-report--mobile-story .cae-report-do-not-do > ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  color: var(--cae-mobile-ink);
+  list-style: none;
+}
+
+.cae-score-report--mobile-story .cae-report-do-not-do > ul > li {
+  margin: 0;
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  border-top: 1px solid rgba(11, 36, 56, 0.12);
+  color: var(--cae-mobile-ink);
+  font-size: clamp(1rem, 2.4vw, 1.125rem);
+  line-height: 1.45;
+  text-indent: -1.5rem;
 }
 
 html[lang="ru"] .cae-score-report--mobile-story .cae-report-do-not-do::before {
@@ -855,6 +914,56 @@ html[lang="ru"] .cae-score-report--mobile-story .cae-report-do-not-do::before {
   .cae-mobile-repair-list { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
   .cae-mobile-repair > summary { min-height: 150px; }
   .cae-mobile-repair__body { padding-left: 1rem; }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do {
+    grid-template-columns: minmax(0, 1.35fr) minmax(19rem, 0.65fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+    column-gap: clamp(3rem, 7vw, 6rem);
+    padding: clamp(2.25rem, 4.5vw, 4rem);
+  }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do::before {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do > .cae-kicker {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do > .cae-h2 {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: start;
+    margin-bottom: 0;
+    font-size: clamp(2.35rem, 4.2vw, 4rem);
+  }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do > p:nth-of-type(2),
+  .cae-score-report--mobile-story .cae-report-do-not-do > p:nth-of-type(3),
+  .cae-score-report--mobile-story .cae-report-do-not-do > ul {
+    grid-column: 2;
+    padding-left: clamp(1.5rem, 2.5vw, 2.25rem);
+    border-left: 1px solid rgba(11, 36, 56, 0.16);
+  }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do > p:nth-of-type(2) {
+    grid-row: 1;
+    padding-top: 0.1rem;
+  }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do > p:nth-of-type(3) {
+    grid-row: 2;
+    margin-top: 1.35rem;
+  }
+
+  .cae-score-report--mobile-story .cae-report-do-not-do > ul {
+    grid-row: 3;
+    align-content: start;
+    margin-top: 0;
+    padding-top: 0.8rem;
+  }
 
   .cae-score-report--mobile-story .cae-report-score-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cae-mobile-paths { grid-template-columns: repeat(4, minmax(0, 1fr)); }

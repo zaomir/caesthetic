@@ -118,3 +118,26 @@ test("report keeps typography and spacing directives", () => {
   assert.match(css, /cae-report-market-gap[\s\S]*padding:\s*clamp/);
   assert.doesNotMatch(report, /Evidence:\s*(?:website|social|search|reputation)\./i);
 });
+
+test("Do Not Fund card keeps readable contrast and uses the wide layout intentionally", () => {
+  assert.match(
+    mobileCss,
+    /\.cae-report-do-not-do\s*\{[\s\S]*?background:\s*var\(--cae-mobile-card-strong\);[\s\S]*?color:\s*var\(--cae-mobile-ink\);/,
+  );
+  assert.match(
+    mobileCss,
+    /\.cae-report-do-not-do\s*>\s*\.cae-kicker\s*\{[\s\S]*?color:\s*var\(--cae-mobile-danger\);/,
+  );
+  assert.match(
+    mobileCss,
+    /\.cae-report-do-not-do\s*>\s*p:not\(\.cae-kicker\)[\s\S]*?color:\s*var\(--cae-mobile-muted\);/,
+  );
+  assert.match(
+    mobileCss,
+    /@media \(min-width:\s*900px\)[\s\S]*?\.cae-report-do-not-do\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0,\s*1\.35fr\)\s*minmax\(19rem,\s*0\.65fr\);/,
+  );
+  assert.match(
+    mobileCss,
+    /\.cae-report-do-not-do\s*>\s*ul\s*>\s*li\s*\{[\s\S]*?color:\s*var\(--cae-mobile-ink\);/,
+  );
+});
