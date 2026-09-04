@@ -25,7 +25,7 @@ Read in order:
 
 ## Connect4 explanation
 
-For Connect4 concept, “How we work” copy, diagrams or Case Studies method explanation, read `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` after the master. Keep confirmed semantics separate from proposed visual layouts and copy; generated previews are not automatically approved assets. Update this concept SSOT rather than creating competing explanation canons.
+For Connect4 concept, “How we work” copy, diagrams or Case Studies method explanation, read `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` after the master. Keep confirmed semantics separate from proposed visual layouts and copy; generated previews are not automatically approved assets. The explicitly approved desktop journey image is `docs/ssot/assets/caesthetic/connect4-patient-journey-v1.png`, governed by concept SSOT §9.1 (SHA-256 `229821d3ef70194dedd278fff76841e1cea671148e8e06807177d9f26781b180`); preserve that exact original and distinguish it from the locked report visual below. Update this concept SSOT rather than creating competing explanation canons.
 
 ## Invariants
 - `Connect4` is the exact public program name. `4444` and `Четверки` remain internal aliases for the same CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation. All new or revised public copy and visuals use Connect4; existing internal identifiers, paths and historical records stay stable. Naming authority: `docs/ssot/CAESTHETIC.md` §2.
