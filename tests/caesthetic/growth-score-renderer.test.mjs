@@ -16,6 +16,13 @@ const demoRoutes = [
   "demo-injector-practice-booking-friction",
   "demo-aesthetics-clinic-reputation-gap",
 ];
+const cataloguedRoutes = [
+  ...demoRoutes,
+  "demo-multi-location-growth-score",
+  "demo-multi-location-growth-score/focus-location",
+  "demo-publish-control-plane-network",
+  "demo-publish-control-plane-network/focus-location",
+];
 const orderedSections = [
   "gap-map",
   "focus-gaps",
@@ -187,6 +194,16 @@ test("demo HTML is exact output of the reportKind-independent renderer", () => {
     assert.equal(html, renderGrowthReport(report));
     assert.match(html, /href="\/assets\/css\/growth-report\.css"/);
     assert.doesNotMatch(html, /href="\/assets\/css\/growth\.css"/);
+  }
+});
+
+test("all local links on the seven catalogued reports resolve to an element", () => {
+  for (const route of cataloguedRoutes) {
+    const html = fs.readFileSync(path.join(root, "site-caesthetic/score", route, "index.html"), "utf8");
+    const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
+    const fragments = [...html.matchAll(/\bhref="#([^"]+)"/g)].map((match) => match[1]);
+    const dead = fragments.filter((fragment) => !ids.has(fragment));
+    assert.deepEqual(dead, [], `${route} has dead fragment links: ${dead.join(", ")}`);
   }
 });
 

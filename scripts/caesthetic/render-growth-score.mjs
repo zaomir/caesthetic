@@ -506,6 +506,10 @@ function inventoryFilter(gap, focus) {
   return "monitor";
 }
 
+function gapAnchorId(gap, focus) {
+  return `${isSelectedForRepair(gap.id, focus) ? "gap" : "inventory"}-${gap.id}`;
+}
+
 function gapMapHtml(gaps, focus) {
   return `
         <ol class="cae-gap-map" aria-label="Gap Map">
@@ -513,7 +517,7 @@ ${gaps.map((gap) => {
     const marker = gapMarkerKind(gap, focus);
     const surfaces = gap.surfaces.map((surface) => surfaceLabels[surface] || surface).join(", ");
     return `          <li>
-            <a class="cae-gap-map__mark cae-gap-map__mark--${marker.kind}" href="#gap-${escapeHtml(gap.id)}" aria-label="${escapeHtml(marker.label)}: ${escapeHtml(gap.title)}. Surface ${escapeHtml(surfaces)}. Journey ${escapeHtml(gap.journey_stage)}.">
+            <a class="cae-gap-map__mark cae-gap-map__mark--${marker.kind}" href="#${escapeHtml(gapAnchorId(gap, focus))}" aria-label="${escapeHtml(marker.label)}: ${escapeHtml(gap.title)}. Surface ${escapeHtml(surfaces)}. Journey ${escapeHtml(gap.journey_stage)}.">
               <span class="cae-gap-map__symbol" aria-hidden="true">${escapeHtml(marker.mark)}</span>
               <span class="cae-gap-map__copy">
                 <strong>${escapeHtml(gap.title)}</strong>
@@ -614,7 +618,7 @@ function sprintFitHtml(gaps, focus) {
   const start = selected.filter((gap) => gap.sprint_fit.mode === "start_in_30_days");
   const backlog = gaps.filter((gap) => !isSelectedForRepair(gap.id, focus));
   const row = (items, empty) => items.length
-    ? `<ul>${items.map((gap) => `<li><a href="#gap-${escapeHtml(gap.id)}">${escapeHtml(gap.title)}</a></li>`).join("")}</ul>`
+    ? `<ul>${items.map((gap) => `<li><a href="#${escapeHtml(gapAnchorId(gap, focus))}">${escapeHtml(gap.title)}</a></li>`).join("")}</ul>`
     : `<p class="cae-report-note">${empty}</p>`;
   return `
         <div class="cae-sprint-fit">
@@ -1068,7 +1072,9 @@ function isMultiLocationFocusChild(report) {
 }
 
 function reportCommercialLinkAttrs(report, kind) {
-  if (["pilot", "localized_client"].includes(report.presentation?.kind)) {
+  const localizedWithoutBrief = report.presentation?.kind === "localized_client"
+    && !isOwnerBriefLayout(report);
+  if (report.presentation?.kind === "pilot" || localizedWithoutBrief) {
     return `href="/${kind === "check" ? "lead-to-revenue-check" : "sprint"}/"`;
   }
   return `href="#request" data-cae-${kind}-inquiry`;
@@ -1172,7 +1178,7 @@ function plainCheck500Html(report, placement) {
     <h2 class="cae-report-subhead">${escapeHtml(copy.title || check.title)}</h2>
     <p class="cae-owner-check500__product">${escapeHtml(check.product_line)}</p>
     <p>${escapeHtml(copy.body || check.body)}</p>
-    <a class="cae-btn cae-btn--outline" href="/lead-to-revenue-check/">${escapeHtml(copy.cta || check.cta)}</a>
+    <a class="cae-btn cae-btn--outline" ${reportCommercialLinkAttrs(report, "check")}>${escapeHtml(copy.cta || check.cta)}</a>
     <p class="cae-report-note">${escapeHtml(check.fine_print)}</p>
     <p class="cae-report-note">${escapeHtml(check.boundary)}</p>
   </article>`;
@@ -1208,10 +1214,11 @@ function plainCommercialNextStepHtml(report) {
       ${offer.client_input ? `<p><strong>${escapeHtml(ui.sprint_client_input_label)}:</strong> ${escapeHtml(offer.client_input)}</p>` : ""}
       ${offer.acceptance ? `<p><strong>${escapeHtml(ui.sprint_acceptance_label)}:</strong> ${escapeHtml(offer.acceptance)}</p>` : ""}
       ${offer.boundary ? `<p class="cae-report-note">${escapeHtml(offer.boundary)}</p>` : ""}
-      <a class="cae-btn cae-btn--primary" href="/sprint/">${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
+      <a class="cae-btn cae-btn--primary" ${reportCommercialLinkAttrs(report, "sprint")}>${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
     </article>
     ${isBrief ? `<p class="cae-owner-check500-intro"><strong>${escapeHtml(report.presentation.owner_copy?.check500?.final?.kicker || "С чего начать")}:</strong> ${escapeHtml(report.presentation.owner_copy?.check500?.final_intro || "Проверку за $500 можно заказать отдельно. При переходе к следующему подходящему спринту эти $500 засчитываются в общую стоимость $2,500.")}</p>` : ""}
-    ${plainCheck500Html(report, "final")}`;
+    ${plainCheck500Html(report, "final")}
+    <button class="cae-btn cae-btn--ghost" type="button" data-cae-question data-cae-intent="growth_score_report_question">Задать вопрос</button>`;
 }
 
 function leadToRevenueMapHtml(report) {
@@ -1231,6 +1238,7 @@ function commercialNextStepHtml(report) {
         <p>Sprint scope is confirmed separately in writing. No Focus Gap or DIY step is included until that written scope exists.</p>
         <a class="cae-btn cae-btn--primary" ${reportCommercialLinkAttrs(report, "sprint")}>Start the 30-Day Growth Sprint</a>
         ${check500SectionHtml(report, "final_alternative")}
+        ${report.reportContext?.report_locale === "ru" || ["pilot", "localized_client"].includes(report.presentation?.kind) ? "" : '<button class="cae-btn cae-btn--ghost" type="button" data-cae-question data-cae-intent="growth_score_report_question">Ask a question</button>'}
       `;
 }
 
@@ -2116,6 +2124,7 @@ function plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescriptio
 </head>
 <body class="cae-score-report cae-score-report--plain-owner cae-score-report--brief">
 ${disclosure}
+<span id="request" hidden></span>
 <main>
   <section class="cae-report-hero" id="report-overview">
     <div class="cae-wrap">
@@ -2218,6 +2227,8 @@ ${disclosure}
     </div>
   </section>
 </main>
+<script src="/assets/js/caesthetic-config.js"></script>
+<script src="/assets/js/caesthetic.js" defer></script>
 <script src="/assets/js/growth-cockpit.js?v=1.1.5" defer></script>
 </body>
 </html>
@@ -2295,6 +2306,7 @@ export function renderGrowthReport(report) {
 </head>
 <body class="cae-score-report${isNetworkParent ? " cae-score-report--multi-location" : ""}${isFocusLocationChild ? " cae-score-report--focus-location" : ""}${plainOwner ? " cae-score-report--plain-owner" : ""}">
 ${disclosure}
+${isFocusLocationChild || isPilot || isLocalizedClient ? "" : '<span id="request" hidden></span>'}
 ${isPilot || isLocalizedClient ? "" : '<div id="cae-header-slot"></div>'}
 <main>
   <section class="cae-report-hero" id="report-overview">

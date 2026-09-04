@@ -9,7 +9,8 @@ const js = readFileSync(resolve(site, "assets/js/caesthetic.js"), "utf8");
 const growthJs = readFileSync(resolve(site, "assets/js/growth.js"), "utf8");
 const css = readFileSync(resolve(site, "assets/css/caesthetic.css"), "utf8");
 const config = readFileSync(resolve(site, "assets/js/caesthetic-config.js"), "utf8");
-const fn = readFileSync(resolve(root, "supabase/functions/submit-caesthetic-request/index.ts"), "utf8");
+const fn = readFileSync(resolve(root, "supabase/functions/submit-caesthetic-growth-score/index.ts"), "utf8");
+const productionSmoke = readFileSync(resolve(root, "scripts/caesthetic/public-request-production-smoke.mjs"), "utf8");
 const migration = readFileSync(resolve(root, "supabase/migrations/20260903221000_caesthetic_public_requests.sql"), "utf8");
 const supabase = readFileSync(resolve(root, "supabase/config.toml"), "utf8");
 
@@ -20,7 +21,6 @@ const requestPages = [
   "sprint/index.html",
   "growth-system/index.html",
   "support/index.html",
-  "outreach/index.html",
   "beauty-salons/index.html",
   "es/salones-de-belleza/index.html",
   "ru/salony-krasoty/index.html",
@@ -29,11 +29,13 @@ const requestPages = [
 
 test("request CTAs open one shared modal with exactly name and email fields", () => {
   assert.match(js, /a\[data-cae-request\]/);
-  assert.match(js, /a\.cae-btn\[href="\/growth-score\/"\]/);
-  assert.match(js, /\[data-cae-score-form\] button\[type="submit"\]/);
-  assert.match(js, /\[data-cae-salon-score-form\] button\[type="submit"\]/);
+  assert.match(js, /a\[data-cae-sprint-inquiry\]/);
+  assert.match(js, /a\[data-cae-check-inquiry\]/);
+  assert.match(js, /a\[data-cae-growth-system-inquiry\]/);
+  assert.match(js, /a\[data-cae-question\]/);
   assert.match(js, /<dialog|createElement\("dialog"\)/);
-  const inputNames = [...js.matchAll(/<input\b[^>]*\bname="([^"]+)"/g)].map((match) => match[1]);
+  const modalSource = js.slice(js.indexOf('var dialog = document.createElement("dialog")'), js.indexOf("document.body.appendChild(dialog)"));
+  const inputNames = [...modalSource.matchAll(/<input\b[^>]*\bname="([^"]+)"/g)].map((match) => match[1]);
   assert.deepEqual(inputNames, ["name", "email"]);
   assert.doesNotMatch(js, /name="(?:phone|company|budget|message)"/);
   assert.doesNotMatch(js, /window\.location\.href\s*=\s*["']mailto:/);
@@ -42,6 +44,8 @@ test("request CTAs open one shared modal with exactly name and email fields", ()
   assert.match(growthJs, /btn\.setAttribute\("data-cae-request", ""\)/);
   assert.match(js, /window\.CAESTHETIC_API\.request/);
   assert.match(css, /\.cae-request-modal/);
+  assert.match(js, /requestLocale === "ru"/);
+  assert.match(js, /Не удалось отправить запрос\. Попробуйте ещё раз\./);
 });
 
 test("request CTA pages contain no mailto buttons and load the modal runtime", () => {
@@ -51,21 +55,33 @@ test("request CTA pages contain no mailto buttons and load the modal runtime", (
   }
 });
 
-test("public score entry points expose only the shared request launcher", () => {
-  const scorePages = requestPages.filter((html) => /(?:Get your Growth Score|Salon Growth Score|Growth Score intake)/i.test(html));
-  for (const html of scorePages) {
-    assert.doesNotMatch(html, /<form\b[^>]*(?:data-cae-score-form|data-cae-salon-score-form)/i);
+test("public score entry points keep their canonical dedicated intake paths", () => {
+  const growth = readFileSync(resolve(site, "growth-score/index.html"), "utf8");
+  assert.match(growth, /data-cae-score-form/);
+  assert.doesNotMatch(growth, /data-cae-request/);
+  for (const path of ["beauty-salons/index.html", "es/salones-de-belleza/index.html", "ru/salony-krasoty/index.html", "fr/salons-de-beaute/index.html"]) {
+    const html = readFileSync(resolve(site, path), "utf8");
+    assert.match(html, /cae-salon-form cae-request-launch/);
     assert.match(html, /data-cae-request/);
   }
+  assert.match(js, /data-cae-salon-score-form/);
 });
 
 test("two-field request endpoint validates, rate-limits and stores requests privately", () => {
-  assert.match(config, /functions\/v1\/submit-caesthetic-request/);
+  assert.match(config, /request:\s*"[^"\n]*functions\/v1\/submit-caesthetic-growth-score"/);
+  assert.doesNotMatch(config, /functions\/v1\/submit-caesthetic-request/);
+  assert.match(js, /action:\s*"caesthetic_public_request"/);
   assert.match(fn, /name_and_email_required/);
   assert.match(fn, /rate_limited/);
   assert.match(fn, /origin_not_allowed/);
   assert.match(fn, /caesthetic_public_requests/);
+  assert.match(fn, /operator_notification_failed/);
+  assert.match(fn, /notification_sent:\s*true/);
+  assert.match(productionSmoke, /request_row_created:\s*true/);
+  assert.match(productionSmoke, /operator_notification_sent:\s*true/);
+  assert.match(productionSmoke, /response\.status !== 201/);
   assert.match(migration, /ENABLE ROW LEVEL SECURITY/);
   assert.match(migration, /REVOKE ALL[\s\S]*anon, authenticated/);
-  assert.match(supabase, /\[functions\.submit-caesthetic-request\][\s\S]*verify_jwt\s*=\s*false/);
+  assert.match(supabase, /\[functions\.submit-caesthetic-growth-score\][\s\S]*verify_jwt\s*=\s*false/);
+  assert.doesNotMatch(supabase, /\[functions\.submit-caesthetic-request\]/);
 });

@@ -270,11 +270,10 @@
   }
 
   loadCaseData()
-    .then(function (response) {
-      if (!response.ok) throw new Error('Case data unavailable');
-      return response.json();
-    })
     .then(function (data) {
+      if (!data || !Array.isArray(data.cases) || data.cases.length === 0) {
+        throw new Error('Case data unavailable');
+      }
       state.cases = data.cases;
       var requestedGoal = new URLSearchParams(window.location.search).get('goal');
       if (labels[requestedGoal]) state.activeGoal = requestedGoal;
@@ -291,6 +290,12 @@
     })
     .catch(function () {
       list.replaceChildren(element('p', 'cae-case-data-error', 'Case data could not be loaded.'));
+      document.querySelector('[data-result-count]').textContent = 'Cases unavailable';
+      document.querySelector('[data-result-count-mobile]').textContent = 'Cases unavailable';
+      document.querySelector('[data-active-goal-mobile]').textContent = 'Case data could not be loaded';
+      document.querySelector('[data-filter-count]').textContent = '0';
+      document.querySelector('[data-visible-range]').textContent = 'Showing 0';
+      document.querySelector('[data-featured-case]').hidden = true;
       document.querySelector('[data-load-more]').hidden = true;
     });
 }());

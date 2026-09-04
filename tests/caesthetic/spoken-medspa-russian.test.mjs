@@ -59,7 +59,8 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.deepEqual(buildRussianReport(source), report);
   assert.equal(storedHtml, renderGrowthReport(stored));
   assert.equal(renderReportFile(reportPath, { outputPath: htmlPath, check: true }), true);
-  assert.doesNotMatch(storedHtml, /cae-header-slot|cae-footer-slot|caesthetic\.js/);
+  assert.doesNotMatch(storedHtml, /cae-header-slot|cae-footer-slot/);
+  assert.match(storedHtml, /\/assets\/js\/caesthetic\.js/);
   assert.doesNotMatch(storedHtml, /Введите пароль|Пароль|Log in|Login|PIN/i);
 });
 
@@ -193,7 +194,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
     "website.above_fold_conversion",
     "cross.positioning_coherence",
   ]);
-  assert.equal((storedHtml.match(/href="\/lead-to-revenue-check\/"/g) || []).length, 2);
+  assert.equal((storedHtml.match(/data-cae-check-inquiry/g) || []).length, 2);
   assert.equal((storedHtml.match(/data-cae-check-placement="(?:mid|final)"/g) || []).length, 2);
   assert.equal((storedHtml.match(/data-cae-check-placement="mid"/g) || []).length, 1);
   assert.equal((storedHtml.match(/data-cae-check-placement="final"/g) || []).length, 1);
@@ -203,14 +204,21 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.equal((storedHtml.match(/Проверка пути от обращения до оплаты · \$500/g) || []).length, 2);
   assert.equal((storedHtml.match(/Проверить путь от обращения до оплаты/g) || []).length, 2);
   assert.equal((storedHtml.match(/стоимость проверки \$500 засчитывается в общую стоимость спринта \$2,500/g) || []).length, 2);
-  assert.equal((storedHtml.match(/href="\/sprint\/"/g) || []).length, 1);
+  assert.equal((storedHtml.match(/data-cae-sprint-inquiry/g) || []).length, 1);
+  assert.equal((storedHtml.match(/data-cae-question/g) || []).length, 1);
+  assert.equal((storedHtml.match(/href="#request"/g) || []).length, 3);
+  assert.doesNotMatch(storedHtml, /href="\/(?:lead-to-revenue-check|sprint)\/"/);
   assert.match(storedHtml, /data-owner-sprint-offer/);
   assert.match(storedHtml, /Если сначала нужен меньший шаг:/);
   assert.match(storedHtml, /Она не обязательна перед спринтом/);
   assert.match(storedHtml, /Проверку можно заказать отдельно/);
+  assert.doesNotMatch(storedHtml, /С чего начать:<\/strong>.*начинаем с проверки за \$500/);
   assert.equal((storedHtml.match(/class="cae-mobile-repair"/g) || []).length, 3);
   assert.doesNotMatch(storedHtml, /<details class="cae-mobile-repair" open>/);
   assert.doesNotMatch(storedHtml, /data-cae-request/);
+  assert.match(storedHtml, /\/assets\/js\/caesthetic-config\.js/);
+  assert.match(storedHtml, /\/assets\/js\/caesthetic\.js/);
+  assert.doesNotMatch(storedHtml, /growth-report-funnel\.js/);
   assert.doesNotMatch(storedHtml, /Недостаточно доказательств|Нужна проверка|Не оценивалось|Не оценено/);
   assert.doesNotMatch(storedHtml, /Матрица возможностей|Карта видимости|Цепочка доверия|Индекс трения|Согласованность поверхностей/);
   assert.match(storedHtml, /\$500/);

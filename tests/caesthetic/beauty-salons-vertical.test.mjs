@@ -146,13 +146,19 @@ test('every locale shares the same information architecture', () => {
 });
 
 test('salon pages preserve the four-surface and decision-first canon', () => {
+  const operationalBoundary = {
+    en: /Not assessed without operational access \/ evidence\./,
+    es: /No evaluado sin acceso operativo o evidencia\./,
+    ru: /Не оценивается без операционного доступа или доказательств\./,
+    fr: /Non évalué sans accès opérationnel ou preuves\./,
+  };
   for (const [locale, route] of Object.entries(routes)) {
     const source = read(route.path);
     const surfaceCards = source.match(/<div class="cae-salon-surface-grid">([\s\S]*?)<\/div>/)?.[1] || '';
     assert.equal((surfaceCards.match(/<article /g) || []).length, 4, `${locale} must show exactly four surfaces`);
     assert.match(source, /Paid Ads amplify the system\. They do not repair it\./);
     assert.match(source, /Cross-Surface Consistency/);
-    assert.match(source, /Not assessed without operational access \/ evidence\./);
+    assert.match(source, operationalBoundary[locale]);
     assert.match(source, /data-cae-score-price/);
     assert.match(source, /data-cae-sprint-price/);
     assert.doesNotMatch(source, /SEO \+ ads \+ website \+ CRM/i);
@@ -193,24 +199,26 @@ test('copy forbids guaranteed growth, fabricated statistics and medical terminol
   }
 });
 
-test('every locale has the canonical four-field salon score form plus optional self-reported stage', () => {
+test('every locale mounts the canonical four-field salon score form with localized errors', () => {
   for (const route of Object.values(routes)) {
     const source = read(route.path);
-    assert.match(source, /data-cae-salon-score-form/);
-    for (const name of ['name', 'email', 'practice_name', 'city_state']) {
-      assert.ok(source.includes(`name="${name}"`), `missing field ${name}`);
-    }
-    for (const name of OPTIONAL_FIELDS) {
-      assert.ok(source.includes(`name="${name}"`), `missing optional ${name}`);
-    }
+    assert.match(source, /cae-salon-form cae-request-launch/);
+    assert.match(source, /data-cae-request/);
+    assert.match(source, /\/assets\/js\/caesthetic\.js/);
+    assert.match(source, /\/assets\/js\/beauty-salons\.js/);
     for (const name of FORBIDDEN_PRE_SAVE) {
       assert.doesNotMatch(source, new RegExp(`name="${name}"`));
     }
-    assert.match(source, /data-label-submitting=/);
-    assert.match(source, /data-error-network=/);
-    assert.match(source, /data-cae-salon-form-success/);
-    assert.match(source, /data-cae-salon-optional/);
   }
+  const launcher = read('assets/js/caesthetic.js');
+  for (const name of ['name', 'email', 'practice_name', 'city_state']) {
+    assert.ok(launcher.includes(`name="${name}"`), `missing runtime field ${name}`);
+  }
+  assert.match(launcher, /data-label-submitting=/);
+  assert.match(launcher, /data-error-network=/);
+  assert.match(launcher, /No pudimos registrar tu solicitud/);
+  assert.match(launcher, /Не удалось зарегистрировать запрос/);
+  assert.match(launcher, /Nous n’avons pas pu enregistrer votre demande/);
 });
 
 test('salon intake reuses the existing fail-closed Growth Score API contract', () => {
