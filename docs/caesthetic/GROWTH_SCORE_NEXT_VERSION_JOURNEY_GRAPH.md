@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active_implementation_profile
-version: 1.4
-updated: 2026-09-02
+version: 1.5
+updated: 2026-09-04
 scope: canonical Growth Score visual system, Cross-Surface Journey Graph, automated link-integrity diagnostics, Broken Connections Map and Lead-to-Revenue visual branch
 parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
 implementation_parent: docs/caesthetic/growth_score_spec.md
@@ -248,7 +248,7 @@ In Free Growth Score, stages remain gray unless valid internal evidence exists. 
 
 If an upstream stage is red, downstream stages do not automatically become red; they remain gray if they were not reached/assessed. A factual no-response/drop-off observation does not by itself justify a causal diagnosis about staff, CRM, training or capacity.
 
-The active pricing authority now approves **`Lead-to-Revenue Check · $500`**. If the Check continues directly into the next CAESTHETIC Sprint for the verified constraint, the $500 is credited once toward the $2,500 Sprint total. The map remains gray in outside-in Growth Score and makes no enquiry, booking, patient, revenue, ROI or internal-cause claim without the required evidence.
+The active specific authority requires the universal **`check500-section/en-US/1.0.0`** on every approved single-location report and once on each Multi-Location parent. If the Check continues directly into the next qualifying CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited toward the $2,500 Sprint total. The universal recommendation does not change the map: it remains gray in an outside-in Growth Score and makes no enquiry, booking, patient, revenue, ROI or internal-cause claim without the required evidence.
 
 ## 10. Human review boundary
 

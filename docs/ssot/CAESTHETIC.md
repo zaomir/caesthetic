@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.26
+version: 3.27
 updated: 2026-09-04
 scope: CAESTHETIC master strategy and product-funnel canon
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
@@ -98,10 +98,9 @@ Canonical client-facing sequence:
 
 ```text
 Growth Score — see the constraint from the outside
-→ verified external priority: 30-Day Sprint — fix it and verify adoption
-OR
-→ material internal uncertainty: Lead-to-Revenue Check — verify the permitted internal path
-   → verified finite priority: optional 30-Day Sprint
+→ Lead-to-Revenue Check — always recommended to verify the permitted internal path; purchase remains optional
+AND, when an actionable external priority is verified:
+→ 30-Day Sprint — fix it and verify adoption
 → after Day 30 — decide whether a deeper internal constraint deserves funding
 ```
 
@@ -189,7 +188,7 @@ Public funnel:
 
 Issuing the link performs no research, LLM work, crawl, screenshot or Score-case creation. Before `Continue`, the private page may show practice identity, one already-approved current qualification/enrichment/signal/timing fact, the four locked/unassessed surfaces and a neutral explanation of cross-surface consistency. It must not show a numeric Score, binding constraint, Gap Inventory, Top 3, Repair Plans, Do Not Fund Yet, loss/ROI/causality claim, or say/imply that a report is ready. `Continue to My Free Growth Score` is the explicit permission event; only then may the canonical lead/case/outbox and existing schema-v5 research plus named-human approval workflow begin. Contract: `docs/caesthetic/GROWTH_PREVIEW_V1.md`.
 
-The **Lead-to-Revenue Check ($500)** is a conditional paid diagnostic branch when the Growth Score cannot resolve material post-enquiry uncertainty from public evidence. It is not a mandatory stage or a fourth headline product. Its canonical public route is `/lead-to-revenue-check/`; it remains outside primary header navigation and appears in the footer plus contextually relevant decision boundaries. If it continues directly into the next CAESTHETIC Sprint for the verified constraint, its $500 fee is credited once toward the unchanged $2,500 Sprint total.
+The **Lead-to-Revenue Check ($500)** is the always-recommended, optional-to-buy diagnostic complement to every approved single-location and Multi-Location Growth Score. It verifies the separately authorized internal path after the outside-in assessment; the universal recommendation does not itself prove an internal leak or other internal cause. It is not a mandatory stage or a fourth headline product. Its canonical public route is `/lead-to-revenue-check/`; it remains outside primary header navigation and appears in the footer plus contextually relevant decision boundaries. If it continues directly into the next qualifying CAESTHETIC 30-Day Growth Sprint for the verified constraint, its $500 fee is credited once toward the unchanged $2,500 Sprint total. The exact reusable English section is locked by `check500-section/en-US/1.0.0` in `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`.
 
 The currently approved public recurring product is Growth System. Do not publish Fixed Retainer, Hybrid or Performance Compensation as public SKUs unless separately approved.
 
@@ -263,7 +262,7 @@ The same approved Four-Surface evidence may also be reorganized into five **deri
 
 The canonical Hero title is **`Where Clients Are Gained - and Lost`**. The sole approved visual for that section is the owner-uploaded raster at `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png`, SHA-256 `64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05`, dimensions `6912×3456`. Runtime must serve and display those exact PNG bytes. It must not generate, redraw, trace, translate, recolor, crop, reconstruct or substitute the visual in HTML, SVG, canvas, CSS or another image format. CSS may scale the intact image proportionally for the viewport; no alternate mobile composition or transformed derivative is allowed. Any replacement or exception requires explicit owner approval plus an updated hash guard and canon change. The Journey Graph machine/evidence contract, Four Surfaces and the separate evidence-driven Broken Connections Map remain unchanged.
 
-When the unresolved decision sits after enquiry, the separate canonical branch is **Lead-to-Revenue Check · $500** under `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`. The $500 is credited once toward the next direct-continuation CAESTHETIC Sprint addressing the verified constraint; the Sprint total remains $2,500. This does not authorize any guaranteed enquiry, booking, patient, revenue, ROI or internal-cause claim. A report may render this offer only from an explicit approved recommendation with a reason and evidence references; the offer then replaces the Sprint CTA rather than being added beside it.
+Every approved Growth Score includes the separate standard **Lead-to-Revenue Check · $500** recommendation section under `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`; a Multi-Location package renders it once on the network parent and not again on the focus child. The $500 is credited once toward the next qualifying direct-continuation CAESTHETIC 30-Day Growth Sprint addressing a verified constraint; the Sprint total remains $2,500. This universal recommendation does not authorize any guaranteed enquiry, booking, patient, revenue, ROI or internal-cause claim, and it does not displace a separate evidence-backed Sprint action. The full English section must use `check500-section/en-US/1.0.0` exactly.
 
 If less than 70% of a surface's metric weight is observable, publish `Insufficient evidence`, not a fabricated score. Overall and surface `/100` values are a compact navigator/tension layer, not the decision layer.
 

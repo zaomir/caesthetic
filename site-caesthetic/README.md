@@ -3,7 +3,7 @@
 **Canonical domain:** `caesthetic.com`  
 **Direct cold sender:** `caesthetic.co` · **conditional historical/professional senders:** `bototox.com`, `toxifillers.com`
 **Brand logos:** `assets/brand/logo-square.{svg,png}` (circular frames) · `assets/brand/logo-long.{svg,png}` (horizontal) · aliases under `/brand/`  
-**Public IA:** US independent aesthetic practices → Growth Score → conditional Lead-to-Revenue Check where internal outcome uncertainty remains → 30-Day Sprint → optional Growth System
+**Public IA:** US independent aesthetic practices → Growth Score → 30-Day Sprint → optional Growth System. Lead-to-Revenue Check is the always-recommended, optional-to-buy diagnostic complement for the authorized internal path; it is not a fourth headline product.
 
 ## Public pages (Phase 1)
 
@@ -11,7 +11,7 @@
 |-----|------|
 | `/` | Positioning → Growth Score |
 | `/growth-score/` | Score explainer + 4-field form |
-| `/lead-to-revenue-check/` | Conditional, evidence-gated internal-path diagnostic · fixed $500 · credited once toward the directly following $2,500 Sprint |
+| `/lead-to-revenue-check/` | Always-recommended, optional-to-buy, evidence-gated internal-path diagnostic · fixed $500 · credited toward the next qualifying direct-continuation $2,500 Sprint |
 | `/audit/`, `/audits/`, `/multi-location-growth-score/` | Noindex synonym aliases to `/growth-score/` |
 | `/sprint/` | Diagnosis-led 30-Day Growth Sprint · generated fixed price · written scope/payment inquiry |
 | `/growth-system/` | Optional recurring ownership · client-specific Growth Budget with its Fixed Management Fee inside |
@@ -34,6 +34,12 @@ node --test tests/caesthetic/growth-score-*.test.mjs
 ```
 
 Every approved `site-caesthetic/score/**/report.json` is discovered automatically. The complete generated registry lives at `docs/audits/caesthetic/growth-score-projects.generated.json`; `/score/catalog.json` and `/score/index.html` contain only synthetic demos or client cases with explicit public-listing approval. Real client reports default to private.
+
+## Shared Check500 section contract
+
+`docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md` owns the single English copy source `check500-section/en-US/1.0.0`. Every relevant website surface that renders a full Check500 offer section must use its exact H2, product line, body, CTA and fine print in the locked order. Compact navigation, footer, comparison-table and legal references may use the canonical product label without repeating the full section.
+
+Every approved single-location Growth Score renders the same section. Every approved Multi-Location Growth Score renders it once on the network parent; the focus-location child remains navigation-only. The universal recommendation is not evidence that an internal leak exists, and it does not displace a separate evidence-backed Sprint action.
 
 ## Sender-domain web behavior
 
@@ -96,7 +102,7 @@ Sender-domain cleanup edge: Worker codebase `grainee-caesthetic-outreach`, deplo
 
 Master authority: `docs/ssot/CAESTHETIC.md`. The read-only `docs/caesthetic/` Dropbox mirror is provenance and working detail, not a competing SSOT.
 
-Public pricing exposes the free Growth Score, the conditional fixed $500 Lead-to-Revenue Check and the fixed $2,500 Sprint. A Check is not mandatory and does not replace the Growth Score; when it continues directly into the next Sprint for the verified constraint, its $500 is credited once toward the Sprint total. Sprint Extension stays internal, and recurring commercial values come only from a client-specific Commercial Schedule.
+Public pricing exposes the free Growth Score, the always-recommended but optional-to-buy fixed $500 Lead-to-Revenue Check and the fixed $2,500 Sprint. The Check does not replace the Growth Score or prove an internal leak; when it continues directly into the next qualifying Sprint for the verified constraint, its $500 fee is credited toward the Sprint total. Sprint Extension stays internal, and recurring commercial values come only from a client-specific Commercial Schedule.
 
 ## Archive
 
