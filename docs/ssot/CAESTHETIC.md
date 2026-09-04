@@ -1,10 +1,12 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.30
+version: 3.31
 updated: 2026-09-04
 scope: CAESTHETIC master strategy and product-funnel canon
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
+public_program_name: Connect4
+internal_program_id: "4444"
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
 related:
@@ -50,16 +52,20 @@ Vendor-independent: the practice can keep its EHR, medical director and supplier
 
 Operationally, CAESTHETIC is an external **Growth + Patient Operations desk**, not an agency made broader by accepting unrelated work. Recurring ownership covers the acquisition, conversion, retention and patient-operations layer defined below. Recruitment and adjacent practice operations are eligible only as paid add-ons when they directly support that layer; their classification and operating boundaries are canonical in `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`.
 
-## 2. One operating model: four surfaces
+## 2. One operating model: Connect4 / four surfaces
 Patients evaluate one practice across four decision surfaces:
 1. **Search / Google Business Profile**
 2. **Website**
 3. **Social**
 4. **Reputation / Reviews**
 
-**Canonical aliases:** `4444` and `Четверки` always mean this CAESTHETIC Four Surfaces model. They do not mean an arbitrary group of four and must not be expanded into a fifth surface.
+**Public program name: Connect4.** Founder-confirmed on 2026-09-04. Use exactly `Connect4` in new and revised public website copy, case studies, report presentation, diagrams, videos and sales materials. `CAESTHETIC Connect4` may be used when the provider needs to be explicit. `Four Surfaces` remains a descriptive explanation, not an alternative program name.
 
-A blog, resources hub or individual article is Website content, not a fifth surface. Its reuse or distribution through Social, Google Business Profile and other 4444 touchpoints is cross-surface execution, not an additional scored surface.
+**Internal aliases:** `4444` and `Четверки` remain internal names for this same program. They do not mean an arbitrary group of four and must not be expanded into a fifth public surface. Existing `4444` contract IDs, schema keys, filenames, URLs, tests and historical records stay stable; do not mechanically rename identifiers or rewrite past decisions. This naming decision does not change product scope, pricing, scoring, approvals or evidence rules and does not regenerate or deploy existing pages/reports by itself.
+
+**Presentation boundary:** Cross-Surface Consistency is the alignment across the four public surfaces. **Lead Intake is the separate fifth operational layer**: receiving an inquiry, responding, following up and progressing toward a booking. It is not a fifth public surface or a fifth scored dimension. On the Case Studies page, explain the four surfaces, their consistency and Lead Intake first; introduce Paid Ads only in the later `Stop / Do Not Fund Yet` discussion. This does not change the paid-demand evidence and readiness conditions below.
+
+A blog, resources hub or individual article is Website content, not a fifth surface. Its reuse or distribution through Social, Google Business Profile and other Connect4 touchpoints is cross-surface execution, not an additional scored surface.
 
 **Cross-Surface Consistency** is a cross-surface metric, not a fifth surface. Every stage uses this same model.
 
@@ -71,17 +77,17 @@ Paid Ads / paid acquisition is a **paid demand-generation mechanism** in the Dem
 
 ```text
 Demand Layer (organic + outbound + paid)
-→ 4444 (Search / GBP + Website + Social + Reputation / Reviews)
+→ Connect4 (Search / GBP + Website + Social + Reputation / Reviews)
 → inquiry / booking
 → internal conversion and patient-operations layer
 → patient / revenue
 ```
 
-Paid acquisition amplifies the current state of 4444. Strong, coherent surfaces can convert paid attention efficiently; weak or inconsistent surfaces can waste spend and accelerate leakage. Paid demand does not itself repair a verified constraint later in the journey.
+Paid acquisition amplifies the current state of Connect4. Strong, coherent surfaces can convert paid attention efficiently; weak or inconsistent surfaces can waste spend and accelerate leakage. Paid demand does not itself repair a verified constraint later in the journey.
 
 **Intervention gate:**
 
-- Do not increase paid demand when the verified binding constraint is downstream of 4444—for example inquiry handling, response or follow-up, attendance, capacity or another internal conversion/patient-operations dependency. Fund and verify the binding constraint first.
+- Do not increase paid demand when the verified binding constraint is downstream of Connect4—for example inquiry handling, response or follow-up, attendance, capacity or another internal conversion/patient-operations dependency. Fund and verify the binding constraint first.
 - Paid acquisition may be selected as the intervention when the relevant four-surface journey is sufficiently strong, delivery capacity and unit economics are verified, and the binding constraint is insufficient qualified demand.
 - If the evidence does not distinguish a demand shortage from a downstream leak, keep the constraint `Insufficient evidence` and run the smallest validation needed before scaling spend.
 
@@ -109,18 +115,18 @@ Growth Score — see the constraint from the outside
 
 This is a focus rule as well as an evidence rule: mention that the internal layer exists, but do not diagnose or sell it before the required access, workflow observation and real operating data exist.
 
-### 2.2 Commercial product core: 4444
+### 2.2 Commercial product core: Connect4
 
-**4444 is the primary CAESTHETIC product:** alignment of demand language across exactly four public patient-decision surfaces:
+**Connect4 is the primary CAESTHETIC product:** alignment of demand language across exactly four public patient-decision surfaces:
 
 1. Search and Google Business Profile;
 2. Website;
 3. Social;
 4. Reputation / Reviews, including owner responses.
 
-The paid implementation vehicle is the **30-Day Growth Sprint — $2,500**. The primary commercial objective of each Growth Score is to make the evidence-backed case for this Sprint as the way CAESTHETIC implements the agreed 4444 priority. The Sprint does not sell an arbitrary task list; it implements the selected constraint and the cross-surface dependencies required to make the demand language coherent. The report still preserves complete in-house and alternative-provider instructions and never manufactures urgency or need.
+The paid implementation vehicle is the **30-Day Growth Sprint — $2,500**. The primary commercial objective of each Growth Score is to make the evidence-backed case for this Sprint as the way CAESTHETIC implements the agreed Connect4 priority. The Sprint does not sell an arbitrary task list; it implements the selected constraint and the cross-surface dependencies required to make the demand language coherent. The report still preserves complete in-house and alternative-provider instructions and never manufactures urgency or need.
 
-The canonical 4444 deliverable system is:
+The canonical Connect4 deliverable system is:
 
 1. a demand-language map for priority services;
 2. precise long-tail queries that express clearer booking intent;
@@ -137,20 +143,20 @@ The canonical commercial path is:
 ```text
 Free Growth Score
 → show whether and where the Four Surfaces fail to operate as one demand-language system
-→ primary recommendation: implement the agreed 4444 priority
+→ primary recommendation: implement the agreed Connect4 priority
 → primary paid action: 30-Day Growth Sprint — $2,500
 → optional continuation: refresh queries and content, grow honest reviews, maintain owner responses and verify Four-Surface consistency
 ```
 
-The **Lead-to-Revenue Check — $500** remains a secondary diagnostic branch for a person who wants more clarity about what happens after a patient enquiry or prefers to begin with a smaller engagement. Reports always display it in the two positions required by `check500-two-placement/1.0.0`, but it does not replace 4444 or the Sprint as the primary recommendation and action.
+The **Lead-to-Revenue Check — $500** remains a secondary diagnostic branch for a person who wants more clarity about what happens after a patient enquiry or prefers to begin with a smaller engagement. Reports always display it in the two positions required by `check500-two-placement/1.0.0`, but it does not replace Connect4 or the Sprint as the primary recommendation and action.
 
-Business-name changes, duplicate cleanup, schema, redirects, technical repairs and other isolated corrections may remain in evidence-backed instructions or Sprint dependencies. They are not the commercial center unless a verified prerequisite must be resolved before the agreed 4444 priority can function. The report must sell the value of coordinated demand language, not an isolated hygiene task.
+Business-name changes, duplicate cleanup, schema, redirects, technical repairs and other isolated corrections may remain in evidence-backed instructions or Sprint dependencies. They are not the commercial center unless a verified prerequisite must be resolved before the agreed Connect4 priority can function. The report must sell the value of coordinated demand language, not an isolated hygiene task.
 
-Every Growth Score must help the owner understand the value of 4444 without manufacturing a cross-surface failure. The report shows verified inconsistency where evidence supports it, protects already coherent language where it exists, marks missing evidence honestly and connects the primary commercial recommendation to the approved priority rather than automatically forcing the same repair on every practice.
+Every Growth Score must help the owner understand the value of Connect4 without manufacturing a cross-surface failure. The report shows verified inconsistency where evidence supports it, protects already coherent language where it exists, marks missing evidence honestly and connects the primary commercial recommendation to the approved priority rather than automatically forcing the same repair on every practice.
 
 After the Sprint, the client may maintain the delivered system independently, with another provider or through optional CAESTHETIC ownership. CAESTHETIC continuation explains the operating work—query and content refresh, review-request discipline, owner responses and Four-Surface consistency verification—without inventing a universal recurring price or guaranteed rankings, patients, bookings, revenue or ROI.
 
-### 2.3 Canonical client presentation script: 4444 / Four Surfaces
+### 2.3 Canonical client presentation script: Connect4 / Four Surfaces
 
 **Purpose:** use this master script and sketch language to explain the CAESTHETIC model in a live owner conversation, help the owner understand the problem before any product reveal, and make the later progression from **Growth Score** to the **30-Day Growth Sprint** understandable. It is a general sales/explainer narrative, not a substitute for the evidence-led, practice-specific Valerie Petra Growth Score walkthrough governed by `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 
@@ -158,7 +164,7 @@ The delivery language may be adapted to the client, and examples may use verifie
 
 #### Client-sketch visual grammar
 
-The canonical `4444 / Four Surfaces` client sketch uses the following visual language:
+The canonical `Connect4 / Four Surfaces` client sketch uses the following visual language:
 
 1. Place **Search / GBP, Website, Social and Reputation / Reviews** as four distinct surfaces around the practice identity or logo.
 2. Draw one **dashed line through all four surface blocks** so that it visibly intersects and stitches together Search / GBP, Website, Social and Reputation / Reviews. The dashed line means **one interconnected system**. It is not an outside perimeter, surrounding circle or external contour.
@@ -171,7 +177,7 @@ This sketch is a problem-first client explanation and sales sequence. First esta
 
 Let me show you how we think about growth for an aesthetic practice.
 
-A business has several growth layers. But when we focus specifically on how a new patient decides whether to choose a practice, nearly everything they can see from the outside can be organized into four decision surfaces. We call this model **4444**, or the **Four Surfaces**.
+A business has several growth layers. But when we focus specifically on how a new patient decides whether to choose a practice, nearly everything they can see from the outside can be organized into four decision surfaces. We call this program **Connect4**: four public surfaces working as one connected patient-decision system.
 
 The first surface is **Search and Google Business Profile**. Can the patient find you for the treatment they need? What do they see in Google Search or Maps?
 
@@ -213,7 +219,7 @@ In short:
 
 ```text
 Demand brings people into the system.
-→ 4444 shapes the patient decision.
+→ Connect4 shapes the patient decision.
 → Growth Score finds the binding constraint.
 → 30-Day Growth Sprint fixes the agreed priority.
 → Then the practice decides what to maintain, improve or scale next.

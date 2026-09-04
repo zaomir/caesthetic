@@ -3,7 +3,14 @@
 **Updated:** 2026-09-04
 **Phase:** Phase 1 — proof + outbound readiness
 
-## 4444 commercial core — canon (2026-09-04)
+## 2026-09-04 — Connect4 public program name
+
+- Founder confirmed **Connect4** as the exact public name of the CAESTHETIC program; `4444` / `Четверки` remain internal aliases.
+- Naming authority: `docs/ssot/CAESTHETIC.md` §2. New/revised client-facing copy and visualizations use Connect4; existing contract IDs, paths and historical records stay unchanged.
+- Exactly four public surfaces remain. Cross-Surface Consistency connects them; Lead Intake is a separate fifth operational layer. The Case Studies explainer reserves Paid Ads for the later Stop / Do Not Fund Yet block.
+- Documentation/naming release only; existing site/report runtime and locked visual assets are not changed or deployed by this release.
+
+## 4444 commercial core — canon (2026-09-04; internal label)
 
 - The primary CAESTHETIC product is `4444`: coordinated demand language across Search / Google Business Profile, Website, Social and Reputation / Reviews including owner responses.
 - The deliverable system is a priority-service demand-language map, booking-intent long-tail queries, one service/provider/location vocabulary, intentional query allocation, regular content, compliant honest-review growth and owner responses, plus continuing Four-Surface consistency verification.

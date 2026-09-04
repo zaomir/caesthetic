@@ -15,7 +15,7 @@ const growthSystem = read("docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
 
 const CONTRACT = "caesthetic-4444-commercial-core/1.0.0";
 
-test("4444 is the shared primary commercial product contract", () => {
+test("Connect4 uses the existing 4444 primary commercial product contract", () => {
   for (const [name, source] of [
     ["master", master],
     ["client report standard", reportStandard],
@@ -27,7 +27,9 @@ test("4444 is the shared primary commercial product contract", () => {
     assert.ok(source.includes(CONTRACT), `${name} must reference ${CONTRACT}`);
   }
 
-  assert.match(master, /4444 is the primary CAESTHETIC product/i);
+  assert.match(master, /^public_program_name: Connect4$/m);
+  assert.match(master, /^internal_program_id: "4444"$/m);
+  assert.match(master, /Connect4 is the primary CAESTHETIC product/i);
   assert.match(master, /30-Day Growth Sprint — \$2,500/i);
   assert.match(master, /precise long-tail queries that express clearer booking intent/i);
   assert.match(master, /compliant system for increasing honest review participation/i);
