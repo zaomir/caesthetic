@@ -1105,6 +1105,8 @@
 .cae-owner-competitors__decisions article,
 .cae-owner-thirty-day article,
 .cae-owner-paths article,
+.cae-owner-commercial,
+.cae-owner-check500,
 .cae-owner-offer,
 .cae-owner-conclusion {
   padding: clamp(1.15rem, 2.5vw, 1.75rem);
@@ -1115,6 +1117,8 @@
 .cae-owner-competitors__cards h4,
 .cae-owner-competitors__decisions h4,
 .cae-owner-paths h3,
+.cae-owner-commercial h3,
+.cae-owner-check500 h3,
 .cae-owner-offer h3,
 .cae-owner-conclusion h3 {
   margin: 0 0 var(--cae-space-2);
@@ -1141,6 +1145,11 @@
   margin-bottom: 0;
 }
 
+.cae-owner-thirty-day-note {
+  margin-inline: auto;
+  text-align: center;
+}
+
 .cae-score-report--plain-owner [data-brand] {
   display: inline;
 }
@@ -1159,6 +1168,10 @@
   max-width: 100%;
 }
 
+.cae-score-report--plain-owner .cae-report-problem {
+  padding: clamp(1.15rem, 2.5vw, 1.75rem);
+}
+
 .cae-score-report--plain-owner :is(
   .cae-focus-gap,
   .cae-report-problem,
@@ -1166,6 +1179,8 @@
   .cae-owner-competitors,
   .cae-owner-thirty-day,
   .cae-owner-paths,
+  .cae-owner-commercial,
+  .cae-owner-check500,
   .cae-owner-offer
 ) :is(h2, h3, h4, p, li, a, strong, small) {
   overflow-wrap: anywhere;
@@ -1243,14 +1258,40 @@
   border-left: 4px solid var(--cae-signal);
 }
 
+.cae-owner-commercial {
+  max-width: 940px;
+  margin-top: var(--cae-space-6);
+  border-left: 4px solid var(--cae-signal);
+}
+
+.cae-owner-commercial__surfaces {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--cae-space-2) var(--cae-space-5);
+  margin-block: var(--cae-space-4) var(--cae-space-5);
+  padding-left: 1.35rem;
+}
+
 .cae-owner-paths article.is-caesthetic,
-.cae-owner-offer {
+.cae-owner-offer--sprint {
   border-color: var(--cae-signal);
 }
 
 .cae-owner-offer {
   max-width: 760px;
   margin-top: var(--cae-space-6);
+}
+
+.cae-owner-check500 {
+  max-width: 760px;
+  margin-top: var(--cae-space-6);
+  border-color: var(--cae-border-strong);
+}
+
+.cae-owner-check500__product {
+  color: var(--cae-signal);
+  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+  font-weight: 800;
 }
 
 .cae-owner-offer__price {
@@ -1269,12 +1310,17 @@
     grid-template-columns: 1fr;
   }
 
+  .cae-owner-commercial__surfaces {
+    grid-template-columns: 1fr;
+  }
+
   .cae-owner-boundary__map b {
     justify-self: center;
     transform: rotate(90deg);
   }
 
-  .cae-owner-offer .cae-btn {
+  .cae-owner-offer .cae-btn,
+  .cae-owner-check500 .cae-btn {
     box-sizing: border-box;
     width: 100%;
     padding-inline: var(--cae-space-3);

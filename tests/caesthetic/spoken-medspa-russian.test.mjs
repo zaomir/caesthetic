@@ -50,6 +50,8 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.equal(report.presentation.strict_locale, "ru");
   assert.equal(report.presentation.copy_profile, "plain_owner_ru");
   assert.equal(report.presentation.hide_unassessed, true);
+  assert.equal(report.presentation.commercial_contract, "caesthetic-4444-commercial-core/1.0.0");
+  assert.equal(report.presentation.check500_placement_contract, "check500-two-placement/1.0.0");
   assert.equal(report.audit.public_direct_link, true);
   assert.equal(report.audit.access_group_id, null);
   assert.equal(isAllowedRealScoreOutput(report, htmlPath), true);
@@ -105,7 +107,7 @@ test("Russian Spoken client text contains no English terms outside approved prop
   const accessibleEnglishTerms = [...new Set(accessibleText.match(/[A-Za-z][A-Za-z0-9-]*/g) || [])].sort();
   assert.deepEqual(accessibleEnglishTerms, []);
   assert.match(storedHtml, /Оценка роста/);
-  assert.match(storedHtml, /Убрать старое название/);
+  assert.match(storedHtml, /Согласовать язык спроса и актуальные данные/);
   assert.match(storedHtml, /Разделить путь пациента и путь специалиста/);
   assert.match(storedHtml, /Усилить страницу филлеров/);
   const mobileCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report-mobile.css"), "utf8");
@@ -121,10 +123,25 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(storedHtml, /Пять ответов, которые помогут принять решение/);
   assert.match(storedHtml, /data-owner-competitors/);
   assert.match(storedHtml, /data-owner-internal-boundary/);
+  assert.match(storedHtml, />Что происходит после обращения пациента</);
   assert.match(storedHtml, /lead-to-revenue-map-ru\.svg/);
   assert.match(storedHtml, /Карта непроверенного внутреннего пути от получения обращения до оплаты/);
   assert.match(storedHtml, /Инструкции по самостоятельному внедрению/);
   assert.match(storedHtml, /Четыре допустимых пути/);
+  assert.match(storedHtml, /class="cae-report-note cae-owner-thirty-day-note">Это рекомендуемый порядок самостоятельной работы/);
+  assert.match(storedHtml, /data-owner-commercial-priority/);
+  assert.match(storedHtml, /Главный продукт <span data-brand>CAESTHETIC<\/span> — 4444/);
+  assert.match(storedHtml, /Один язык спроса на четырёх поверхностях/);
+  assert.match(storedHtml, /Точные низкочастотные запросы с ясным намерением записаться/);
+  assert.match(storedHtml, /Распределение запросов между страницами сайта, блогом, карточкой/);
+  assert.match(storedHtml, /Система роста честных отзывов и содержательных ответов владельца/);
+  assert.match(storedHtml, /data-owner-reputation-service/);
+  assert.match(storedHtml, /Поддерживать систему 4444 в рабочем состоянии/);
+  assert.match(storedHtml, /без отбора, вознаграждений и подсказанного текста/);
+  assert.match(storedHtml, /не подтверждая факт лечения и не раскрывая личные сведения/);
+  assert.match(storedHtml, /положение в поиске[^.]+не гарантируются/);
+  assert.equal(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").title, "Усилить страницу филлеров");
+  assert.match(report.humanDiagnosis.gap_inventory.find((gap) => gap.id === "SMS-26-03").repair_plan.day_30_outcome, /система сбора честных отзывов/);
 
   const focusIndex = storedHtml.indexOf('id="focus-gaps"');
   const competitorsIndex = storedHtml.indexOf("data-owner-competitors");
@@ -142,13 +159,26 @@ test("Russian Spoken report presents the approved owner-first sequence without e
     "website.above_fold_conversion",
     "cross.positioning_coherence",
   ]);
-  assert.equal((storedHtml.match(/href="\/lead-to-revenue-check\/"/g) || []).length, 1);
-  assert.equal((storedHtml.match(/data-cae-check-recommended="true"/g) || []).length, 1);
-  assert.doesNotMatch(storedHtml, /href="\/sprint\/"|data-cae-request/);
+  assert.equal((storedHtml.match(/href="\/lead-to-revenue-check\/"/g) || []).length, 2);
+  assert.equal((storedHtml.match(/data-cae-check-placement="(?:mid|final)"/g) || []).length, 2);
+  assert.equal((storedHtml.match(/data-cae-check-placement="mid"/g) || []).length, 1);
+  assert.equal((storedHtml.match(/data-cae-check-placement="final"/g) || []).length, 1);
+  assert.equal((storedHtml.match(/data-check500-contract="check500-two-placement\/1\.0\.0"/g) || []).length, 2);
+  assert.equal((storedHtml.match(/href="\/sprint\/"/g) || []).length, 1);
+  assert.match(storedHtml, /data-owner-sprint-offer/);
+  assert.doesNotMatch(storedHtml, /data-cae-request/);
   assert.doesNotMatch(storedHtml, /Недостаточно доказательств|Нужна проверка|Не оценивалось|Не оценено/);
   assert.doesNotMatch(storedHtml, /Матрица возможностей|Карта видимости|Цепочка доверия|Индекс трения|Согласованность поверхностей/);
   assert.match(storedHtml, /\$500/);
-  assert.match(storedHtml, /засчитываются в общую стоимость спринта \$2,500/);
+  assert.match(storedHtml, /засчитывается в общую стоимость спринта \$2,500/);
+  assert.match(storedHtml, /30-дневный спринт за \$2,500/);
+  assert.match(storedHtml, /Внедрить приоритет 4444 за 30 дней/);
+  assert.doesNotMatch(storedHtml, /боится|сомневается/i);
+  const middleCheckIndex = storedHtml.indexOf('data-cae-check-placement="mid"');
+  const sprintOfferIndex = storedHtml.indexOf("data-owner-sprint-offer");
+  const finalCheckIndex = storedHtml.indexOf('data-cae-check-placement="final"');
+  assert.ok(internalBoundaryIndex < middleCheckIndex && middleCheckIndex < doNotFundIndex);
+  assert.ok(sprintOfferIndex < finalCheckIndex);
   assert.doesNotMatch(storedHtml, /cae-report-burden/);
   assert.doesNotMatch(storedHtml.replace(/<[^>]+>/g, " "), /SMS-\d{2}-\d{2}/);
   const cockpitJs = fs.readFileSync(path.join(root, "site-caesthetic/assets/js/growth-cockpit.js"), "utf8");
@@ -157,10 +187,13 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(cockpitJs, /function rebuildRepairPaths\(\) \{\s*if \(isNetworkParent\(\)\) return;\s*if \(isPlainOwnerProfile\(\)\) return;/);
   assert.match(cockpitJs, /function enhanceInventory\(\) \{\s*if \(isPlainOwnerProfile\(\)\) return;/);
   const reportCss = fs.readFileSync(path.join(root, "site-caesthetic/assets/css/growth-report.css"), "utf8");
-  assert.match(reportCss, /\.cae-owner-offer \.cae-btn\s*\{[^}]*width:\s*100%;[^}]*white-space:\s*normal;/s);
+  assert.match(reportCss, /\.cae-owner-offer \.cae-btn,\s*\.cae-owner-check500 \.cae-btn\s*\{[^}]*width:\s*100%;[^}]*white-space:\s*normal;/s);
   assert.match(reportCss, /\.cae-owner-paths > article > span/);
   assert.match(reportCss, /\.cae-score-report--plain-owner \[data-brand\]\s*\{\s*display:\s*inline;/s);
   assert.match(reportCss, /\.cae-score-report--plain-owner \.cae-status-pill\s*\{[^}]*white-space:\s*normal;/s);
+  assert.match(reportCss, /\.cae-score-report--plain-owner \.cae-report-problem\s*\{[^}]*padding:\s*clamp\(1\.15rem, 2\.5vw, 1\.75rem\);/s);
+  assert.match(reportCss, /\.cae-owner-commercial\s*\{[^}]*border-left:\s*4px solid var\(--cae-signal\);/s);
+  assert.match(reportCss, /\.cae-owner-check500,\s*\n\.cae-owner-offer,\s*\n\.cae-owner-conclusion\s*\{[^}]*padding:\s*clamp\(1\.15rem, 2\.5vw, 1\.75rem\);/s);
 });
 
 test("Russian route is noindex and the English route remains unchanged and protected", () => {

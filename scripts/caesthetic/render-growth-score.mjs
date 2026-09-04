@@ -985,7 +985,7 @@ function isLeadToRevenueCheckRecommended(report) {
 function plainThirtyDayHtml(report) {
   const steps = report.presentation.owner_copy?.thirty_day_steps || [];
   return `<div class="cae-owner-thirty-day">${steps.map(([period, task]) => `<article><span>${escapeHtml(period)}</span><p>${escapeHtml(task)}</p></article>`).join("")}</div>
-    <p class="cae-report-note">Это рекомендуемый порядок самостоятельной работы, а не заранее купленный объём услуг.</p>`;
+    <p class="cae-report-note cae-owner-thirty-day-note">Это рекомендуемый порядок самостоятельной работы, а не заранее купленный объём услуг.</p>`;
 }
 
 function plainRepairPathsHtml(report) {
@@ -1017,6 +1017,7 @@ function plainInternalBoundaryHtml(report) {
       <img src="/assets/img/growth-score/lead-to-revenue-map-ru.svg" width="1600" height="900" alt="Карта непроверенного внутреннего пути от получения обращения до оплаты" loading="lazy" decoding="async">
       <figcaption>Публичный аудит заканчивается до внутренних процессов. Для проверки этих этапов нужен разрешённый доступ к данным клиники.</figcaption>
     </figure>
+    ${plainCheck500Html(report, "mid")}
   </section>`;
 }
 
@@ -1037,23 +1038,63 @@ function plainConclusionHtml(report) {
   return `<article class="cae-owner-conclusion"><h3>Один порядок действий</h3><p>${escapeHtml(conclusion)}</p><p><strong>Сильная основа:</strong> ${escapeHtml(report.humanDiagnosis.objective_strength.title)}</p></article>`;
 }
 
+function plainCommercialPriorityHtml(report) {
+  const priority = report.presentation.owner_copy?.commercial_priority;
+  if (!priority) return "";
+  return `<article class="cae-owner-commercial" data-owner-commercial-priority data-commercial-contract="${escapeHtml(report.presentation.commercial_contract || "")}">
+    <p class="cae-kicker">${escapeHtml(priority.kicker)}</p>
+    <h3>${escapeHtml(priority.title)}</h3>
+    <p>${escapeHtml(priority.body)}</p>
+    <ol class="cae-owner-commercial__surfaces">${stringList(priority.surfaces)}</ol>
+    <h4>Что получает Spoken</h4>
+    <ul>${stringList(priority.items)}</ul>
+  </article>`;
+}
+
+function plainCheck500Html(report, placement) {
+  const check = report.presentation.owner_copy?.check500;
+  const copy = check?.[placement];
+  if (!check || !copy) return "";
+  const placementLabel = placement === "mid" ? "середина отчёта" : "конец отчёта";
+  return `<article class="cae-owner-check500" data-cae-check-placement="${placement}" data-check500-contract="${escapeHtml(report.presentation.check500_placement_contract || "")}" aria-label="Дополнительная проверка за 500 долларов · ${placementLabel}">
+    <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
+    <h3>${escapeHtml(copy.title)}</h3>
+    <p class="cae-owner-check500__product">${escapeHtml(check.product_line)}</p>
+    <p>${escapeHtml(copy.body)}</p>
+    <p class="cae-report-note">${escapeHtml(check.fine_print)}</p>
+    <p class="cae-report-note">${escapeHtml(check.boundary)}</p>
+    <a class="cae-btn cae-btn--outline" href="/lead-to-revenue-check/">${escapeHtml(copy.cta)}</a>
+  </article>`;
+}
+
 function plainCommercialNextStepHtml(report) {
-  const offer = report.presentation.owner_copy?.offer || {};
-  const checkRecommended = isLeadToRevenueCheckRecommended(report);
+  const offer = report.presentation.owner_copy?.sprint_offer || {};
+  const reputation = report.presentation.owner_copy?.reputation_service;
   const paths = [
     ["Сделать внутри команды", report.implementation_paths.diy],
     ["Передать своим специалистам", report.implementation_paths.other_provider],
-    [checkRecommended ? "Проверить внутренний путь с CAESTHETIC" : "Поручить CAESTHETIC", report.implementation_paths.caesthetic],
+    [report.presentation.owner_copy?.caesthetic_path_title || "Поручить CAESTHETIC", report.implementation_paths.caesthetic],
     ["Отложить", report.implementation_paths.defer],
   ];
+  const reputationHtml = reputation ? `<article class="cae-owner-offer cae-owner-offer--continuation" data-owner-reputation-service>
+      <p class="cae-kicker">${escapeHtml(reputation.kicker)}</p>
+      <h3>${escapeHtml(reputation.title)}</h3>
+      <p>${escapeHtml(reputation.body)}</p>
+      <ul>${stringList(reputation.items)}</ul>
+      <p><strong>Как продолжить:</strong> ${escapeHtml(reputation.delivery)}</p>
+      <p class="cae-report-note">${escapeHtml(reputation.boundary)}</p>
+    </article>` : "";
   return `<div class="cae-owner-paths">${paths.map(([title, body], index) => `<article${index === 2 ? ' class="is-caesthetic"' : ""}><span>${index + 1}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(body)}</p></article>`).join("")}</div>
-    <article class="cae-owner-offer"${checkRecommended ? ' data-cae-check-recommended="true"' : ""}>
+    ${reputationHtml}
+    <article class="cae-owner-offer cae-owner-offer--sprint" data-owner-sprint-offer data-commercial-contract="${escapeHtml(report.presentation.commercial_contract || "")}">
       <p class="cae-kicker">${escapeHtml(offer.kicker || "Вариант с CAESTHETIC")}</p>
       <h3>${escapeHtml(offer.title || "30-дневный спринт роста")}</h3>
       <p class="cae-owner-offer__price">${escapeHtml(offer.price || "$2,500 · 30 дней")}</p>
       <p>${escapeHtml(offer.body || report.why_caesthetic.sprint_boundary)}</p>
-      <a class="cae-btn cae-btn--primary" href="${checkRecommended ? "/lead-to-revenue-check/" : "#request"}"${checkRecommended ? "" : " data-cae-request"}>${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
-    </article>`;
+      ${offer.items?.length ? `<ul>${stringList(offer.items)}</ul>` : ""}
+      <a class="cae-btn cae-btn--primary" href="/sprint/">${escapeHtml(offer.cta || "Поручить внедрение CAESTHETIC")}</a>
+    </article>
+    ${plainCheck500Html(report, "final")}`;
 }
 
 function leadToRevenueMapHtml(report) {
@@ -1109,6 +1150,7 @@ function growthScoreIntroHtml(report) {
       <h2 class="cae-h2">${escapeHtml(intro.title)}</h2>
       <ul class="cae-owner-intro__answers">${intro.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
       <p class="cae-owner-intro__note"><strong>${escapeHtml(intro.note)}</strong></p>
+      ${plainCommercialPriorityHtml(report)}
     </div>
   </section>`;
   }
