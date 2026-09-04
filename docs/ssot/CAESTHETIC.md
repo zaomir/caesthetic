@@ -1,9 +1,10 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.27
+version: 3.28
 updated: 2026-09-04
 scope: CAESTHETIC master strategy and product-funnel canon
+commercial_contract: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
 related:
@@ -106,7 +107,48 @@ Growth Score — see the constraint from the outside
 
 This is a focus rule as well as an evidence rule: mention that the internal layer exists, but do not diagnose or sell it before the required access, workflow observation and real operating data exist.
 
-### 2.2 Canonical client presentation script: 4444 / Four Surfaces
+### 2.2 Commercial product core: 4444
+
+**4444 is the primary CAESTHETIC product:** alignment of demand language across exactly four public patient-decision surfaces:
+
+1. Search and Google Business Profile;
+2. Website;
+3. Social;
+4. Reputation / Reviews, including owner responses.
+
+The paid implementation vehicle is the **30-Day Growth Sprint — $2,500**. The primary commercial objective of each Growth Score is to make the evidence-backed case for this Sprint as the way CAESTHETIC implements the agreed 4444 priority. The Sprint does not sell an arbitrary task list; it implements the selected constraint and the cross-surface dependencies required to make the demand language coherent. The report still preserves complete in-house and alternative-provider instructions and never manufactures urgency or need.
+
+The canonical 4444 deliverable system is:
+
+1. a demand-language map for priority services;
+2. precise long-tail queries that express clearer booking intent;
+3. one canonical vocabulary for services, providers and location;
+4. intentional query allocation across website pages, blog, Google Business Profile, Social, reviews and owner responses;
+5. a regular content operating cadence tied to the priority services and allocated queries;
+6. a compliant system for increasing honest review participation and publishing useful owner responses;
+7. continuing verification that the four surfaces remain semantically coherent.
+
+Reviews remain independent patient speech. CAESTHETIC may create a compliant request process, analyze recurring language and help the owner write truthful, useful responses, but may not script positive sentiment, gate reviewers, buy or incentivize reviews, or force keywords into patient-authored text. Search language in owner responses must remain natural, relevant and privacy-safe.
+
+The canonical commercial path is:
+
+```text
+Free Growth Score
+→ show whether and where the Four Surfaces fail to operate as one demand-language system
+→ primary recommendation: implement the agreed 4444 priority
+→ primary paid action: 30-Day Growth Sprint — $2,500
+→ optional continuation: refresh queries and content, grow honest reviews, maintain owner responses and verify Four-Surface consistency
+```
+
+The **Lead-to-Revenue Check — $500** remains a secondary diagnostic branch for a person who wants more clarity about what happens after a patient enquiry or prefers to begin with a smaller engagement. Reports always display it in the two positions required by `check500-two-placement/1.0.0`, but it does not replace 4444 or the Sprint as the primary recommendation and action.
+
+Business-name changes, duplicate cleanup, schema, redirects, technical repairs and other isolated corrections may remain in evidence-backed instructions or Sprint dependencies. They are not the commercial center unless a verified prerequisite must be resolved before the agreed 4444 priority can function. The report must sell the value of coordinated demand language, not an isolated hygiene task.
+
+Every Growth Score must help the owner understand the value of 4444 without manufacturing a cross-surface failure. The report shows verified inconsistency where evidence supports it, protects already coherent language where it exists, marks missing evidence honestly and connects the primary commercial recommendation to the approved priority rather than automatically forcing the same repair on every practice.
+
+After the Sprint, the client may maintain the delivered system independently, with another provider or through optional CAESTHETIC ownership. CAESTHETIC continuation explains the operating work—query and content refresh, review-request discipline, owner responses and Four-Surface consistency verification—without inventing a universal recurring price or guaranteed rankings, patients, bookings, revenue or ROI.
+
+### 2.3 Canonical client presentation script: 4444 / Four Surfaces
 
 **Purpose:** use this master script and sketch language to explain the CAESTHETIC model in a live owner conversation, help the owner understand the problem before any product reveal, and make the later progression from **Growth Score** to the **30-Day Growth Sprint** understandable. It is a general sales/explainer narrative, not a substitute for the evidence-led, practice-specific Valerie Petra Growth Score walkthrough governed by `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 
@@ -266,7 +308,7 @@ Every approved Growth Score follows `check500-two-placement/1.0.0`. A single-loc
 
 If less than 70% of a surface's metric weight is observable, publish `Insufficient evidence`, not a fabricated score. Overall and surface `/100` values are a compact navigator/tension layer, not the decision layer.
 
-The private owner cockpit's primary product is the human-approved, evidence-backed decision package:
+The private owner cockpit's primary deliverable is the human-approved, evidence-backed decision package:
 
 - objective strength and strongest surface;
 - binding constraint and named-competitor evidence where applicable;

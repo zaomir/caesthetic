@@ -1,9 +1,10 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.4
+version: 2.5
 updated: 2026-09-04
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
+commercial_contract: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/CAESTHETIC.md
 implementation_spec: docs/caesthetic/growth_score_spec.md
 related:
@@ -100,6 +101,28 @@ The public patient-decision model remains exactly:
 Cross-Surface Consistency is a diagnostic between these surfaces, not a fifth surface.
 
 Paid acquisition remains the Demand Layer, not a fifth surface.
+
+### 3.0.1 4444 commercial narrative
+
+Every report explains that **4444 is the primary CAESTHETIC product**: coordinated demand language across Search / Google Business Profile, Website, Social and Reputation / Reviews including owner responses. The report determines from approved evidence whether and where those surfaces fail to operate as one patient-decision system; it may not manufacture inconsistency when the evidence does not support it.
+
+The client-visible 4444 outcome includes:
+
+- a demand-language map for priority services;
+- precise long-tail queries with clearer booking intent;
+- one service, provider and location vocabulary;
+- intentional query allocation across website pages, blog, Google Business Profile, Social, reviews and owner responses;
+- a regular content cadence;
+- a compliant honest-review growth and owner-response system; and
+- continuing Four-Surface consistency verification.
+
+The primary commercial recommendation is to implement the approved 4444 priority. The primary paid action is the **30-Day Growth Sprint — $2,500**, with practice-specific scope confirmed separately. The report must explain which 4444 outcome the Sprint is intended to create without presenting the illustrative 30-day sequence as already purchased scope or promising results.
+
+The optional **Lead-to-Revenue Check — $500** remains the secondary branch governed by `check500-two-placement/1.0.0`. It is appropriate for a person who wants more clarity about the post-enquiry path or prefers a smaller first engagement, but it does not displace 4444 or the Sprint.
+
+Business-name changes, duplicate cleanup, redirects, schema and isolated technical repairs may remain in the Gap Inventory and complete implementation instructions when evidence supports them. They are prerequisites or tactics, not the center of the commercial story. Client copy must not turn one technical repair into the main CAESTHETIC product.
+
+Reviews are not provider-authored keyword inventory. The report may recommend compliant requests for honest reviews, analysis of recurring patient language and natural, truthful, privacy-safe owner responses. It may not recommend review gating, scripted positive sentiment, incentives, purchased reviews or keyword stuffing in patient or owner language.
 
 The report may explain the end-to-end journey as:
 
@@ -313,8 +336,8 @@ The final client-facing visual sequence is canonical even though it is composed 
 4. **Top 3 leaks.** Exactly one Primary + two Supporting. Primary is open by default; Supporting are collapsed by default. Closed state already states the problem and owner consequence. Expanded state includes `What we found`, `Why it matters`, `What it affects`, `Evidence`, and the repair path/DIY detail at the next disclosure level.
 5. **Competitive decision.** Lead with why a patient/client may choose another practice, then expose the deeper comparison matrix. End with `Defend / Close / Differentiate / Do not copy`.
 6. **Thirty-day fit + Lead-to-Revenue boundary.** Explain what can realistically change in 30 days, then show the internal-conversion map and the first contextual Check500 section. The map shows what is and is not assessed after enquiry; it is a boundary/diagnostic branch, not a fifth surface or proof of a leak.
-7. **Final system synthesis.** State whether the findings represent isolated issues or one connected patient-decision system. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
-8. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The primary CAESTHETIC option is the 30-Day Growth Sprint at the canonical `$2,500` price. Immediately after it, show the second Check500 section as a smaller optional first engagement. Any retail-equivalent comparison must pass §9.1.
+7. **Final system synthesis.** State whether the findings represent isolated issues or one connected patient-decision system, then explain the relevant 4444 outcome: a shared demand-language map, query allocation, content/review-response system and consistency verification. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
+8. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The primary CAESTHETIC option is the 30-Day Growth Sprint at the canonical `$2,500` price, framed as implementation of the approved 4444 priority rather than an isolated technical task. Immediately after it, show the second Check500 section as a smaller optional first engagement. Any retail-equivalent comparison must pass §9.1.
 9. **What happens next + founder note.** Show a branching continuation rather than a forced ladder, then close with a short real-founder note. Valerie Petra may be shown only in a truthful approved role; no fabricated biography or handwritten signature.
 
 ### 8.2 Mapping to the immutable nine-section machine contract
@@ -543,7 +566,7 @@ Acceptance requires:
 1. canonical renderer validation and deterministic render-drift check;
 2. exact Intro + nine numbered sections;
 3. exactly one Primary + two Supporting Focus Gaps;
-4. at most one late evidence-backed implementation CTA plus exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent; the first follows the post-enquiry map and the second follows the primary Sprint offer; a focus child has neither;
+4. at most one late evidence-backed implementation CTA for the `$2,500` Sprint implementing the approved 4444 priority, plus exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent; the first follows the post-enquiry map and the second follows the primary Sprint offer; a focus child has neither;
 5. source-level absence of client-visible reviewer/selector attribution and embedded walkthrough card/URL;
 6. Four Surfaces unchanged; Cross-Surface remains separate; Lead Intake/internal conversion is not rendered as a fifth surface;
 7. for new authoring: one reviewed `journeyGraph` artifact, both deterministic public views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
@@ -578,6 +601,8 @@ Do not:
 - display a client occupancy/revenue problem as fact merely because an illustrative owner question is persuasive;
 - hide DIY instructions to manufacture sales dependence;
 - invent retail implementation prices, savings, ROI, patients or revenue;
+- sell a business-name change, duplicate cleanup, schema, redirect or another isolated technical repair as the primary CAESTHETIC product instead of the evidence-backed 4444 outcome;
+- script positive review sentiment, gate or incentivize reviewers, buy reviews, or force keywords into patient-authored reviews or owner responses;
 - use fake scarcity, fake countdowns or implied price increases;
 - omit either Check500 placement, add a third placement, hide or reorder one from behavior, label the person as doubtful or afraid, automatically route them to the Check, paraphrase `check500-section/en-US/1.0.0`, turn its `$500` price/credit rule into a guaranteed-outcome claim, or treat Check interest as evidence of an internal leak;
 - publish a universal recurring fee that is not in current pricing/SSOT authority;

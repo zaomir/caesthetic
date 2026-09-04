@@ -1,11 +1,12 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1
+version: 1.2
 created: 2026-08-12
-updated: 2026-08-13
+updated: 2026-09-04
 scope: Growth System operations, Growth Ledger, client-visible reporting and request routing
 parent: docs/ssot/CAESTHETIC.md
+commercial_contract: caesthetic-4444-commercial-core/1.0.0
 economics_authority: docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md
 global_productization: docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md
 global_evidence: docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
@@ -20,6 +21,19 @@ CAESTHETIC is a **reference implementation** of `docs/ssot/PRODUCTIZATION_AND_GR
 This is an architecture and operating-policy decision only. It does **not** authorize a new runtime service, vendor, integration, database migration or healthcare-data flow. Each implementation still requires a separately approved scope plus privacy, security and compliance review appropriate to the client and jurisdiction.
 
 ## 1. Operating outcome and two reporting layers
+
+Growth System is the optional continuation of the 4444 product after the `$2,500` Sprint. Its recurring commercial center is maintaining one demand-language system across Search / Google Business Profile, Website, Social and Reputation / Reviews—not selling disconnected posts, technical chores or staff hours.
+
+The canonical continuing 4444 operating work is:
+
+1. refresh priority-service demand-language maps and long-tail booking-intent queries from current evidence;
+2. maintain one service, provider and location vocabulary;
+3. update query allocation across website pages, blog, Google Business Profile, Social, reviews and owner responses;
+4. operate a regular content cadence tied to the approved query map;
+5. run a compliant system for increasing honest review participation and publishing useful, truthful, privacy-safe owner responses; and
+6. repeatedly verify Four-Surface consistency and correct material drift.
+
+This is an operating responsibility, not a promise of rankings, patients, bookings, revenue or ROI. Patient-operations, conversion, recovery, technology and other work may enter only when a verified constraint and the client-specific scope justify it; those interventions do not replace 4444 as the central continuation narrative.
 
 Growth System owns recurring growth operations; it is not a package of staff hours, posts or campaign quotas. The operating system has two distinct layers:
 

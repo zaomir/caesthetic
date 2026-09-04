@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: mandatory_agent_adapter
-version: 2.4
+version: 2.5
 canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
 canonical_ref: zaomir/grainee-v2 origin/main resolved at run start
@@ -160,6 +160,15 @@ limitations and supersession link. Missing or contradictory evidence is
 
 Competitors must be selected by a disclosed, comparable rule. Visible public
 activity is not proof of commercial effectiveness.
+
+Every audit also applies `caesthetic-4444-commercial-core/1.0.0`. Research must
+compare whether priority-service demand language, precise long-tail booking-intent
+queries, service/provider/location vocabulary and proof remain coherent across the
+four surfaces. The final commercial narrative leads with the approved 4444 priority
+and the `$2,500` 30-Day Growth Sprint as CAESTHETIC's primary implementation action.
+Name changes and isolated technical repairs remain evidence-backed instructions or
+dependencies, not the main product. The `$500` Lead-to-Revenue Check remains the
+secondary branch governed by `check500-two-placement/1.0.0`.
 
 ## 7. Human-only decisions and delivery gates
 

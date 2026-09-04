@@ -3,6 +3,15 @@
 **Updated:** 2026-09-04
 **Phase:** Phase 1 — proof + outbound readiness
 
+## 4444 commercial core — canon (2026-09-04)
+
+- The primary CAESTHETIC product is `4444`: coordinated demand language across Search / Google Business Profile, Website, Social and Reputation / Reviews including owner responses.
+- The deliverable system is a priority-service demand-language map, booking-intent long-tail queries, one service/provider/location vocabulary, intentional query allocation, regular content, compliant honest-review growth and owner responses, plus continuing Four-Surface consistency verification.
+- The Free Growth Score shows whether and where the Four Surfaces fail to operate as one system. The primary paid action is the `$2,500` 30-Day Growth Sprint implementing the approved 4444 priority.
+- The `$500` Lead-to-Revenue Check remains a secondary diagnostic path and is displayed twice under `check500-two-placement/1.0.0`; it does not displace 4444 or the Sprint.
+- Optional Growth System continuation maintains the query/content/review/response system and verifies consistency. Exact recurring economics remain client-specific.
+- Name changes and isolated technical repairs may remain in evidence-backed instructions or dependencies, but they are not the commercial center.
+
 ## Private Growth Preview v1 — production (2026-09-04)
 
 - Private Growth Preview is live as an acquisition mechanic over approved pre-Score evidence, not a product or diagnosis. The permission boundary remains `Continue to My Free Growth Score`; only that atomic action creates or resolves the existing Growth Score lead, case, status and outbox.
@@ -41,7 +50,7 @@
 - Historical schema-v5 reports remain readable. New authoring always emits the artifact and may use an approved empty `not_assessed` state when the existing evidence does not support the views.
 - Deferred next phase only: Patient Language Map, Objection Map, manual/free/paid source expansion, LinkedIn/Reddit and paid enrichment such as Apify. None is implemented or treated as current evidence here.
 
-## Lead-to-Revenue Check — sitewide runtime (2026-09-03)
+## Lead-to-Revenue Check — observed sitewide runtime before current report-placement canon (2026-09-03)
 
 - Canonical route: `/lead-to-revenue-check/`; fixed price `$500` from the generated pricing SSOT.
 - Product role: conditional internal-path diagnostic after public-evidence Growth Score, not a fifth surface, mandatory stage or primary-navigation item.
@@ -52,6 +61,7 @@
 - New single-location and Multi-Location authoring now emits an explicit `not_recommended` Check decision with no evidence refs. A named-human-approved reason plus evidence refs is required to switch it to `recommended`; focus children reject that commercial state.
 - Controlled payment runtime accepts `lead_to_revenue_check` only as a signed, written-scope-linked `$500 USD` order. Payment labels are product-aware, and only `growth_sprint` orders can trigger the automatic 30-day Sprint activation path.
 - Analytics: `lead_to_revenue_check_page_viewed` and `lead_to_revenue_check_scope_requested`. Production smoke includes page, price, inquiry and sitemap markers.
+- The report-renderer behavior recorded above predates `check500-two-placement/1.0.0`; runtime implementation of the two always-visible placements remains separate from the current docs canon.
 
 ## Beauty Salons vertical — production (2026-08-28)
 
@@ -100,10 +110,11 @@ Known limits:
 - Agent card: `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md`.
 
 ## Canonical product state
-- Growth Score: free; one schema-v5 engine/template (`growth-score-report-template/5.2.0`); 3-stage minimal intake; AI-assisted four-surface research and draft; named-human-approved evidence, Gap Inventory, exact Top 3 Focus Selection and Repair Plans; one unnumbered Intro before the private exact nine-section owner cockpit plus Valerie Petra walkthrough.
-- Sprint 1: $2,500 / 30 days; finite scoped implementation + longer-horizon processes started.
+- 4444: primary CAESTHETIC product; alignment of demand language across the exact Four Surfaces under `caesthetic-4444-commercial-core/1.0.0`.
+- Growth Score: free; shows whether and where the Four Surfaces fail to operate as one demand-language system, using one schema-v5 engine/template (`growth-score-report-template/5.2.0`), AI-assisted research and named-human-approved evidence/decisions.
+- Sprint 1: $2,500 / 30 days; primary paid implementation vehicle for the approved 4444 priority, with finite scoped implementation and longer-horizon processes started.
 - Sprint Extension: $2,500 per additional 30 days; optional, unpublished, post-Day-30 finite implementation continuation.
-- Growth System: optional recurring operating ownership under one client-specific Growth Budget; the visible Fixed Management Fee sits inside the budget, variable inputs use the remaining approved funds, and any contractually activated Performance Fee is separate above it. No reusable recurring amount, rate or cap.
+- Growth System: optional recurring 4444 ownership—query/content refresh, compliant review participation, owner responses and consistency verification—under client-specific commercial terms. No reusable recurring amount, rate or cap.
 - Sprint scope: approximately 3–6 Category A constraints and 1–5 Category B maturing processes, governed by access, before-evidence, live-evidence, revenue-recovery, Client Growth Statement and Build-vs-Configure gates; no artificial Month-2 backlog.
 - Reporting: detailed internal operations/evidence plus a short mobile-first Client Growth Statement that separates shipped activity, adoption, verified impact and objectively maturing work.
 - Economics and measurement authority: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`.

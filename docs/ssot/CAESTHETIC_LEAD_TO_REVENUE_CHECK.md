@@ -1,12 +1,13 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.4
+version: 1.5
 created: 2026-09-02
 updated: 2026-09-04
 scope: canonical commercial and evidence contract for the CAESTHETIC Lead-to-Revenue Check
 copy_contract: check500-section/en-US/1.0.0
 placement_contract: check500-two-placement/1.0.0
+commercial_parent: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/CAESTHETIC.md
 related:
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md
@@ -42,7 +43,7 @@ Growth Score — outside-in diagnosis across the Four Surfaces
 → immediately after it: optional Lead-to-Revenue Check ($500) as a smaller first engagement
 ```
 
-The public headline funnel remains `Growth Score → 30-Day Growth Sprint → optional Growth System`. The Sprint remains the primary implementation action. The Check is a secondary way to understand the post-enquiry path or begin with a smaller engagement; it does not become a fourth headline product, a gate before the Sprint or an automatic upsell.
+The public headline funnel remains `Growth Score → 30-Day Growth Sprint → optional Growth System`. 4444 remains the primary CAESTHETIC product, and the `$2,500` Sprint remains the primary paid action for implementing its approved priority. The Check is a secondary way to understand the post-enquiry path or begin with a smaller engagement; it does not become a fourth headline product, a gate before the Sprint or an automatic upsell.
 
 ## 2. Fixed commercial rule
 
@@ -116,7 +117,7 @@ In the free Growth Score, the `Lead Intake` ring remains the outside-in boundary
 Every approved single-location Growth Score and every approved Multi-Location parent must render these two instances:
 
 1. **Middle contextual section — after the post-enquiry explanation or Lead-to-Revenue Map.** Its job is to explain that public evidence cannot establish what happens after a patient contacts the practice and that the `$500` Check can examine that authorized internal path. It must not imply that an internal leak has already been found.
-2. **Final alternative-start section — immediately after the primary `$2,500` Sprint offer.** Its job is to offer a smaller first engagement for a person who wants to understand the post-enquiry path and experience how CAESTHETIC works before choosing a larger implementation engagement. It must remain visually secondary to the Sprint.
+2. **Final alternative-start section — immediately after the primary `$2,500` Sprint offer to implement the approved 4444 priority.** Its job is to offer a smaller first engagement for a person who wants to understand the post-enquiry path and experience how CAESTHETIC works before choosing a larger implementation engagement. It must remain visually and commercially secondary to 4444 and the Sprint.
 
 Both instances are sections, not hidden tooltips, modal-only content or behavior-triggered replacements. They identify the product, fixed `$500` price, purpose, route/action and direct-continuation credit. Their placement and visibility do not depend on `leadToRevenueCheck.recommendation`, scroll depth, dwell time, return visits, CTA reversals or any other inferred intent.
 

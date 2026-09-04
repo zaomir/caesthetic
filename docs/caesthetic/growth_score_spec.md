@@ -1,11 +1,12 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 5.3.5
+version: 5.3.6
 updated: 2026-09-04
 scope: public intake, AI-assisted research, Cross-Surface Journey Graph evidence, five derived decision views, named-human Focus Selection, controlled learning, scoring, an unnumbered Intro and a nine-section owner-cockpit contract
 schema_contract: 5
 template_contract: growth-score-report-template/5.2.0
+commercial_contract: caesthetic-4444-commercial-core/1.0.0
 intro_section: unnumbered
 cockpit_sections: 9
 parent: docs/ssot/CAESTHETIC.md
@@ -597,6 +598,7 @@ The Intro appears immediately before `gap-map` and is not assigned a cockpit num
 - kicker: `YOUR GROWTH SCORE · HOW TO READ THIS REPORT`;
 - why the reader is here: the public journey was reviewed across Search, Website, Social and Reputation;
 - what Growth Score is: not another marketing grade or service menu;
+- what CAESTHETIC implements: 4444, the alignment of demand language across the same four surfaces;
 - what it answers: what works, what limits growth, what to fix first and what not to fund yet;
 - how to read it: begin with the Primary Constraint and Focus Gaps, then use the Gap Inventory and Repair Paths; scores are secondary navigation;
 - what happens next: implement in-house, use another provider, defer or ask CAESTHETIC, with no automatic service commitment;
@@ -606,13 +608,13 @@ The Intro appears immediately before `gap-map` and is not assigned a cockpit num
 
 1. **Gap Map** (`gap-map`) — objective strength, strongest surface, human-approved binding constraint, immutable approved `Where Clients Are Gained - and Lost` PNG, Four-Surface snapshot, Journey-Graph-driven Broken Connections Map, Treatment Opportunity Matrix, Provider Visibility Map, Trust Chain, categorical Patient Friction Index and complete reviewed opportunity landscape, with verified and `insufficient_evidence` states kept distinct.
 2. **Focus Gaps** (`focus-gaps`) — exactly one Primary and exactly two Supporting gaps, visibly identified as human-approved, with rationale and binding-constraint link; selector identity stays in the internal audit trail.
-3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope. After the post-enquiry explanation or Lead-to-Revenue Map, it renders the first contextual Check500 section.
+3. **Sprint Fit** (`sprint-fit`) — selected gaps classified by what can close within 30 days, what can only start and what remains backlog. At least two are `close_in_30_days`; no more than one is `start_in_30_days`. This is illustrative sequencing, not purchased scope. It maps the approved priority to the applicable 4444 deliverables: priority-service demand language, long-tail booking-intent queries, canonical service/provider/location vocabulary, query allocation, content cadence, honest-review/owner-response system and consistency verification. After the post-enquiry explanation or Lead-to-Revenue Map, it renders the first contextual Check500 section.
 4. **Repair Paths** (`repair-paths`) — complete DIY-capable remediation plans for every selected gap: outcome, steps, dependencies, accountable role and observable `done_when`. A `start_in_30_days` item separates Day-30 outcome from beyond-Day-30 work.
 5. **Do Not Fund Yet** (`do-not-fund`) — exactly one named-human-approved global recommendation, its evidence-backed rationale and explicit conditions for revisiting it, plus the separate unscored human-approved `Do Not Promote Yet by Treatment` view.
 6. **Full Gap Inventory** (`gap-inventory`) — every reviewed gap, including unselected, backlog and `insufficient_evidence` items, with stable evidence and Repair Plan links.
 7. **Evidence and competitors** (`evidence-and-competitors`) — metric evidence, collection dates, Class A/B state, limitations, comparison matrix, competitor cards and Competitive Decision Analysis where applicable. Paid Ads remain a Demand Layer, not a fifth surface.
 8. **Scores and methodology** (`scores-and-methodology`) — Search, Website, Social and Reputation with 30/25/15/30 heuristic display weights; Cross-Surface remains separate; Overall appears only with sufficient coverage. Sources, windows, unavailable evidence, Class A ratio and methodology/limitations are disclosed here.
-9. **Next step** (`next-step`) — all four implementation paths: in-house, another provider, defer or a separately scoped CAESTHETIC engagement. It includes the honest `Why CAESTHETIC / Why the 30-Day Sprint` coordination rationale, client ownership/no-lock-in language and at most one optional evidence-backed Sprint CTA. Immediately after that primary Sprint offer, it renders the second Check500 section as a smaller optional first engagement, without implying purchased scope, an internal leak or guaranteed results.
+9. **Next step** (`next-step`) — all four implementation paths: in-house, another provider, defer or a separately scoped CAESTHETIC engagement. It includes the honest `Why CAESTHETIC / Why the 30-Day Sprint` coordination rationale, client ownership/no-lock-in language and at most one optional evidence-backed Sprint CTA. The primary CAESTHETIC action is the `$2,500` Sprint to implement the approved 4444 priority, not a name change or isolated technical repair. Immediately after that primary Sprint offer, it renders the second Check500 section as a smaller optional first engagement, without implying purchased scope, an internal leak or guaranteed results.
 
 The consolidation preserves every decision layer from v5.1: executive diagnosis moves into Gap Map; remediation stays in Repair Paths and Sprint Fit; the score navigator and methodology remain together; evidence and competitor detail remain together; and implementation paths plus the honest CAESTHETIC coordination case remain in Next step. No evidence, diagnosis, remediation, implementation or methodology content may be dropped merely because the cockpit has fewer counted sections.
 
@@ -733,6 +735,7 @@ Growth Score is not complete until production tests prove all of the following:
 - render-drift check against generated report artifacts.
 - exact Hero title/composition; four surface statuses; gray `LEAD INTAKE · NOT ASSESSED`; same-artifact edge IDs/states in Hero and Broken Connections Map; no optional-unassessed edge and no false green Social/Reviews → Lead Intake;
 - mobile Hero primary-route composition and vertical Lead-to-Revenue pipeline with no body overflow;
+- `caesthetic-4444-commercial-core/1.0.0` is present in every supported locale: the report explains 4444, connects the primary `$2,500` Sprint action to the approved 4444 priority, preserves the complete implementation paths and does not sell an isolated name/technical repair as the main product;
 - exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent, using the `check500-section/en-US/1.0.0` source lock and its direct-continuation Sprint credit rule, with the middle section after the post-enquiry map, the final section after the primary Sprint offer, all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
 
 Any legacy scorer may remain only as a thin CLI/import wrapper around the one production scoring authority. Two independent metric catalogues or scoring implementations are forbidden.
