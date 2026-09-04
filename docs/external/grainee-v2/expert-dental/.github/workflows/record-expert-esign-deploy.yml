@@ -82,7 +82,9 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git pull --rebase origin main
           git add docs/audits/expert-esign/LAST_RUN.md
           git commit -m 'docs(expert-esign): record protected deploy evidence [skip ci]' || exit 0
+          # Rebase only after the generated evidence is committed; pulling with
+          # an unstaged LAST_RUN.md makes Git fail before it can record the run.
+          git pull --rebase origin main
           git push origin HEAD:main

@@ -3,7 +3,7 @@
   "direction": "grainee-v2-to-caesthetic-only",
   "files": {
     ".github/workflows/deploy-expert-esign-test.yml": "dfc916e5418de77dc264147806db7cdde263a9ed3017d0fca9fb91e967767f25",
-    ".github/workflows/record-expert-esign-deploy.yml": "c6f32df20578b935cc4cb2b7d7561977dc03b0aa3cb22e9738b4284e93fffe5f",
+    ".github/workflows/record-expert-esign-deploy.yml": "4a12436e1da435c5f14f7b5992e32a363f4f542c5728a9cfce5a89161fefa107",
     "AGENTS.md": "1253460bbe763130fc10324ecd46d98f7b3ce8c584531866c329e8b0a46a6587",
     "START.md": "2057059e586dbf77cf6f611895a5c5471000e4c8486c0d52c5ad1ce897e65006",
     "agents/manifests/healthcare-ecosystem.yaml": "d8c4afe70acd3b463aded8f73b345cff02855d1456bb527d878f89046a7597c5",
@@ -297,6 +297,6 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-read-through-mirror.v1",
-  "source_sha": "1e06fdd6f07b246126897356bed9ad25649f39b3",
+  "source_sha": "373f74e03f61657476b5a52496d81b539d8cf823",
   "writeback": "forbidden; use docs/projects/caesthetic/expert-dental-contributions/"
 }
