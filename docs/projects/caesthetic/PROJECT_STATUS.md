@@ -3,6 +3,12 @@
 **Updated:** 2026-09-04
 **Phase:** Phase 1 — proof + outbound readiness
 
+## 2026-09-04 — Approved Connect4 patient journey visual v1
+
+- Owner explicitly approved the final generated journey image as canon. Exact PNG: `docs/ssot/assets/caesthetic/connect4-patient-journey-v1.png`; SHA-256 `229821d3ef70194dedd278fff76841e1cea671148e8e06807177d9f26781b180`.
+- Concept SSOT §9.1 records the example three-surface route, separate Lead Intake, possible loss before contact and before booking, and cream/navy/burgundy style.
+- Earlier variants remain unapproved. This canon does not replace the separate locked report illustration; no runtime deploy is part of this documentation release.
+
 ## 2026-09-04 — Connect4 concept and How we work explanation
 
 - Added `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` as the detailed concept authority linked from master, project agent instructions and topic/index navigation.
