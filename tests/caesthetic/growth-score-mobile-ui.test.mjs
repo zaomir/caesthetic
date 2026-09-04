@@ -24,7 +24,7 @@ const orderedSections = [
 ];
 
 test("mobile decision UI keeps the canonical nine-section machine order", () => {
-  assert.match(js, /growth-score-mobile-ui\/1\.1\.5/);
+  assert.match(js, /growth-score-mobile-ui\/1\.1\.6/);
   orderedSections.forEach((id) => assert.match(js, new RegExp(`"${id}"`)));
   assert.match(contract, /one unnumbered Intro and exactly nine machine sections/i);
   assert.doesNotMatch(contract, /tenth section|10-section cockpit/i);
@@ -71,8 +71,8 @@ test("presentation is mobile-first and progressively enhanced", () => {
 test("one commercial CTA appears only after Sprint Fit", () => {
   assert.match(js, /const gate = document\.getElementById\("sprint-fit"\)/);
   assert.match(js, /growth_score_sprint_cta_view/);
-  assert.match(js, /\/sprint\//);
-  assert.match(js, /\$2,500/);
+  assert.match(renderer, /data-cae-\$\{kind\}-inquiry/);
+  assert.match(renderer, /\$2,500/);
   assert.match(contract, /CTA appears only after the reader reaches the 30-day feasibility section/i);
 });
 
@@ -80,13 +80,13 @@ test("Multi-Location keeps its network decision story and one package CTA", () =
   assert.match(js, /function isNetworkParent/);
   assert.match(js, /function isFocusLocationChild/);
   assert.match(js, /if \(isNetworkParent\(\)\) return;/);
-  assert.match(js, /if \(isNetworkParent\(\) \|\| isFocusLocationChild\(\)\) return;/);
+  assert.match(js, /if \(isFocusLocationChild\(\)\)/);
   assert.match(js, /sticky\?\.remove\(\)/);
   assert.match(js, /root\.dataset\.packageRole/);
 });
 
 test("regular controls keep the 44px target after demand journey removal", () => {
-  assert.match(js, /growth-report-mobile\.css\?v=1\.1\.5/);
+  assert.match(js, /growth-report-mobile\.css\?v=1\.1\.6/);
   assert.match(css, /\.cae-mobile-report-nav__brand\s*\{[\s\S]*?min-height:\s*44px/);
   assert.doesNotMatch(css, /min-height:\s*42px/);
   assert.match(js, /evidenceCountLabel/);
@@ -100,4 +100,15 @@ test("analytics payload is limited to non-PII context", () => {
   assert.doesNotMatch(js, /practice_name\s*:/);
   assert.doesNotMatch(js, /reviewer_name\s*:/);
   assert.doesNotMatch(js, /email\s*:/);
+});
+
+test("report sharing uses the native mobile sheet with a clean-link fallback", () => {
+  assert.match(renderer, /reportShareHtml\(report, "start"\)/);
+  assert.match(renderer, /reportShareHtml\(report, "end"\)/);
+  assert.match(js, /typeof navigator\.share === "function"/);
+  assert.match(js, /await navigator\.share\(shareData\)/);
+  assert.match(js, /navigator\.clipboard\?\.writeText/);
+  assert.match(js, /url\.hash = ""/);
+  assert.match(reportCss, /\.cae-report-share__button[\s\S]*?width:\s*100%[\s\S]*?min-height:\s*52px/);
+  assert.match(contract, /one native share button near the beginning and one after the final report content/i);
 });

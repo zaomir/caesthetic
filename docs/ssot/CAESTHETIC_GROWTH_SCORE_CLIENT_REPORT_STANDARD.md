@@ -310,6 +310,7 @@ Presentation rules:
 - do not duplicate Sprint CTAs across sections;
 - do not create a third Check500 section or any Check500 section in a Multi-Location focus child;
 - a sticky CTA may be used only late in the report when it does not interrupt reading; disable it on mobile when it degrades the decision flow.
+- in the owner-brief audit template, place one clearly labelled report-share action near the beginning and one after the final report content; on supported mobile devices both use the native sharing sheet, with a clean-URL copy fallback elsewhere;
 
 Approved visual grammar:
 
@@ -389,6 +390,7 @@ At approximately `360–430px`:
 - Lead-to-Revenue Map becomes a vertical pipeline;
 - touch targets are at least `44px`;
 - no early sticky commercial CTA obscures diagnosis.
+- the beginning and ending share controls remain full-width, readable and at least `44px` high; sharing never reveals credentials or report data beyond the current clean page URL and localized title.
 
 ### 8.5 Founder note
 

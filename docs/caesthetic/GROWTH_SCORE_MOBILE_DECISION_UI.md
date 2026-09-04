@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1.5
+version: 1.1.6
 updated: 2026-09-04
 scope: mobile-first client presentation for Growth Score schema v5 reports
 parent: docs/caesthetic/growth_score_spec.md
@@ -51,6 +51,8 @@ The machine IDs, evidence model and order remain canonical even when visible tit
 - Scores are not shown as the primary hero decision.
 - Evidence, competitors, methodology and full Repair Paths use progressive disclosure.
 - The commercial CTA appears only after the reader reaches the 30-day feasibility section.
+- The owner-brief audit template has one native share button near the beginning and one after the final report content.
+- The share action uses the device sharing sheet when available and otherwise copies the clean report URL without a fragment. It never exposes report JSON, access credentials or evidence payloads.
 
 ## 3. Client-visible attribution
 
@@ -89,7 +91,7 @@ Client interaction events may include only non-PII fields such as report kind, v
 
 ## 8. Versioning
 
-This UI is identified as `growth-score-mobile-ui/1.1.4`. It is a presentation layer over the current schema-v5 report contract. A report-template version bump is not required because no report field, validation rule, metric, evidence or section order changes.
+This UI is identified as `growth-score-mobile-ui/1.1.6`. It is a presentation layer over the current schema-v5 report contract. A report-template version bump is not required because no report field, validation rule, metric, evidence or section order changes.
 
 
 ## Multi-Location preservation rules

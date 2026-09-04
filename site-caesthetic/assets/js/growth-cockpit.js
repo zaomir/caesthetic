@@ -9,7 +9,7 @@
 (function initGrowthCockpit() {
   "use strict";
 
-  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.5";
+  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.6";
   const SECTION_IDS = [
     "gap-map",
     "focus-gaps",
@@ -89,6 +89,10 @@
       sprintCopy: "We prepare a written scope around the verified priorities. Scope is confirmed separately; no ranking, patient, revenue or ROI outcome is promised.",
       sprintPrice: "$2,500 · 30 days",
       cta: "Ask CAESTHETIC to implement",
+      share: "Share report",
+      shareDone: "Shared.",
+      shareCopied: "Link copied.",
+      shareFailed: "Could not share. Copy the address from your browser.",
       noCommitment: "The report does not commit you to a service.",
     },
     ru: {
@@ -158,6 +162,10 @@
       sprintCopy: "Мы подготовим письменный объём работ вокруг подтверждённых приоритетов. Объём согласуется отдельно; мы не обещаем позиции в поиске, пациентов, выручку или окупаемость инвестиций.",
       sprintPrice: "$2,500 · 30 дней",
       cta: "Поручить внедрение CAESTHETIC",
+      share: "Поделиться отчётом",
+      shareDone: "Готово.",
+      shareCopied: "Ссылка скопирована.",
+      shareFailed: "Не удалось поделиться. Скопируйте адрес из браузера.",
       noCommitment: "Отчёт не обязывает вас покупать услугу.",
       burdenLabels: {
         diagnosed_issues: "выявленных разрывов",
@@ -233,6 +241,10 @@
       sprintCopy: "Preparamos un alcance escrito alrededor de las prioridades verificadas. El alcance se confirma por separado y no prometemos ranking, pacientes, ingresos ni ROI.",
       sprintPrice: "$2,500 · 30 días",
       cta: "Pedir a CAESTHETIC que lo implemente",
+      share: "Compartir informe",
+      shareDone: "Compartido.",
+      shareCopied: "Enlace copiado.",
+      shareFailed: "No se pudo compartir. Copia la dirección del navegador.",
       noCommitment: "El informe no te compromete a contratar un servicio.",
     },
     fr: {
@@ -301,6 +313,10 @@
       sprintCopy: "Nous préparons un périmètre écrit autour des priorités vérifiées. Le périmètre est confirmé séparément; aucun classement, patient, revenu ou ROI n'est promis.",
       sprintPrice: "$2,500 · 30 jours",
       cta: "Demander à CAESTHETIC de mettre en œuvre",
+      share: "Partager le rapport",
+      shareDone: "Partagé.",
+      shareCopied: "Lien copié.",
+      shareFailed: "Impossible de partager. Copiez l’adresse du navigateur.",
       noCommitment: "Le rapport ne vous engage pas à acheter un service.",
     },
     uk: {
@@ -369,6 +385,10 @@
       sprintCopy: "Ми підготуємо письмовий scope навколо підтверджених пріоритетів. Scope погоджується окремо; ми не обіцяємо ranking, пацієнтів, виручку або ROI.",
       sprintPrice: "$2,500 · 30 днів",
       cta: "Доручити впровадження CAESTHETIC",
+      share: "Поділитися звітом",
+      shareDone: "Готово.",
+      shareCopied: "Посилання скопійовано.",
+      shareFailed: "Не вдалося поділитися. Скопіюйте адресу з браузера.",
       noCommitment: "Звіт не зобов'язує вас купувати послугу.",
     },
   };
@@ -424,7 +444,7 @@
     if (document.querySelector('link[data-cae-mobile-report]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/assets/css/growth-report-mobile.css?v=1.1.5";
+    link.href = "/assets/css/growth-report-mobile.css?v=1.1.6";
     link.dataset.caeMobileReport = CLIENT_UI_VERSION;
     document.head.append(link);
     root.dataset.growthScoreUi = CLIENT_UI_VERSION;
@@ -899,6 +919,73 @@
     });
   }
 
+  async function copyShareUrl(url) {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(url);
+      return;
+    }
+    const field = document.createElement("textarea");
+    field.value = url;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    body.append(field);
+    field.select();
+    const copied = document.execCommand("copy");
+    field.remove();
+    if (!copied) throw new Error("share_copy_failed");
+  }
+
+  function initReportSharing() {
+    const buttons = Array.from(document.querySelectorAll("[data-cae-report-share]"));
+    if (!buttons.length) return;
+    const practiceName = document.querySelector(".cae-report-header h1")?.textContent?.trim() || t.report;
+    const url = new URL(window.location.href);
+    url.hash = "";
+    const shareData = {
+      title: document.title,
+      text: `${t.report}: ${practiceName}`,
+      url: url.href,
+    };
+
+    buttons.forEach((button) => {
+      button.querySelector("span").textContent = t.share;
+      button.addEventListener("click", async () => {
+        const placement = button.dataset.caeReportShare || "unknown";
+        const status = button.closest("[data-cae-report-share-wrap]")?.querySelector(".cae-report-share__status");
+        button.disabled = true;
+        if (status) status.textContent = "";
+        try {
+          if (typeof navigator.share === "function" && (typeof navigator.canShare !== "function" || navigator.canShare(shareData))) {
+            track("growth_score_share_open", { placement, method: "native" });
+            await navigator.share(shareData);
+            if (status) status.textContent = t.shareDone;
+            track("growth_score_share_complete", { placement, method: "native" });
+          } else {
+            await copyShareUrl(shareData.url);
+            if (status) status.textContent = t.shareCopied;
+            track("growth_score_share_complete", { placement, method: "clipboard" });
+          }
+        } catch (error) {
+          if (error?.name === "AbortError") {
+            track("growth_score_share_cancel", { placement, method: "native" });
+          } else {
+            try {
+              await copyShareUrl(shareData.url);
+              if (status) status.textContent = t.shareCopied;
+              track("growth_score_share_complete", { placement, method: "clipboard_fallback" });
+            } catch (_copyError) {
+              if (status) status.textContent = t.shareFailed;
+              track("growth_score_share_error", { placement });
+            }
+          }
+        } finally {
+          button.disabled = false;
+        }
+      });
+    });
+  }
+
   function initStickySprint() {
     const sticky = document.querySelector(".cae-sticky-sprint");
     if (isFocusLocationChild()) {
@@ -982,6 +1069,7 @@
     enhanceCompetitors();
     enhanceScores();
     preserveCanonicalNextStep();
+    initReportSharing();
     initStickySprint();
     initGapMapLinks();
     track("growth_score_mobile_ui_ready", { ui_version: CLIENT_UI_VERSION });

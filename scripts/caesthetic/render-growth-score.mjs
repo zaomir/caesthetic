@@ -97,6 +97,26 @@ function ownerUi(report) {
   return report.presentation?.owner_copy?.ui || {};
 }
 
+const REPORT_SHARE_LABELS = Object.freeze({
+  en: "Share report",
+  ru: "Поделиться отчётом",
+  es: "Compartir informe",
+  fr: "Partager le rapport",
+  uk: "Поділитися звітом",
+});
+
+function reportShareHtml(report, placement) {
+  const locale = report.reportContext?.report_locale || "en";
+  const label = REPORT_SHARE_LABELS[locale] || REPORT_SHARE_LABELS.en;
+  return `<div class="cae-report-share cae-report-share--${placement}" data-cae-report-share-wrap="${placement}">
+    <button class="cae-report-share__button" type="button" data-cae-report-share="${placement}">
+      <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 3v12m0-12 4 4m-4-4-4 4M5 11v8h14v-8"/></svg>
+      <span>${escapeHtml(label)}</span>
+    </button>
+    <p class="cae-report-share__status" role="status" aria-live="polite"></p>
+  </div>`;
+}
+
 function approvedMetricForRef(report, reference) {
   const [surfaceId, metricId] = String(reference || "").split(".", 2);
   const metrics = surfaceId === "cross"
@@ -2131,7 +2151,7 @@ function plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescriptio
   <meta name="description" content="${metaDescription}">
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
-  <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.0">
+  <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.1">
 </head>
 <body class="cae-score-report cae-score-report--plain-owner cae-score-report--brief">
 ${disclosure}
@@ -2145,6 +2165,7 @@ ${disclosure}
         <p class="cae-report-meta">${escapeHtml(report.practice.location)} · ${escapeHtml(copy.header?.prepared_label || ui.prepared_label || "Подготовлено")}: ${escapeHtml(preparedDate)}</p>
         ${copy.assessment_state ? `<p class="cae-owner-assessment"><strong>${escapeHtml(ui.assessment_label)}:</strong> ${escapeHtml(copy.assessment_state)}</p>` : ""}
       </header>
+      ${reportShareHtml(report, "start")}
       ${ownerGreetingHtml(report)}
       ${plainResearchScopeHtml(report)}
     </div>
@@ -2235,12 +2256,13 @@ ${disclosure}
       <p class="cae-kicker">${escapeHtml(kickers[8])}</p>
       <h2 class="cae-h2">${escapeHtml(titles[8])}</h2>
       ${plainRepairPathsHtml(report)}
+      ${reportShareHtml(report, "end")}
     </div>
   </section>
 </main>
 <script src="/assets/js/caesthetic-config.js"></script>
 <script src="/assets/js/caesthetic.js" defer></script>
-<script src="/assets/js/growth-cockpit.js?v=1.1.5" defer></script>
+<script src="/assets/js/growth-cockpit.js?v=1.1.6" defer></script>
 </body>
 </html>
 `;

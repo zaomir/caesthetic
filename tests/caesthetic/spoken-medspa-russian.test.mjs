@@ -220,6 +220,8 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(storedHtml, /Выберите, кто внедрит изменения/);
   assert.match(storedHtml, /Порядок работ/);
   assert.match(storedHtml, /Пошаговые инструкции/);
+  assert.equal((storedHtml.match(/data-cae-report-share="(?:start|end)"/g) || []).length, 2);
+  assert.equal((storedHtml.match(/>Поделиться отчётом</g) || []).length, 2);
   assert.match(storedHtml, /class="cae-report-note cae-owner-thirty-day-note">Это рекомендуемый порядок самостоятельной работы/);
   assert.doesNotMatch(storedHtml, /data-owner-commercial-priority/);
   assert.doesNotMatch(storedHtml, /Главный продукт <span data-brand>CAESTHETIC<\/span> — 4444/);
