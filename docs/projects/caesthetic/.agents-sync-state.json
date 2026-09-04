@@ -685,7 +685,7 @@
     "site-caesthetic/assets/case-studies/placeholders/search-surface.svg": "a5d10e266c2d6271465c88f10dbdb95ec0aacc87af416c00355d654b53204acd",
     "site-caesthetic/assets/css/beauty-salons.css": "c7f9e12b784da6f5f0e47c073d940e20083d6db854b0726ccb9591be61f13dff",
     "site-caesthetic/assets/css/caesthetic-impeccable.css": "5012e3695e913505981d2778164d795321123fab6e283c24f28030b1b9d165b2",
-    "site-caesthetic/assets/css/caesthetic.css": "4bb4199559bfbe14c836ac1a619ef3d094e7ab20578ec370c7ae626071954dd6",
+    "site-caesthetic/assets/css/caesthetic.css": "f531c1abf869f58113f302b294087921b4d9b8b801eecf9c5e31e138b591cb13",
     "site-caesthetic/assets/css/case-studies.css": "c93edc58eb9893c46a03c497e869679f16ebd76d59d72eb6048cdcf9a5ec714a",
     "site-caesthetic/assets/css/case-study-detail.css": "7bd19d40840f6bd5cc4ec025a5ff7d47171e7b2af5e20533ddd2f0d3dd369073",
     "site-caesthetic/assets/css/growth-report-base.css": "65e1eb693d98c428721ecb4874fe4717c8ecbfad950a3a8152d520e06f9cebf7",
@@ -852,9 +852,9 @@
     "tests/caesthetic/satellite-growth-score-authoring.test.py": "bf67e10b76dcab41bd15773dade115791ce4721e4b43d64d79e3457d1146a12d",
     "tests/caesthetic/site-v2-public-canon.test.mjs": "95b3af02ccc7019fe48f8609662e937233fe78e0d5d4582fe9987df1476ce03f",
     "tests/caesthetic/us-spa-ig-dolphin-phase1.test.mjs": "9273bbafd5b80f4a5b6c3f0312cb9b6166ff0244157957c7458d59f79b7826e6",
-    "tests/caesthetic/v2-public-canon.test.mjs": "132446f3cd3f6905b7e5df87c1165b1410affd4ec36ec549753248503cb76966"
+    "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-03T23:37:36Z",
+  "updated_at_utc": "2026-09-04T00:15:36Z",
   "version": 1
 }

@@ -79,6 +79,16 @@ test("evidence panels can shrink and wrap on 320px score reports", () => {
   assert.match(growthCss, /\.cae-diagnosis \.cae-disclaimer\s*\{[^}]*overflow-wrap:\s*anywhere;/s);
 });
 
+test("the global header collapses before its CTA can leave the viewport", () => {
+  const css = read("assets/css/caesthetic.css");
+  assert.match(css, /\.cae-header \.cae-wrap\.cae-header__inner\s*\{[^}]*width:\s*min\(1600px,\s*calc\(100% - 40px\)\)/s);
+  const headerBreakpoint = css.match(/@media \(max-width:\s*1599px\)\s*\{[\s\S]*?\/\* ═+/)?.[0] || "";
+  assert.match(headerBreakpoint, /\.cae-menu-btn\s*\{[^}]*display:\s*inline-flex/s);
+  assert.match(headerBreakpoint, /\.cae-nav\s*\{[^}]*position:\s*fixed/s);
+  assert.match(headerBreakpoint, /\.cae-nav-cta \.cae-btn\s*\{[^}]*width:\s*100%/s);
+  assert.match(css, /@media \(max-width:\s*1024px\)\s*\{\s*\/\* Layouts \*\//s);
+});
+
 test("all primary public surfaces use info email and canonical brand assets", () => {
   const publicCopy = [
     "index.html", "growth-score/index.html", "sprint/index.html", "growth-system/index.html",

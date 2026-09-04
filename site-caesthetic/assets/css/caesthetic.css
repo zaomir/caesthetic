@@ -311,7 +311,8 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
   border-bottom: 1px solid var(--cae-border);
 }
 
-.cae-header__inner {
+.cae-header .cae-wrap.cae-header__inner {
+  width: min(1600px, calc(100% - 40px));
   min-height: var(--cae-header-h);
   display: flex;
   align-items: center;
@@ -2110,10 +2111,10 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESPONSIVE — 1024px (nav breakpoint)
+   RESPONSIVE — 1599px (nav fit breakpoint)
    ═══════════════════════════════════════════════════════════════ */
 
-@media (max-width: 1024px) {
+@media (max-width: 1599px) {
   .cae-menu-btn {
     display: inline-flex;
   }
@@ -2222,6 +2223,13 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — 1024px (content layouts)
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
 
   /* Layouts */
   .cae-hero__grid,
