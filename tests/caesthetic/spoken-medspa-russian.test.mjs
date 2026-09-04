@@ -211,6 +211,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
     ["Поиск и Google", "Сайт и блог", "Социальные сети", "Отзывы и репутация"],
   );
   assert.match(storedHtml, /Это и есть соответствие\. Пациент может начать путь/);
+  assert.doesNotMatch(storedHtml, /<svg class="cae-owner-method__diagram/);
   assert.match(storedHtml, /Три главные ограничения/);
   assert.match(storedHtml, /data-owner-constraint-accordion/);
   assert.equal((storedHtml.match(/<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint"/g) || []).length, 3);

@@ -1448,34 +1448,10 @@ function plainMethodIntroductionHtml(report) {
           <div>${surfaceRows}</div>
         </div>
         <figure class="cae-owner-method__figure" role="img" aria-label="${escapeHtml(diagramLabel)}">
-          <svg class="cae-owner-method__diagram cae-owner-method__diagram--desktop" viewBox="0 0 620 520" aria-hidden="true" focusable="false">
-            <g class="cae-owner-method__spokes">
-              <path d="M238 174 L276 222" />
-              <path d="M382 174 L344 222" />
-              <path d="M238 346 L276 298" />
-              <path d="M382 346 L344 298" />
-            </g>
-            <g class="cae-owner-method__node">
-              <rect x="20" y="74" width="230" height="100" rx="8" />
-              <text x="135" y="118" text-anchor="middle"><tspan x="135">Поиск и</tspan><tspan x="135" dy="25">Google</tspan></text>
-            </g>
-            <g class="cae-owner-method__node">
-              <rect x="370" y="74" width="230" height="100" rx="8" />
-              <text x="485" y="131" text-anchor="middle">Сайт и блог</text>
-            </g>
-            <g class="cae-owner-method__node">
-              <rect x="20" y="346" width="230" height="100" rx="8" />
-              <text x="135" y="388" text-anchor="middle"><tspan x="135">Социальные</tspan><tspan x="135" dy="25">сети</tspan></text>
-            </g>
-            <g class="cae-owner-method__node">
-              <rect x="370" y="346" width="230" height="100" rx="8" />
-              <text x="485" y="388" text-anchor="middle"><tspan x="485">Отзывы и</tspan><tspan x="485" dy="25">репутация</tspan></text>
-            </g>
-            <g class="cae-owner-method__center">
-              <circle cx="310" cy="260" r="84" />
-              <text x="310" y="248" text-anchor="middle"><tspan x="310">10 ключевых</tspan><tspan x="310" dy="28">фраз</tspan></text>
-            </g>
-          </svg>
+          <div class="cae-owner-method__diagram cae-owner-method__diagram--desktop" aria-hidden="true">
+            ${method.surfaces.map((surface, index) => `<span class="cae-owner-method__node cae-owner-method__node--${index + 1}">${escapeHtml(surface.title)}</span>`).join("")}
+            <strong>${escapeHtml(method.center)}</strong>
+          </div>
           <div class="cae-owner-method__diagram cae-owner-method__diagram--mobile" aria-hidden="true">
             <strong>${escapeHtml(method.center)}</strong>
             <ol>${method.surfaces.map((surface, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(surface.title)}</li>`).join("")}</ol>
@@ -2208,7 +2184,7 @@ function plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescriptio
   <meta name="description" content="${metaDescription}">
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
-  <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.3">
+  <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.4">
 </head>
 <body class="cae-score-report cae-score-report--plain-owner cae-score-report--brief">
 ${disclosure}

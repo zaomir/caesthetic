@@ -1278,42 +1278,61 @@
 }
 
 .cae-owner-method__diagram--desktop {
+  position: relative;
+  display: grid;
   width: 100%;
-  height: auto;
+  grid-template-columns: minmax(0, 1fr) minmax(7rem, 0.7fr) minmax(0, 1fr);
+  grid-template-rows: repeat(2, minmax(8.5rem, auto));
+  gap: var(--cae-space-5);
+  align-items: stretch;
 }
 
-.cae-owner-method__spokes path {
-  fill: none;
-  stroke: var(--cae-signal);
-  stroke-dasharray: 5 8;
-  stroke-linecap: round;
-  stroke-width: 2;
+.cae-owner-method__diagram--desktop::before {
+  position: absolute;
+  top: 50%;
+  right: 12%;
+  left: 12%;
+  z-index: 0;
+  border-top: 2px dashed var(--cae-signal);
+  content: "";
 }
 
-.cae-owner-method__node rect {
-  fill: var(--cae-bg);
-  stroke: var(--cae-border-strong);
-  stroke-width: 1.5;
+.cae-owner-method__node,
+.cae-owner-method__diagram--desktop > strong {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  padding: var(--cae-space-4);
+  text-align: center;
 }
 
-.cae-owner-method__node text,
-.cae-owner-method__center text {
-  fill: var(--cae-text-strong);
-  font-family: var(--cae-font);
-  font-size: 18px;
+.cae-owner-method__node {
+  border: 1px solid var(--cae-border-strong);
+  border-radius: 8px;
+  background: var(--cae-bg);
+  color: var(--cae-text-strong);
   font-weight: 700;
 }
 
-.cae-owner-method__center circle {
-  fill: var(--cae-signal-light);
-  stroke: var(--cae-signal);
-  stroke-width: 3;
-}
+.cae-owner-method__node--1 { grid-column: 1; grid-row: 1; }
+.cae-owner-method__node--2 { grid-column: 3; grid-row: 1; }
+.cae-owner-method__node--3 { grid-column: 1; grid-row: 2; }
+.cae-owner-method__node--4 { grid-column: 3; grid-row: 2; }
 
-.cae-owner-method__center text {
-  fill: var(--cae-signal);
+.cae-owner-method__diagram--desktop > strong {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  aspect-ratio: 1;
+  border: 3px solid var(--cae-signal);
+  border-radius: 50%;
+  background: var(--cae-signal-light);
+  color: var(--cae-signal);
   font-family: var(--cae-font-display);
-  font-size: 21px;
+  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+  line-height: 1.15;
 }
 
 .cae-owner-method__diagram--mobile {

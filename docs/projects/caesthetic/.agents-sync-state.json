@@ -644,7 +644,7 @@
     "scripts/caesthetic/render-daily-growth-note.py": "7251453e978f98bc997285f073feb18b2ce226ac6468b323e80e209db2f4ee87",
     "scripts/caesthetic/render-editorial-story-card.py": "9dff0f0e7ce74245b53298c2dfc1aa06e1bd24ab889f9d5d5990bcc3a5d294b1",
     "scripts/caesthetic/render-editorial-text-overlay.py": "88bc297a624da97b7ff79e1a002e08443dbfc8a20531eff89619ec9cb504503f",
-    "scripts/caesthetic/render-growth-score.mjs": "cbd3857af788166f841269e87a8b64b467375ae494ffa3785456dc54fb4690e1",
+    "scripts/caesthetic/render-growth-score.mjs": "21fa73a71a071b71a4c5b2eea3dc727be506ae0e4c55fba3956107e86b5bb068",
     "scripts/caesthetic/render-ig-l5-cards.mjs": "f282d3f24a833ccf85221a3cd4e1d776d612f3cac36fb3766829167cbf81fac1",
     "scripts/caesthetic/render-ig-voc-batch.py": "11a4309f5322d2bc251f6ddc1efe25f113dfd58131a7a4b5675f0a01678e0303",
     "scripts/caesthetic/render-ig-w34-visuals.py": "384acec511079f81d3c5386f731b31f86288c997d02d6372437159cd4cce379f",
@@ -706,7 +706,7 @@
     "site-caesthetic/assets/css/case-study-detail.css": "22abe0027964c47ffd96797e0c453d69a438a0089f036ec1e3eca86f3e7ea454",
     "site-caesthetic/assets/css/growth-report-base.css": "6f9b4a170933751f4ad2f9bcc9f548c4e3ad27d96f21b1a15d7ded63f550966f",
     "site-caesthetic/assets/css/growth-report-mobile.css": "fb1ffc446587998bf789f7511d8e76c1ae5a7664a2855cd8ff579858f92c84be",
-    "site-caesthetic/assets/css/growth-report.css": "76c1c24f828dcce557d41093dae442336633ded790db8acd0d888098bd1c6ec9",
+    "site-caesthetic/assets/css/growth-report.css": "c7d7013898bd594ece9b4d24ae5c0715a64a874fefd40a13aa9ff96dddb09bd8",
     "site-caesthetic/assets/css/growth.css": "13294b3ccde8afeb73e56d6ec163c3145ea26c5427fbb5b42f583f390966948f",
     "site-caesthetic/assets/css/point-of-contact.css": "64e9b2fed1f17e9deadb6cf0c7407db2edbd1c495a23ca182fc9f7eaaa9674fa",
     "site-caesthetic/assets/css/tokens.css": "befd310d72a2ec466faea1715757e94bbb0808d33842a2825a1507a00335b07c",
@@ -877,11 +877,11 @@
     "tests/caesthetic/satellite-growth-score-authoring.test.py": "e07133d24531bcac0b01bbe976c252d7dae291f9c0b50afefe4cd223a0086af9",
     "tests/caesthetic/site-v2-public-canon.test.mjs": "95b3af02ccc7019fe48f8609662e937233fe78e0d5d4582fe9987df1476ce03f",
     "tests/caesthetic/sitewide-color-contrast.test.mjs": "c1d609b1520dc37b8323ace22caf9d4c409136f4691b1d04afe1e1ad6bd425c6",
-    "tests/caesthetic/spoken-medspa-russian.test.mjs": "0bd4a90133f97185b4a52a492b306139af9b06fef52828ae61e84539d65dafc0",
+    "tests/caesthetic/spoken-medspa-russian.test.mjs": "1862572b056ba2834f43b8b68908bf60d2bb4d77358ca9063c984bae22c22f5f",
     "tests/caesthetic/us-spa-ig-dolphin-phase1.test.mjs": "9273bbafd5b80f4a5b6c3f0312cb9b6166ff0244157957c7458d59f79b7826e6",
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-04T21:41:34Z",
+  "updated_at_utc": "2026-09-04T21:48:51Z",
   "version": 1
 }
