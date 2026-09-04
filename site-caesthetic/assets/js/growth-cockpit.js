@@ -9,7 +9,7 @@
 (function initGrowthCockpit() {
   "use strict";
 
-  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.1";
+  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.2";
   const STAGES = ["discovery", "trust", "enquiry", "booking", "treatment"];
   const SECTION_IDS = [
     "gap-map",
@@ -467,7 +467,7 @@
     if (document.querySelector('link[data-cae-mobile-report]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/assets/css/growth-report-mobile.css?v=1.1.1";
+    link.href = "/assets/css/growth-report-mobile.css?v=1.1.2";
     link.dataset.caeMobileReport = CLIENT_UI_VERSION;
     document.head.append(link);
     root.dataset.growthScoreUi = CLIENT_UI_VERSION;

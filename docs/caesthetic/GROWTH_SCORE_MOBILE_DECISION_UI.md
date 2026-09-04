@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1.1
+version: 1.1.2
 updated: 2026-09-04
 scope: mobile-first client presentation for Growth Score schema v5 reports
 parent: docs/caesthetic/growth_score_spec.md
@@ -111,5 +111,5 @@ The responsive enhancement must detect `audit.format=multi_location` and `audit.
 - The focus-location child keeps its link back to the network implementation decision and never receives another Sprint offer or sticky Sprint CTA.
 - The enhancement may collapse dense evidence, but it must not replace approved network content with the generic single-location story.
 - Demand Journey title, state and explanation render as separate blocks; filter and navigation controls use at least 44px targets.
-- Demand Journey uses one vertical column below `900px`; the five-column desktop layout begins at `900px`, and every stage grows to fit its full evidence explanation without overlapping the constraint copy below.
+- Demand Journey uses one vertical column below `900px`; the five-column desktop layout begins at `900px`, every desktop card shares the same top and bottom edge, and every stage grows to fit its full evidence explanation without overlapping the constraint copy below.
 - Russian internal-review pages use Russian interface labels, including evidence counts and distinct `Позже` / `Наблюдать` inventory states.

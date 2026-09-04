@@ -300,6 +300,10 @@ html[data-page="growth-score-report"] {
   box-shadow: none;
 }
 
+.cae-score-report--mobile-story .cae-report-demand__stage + .cae-report-demand__stage {
+  margin-top: 0;
+}
+
 .cae-score-report--mobile-story .cae-report-demand__stage:not(:last-child)::after {
   position: absolute;
   top: 22px;
