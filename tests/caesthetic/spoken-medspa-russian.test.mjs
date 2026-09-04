@@ -119,19 +119,29 @@ test("Russian Spoken client text contains no English terms outside approved prop
 });
 
 test("Russian Spoken report presents the approved owner-first sequence without empty or duplicate blocks", () => {
-  assert.equal(report.presentation.layout_contract, "owner-brief/2.0.0");
+  assert.equal(report.presentation.layout_contract, "owner-brief/2.1.0");
   assert.equal(report.presentation.vertical_profile, "med_spa");
   assert.match(storedHtml, /Приветствие от Валерии/);
   assert.match(storedHtml, /Валерия Петра/);
   assert.match(storedHtml, /data-owner-research-scope/);
-  assert.match(storedHtml, /Публичная информация, проверенная для этого аудита/);
-  assert.match(storedHtml, /Поиск и публичные упоминания/);
-  assert.match(storedHtml, />Блог</);
-  assert.match(storedHtml, /Социальные сети/);
-  assert.match(storedHtml, /Путь пациента/);
+  assert.match(storedHtml, /<h2>Изученные ссылки<\/h2>/);
+  const researchStart = storedHtml.indexOf('data-owner-research-scope');
+  const researchEnd = storedHtml.indexOf('</article>', researchStart);
+  const researchHtml = storedHtml.slice(researchStart, researchEnd);
+  assert.equal((researchHtml.match(/<li><a /g) || []).length, 8);
+  assert.equal((researchHtml.match(/target="_blank"/g) || []).length, 8);
+  assert.match(researchHtml, />Сайт <span data-brand>Spoken<\/span><\/a>/);
+  assert.match(researchHtml, />Страница <span data-brand>Botox<\/span><\/a>/);
+  assert.match(researchHtml, />Блог о переходе к <span data-brand>Spoken<\/span><\/a>/);
+  assert.doesNotMatch(researchHtml, /cae-owner-research__cards|cae-owner-research__sources/);
+  assert.doesNotMatch(researchHtml, /Мы изучили только открытые источники/);
   assert.match(storedHtml, /Как пользоваться отчётом/);
   assert.match(storedHtml, /Три главные ограничения/);
-  assert.equal((storedHtml.match(/<p class="cae-focus-gap__rank cae-status-pill">Ограничение [123]<\/p>/g) || []).length, 3);
+  assert.match(storedHtml, /data-owner-constraint-accordion/);
+  assert.equal((storedHtml.match(/<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint"/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<summary><h3><span class="cae-focus-gap__rank cae-status-pill">Ограничение [123]<\/span>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/class="cae-owner-constraint__body"/g) || []).length, 3);
+  assert.doesNotMatch(storedHtml, /<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint"[^>]*\sopen(?:\s|>)/);
   assert.equal((storedHtml.match(/class="cae-focus-gap__evidence"/g) || []).length, 3);
   assert.equal((storedHtml.match(/<h4>Что увидели<\/h4>/g) || []).length, 3);
   assert.equal((storedHtml.match(/<strong>Почему это важно:<\/strong>/g) || []).length, 3);
@@ -248,7 +258,10 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(reportCss, /\.cae-score-report--plain-owner \.cae-status-pill\s*\{[^}]*white-space:\s*normal;/s);
   assert.match(reportCss, /\.cae-score-report--plain-owner \.cae-report-problem\s*\{[^}]*padding:\s*clamp\(1\.15rem, 2\.5vw, 1\.75rem\);/s);
   assert.match(reportCss, /\.cae-owner-repair-accordions\s*\{[^}]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\);/s);
-  assert.match(reportCss, /\.cae-owner-research__cards\s*\{[^}]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\);/s);
+  assert.match(reportCss, /\.cae-owner-research__links\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\);/s);
+  assert.match(reportCss, /\.cae-score-report--brief \.cae-owner-constraint-accordion\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\);/s);
+  assert.match(reportCss, /\.cae-owner-constraint > summary::after\s*\{[^}]*content:\s*"\+";/s);
+  assert.match(reportCss, /\.cae-owner-constraint\[open\] > summary::after\s*\{[^}]*content:\s*"−";/s);
   assert.match(reportCss, /\.cae-owner-check500,\s*\n\.cae-owner-offer,\s*\n\.cae-owner-conclusion\s*\{[^}]*padding:\s*clamp\(1\.15rem, 2\.5vw, 1\.75rem\);/s);
 });
 

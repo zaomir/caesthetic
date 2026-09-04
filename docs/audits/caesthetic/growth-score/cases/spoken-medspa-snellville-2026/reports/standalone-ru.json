@@ -1193,7 +1193,7 @@
     "kind": "localized_client",
     "strict_locale": "ru",
     "copy_profile": "plain_owner_ru",
-    "layout_contract": "owner-brief/2.0.0",
+    "layout_contract": "owner-brief/2.1.0",
     "vertical_profile": "med_spa",
     "hide_unassessed": true,
     "commercial_contract": "caesthetic-4444-commercial-core/1.0.0",
@@ -1253,36 +1253,39 @@
       },
       "research_scope": {
         "kicker": "Что мы изучили",
-        "title": "Публичная информация, проверенная для этого аудита",
-        "intro": "Мы изучили только открытые источники и не отправляли обращения от имени пациента.",
-        "items": [
+        "title": "Изученные ссылки",
+        "links": [
           [
-            "Поиск и публичные упоминания",
-            "Публичные данные о компании, актуальное название, адрес и подтверждённые следы прежнего названия Jurney."
+            "Сайт Spoken",
+            "https://www.spokenmedspa.com/"
           ],
           [
-            "Сайт",
-            "Главную страницу, Botox, филлеры, сведения о специалисте, результаты, материалы для новых пациентов, Академию и путь к записи."
+            "Страница Botox",
+            "https://www.spokenmedspa.com/botox-snellville"
           ],
           [
-            "Блог",
-            "Опубликованный материал о переходе от Jurney к Spoken, использованный как источник для проверки идентичности."
+            "Страница филлеров",
+            "https://www.spokenmedspa.com/dermal-fillers-snellville-ga"
           ],
           [
-            "Социальные сети",
-            "Публичную страницу ссылок Spoken и переходы к социальным сетям, отзывам и записи."
+            "О клинике",
+            "https://www.spokenmedspa.com/about"
           ],
           [
-            "Доверие",
-            "Квалификацию Ivy Cleveland, объяснение услуг, опубликованные результаты и отзывы на сайте."
+            "Материалы для новых пациентов",
+            "https://www.spokenmedspa.com/clients"
           ],
           [
-            "Путь пациента",
-            "Как человек переходит от поиска услуги и проверки доверия к следующему действию и записи."
+            "Академия Spoken",
+            "https://www.spokenmedspa.com/spoken-aesthetic-academy"
           ],
           [
-            "Конкуренты",
-            "Публичные сайты четырёх местных клиник, с которыми пациент может сравнить Spoken."
+            "Блог о переходе к Spoken",
+            "https://www.spokenmedspa.com/post/welcome-to-spoken-med-spa"
+          ],
+          [
+            "Социальные сети и запись",
+            "https://msha.ke/spokenmedspa/"
           ]
         ]
       },

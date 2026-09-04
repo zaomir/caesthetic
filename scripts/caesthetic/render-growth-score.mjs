@@ -420,8 +420,9 @@ function plainCompetitorSummaryHtml(report, { standalone = false, showHeading = 
 function plainResearchScopeHtml(report) {
   const copy = report.presentation.owner_copy?.research_scope;
   if (!copy) return "";
-  const ui = ownerUi(report);
-  return `<article class="cae-owner-research" data-owner-research-scope>
+  if (!Array.isArray(copy.links)) {
+    const ui = ownerUi(report);
+    return `<article class="cae-owner-research" data-owner-research-scope>
     <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
     <h2>${escapeHtml(copy.title)}</h2>
     <p>${escapeHtml(copy.intro)}</p>
@@ -430,6 +431,12 @@ function plainResearchScopeHtml(report) {
       <summary>${escapeHtml(ui.open_sources_label || "Открыть проверенные факты и источники")}</summary>
       ${plainEvidenceHtml(report)}
     </details>
+  </article>`;
+  }
+  return `<article class="cae-owner-research" data-owner-research-scope>
+    <p class="cae-kicker">${escapeHtml(copy.kicker)}</p>
+    <h2>${escapeHtml(copy.title)}</h2>
+    <ul class="cae-owner-research__links">${copy.links.map(([label, source]) => `<li><a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a></li>`).join("")}</ul>
   </article>`;
 }
 
@@ -440,16 +447,17 @@ function plainConstraintCardsHtml(report) {
     .map((id) => diagnosis.gap_inventory.find((gap) => gap.id === id))
     .filter(Boolean);
   const ui = ownerUi(report);
-  return `<div class="cae-focus-gaps cae-focus-gaps--equal" data-owner-three-constraints>${selected.map((gap, index) => {
+  return `<div class="cae-focus-gaps cae-focus-gaps--equal cae-owner-constraint-accordion" data-owner-three-constraints data-owner-constraint-accordion>${selected.map((gap, index) => {
     const evidence = gap.evidence_refs.map((reference) => approvedMetricForRef(report, reference)).filter(Boolean);
-    return `<article class="cae-focus-gap cae-focus-gap--plain" id="gap-${escapeHtml(gap.id)}" data-gap-role="constraint">
-    <p class="cae-focus-gap__rank cae-status-pill">${escapeHtml(ui.constraint_label || "Ограничение")} ${index + 1}</p>
-    <h3>${escapeHtml(gap.title)}</h3>
-    ${evidence.length ? `<div class="cae-focus-gap__evidence"><h4>${escapeHtml(ui.observed_label || "Что увидели")}</h4><ul>${evidence.map((metric) => `<li>${escapeHtml(metric.finding)}</li>`).join("")}</ul></div>` : ""}
-    <p><strong>${escapeHtml(ui.impact_label || "Почему это важно")}:</strong> ${escapeHtml(gap.why_it_matters)}</p>
-    <p><strong>${escapeHtml(ui.outcome_label || "Нужный результат")}:</strong> ${escapeHtml(gap.repair_plan.outcome)}</p>
-    <div class="cae-focus-gap__done"><h4>${escapeHtml(ui.done_label || "Готово, когда")}</h4><ul>${stringList(gap.repair_plan.done_when)}</ul></div>
-  </article>`;
+    return `<details class="cae-focus-gap cae-focus-gap--plain cae-owner-constraint" id="gap-${escapeHtml(gap.id)}" data-gap-role="constraint">
+    <summary><h3><span class="cae-focus-gap__rank cae-status-pill">${escapeHtml(ui.constraint_label || "Ограничение")} ${index + 1}</span><span>${escapeHtml(gap.title)}</span></h3></summary>
+    <div class="cae-owner-constraint__body">
+      ${evidence.length ? `<div class="cae-focus-gap__evidence"><h4>${escapeHtml(ui.observed_label || "Что увидели")}</h4><ul>${evidence.map((metric) => `<li>${escapeHtml(metric.finding)}</li>`).join("")}</ul></div>` : ""}
+      <p><strong>${escapeHtml(ui.impact_label || "Почему это важно")}:</strong> ${escapeHtml(gap.why_it_matters)}</p>
+      <p><strong>${escapeHtml(ui.outcome_label || "Нужный результат")}:</strong> ${escapeHtml(gap.repair_plan.outcome)}</p>
+      <div class="cae-focus-gap__done"><h4>${escapeHtml(ui.done_label || "Готово, когда")}</h4><ul>${stringList(gap.repair_plan.done_when)}</ul></div>
+    </div>
+  </details>`;
   }).join("")}</div>`;
 }
 
@@ -2120,7 +2128,7 @@ function plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescriptio
   <meta name="description" content="${metaDescription}">
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
-  <link rel="stylesheet" href="/assets/css/growth-report.css">
+  <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.0">
 </head>
 <body class="cae-score-report cae-score-report--plain-owner cae-score-report--brief">
 ${disclosure}

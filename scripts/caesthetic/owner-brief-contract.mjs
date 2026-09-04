@@ -1,4 +1,5 @@
-export const OWNER_BRIEF_LAYOUT_CONTRACT = "owner-brief/2.0.0";
+export const OWNER_BRIEF_LAYOUT_CONTRACT = "owner-brief/2.1.0";
+export const PREVIOUS_OWNER_BRIEF_LAYOUT_CONTRACT = "owner-brief/2.0.0";
 export const LEGACY_SPOKEN_OWNER_BRIEF_LAYOUT_CONTRACT = "spoken-owner-brief/1.0.0";
 export const OWNER_BRIEF_COMMERCIAL_CONTRACT = "caesthetic-4444-commercial-core/1.0.0";
 export const OWNER_BRIEF_CHECK500_PLACEMENT_CONTRACT = "check500-two-placement/1.0.0";
@@ -73,9 +74,22 @@ function requireTupleItems(items, label, { min = 1 } = {}) {
   }
 }
 
+function requireLinkItems(items, label, { min = 1 } = {}) {
+  invariant(Array.isArray(items) && items.length >= min, `${label} must contain at least ${min} items`);
+  for (const [index, item] of items.entries()) {
+    invariant(Array.isArray(item) && item.length === 2, `${label}[${index}] must be a label/URL pair`);
+    requireText(item[0], `${label}[${index}][0]`);
+    requireText(item[1], `${label}[${index}][1]`);
+    const url = new URL(item[1]);
+    invariant(["http:", "https:"].includes(url.protocol), `${label}[${index}][1] must use HTTP(S)`);
+    invariant(!url.username && !url.password, `${label}[${index}][1] must not contain credentials`);
+  }
+}
+
 export function isOwnerBriefLayout(report) {
   return [
     OWNER_BRIEF_LAYOUT_CONTRACT,
+    PREVIOUS_OWNER_BRIEF_LAYOUT_CONTRACT,
     LEGACY_SPOKEN_OWNER_BRIEF_LAYOUT_CONTRACT,
   ].includes(report?.presentation?.layout_contract);
 }
@@ -91,14 +105,29 @@ export function validateOwnerBriefPresentation(report) {
 
   if (presentation.layout_contract === LEGACY_SPOKEN_OWNER_BRIEF_LAYOUT_CONTRACT) return true;
 
-  invariant(presentation.hide_unassessed === true, "owner-brief/2.0.0 must hide unassessed client-facing modules");
+  invariant(presentation.hide_unassessed === true, "owner brief must hide unassessed client-facing modules");
   invariant(presentation.strict_locale === report.reportContext?.report_locale, "owner brief strict locale must match report locale");
   invariant(OWNER_BRIEF_VERTICAL_PROFILES.includes(presentation.vertical_profile), "owner brief vertical profile is unsupported");
   invariant(presentation.commercial_contract === OWNER_BRIEF_COMMERCIAL_CONTRACT, "owner brief commercial contract is invalid");
   invariant(presentation.check500_placement_contract === OWNER_BRIEF_CHECK500_PLACEMENT_CONTRACT, "owner brief Check500 placement contract is invalid");
   invariant(copy.check500?.copy_contract === OWNER_BRIEF_CHECK500_COPY_CONTRACT, "owner brief Check500 copy contract is invalid");
 
-  requireTupleItems(copy.research_scope?.items, "owner_copy.research_scope.items", { min: 4 });
+  if (presentation.layout_contract === OWNER_BRIEF_LAYOUT_CONTRACT) {
+    requireText(copy.research_scope?.kicker, "owner_copy.research_scope.kicker");
+    requireText(copy.research_scope?.title, "owner_copy.research_scope.title");
+    requireLinkItems(copy.research_scope?.links, "owner_copy.research_scope.links", { min: 4 });
+    const approvedSources = new Set([
+      ...report.surfaces.flatMap((surface) => surface.metrics),
+      ...report.crossSurface.metrics,
+    ]
+      .filter((metric) => metric.reviewer_status === "approved" && metric.source)
+      .flatMap((metric) => metric.source.split(";").map((source) => source.trim()).filter(Boolean)));
+    for (const [, source] of copy.research_scope.links) {
+      invariant(approvedSources.has(source), `owner_copy.research_scope.links contains an unapproved source: ${source}`);
+    }
+  } else {
+    requireTupleItems(copy.research_scope?.items, "owner_copy.research_scope.items", { min: 4 });
+  }
   invariant(copy.surface_labels && typeof copy.surface_labels === "object", "owner_copy.surface_labels is required");
   for (const surface of ["search", "website", "social", "reputation", "cross_surface"]) {
     requireText(copy.surface_labels[surface], `owner_copy.surface_labels.${surface}`);
