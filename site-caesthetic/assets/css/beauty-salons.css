@@ -706,6 +706,10 @@
   color: var(--cae-text-strong-on-dark);
 }
 
+.cae-salon-form-section .cae-kicker {
+  color: var(--cae-signal-light);
+}
+
 .cae-salon-form-section .cae-lead,
 .cae-salon-form-section .cae-salon-form-note {
   color: var(--cae-muted-on-dark);
@@ -828,6 +832,14 @@
 
 .cae-salon-footer a {
   color: var(--cae-text-strong-on-dark);
+}
+
+.cae-salon-footer .cae-salon-brand__copy strong {
+  color: var(--cae-text-strong-on-dark);
+}
+
+.cae-salon-footer .cae-salon-brand__copy span {
+  color: var(--cae-muted-on-dark);
 }
 
 .cae-salon-footer__links {

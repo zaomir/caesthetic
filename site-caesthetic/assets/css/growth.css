@@ -128,6 +128,11 @@
   margin-bottom: var(--cae-space-3);
 }
 
+.cae-section--dark .cae-list > li > span,
+.cae-price-block .cae-check-credit .cae-step__num {
+  color: var(--cae-signal-light);
+}
+
 .cae-person {
   display: grid;
   grid-template-columns: 160px 1fr;

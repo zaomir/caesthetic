@@ -424,7 +424,7 @@
     if (document.querySelector('link[data-cae-mobile-report]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/assets/css/growth-report-mobile.css?v=1.1.3";
+    link.href = "/assets/css/growth-report-mobile.css?v=1.1.4";
     link.dataset.caeMobileReport = CLIENT_UI_VERSION;
     document.head.append(link);
     root.dataset.growthScoreUi = CLIENT_UI_VERSION;

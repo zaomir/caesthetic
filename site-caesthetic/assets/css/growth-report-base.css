@@ -1213,6 +1213,20 @@ a.cae-report-walkthrough:hover {
   padding: var(--cae-space-5);
   border: 1px solid var(--cae-border-data);
   background: var(--cae-bg-dark-2);
+  color: var(--cae-text-strong-on-dark);
+}
+
+.cae-report-assumption .cae-kicker {
+  color: var(--cae-signal-light);
+}
+
+.cae-report-assumption h3 {
+  color: var(--cae-text-strong-on-dark);
+}
+
+.cae-report-assumption p,
+.cae-report-assumption small {
+  color: var(--cae-muted-on-dark);
 }
 
 .cae-report-inline-link {

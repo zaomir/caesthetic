@@ -82,7 +82,7 @@ test("Multi-Location keeps its network decision story and one package CTA", () =
 });
 
 test("regular controls keep the 44px target after demand journey removal", () => {
-  assert.match(js, /growth-report-mobile\.css\?v=1\.1\.3/);
+  assert.match(js, /growth-report-mobile\.css\?v=1\.1\.4/);
   assert.match(css, /\.cae-mobile-report-nav__brand\s*\{[\s\S]*?min-height:\s*44px/);
   assert.doesNotMatch(css, /min-height:\s*42px/);
   assert.match(js, /evidenceCountLabel/);

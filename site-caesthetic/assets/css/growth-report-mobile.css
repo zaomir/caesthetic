@@ -662,7 +662,13 @@ html[lang="ru"] .cae-score-report--mobile-story .cae-report-do-not-do::before {
 .cae-mobile-score-status { margin: 0 0 0.75rem; color: var(--cae-mobile-muted); font-size: 0.82rem; }
 
 .cae-report-surface-card--overall {
-  opacity: 0.72;
+  opacity: 1;
+}
+
+.cae-report-surface-card--overall > header > span,
+.cae-report-surface-card--overall > .cae-mobile-score-status,
+.cae-report-surface-card--overall > .cae-report-note {
+  color: var(--cae-mobile-muted);
 }
 
 /* Next step and commercial conversion */
@@ -712,6 +718,7 @@ html[lang="ru"] .cae-score-report--mobile-story .cae-report-do-not-do::before {
   background: var(--cae-mobile-ink);
   color: white;
 }
+.cae-mobile-sprint-offer .cae-kicker { color: var(--cae-signal-light); }
 .cae-mobile-sprint-offer h3 { margin: 0; color: white; font-size: clamp(1.75rem, 8vw, 2.5rem); }
 .cae-mobile-sprint-price { margin: 0; color: white; font-family: var(--cae-font-mono); font-weight: 700; }
 .cae-mobile-sprint-copy { margin: 0; color: rgba(255,255,255,.78); line-height: 1.55; }
