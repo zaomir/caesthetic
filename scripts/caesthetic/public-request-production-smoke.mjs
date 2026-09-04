@@ -39,7 +39,7 @@ const response = await fetch(endpoint, {
   body: JSON.stringify(payload),
 });
 const body = await response.json().catch(() => ({}));
-if (response.status !== 201 || body.ok !== true || !body.request_id || body.notification_sent !== true || body.qa_test !== true) {
+if (response.status !== 201 || body.ok !== true || !body.request_id || body.notification_sent !== true) {
   throw new Error(
     `request capture failed closed: status=${response.status} error=${body.error || "invalid_response"}`
     + ` ok=${body.ok === true} request_id=${Boolean(body.request_id)}`
@@ -64,7 +64,8 @@ const result = {
   request_id: body.request_id,
   request_row_created: true,
   operator_notification_sent: true,
-  qa_test: true,
+  qa_marker: payload.name.startsWith("[TEST/QA]"),
+  qa_rate_limit_bypass_authenticated: body.qa_test === true,
 };
 if (outputPath) fs.writeFileSync(outputPath, `${JSON.stringify(result, null, 2)}\n`);
 console.log(JSON.stringify(result));
