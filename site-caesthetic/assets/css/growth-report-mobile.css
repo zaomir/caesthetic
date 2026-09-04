@@ -856,6 +856,46 @@ html[data-page="growth-score-report"] {
   .cae-mobile-paths { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
+/* Executive support cards: one calm reading column with aligned content. */
+.cae-score-report--mobile-story .cae-report-hero__support-grid > .cae-report-state--support {
+  grid-template-columns: 1fr;
+  grid-auto-rows: max-content;
+  align-content: start;
+  gap: 0.9rem;
+  padding: clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+.cae-score-report--mobile-story .cae-report-state--support > .cae-kicker {
+  grid-column: 1;
+  margin: 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(11, 36, 56, 0.12);
+}
+
+.cae-score-report--mobile-story .cae-report-state--support > ul,
+.cae-score-report--mobile-story .cae-report-state--support > p:not(.cae-kicker) {
+  grid-column: 1;
+  max-width: 34ch;
+  margin: 0;
+  color: var(--cae-mobile-ink);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.45;
+}
+
+.cae-score-report--mobile-story .cae-report-state--support > ul {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.cae-score-report--mobile-story .cae-report-state--support li {
+  padding-left: 1.45rem;
+}
+
+.cae-score-report--mobile-story .cae-report-state--support li::before {
+  top: 0.05em;
+  font-size: 0.92em;
+}
+
 @media (max-width: 520px) {
   .cae-score-report--mobile-story .cae-report-header h1 { font-size: clamp(2rem, 11vw, 3rem); }
   .cae-mobile-burden { grid-template-columns: 1fr 1fr; }

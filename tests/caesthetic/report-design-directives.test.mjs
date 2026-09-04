@@ -6,6 +6,7 @@ import test from "node:test";
 const root = resolve(new URL("../..", import.meta.url).pathname);
 const renderer = readFileSync(resolve(root, "scripts/caesthetic/render-growth-score.mjs"), "utf8");
 const css = readFileSync(resolve(root, "site-caesthetic/assets/css/growth-report-base.css"), "utf8");
+const mobileCss = readFileSync(resolve(root, "site-caesthetic/assets/css/growth-report-mobile.css"), "utf8");
 const report = readFileSync(resolve(root, "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html"), "utf8");
 const image = resolve(root, "site-caesthetic/assets/img/growth-score/lead-to-revenue-map.png");
 
@@ -17,11 +18,19 @@ test("Spoken report uses the approved Lead-to-Revenue image instead of Cross-Sur
 });
 
 test("report support cards are equal-height and Check500 is visible", () => {
+  const supportCards = report.match(/<div class="cae-report-hero__support-grid">[\s\S]*?<\/div>/)?.[0] || "";
   assert.match(report, /cae-report-hero__support-grid/);
+  assert.match(report, /cae-report-state cae-report-state--support/);
   assert.match(report, /What already works/);
   assert.match(report, /Fix first/);
   assert.match(css, /\.cae-report-hero__support-grid[\s\S]*align-items:\s*stretch/);
   assert.match(css, /\.cae-report-hero__support-grid\s*>\s*\.cae-report-state[\s\S]*height:\s*100%/);
+  assert.match(mobileCss, /\.cae-report-hero__support-grid > \.cae-report-state--support\s*\{[\s\S]*grid-template-columns:\s*1fr/);
+  assert.match(mobileCss, /\.cae-report-state--support > \.cae-kicker\s*\{[\s\S]*border-bottom:/);
+  assert.match(renderer, /<li>\$\{escapeHtml\(item\)\}<\/li>/);
+  assert.doesNotMatch(renderer, /strengths\.map\(\(item\) => `<li>✓/);
+  assert.match(report, /<li>Strong Botox page and Ivy authority\.<\/li>/);
+  assert.doesNotMatch(supportCards, /<li>\s*✓/);
   assert.match(report, /Lead-to-Revenue Check[\s\S]*\$500/);
 });
 

@@ -1738,11 +1738,11 @@ ${isPilot ? "" : '<div id="cae-header-slot"></div>'}
         </article>
       </div>
       <div class="cae-report-hero__support-grid">
-        <article class="cae-report-state">
+        <article class="cae-report-state cae-report-state--support">
           <p class="cae-kicker">What already works</p>
-          <ul>${strengths.map((item) => `<li>✓ ${escapeHtml(item)}</li>`).join("")}</ul>
+          <ul>${strengths.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
         </article>
-        <article class="cae-report-state">
+        <article class="cae-report-state cae-report-state--support">
           <p class="cae-kicker">Fix first</p>
           <p>${escapeHtml(diagnosis.current_state.priority_line)}</p>
         </article>
