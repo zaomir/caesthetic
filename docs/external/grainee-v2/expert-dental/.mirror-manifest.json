@@ -11,10 +11,13 @@
     "apps/expert-esign/.dockerignore": "7e0fcb999e5702a590005e756ca17f329ffc955df9c6753cea47c05bf603a096",
     "apps/expert-esign/DEPLOY_TRIGGER_2026-08-29.md": "10e6389f8b497cfba74b5f83a051a9208b3d84b0a118ab20b7c2a3cae5f5667e",
     "apps/expert-esign/DEPLOY_TRIGGER_2026-08-29_2.md": "16d8085fdc9e9c28d38585b52eb447c075c449b832fee055cc8116209ba04a9e",
+    "apps/expert-esign/DESIGN.md": "a0c001c4ad38782029bd1433e085dbb23db07651cd0d3ef6e7203483007ff4e6",
     "apps/expert-esign/Dockerfile.runtime": "3f4d9de1c1a3049c212aeaac2853614b1f9dea896456cda054c4064a523872da",
     "apps/expert-esign/README.md": "cde38aa8a15bd59083b467aaff3229a8dc7b68cfdb0448b4481f3b174f941118",
+    "apps/expert-esign/SITE_MAP.md": "59ae0cec2b85285f77842b03877cf5f5ed6be04d75c297416e665057609c0a99",
     "apps/expert-esign/docker-compose.runtime.yml": "5129f5c86458ecce35c70858aca9163285ac00d1923f43fed8f4d75b881f6af0",
     "apps/expert-esign/docker-compose.server.yml": "d9343c192b9c3553c16dda8a8953efb5724740eb0290d4b43044c01bfdd53736",
+    "apps/expert-esign/docs/QA_MANIFEST.md": "15e015aa6c44b92375249c1de5befda570538738c56cbf0cdf40fa341b310175",
     "apps/expert-esign/generated/legal-templates.json": "9b1f3644efde759f6073658386443472eec95a45eb0da4e593dc2bc6cf3ff626",
     "apps/expert-esign/lib/auth.mjs": "5c6769dd32d3fc595bee6bf1811075dbb16da12505b4017a745da7e61009860b",
     "apps/expert-esign/lib/core.mjs": "d10f8274fa22f46a43be5619a5ce369aaddb093987fbb02ef84b14aff745389e",
@@ -294,6 +297,6 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "1f0fe52644d06165e0ec110de72f1b2f8234e7ac7cc1129d6aa4b506cb5cb535"
   },
   "schema": "caesthetic.expert-dental-read-through-mirror.v1",
-  "source_sha": "dfc405e1ae3221afd58406bc7854ff74ee911c63",
+  "source_sha": "3134c8310837564f2e2240fd1734dd6444814ff0",
   "writeback": "forbidden; use docs/projects/caesthetic/expert-dental-contributions/"
 }
