@@ -26,6 +26,8 @@ AUTHORABLE_PATHS = (
     "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md",
     "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md",
     "scripts/caesthetic/growth-score-report-template.mjs",
+    "scripts/caesthetic/build-spoken-medspa-russian.mjs",
+    "scripts/caesthetic/owner-brief-contract.mjs",
     "scripts/caesthetic/render-growth-score.mjs",
     "site-caesthetic/assets/js/growth-score-engine.mjs",
     "site-caesthetic/assets/js/growth-cockpit.js",
@@ -33,7 +35,10 @@ AUTHORABLE_PATHS = (
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png",
     "tests/caesthetic/growth-score-renderer.test.mjs",
     "tests/caesthetic/growth-score-journey-graph.test.mjs",
+    "tests/caesthetic/owner-brief-contract.test.mjs",
+    "tests/caesthetic/spoken-medspa-russian.test.mjs",
     "docs/audits/caesthetic/growth-score/cases/example-audit/reports/standalone.json",
+    "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json",
 )
 
 
@@ -98,6 +103,11 @@ class SatelliteGrowthScoreAuthoringContract(unittest.TestCase):
             "tests/caesthetic/report-design-directives.test.mjs",
             "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png",
             "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json",
+            "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json",
+            "scripts/caesthetic/build-spoken-medspa-russian.mjs",
+            "scripts/caesthetic/owner-brief-contract.mjs",
+            "tests/caesthetic/owner-brief-contract.test.mjs",
+            "tests/caesthetic/spoken-medspa-russian.test.mjs",
         ):
             self.assertTrue(cae_sync.is_protected(rel), rel)
 

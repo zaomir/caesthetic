@@ -66,12 +66,14 @@ protected_in_target:
   - docs/caesthetic/growth_score_spec.md
   - docs/caesthetic/competitive_decision_analysis.md
   - docs/projects/caesthetic/ROUTER.md
+  - scripts/caesthetic/build-spoken-medspa-russian.mjs
   - scripts/caesthetic/growth-score-report-template.mjs
   - scripts/caesthetic/growth-score-select-focus.mjs
   - scripts/caesthetic/growth-score-workflow.mjs
   - scripts/caesthetic/multi-location-decision-view-model.mjs
   - scripts/caesthetic/multi-location-growth-score-view-model.mjs
   - scripts/caesthetic/multi-location-growth-score.mjs
+  - scripts/caesthetic/owner-brief-contract.mjs
   - scripts/caesthetic/install-continuous-sync.sh
   - scripts/caesthetic/publish-growth-score-control-plane.mjs
   - scripts/caesthetic/publish-growth-score-deploy.sh
@@ -87,9 +89,12 @@ protected_in_target:
   - tests/caesthetic/growth-score-routing-catalog.test.mjs
   - tests/caesthetic/growth-score-spec-canon.test.mjs
   - tests/caesthetic/outbound-domain-identity.test.mjs
+  - tests/caesthetic/owner-brief-contract.test.mjs
+  - tests/caesthetic/spoken-medspa-russian.test.mjs
   - tests/caesthetic/agents_sync_bidirectional_test.py
   - tests/caesthetic/satellite-growth-score-authoring.test.py
   - docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone.json
+  - docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/reports/standalone-ru.json
   - scripts/caesthetic/asset-worker/poll.mjs
   - scripts/caesthetic/asset-worker/repo-sync-worker.mjs
   - scripts/caesthetic/caesthetic-repo-sync-contract.mjs

@@ -55,6 +55,8 @@ topics:
     audit_cases: docs/audits/caesthetic/growth-score/cases/
     code:
       - scripts/caesthetic/growth-score-engine.mjs
+      - scripts/caesthetic/build-spoken-medspa-russian.mjs
+      - scripts/caesthetic/owner-brief-contract.mjs
       - scripts/caesthetic/render-growth-score.mjs
     roots:
       - site-caesthetic/score/

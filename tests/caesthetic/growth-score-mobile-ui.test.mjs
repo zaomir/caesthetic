@@ -24,7 +24,7 @@ const orderedSections = [
 ];
 
 test("mobile decision UI keeps the canonical nine-section machine order", () => {
-  assert.match(js, /growth-score-mobile-ui\/1\.1\.4/);
+  assert.match(js, /growth-score-mobile-ui\/1\.1\.5/);
   orderedSections.forEach((id) => assert.match(js, new RegExp(`"${id}"`)));
   assert.match(contract, /one unnumbered Intro and exactly nine machine sections/i);
   assert.doesNotMatch(contract, /tenth section|10-section cockpit/i);
@@ -56,6 +56,10 @@ test("presentation is mobile-first and progressively enhanced", () => {
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /grid-template-columns:\s*1fr/);
   assert.match(js, /IntersectionObserver/);
+  assert.match(js, /const currentSectionIndex = \(\) =>/);
+  assert.match(js, /const readingLine = viewportTop \+ \(\(viewportBottom - viewportTop\) \* 0\.4\)/);
+  assert.match(js, /window\.addEventListener\("scroll", scheduleProgressUpdate, \{ passive: true \}\)/);
+  assert.match(js, /index === currentIndex/);
   assert.match(js, /document\.createElement\("details"\)/);
   assert.match(reportCss, /\.cae-journey-graph__canvas--desktop\s*\{\s*display:\s*none;/);
   assert.match(reportCss, /\.cae-journey-graph__mobile\s*\{\s*display:\s*block;/);
@@ -82,7 +86,7 @@ test("Multi-Location keeps its network decision story and one package CTA", () =
 });
 
 test("regular controls keep the 44px target after demand journey removal", () => {
-  assert.match(js, /growth-report-mobile\.css\?v=1\.1\.4/);
+  assert.match(js, /growth-report-mobile\.css\?v=1\.1\.5/);
   assert.match(css, /\.cae-mobile-report-nav__brand\s*\{[\s\S]*?min-height:\s*44px/);
   assert.doesNotMatch(css, /min-height:\s*42px/);
   assert.match(js, /evidenceCountLabel/);

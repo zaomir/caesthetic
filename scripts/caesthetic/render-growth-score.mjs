@@ -2218,7 +2218,7 @@ ${disclosure}
     </div>
   </section>
 </main>
-<script src="/assets/js/growth-cockpit.js" defer></script>
+<script src="/assets/js/growth-cockpit.js?v=1.1.5" defer></script>
 </body>
 </html>
 `;

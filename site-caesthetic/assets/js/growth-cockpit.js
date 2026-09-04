@@ -9,7 +9,7 @@
 (function initGrowthCockpit() {
   "use strict";
 
-  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.4";
+  const CLIENT_UI_VERSION = "growth-score-mobile-ui/1.1.5";
   const SECTION_IDS = [
     "gap-map",
     "focus-gaps",
@@ -424,7 +424,7 @@
     if (document.querySelector('link[data-cae-mobile-report]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "/assets/css/growth-report-mobile.css?v=1.1.4";
+    link.href = "/assets/css/growth-report-mobile.css?v=1.1.5";
     link.dataset.caeMobileReport = CLIENT_UI_VERSION;
     document.head.append(link);
     root.dataset.growthScoreUi = CLIENT_UI_VERSION;
@@ -550,7 +550,10 @@
     dialog.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeDialog));
 
     const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    let currentIndex = -1;
     const setCurrent = (index) => {
+      if (index < 0 || index >= sections.length || index === currentIndex) return;
+      currentIndex = index;
       progress.textContent = `${index + 1} / 9`;
       dialog.querySelectorAll("a").forEach((link, linkIndex) => {
         if (linkIndex === index) link.setAttribute("aria-current", "true");
@@ -559,7 +562,7 @@
       track("growth_score_section_view", { section_id: SECTION_IDS[index] });
     };
 
-    if ("IntersectionObserver" in window) {
+    const observeCurrentSection = () => {
       const observer = new IntersectionObserver((entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
@@ -569,8 +572,45 @@
         if (index >= 0) setCurrent(index);
       }, { threshold: [0.15, 0.35, 0.6], rootMargin: "-25% 0px -55% 0px" });
       sections.forEach((section) => observer.observe(section));
+    };
+
+    const currentSectionIndex = () => {
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) return sections.length - 1;
+      const viewportTop = Math.max(0, nav.getBoundingClientRect().bottom);
+      const viewportBottom = window.innerHeight;
+      const readingLine = viewportTop + ((viewportBottom - viewportTop) * 0.4);
+      let largestVisibleArea = 0;
+      let largestVisibleIndex = 0;
+      for (const [index, section] of sections.entries()) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= readingLine && rect.bottom > readingLine) return index;
+        const visibleArea = Math.max(0, Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, viewportTop));
+        if (visibleArea > largestVisibleArea) {
+          largestVisibleArea = visibleArea;
+          largestVisibleIndex = index;
+        }
+      }
+      return largestVisibleIndex;
+    };
+
+    let progressFrame = 0;
+    const updateProgress = () => {
+      progressFrame = 0;
+      setCurrent(currentSectionIndex());
+    };
+    const scheduleProgressUpdate = () => {
+      if (progressFrame) return;
+      progressFrame = requestAnimationFrame(updateProgress);
+    };
+    if (isPlainOwnerProfile()) {
+      window.addEventListener("scroll", scheduleProgressUpdate, { passive: true });
+      window.addEventListener("resize", scheduleProgressUpdate);
+      window.addEventListener("hashchange", scheduleProgressUpdate);
+    } else if ("IntersectionObserver" in window) {
+      observeCurrentSection();
     }
     setCurrent(0);
+    if (isPlainOwnerProfile()) scheduleProgressUpdate();
   }
 
   function rebuildHero() {

@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1.4
+version: 1.1.5
 updated: 2026-09-04
 scope: mobile-first client presentation for Growth Score schema v5 reports
 parent: docs/caesthetic/growth_score_spec.md
@@ -43,6 +43,7 @@ The machine IDs, evidence model and order remain canonical even when visible tit
 - Base viewport: 360–430 px.
 - One primary thought per screen.
 - One card per row by default; desktop columns are progressive enhancement at `min-width: 900px`.
+- The fixed progress counter follows the section crossing the reading line, including sections taller than the viewport, and selects section 9 at the document end.
 - Executive support cards use one aligned reading column; positive list items receive one presentation-layer check marker and must not include a second literal check in report HTML.
 - Touch targets are at least 44×44 px.
 - Body copy is 17–18 px with 1.5–1.6 line height.

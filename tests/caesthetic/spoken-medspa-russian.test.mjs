@@ -118,17 +118,23 @@ test("Russian Spoken client text contains no English terms outside approved prop
 });
 
 test("Russian Spoken report presents the approved owner-first sequence without empty or duplicate blocks", () => {
-  assert.equal(report.presentation.layout_contract, "spoken-owner-brief/1.0.0");
+  assert.equal(report.presentation.layout_contract, "owner-brief/2.0.0");
+  assert.equal(report.presentation.vertical_profile, "med_spa");
   assert.match(storedHtml, /Приветствие от Валерии/);
   assert.match(storedHtml, /Валерия Петра/);
   assert.match(storedHtml, /data-owner-research-scope/);
   assert.match(storedHtml, /Публичная информация, проверенная для этого аудита/);
-  assert.match(storedHtml, /Поиск и карты/);
+  assert.match(storedHtml, /Поиск и публичные упоминания/);
+  assert.match(storedHtml, />Блог</);
   assert.match(storedHtml, /Социальные сети/);
   assert.match(storedHtml, /Путь пациента/);
   assert.match(storedHtml, /Как пользоваться отчётом/);
   assert.match(storedHtml, /Три главные ограничения/);
   assert.equal((storedHtml.match(/<p class="cae-focus-gap__rank cae-status-pill">Ограничение [123]<\/p>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/class="cae-focus-gap__evidence"/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<h4>Что увидели<\/h4>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<strong>Почему это важно:<\/strong>/g) || []).length, 3);
+  assert.equal((storedHtml.match(/<h4>Готово, когда<\/h4>/g) || []).length, 3);
   assert.match(storedHtml, /Краткая карта пути пациента/);
   assert.match(storedHtml, /data-owner-competitors/);
   assert.match(storedHtml, /data-owner-internal-boundary/);
@@ -136,6 +142,10 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(storedHtml, /lead-to-revenue-map-ru\.svg/);
   assert.match(storedHtml, /Карта непроверенного внутреннего пути от получения обращения до оплаты/);
   assert.match(storedHtml, /Исследование конкурентов/);
+  assert.match(storedHtml, /Почему включён/);
+  assert.match(storedHtml, /Почему пациент может выбрать/);
+  assert.match(storedHtml, /Проверено/);
+  assert.equal((storedHtml.match(/Понятный местный путь от страницы услуги к записи\./g) || []).length, 1);
   assert.match(storedHtml, />СТОП</);
   assert.match(storedHtml, />ВЫВОДЫ</);
   assert.match(storedHtml, /Выберите способ внедрения/);
@@ -175,7 +185,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   const pathsHtml = storedHtml.slice(storedHtml.indexOf('<div class="cae-owner-paths">'), storedHtml.indexOf('</div>', storedHtml.indexOf('<div class="cae-owner-paths">')));
   assert.equal((pathsHtml.match(/<article/g) || []).length, 3);
   assert.doesNotMatch(pathsHtml, /Отложить/);
-  assert.match(pathsHtml, /один замысел, один словарь/);
+  assert.match(pathsHtml, /один замысел, один словарь/i);
   assert.match(pathsHtml, /поиска и карточки <span data-brand>Google<\/span>, сайта, социальных сетей, отзывов и ответов владельца/);
   assert.equal(report.leadToRevenueCheck.recommendation, "recommended");
   assert.ok(report.leadToRevenueCheck.reason.length > 0);
@@ -195,9 +205,11 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.equal((storedHtml.match(/стоимость проверки \$500 засчитывается в общую стоимость спринта \$2,500/g) || []).length, 2);
   assert.equal((storedHtml.match(/href="\/sprint\/"/g) || []).length, 1);
   assert.match(storedHtml, /data-owner-sprint-offer/);
-  assert.match(storedHtml, /С чего начать:<\/strong> работу с <span data-brand>CAESTHETIC<\/span> начинаем с проверки за \$500/);
+  assert.match(storedHtml, /Если сначала нужен меньший шаг:/);
+  assert.match(storedHtml, /Она не обязательна перед спринтом/);
   assert.match(storedHtml, /Проверку можно заказать отдельно/);
   assert.equal((storedHtml.match(/class="cae-mobile-repair"/g) || []).length, 3);
+  assert.doesNotMatch(storedHtml, /<details class="cae-mobile-repair" open>/);
   assert.doesNotMatch(storedHtml, /data-cae-request/);
   assert.doesNotMatch(storedHtml, /Недостаточно доказательств|Нужна проверка|Не оценивалось|Не оценено/);
   assert.doesNotMatch(storedHtml, /Матрица возможностей|Карта видимости|Цепочка доверия|Индекс трения|Согласованность поверхностей/);
@@ -205,6 +217,9 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(storedHtml, /засчитывается в общую стоимость спринта \$2,500/);
   assert.match(storedHtml, /\$2,500 · 30 дней/);
   assert.match(storedHtml, /Внедрить приоритет 4444 за 30 дней/);
+  assert.match(storedHtml, /Что нужно от <span data-brand>Spoken<\/span>/);
+  assert.match(storedHtml, /Проверка на 30-й день/);
+  assert.match(storedHtml, /не обещает позиции в поиске, количество пациентов, выручку или окупаемость/);
   assert.doesNotMatch(storedHtml, /боится|сомневается/i);
   const middleCheckIndex = storedHtml.indexOf('data-cae-check-placement="mid"');
   const sprintOfferIndex = storedHtml.indexOf("data-owner-sprint-offer");
