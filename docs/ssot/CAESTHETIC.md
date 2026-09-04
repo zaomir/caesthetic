@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.31
+version: 3.32
 updated: 2026-09-04
 scope: CAESTHETIC master strategy and product-funnel canon
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -10,6 +10,7 @@ internal_program_id: "4444"
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
 related:
+  - docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   - docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md
   - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
@@ -53,6 +54,9 @@ Vendor-independent: the practice can keep its EHR, medical director and supplier
 Operationally, CAESTHETIC is an external **Growth + Patient Operations desk**, not an agency made broader by accepting unrelated work. Recurring ownership covers the acquisition, conversion, retention and patient-operations layer defined below. Recruitment and adjacent practice operations are eligible only as paid add-ons when they directly support that layer; their classification and operating boundaries are canonical in `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`.
 
 ## 2. One operating model: Connect4 / four surfaces
+
+Detailed concept and Case Studies “How we work” explanation: [Connect4 concept SSOT](CAESTHETIC_CONNECT4_CONCEPT.md). It records confirmed semantics separately from provisional copy/layout and does not replace the live client-sketch grammar in §2.3 or the commercial/evidence rules here.
+
 Patients evaluate one practice across four decision surfaces:
 1. **Search / Google Business Profile**
 2. **Website**

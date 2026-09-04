@@ -3,6 +3,13 @@
 **Updated:** 2026-09-04
 **Phase:** Phase 1 — proof + outbound readiness
 
+## 2026-09-04 — Connect4 concept and How we work explanation
+
+- Added `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` as the detailed concept authority linked from master, project agent instructions and topic/index navigation.
+- Records the synchronization mechanism, shared facts and demand language, one owner of logic, required honest-review process, separate Lead Intake and later Paid Ads readiness discussion.
+- Confirmed semantics are distinct from proposed English copy and generated layout; existing live-sketch grammar and locked report visuals remain unchanged.
+- Next discussion develops the final explanation/copy/visual legend in this same SSOT. Documentation only; no site/report deployment or scoring changes.
+
 ## 2026-09-04 — Connect4 public program name
 
 - Founder confirmed **Connect4** as the exact public name of the CAESTHETIC program; `4444` / `Четверки` remain internal aliases.
