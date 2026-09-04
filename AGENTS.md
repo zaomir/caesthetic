@@ -85,13 +85,17 @@ SQNS or electronic signing, read
 `docs/external/grainee-v2/expert-dental/.mirror-manifest.json`, then the mirrored
 `AGENTS.md`, `docs/projects/healthcare-ecosystem/AGENTS.md`,
 `docs/projects/raimovdental/AGENTS.md` and the relevant mirrored SSOT/legal
-files. The mirror is generated read-only from current `zaomir/grainee-v2`.
+files. The mirror is generated from current `zaomir/grainee-v2` and uses a
+hybrid bidirectional policy.
 
-- Never edit the mirror or treat it as a second SSOT.
-- Legal/runtime corrections route to `zaomir/grainee-v2` authority.
-- Only non-PHI project proposals may be written under
-  `docs/projects/caesthetic/expert-dental-contributions/`; DEC-829 syncs that
-  allowlisted tree back.
+- Non-PHI project documents may be edited directly in the mirrored
+  `docs/projects/healthcare-ecosystem/**`, `docs/projects/raimovdental/**` and
+  `docs/raimov/**` trees. The managed worker writes those allowlisted changes
+  back to the same relative paths in `grainee-v2` and refreshes the mirror.
+- Never edit mirrored legal, runtime, SSOT, deploy or agent-routing files;
+  corrections to those paths route to `zaomir/grainee-v2` authority.
+- Concurrent divergent edits fail closed. The manifest hash is the sync base;
+  a successful writeback does not create a second SSOT.
 - Never place patient records, PHI, secrets, credentials, private folders or
   raw recordings in this repository.
 
@@ -150,7 +154,8 @@ or consolidating overlapping guidance instead of creating contradictory docs.
 - Edit protected pricing without gates
 - Commit secrets or client-identifiable data
 - Mirror or recreate `site-caesthetic/private/`
-- Edit `docs/external/grainee-v2/expert-dental/**`
+- Edit protected paths under `docs/external/grainee-v2/expert-dental/**`;
+  only the explicit non-PHI project-document allowlist above is writable
 - Open `grainee-v2` for CAESTHETIC-only chats (use **this** project in Cursor Agents picker)
 - Let a CE artifact, autonomous pipeline or reviewer bypass Research Alignment, Focus Selection, publication, access, sync, deployment or other canonical gates
 - Use the trivial fast path for behavior, policy, routing, pricing, privacy, publication, sync or deployment changes merely to avoid review
