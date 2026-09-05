@@ -27,6 +27,7 @@ This entry supersedes the method-section description below; the earlier catalog 
 - Impeccable passes: clarify, distill, typeset, layout, adapt and scoped manual polish.
 - Automated checks passed: JS syntax, original image hash/size, registry references, duplicate IDs, fragment targets, mobile rule presence; comparison confirms HTML outside the section and all prior media entries are unchanged.
 - Detector attempted: `npx --offline impeccable detect site-caesthetic/case-studies/index.html`; unavailable with `ENOTCACHED`. This is an environment limitation, not a detector pass.
+- Production cache correction: returning-browser smoke exposed an old cached media registry during rollout. Version the catalog stylesheet, media resolver and registry request together so the approved diagram and full-size link resolve for returning visitors. The live image SHA was verified against the supplied original.
 - Browser preview limitation: the connected browser cannot reach the local static preview (`ERR_BLOCKED_BY_CLIENT`). No local rendered desktop/mobile or assistive-technology pass is claimed. Static responsive checks do not replace rendered testing. Production browser smoke follows deployment when reachable.
 - Release scope is the approved Connect4 section. This change does not approve placeholder case evidence or change the route's existing indexing policy.
 
