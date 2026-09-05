@@ -18,7 +18,7 @@ test('unapproved or unexpected copy contract fails closed',()=>{
  assert.throws(()=>getCopy(read(SSOT).replace('explanation_copy_status: approved','explanation_copy_status: draft')));
 });
 test('generated page and registry are reproducible',()=>build(true));
-test('all seven owner PNGs remain byte-identical and registered',()=>{
+test('all nine owner PNGs remain byte-identical and registered',()=>{
  const registry=JSON.parse(read('site-caesthetic/media/registry.json'));
  for(const image of IMAGES){
   const b=fs.readFileSync(path.join(ROOT,'site-caesthetic'+image.src));
@@ -32,8 +32,8 @@ test('page has four surfaces, static raster art direction and no drawn diagrams'
  const html=read('site-caesthetic/connect4/index.html');
  const main=html.match(/<main[\s\S]+<\/main>/)[0];
  assert.equal((main.match(/data-surface=/g)||[]).length,4);
- assert.equal((main.match(/<source media="\(max-width: 767px\)"/g)||[]).length,3);
- assert.equal((main.match(/data-owner-figure=/g)||[]).length,4);
+ assert.equal((main.match(/<source media="\(max-width: 767px\)"/g)||[]).length,4);
+ assert.equal((main.match(/data-owner-figure=/g)||[]).length,5);
  for(const image of IMAGES)assert.ok(main.includes(image.src));
  assert.doesNotMatch(main,/<(?:svg|canvas)\b|<img[^>]+\.svg|mailto:|data-media-state="placeholder"/i);
  assert.match(main,/aesthetic-practice example/);
@@ -64,18 +64,28 @@ test('engagement path keeps Check, extensions and annual work optional in both l
  const html=read('site-caesthetic/connect4/index.html');
  assert.match(html,/You can move directly to the Sprint/);
  assert.match(html,/After Day 30/);
+ assert.match(html,/No automatic renewal/);
  assert.match(html,/separate 12-month agreement/);
  assert.match(html,/data-c4-engagement-media-slot/);
  assert.equal((html.match(/data-engagement-step=/g)||[]).length,5);
  assert.doesNotMatch(html,/<img[^>]+(?:null|undefined|placeholder)/);
 });
-test('three responsive image pairs and one alternate are complete, not invented pairs',()=>{
- assert.equal(IMAGES.length,7);
- for(const role of ['system','journey','stop'])assert.deepEqual(IMAGES.filter(i=>i.role===role).map(i=>i.format).sort(),['desktop','mobile']);
+test('four responsive image pairs and one alternate are complete, not invented pairs',()=>{
+ assert.equal(IMAGES.length,9);
+ for(const role of ['system','journey','stop','engagement'])assert.deepEqual(IMAGES.filter(i=>i.role===role).map(i=>i.format).sort(),['desktop','mobile']);
  assert.equal(IMAGES.filter(i=>i.role==='alternate').length,1);
  const registry=JSON.parse(read('site-caesthetic/media/registry.json'));
  for(const format of ['desktop','mobile']){
-  assert.equal(registry.entries[`connect4.engagement.${format}`].state,'awaiting-owner-image');
-  assert.equal(registry.entries[`connect4.engagement.${format}`].src,null);
+  assert.equal(registry.entries[`connect4.engagement.${format}`].state,'approved');
+  assert.match(registry.entries[`connect4.engagement.${format}`].src,/how-we-work-together-/);
+ }
+});
+
+test('engagement originals are locked to the supplied files, not substitutes',()=>{
+ const expected={desktop:'ab589361037be7efe1b2feb621d8010267885eaba4eb2b222dbd85c7ca3bc2e1',mobile:'67a01b7185153de99fb8e57592680f71882d5e48f39d42a64db6a0e88c85f0d6'};
+ for(const [format,sha] of Object.entries(expected)){
+  const image=IMAGES.find(i=>i.role==='engagement'&&i.format===format);
+  assert.equal(hash(fs.readFileSync(path.join(ROOT,image.source))),sha);
+  assert.equal(image.sha256,sha);
  }
 });

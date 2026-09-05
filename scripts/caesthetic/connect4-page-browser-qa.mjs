@@ -6,7 +6,7 @@ import {createRequire} from 'node:module';
 import {ROOT,IMAGES,hash} from './build-connect4-page.mjs';
 const {chromium}=createRequire('/tmp/connect4-qa/package.json')('playwright');
 const out=path.join(ROOT,'artifacts/connect4'); fs.mkdirSync(out,{recursive:true});
-const results={status:'RUNNING',mode:process.env.C4_BASE?'production':'local',source_sha:process.env.C4_EXPECTED_SHA||null,deployed_sha:process.env.C4_BASE?(process.env.C4_EXPECTED_SHA||null):null,checked_at:new Date().toISOString(),widths:[],asset_hashes:[],form:{},owner_image_count:IMAGES.length,remaining_image_pairs:['engagement-path-owner-image']};
+const results={status:'RUNNING',mode:process.env.C4_BASE?'production':'local',source_sha:process.env.C4_EXPECTED_SHA||null,deployed_sha:process.env.C4_BASE?(process.env.C4_EXPECTED_SHA||null):null,checked_at:new Date().toISOString(),widths:[],asset_hashes:[],form:{},owner_image_count:IMAGES.length,remaining_image_pairs:[]};
 let server; let browser;
 try {
  let base=process.env.C4_BASE;
@@ -52,7 +52,7 @@ try {
  for(const width of [320,360,390,430,768,1024,1440,1920]){
   await page.setViewportSize({width,height:900});
   const selected=[];
-  for(const role of ['system','journey','stop']){
+  for(const role of ['system','journey','stop','engagement']){
    const image=page.locator(`picture[data-connect4-picture="${role}"] img`);
    const expected=IMAGES.find(i=>i.role===role&&i.format===(width<=767?'mobile':'desktop'));
    await image.scrollIntoViewIfNeeded();
@@ -71,6 +71,7 @@ try {
   assert.equal(await page.locator('main [data-surface]').count(),4);
   await page.evaluate(()=>window.scrollTo(0,0));
   if([390,1440].includes(width))await page.screenshot({path:path.join(out,`connect4-${width}.png`),fullPage:true});
+  if([390,1440].includes(width)){await page.locator('#working-together').screenshot({path:path.join(out,`engagement-${width}.png`),style:'header, .c4-skip { visibility: hidden !important; }'});}
   results.widths.push({width,status:'PASS',images:selected});
  }
  await page.locator('.c4-alternate-view summary').click();
@@ -81,8 +82,8 @@ try {
  assert.equal(await page.locator('[data-engagement-step]').count(),5);
  for(const id of ['check','extension','system'])assert.equal(await page.locator(`[data-engagement-step="${id}"]`).getAttribute('data-optional'),'true');
  assert.ok((await page.locator('#working-together').innerText()).includes('12-month agreement'));
- assert.equal(await page.locator('[data-c4-engagement-media-slot] img').count(),0);
- results.engagement={five_stages:true,conditional_check:true,optional_extensions_after_day30:true,optional_annual_agreement:true,future_image_not_faked:true};
+ assert.equal(await page.locator('[data-c4-engagement-media-slot] img').count(),1);
+ results.engagement={five_stages:true,conditional_check:true,optional_extensions_after_day30:true,optional_annual_agreement:true,exact_owner_image_pair:true};
  await page.setViewportSize({width:390,height:844});
  const modal=page.locator('dialog.cae-request-modal');
  for(const id of ['connect4-start','connect4-final']){
@@ -105,7 +106,12 @@ try {
  await page.keyboard.press('Escape');
  await page.locator('#questions summary').first().click();assert.equal(await page.locator('#questions details').first().getAttribute('open'),'');
  await page.addStyleTag({content:'html { font-size: 200% !important; }'});
- const overflow=await page.locator('main').evaluate(el=>el.scrollWidth>el.clientWidth+1);assert.equal(overflow,false,'Text zoom overflow');
+ for(const width of [320,360,390,430,768,1024,1440,1920]){
+  await page.setViewportSize({width,height:900});
+  const overflow=await page.locator('main').evaluate(el=>el.scrollWidth>el.clientWidth+1);
+  if(overflow){results.zoom_overflow=await page.locator('main').evaluate((main,w)=>[...main.querySelectorAll('*')].filter(el=>el.getBoundingClientRect().right>w+1).map(el=>({tag:el.tagName,class:el.className,text:el.textContent.slice(0,80),right:el.getBoundingClientRect().right})),width);await page.screenshot({path:path.join(out,`zoom-overflow-${width}.png`),fullPage:true});}
+  assert.equal(overflow,false,`Text zoom overflow at ${width}`);
+ }
  results.text_zoom_200_percent='PASS';
  if(process.env.C4_SUBMIT==='true'){
   assert.ok(process.env.C4_BASE,'Live submission only in explicit production mode');

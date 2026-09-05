@@ -1111,35 +1111,67 @@
     },
     "connect4.engagement.desktop": {
       "media_id": "connect4.engagement.desktop",
+      "src": "/assets/connect4/engagement-20260905/how-we-work-together-desktop.png",
       "type": "image",
-      "kind": "concept-diagram",
-      "state": "awaiting-owner-image",
-      "purpose": "Reserved engagement-path image; render only when supplied and approved. Current page shows the canonical text without a public placeholder.",
+      "kind": "approved-conceptual-illustration",
+      "state": "approved",
+      "purpose": "Owner-provided engagement conceptual illustration; approved for Connect4 by the 2026-09-05 instruction, not client evidence.",
+      "alt": "Connect4 engagement illustration in desktop format.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "ab589361037be7efe1b2feb621d8010267885eaba4eb2b222dbd85c7ca3bc2e1",
       "format": "desktop",
-      "src": null,
+      "source": "site-caesthetic/assets/connect4/engagement-20260905/how-we-work-together-desktop.png",
+      "rights": {
+        "status": "approved",
+        "source": "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-engagement-path",
+        "approval": "Owner supplied exact desktop/mobile PNGs on 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
       "allowed_routes": [
         "/connect4/"
       ],
-      "allowed_channels": [
-        "local",
-        "protected-preview"
-      ]
+      "transformations": "none; original bytes locked"
     },
     "connect4.engagement.mobile": {
       "media_id": "connect4.engagement.mobile",
+      "src": "/assets/connect4/engagement-20260905/how-we-work-together-mobile.png",
       "type": "image",
-      "kind": "concept-diagram",
-      "state": "awaiting-owner-image",
-      "purpose": "Reserved engagement-path image; render only when supplied and approved. Current page shows the canonical text without a public placeholder.",
+      "kind": "approved-conceptual-illustration",
+      "state": "approved",
+      "purpose": "Owner-provided engagement conceptual illustration; approved for Connect4 by the 2026-09-05 instruction, not client evidence.",
+      "alt": "Connect4 engagement illustration in mobile format.",
+      "width": 878,
+      "height": 1790,
+      "sha256": "67a01b7185153de99fb8e57592680f71882d5e48f39d42a64db6a0e88c85f0d6",
       "format": "mobile",
-      "src": null,
+      "source": "site-caesthetic/assets/connect4/engagement-20260905/how-we-work-together-mobile.png",
+      "rights": {
+        "status": "approved",
+        "source": "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-engagement-path",
+        "approval": "Owner supplied exact desktop/mobile PNGs on 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
       "allowed_routes": [
         "/connect4/"
       ],
-      "allowed_channels": [
-        "local",
-        "protected-preview"
-      ]
+      "transformations": "none; original bytes locked"
     }
   }
 }

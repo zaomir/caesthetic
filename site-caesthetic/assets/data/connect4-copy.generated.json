@@ -1,10 +1,10 @@
 {
   "contract": "connect4-explanation/1.0.0",
   "source": "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md",
-  "source_sha256": "8fededc66fa37e196b81f19a450260e8bba86a8298adabf064e9aa9b84b22b31",
+  "source_sha256": "55e89ce143abd81aa235c4b7e81dea73d38a34ce0610421687954064d8fd9140",
   "engagement": {
     "contract": "connect4-engagement-path/1.0.0",
-    "graphic_status": "awaiting-owner-image",
+    "graphic_status": "approved-exact-owner-pair",
     "graphic_slots": {
       "desktop": "connect4.engagement.desktop",
       "mobile": "connect4.engagement.mobile"
@@ -49,7 +49,7 @@
           "description": "Choose ongoing ownership under a separate 12-month agreement. We maintain and improve the shared content, review process, and four-surface consistency. Scope, budget, payment schedule, and other terms are agreed individually."
         }
       ],
-      "outro": "You can keep the delivered foundation and continue with your team or another marketer instead. An annual agreement applies only when you choose ongoing Growth System work."
+      "outro": "You can keep the delivered foundation and continue with your team or another marketer instead. An annual agreement applies only when you choose ongoing Growth System work. No automatic renewal; each continuation is a separate decision."
     },
     "ru": {
       "heading": "Как проходит работа с нами.",
@@ -91,7 +91,7 @@
           "description": "Постоянное сопровождение оформляется отдельным договором на 12 месяцев. Поддерживаем и развиваем общую контентную основу, процесс отзывов и согласованность четырёх плоскостей. Объём, бюджет, график оплаты и остальные условия согласуются индивидуально."
         }
       ],
-      "outro": "Переданная основа остаётся у вас: можно продолжить своей командой или с другим маркетологом. Годовой договор действует только при выборе постоянной работы в Growth System."
+      "outro": "Переданная основа остаётся у вас: можно продолжить своей командой или с другим маркетологом. Годовой договор действует только при выборе постоянной работы в Growth System. Автоматического продления нет; каждое продолжение — отдельное решение."
     }
   },
   "en": {

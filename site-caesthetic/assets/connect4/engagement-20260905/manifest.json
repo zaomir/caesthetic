@@ -1,0 +1,32 @@
+{
+  "files": [
+    {
+      "id": "connect4.engagement.desktop",
+      "name": "how-we-work-together-desktop.png",
+      "original_name": "How we work together- desktop.png",
+      "src": "/assets/connect4/engagement-20260905/how-we-work-together-desktop.png",
+      "source": "site-caesthetic/assets/connect4/engagement-20260905/how-we-work-together-desktop.png",
+      "role": "engagement",
+      "format": "desktop",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1515048,
+      "sha256": "ab589361037be7efe1b2feb621d8010267885eaba4eb2b222dbd85c7ca3bc2e1",
+      "approval": "Owner supplied exact desktop/mobile PNGs on 2026-09-05"
+    },
+    {
+      "id": "connect4.engagement.mobile",
+      "name": "how-we-work-together-mobile.png",
+      "original_name": "How we work together- mob.png",
+      "src": "/assets/connect4/engagement-20260905/how-we-work-together-mobile.png",
+      "source": "site-caesthetic/assets/connect4/engagement-20260905/how-we-work-together-mobile.png",
+      "role": "engagement",
+      "format": "mobile",
+      "width": 878,
+      "height": 1790,
+      "bytes": 1483003,
+      "sha256": "67a01b7185153de99fb8e57592680f71882d5e48f39d42a64db6a0e88c85f0d6",
+      "approval": "Owner supplied exact desktop/mobile PNGs on 2026-09-05"
+    }
+  ]
+}

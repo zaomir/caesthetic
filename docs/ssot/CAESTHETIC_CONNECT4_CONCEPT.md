@@ -571,13 +571,13 @@ The owner-selected artwork uses patient/practice and some shortened surface labe
 
 **Engagement-path rule:** Free Growth Score → optional $500 Check when required by post-inquiry uncertainty → $2,500 / 30-day Sprint → optional further Sprint(s), decided after Day 30 → optional ongoing Growth System under a separate annual / 12-month agreement. The main path can skip Check and extensions. No compulsory staircase, pre-sold extension bundle, guaranteed result, universal recurring price, advance annual payment, renewal or cancellation term is introduced. Human approval of diagnostic conclusions remains required.
 
-**Future picture:** the owner will supply the engagement-path illustration. Reserve `connect4.engagement.desktop` and `connect4.engagement.mobile` in the existing media registry with `state=awaiting-owner-image`. Until both are provided and checked, show the approved text sequence with no fake image, public placeholder, blank spacer or programmatically drawn diagram. Never reuse the patient journey as the engagement sequence. The following machine-readable EN/RU copy is a block of this same SSOT, not an independent canon.
+**Approved engagement artwork (2026-09-05):** the owner supplied `How we work together- desktop.png` and `How we work together- mob.png`. Publish their exact bytes with desktop/mobile art direction; no redraw, crop, re-encoding or substitution. Byte hashes and dimensions are recorded in `site-caesthetic/assets/connect4/engagement-20260905/manifest.json`; media IDs remain `connect4.engagement.desktop` and `connect4.engagement.mobile`. The illustration is an overview, not an expansion of scope: Free Growth Score uses public evidence; internal Lead Intake requires agreed access, and a Sprint implements the agreed priority and its dependencies. Keep the five HTML explanations readable outside the raster. Check, additional Sprint(s) after Day 30, and the separate client-specific 12-month Growth System agreement remain optional. No automatic renewal. The following paired EN/RU block remains part of this same SSOT.
 
 <!-- connect4-engagement-json:start -->
 ```json
 {
   "contract": "connect4-engagement-path/1.0.0",
-  "graphic_status": "awaiting-owner-image",
+  "graphic_status": "approved-exact-owner-pair",
   "graphic_slots": {
     "desktop": "connect4.engagement.desktop",
     "mobile": "connect4.engagement.mobile"
@@ -622,7 +622,7 @@ The owner-selected artwork uses patient/practice and some shortened surface labe
         "description": "Choose ongoing ownership under a separate 12-month agreement. We maintain and improve the shared content, review process, and four-surface consistency. Scope, budget, payment schedule, and other terms are agreed individually."
       }
     ],
-    "outro": "You can keep the delivered foundation and continue with your team or another marketer instead. An annual agreement applies only when you choose ongoing Growth System work."
+    "outro": "You can keep the delivered foundation and continue with your team or another marketer instead. An annual agreement applies only when you choose ongoing Growth System work. No automatic renewal; each continuation is a separate decision."
   },
   "ru": {
     "heading": "Как проходит работа с нами.",
@@ -664,7 +664,7 @@ The owner-selected artwork uses patient/practice and some shortened surface labe
         "description": "Постоянное сопровождение оформляется отдельным договором на 12 месяцев. Поддерживаем и развиваем общую контентную основу, процесс отзывов и согласованность четырёх плоскостей. Объём, бюджет, график оплаты и остальные условия согласуются индивидуально."
       }
     ],
-    "outro": "Переданная основа остаётся у вас: можно продолжить своей командой или с другим маркетологом. Годовой договор действует только при выборе постоянной работы в Growth System."
+    "outro": "Переданная основа остаётся у вас: можно продолжить своей командой или с другим маркетологом. Годовой договор действует только при выборе постоянной работы в Growth System. Автоматического продления нет; каждое продолжение — отдельное решение."
   }
 }
 ```

@@ -1,0 +1,208 @@
+{
+  "status": "PASS",
+  "mode": "local",
+  "source_sha": null,
+  "deployed_sha": null,
+  "checked_at": "2026-09-05T15:06:31.691Z",
+  "widths": [
+    {
+      "width": 320,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-portrait-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-portrait-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-mobile.png"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-portrait-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-portrait-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-mobile.png"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-portrait-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-portrait-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-mobile.png"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-portrait-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-portrait-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-mobile.png"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-landscape-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-landscape-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-desktop.png"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-landscape-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-landscape-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-desktop.png"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-landscape-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-landscape-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-desktop.png"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "status": "PASS",
+      "images": [
+        {
+          "role": "system",
+          "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png"
+        },
+        {
+          "role": "journey",
+          "src": "/assets/connect4/owner-20260905/connect4-patient-journey-landscape-caesthetic.png"
+        },
+        {
+          "role": "stop",
+          "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-landscape-caesthetic.png"
+        },
+        {
+          "role": "engagement",
+          "src": "/assets/connect4/engagement-20260905/how-we-work-together-desktop.png"
+        }
+      ]
+    }
+  ],
+  "asset_hashes": [],
+  "form": {
+    "two_fields": true,
+    "required_validation": true,
+    "error_and_retry": true,
+    "success": true,
+    "focus_return": true,
+    "source_and_intent": true,
+    "backend": "mocked"
+  },
+  "owner_image_count": 9,
+  "remaining_image_pairs": [],
+  "url": "http://127.0.0.1:62631/connect4/",
+  "engagement": {
+    "five_stages": true,
+    "conditional_check": true,
+    "optional_extensions_after_day30": true,
+    "optional_annual_agreement": true,
+    "exact_owner_image_pair": true
+  },
+  "text_zoom_200_percent": "PASS",
+  "static_content_without_javascript": "PASS",
+  "javascript_errors": []
+}

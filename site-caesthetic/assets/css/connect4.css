@@ -117,3 +117,5 @@
  .c4-figure figcaption .c4-art-link--mobile { display:block; }
  .c4-engagement>li { grid-template-columns:24px minmax(0,1fr); gap:16px; padding:24px 0; }
 }
+/* Text enlargement must remain readable with platform fallback fonts. */
+.c4-page h1,.c4-page h2,.c4-page h3,.c4-surfaces dt,.c4-page summary { overflow-wrap:anywhere; }

@@ -77,3 +77,13 @@ The new plain-text “How we work together” section projects the EN/RU contrac
 `connect4.engagement.desktop` and `.mobile` are reserved in the existing media registry. Until the owner supplies the engagement picture, the page shows its complete text without a fake diagram, visible placeholder, or blank spacer. Pending artwork is the remaining blocker for that illustration only, not for publication of the supplied seven images.
 
 Validation for this update covers all seven PNGs, all three viewport selections, unchanged aspect ratios, placement of Stop after Lead Intake, optionality/annual copy, anchored navigation, static HTML and the shared two-field request interaction. See the new run-specific evidence, not the first-release single-pair record, for this update's acceptance.
+
+## Engagement image pair — 2026-09-05
+
+The owner supplied the exact horizontal `How we work together- desktop.png` (1536×1024) and vertical `How we work together- mob.png` (878×1790). Their unmodified bytes are stored under `assets/connect4/engagement-20260905/` with provenance, size and SHA-256 in the manifest. Both reserved media IDs are now approved and public for `/connect4/`. This supersedes the pending engagement-artwork status above; unrelated historical visual scope is not expanded.
+
+The section uses native `picture`: mobile through 767px, desktop above. Complete images retain their aspect ratio, alt, caption and full-size links. Five HTML explanations stay outside the raster and retain public-evidence/access boundaries, priority-scoped Sprint, optional Check, individually agreed additional Sprints after Day 30 and optional separate client-specific 12-month Growth System. EN/RU SSOT explicitly states no automatic renewal. Prices and funnel remain under the existing authority.
+
+Regression coverage now includes four responsive pairs, all nine original image hashes, the two-field form with intercepted submission, eight widths from 320 to 1920, and 200% text at all eight widths. Production acceptance must come from this release's bridge and browser results, not the historical records above.
+
+Local acceptance: nine unit tests and responsive browser suite PASS. Design detector reports 14 advisory heuristics (inherited padding/header/footer/overflow plus concise-copy cadence); these are not a clean detector pass. Rendered section review confirms complete raster plus readable HTML. Section-only captures hide fixed site chrome for the screenshot only; layout and form assertions run against unmodified styles.
