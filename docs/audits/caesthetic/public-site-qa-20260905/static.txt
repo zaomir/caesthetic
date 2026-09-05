@@ -1,0 +1,71 @@
+✔ beauty-salon routes are standalone localized documents with reciprocal hreflang (1.274125ms)
+✔ first screen exposes all four languages as ordinary links (0.940292ms)
+✔ every locale shares the same information architecture (0.813542ms)
+✔ salon pages preserve the four-surface and decision-first canon (1.173833ms)
+✔ copy forbids guaranteed growth, fabricated statistics and medical terminology drift (1.355542ms)
+✔ every locale mounts the canonical four-field salon score form with localized errors (0.65325ms)
+✔ salon intake reuses the existing fail-closed Growth Score API contract (0.465542ms)
+✔ salon analytics events stay inside the allowed non-PII parameter set (0.159542ms)
+✔ beauty-salon CSS stays inside the Clinical Editorial Intelligence tokens (0.866042ms)
+✔ sitemap, footer, redirects and Website Studio manifests cover the vertical (1.951333ms)
+✔ Check500 SSOT locks the exact reusable English section (0.426292ms)
+✔ shared website and both Growth Score report contracts point to the same copy lock (0.705041ms)
+✔ canon requires two always-visible Check500 placements without inventing an internal leak (0.273042ms)
+✔ Check500 visual style is hash-locked and inherited by shared website and report contracts (1.962584ms)
+{
+  "status": "PASS",
+  "mode": "check",
+  "contract": "connect4-explanation/1.0.0",
+  "output_files": [
+    "site-caesthetic/templates/footer.html",
+    "site-caesthetic/connect4/index.html",
+    "site-caesthetic/assets/data/connect4-copy.generated.json",
+    "site-caesthetic/assets/connect4/owner-20260905/connect4-fix-the-leaks-landscape-caesthetic.png",
+    "site-caesthetic/assets/connect4/owner-20260905/connect4-fix-the-leaks-portrait-caesthetic.png",
+    "site-caesthetic/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png",
+    "site-caesthetic/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png",
+    "site-caesthetic/assets/connect4/owner-20260905/connect4-patient-journey-landscape-caesthetic.png",
+    "site-caesthetic/assets/connect4/owner-20260905/connect4-patient-journey-portrait-caesthetic.png",
+    "site-caesthetic/assets/connect4/owner-20260905/connect4-patient-journey-recolored.png",
+    "site-caesthetic/assets/connect4/engagement-20260905/how-we-work-together-desktop.png",
+    "site-caesthetic/assets/connect4/engagement-20260905/how-we-work-together-mobile.png",
+    "site-caesthetic/media/registry.json",
+    "site-caesthetic/sitemap.xml"
+  ],
+  "published_image_pairs": 4,
+  "owner_images": 9,
+  "remaining_image_pairs": []
+}
+✔ Connect4 derives paired copy from the approved SSOT (3.098ms)
+✔ unapproved or unexpected copy contract fails closed (0.542333ms)
+✔ generated page and registry are reproducible (10.197708ms)
+✔ all nine owner PNGs remain byte-identical and registered (4.621792ms)
+✔ page has four surfaces, static raster art direction and no drawn diagrams (0.503ms)
+✔ requests use the shared two-field flow and page is discoverable (0.177583ms)
+✔ engagement path keeps Check, extensions and annual work optional in both languages (0.919583ms)
+✔ four responsive image pairs and one alternate are complete, not invented pairs (0.435916ms)
+✔ engagement originals are locked to the supplied files, not substitutes (1.316375ms)
+✔ Growth Score keeps two required stages and optional enrichment after success (2.304167ms)
+✔ Growth Score report commercial routing stays renderer-owned and follows the current Check500 contract (2.566458ms)
+✔ generic request modal does not intercept Growth Score intake (0.549334ms)
+✔ public runtime exposes CAESTHETIC payment endpoint but no reusable provider URL (0.443125ms)
+✔ payment page shows exact amount and captures explicit payer authorization before redirect (0.231167ms)
+✔ reusable Wise link remains server-side and redirect completion is never payment proof (0.376875ms)
+✔ Lead-to-Revenue Check payment is fixed-price, written-scope-first and product-aware (0.142959ms)
+✔ opaque token is stored only as hash and never persisted in billing outbox (0.114041ms)
+✔ payment reconciliation has explicit mismatch states and provider transaction uniqueness (0.398959ms)
+✔ billing communications are CAESTHETIC-isolated and reminders are scheduled through service role (0.096375ms)
+✔ payment evidence and billing outbox remain service-role-only (0.078ms)
+✔ request CTAs open one shared modal with exactly name and email fields (0.825917ms)
+✔ footer question has a working no-JavaScript fallback instead of a dead fragment (0.1095ms)
+✔ request CTA pages contain no mailto buttons and load the modal runtime (0.222291ms)
+✔ public score entry points keep their canonical dedicated intake paths (0.355708ms)
+✔ two-field request endpoint validates, rate-limits and stores requests privately (0.217708ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 64.512792

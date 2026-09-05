@@ -103,3 +103,9 @@ The responsive enhancement must detect `audit.format=multi_location` and `audit.
 - The enhancement may collapse dense evidence, but it must not replace approved network content with the generic single-location story.
 - Demand Journey is not rendered as a client-visible block; filter and navigation controls use at least 44px targets.
 - Russian internal-review pages use Russian interface labels, including evidence counts and distinct `Позже` / `Наблюдать` inventory states.
+
+## 2026-09-05 — Spoken versioned owner decision view
+
+User-authorized presentation revision `owner-decision-report/2.0.0` is limited to the existing approved Spoken case. RU and EN `/v2/` child routes share the same nine-section semantics and read their parent approved fact sets. Parent URLs are preserved as v1; shared v1 assets remain unchanged. The new view makes the public-evidence qualification visible in the opening constraint, displays primary priority expanded, restores all seven inventory entries and exposes source traceability. Four implementation choices include Defer; one Sprint and the secondary final Check live in section 9. The mid-report Check remains after the external/internal boundary.
+
+This is not a new audit, new approval or new measurement. The consistency matrix lacks an approved ten-query set and is explicitly unpopulated; empty journey/decision views remain not assessed. The independent website, search, social and reputation surfaces remain exactly four. Version-specific CSS and JS isolate typography and source-link disclosure behavior. Builder: `scripts/caesthetic/build-spoken-medspa-v2.mjs`; regression and browser QA: `tests/caesthetic/spoken-medspa-v2.test.mjs`, `scripts/caesthetic/spoken-v2-browser-qa.mjs`.

@@ -1,0 +1,802 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "width": 320,
+      "samples": 23,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/growth-score/",
+      "width": 320,
+      "samples": 25,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/sprint/",
+      "width": 320,
+      "samples": 25,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/growth-system/",
+      "width": 320,
+      "samples": 29,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/pricing/",
+      "width": 320,
+      "samples": 21,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "width": 320,
+      "samples": 27,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/connect4/",
+      "width": 320,
+      "samples": 55,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/about/",
+      "width": 320,
+      "samples": 29,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/support/",
+      "width": 320,
+      "samples": 11,
+      "requestTriggers": 2,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/",
+      "width": 320,
+      "samples": 19,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/case/",
+      "width": 320,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/privacy/",
+      "width": 320,
+      "samples": 15,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/terms/",
+      "width": 320,
+      "samples": 17,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/cookies/",
+      "width": 320,
+      "samples": 7,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "width": 320,
+      "samples": 17,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/pay/",
+      "width": 320,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/beauty-salons/",
+      "width": 320,
+      "samples": 47,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "width": 320,
+      "samples": 49,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "width": 320,
+      "samples": 51,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "width": 320,
+      "samples": 49,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "width": 320,
+      "samples": 81,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "width": 320,
+      "samples": 85,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "width": 320,
+      "samples": 83,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "width": 320,
+      "samples": 85,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "width": 320,
+      "samples": 63,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "width": 320,
+      "samples": 71,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "width": 320,
+      "samples": 65,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "samples": 21,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/growth-score/",
+      "width": 390,
+      "samples": 21,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/sprint/",
+      "width": 390,
+      "samples": 23,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/growth-system/",
+      "width": 390,
+      "samples": 25,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/pricing/",
+      "width": 390,
+      "samples": 19,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "width": 390,
+      "samples": 23,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/connect4/",
+      "width": 390,
+      "samples": 53,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/about/",
+      "width": 390,
+      "samples": 25,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/support/",
+      "width": 390,
+      "samples": 11,
+      "requestTriggers": 2,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/",
+      "width": 390,
+      "samples": 17,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/case/",
+      "width": 390,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/privacy/",
+      "width": 390,
+      "samples": 13,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/terms/",
+      "width": 390,
+      "samples": 15,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/cookies/",
+      "width": 390,
+      "samples": 7,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "width": 390,
+      "samples": 15,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/pay/",
+      "width": 390,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/beauty-salons/",
+      "width": 390,
+      "samples": 43,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "width": 390,
+      "samples": 45,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "width": 390,
+      "samples": 47,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "width": 390,
+      "samples": 45,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "width": 390,
+      "samples": 71,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "width": 390,
+      "samples": 75,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "width": 390,
+      "samples": 73,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "width": 390,
+      "samples": 77,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "width": 390,
+      "samples": 57,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "width": 390,
+      "samples": 63,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "width": 390,
+      "samples": 61,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "samples": 15,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/growth-score/",
+      "width": 1440,
+      "samples": 15,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/sprint/",
+      "width": 1440,
+      "samples": 17,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/growth-system/",
+      "width": 1440,
+      "samples": 17,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/pricing/",
+      "width": 1440,
+      "samples": 13,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "width": 1440,
+      "samples": 15,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/connect4/",
+      "width": 1440,
+      "samples": 41,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/about/",
+      "width": 1440,
+      "samples": 17,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/support/",
+      "width": 1440,
+      "samples": 9,
+      "requestTriggers": 2,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/",
+      "width": 1440,
+      "samples": 13,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/case/",
+      "width": 1440,
+      "samples": 3,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/privacy/",
+      "width": 1440,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/terms/",
+      "width": 1440,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/cookies/",
+      "width": 1440,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "width": 1440,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/pay/",
+      "width": 1440,
+      "samples": 3,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/beauty-salons/",
+      "width": 1440,
+      "samples": 33,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "width": 1440,
+      "samples": 33,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "width": 1440,
+      "samples": 35,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "width": 1440,
+      "samples": 33,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "width": 1440,
+      "samples": 51,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "width": 1440,
+      "samples": 55,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "width": 1440,
+      "samples": 51,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "width": 1440,
+      "samples": 51,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "width": 1440,
+      "samples": 39,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "width": 1440,
+      "samples": 45,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "width": 1440,
+      "samples": 45,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "samples": 15,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/growth-score/",
+      "width": 1920,
+      "samples": 15,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/sprint/",
+      "width": 1920,
+      "samples": 17,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/growth-system/",
+      "width": 1920,
+      "samples": 17,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/pricing/",
+      "width": 1920,
+      "samples": 13,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "width": 1920,
+      "samples": 15,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/connect4/",
+      "width": 1920,
+      "samples": 41,
+      "requestTriggers": 4,
+      "errors": []
+    },
+    {
+      "route": "/about/",
+      "width": 1920,
+      "samples": 17,
+      "requestTriggers": 6,
+      "errors": []
+    },
+    {
+      "route": "/support/",
+      "width": 1920,
+      "samples": 9,
+      "requestTriggers": 2,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/",
+      "width": 1920,
+      "samples": 13,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/case-studies/case/",
+      "width": 1920,
+      "samples": 3,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/privacy/",
+      "width": 1920,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/terms/",
+      "width": 1920,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/cookies/",
+      "width": 1920,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "width": 1920,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/pay/",
+      "width": 1920,
+      "samples": 3,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/beauty-salons/",
+      "width": 1920,
+      "samples": 33,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "width": 1920,
+      "samples": 33,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "width": 1920,
+      "samples": 35,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "width": 1920,
+      "samples": 35,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "width": 1920,
+      "samples": 51,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "width": 1920,
+      "samples": 55,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "width": 1920,
+      "samples": 51,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "width": 1920,
+      "samples": 51,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "width": 1920,
+      "samples": 41,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "width": 1920,
+      "samples": 45,
+      "requestTriggers": 5,
+      "errors": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "width": 1920,
+      "samples": 45,
+      "requestTriggers": 0,
+      "errors": []
+    },
+    {
+      "route": "/score/",
+      "width": 320,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/score/",
+      "width": 390,
+      "samples": 9,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/score/",
+      "width": 1440,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    },
+    {
+      "route": "/score/",
+      "width": 1920,
+      "samples": 5,
+      "requestTriggers": 1,
+      "errors": []
+    }
+  ],
+  "failures": [],
+  "environment": {
+    "browser": "local Chromium 140 / Playwright 1.55",
+    "height": 900,
+    "widths": [
+      320,
+      390,
+      1440,
+      1920
+    ],
+    "production_interactive": "blocked by browser security policy",
+    "external_requests": "aborted; APIs mocked; fonts use fallback",
+    "base_main": "a41e8b1300a122c0b0abc5a7bbceefea53e2e07c"
+  }
+}

@@ -1,0 +1,41 @@
+✔ owner cockpit renders an unnumbered Intro followed by the exact 9-section order (26.568042ms)
+✔ numbered cockpit sections expose one visible number derived from their canonical order (15.983083ms)
+✔ Focus Selection remains exactly one Primary and two Supporting gaps (23.354833ms)
+✔ score navigation is compact, four-surface, approximate and secondary (17.518334ms)
+✔ Lead-to-Revenue Check renders universally without displacing the evidence-backed Sprint CTA (47.511417ms)
+✔ Multi-Location focus child cannot create a second Lead-to-Revenue Check decision (0.203375ms)
+✔ demo HTML is exact output of the reportKind-independent renderer (53.646708ms)
+✔ all local links on the seven catalogued reports resolve to an element (3.171834ms)
+✔ all five catalogued commercial reports keep two Check placements and one Sprint CTA (5.921875ms)
+✔ the hydrated cockpit preserves the server-rendered commercial decision (0.197459ms)
+✔ the same renderer accepts an approved real report and enforces private route rules (20.275792ms)
+✔ a protected Multi-Location focus child is allowed only below its unguessable parent route (0.238875ms)
+✔ Russian real reports render a Russian cockpit without changing English demos (34.2665ms)
+✔ all five locales use one renderer and never translate source evidence (53.836291ms)
+✔ deterministic Intro adapts vertical and Multi-Location nouns without changing report facts (17.969917ms)
+✔ real reports omit coordination counts that cannot be derived (10.1545ms)
+✔ Aesthetemed public-evidence test stays v4 historical, private and evidence-limited (1.466667ms)
+✔ real and demo score routes stay out of the sitemap (0.353ms)
+✔ approved report HTML has no deterministic render drift (237.967667ms)
+✔ demand stage remains validated as machine data but is not rendered (38.703334ms)
+✔ demo banner, CAESTHETIC byline, one Sprint CTA, Check500 section, DIY link and Class A/B labels render (10.58225ms)
+✔ Insufficient evidence path still renders for the booking-constrained demo (19.814792ms)
+✔ Growth Score, Multi-Location Growth Score and аудит route to one mandatory interview (1.371375ms)
+✔ approved audit formats route fail-closed to Check500-bound report templates (0.525083ms)
+✔ current approved reports auto-register while private client data stays out of public artifacts (18.537792ms)
+✔ a newly approved report is discovered without a manual registry edit (1.87875ms)
+✔ a Multi-Location parent and focus-location v5 report become one catalog project (1.432ms)
+✔ public real-case listing is fail-closed without explicit permission and safe display name (1.074708ms)
+✔ generated catalog, site aliases and SSOT routing stay in sync (9.605584ms)
+✔ ru v2 keeps approved facts, full inventory, semantic sections and CTA contract (11.491541ms)
+✔ en v2 keeps approved facts, full inventory, semantic sections and CTA contract (4.396792ms)
+✔ v1 documents and shared runtime assets retain the baseline bytes (3.27075ms)
+✔ version-specific copy cannot silently render a different case (0.979459ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 695.164334

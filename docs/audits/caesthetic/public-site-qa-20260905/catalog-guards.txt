@@ -1,0 +1,15 @@
+✔ Growth Score, Multi-Location Growth Score and аудит route to one mandatory interview (2.005833ms)
+✔ approved audit formats route fail-closed to Check500-bound report templates (0.628333ms)
+✔ current approved reports auto-register while private client data stays out of public artifacts (14.728584ms)
+✔ a newly approved report is discovered without a manual registry edit (1.57275ms)
+✔ a Multi-Location parent and focus-location v5 report become one catalog project (1.137708ms)
+✔ public real-case listing is fail-closed without explicit permission and safe display name (1.122791ms)
+✔ generated catalog, site aliases and SSOT routing stay in sync (9.320375ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 74.346208

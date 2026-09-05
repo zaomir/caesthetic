@@ -109,11 +109,9 @@ test("E2E submit returns lead_id and preserves UTM on growth-score links", { ski
     assert.match(growthHref || "", /utm_source=ig/);
     assert.match(growthHref || "", /utm_campaign=phase1/);
 
-    await page.fill('input[name="practice_name"]', "Sunset Med Spa");
-    await page.fill('input[name="city_state"]', "Scottsdale, AZ");
-    await page.fill('input[name="name"]', "Alex Owner");
-    await page.fill('input[name="email"]', "owner@example.com");
-    await page.click('button[type="submit"]');
+    await page.goto(new URL(growthHref, baseUrl).href);
+    await fillRequiredStages(page);
+    await page.click('[data-cae-required-submit]');
     await page.waitForSelector(".cae-form-success:not([hidden])");
 
     assert.equal(submitCount, 1);
@@ -432,30 +430,14 @@ test("Sprint CTA opens a scoped inquiry and never starts checkout", { skip: skip
   try {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.goto(`${baseUrl}/sprint/`, { waitUntil: "domcontentloaded" });
-    await page.waitForSelector('[data-cae-sprint-inquiry-state="request"]');
-
-    const button = page.locator("[data-cae-sprint-inquiry]");
-    assert.equal(await button.textContent(), "Request Sprint scope and payment instructions");
-    assert.match((await button.getAttribute("href")) || "", /^mailto:info@caesthetic\.com\?/);
+    const button = page.locator("[data-cae-sprint-inquiry]").first();
+    await button.click();
+    const dialog = page.locator('dialog[open]');
+    await dialog.waitFor();
+    assert.deepEqual(await dialog.locator('input').evaluateAll(fields => fields.map(field => field.name)), ['name', 'email']);
+    assert.match(await dialog.textContent(), /written Order and private payment instructions/);
     assert.equal(await page.locator("[data-cae-checkout]").count(), 0);
-
-    const events = await page.evaluate(async () => {
-      window.__caeSprintEvents = [];
-      window.caestheticAnalytics = {
-        track: (name, detail) => window.__caeSprintEvents.push({ name, detail }),
-      };
-      const inquiry = document.querySelector("[data-cae-sprint-inquiry]");
-      inquiry.addEventListener("click", (event) => event.preventDefault(), { capture: true });
-      inquiry.click();
-      await Promise.resolve();
-      return window.__caeSprintEvents;
-    });
-    assert.deepEqual(events, [
-      {
-        name: "sprint_scope_requested",
-        detail: { product: "30_day_growth_sprint", value: 2500, currency: "USD" },
-      },
-    ]);
+    assert.equal(new URL(page.url()).pathname, '/sprint/');
   } finally {
     await browser.close();
     server.close();

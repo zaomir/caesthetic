@@ -1,0 +1,17 @@
+✔ shared header stays visible through scrolling and drawer restores body after resizing (463.647584ms)
+✔ public pages scroll top-bottom-top and every request trigger opens at narrow and desktop widths (146643.411583ms)
+✔ late footer question opens localized two-field dialog: /beauty-salons/ (670.811875ms)
+✔ late footer question opens localized two-field dialog: /es/salones-de-belleza/ (649.703ms)
+✔ late footer question opens localized two-field dialog: /ru/salony-krasoty/ (649.94975ms)
+✔ late footer question opens localized two-field dialog: /fr/salons-de-beaute/ (650.0415ms)
+✔ all commercial request kinds survive validation and close without losing scroll or focus (940.5625ms)
+✔ primary destinations, current state, Social dropdown and anchor clearance (2145.567916ms)
+✔ request retry requires confirmed delivery and preserves two-field payload (307.639667ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 153329.902417

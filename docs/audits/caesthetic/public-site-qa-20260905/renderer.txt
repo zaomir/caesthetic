@@ -1,0 +1,34 @@
+✔ owner cockpit renders an unnumbered Intro followed by the exact 9-section order (15.668542ms)
+✔ numbered cockpit sections expose one visible number derived from their canonical order (10.669667ms)
+✔ Focus Selection remains exactly one Primary and two Supporting gaps (10.05225ms)
+✔ score navigation is compact, four-surface, approximate and secondary (10.218ms)
+✔ Lead-to-Revenue Check renders universally without displacing the evidence-backed Sprint CTA (19.042ms)
+✔ Multi-Location focus child cannot create a second Lead-to-Revenue Check decision (0.207917ms)
+✔ demo HTML is exact output of the reportKind-independent renderer (48.61875ms)
+✔ all local links on the seven catalogued reports resolve to an element (3.095833ms)
+✔ all five catalogued commercial reports keep two Check placements and one Sprint CTA (1.433458ms)
+✔ the hydrated cockpit preserves the server-rendered commercial decision (0.305958ms)
+✔ the same renderer accepts an approved real report and enforces private route rules (22.152375ms)
+✔ a protected Multi-Location focus child is allowed only below its unguessable parent route (0.2495ms)
+✔ Russian real reports render a Russian cockpit without changing English demos (32.564084ms)
+✔ all five locales use one renderer and never translate source evidence (68.746792ms)
+✔ deterministic Intro adapts vertical and Multi-Location nouns without changing report facts (18.22125ms)
+✔ real reports omit coordination counts that cannot be derived (10.8635ms)
+✔ Aesthetemed public-evidence test stays v4 historical, private and evidence-limited (2.22425ms)
+✔ real and demo score routes stay out of the sitemap (0.508875ms)
+✔ approved report HTML has no deterministic render drift (244.139667ms)
+✔ demand stage remains validated as machine data but is not rendered (43.651875ms)
+✔ demo banner, CAESTHETIC byline, one Sprint CTA, Check500 section, DIY link and Class A/B labels render (8.672125ms)
+✔ Insufficient evidence path still renders for the booking-constrained demo (25.486625ms)
+✔ ru v2 keeps approved facts, full inventory, semantic sections and CTA contract (10.594666ms)
+✔ en v2 keeps approved facts, full inventory, semantic sections and CTA contract (3.692583ms)
+✔ v1 documents and shared runtime assets retain the baseline bytes (2.310875ms)
+✔ version-specific copy cannot silently render a different case (1.062625ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 654.035084

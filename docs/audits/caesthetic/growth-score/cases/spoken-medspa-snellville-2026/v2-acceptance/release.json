@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "deployed_sha": "a41e8b1300a122c0b0abc5a7bbceefea53e2e07c",
+  "runtime_commit": "beb2a21dc30ce47a13325fd11a777e612341a6d5",
+  "deploy_run": "https://github.com/zaomir/grainee-v2/actions/runs/33975733426",
+  "bridge_run": "https://github.com/zaomir/grainee-v2/actions/runs/33975677456",
+  "request_id": "deploy-caesthetic-spoken-v2-20260905-01",
+  "public_url": "https://caesthetic.com/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+  "v1_unchanged": true,
+  "main_recovery": {
+    "incident_commit": "3f913bda9ebb2558d9742817da88f07a27840982",
+    "effect": "Satellite sync removed v2 generator/tests and reverted active presentation docs; deployed static views remained correct.",
+    "resolution": "Restore task files and register v2 generator, regression tests, acceptance evidence and active mobile spec as grainee-authoritative protected sync paths, matching the existing v1 policy."
+  }
+}

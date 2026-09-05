@@ -1,0 +1,22 @@
+(node:46284) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/donnyduck/.codex/.chatgpt-projects/g-p-6a78f6b0e0e4819195f5a4fa10f45aa4/work/caesthetic-live-qa-fixes/infra/cloudflare/router/src/redirect-query.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/donnyduck/.codex/.chatgpt-projects/g-p-6a78f6b0e0e4819195f5a4fa10f45aa4/work/caesthetic-live-qa-fixes/infra/cloudflare/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ E2E submit returns lead_id and preserves UTM on growth-score links (4550.966167ms)
+✔ delayed API response cannot show early success or schedule a mailto fallback (1333.794875ms)
+✔ negative success flag, invalid lead_id and API failure keep success hidden and restore retry (2981.545583ms)
+✔ required intake persists before optional enrichment and analytics contain no answers (4898.283ms)
+✔ Skip keeps the required case successful without an optional request (5500.970583ms)
+✔ optional save failure does not revoke the successful required case (3921.338291ms)
+✔ Sprint CTA opens a scoped inquiry and never starts checkout (503.1285ms)
+✔ Instagram in-app browser UA can submit Growth Score form (569.152208ms)
+✔ pricing pages consume finite labels and client-specific recurring terms (2390.558208ms)
+✔ legacy redirect preserves attribution and drops arbitrary sensitive query data (0.925ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26735.172458

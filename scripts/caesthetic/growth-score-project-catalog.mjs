@@ -249,6 +249,7 @@ export function renderPublicCatalogHtml(publicCatalog) {
   <link rel="canonical" href="https://caesthetic.com/score/">
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
+  <link rel="stylesheet" href="/assets/css/growth.css">
 </head>
 <body>
 <div id="cae-header-slot"></div>

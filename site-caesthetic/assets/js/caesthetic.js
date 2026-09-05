@@ -1,6 +1,6 @@
 /**
  * CAESTHETIC — shared public-site behavior.
- * caesthetic.js v2.2
+ * caesthetic.js v2.3
  */
 (function () {
   "use strict";
@@ -11,6 +11,22 @@
 
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
+
+  // Multiple overlays must not unlock one another or leave the page stuck.
+  var scrollLocks = new Set();
+  var savedRootOverflow = "";
+  function setScrollLocked(owner, locked) {
+    if (locked) {
+      if (!scrollLocks.size) {
+        savedRootOverflow = document.documentElement.style.overflow;
+      }
+      scrollLocks.add(owner);
+      // Keep body overflow unchanged: it must not become the sticky ancestor.
+      document.documentElement.style.overflow = "hidden";
+    } else if (scrollLocks.delete(owner) && !scrollLocks.size) {
+      document.documentElement.style.overflow = savedRootOverflow;
+    }
+  }
 
   function loadSlot(path, slot) {
     if (!slot) return Promise.resolve();
@@ -43,13 +59,22 @@
     var btn = document.getElementById("cae-menu-btn");
     if (!nav || !btn || btn.getAttribute("data-cae-nav-bound") === "1") return;
     btn.setAttribute("data-cae-nav-bound", "1");
+    var drawerMode = window.matchMedia("(max-width: 1599px)");
 
     function setOpen(isOpen) {
+      isOpen = isOpen && drawerMode.matches;
       nav.classList.toggle("is-open", isOpen);
       btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      document.body.style.overflow = isOpen ? "hidden" : "";
+      setScrollLocked("navigation", isOpen);
       document.documentElement.classList.toggle("cae-nav-open", isOpen);
+      if (!isOpen) {
+        qsa(".cae-nav__dropdown-toggle", nav).forEach(function (toggle) { toggle.setAttribute("aria-expanded", "false"); });
+        qsa(".cae-nav__dropdown", nav).forEach(function (panel) { panel.classList.remove("is-open"); });
+      }
     }
+
+    drawerMode.addEventListener("change", function () { setOpen(false); });
+    window.addEventListener("pageshow", function () { setOpen(false); });
 
     btn.addEventListener("click", function () { setOpen(!nav.classList.contains("is-open")); });
     qsa("a", nav).forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
@@ -57,6 +82,15 @@
       if (e.key === "Escape" && nav.classList.contains("is-open")) {
         setOpen(false);
         btn.focus();
+      } else if (e.key === "Tab" && nav.classList.contains("is-open")) {
+        var controls = [btn].concat(qsa("a[href], button:not([disabled])", nav).filter(function (el) { return el.getClientRects().length && getComputedStyle(el).visibility !== "hidden"; }));
+        var first = controls[0];
+        var last = controls[controls.length - 1];
+        if (e.shiftKey && (document.activeElement === first || !nav.contains(document.activeElement) && document.activeElement !== btn)) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && (document.activeElement === last || !nav.contains(document.activeElement) && document.activeElement !== btn)) {
+          e.preventDefault(); first.focus();
+        }
       }
     });
   }
@@ -242,7 +276,8 @@
       qsa("[data-cae-question]").forEach(function (trigger) { trigger.remove(); });
     }
 
-    var requestButtons = qsa([
+    if (qs("dialog.cae-request-modal")) return;
+    var requestSelector = [
       "a[data-cae-request]",
       "button[data-cae-request]",
       "a[data-cae-sprint-inquiry]",
@@ -253,8 +288,7 @@
       "button[data-cae-growth-system-inquiry]",
       "a[data-cae-question]",
       "button[data-cae-question]"
-    ].join(","));
-    if (!requestButtons.length) return;
+    ].join(",");
 
     var requestLocale = (document.documentElement.lang || "en").toLowerCase().split("-")[0];
     var requestCopy = requestLocale === "ru" ? {
@@ -262,6 +296,16 @@
       name: "Имя", email: "Электронная почта", send: "Отправить запрос", sending: "Отправляем…", sent: "Отправлено",
       success: "Запрос отправлен. Мы ответим по электронной почте и предложим следующий шаг.",
       questionSuccess: "Вопрос отправлен. Мы ответим по электронной почте.", failed: "Не удалось отправить запрос. Попробуйте ещё раз."
+    } : requestLocale === "es" ? {
+      close: "Cerrar formulario", kicker: "Solicitud", title: "Deja tus datos", intro: "Responderemos por email.",
+      name: "Nombre", email: "Email", send: "Enviar solicitud", sending: "Enviando…", sent: "Enviado",
+      success: "Solicitud enviada. Responderemos por email con el siguiente paso.",
+      questionSuccess: "Pregunta enviada. Responderemos por email.", failed: "No pudimos enviar la solicitud. Inténtalo de nuevo."
+    } : requestLocale === "fr" ? {
+      close: "Fermer le formulaire", kicker: "Demande", title: "Laissez vos coordonnées", intro: "Nous vous répondrons par e-mail.",
+      name: "Nom", email: "E-mail", send: "Envoyer la demande", sending: "Envoi…", sent: "Envoyé",
+      success: "Demande envoyée. Nous vous répondrons par e-mail avec la prochaine étape.",
+      questionSuccess: "Question envoyée. Nous vous répondrons par e-mail.", failed: "La demande n’a pas pu être envoyée. Veuillez réessayer."
     } : {
       close: "Close request form", kicker: "Request", title: "Leave your details", intro: "We will reply by email.",
       name: "Name", email: "Email", send: "Send request", sending: "Sending…", sent: "Sent",
@@ -301,6 +345,8 @@
     function metaFor(trigger) {
       var explicitIntent = trigger && trigger.getAttribute("data-cae-intent");
       var russian = requestLocale === "ru";
+      if (trigger && trigger.hasAttribute("data-cae-question") && requestLocale === "es") return { kind:"question", intent:explicitIntent || "question", kicker:"Pregunta", title:"Haz una pregunta a CAESTHETIC", intro:"Solo necesitamos tu nombre y email. Responderemos por email y ya sabemos desde qué página nos escribes.", submit:"Enviar pregunta" };
+      if (trigger && trigger.hasAttribute("data-cae-question") && requestLocale === "fr") return { kind:"question", intent:explicitIntent || "question", kicker:"Question", title:"Poser une question à CAESTHETIC", intro:"Votre nom et votre e-mail suffisent. Nous répondrons par e-mail et savons déjà depuis quelle page vous nous contactez.", submit:"Envoyer la question" };
       if (trigger && trigger.hasAttribute("data-cae-sprint-inquiry")) return { kind:"sprint", intent:explicitIntent || "30_day_growth_sprint_2500", kicker:russian ? "Спринт на 30 дней · $2,500" : "30-Day Growth Sprint · $2,500", title:russian ? "Запросить спринт" : "Request your Sprint", intro:russian ? "Нужны только имя и электронная почта. Мы письменно подтвердим объём работ и отправим личные инструкции по оплате." : "Name and email only. We will confirm the practice-specific scope and send the written Order and private payment instructions.", submit:russian ? "Запросить спринт" : "Request Sprint" };
       if (trigger && trigger.hasAttribute("data-cae-check-inquiry")) return { kind:"check", intent:explicitIntent || "lead_to_revenue_check_500", kicker:russian ? "Проверка пути после обращения · $500" : "Lead-to-Revenue Check · $500", title:russian ? "Запросить проверку" : "Start the Lead-to-Revenue Check", intro:russian ? "Нужны только имя и электронная почта. До оплаты мы письменно подтвердим, что именно проверяем, и отправим личные инструкции по оплате." : "Name and email only. We will confirm the evidence scope, written Order and private payment instructions before payment.", submit:russian ? "Запросить проверку за $500" : "Request the $500 Check" };
       if (trigger && trigger.hasAttribute("data-cae-growth-system-inquiry")) return { kind:"growth_system", intent:explicitIntent || "growth_system_inquiry", kicker:russian ? "Система роста" : "Growth System", title:russian ? "Спросить о постоянном сопровождении" : "Ask about recurring ownership", intro:russian ? "Оставьте имя и электронную почту. Условия работы определяются для каждой клиники отдельно." : "Leave your name and email. Commercial scope and economics stay client-specific.", submit:russian ? "Отправить запрос" : "Send Growth System request" };
@@ -312,7 +358,6 @@
 
     function closeDialog() {
       dialog.close();
-      if (activeTrigger) activeTrigger.focus();
     }
     function openDialog(trigger) {
       activeTrigger = trigger || null;
@@ -327,14 +372,24 @@
       var modalSubmit = qs('button[type="submit"]', form);
       modalSubmit.disabled = false;
       modalSubmit.textContent = meta.submit;
+      setScrollLocked("request", true);
       dialog.showModal();
       qs('input[name="name"]', form).focus();
     }
 
     close.addEventListener("click", closeDialog);
+    dialog.addEventListener("close", function () {
+      setScrollLocked("request", false);
+      if (activeTrigger && activeTrigger.isConnected) activeTrigger.focus({ preventScroll: true });
+    });
     dialog.addEventListener("click", function (event) { if (event.target === dialog) closeDialog(); });
-    requestButtons.forEach(function (button) {
-      button.addEventListener("click", function (event) { event.preventDefault(); openDialog(button); });
+    // Delegation also covers links inserted later by the localized footer adapter.
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(requestSelector);
+      if (!button) return;
+      if (button.hasAttribute("data-cae-question") && document.body.classList.contains("cae-score-report--focus-location")) return;
+      event.preventDefault();
+      openDialog(button);
     });
     form.addEventListener("submit", function (event) {
       event.preventDefault();

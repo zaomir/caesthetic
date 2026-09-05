@@ -66,6 +66,18 @@ class DecideDeletionTest(unittest.TestCase):
         self.assertEqual((action.direction, action.operation, action.reason),
                          ("g2s", "delete", "grainee_deleted"))
 
+    def test_spoken_v2_renderer_survives_missing_satellite_copy(self):
+        # Reproduce 3f913bda: satellite missing a newly published canonical module.
+        for rel in ["scripts/caesthetic/growth-score-owner-v2.mjs",
+                    "scripts/caesthetic/build-spoken-medspa-v2.mjs",
+                    "tests/caesthetic/spoken-medspa-v2.test.mjs"]:
+            with self.subTest(rel=rel):
+                self.write(self.g, rel, "approved")
+                action = SYNC.decide(rel, self.g / rel, self.s / rel,
+                                     {rel: digest("approved")})
+                self.assertEqual((action.direction, action.operation, action.reason),
+                                 ("g2s", "copy", "protected_satellite_deletion_refused"))
+
     def test_satellite_deletion_propagates(self):
         rel = "docs/caesthetic/example.md"
         self.write(self.g, rel, "same")

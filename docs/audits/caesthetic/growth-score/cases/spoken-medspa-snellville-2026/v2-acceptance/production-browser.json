@@ -1,0 +1,289 @@
+{
+  "base": "https://caesthetic.com",
+  "checked_at": "2026-09-05T15:46:34.210Z",
+  "widths": [
+    {
+      "locale": "ru",
+      "width": 320,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 11292,
+          "height": 142
+        },
+        {
+          "top": 11450,
+          "height": 142
+        },
+        {
+          "top": 11608,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 320
+    },
+    {
+      "locale": "ru",
+      "width": 360,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 10048,
+          "height": 142
+        },
+        {
+          "top": 10206,
+          "height": 142
+        },
+        {
+          "top": 10364,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 360
+    },
+    {
+      "locale": "ru",
+      "width": 390,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 8875,
+          "height": 69.890625
+        },
+        {
+          "top": 8961,
+          "height": 97.78125
+        },
+        {
+          "top": 9075,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 390
+    },
+    {
+      "locale": "ru",
+      "width": 430,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 8480,
+          "height": 69.890625
+        },
+        {
+          "top": 8566,
+          "height": 69.890625
+        },
+        {
+          "top": 8652,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 430
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6485,
+          "height": 97.78125
+        },
+        {
+          "top": 6485,
+          "height": 97.78125
+        },
+        {
+          "top": 6599,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 768
+    },
+    {
+      "locale": "ru",
+      "width": 1024,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6337,
+          "height": 142
+        },
+        {
+          "top": 6337,
+          "height": 142
+        },
+        {
+          "top": 6337,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "ru",
+      "width": 1440,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "ru",
+      "width": 1920,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1920
+    }
+  ],
+  "dialogs": [
+    {
+      "locale": "ru",
+      "kind": "sprint",
+      "title": "Запросить спринт"
+    },
+    {
+      "locale": "ru",
+      "kind": "check",
+      "title": "Запросить проверку"
+    },
+    {
+      "locale": "ru",
+      "kind": "question",
+      "title": "Задать вопрос CAESTHETIC"
+    }
+  ],
+  "errors": [],
+  "deployed_sha": "a41e8b1300a122c0b0abc5a7bbceefea53e2e07c",
+  "byte_checks": [
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json",
+    "site-caesthetic/assets/css/tokens.css",
+    "site-caesthetic/assets/css/caesthetic.css",
+    "site-caesthetic/assets/css/growth-report.css",
+    "site-caesthetic/assets/js/caesthetic.js",
+    "site-caesthetic/assets/js/caesthetic-config.js",
+    "site-caesthetic/assets/js/growth-cockpit.js",
+    "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/index.html",
+    "site-caesthetic/assets/css/growth-score-owner-v2.css",
+    "site-caesthetic/assets/js/growth-score-owner-v2.js"
+  ],
+  "english_access": "protected",
+  "status": "PASS"
+}

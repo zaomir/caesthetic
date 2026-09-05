@@ -55,6 +55,8 @@
     if (productColumn && !productColumn.querySelector('a[href="/support/"]')) {
       var question = document.createElement("a");
       question.href = "/support/";
+      question.setAttribute("data-cae-question", "");
+      question.setAttribute("data-cae-intent", "salon_footer_question");
       question.textContent = copy.question;
       productColumn.appendChild(question);
     }

@@ -1,0 +1,536 @@
+{
+  "base": "http://127.0.0.1:8765",
+  "checked_at": "2026-09-05T15:44:29.336Z",
+  "widths": [
+    {
+      "locale": "ru",
+      "width": 320,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 10122,
+          "height": 97.78125
+        },
+        {
+          "top": 10236,
+          "height": 97.78125
+        },
+        {
+          "top": 10349,
+          "height": 125.671875
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 320
+    },
+    {
+      "locale": "ru",
+      "width": 360,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 9250,
+          "height": 97.78125
+        },
+        {
+          "top": 9363,
+          "height": 97.78125
+        },
+        {
+          "top": 9477,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 360
+    },
+    {
+      "locale": "ru",
+      "width": 390,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 8875,
+          "height": 69.890625
+        },
+        {
+          "top": 8961,
+          "height": 97.78125
+        },
+        {
+          "top": 9075,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 390
+    },
+    {
+      "locale": "ru",
+      "width": 430,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 8480,
+          "height": 69.890625
+        },
+        {
+          "top": 8566,
+          "height": 69.890625
+        },
+        {
+          "top": 8652,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 430
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6485,
+          "height": 97.78125
+        },
+        {
+          "top": 6485,
+          "height": 97.78125
+        },
+        {
+          "top": 6599,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 768
+    },
+    {
+      "locale": "ru",
+      "width": 1024,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6337,
+          "height": 142
+        },
+        {
+          "top": 6337,
+          "height": 142
+        },
+        {
+          "top": 6337,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "ru",
+      "width": 1440,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "ru",
+      "width": 1920,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        },
+        {
+          "top": 6353,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1920
+    },
+    {
+      "locale": "en",
+      "width": 320,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 9597,
+          "height": 97.78125
+        },
+        {
+          "top": 9710,
+          "height": 97.78125
+        },
+        {
+          "top": 9824,
+          "height": 125.671875
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 320
+    },
+    {
+      "locale": "en",
+      "width": 360,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 8801,
+          "height": 97.78125
+        },
+        {
+          "top": 8914,
+          "height": 97.78125
+        },
+        {
+          "top": 9028,
+          "height": 125.671875
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 360
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 8475,
+          "height": 97.78125
+        },
+        {
+          "top": 8589,
+          "height": 97.78125
+        },
+        {
+          "top": 8703,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 390
+    },
+    {
+      "locale": "en",
+      "width": 430,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 8149,
+          "height": 69.890625
+        },
+        {
+          "top": 8235,
+          "height": 69.890625
+        },
+        {
+          "top": 8321,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 430
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6387,
+          "height": 97.78125
+        },
+        {
+          "top": 6387,
+          "height": 97.78125
+        },
+        {
+          "top": 6501,
+          "height": 97.78125
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 768
+    },
+    {
+      "locale": "en",
+      "width": 1024,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6299,
+          "height": 142
+        },
+        {
+          "top": 6299,
+          "height": 142
+        },
+        {
+          "top": 6299,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1024
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6276,
+          "height": 142
+        },
+        {
+          "top": 6276,
+          "height": 142
+        },
+        {
+          "top": 6276,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1440
+    },
+    {
+      "locale": "en",
+      "width": 1920,
+      "overflow": [],
+      "types": [
+        "14px",
+        "32px",
+        "18px"
+      ],
+      "families": [
+        "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "\"Source Serif 4\", Georgia, \"Times New Roman\", serif"
+      ],
+      "cards": [
+        {
+          "top": 6276,
+          "height": 142
+        },
+        {
+          "top": 6276,
+          "height": 142
+        },
+        {
+          "top": 6276,
+          "height": 142
+        }
+      ],
+      "rootOverflow": "visible",
+      "bodyOverflow": "visible",
+      "scrollWidth": 1920
+    }
+  ],
+  "dialogs": [
+    {
+      "locale": "ru",
+      "kind": "sprint",
+      "title": "Запросить спринт"
+    },
+    {
+      "locale": "ru",
+      "kind": "check",
+      "title": "Запросить проверку"
+    },
+    {
+      "locale": "ru",
+      "kind": "question",
+      "title": "Задать вопрос CAESTHETIC"
+    },
+    {
+      "locale": "en",
+      "kind": "sprint",
+      "title": "Request your Sprint"
+    },
+    {
+      "locale": "en",
+      "kind": "check",
+      "title": "Start the Lead-to-Revenue Check"
+    },
+    {
+      "locale": "en",
+      "kind": "question",
+      "title": "Ask CAESTHETIC a question"
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}

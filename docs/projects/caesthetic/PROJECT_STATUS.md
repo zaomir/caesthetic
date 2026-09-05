@@ -1,7 +1,24 @@
 # CAESTHETIC — Project Status
 
-**Updated:** 2026-09-04
+**Updated:** 2026-09-05
 **Phase:** Phase 1 — proof + outbound readiness
+
+## 2026-09-05 — Public-site navigation and request QA repairs
+
+- User authorized fixing the live QA findings through main, deployment and smoke.
+- Shared header slot owns sticky positioning; drawer closes and unlocks after breakpoint changes, traps focus and covers the consent banner. Native request dialog shares scroll locking and restores focus after Escape/close.
+- Delegated request triggers support delayed localized salon footers; EN/RU/ES/FR question dialogs use Name + Email. Literal footer escape text is removed.
+- Lead-to-Revenue skip link is keyboard-visible without shifting the header. Public Score catalog loads its existing hero/list styles, including its generator.
+- Local validation and exact scope/limitations: `docs/audits/caesthetic/public-site-qa-20260905.md`. Production release evidence is recorded there after canonical deployment; live interactive QA remains blocked by browser security policy.
+- Shared CSS/JS hashes in the Spoken v1 fixture are intentionally advanced for these authorized shared repairs; report HTML/data, report-specific assets and the locked illustration hashes are unchanged.
+
+## 2026-09-05 — Spoken Growth Score presentation v2
+
+- Separate RU and EN `/v2/` views implement the owner-requested review corrections; original routes remain v1.
+- Facts, scoring, human-selected Top 3, locked hero and shared v1 assets are preserved. No new research or operational conclusions.
+- Nine semantic sections, full seven-gap inventory, visible evidence boundaries, three type sizes, consistent spacing, equal row-height cards and Defer choice. Source links open their disclosure.
+- RU remains direct-link; EN remains protected through the existing parent access policy. No duplicate audit/catalog record.
+- Active presentation specification: `docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md`. Acceptance records: `docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/v2-acceptance/`.
 
 ## 2026-09-04 — Approved Connect4 patient journey visual v1
 

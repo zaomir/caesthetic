@@ -257,11 +257,11 @@ Breakpoints supported (no horizontal overflow at any):
 | 360–390 | Android/iPhone standard | Default mobile |
 | 430 | iPhone Pro Max | Relaxed padding |
 | 768 | Tablet | 2-column layouts emerge |
-| 1024 | Desktop start | Full nav visible, evidence strip inline |
+| 1024 | Desktop start | Drawer navigation, evidence strip inline |
 | 1280–1440 | Standard desktop | Full layouts |
 | 1920 | Wide | Max-width container contains layout |
 
-Nav breakpoint: 1024px (switch from hamburger to desktop nav)
+Nav breakpoint: 1600px (drawer through 1599px; full navigation at 1600px and wider). The header slot owns sticky positioning. An open drawer covers the analytics consent banner, traps keyboard focus and locks page scrolling; resizing to desktop closes the drawer and restores scrolling.
 
 ---
 

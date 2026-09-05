@@ -1,0 +1,28 @@
+{
+  "source_main": "1c60e6381bba7b15c09b670918cf9ce8b801652e",
+  "tests": {
+    "passed": 65,
+    "failed": 0
+  },
+  "impeccable": {
+    "targets": [
+      "RU v2 HTML",
+      "EN v2 HTML",
+      "dedicated v2 CSS"
+    ],
+    "status": "PASS",
+    "findings": 0
+  },
+  "accessibility": {
+    "scope": "main, WCAG2 A/AA and WCAG2.1 AA, RU and EN",
+    "violations": 0
+  },
+  "v1_baseline": "tests/caesthetic/fixtures/spoken-v1-hashes.json",
+  "forms": "open/close only; all POST requests blocked",
+  "catalog_and_audit_storage": "PASS; no extra audit records",
+  "limitations": [
+    "No new query research or human diagnostic approval",
+    "Matrix unpopulated; journey maps not assessed",
+    "No real form submissions or Lighthouse/field-CWV claim"
+  ]
+}

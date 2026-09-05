@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
   overflow-x: clip;
   max-width: 100%;
@@ -38,6 +39,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
   max-width: 100%;
+}
+
+.cae-skip-link {
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  z-index: 300;
+  padding: .75rem 1rem;
+  background: var(--cae-bg);
+  color: var(--cae-text);
+  transform: translateY(-110%);
+}
+
+.cae-skip-link:focus {
+  transform: translateY(0);
 }
 
 img, svg, video {
@@ -301,6 +317,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
    HEADER
    ═══════════════════════════════════════════════════════════════ */
 
+#cae-header-slot,
 .cae-header {
   position: sticky;
   top: 0;
@@ -310,6 +327,12 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
   background: var(--cae-bg);
   border-bottom: 1px solid var(--cae-border);
 }
+
+/* The outer mount must own sticky positioning; its child cannot stick past
+   the bottom of a one-header-tall containing block. */
+#cae-header-slot > .cae-header { position: relative; }
+#cae-header-slot { border-bottom: 0; }
+html:has(#cae-header-slot) { scroll-padding-top: calc(var(--cae-header-h) + 16px); }
 
 .cae-header .cae-wrap.cae-header__inner {
   width: min(1600px, calc(100% - 40px));
@@ -2120,8 +2143,15 @@ h1, h2, h3, h4, h5, h6, p, blockquote {
   }
 
   /* Keep sticky header above page content, below open drawer layer */
+  #cae-header-slot,
   .cae-header {
     z-index: 200;
+  }
+
+  /* An open drawer must cover the consent banner as well as page content. */
+  html.cae-nav-open #cae-header-slot,
+  html.cae-nav-open .cae-header {
+    z-index: 1100;
   }
 
   /* Mobile nav drawer — explicit viewport height (do not rely on top+bottom
