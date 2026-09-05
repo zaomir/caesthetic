@@ -22,7 +22,8 @@
     "private-legacy",
     "redirect",
     "check500",
-    "connect4"
+    "connect4",
+    "owner-decision-report/3.0.0"
   ],
   "pages": [
     {
@@ -1154,6 +1155,26 @@
       "stylesheets": [
         "/assets/css/caesthetic.css",
         "/assets/css/growth.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/",
+      "profile": "owner-decision-report/3.0.0",
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/",
+      "profile": "owner-decision-report/3.0.0",
+      "viewports": [
+        320,
+        390,
+        1440
       ]
     }
   ],
@@ -14971,6 +14992,46 @@
       "rule": "scoped-token",
       "value": "--radius: 8px",
       "count": 1
+    },
+    {
+      "id": "eb1f0d68843f26d9308b813b601d78a82fc129c3756b844225b075ae644c5fbb",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-paper: #F0EDE6",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
+    },
+    {
+      "id": "68cca4989701b6f85311c44af83420a4db3d8b85744ecfe893eebe194f96ecff",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-soft: #E7E2D9",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
+    },
+    {
+      "id": "21db7199283e1219477dbd80fdb08ed1280223cc54759b4b5f89a0c27e807b01",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-ink: #0B2438",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
+    },
+    {
+      "id": "48b87103cbdc8d61c8b55501186f7fbc5d364b0a1f5d296f62f7c86968d83394",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-line: #C9C3B8",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
     }
   ]
 }

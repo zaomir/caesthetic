@@ -81,6 +81,8 @@ try {
         "/lead-to-revenue-check/",
         "/score/demo-multi-location-growth-score/",
         "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+        "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/",
+        "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/",
         "/__design-kit/",
       ].includes(p.route),
   );

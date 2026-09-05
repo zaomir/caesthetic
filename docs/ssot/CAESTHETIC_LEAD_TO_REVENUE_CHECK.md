@@ -194,3 +194,31 @@ This file is the specific active pricing/evidence/recommendation authority for t
 As of **2026-09-04**, this file supersedes subordinate rules that render the Check only once, hide it until self-selection, make it mutually exclusive with the Sprint CTA, automatically select it from passive behavior, or permit a Multi-Location focus child to duplicate the parent's commercial sections.
 
 Any later change to the fixed `$500` price, two-placement rule, Sprint credit rule, product role, `check500-section/en-US/1.0.0` wording or `check500-style/1.0.0` visual language requires an explicit canon update and a new contract version.
+
+## Versioned US-English correction — Spoken v3 (2026-09-05)
+
+Owner request: use natural American English (2026-09-05T17:19:54Z), followed by
+implementation approval (2026-09-05T17:56:58Z). `check500-section/en-US/1.1.0`
+changes only **enquiries → inquiries** in the heading and body. Meaning, price,
+credit, CTA, two placements and style remain unchanged. New Spoken v3 opts in;
+frozen v1/v2 and other existing pages retain their exact 1.0.0 content. This is
+an explicit version-scoped exception to the universal 1.0.0 wording above, not
+a silent find/replace or a changed product. Future migrations opt in explicitly.
+
+The JSON below is the only 1.1.0 build copy source, read by
+`scripts/caesthetic/check500-copy.mjs`; do not maintain a separate page-local copy.
+The Russian translation keeps the approved meaning and does not need a spelling
+change. No diagnostic approval is inferred from this language correction.
+
+<!-- check500-us-1.1:start -->
+```json
+{
+  "copy_contract": "check500-section/en-US/1.1.0",
+  "title": "Do all your inquiries make it to a booking?",
+  "product_line": "Lead-to-Revenue Check · $500",
+  "body": "See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where inquiries may be getting lost.",
+  "cta": "Check My Lead-to-Revenue Path",
+  "fine_print": "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total."
+}
+```
+<!-- check500-us-1.1:end -->

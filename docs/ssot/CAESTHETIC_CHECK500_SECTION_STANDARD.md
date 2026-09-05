@@ -325,3 +325,11 @@ A material change to any of the following requires a new version of this standar
 - placement semantics.
 
 Runtime implementation, applicable report templates and QA evidence must be updated together when a future version changes production behavior.
+
+
+## Versioned US spelling opt-in — 2026-09-05
+
+Spoken v3 opts into `check500-section/en-US/1.1.0` from the parent Check SSOT,
+changing only enquiries to inquiries. Its build copy comes from the one
+versioned parent JSON block. This exception changes no visual, placement,
+price, credit or action semantics; other frozen instances retain 1.0.0.

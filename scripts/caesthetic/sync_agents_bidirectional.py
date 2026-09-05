@@ -70,6 +70,8 @@ EXCLUDE_DIR_NAMES = {
 EXCLUDE_FILE_PREFIXES = (".env",)
 EXCLUDE_FILE_SUFFIXES = (".pyc", ".pyo")
 EXCLUDE_REL_PREFIXES = (
+    "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/revisions/",
+    "docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/v3-acceptance/",
     "site-caesthetic/private/",
     "site-caesthetic/score/aurora-medspa-x7k9m2/",
     "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
@@ -98,6 +100,12 @@ SCORE_MIRROR_ALLOW_PREFIXES = (
 )
 
 PROTECTED_PREFIXES = (
+    "scripts/caesthetic/build-spoken-medspa-v3.mjs",
+    "scripts/caesthetic/check500-copy.mjs",
+    "scripts/caesthetic/consistency-contract.mjs",
+    "scripts/caesthetic/growth-score-owner-v3",
+    "scripts/caesthetic/spoken-v3-browser-qa.mjs",
+    "tests/caesthetic/spoken-medspa-v3.test.mjs",
     "deploy/systemd/caesthetic-repo-sync.service",
     "deploy/systemd/caesthetic-repo-sync.timer",
     "site-caesthetic/",

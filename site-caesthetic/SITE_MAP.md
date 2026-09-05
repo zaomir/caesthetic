@@ -117,3 +117,11 @@ The production header, footer, favicon and Open Graph metadata use the canonical
 - `/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/` — unlisted RU direct-link presentation v2; original parent URL remains v1.
 - `/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/` — paired protected EN presentation v2.
 - Presentation children reference existing approved source reports and are not separate audit/catalog records; neither is added to the public sitemap.
+
+
+### Spoken version 3 (unlisted review preview)
+
+- RU `/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/` — direct-link owner
+  review, noindex; not public catalog/navigation or sitemap.xml.
+- EN `/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/` — protected by the
+  existing parent path policy, noindex. One case; both pages are review previews.

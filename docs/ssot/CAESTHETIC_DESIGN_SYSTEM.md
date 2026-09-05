@@ -277,3 +277,27 @@ Machine projection: `docs/caesthetic/design/contract.json`. It records every HTM
 New pages and profile changes must update the route registry, source/generator, states and applicable tests together. Shared changes exercise all routes. The existing Website Studio guard follows the SSOT shim. The local-only component fixture is `tests/caesthetic/fixtures/design-system.html`; it is never a public proof page.
 
 The 2026-09-05 implementation replaces JS-injected visual styles with initial HTML stylesheet links, uses losslessly preserved source logos plus smaller delivery PNGs, repairs mobile grids/CTA wrapping and report table keyboard access, and aligns access/error shells with shared tokens. It does not change protected image bytes, report evidence or commercial terms. Field CWV and exhaustive manual assistive-technology certification are separate evidence requirements; automated PASS is not a WCAG certificate.
+
+
+### Scoped owner-report v3 profile — 2026-09-05
+
+`owner-decision-report/3.0.0` is the isolated Spoken RU/EN preview/release profile;
+its current stage is declared separately from layout version. Retain the warm
+owner-report palette and two-family 14/18/32px hierarchy. The following scoped
+aliases on `.cae-score-v3` are intentional names for the already approved report
+colors, not global palette changes: `--v3-paper:#F0EDE6`, `--v3-soft:#E7E2D9`,
+`--v3-ink:#0B2438`, `--v3-line:#C9C3B8`. Their exact declarations are registered in
+`contract.json`. Main reading gutters are 20px mobile/24px desktop; native
+sections/disclosures use spacing tokens. Check500 retains its independent
+centered typography, 96/64px rhythm and navy/burgundy/ivory contract.
+
+Exact system/journey/Stop/engagement image pairs are selected from the owner's
+Dropbox collection by semantic role and at 767px. The explicit v3 image-placement
+exception is recorded in Client Report Standard and the active Mobile Decision
+UI spec. Old Hero locks still apply outside v3. No reconstruction, new stock
+artwork, crop, re-encoding or color-only status is introduced.
+
+Register both child routes, readable states and private browser acceptance.
+The working preview is not a certification of new query evidence or commercial
+impact. Legacy routes remain regression-tested; input/review packages and raw
+browser captures are excluded from the public satellite mirror.

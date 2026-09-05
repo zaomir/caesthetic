@@ -113,3 +113,57 @@ This is not a new audit, new approval or new measurement. The consistency matrix
 ### 2026-09-05 — Owner correction to the v2 opening
 
 The owner explicitly removed the opening Primary constraint and What to protect blocks from both Spoken v2 presentations. Their source data and priority detail remain intact. Welcome and studied links are now a permanently visible section, not a disclosure. The msha.ke link is labelled Link-in-bio page / Страница ссылок; it is not evidence of a completed social-channel audit. This instruction supersedes the earlier opening-constraint presentation requirement for this version only. Parent v1 documents remain unchanged.
+
+
+## 2026-09-05 — Spoken v3: isolated evidence-bound review preview
+
+Owner authorizations: the v3 UX/architecture plan and implementation request at
+2026-09-05T17:56:58Z. Profile `owner-decision-report/3.0.0` applies only to paired
+Spoken `/v3/` descendants. Parents and `/v2/` are historical, byte-preserved views;
+no redirect, new case/catalog record, rescoring or automatic priority change.
+
+Build inputs live in the private case `revisions/v3/` packet. It pins RU/EN approved
+report snapshots, paired copy, the source register, query matrix, approved image
+hashes and the versioned Check500 US copy. The renderer uses one view model; it
+never fetches the parent report or an outside source at build/page-load time.
+
+Current release stage is **review_preview**, visibly labelled on both pages.
+Ten candidate phrases are proposed from the inherited Botox/filler topic; they
+are not measured low-frequency queries. Forty neutral cells are not fabricated
+findings. Draft observations cannot render as verified matches in preview.
+`--client-release` refuses publication until the query set, evidence, matrix and
+whole input release have current named-human content-bound approvals. Hashes
+prevent stale review reuse; they do not authenticate a human identity against a
+malicious repository administrator. No approval is inferred from an engineering
+request or from the older Valerie review of the original fact set.
+
+The first content block remains open welcome/studied links; do not restore the
+removed opening constraint/protect cards. How-to-use → unnumbered method intro
+(left reviewed contents/right exact approved image) → nine canonical sections.
+The full seven-gap inventory and the original three selected IDs remain. Sources
+open native disclosures, and keyboard focus lands below the sticky bar. Text and
+native disclosure remain usable without JavaScript. Two share controls, three
+request intents (two name/email fields), one Sprint and two Check placements.
+No generic payment link is invented; orders/payment remain in existing runtime.
+
+Presentation uses 14/18/32px and two approved fonts, 20px minimum mobile gutters;
+Check500 keeps its scoped style. The signature is italic and studied links share
+the address metadata role. US spelling opt-in is `check500-section/en-US/1.1.0`;
+frozen 1.0.0 pages remain untouched.
+
+**V3-only image replacement authorization:** the owner explicitly required only
+the supplied Dropbox collection for this revision. Use exact registered system,
+journey, paid-traffic and engagement desktop/mobile PNG pairs from
+`assets/connect4/{owner,engagement}-20260905/`. This profile supersedes the old
+mandatory Hero/Lead-to-Revenue raster placement only inside v3. Do not change,
+remove, crop or re-encode those old originals or any v1/v2 image contracts. The
+new images explain the method, never client-specific measured losses. The matrix
+is semantic HTML with linked evidence, not a newly generated illustration.
+
+Builder: `scripts/caesthetic/build-spoken-medspa-v3.mjs` (`--check` verifies paired
+determinism). Contract/model: `consistency-contract.mjs`,
+`growth-score-owner-v3-model.mjs`. Tests: `tests/caesthetic/spoken-medspa-v3.test.mjs`.
+Browser QA: `scripts/caesthetic/spoken-v3-browser-qa.mjs`; it must mock every lead
+submission and keep raw screenshots in private workflow artifacts, not a public
+mirror. Release evidence and the research blocker belong to the existing case,
+not new fake client evidence.

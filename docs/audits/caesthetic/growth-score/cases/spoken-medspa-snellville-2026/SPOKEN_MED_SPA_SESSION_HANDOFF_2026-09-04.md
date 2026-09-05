@@ -40,3 +40,18 @@ Running the paired builder must regenerate both languages and both HTML pages in
 5. Merge through `main`.
 6. Use the canonical CAESTHETIC deploy request for `site-caesthetic` to `caesthetic`.
 7. Record the deployed SHA and production smoke result for both live routes.
+
+
+## V3 continuation — 2026-09-05
+
+Do not re-run the parent builder to create v3. Use the frozen `revisions/v3/`
+packet and `scripts/caesthetic/build-spoken-medspa-v3.mjs`. Both `/v3/` routes
+are explicitly a `review_preview` until new evidence passes content-bound human
+review. The original selected IDs and source snapshots are preserved, not a
+newly verified diagnosis. `--client-release` fails while query/evidence reviews
+are pending. One-time engineering authorization is not new research approval.
+
+Next research action: resolve the versioned Research Alignment and approving
+manager for the ten-query re-examination; collect actual dated public materials,
+then obtain evidence/matrix/decision review. Do not restart the original interview,
+reuse old approval for new facts, or turn the candidate phrases into Google data.

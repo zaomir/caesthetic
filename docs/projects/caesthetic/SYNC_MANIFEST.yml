@@ -111,3 +111,9 @@ protected_in_target:
   - scripts/caesthetic/asset-worker/repo-sync-worker.mjs
   - scripts/caesthetic/caesthetic-repo-sync-contract.mjs
   - scripts/caesthetic/continuous-sync-runner.sh
+
+# Spoken v3 private revision packet and raw acceptance are never mirrored.
+# Enforced by sync_agents_bidirectional.py EXCLUDE_REL_PREFIXES:
+# docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/revisions/**
+# docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/v3-acceptance/**
+# V3 builder/model/renderer/contract and test modules remain grainee-authoritative.

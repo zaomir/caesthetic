@@ -623,3 +623,17 @@ Do not:
 - translate or localize in a way that changes evidence or the approved diagnosis.
 
 The report should make the owner feel **clearer and more capable of making the next decision**, while keeping CAESTHETIC's commercial value grounded in evidence, coordination and accountable implementation rather than information asymmetry.
+
+
+### Scoped Spoken v3 owner-directed revision — 2026-09-05
+
+For `owner-decision-report/3.0.0` only, apply the versioned implementation profile
+in `docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md`. Owner instructions require
+the supplied Connect4 Dropbox system/journey/paid-traffic/engagement pairs instead
+of the legacy mandatory Hero and Lead-to-Revenue image placement. This is an
+explicit v3-only placement exception; no old protected raster bytes or v1/v2
+pages change. The matrix remains an evidence-driven HTML component, not artwork.
+The original schema-v5, exact nine numbered sections, four surfaces, three
+selected priorities and human decisions remain. A `review_preview` is visibly
+not an approved new client diagnosis. The US-English Check500 1.1.0 spelling
+correction is opt-in under the parent Check contract; older exact copy stays.

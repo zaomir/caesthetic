@@ -292,3 +292,23 @@ As of 2026-08-14:
 - Targeted Growth Score engine validation passed `32/32`; ordinary first+last names still pass and unregistered mononyms fail.
 - Deploy request `deploy-caesthetic-valeria-reviewer-20260814T2156Z` returned `status=success`, `smoke.ok=true`; deployed SHA `6f8519fc3459e1482a154ae54efa630afcd89603`.
 - Public satellite sync now excludes `docs/projects/caesthetic/clients/**`; real client packs remain private to `grainee-v2`.
+
+
+## 2026-09-05 — Spoken v3 implementation (review preview)
+
+- Separate paired v3 uses a frozen versioned packet; v1/v2 bytes and original
+  selected priorities/scores are retained. One registry/matrix contract, native
+  disclosures and exact approved responsive images; US Check copy opt-in 1.1.0.
+- Current stage is review_preview, not a completed re-audit or approved client
+  matrix. Ten draft candidates are explicitly labelled; no fake matches or
+  volumes. `--client-release` rejects missing named-human Research Alignment,
+  query/evidence/matrix and release approval.
+- Local targeted validation: 77/77 PASS before the final QA additions; offline
+  rendering at 320/390/768/1440 in both locales has no measured overflow. Local
+  live-browser navigation is restricted, so real interaction acceptance is
+  delegated to the canonical GitHub Actions browser environment, not claimed
+  from offline screenshots. Canonical deploy/production status remains pending.
+- Sources: active Mobile Decision UI v3 addendum; private case revisions/v3 packet;
+  `tests/caesthetic/spoken-medspa-v3.test.mjs`; `spoken-v3-browser-qa.mjs`.
+- Next material dependency: approved research scope and real dated evidence for
+  the fixed query set. Do not transfer the old fact-set approval to new rows.
