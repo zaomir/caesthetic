@@ -48,6 +48,7 @@ forbidden_paths:
 protected_paths: []
 
 topics:
+  connect4_concept: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   strategy: docs/ssot/CAESTHETIC.md
   growth_score:
     ssot: docs/ssot/CAESTHETIC.md

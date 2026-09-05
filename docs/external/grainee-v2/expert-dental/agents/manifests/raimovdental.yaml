@@ -50,6 +50,7 @@ topics:
   evidence_public_profile_boundary: docs/raimov/evidence-public-profile/README.md
   copy_runtime_boundary: docs/raimov/copy-runtime-boundaries/README.md
   strategy: docs/ssot/EXPERT_DENTAL_RAIMOV_ELITE_STRATEGY.md
+  expert_dental_patient_conversion_continuity: docs/ssot/EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION.md
   raim_smile_master_business_content: docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md
   raim_smile_brand_protocol: docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md
   raim_smile_partnership_network: docs/ssot/RAIM_SMILE_PARTNERSHIP_NETWORK.md
@@ -118,6 +119,7 @@ agents_seed: bash scripts/raimov/sync-agents-bidirectional.sh --apply --commit -
 
 definition_of_done:
   - Correct RAIMOV authority and namespace used
+  - Expert Dental post-audit implementation work reads docs/ssot/EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION.md for zone ownership, sequencing, adoption and IT architect RACI
   - Personal-brand work reads RAIMOV_WHOLE_PERSON_BRAND.md; Second Opinion remains patient entry, Assessment/Study Club/Intensive remain NOT_LAUNCHED and Academy future/gated
   - Any RAIM SMILE business, product, partnership, content or site task reads docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md first as the single master strategy
   - RAIM SMILE keeps Expert Dental as current operator only; portable operator/routing work reads DEC-859 and operator-network SSOT

@@ -7,7 +7,7 @@
     "AGENTS.md": "6ef0c5eec0737961a291e37d64c048d5269dd4ad625b3d0980ef76a4630a3715",
     "START.md": "8583deed4e7051bd183b95e1fc48061239aa45ca7abb0faba2478ddd780cc020",
     "agents/manifests/healthcare-ecosystem.yaml": "d8c4afe70acd3b463aded8f73b345cff02855d1456bb527d878f89046a7597c5",
-    "agents/manifests/raimovdental.yaml": "484c877137daf1068105f3bd11f4c1f75d0983e019b7492fe8d16528ea915f23",
+    "agents/manifests/raimovdental.yaml": "df69e3a70a8fadc7714a74ee88624b11b7f757d89923b40747cb3fdb81d17b94",
     "apps/expert-esign/.dockerignore": "7e0fcb999e5702a590005e756ca17f329ffc955df9c6753cea47c05bf603a096",
     "apps/expert-esign/DEPLOY_TRIGGER_2026-08-29.md": "10e6389f8b497cfba74b5f83a051a9208b3d84b0a118ab20b7c2a3cae5f5667e",
     "apps/expert-esign/DEPLOY_TRIGGER_2026-08-29_2.md": "16d8085fdc9e9c28d38585b52eb447c075c449b832fee055cc8116209ba04a9e",
@@ -168,7 +168,7 @@
     "docs/raimov/AGENTS_SATELLITE.md": "67fb6a5ac4b60d07f3e7268b04416a29d9a7e690d4bcceb558b145bd22061390",
     "docs/raimov/AGENTS_SYNC_CONFLICTS.md": "d718370ead2b9538432bb71a8dfe6baaf992f41ab73129e37007379bdf1a7395",
     "docs/raimov/CURSOR_AGENTS_SETUP.md": "01cfb13d15e38185ea4f02e54b84d925daf968ddb12de15dc66fd7c281b5ab9c",
-    "docs/raimov/PROJECT_STATUS.md": "0c063aad51836f3388fca9d41c60152efde351c7516cfed19d87f0ad8e1dc578",
+    "docs/raimov/PROJECT_STATUS.md": "0847455d38b2a957e2f52c2bf8ca0aa43aa60b2991933363973a4f9307278f46",
     "docs/raimov/README.md": "f6500fb6221088cb47818484cc1b793e1a5064ef97f52871a9a2fda9ae579ca9",
     "docs/raimov/academy/README.md": "d51b3a2cac625d3ee687de0ba661d201012eb2132c764f3af488f8a8c0ba0c3d",
     "docs/raimov/academy/WHOLE_PERSON_TREATMENT_PLANNING_INTENSIVE.md": "0561d81ce66a8156abd407bfe8d23609f9964cdddf76c20d4c80a07cb4f18251",
@@ -275,6 +275,7 @@
     "docs/ssot/EXPERT_DENTAL_MONTH_1_PLAN_AND_REPORTS.md": "5b5fa1441ecc68b2d4adc77fe22c83a823e80fb3479ec1e55590f97deac7c922",
     "docs/ssot/EXPERT_DENTAL_MONTH_1_RETROSPECTIVE.md": "28af83195cd23578bc1364888411721883a02f2536dc298fd948ea3d345ac8e1",
     "docs/ssot/EXPERT_DENTAL_OMNICHANNEL_COMMUNICATIONS.md": "48b260f7ec6a11e08d4d71cb199e41f1f65435f71988508c792a9d6ac9619911",
+    "docs/ssot/EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION.md": "1548c19a1ac0192f076ecdc578123176141ef3c83d479828fa7c2360c963bff0",
     "docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md": "05b0a2f3965617c4093f82e3c6a3de7ade8ee35c6bc1791af33bf274b500344a",
     "docs/ssot/EXPERT_DENTAL_RAIMOV_ELITE_STRATEGY.md": "292d2ce23c3f1d5f930e46ff482dd40c809869ad1529240c73138536921ebfe2",
     "docs/ssot/EXPERT_DENTAL_WEBSITE_SSOT.md": "568e3ee59acd6825b5f4183cfd2528617070f359a9d1ce6db3f2ff7d512209ad",
@@ -298,7 +299,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "d8d017308419147b1c3a16ddbe18deed563aa5f1",
+  "source_sha": "7eba16b7d5eb18c2e736d23d7f63dfeadcaf2b64",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

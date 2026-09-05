@@ -1,8 +1,9 @@
 # Agents sync conflicts (auto-resolved)
 
-UTC: 2026-09-04T21:10:27Z
+UTC: 2026-09-05T10:47:31Z
 
 | Rel | Winner | Reason |
 |-----|--------|--------|
-| `tests/caesthetic/agents_sync_bidirectional_test.py` | grainee→satellite | `conflict_protected_grainee` |
+| `docs/projects/caesthetic/AGENTS.md` | satellite→grainee | `conflict_newer_satellite` |
+| `docs/projects/caesthetic/PROJECT_STATUS.md` | satellite→grainee | `conflict_newer_satellite` |
 

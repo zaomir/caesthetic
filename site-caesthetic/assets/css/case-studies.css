@@ -504,3 +504,36 @@
 @media (prefers-reduced-motion: reduce) {
   .cae-cases-page * { scroll-behavior: auto; transition-duration: 0.01ms !important; }
 }
+
+/* Connect4 method section: supplied system diagram and readable explanation. */
+.cae-connect4 .cae-how-we-work__head { align-items: start; }
+.cae-connect4 .cae-how-we-work__head .cae-h2 { max-width: 22ch; }
+.cae-connect4 .cae-how-we-work__head .cae-lead { margin: 0; }
+.cae-connect4__figure { margin: var(--cae-space-10) 0 var(--cae-space-12); }
+.cae-connect4__figure img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
+.cae-connect4__figure figcaption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--cae-space-2) var(--cae-space-6); padding: var(--cae-space-3) 0; border-bottom: 1px solid var(--cae-border); color: var(--cae-muted); font-size: 0.875rem; line-height: 1.5; }
+.cae-connect4__method { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: var(--cae-space-16); scroll-margin-top: calc(var(--cae-header-h) + var(--cae-case-subnav-h) + var(--cae-space-6)); }
+.cae-connect4 h3 { margin: 0 0 var(--cae-space-4); color: var(--cae-text-strong); font: 600 1.375rem/1.3 var(--cae-font); }
+.cae-connect4 p { text-wrap: pretty; }
+.cae-connect4__intro p, .cae-connect4__steps p, .cae-connect4__operations p, .cae-connect4__support p { margin: 0; font: 400 1rem/1.65 var(--cae-font); color: var(--cae-text); }
+.cae-connect4__steps { list-style: none; counter-reset: connect4-step; margin: 0; padding: 0; }
+.cae-connect4__steps li { position: relative; padding: 0 0 var(--cae-space-6) var(--cae-space-10); counter-increment: connect4-step; }
+.cae-connect4__steps li + li { padding-top: var(--cae-space-6); border-top: 1px solid var(--cae-border); }
+.cae-connect4__steps li:last-child { padding-bottom: 0; }
+.cae-connect4__steps li::before { content: counter(connect4-step, decimal-leading-zero); position: absolute; left: 0; color: var(--cae-signal); font: 600 0.875rem/1.65 var(--cae-font); }
+.cae-connect4 h4 { margin: 0 0 var(--cae-space-2); color: var(--cae-text-strong); font: 600 1rem/1.5 var(--cae-font); }
+.cae-connect4__operations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--cae-space-16); margin-top: var(--cae-space-12); padding-top: var(--cae-space-8); border-top: 2px solid var(--cae-signal); }
+.cae-connect4__operations .cae-connect4__intake-note { margin-top: var(--cae-space-4); color: var(--cae-signal); font-weight: 600; }
+.cae-connect4__support { max-width: 80ch; margin-top: var(--cae-space-12); padding-left: var(--cae-space-6); border-left: 2px solid var(--cae-signal); }
+.cae-connect4 .cae-process-bridge { margin-top: var(--cae-space-10); }
+.cae-connect4 .cae-process-bridge p { max-width: 64ch; }
+.cae-connect4 .cae-process-bridge a { flex-shrink: 0; }
+@media (max-width: 767px) {
+  .cae-connect4 .cae-how-we-work__head, .cae-connect4__method, .cae-connect4__operations { grid-template-columns: minmax(0, 1fr); gap: var(--cae-space-6); }
+  .cae-connect4__figure { margin: var(--cae-space-6) 0 var(--cae-space-8); }
+  .cae-connect4__figure figcaption { align-items: flex-start; flex-direction: column; }
+  .cae-connect4__steps li { padding-left: var(--cae-space-8); }
+  .cae-connect4__operations { margin-top: var(--cae-space-8); }
+  .cae-connect4__operations > div + div { padding-top: var(--cae-space-6); border-top: 1px solid var(--cae-border); }
+  .cae-connect4 .cae-process-bridge { align-items: flex-start; flex-direction: column; gap: var(--cae-space-3); }
+}

@@ -35,6 +35,13 @@
         image.setAttribute('data-media-state', entry.state);
       });
 
+      scope.querySelectorAll('a[data-media-link]').forEach(function (link) {
+        var entry = entries[link.getAttribute('data-media-link')];
+        if (entry && entry.state === 'approved' && entry.src && entry.src.charAt(0) === '/' && entry.src.charAt(1) !== '/') {
+          link.href = entry.src;
+        }
+      });
+
       document.dispatchEvent(new CustomEvent('cae:media-ready', { detail: { registry: registry } }));
       return registry;
     }).catch(function () {

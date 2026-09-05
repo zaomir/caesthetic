@@ -3,12 +3,33 @@ owner: Design + Engineering
 status: implemented_noindex_review
 project: caesthetic
 route: /case-studies/
-updated: 2026-09-04
+updated: 2026-09-05
 standards: [docs/ssot/WEBSITE_STUDIO_STANDARD.md, docs/ssot/IMPECCABLE_WEBSITE_AGENT_STANDARD.md, docs/ssot/IMAGE_ASSET_REGISTRY.md]
 release: production_noindex_test_content
 ---
 
 # WEBSITE STUDIO QA MANIFEST — CAESTHETIC Case Studies
+
+## 2026-09-05 Connect4 How we work update
+
+This entry supersedes the method-section description below; the earlier catalog prototype record is retained as history.
+
+- Scope: `/case-studies/#how-we-work`, its scoped CSS, one approved system diagram, and semantic full-size media links. Hero, catalog, Full Case Page, intake and Growth Score implementations are unchanged.
+- Audience / task: US practice owners understand how four coordinated surfaces support a clear patient decision, then inspect case evidence.
+- Surface mode: persuade and read. Existing Clinical Editorial Intelligence tokens and typography are retained.
+- Canon: `CAESTHETIC_CONNECT4_CONCEPT.md` v1.4.0; four surfaces with Lead Intake as a separate operational layer. Cross-Surface Consistency is the relationship between surfaces.
+- Copy explains shared service/provider/location facts, coordinated specialist work, one accountable lead, honest review invitations and inquiry handling. No invented outcomes, guarantees, scripted patient reviews or review gating.
+- Founder follow-up: explain specific lower-volume searches and their connection to service pages, blog articles, Maps, social posts and practice-owned comments/replies. Organic discovery is a goal, not a guaranteed rank or volume. Independent patient content is studied, not keyword-scripted.
+- Additional services are separately scoped: feedback systems, inquiry automation, recruitment support, administrator training, call-center workflows and legal-adviser-coordinated documentation/consent processes. Grounded in `EXPERT_DENTAL_MONTH_1_RETROSPECTIVE.md`, `EXPERT_DENTAL_INFRASTRUCTURE.md` and `EXPERT_DENTAL_OMNICHANNEL_COMMUNICATIONS.md`; no claim that every proposed Expert Dental integration is already live or included in Connect4.
+- Owner-supplied image is used byte-for-byte: `case.method.connect4.system`, SHA-256 `d08d308928b9e780a5974eee286ef79b66d7c3687a7c28fec2a7f5261443fd9a`, 1536 × 1024, 331,661 bytes. Its registry entry alone is approved for public use by the explicit image-placement request. Existing placeholder entries retain their restrictions.
+- Responsive implementation: full uncropped image, readable HTML explanation, one-column text below 768px, and a native full-size-image link. The desktop image is an overview on mobile, not a claim that its embedded labels are readable at 320px.
+- Accessibility: descriptive alt text, figure/caption, semantic heading hierarchy, ordered steps, existing keyboard-focus and 44px link rules; no new motion or dialog.
+- Impeccable passes: clarify, distill, typeset, layout, adapt and scoped manual polish.
+- Automated checks passed: JS syntax, original image hash/size, registry references, duplicate IDs, fragment targets, mobile rule presence; comparison confirms HTML outside the section and all prior media entries are unchanged.
+- Detector attempted: `npx --offline impeccable detect site-caesthetic/case-studies/index.html`; unavailable with `ENOTCACHED`. This is an environment limitation, not a detector pass.
+- Browser preview limitation: the connected browser cannot reach the local static preview (`ERR_BLOCKED_BY_CLIENT`). No local rendered desktop/mobile or assistive-technology pass is claimed. Static responsive checks do not replace rendered testing. Production browser smoke follows deployment when reachable.
+- Release scope is the approved Connect4 section. This change does not approve placeholder case evidence or change the route's existing indexing policy.
+
 
 ## 2026-09-04 implementation
 

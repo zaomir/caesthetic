@@ -1,12 +1,16 @@
 # RAIMOV ECOSYSTEM PROJECT STATUS
 
-**Date:** 2026-08-29  
-**Status:** STAGE_B_PUBLIC_LIVE / RAIM_SMILE_MASTER_BUSINESS_CONTENT_V2 / RAIM_SMILE_CURRENT_OPERATOR_EXPERT_DENTAL / OPERATOR_PORTABILITY_ACCEPTED / PARTNERSHIP_NETWORK_OWNER_APPROVED_PILOT_GATED / PARTNERSHIP_PAGE_PROTECTED_SOURCE_PREVIEW_NOT_DEPLOYED / SMILECARE12_CURRENT_BINDING_PUBLIC_NAMING_LIVE_EXPANDED_V2_GATED / QUALIFIED_MARKETPLACE_DESIGNED_NOT_ACTIVE / SECOND_OPINION_DESIGNED_NOT_ACTIVE / COORDINATOR_STANDARD_DESIGNED_NOT_ACTIVE / RAIM_SMILE_INTAKE_PREIMPLEMENTATION / OPERATIONAL_PILOT_NOT_STARTED
+**Date:** 2026-09-05  
+**Status:** STAGE_B_PUBLIC_LIVE / EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION_OWNER_APPROVED / RAIM_SMILE_MASTER_BUSINESS_CONTENT_V2 / RAIM_SMILE_CURRENT_OPERATOR_EXPERT_DENTAL / OPERATOR_PORTABILITY_ACCEPTED / PARTNERSHIP_NETWORK_OWNER_APPROVED_PILOT_GATED / PARTNERSHIP_PAGE_PROTECTED_SOURCE_PREVIEW_NOT_DEPLOYED / SMILECARE12_CURRENT_BINDING_PUBLIC_NAMING_LIVE_EXPANDED_V2_GATED / QUALIFIED_MARKETPLACE_DESIGNED_NOT_ACTIVE / SECOND_OPINION_DESIGNED_NOT_ACTIVE / COORDINATOR_STANDARD_DESIGNED_NOT_ACTIVE / RAIM_SMILE_INTAKE_PREIMPLEMENTATION / OPERATIONAL_PILOT_NOT_STARTED
 **Current operating business:** Expert Dental Studio, Bishkek  
 **Master brand:** RAIMOV DENTAL  
 **Public site:** Stage B at `/ru/`; Access & Continuity at `/ru/access-continuity/`; Stage A protected at `/stage-a/`
 
 ## Главный вывод
+
+Owner approved the post-competitive-audit **Expert Dental Patient Conversion & Continuity Implementation** as the active implementation strategy. Canon: `docs/ssot/EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION.md`. It converts the audit into one clinic-wide program across Public Truth, office journey, administrators, clinicians/internal referrals, Treatment Coordinator, document flow, infrastructure/SQNS/telephony, sites/social, reputation/continuity and paid-demand gates. It also establishes a separate IT-architect RACI: system architecture, SQNS/telephony/guidebook/e-sign technical layer, data/PHI boundaries, event architecture, vendor verification, observability, release/smoke/rollback and technical acceptance. This is docs/control-plane adoption only: no runtime, product activation, public claim, e-sign go-live or paid-media launch is implied.
+
+The canonical implementation order is now: `P0 Public Truth → baseline/SQNS discipline → admin adoption → warm handoff/treatment-plan continuity → IT voice/SQNS E2E proof → coordinator bounded pilot → one complex route → one recovery loop → cohort measurement → limited paid/partner demand → scale/observe/stop`.
 
 RAIMOV DENTAL now publicly explains its first applied system module: **Access & Continuity System**.
 
@@ -62,6 +66,7 @@ The generic `/partners/` representative source is implemented in authoritative `
 
 ## Accepted strategy
 
+- `EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION.md` is the owner-approved implementation SSOT for post-audit zone ownership, 90-day sequencing, adoption/impact criteria and IT-architect RACI; it specializes but does not replace the broader Expert Dental / RAIMOV / ELITE strategy.
 - `RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md` v2.0 is the single master for RAIM SMILE business, products, partnerships and `raimsmile.com` content architecture; partnership/operator/product docs are subordinate contracts by scope.
 - The domain content strategy defines patient-first audience priority, B2B `/partners/`, route-level JTBD/proof/CTA/operator disclosure/media/conversion, selective future indexing, protected `/system/`, noindex partner-specific routes, cross-channel pillars, production gates and owner dashboards.
 - DEC-774 defines Access & Continuity as the first applied RAIM SMILE SYSTEM module.
@@ -95,6 +100,7 @@ The generic `/partners/` representative source is implemented in authoritative `
 
 ## Completed
 
+- Owner-approved `EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION.md` created and registered in the raimovdental manifest; docs/control-plane only, no runtime activation.
 - RAIM SMILE master business + content strategy v2.0 and authority/drift map; no runtime, public copy, indexation, form or deploy change.
 - Public Stage B RU-only strategic platform.
 - Protected Stage A presentation.
@@ -115,47 +121,61 @@ The generic `/partners/` representative source is implemented in authoritative `
 
 ## Next operational milestone
 
+### Expert Dental Patient Conversion & Continuity
+
+1. Close P0 Public Truth and establish the Public Truth Register.
+2. Establish baseline + minimum SQNS source/outcome/next-action discipline without inventing conversion problems before evidence.
+3. Move existing admin guidebook/scripts from `Shipped` to supervised `Adopted`.
+4. Implement warm handoff and treatment-plan continuity in clinic operations.
+5. IT architect proves the ordinary voice/SQNS end-to-end path and event/data boundaries with no second CRM and no PHI in the guidebook layer.
+6. Run a bounded Treatment Coordinator pilot with primary/backup/clinical escalation owner.
+7. Prove one complex route end-to-end.
+8. Adopt one recovery loop.
+9. Measure the cohort.
+10. Only then run limited paid/partner demand and make `scale / continue observing / stop` decision.
+
 ### Existing clinic/system
 
-1. Atabek approves triage and clinical boundaries.
-2. Clinic fixes the exact composition and real standard price of the free check-up.
-3. Urgent slots, duty schedule and capacity are confirmed.
-4. Marketing CRM and medical-system data boundaries are implemented.
-5. Passport V0/V1, certificate and consent templates are approved.
-6. Pilot starts inside Expert Dental Studio.
-7. Cohorts are measured for 30/60/90 days.
+11. Atabek approves triage and clinical boundaries.
+12. Clinic fixes the exact composition and real standard price of the free check-up.
+13. Urgent slots, duty schedule and capacity are confirmed.
+14. Marketing CRM and medical-system data boundaries are implemented.
+15. Passport V0/V1, certificate and consent templates are approved.
+16. Pilot starts inside Expert Dental Studio.
+17. Cohorts are measured for 30/60/90 days.
 
 ### RAIM SMILE current-operator product
 
-8. Clinic/medical owner confirms Second Opinion exact scope, price/credit rule, secure upload, clinician roster and SLA.
-9. Clinic names coordinator/backup/escalation owners and validates ten synthetic no-PHI cases.
-10. Number/WhatsApp/CRM path passes end-to-end non-patient test.
-11. Counsel/privacy clears KG public wording for RAIM SMILE and Expert Dental current-operator disclosure.
+18. Clinic/medical owner confirms Second Opinion exact scope, price/credit rule, secure upload, clinician roster and SLA.
+19. Clinic names coordinator/backup/escalation owners and validates ten synthetic no-PHI cases.
+20. Number/WhatsApp/CRM path passes end-to-end non-patient test.
+21. Counsel/privacy clears KG public wording for RAIM SMILE and Expert Dental current-operator disclosure.
 
 ### Partnership Network / SmileCare 12
 
-12. Obtain trademark counsel clearance for KG/KZ; owner GO is recorded in DEC-861.
-13. Approve expanded-v2 operator-specific SKU/prices, fiscal treatment, contracts, ledger and capacity before activation.
-14. Confirm Gulbara covered hours, backup and escalation; keep public wording at “dedicated personal coordinator” until proven.
-15. Qualify Crocus Fitness, AmCham, BAKAI Premium, Elite House/resident operator and BIS/QSI by recurring distribution, eligibility, attribution, exclusivity and operational/legal simplicity.
-16. Sign only pilots with measurable audience access, benefit rules, operator capacity, privacy, review date and stop rule.
-17. Run 30–60 day partner cohorts and keep/change/stop based on activation, booked/showed, benefit utilisation, satisfaction, renewal signal and PartnershipContribution.
-18. Before any `/partners/` deploy, approve exact controller/processors/retention, counsel wording, form delivery/read-back, review owner/SLA, Gulbara coverage/backup and a protected staging route.
-19. Obtain legal/fiscal/labour counsel and signed schedules for the 30% membership fee, 100% Coordination Fee, exact employing/invoicing entities, refund rules and max-use economics.
-20. Before any VIP access implementation, approve registry authority/expiry/revocation, HMAC secret rotation, rate limits/anti-enumeration, privacy audit retention, coordinator staffing/backup/SLA, staging and rollback.
+22. Obtain trademark counsel clearance for KG/KZ; owner GO is recorded in DEC-861.
+23. Approve expanded-v2 operator-specific SKU/prices, fiscal treatment, contracts, ledger and capacity before activation.
+24. Confirm Gulbara covered hours, backup and escalation; keep public wording at “dedicated personal coordinator” until proven.
+25. Qualify Crocus Fitness, AmCham, BAKAI Premium, Elite House/resident operator and BIS/QSI by recurring distribution, eligibility, attribution, exclusivity and operational/legal simplicity.
+26. Sign only pilots with measurable audience access, benefit rules, operator capacity, privacy, review date and stop rule.
+27. Run 30–60 day partner cohorts and keep/change/stop based on activation, booked/showed, benefit utilisation, satisfaction, renewal signal and PartnershipContribution.
+28. Before any `/partners/` deploy, approve exact controller/processors/retention, counsel wording, form delivery/read-back, review owner/SLA, Gulbara coverage/backup and a protected staging route.
+29. Obtain legal/fiscal/labour counsel and signed schedules for the 30% membership fee, 100% Coordination Fee, exact employing/invoicing entities, refund rules and max-use economics.
+30. Before any VIP access implementation, approve registry authority/expiry/revocation, HMAC secret rotation, rate limits/anti-enumeration, privacy audit retention, coordinator staffing/backup/SLA, staging and rollback.
 
 ### Operator portability / marketplace
 
-21. Counsel answers CPL/referral/bidding/fee-splitting, ranking disclosure, data-controller and tax questions.
-22. Operator agreement, Commercial Schedule, DPA, invalid-lead and dispute templates are approved.
-23. Expert Dental is entered into the full operator registry evidence standard.
-24. A second operator is due-diligenced before any multi-operator pilot.
-25. Shadow routing proves anonymous lead envelope, no-PHI bidding, patient choice/consent and audit trail.
-26. Owner approves a limited fixed-fee/rotation pilot before dynamic bidding.
-27. Dynamic highest-qualified-bid starts only after separate GO and legal/privacy acceptance.
+31. Counsel answers CPL/referral/bidding/fee-splitting, ranking disclosure, data-controller and tax questions.
+32. Operator agreement, Commercial Schedule, DPA, invalid-lead and dispute templates are approved.
+33. Expert Dental is entered into the full operator registry evidence standard.
+34. A second operator is due-diligenced before any multi-operator pilot.
+35. Shadow routing proves anonymous lead envelope, no-PHI bidding, patient choice/consent and audit trail.
+36. Owner approves a limited fixed-fee/rotation pilot before dynamic bidding.
+37. Dynamic highest-qualified-bid starts only after separate GO and legal/privacy acceptance.
 
 ## Deferred / blocked
 
+- Paid demand scale before the Patient Conversion & Continuity gates and cohort evidence.
 - Patient emergency-booking funnel before operational readiness.
 - Separate urgent-care clinic/card/profile.
 - 24/7 in-person or medical-care claims.

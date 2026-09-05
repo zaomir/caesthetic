@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-02",
-  "release_state": "protected_preview_only",
-  "notice": "Placeholder entries are not approved for public release. Replace registry entries only after rights, consent and evidence approval.",
+  "updated": "2026-09-05",
+  "release_state": "mixed",
+  "notice": "Approved entries are available on their permitted routes and channels. Placeholder entries remain restricted to local and protected preview.",
   "entries": {
     "case.library.hero.abstract": {
       "media_id": "case.library.hero.abstract",
@@ -783,7 +783,45 @@
         50,
         50
       ]
+    },
+    "case.method.connect4.system": {
+      "media_id": "case.method.connect4.system",
+      "src": "/assets/connect4/connect4-system--sha256-d08d308928b9e780.jpg",
+      "type": "image",
+      "kind": "concept-diagram",
+      "state": "approved",
+      "purpose": "Owner-supplied Connect4 system diagram for Case Studies How we work; explanatory, not client evidence.",
+      "alt": "Connect4 aligns Search and Maps, Website, Social, and Reviews and Reputation around your practice. Lead Intake is a separate layer from inquiry through response and follow-up to a booked consultation.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d08d308928b9e780a5974eee286ef79b66d7c3687a7c28fec2a7f5261443fd9a",
+      "bytes": 331661,
+      "mime": "image/jpeg",
+      "rights": {
+        "status": "approved",
+        "source": "Owner-supplied Connect4 illustration; explicit instruction to use this image in Case Studies How we work, 2026-09-05."
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "local",
+        "protected-preview",
+        "public"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
+      ],
+      "focal_point": [
+        50,
+        50
+      ],
+      "crop": "contain",
+      "source_file": "0D1446ED-457F-4699-A241-D5FA712B2E70(1).jpeg",
+      "source_library_id": "libfile_667218c20a04819182e4a4651d95e918",
+      "approved_at": "2026-09-05",
+      "usage_note": "Use complete diagram with a readable HTML explanation and full-size link. Do not substitute the patient-route or paid-traffic-loss illustrations."
     }
   }
 }
-
