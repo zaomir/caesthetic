@@ -8,8 +8,26 @@ Primary direct cold sender: `caesthetic.co`
 Conditional historical/professional branch: `bototox.com` · `toxifillers.com`
 Protected public/transactional domain: `caesthetic.com`
 
-Canonical concept routing:
-- `4444` / `Четверки` → `docs/ssot/CAESTHETIC.md` §2, the Four Surfaces model only: Search / GBP, Website, Social, Reputation / Reviews.
+## Connect4 — canonical explanation route
+
+**Connect4 / 4444 / Четверки / Четвёрки → [`docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md`](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-routing)** on current `zaomir/grainee-v2/main`. These names identify one program; only Connect4 is public. The master `CAESTHETIC.md` §2 retains product/funnel/pricing authority. The concept SSOT owns the owner-approved explanation contract `connect4-explanation/1.0.0` and its later versions.
+
+| Intent / wording | Read in the same SSOT |
+|---|---|
+| What is Connect4; объясни 4444; «Четверки»; definition / positioning | [Definition and value — §10.3](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-definition) |
+| Any niche; клиент / лид / пациент; universal terminology | [Vocabulary — §10.2](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-vocabulary) |
+| What/how we do; stages; ownership; handoff to team or marketer | [Delivery — §10.5](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-delivery) |
+| Full explanation; landing; future `/connect4/` | [Full page — §10.6](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-landing) |
+| «Кто мы и что делаем»; “How we work”; report/Case Studies section | [Reusable section — §10.7](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-section) |
+| System / journey / Stop diagram; desktop/mobile; owner-supplied pictures | [Visual contracts — §9 and §10.8](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-visuals) |
+| EN/RU parity; new discussion; shorten/adapt; publication consistency | [Reuse and versioning — §10.9](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-reuse) |
+
+Use one approved core at the appropriate length; do not invent a separate interpretation for each context. Client-specific facts, clinical wording and approved PNGs stay separate. `Search & Maps`, `Website`, `Social`, `Reviews & Reputation` are the four public surfaces. Consistency is between them; Lead Intake is a separate operational layer; Ads is Demand Layer. No fifth public surface.
+
+This is **knowledge routing**, not a public redirect or a deployment instruction. `/connect4/` is planned, not asserted live; the website and frozen reports are not changed by this documentation release. Satellite-only access uses the same path in `zaomir/caesthetic` with the actual available version; a stale mirror does not replace current main authority.
+
+## Other canonical concept routing
+
 - CAESTHETIC sender/domain identity → `docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md` v3. Direct cold uses `caesthetic.co`; BOTOTOX/TOXIFILLERS are historical/professional reactivation only; ROVLEX/BEBONOW/BEBOFIX/GRAINEE/EVO are not volume substitutes.
 - Sender-domain public runtime behavior → `infra/cloudflare/caesthetic-outreach/domains.json`. `caesthetic.co` hands off to the canonical home; retired/non-public `/caesthetic/` bridges return 404. Runtime routes are not send authority.
 - React/Remotion Reel evidence scenes / render manifest / `FourSurfaceMap` → `docs/ssot/CAESTHETIC_REMOTION_RENDER_MANIFEST.md` (DEC-851); Reel structure remains governed by Reel System V3.2.

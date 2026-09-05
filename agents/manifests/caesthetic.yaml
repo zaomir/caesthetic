@@ -8,6 +8,7 @@ read_first:
   - docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md
   - docs/projects/caesthetic/AGENTS.md
   - docs/ssot/CAESTHETIC.md
+  - docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   - docs/projects/caesthetic/PROJECT_STATUS.md
 
 allowed_paths:
@@ -48,7 +49,14 @@ forbidden_paths:
 protected_paths: []
 
 topics:
+  connect4: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  "4444": docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  "Четверки": docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  "Четвёрки": docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   connect4_concept: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  connect4_explanation: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  connect4_landing: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  connect4_reusable_section: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   strategy: docs/ssot/CAESTHETIC.md
   growth_score:
     ssot: docs/ssot/CAESTHETIC.md
@@ -97,6 +105,7 @@ definition_of_done:
   - AI-agent policy check passes with no canonical version/commit drift
   - Audit full research remains blocked before named-manager Research Alignment approval
   - CAESTHETIC master SSOT remains authoritative
+  - Connect4 and internal aliases route to one approved client-neutral explanation SSOT without publishing runtime
   - First approved research block applies the 10-query Four-Surface consistency method with explicit coverage and human review
   - Four-surface model preserved across Growth Score, Sprint and Growth System
   - Attributed Sales Performance Fee uses auditable collected sales or contribution, a signed schedule, refund/chargeback rules and no double counting

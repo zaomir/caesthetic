@@ -23,9 +23,20 @@ Read in order:
 10. For ship/deploy: `docs/ssot/CHATGPT_SERVER_OPS.md`
 11. For Reel automation, ElevenLabs/Kling access or “can we fully automate Reels”: `docs/ssot/CAESTHETIC_REEL_AUTOMATION.md` (answer from §0)
 
-## Connect4 explanation
+## Connect4 explanation — mandatory shared route
 
-For Connect4 concept, “How we work” copy, diagrams or Case Studies method explanation, read `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` after the master. Keep confirmed semantics separate from proposed visual layouts and copy; generated previews are not automatically approved assets. The explicitly approved desktop journey image is `docs/ssot/assets/caesthetic/connect4-patient-journey-v1.png`, governed by concept SSOT §9.1 (SHA-256 `229821d3ef70194dedd278fff76841e1cea671148e8e06807177d9f26781b180`); preserve that exact original and distinguish it from the locked report visual below. Update this concept SSOT rather than creating competing explanation canons.
+For **Connect4 / 4444 / Четверки / Четвёрки**, “How we work”, «Кто мы и что делаем», the detailed Connect4 page, reusable report/Case Studies section, diagrams or sales explanation, read `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` on current main after the master. Its `connect4-explanation/1.0.0` contract is owner-approved on 2026-09-05; the same SSOT owns subsequent versions. Do not treat the accepted core as an unapproved draft, invent another definition, or create a competing canon. Root routing and the topic manifest lead to this same file.
+
+Use its stable anchors: `#connect4-definition`, `#connect4-vocabulary`, `#connect4-delivery`, `#connect4-landing`, `#connect4-section`, `#connect4-visuals`, `#connect4-reuse`. Generic explanations use business, potential client, inquiry and next step; lead is a defined professional term, not every visitor. Medical evidence, real client facts, prices and clinical terminology do not migrate between niches. EN and RU are paired representations; semantic edits update both in this SSOT with a version record.
+
+The detailed page and compact section are two forms of one approved explanation. A brief mention may use just the definition; it need not paste the complete page. Client-specific findings remain separate. `/connect4/` is a planned implementation route, not a page made live by the documentation release. This route does not regenerate frozen reports, change current CTA contracts, create new products or start deployment.
+
+Visual grammar: dashed line passes **through all four blocks**; a separate solid outer frame means one accountable owner of the logic. A route illustration is not a replacement for that ownership diagram. Preserve the exact approved originals in concept SSOT §9.1–9.3:
+- Desktop journey: `docs/ssot/assets/caesthetic/connect4-patient-journey-v1.png`, SHA-256 `229821d3ef70194dedd278fff76841e1cea671148e8e06807177d9f26781b180`.
+- Mobile journey: `docs/ssot/assets/caesthetic/connect4-patient-journey-mobile-v1.png`, SHA-256 `68ec264d36113b954c7b770bb956d687ce35a7b8615a2fc28f6fcfff09f43a56`.
+- Mobile Stop: `docs/ssot/assets/caesthetic/connect4-paid-traffic-leaks-mobile-v1.png`, SHA-256 `86c7d9166fbe9a2786ce0e6bd2c51b0c61c9f07b9bacc489d014a86e6881c62a`.
+
+These existing medical-context images are distinct from new neutral-language assets still to be provided/approved and from the locked report visual below. Do not rewrite their pixels to match generic terminology. Keep implementation, adoption and measured impact separate. On stale mirror/version conflict, check current `grainee-v2/main` and history; an old file is not a new owner decision.
 
 ## Invariants
 - `Connect4` is the exact public program name. `4444` and `Четверки` remain internal aliases for the same CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation. All new or revised public copy and visuals use Connect4; existing internal identifiers, paths and historical records stay stable. Naming authority: `docs/ssot/CAESTHETIC.md` §2.

@@ -1,6 +1,6 @@
 {
   "files": {
-    "agents/manifests/caesthetic.yaml": "1c71452cc83196883f844ab74a43950a879fce47bd1b42a14a3b62be712d5779",
+    "agents/manifests/caesthetic.yaml": "420b3eb885f5ba5610e94b7127f3da7dbeb3e7bf81070c1f07182ab84517460b",
     "deploy/systemd/caesthetic-repo-sync.service": "9a361c4f58086bc9722ce792962c4d70d840855074b02e11117e9f01e7aecf96",
     "deploy/systemd/caesthetic-repo-sync.timer": "5ca1ea0cb327a4f9e016172500cfe40b8c8be7aa2b1483972b5d5aafe83f90a7",
     "docs/audits/caesthetic/.growth-badge-trigger": "028bb6e894280a43a9ff3d166edfc3a1baab83431d6a8362fde0ebfe2ceb151a",
@@ -291,7 +291,7 @@
     "docs/caesthetic/tz_domain_search.md": "ee40977c6a5e7fdbe923380ad48c443ba43bc220e7ed6173d42c2589ec9d2e97",
     "docs/caesthetic/tz_website_addendum.md": "978c8f91b9efa2951633b05e485a2509188d6f52cae61c03d7798226774def51",
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
-    "docs/projects/caesthetic/AGENTS.md": "a95f7e73106a2e55d6a4112928d8a599f2dc7e92a6b3ae09fe410478f9a3db63",
+    "docs/projects/caesthetic/AGENTS.md": "3953f096efaddc6dfbbaf271578dd0ffb39d8614950d2a83e6c91630d9fa893b",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
     "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "ab1960bed3352df0ac1c3397afb9d03cc5299e6f817fbafefd1b844e647eb7ae",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
@@ -299,7 +299,7 @@
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "215a3e6a1d0ced6d3bc712c33e08c7bc5c310ee5a604d7169f48c53dc3e3b41b",
     "docs/projects/caesthetic/PROJECT_STATUS.md": "7cd57cb5ed270c75fc1abd709f2e0214e400a338e441adf59cd441160a09a9af",
     "docs/projects/caesthetic/README.md": "98ad3804b8495741440f35e85a8fd2dee2eb738a619759bfd72261c6760d514a",
-    "docs/projects/caesthetic/ROUTER.md": "7f9624ec039b6b84c7c02403504225ff501003dbe8dc9f5c958d5ad0692beef3",
+    "docs/projects/caesthetic/ROUTER.md": "62c2d77eb878bf5b6234a0444f134b27e047f71a6d1265da10e942df8fd19b47",
     "docs/projects/caesthetic/SYNC_MANIFEST.yml": "855db292500c4c4df87ccfe366a7f60f97e30102e0043b1930f538fd0261f601",
     "docs/projects/caesthetic/SYNC_RUNTIME_EVIDENCE.md": "972973d038de5b7a4578669916621d46b0aa00c6b0b3e02c8637e941862f833e",
     "docs/projects/caesthetic/archive/README.md": "78a68573d0f4c28919feb58795d4840278aba7ad03185266fcacb2cb73aafae8",
@@ -886,6 +886,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-05T13:13:52Z",
+  "updated_at_utc": "2026-09-05T13:20:08Z",
   "version": 1
 }

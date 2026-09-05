@@ -58,6 +58,12 @@ git fetch origin main -q && git pull --ff-only origin main
 
 ## 3. Pick project or knowledge domain context
 
+### Connect4 / 4444 — shared explanation route
+
+Any discussion or authoring of **Connect4**, **4444**, **Четверки** or **Четвёрки** routes to [`docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md`](docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-routing) on current `zaomir/grainee-v2/main`, regardless of the niche used in the example. Read the master `docs/ssot/CAESTHETIC.md` for commercial boundaries; use the concept SSOT for the approved definition, client-neutral vocabulary, EN/RU base copy, landing, reusable section and visual grammar. These are aliases of one program, not permission to invent a new group of four. Public name: **Connect4**.
+
+The same route applies to Connect4 “How we work” / «Кто мы и что делаем» content in Cases, reports, diagrams, presentations and future website work. Reuse the approved blocks; do not reconstruct the concept from chat memory or copy a stale satellite version. User-provided images and client-specific evidence retain their separate contracts. This knowledge route does not publish a page, modify historical reports or change another project's products. Satellite-only access uses the identical path in `zaomir/caesthetic` and reports the actual available version. Detailed topic routing: `docs/projects/caesthetic/ROUTER.md`.
+
 **Expert Dental from a CAESTHETIC-only workspace:** read the generated
 `docs/external/grainee-v2/expert-dental/` reference tree in
 `zaomir/caesthetic`. It is a hybrid bidirectional working mirror: non-PHI
@@ -214,6 +220,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 
 | Need | File |
 |------|------|
+| Connect4 / 4444 / Четверки / Четвёрки explanation | `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` |
 | Pricing (EVO products) | `docs/ssot/PRICING_AND_PRODUCTS.md` |
 | Token economy (agents) | `docs/ssot/AGENT_TOKEN_ECONOMY.md` |
 | Site root freeze | `docs/ssot/SITE_ROOT_INVENTORY.md` |
