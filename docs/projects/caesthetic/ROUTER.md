@@ -17,14 +17,24 @@ Protected public/transactional domain: `caesthetic.com`
 | What is Connect4; объясни 4444; «Четверки»; definition / positioning | [Definition and value — §10.3](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-definition) |
 | Any niche; клиент / лид / пациент; universal terminology | [Vocabulary — §10.2](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-vocabulary) |
 | What/how we do; stages; ownership; handoff to team or marketer | [Delivery — §10.5](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-delivery) |
-| Full explanation; landing; future `/connect4/` | [Full page — §10.6](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-landing) |
+| Full explanation; landing; `/connect4/` | [Full page — §10.6](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-landing) and runtime record below |
 | «Кто мы и что делаем»; “How we work”; report/Case Studies section | [Reusable section — §10.7](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-section) |
 | System / journey / Stop diagram; desktop/mobile; owner-supplied pictures | [Visual contracts — §9 and §10.8](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-visuals) |
 | EN/RU parity; new discussion; shorten/adapt; publication consistency | [Reuse and versioning — §10.9](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-reuse) |
 
 Use one approved core at the appropriate length; do not invent a separate interpretation for each context. Client-specific facts, clinical wording and approved PNGs stay separate. `Search & Maps`, `Website`, `Social`, `Reviews & Reputation` are the four public surfaces. Consistency is between them; Lead Intake is a separate operational layer; Ads is Demand Layer. No fifth public surface.
 
-This is **knowledge routing**, not a public redirect or a deployment instruction. `/connect4/` is planned, not asserted live; the website and frozen reports are not changed by this documentation release. Satellite-only access uses the same path in `zaomir/caesthetic` with the actual available version; a stale mirror does not replace current main authority.
+This is **knowledge routing**, not a public redirect or a deployment instruction. The concept's original documentation release did not publish a page. The subsequent implementation release below did; it did not regenerate frozen reports. Satellite-only access uses the same path in `zaomir/caesthetic` with the actual available version; a stale mirror does not replace current main authority.
+
+### Connect4 runtime — first release, 2026-09-05
+
+- Live: `https://caesthetic.com/connect4/`; source `site-caesthetic/connect4/index.html`; builder `scripts/caesthetic/build-connect4-page.mjs`; layout `site-caesthetic/assets/css/connect4.css`.
+- Copy derivative: `site-caesthetic/assets/data/connect4-copy.generated.json`, generated from the approved EN/RU core. The SSOT remains authoritative; the public page is English.
+- Deployment: SHA `9852ab9d391df7742b62c8ec233e986cce6ffefb`, canonical deploy run `33970670429` successful. Dedicated production browser run `33970815117` passed byte comparisons, eight viewport widths and the real two-field request path; API confirmed `notification_sent=true` for an explicitly synthetic QA request.
+- Durable acceptance: `docs/audits/caesthetic/connect4-page/production-9852ab9d391df7742b62c8ec233e986cce6ffefb.json`. The browser workflow's final git record step failed; its verified artifact was retrieved and persisted through the connector. This does not mean the production checks failed.
+- QA/implementation manifest: `site-caesthetic/docs/website-studio/site-caesthetic-connect4.md`. Tests: `tests/caesthetic/connect4-page.test.mjs`; browser QA: `scripts/caesthetic/connect4-page-browser-qa.mjs`.
+- **Graphic set is partial:** one approved desktop/mobile journey PNG pair is published byte-for-byte. System, service-example, delivery/handoff and paid-traffic-readiness pairs remain pending owner-provided/selected images. Their subject matter is currently explained in ordinary text, not fake graphics or code-drawn diagrams. The journey is explicitly labeled an aesthetic-practice example and is not a substitute for the ownership diagram.
+- Discovery: footer link and public sitemap. Primary page requests open the existing Name + Email dialog; this request receipt is not an approved audit. Existing dedicated intake, payment contracts and old reports remain separate.
 
 ## Other canonical concept routing
 
@@ -44,6 +54,7 @@ This is **knowledge routing**, not a public redirect or a deployment instruction
 
 Key product routes:
 - `/` — public CAESTHETIC site
+- `/connect4/` — detailed Connect4 method, implementation and handoff explanation; first release with one approved responsive raster pair
 - `/growth-score/` — public free Growth Score explainer, demos and intake
 - `/score/<slug>/` — private/noindex schema-v5 owner cockpit
 - `/lead-to-revenue-check/` — conditional $500 internal-path diagnostic when public evidence cannot resolve material post-enquiry uncertainty

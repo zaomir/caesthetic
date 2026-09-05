@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "source_folder": "https://www.dropbox.com/scl/fo/kxt4fibfiuhwdjaaolnpm/AAavCtc7aP5SfegRJH2tPbE?rlkey=7chgxs892nm0mw5jm97lebdxa&dl=0",
+  "source_folder_id": "id:gjjRTi1A6rIAAAAAAA9AsQ",
+  "owner_instruction_at": "2026-09-05T14:18:08Z",
+  "transformations": "none",
+  "files": [
+    {
+      "name": "connect4-fix-the-leaks-landscape-caesthetic.png",
+      "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-landscape-caesthetic.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 780694,
+      "sha256": "f9415647204d6a4774c5b2d93006d4c05961a154f728308f9e799381ffe6cb65",
+      "dropbox_content_hash": "f01567ad65d68a0185ad122c8d1d5090177be87274e44ffaf87f60675a04062a"
+    },
+    {
+      "name": "connect4-fix-the-leaks-portrait-caesthetic.png",
+      "src": "/assets/connect4/owner-20260905/connect4-fix-the-leaks-portrait-caesthetic.png",
+      "width": 841,
+      "height": 1870,
+      "bytes": 803777,
+      "sha256": "d73c32390f727764ca923ce4bf4be9df86ad9deb1ace74c90c509f62d4edf4f0",
+      "dropbox_content_hash": "f6de1c1e337432b9be2be364e27acc7e5115b5ffcb0fbff30986113402a959d8"
+    },
+    {
+      "name": "connect4-four-surfaces-landscape-caesthetic.png",
+      "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 699668,
+      "sha256": "418640233de4420aa843a79516bebdbfd2247b8b6846a64d001caf38e88b870b",
+      "dropbox_content_hash": "0480660d9aaf723fc35d1e4726429c4f788c5c2d2365510cc869bb1565a397a0"
+    },
+    {
+      "name": "connect4-four-surfaces-portrait-caesthetic.png",
+      "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png",
+      "width": 864,
+      "height": 1821,
+      "bytes": 721612,
+      "sha256": "f6d76ea568668324c2147c59cb35aa01b429ffadb4b52154746478e7de849630",
+      "dropbox_content_hash": "d4d7cf843c004eb49ae4102923df93a967c8299206cc4c6aaa17edbd7ae411dc"
+    },
+    {
+      "name": "connect4-patient-journey-landscape-caesthetic.png",
+      "src": "/assets/connect4/owner-20260905/connect4-patient-journey-landscape-caesthetic.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 730282,
+      "sha256": "fdcec57b041db9692c020d7247f172b6689af18563f8e9277b69200595e5643e",
+      "dropbox_content_hash": "bd5ac8b9e0fed543419e5d5ff60e91a8d3bd1b4ab172151e4bf8ca809ca3e5a6"
+    },
+    {
+      "name": "connect4-patient-journey-portrait-caesthetic.png",
+      "src": "/assets/connect4/owner-20260905/connect4-patient-journey-portrait-caesthetic.png",
+      "width": 841,
+      "height": 1870,
+      "bytes": 728108,
+      "sha256": "41f8d8057f40271d0c99929b2889715030443bab8c976403fa1bed134d853d1f",
+      "dropbox_content_hash": "aceaf341f4542a99c675ac1b152c1879066f05f68b3e4cc1ca9ac2906ec7838f"
+    },
+    {
+      "name": "connect4-patient-journey-recolored.png",
+      "src": "/assets/connect4/owner-20260905/connect4-patient-journey-recolored.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 746251,
+      "sha256": "f32d9802cd5f0596bf13870e82375c18f0890f34dfad29a690c5446862e63a21",
+      "dropbox_content_hash": "bd0de495899fd3d7cd5beb641cfdb5c8e039db082061c759df21aea8603bec37"
+    }
+  ]
+}

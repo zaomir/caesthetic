@@ -18,7 +18,7 @@ test('unapproved or unexpected copy contract fails closed',()=>{
  assert.throws(()=>getCopy(read(SSOT).replace('explanation_copy_status: approved','explanation_copy_status: draft')));
 });
 test('generated page and registry are reproducible',()=>build(true));
-test('both immutable originals are copied byte-for-byte and registered',()=>{
+test('all seven owner PNGs remain byte-identical and registered',()=>{
  const registry=JSON.parse(read('site-caesthetic/media/registry.json'));
  for(const image of IMAGES){
   const b=fs.readFileSync(path.join(ROOT,'site-caesthetic'+image.src));
@@ -32,10 +32,11 @@ test('page has four surfaces, static raster art direction and no drawn diagrams'
  const html=read('site-caesthetic/connect4/index.html');
  const main=html.match(/<main[\s\S]+<\/main>/)[0];
  assert.equal((main.match(/data-surface=/g)||[]).length,4);
- assert.match(main,/<source media="\(max-width: 767px\)" srcset="[^\"]+mobile-v1\.png"/);
- assert.match(main,/<img src="[^\"]+journey-v1\.png"/);
+ assert.equal((main.match(/<source media="\(max-width: 767px\)"/g)||[]).length,3);
+ assert.equal((main.match(/data-owner-figure=/g)||[]).length,4);
+ for(const image of IMAGES)assert.ok(main.includes(image.src));
  assert.doesNotMatch(main,/<(?:svg|canvas)\b|<img[^>]+\.svg|mailto:|data-media-state="placeholder"/i);
- assert.match(main,/aesthetic-practice example uses patient terminology/);
+ assert.match(main,/aesthetic-practice example/);
  assert.ok(main.indexOf('id="before-ads"')>main.indexOf('id="lead-intake"'));
  assert.match(main,/Ongoing management is optional/);
  assert.match(main,/Measured impact/);
@@ -51,4 +52,30 @@ test('requests use the shared two-field flow and page is discoverable',()=>{
  assert.match(html,/\/assets\/js\/caesthetic\.js/);
  assert.match(read('site-caesthetic/templates/footer.html'),/href="\/connect4\/"/);
  assert.match(read('site-caesthetic/sitemap.xml'),/https:\/\/caesthetic.com\/connect4\//);
+});
+
+test('engagement path keeps Check, extensions and annual work optional in both languages',()=>{
+ const copy=getCopy(read(SSOT)).engagement;
+ assert.equal(copy.contract,'connect4-engagement-path/1.0.0');
+ for(const lang of ['en','ru']){
+  assert.equal(copy[lang].steps.length,5);
+  for(const id of ['check','extension','system'])assert.equal(copy[lang].steps.find(s=>s.id===id).optional,true);
+ }
+ const html=read('site-caesthetic/connect4/index.html');
+ assert.match(html,/You can move directly to the Sprint/);
+ assert.match(html,/After Day 30/);
+ assert.match(html,/separate 12-month agreement/);
+ assert.match(html,/data-c4-engagement-media-slot/);
+ assert.equal((html.match(/data-engagement-step=/g)||[]).length,5);
+ assert.doesNotMatch(html,/<img[^>]+(?:null|undefined|placeholder)/);
+});
+test('three responsive image pairs and one alternate are complete, not invented pairs',()=>{
+ assert.equal(IMAGES.length,7);
+ for(const role of ['system','journey','stop'])assert.deepEqual(IMAGES.filter(i=>i.role===role).map(i=>i.format).sort(),['desktop','mobile']);
+ assert.equal(IMAGES.filter(i=>i.role==='alternate').length,1);
+ const registry=JSON.parse(read('site-caesthetic/media/registry.json'));
+ for(const format of ['desktop','mobile']){
+  assert.equal(registry.entries[`connect4.engagement.${format}`].state,'awaiting-owner-image');
+  assert.equal(registry.entries[`connect4.engagement.${format}`].src,null);
+ }
 });

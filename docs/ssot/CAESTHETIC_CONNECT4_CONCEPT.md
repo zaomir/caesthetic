@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.6.0
+version: 1.7.0
 updated: 2026-09-05
 explanation_copy_status: approved
 explanation_contract: connect4-explanation/1.0.0
@@ -13,7 +13,7 @@ canonical_branch: main
 canonical_path: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
 public_program_name: Connect4
 internal_aliases: ["4444", "Четверки", "Четвёрки"]
-publication_status: documentation-only
+publication_status: live-page-owner-media-update
 scope: approved Connect4 concept, client-neutral explanation, EN/RU base copy, landing and reusable section architecture; separate approved visual contracts
 parent: docs/ssot/CAESTHETIC.md
 related:
@@ -557,3 +557,117 @@ Desktop: чередование текст/визуал в двух колонк
 Основание — сообщение владельца `2026-09-05T13:03:25Z`, процитированное в §1. Исходный main при оформлении — `c746d5b15c9a9771a8d288f374acb2da8246e2b7`; он уже содержит v1.5, переданную в satellite последним sync. v1.6 фиксирует принятое объяснение, его EN/RU-пару и стабильные routing anchors в том же SSOT. Повторного продуктового исследования или создания конкурирующего канона нет.
 
 Объём выпуска — этот SSOT и task-scoped маршрутизация/индексы/проверки. Продуктовая воронка, цены, данные клиентов, сайт и бинарные изображения не изменяются. Проверка конкретной синхронизации и SHA выполняется по фактическим commit/readback; общая защита от всех будущих откатов не подразумевается. Shared runtime module и публикация остаются отдельной реализацией.
+
+
+<a id="connect4-engagement-path"></a>
+
+## 12. Owner media and engagement path — 2026-09-05
+
+Owner instruction `2026-09-05T14:18:08Z` authorizes all seven images in the supplied Dropbox folder on `/connect4/` and a step-by-step engagement explanation. Classification: presentation of the existing product, with the explicitly requested annual-term clarification; not a new headline product. The commercial boundaries are recorded in master §§6–7 and the operating model. Base definition contract `connect4-explanation/1.0.0` is unchanged.
+
+**Placement:** system landscape/portrait → introductory system illustration; journey landscape/portrait → separate Lead Intake section; paid-traffic landscape/portrait → late Stop section; the seventh landscape journey → an expandable alternate view next to the service example. The extra view is not a fourth responsive pair. All seven supplied PNGs are preserved byte-for-byte in `site-caesthetic/assets/connect4/owner-20260905/`; their source IDs, dimensions, byte counts and hashes are in its import manifest and existing media registry. These are conceptual illustrations, not measured client evidence.
+
+The owner-selected artwork uses patient/practice and some shortened surface labels. Nearby HTML uses the approved complete names and neutral vocabulary. The provided system illustration does not contain the master sketch's separate solid ownership frame; the page states single accountable ownership explicitly in text, rather than claiming that the picture has that frame or modifying its pixels. The live-sketch grammar and the older protected originals remain unchanged.
+
+**Engagement-path rule:** Free Growth Score → optional $500 Check when required by post-inquiry uncertainty → $2,500 / 30-day Sprint → optional further Sprint(s), decided after Day 30 → optional ongoing Growth System under a separate annual / 12-month agreement. The main path can skip Check and extensions. No compulsory staircase, pre-sold extension bundle, guaranteed result, universal recurring price, advance annual payment, renewal or cancellation term is introduced. Human approval of diagnostic conclusions remains required.
+
+**Future picture:** the owner will supply the engagement-path illustration. Reserve `connect4.engagement.desktop` and `connect4.engagement.mobile` in the existing media registry with `state=awaiting-owner-image`. Until both are provided and checked, show the approved text sequence with no fake image, public placeholder, blank spacer or programmatically drawn diagram. Never reuse the patient journey as the engagement sequence. The following machine-readable EN/RU copy is a block of this same SSOT, not an independent canon.
+
+<!-- connect4-engagement-json:start -->
+```json
+{
+  "contract": "connect4-engagement-path/1.0.0",
+  "graphic_status": "awaiting-owner-image",
+  "graphic_slots": {
+    "desktop": "connect4.engagement.desktop",
+    "mobile": "connect4.engagement.mobile"
+  },
+  "en": {
+    "heading": "How we work together.",
+    "intro": "Start with clarity. Implement the priority. Choose what comes next. You do not have to buy every step.",
+    "steps": [
+      {
+        "id": "score",
+        "title": "Free Growth Score",
+        "price": "Free",
+        "optional": false,
+        "description": "We review the public-facing journey and identify an evidence-backed priority. This is the starting point, not a commitment to paid work."
+      },
+      {
+        "id": "check",
+        "title": "Lead-to-Revenue Check",
+        "price": "$500",
+        "optional": true,
+        "description": "An optional diagnostic when important questions after an inquiry cannot be answered from public information. It requires agreed access and scope. You can move directly to the Sprint when this Check is not needed."
+      },
+      {
+        "id": "sprint",
+        "title": "30-Day Growth Sprint",
+        "price": "$2,500",
+        "optional": false,
+        "description": "We implement the agreed priority over 30 days and report what is live, what the team uses, and what the evidence supports. The first Sprint carries no commitment to further work."
+      },
+      {
+        "id": "extension",
+        "title": "Further Sprint(s), only if needed",
+        "price": "$2,500 per additional 30 days",
+        "optional": true,
+        "description": "After Day 30, we review any remaining finite implementation work together. A further Sprint is separately scoped and agreed only when justified—not reserved in advance or automatically renewed."
+      },
+      {
+        "id": "system",
+        "title": "Ongoing Growth System",
+        "price": "Annual agreement · optional",
+        "optional": true,
+        "description": "Choose ongoing ownership under a separate 12-month agreement. We maintain and improve the shared content, review process, and four-surface consistency. Scope, budget, payment schedule, and other terms are agreed individually."
+      }
+    ],
+    "outro": "You can keep the delivered foundation and continue with your team or another marketer instead. An annual agreement applies only when you choose ongoing Growth System work."
+  },
+  "ru": {
+    "heading": "Как проходит работа с нами.",
+    "intro": "Сначала ясность. Затем внедрение приоритета. После — выбор продолжения. Покупать каждый этап не обязательно.",
+    "steps": [
+      {
+        "id": "score",
+        "title": "Бесплатный Growth Score",
+        "price": "Бесплатно",
+        "optional": false,
+        "description": "Проверяем публичный путь клиента и определяем подтверждённый приоритет. Это начало работы, а не обязательство покупать платные услуги."
+      },
+      {
+        "id": "check",
+        "title": "Lead-to-Revenue Check",
+        "price": "$500",
+        "optional": true,
+        "description": "Необязательная диагностика, когда важные вопросы после обращения нельзя разрешить по открытым данным. Нужны согласованный доступ и объём проверки. Если Check не нужен, можно сразу перейти к спринту."
+      },
+      {
+        "id": "sprint",
+        "title": "30-Day Growth Sprint",
+        "price": "$2,500",
+        "optional": false,
+        "description": "За 30 дней внедряем согласованный приоритет и показываем, что работает, что использует команда и что подтверждают данные. Первый спринт не обязывает покупать продолжение."
+      },
+      {
+        "id": "extension",
+        "title": "Дополнительный спринт или спринты — при необходимости",
+        "price": "$2,500 за каждые дополнительные 30 дней",
+        "optional": true,
+        "description": "После Day 30 совместно рассматриваем оставшуюся конечную работу по внедрению. Следующий спринт согласуется отдельно и только при обоснованной необходимости — не резервируется заранее и не продлевается автоматически."
+      },
+      {
+        "id": "system",
+        "title": "Постоянная работа в Growth System",
+        "price": "Годовой контракт · по выбору",
+        "optional": true,
+        "description": "Постоянное сопровождение оформляется отдельным договором на 12 месяцев. Поддерживаем и развиваем общую контентную основу, процесс отзывов и согласованность четырёх плоскостей. Объём, бюджет, график оплаты и остальные условия согласуются индивидуально."
+      }
+    ],
+    "outro": "Переданная основа остаётся у вас: можно продолжить своей командой или с другим маркетологом. Годовой договор действует только при выборе постоянной работы в Growth System."
+  }
+}
+```
+<!-- connect4-engagement-json:end -->
+
+The page implementation remains `scripts/caesthetic/build-connect4-page.mjs`; its generated copy projects this block into the existing paired content artifact. Future replacement of the pending image slot must not alter price or optionality in the text.

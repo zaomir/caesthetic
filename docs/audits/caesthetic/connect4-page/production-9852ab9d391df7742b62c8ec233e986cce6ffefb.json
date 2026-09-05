@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "mode": "production",
+  "source_sha": "9852ab9d391df7742b62c8ec233e986cce6ffefb",
+  "deployed_sha": "9852ab9d391df7742b62c8ec233e986cce6ffefb",
+  "checked_at": "2026-09-05T14:08:13.405Z",
+  "widths": [
+    { "width": 320, "status": "PASS", "image": "mobile-v1.png" },
+    { "width": 360, "status": "PASS", "image": "mobile-v1.png" },
+    { "width": 390, "status": "PASS", "image": "mobile-v1.png" },
+    { "width": 430, "status": "PASS", "image": "mobile-v1.png" },
+    { "width": 768, "status": "PASS", "image": "journey-v1.png" },
+    { "width": 1024, "status": "PASS", "image": "journey-v1.png" },
+    { "width": 1440, "status": "PASS", "image": "journey-v1.png" },
+    { "width": 1920, "status": "PASS", "image": "journey-v1.png" }
+  ],
+  "asset_hashes": [
+    { "path": "connect4/", "sha256": "e21f800e6eca34fe9c702ca5838692307d82c08c92fd8844080bf92720b899e1" },
+    { "path": "assets/css/connect4.css", "sha256": "5b6d063f393fc02f41788c5d47f4cbe327285a57902a9fecab9ba3a1a0d4b2d1" },
+    { "path": "assets/connect4/connect4-patient-journey-v1.png", "sha256": "229821d3ef70194dedd278fff76841e1cea671148e8e06807177d9f26781b180" },
+    { "path": "assets/connect4/connect4-patient-journey-mobile-v1.png", "sha256": "68ec264d36113b954c7b770bb956d687ce35a7b8615a2fc28f6fcfff09f43a56" }
+  ],
+  "form": {
+    "two_fields": true,
+    "required_validation": true,
+    "error_and_retry": true,
+    "success": true,
+    "focus_return": true,
+    "source_and_intent": true,
+    "backend": "production",
+    "notification_sent": true
+  },
+  "remaining_image_pairs": ["system", "service-example", "delivery-handoff", "paid-traffic-readiness"],
+  "url": "https://caesthetic.com/connect4/",
+  "text_zoom_200_percent": "PASS",
+  "static_content_without_javascript": "PASS",
+  "javascript_errors": [],
+  "provenance": {
+    "deploy_workflow_run": 33970670429,
+    "browser_workflow_run": 33970815117,
+    "artifact_id": 9970883077,
+    "artifact_sha256": "b6bebc96ae012a4e10b2c1391e747cd2667e73d1d20fd83f6b5e84c3e7a84314",
+    "recording_note": "Browser tests and artifact upload passed. The workflow's final git record step failed; the verified artifact was retrieved and this record was committed through the GitHub connector instead."
+  }
+}

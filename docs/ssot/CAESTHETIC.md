@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.32
-updated: 2026-09-04
+version: 3.33
+updated: 2026-09-05
 scope: CAESTHETIC master strategy and product-funnel canon
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 public_program_name: Connect4
@@ -442,7 +442,7 @@ Day-30 written email report:
 Report failures/no-movement honestly. The detailed inventory is the operating/evidence layer; the owner-facing summary uses the Client Growth Statement in section 8.
 
 ## 6. Optional Sprint 2 — finite implementation continuation
-Sprint 2 is **$2,500 per additional 30 days; not public, not promised and not required**. Offer it after Day 30 only when remaining high-value work is predominantly finite implementation.
+Sprint Extension is **$2,500 per additional 30 days; not an upfront product, not promised and not required**. Offer it after Day 30 only when remaining high-value work is predominantly finite implementation. Owner decision 2026-09-05T14:18:08Z permits a descriptive optional “Further Sprint(s), only if needed” step on the Connect4 page; this is not a separately purchasable headline product or an automatic extension.
 
 It may continue Bucket B work, take a next high-priority Bucket C problem or address a new constraint discovered during Sprint 1 only where the remaining implementation is finite and meets the justification below. It may not become a generalized second task bundle or bill for work deliberately left unfinished despite being reasonably completable in Sprint 1.
 
@@ -451,6 +451,8 @@ Sprint Extension is justified only for finite implementation blocked by access, 
 At Sprint-2 end use the same `Done / continuing / remaining` report. If remaining need is recurring ownership, Growth System becomes the natural optional offer.
 
 ## 7. Growth System — optional recurring ownership
+
+**Term clarification — owner decision 2026-09-05T14:18:08Z:** the Connect4 engagement path describes optional ongoing Growth System work under a separate **12-month / annual agreement**. This term applies only when the client explicitly chooses recurring ownership; the free Score, optional Check and initial 30-Day Sprint never enroll the client automatically. Scope, budget, billing schedule and all remaining terms stay client-specific in the signed agreement. No annual price, advance-payment requirement, automatic renewal or cancellation term is implied. Existing signed agreements are not rewritten by this page decision.
 When Growth System is the selected public recurring product, it currently uses Growth Budget unless a signed client-specific schedule selects another approved model.
 
 **The client-specific Fixed Management Fee inside the Growth Budget buys recurring operating ownership that must create owner-visible business improvement, not a bank of hours or a fixed quota of posts, campaigns, calls or tasks.** No reusable monthly Fixed Management Fee amount is canonical here: the amount comes only from the signed client-specific Commercial Schedule / SOW.

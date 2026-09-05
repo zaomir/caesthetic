@@ -2,7 +2,7 @@
 owner: CAESTHETIC
 status: active
 project: caesthetic
-updated: 2026-09-04
+updated: 2026-09-05
 standard: docs/ssot/WEBSITE_STUDIO_STANDARD.md
 funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 ---
@@ -12,6 +12,7 @@ funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 | URL | Purpose | Audience intent | Primary proof | CTA | Indexing |
 |---|---|---|---|---|---|
 | `/` | Positioning and entry | Understand the offer | Four-Surface model | Free Growth Score; $500 Check; $2,500 Sprint | index |
+| `/connect4/` | Explain Connect4, owner imagery and the optional engagement path | Understand implementation, handoff and annual continuation | Three approved responsive image pairs plus one alternate; not client results | Free Growth Score request (Name + Email); optional stages explained, no forced bundle | index |
 | `/growth-score/` | Explain public-evidence diagnosis, show examples and accept the free request | Evaluate method / start diagnosis | Three labeled demos + dedicated four-field intake | Start free Growth Score | index |
 | `/lead-to-revenue-check/` | Explain the always-available smaller paid internal-path diagnostic | Start smaller before implementation or inspect post-enquiry uncertainty | Authorized evidence boundary, eight-stage path and fixed commercial terms | Start $500 Check | index |
 | `/audit/` · `/audits/` · `/multi-location-growth-score/` | Synonym compatibility aliases | Reach the canonical audit product | Canonical handoff | Continue to `/growth-score/` | noindex |

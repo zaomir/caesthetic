@@ -6,7 +6,7 @@ import {createRequire} from 'node:module';
 import {ROOT,IMAGES,hash} from './build-connect4-page.mjs';
 const {chromium}=createRequire('/tmp/connect4-qa/package.json')('playwright');
 const out=path.join(ROOT,'artifacts/connect4'); fs.mkdirSync(out,{recursive:true});
-const results={status:'RUNNING',mode:process.env.C4_BASE?'production':'local',deployed_sha:process.env.C4_EXPECTED_SHA||null,checked_at:new Date().toISOString(),widths:[],asset_hashes:[],form:{},remaining_image_pairs:['system','service-example','delivery-handoff','paid-traffic-readiness']};
+const results={status:'RUNNING',mode:process.env.C4_BASE?'production':'local',source_sha:process.env.C4_EXPECTED_SHA||null,deployed_sha:process.env.C4_BASE?(process.env.C4_EXPECTED_SHA||null):null,checked_at:new Date().toISOString(),widths:[],asset_hashes:[],form:{},owner_image_count:IMAGES.length,remaining_image_pairs:['engagement-path-owner-image']};
 let server; let browser;
 try {
  let base=process.env.C4_BASE;
@@ -47,11 +47,22 @@ try {
  };
  await page.route('**/*',intercept);
  await page.goto(results.url,{waitUntil:'networkidle'});
+ const reject=page.getByRole('button',{name:'Reject analytics',exact:true});
+ if(await reject.isVisible())await reject.click();
  for(const width of [320,360,390,430,768,1024,1440,1920]){
   await page.setViewportSize({width,height:900});
-  const image=page.locator('picture[data-connect4-picture] img'); await image.scrollIntoViewIfNeeded(); await image.evaluate(el=>el.decode());
-  const expected=width<=767?'mobile-v1.png':'journey-v1.png';
-  assert.ok((await image.evaluate(el=>el.currentSrc)).endsWith(expected),`Wrong source at ${width}`);
+  const selected=[];
+  for(const role of ['system','journey','stop']){
+   const image=page.locator(`picture[data-connect4-picture="${role}"] img`);
+   const expected=IMAGES.find(i=>i.role===role&&i.format===(width<=767?'mobile':'desktop'));
+   await image.scrollIntoViewIfNeeded();
+   await page.waitForFunction(({role,src})=>{const el=document.querySelector(`picture[data-connect4-picture="${role}"] img`);return el&&el.currentSrc.endsWith(src)&&el.complete&&el.naturalWidth>0;},{role,src:expected.src});
+   await image.evaluate(el=>el.decode());
+   const actual=await image.evaluate(el=>({src:el.currentSrc,width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height}));
+   assert.ok(actual.src.endsWith(expected.src),`Wrong ${role} source at ${width}`);
+   assert.ok(Math.abs(actual.width/actual.height-expected.width/expected.height)<0.015,`Distorted ${role} at ${width}`);
+   selected.push({role,src:expected.src});
+  }
   const problems=await page.locator('main').evaluate((main,w)=>[...main.querySelectorAll('h1,h2,h3,p,summary,button,picture')].filter(el=>{
    const r=el.getBoundingClientRect(); const s=getComputedStyle(el);
    return r.width>0&&r.height>0&&s.display!=='none'&&(r.left< -1||r.right>w+1);
@@ -60,8 +71,18 @@ try {
   assert.equal(await page.locator('main [data-surface]').count(),4);
   await page.evaluate(()=>window.scrollTo(0,0));
   if([390,1440].includes(width))await page.screenshot({path:path.join(out,`connect4-${width}.png`),fullPage:true});
-  results.widths.push({width,status:'PASS',image:expected});
+  results.widths.push({width,status:'PASS',images:selected});
  }
+ await page.locator('.c4-alternate-view summary').click();
+ const alternate=page.locator('picture[data-connect4-picture="alternate"] img');
+ await alternate.scrollIntoViewIfNeeded();await alternate.evaluate(el=>el.decode());
+ assert.ok((await alternate.evaluate(el=>el.currentSrc)).endsWith('connect4-patient-journey-recolored.png'));
+ await page.locator('.c4-alternate-view summary').click();
+ assert.equal(await page.locator('[data-engagement-step]').count(),5);
+ for(const id of ['check','extension','system'])assert.equal(await page.locator(`[data-engagement-step="${id}"]`).getAttribute('data-optional'),'true');
+ assert.ok((await page.locator('#working-together').innerText()).includes('12-month agreement'));
+ assert.equal(await page.locator('[data-c4-engagement-media-slot] img').count(),0);
+ results.engagement={five_stages:true,conditional_check:true,optional_extensions_after_day30:true,optional_annual_agreement:true,future_image_not_faked:true};
  await page.setViewportSize({width:390,height:844});
  const modal=page.locator('dialog.cae-request-modal');
  for(const id of ['connect4-start','connect4-final']){
@@ -85,6 +106,7 @@ try {
  await page.locator('#questions summary').first().click();assert.equal(await page.locator('#questions details').first().getAttribute('open'),'');
  await page.addStyleTag({content:'html { font-size: 200% !important; }'});
  const overflow=await page.locator('main').evaluate(el=>el.scrollWidth>el.clientWidth+1);assert.equal(overflow,false,'Text zoom overflow');
+ results.text_zoom_200_percent='PASS';
  if(process.env.C4_SUBMIT==='true'){
   assert.ok(process.env.C4_BASE,'Live submission only in explicit production mode');
   await page.unroute('**/*',intercept);await page.reload({waitUntil:'networkidle'});
@@ -97,6 +119,7 @@ try {
   results.form.backend='production';results.form.notification_sent=true;
  }
  const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const p=await nojs.newPage();await p.goto(results.url);assert.equal(await p.locator('h1').count(),1);assert.equal(await p.locator('main [data-surface]').count(),4);await nojs.close();
+ results.static_content_without_javascript='PASS';
  assert.deepEqual(errors,[],'Browser errors');results.javascript_errors=errors;results.status='PASS';
 } catch(error){results.status='FAIL';results.error=error.stack;process.exitCode=1;}
 finally {if(browser)await browser.close();if(server)await new Promise(r=>server.close(r));fs.writeFileSync(path.join(out,'qa.json'),JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results,null,2));}

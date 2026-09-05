@@ -1,7 +1,99 @@
 {
   "contract": "connect4-explanation/1.0.0",
   "source": "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md",
-  "source_sha256": "62b585a19d1de9db676d91a6391caae944220ccd064ba00554a38980a8eef26a",
+  "source_sha256": "8fededc66fa37e196b81f19a450260e8bba86a8298adabf064e9aa9b84b22b31",
+  "engagement": {
+    "contract": "connect4-engagement-path/1.0.0",
+    "graphic_status": "awaiting-owner-image",
+    "graphic_slots": {
+      "desktop": "connect4.engagement.desktop",
+      "mobile": "connect4.engagement.mobile"
+    },
+    "en": {
+      "heading": "How we work together.",
+      "intro": "Start with clarity. Implement the priority. Choose what comes next. You do not have to buy every step.",
+      "steps": [
+        {
+          "id": "score",
+          "title": "Free Growth Score",
+          "price": "Free",
+          "optional": false,
+          "description": "We review the public-facing journey and identify an evidence-backed priority. This is the starting point, not a commitment to paid work."
+        },
+        {
+          "id": "check",
+          "title": "Lead-to-Revenue Check",
+          "price": "$500",
+          "optional": true,
+          "description": "An optional diagnostic when important questions after an inquiry cannot be answered from public information. It requires agreed access and scope. You can move directly to the Sprint when this Check is not needed."
+        },
+        {
+          "id": "sprint",
+          "title": "30-Day Growth Sprint",
+          "price": "$2,500",
+          "optional": false,
+          "description": "We implement the agreed priority over 30 days and report what is live, what the team uses, and what the evidence supports. The first Sprint carries no commitment to further work."
+        },
+        {
+          "id": "extension",
+          "title": "Further Sprint(s), only if needed",
+          "price": "$2,500 per additional 30 days",
+          "optional": true,
+          "description": "After Day 30, we review any remaining finite implementation work together. A further Sprint is separately scoped and agreed only when justified—not reserved in advance or automatically renewed."
+        },
+        {
+          "id": "system",
+          "title": "Ongoing Growth System",
+          "price": "Annual agreement · optional",
+          "optional": true,
+          "description": "Choose ongoing ownership under a separate 12-month agreement. We maintain and improve the shared content, review process, and four-surface consistency. Scope, budget, payment schedule, and other terms are agreed individually."
+        }
+      ],
+      "outro": "You can keep the delivered foundation and continue with your team or another marketer instead. An annual agreement applies only when you choose ongoing Growth System work."
+    },
+    "ru": {
+      "heading": "Как проходит работа с нами.",
+      "intro": "Сначала ясность. Затем внедрение приоритета. После — выбор продолжения. Покупать каждый этап не обязательно.",
+      "steps": [
+        {
+          "id": "score",
+          "title": "Бесплатный Growth Score",
+          "price": "Бесплатно",
+          "optional": false,
+          "description": "Проверяем публичный путь клиента и определяем подтверждённый приоритет. Это начало работы, а не обязательство покупать платные услуги."
+        },
+        {
+          "id": "check",
+          "title": "Lead-to-Revenue Check",
+          "price": "$500",
+          "optional": true,
+          "description": "Необязательная диагностика, когда важные вопросы после обращения нельзя разрешить по открытым данным. Нужны согласованный доступ и объём проверки. Если Check не нужен, можно сразу перейти к спринту."
+        },
+        {
+          "id": "sprint",
+          "title": "30-Day Growth Sprint",
+          "price": "$2,500",
+          "optional": false,
+          "description": "За 30 дней внедряем согласованный приоритет и показываем, что работает, что использует команда и что подтверждают данные. Первый спринт не обязывает покупать продолжение."
+        },
+        {
+          "id": "extension",
+          "title": "Дополнительный спринт или спринты — при необходимости",
+          "price": "$2,500 за каждые дополнительные 30 дней",
+          "optional": true,
+          "description": "После Day 30 совместно рассматриваем оставшуюся конечную работу по внедрению. Следующий спринт согласуется отдельно и только при обоснованной необходимости — не резервируется заранее и не продлевается автоматически."
+        },
+        {
+          "id": "system",
+          "title": "Постоянная работа в Growth System",
+          "price": "Годовой контракт · по выбору",
+          "optional": true,
+          "description": "Постоянное сопровождение оформляется отдельным договором на 12 месяцев. Поддерживаем и развиваем общую контентную основу, процесс отзывов и согласованность четырёх плоскостей. Объём, бюджет, график оплаты и остальные условия согласуются индивидуально."
+        }
+      ],
+      "outro": "Переданная основа остаётся у вас: можно продолжить своей командой или с другим маркетологом. Годовой договор действует только при выборе постоянной работы в Growth System."
+    }
+  },
   "en": {
     "definition": "Connect4 aligns Search & Maps, Website, Social, and Reviews & Reputation so potential clients can understand what you offer, why to choose you, and how to take the next step.",
     "value": "We build a marketing foundation you own—and your team can run.",

@@ -1,0 +1,12 @@
+{
+  "id": "connect4-owner-media-20260905",
+  "files": [{
+    "path": "scripts/caesthetic/connect4-page-browser-qa.mjs",
+    "before_sha256": "46ceaedb92d0b5a96146d9df9bd5ca234c8bd41a4a9e930aa269c764656e2003",
+    "after_sha256": "024f97349786192eaad020ad7ce57cfc45c70333de4aec9d439fc7c6eb617a58",
+    "edits": [
+      {"start":3648,"end":3727,"text":""},
+      {"start":3820,"end":3820,"text":"   await image.scrollIntoViewIfNeeded();\n   await page.waitForFunction(({role,src})=>{const el=document.querySelector(`picture[data-connect4-picture=\"${role}\"] img`);return el&&el.currentSrc.endsWith(src)&&el.complete&&el.naturalWidth>0;},{role,src:expected.src});\n   await image.evaluate(el=>el.decode());\n"}
+    ]
+  }]
+}

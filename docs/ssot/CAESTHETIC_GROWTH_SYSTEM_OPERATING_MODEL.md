@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.2
+version: 1.3
 created: 2026-08-12
-updated: 2026-09-04
+updated: 2026-09-05
 scope: Growth System operations, Growth Ledger, client-visible reporting and request routing
 parent: docs/ssot/CAESTHETIC.md
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -22,7 +22,7 @@ This is an architecture and operating-policy decision only. It does **not** auth
 
 ## 1. Operating outcome and two reporting layers
 
-Growth System is the optional continuation of the 4444 product after the `$2,500` Sprint. Its recurring commercial center is maintaining one demand-language system across Search / Google Business Profile, Website, Social and Reputation / Reviews—not selling disconnected posts, technical chores or staff hours.
+Growth System is the optional continuation of the 4444 product after the `$2,500` Sprint. The Connect4 engagement path describes separately selected ongoing work under a 12-month agreement, per master §7 and the owner decision of 2026-09-05T14:18:08Z. This is not automatic enrollment after a Sprint; pricing, billing and other terms remain individually agreed. Its recurring commercial center is maintaining one demand-language system across Search / Google Business Profile, Website, Social and Reputation / Reviews—not selling disconnected posts, technical chores or staff hours.
 
 The canonical continuing 4444 operating work is:
 

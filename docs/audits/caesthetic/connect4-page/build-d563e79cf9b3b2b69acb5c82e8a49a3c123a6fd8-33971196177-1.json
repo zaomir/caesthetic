@@ -1,8 +1,9 @@
 {
   "status": "PASS",
   "mode": "local",
-  "deployed_sha": "ddc2f0411b05af3ba43d80580e1a14966ad0ecce",
-  "checked_at": "2026-09-05T14:00:16.133Z",
+  "source_sha": "d563e79cf9b3b2b69acb5c82e8a49a3c123a6fd8",
+  "deployed_sha": null,
+  "checked_at": "2026-09-05T14:15:21.999Z",
   "widths": [
     {
       "width": 320,
@@ -61,6 +62,8 @@
     "delivery-handoff",
     "paid-traffic-readiness"
   ],
-  "url": "http://127.0.0.1:33195/connect4/",
+  "url": "http://127.0.0.1:42757/connect4/",
+  "text_zoom_200_percent": "PASS",
+  "static_content_without_javascript": "PASS",
   "javascript_errors": []
 }

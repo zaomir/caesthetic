@@ -96,7 +96,24 @@
   .c4-stages { gap:0; }
   .c4-stages li { padding:24px 0; gap:16px; }
   .c4-figure { margin:24px 0 0; }
-  .c4-figure img { aspect-ratio:841/1870; }
+
   .c4-proof { gap:28px; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+/* Owner-supplied images retain their intrinsic proportions at both breakpoints. */
+.c4-figure--system { margin-top:40px; }
+.c4-figure figcaption .c4-art-link { display:block; padding:8px 0; width:fit-content; }
+.c4-figure figcaption .c4-art-link--mobile { display:none; }
+.c4-alternate-view { margin-top:28px; }
+.c4-alternate-view>div { max-width:none; }
+.c4-engagement { margin-top:32px; }
+.c4-engagement>li { display:grid; grid-template-columns:32px minmax(0,1fr); gap:24px; padding:28px 0; border-top:1px solid var(--cae-border); }
+.c4-engagement>li>div { max-width:76ch; }
+.c4-engagement-price { font-weight:600; color:var(--cae-signal); margin:0 0 12px; }
+.c4-engagement li p+p { margin-top:12px; }
+@media(max-width:767px){
+ .c4-figure--system { margin-top:28px; }
+ .c4-figure figcaption .c4-art-link--desktop { display:none; }
+ .c4-figure figcaption .c4-art-link--mobile { display:block; }
+ .c4-engagement>li { grid-template-columns:24px minmax(0,1fr); gap:16px; padding:24px 0; }
+}

@@ -53,7 +53,7 @@
     "docs/legal/raimov/expert-dental/EXPERT_DENTAL_P0_LEGAL_EVIDENCE_OPERATING_MODEL.md": "dc943e5e04efad509fc2b79bb293a5f0588ae1405f5b313879ad869569930ddf",
     "docs/legal/raimov/expert-dental/LOCAL_COUNSEL_BRIEF_CONTRACTS_LICENSE_2026-08-24.md": "e791627ce08cab03b5eb296fcb825acf7b0b40c87a3afebcd602df0ad94bab2c",
     "docs/legal/raimov/expert-dental/README.md": "055a9e03563475e368568886b5064e4157c6358441de73d2ecaa9e3c83125ca6",
-    "docs/legal/raimov/expert-dental/VERSION_REGISTRY.md": "e499afcb863da1b5f26201a166eb24b6f77eec52e04cdcd5f20772487b708201",
+    "docs/legal/raimov/expert-dental/VERSION_REGISTRY.md": "465407626ccc948e1472716b2899ccdee19a3b1fc8ce482a5cd975a6f06e3f5b",
     "docs/legal/raimov/expert-dental/clinical-records/README.md": "a9d847a50b3e28fd69a8646b3eb0109f75e0e9cd50c720aba5b3172ed74f72a2",
     "docs/legal/raimov/expert-dental/complaints-disputes/README.md": "56670591239e0bf4325a96d323cf0cb4e0450412feb4d809f8ac60b2e57991e8",
     "docs/legal/raimov/expert-dental/compliance-audits/README.md": "bdb43162016a12b7e286a54aa5361b285daaa6330d742a0a2205c1bdf52f3224",
@@ -123,6 +123,8 @@
     "docs/legal/raimov/expert-dental/package/tablet/tablet-form-fields.css": "3314fb2cb9db260809e5e9223bbfbe64e3fb16c9acd0701156875ae96dc181c8",
     "docs/legal/raimov/expert-dental/package/tablet/tablet-form.css": "536a573d11def51642de8dd14471e4ada69bf35377fbac11f7dda1fedbb427ad",
     "docs/legal/raimov/expert-dental/package/tablet/tablet-form.js": "e6b9e7fe03f902f5073c66e954a04eb9a3393f79ce1151cba682b168c1c4c082",
+    "docs/legal/raimov/expert-dental/paper-wave-1/README.md": "679a4aff3ecb3ddfcc999b3eb2a9798c7aa7186cc22ba68328a0de32610d7557",
+    "docs/legal/raimov/expert-dental/paper-wave-1/SOURCE_MANIFEST.json": "5a53fb21cf479b11cc0bf1e3dd934786a2d4fad2cdc1248bb020b48cd96e2b28",
     "docs/legal/raimov/expert-dental/patient-forms/README.md": "a9ef77c8a7cc45db9a9f7a1a0f872465c37c7689b1d99802bfde9eb8413439d4",
     "docs/legal/raimov/expert-dental/privacy-data/README.md": "7f15f2c2b49f6cb2b5d6e049c9563a6bbfd99946401f3a9100ac04b934018a23",
     "docs/legal/raimov/expert-dental/staff-credentials/README.md": "7f815c8772d36d7df0eb090e9bee1f3bf352f3116d2c7b149406520f663c2476",
@@ -268,8 +270,9 @@
     "docs/raimov/technology/README.md": "b7b6c8ecddf2ea895aacf82c6df7189f752e3b4446e7174ce6d4676eb7f8160a",
     "docs/ssot/ELITE_DENTAL_STRATEGY.md": "8aff0d09a108d8a5f1acd045ecdabf670a7a6b310d45dda1531fb2a6b310d759",
     "docs/ssot/EXPERT_DENTAL_COMMERCIAL_SCHEDULE.md": "f931dae2fde889b3a32d9d2f72e0ecd806538dfb60b71def23a2b4aa551897c9",
+    "docs/ssot/EXPERT_DENTAL_DOCUMENT_FLOW_WAVE_1.md": "6c851d70d942bb96cbbe79a55a3af95c8c16333a8c6dad2bb28f84c4f4352904",
     "docs/ssot/EXPERT_DENTAL_GROWTH_OFFER.md": "3d80f5e28b3caee3080f71ef685aa0065c3e014eeafb28415a92ac5b8a6032c7",
-    "docs/ssot/EXPERT_DENTAL_INFRASTRUCTURE.md": "6a24b6445f0743cc6decade6104be453ff9f070da1ff10ddb19ab91f444a5fde",
+    "docs/ssot/EXPERT_DENTAL_INFRASTRUCTURE.md": "2a7dfd950e5404e864642bf0d8396dc31f112f7e091bbd5b0a49619f805e7994",
     "docs/ssot/EXPERT_DENTAL_LICENSE_COMPLIANCE.md": "5aaa49674130eacada2be53dc7781f5850af32cad7cee881ce99d856db2c4807",
     "docs/ssot/EXPERT_DENTAL_MARKETING_FAQ.md": "7c78e903e9cdff651bc13280fe2e98fbfed4ddff4d19cbe8f8a8b0545a105ca7",
     "docs/ssot/EXPERT_DENTAL_MONTH_1_PLAN_AND_REPORTS.md": "5b5fa1441ecc68b2d4adc77fe22c83a823e80fb3479ec1e55590f97deac7c922",
@@ -299,7 +302,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "b1c77ea52ac7f53db3edce14a2886dbd496e443f",
+  "source_sha": "7b25466c2e63b0e93230c81556be15df58ecae2c",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

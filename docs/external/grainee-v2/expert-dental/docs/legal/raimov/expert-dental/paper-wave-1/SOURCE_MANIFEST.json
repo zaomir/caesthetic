@@ -1,0 +1,92 @@
+{
+  "schema": "expert-dental.paper-wave-1.sources.v1",
+  "captured_on": "2026-09-05",
+  "form_edition": "PAPER-0.1",
+  "status": "SOURCE_RECEIPT_NOT_ACTIVATION",
+  "canonical_workflow": "docs/ssot/EXPERT_DENTAL_DOCUMENT_FLOW_WAVE_1.md",
+  "source_repo_ref_in_word": "03fa640adee1fea221f23f530a7d94432df748f4",
+  "preflight_repo_ref": "d01dafc35606d0a8088cafe18292a2d858e88a7a",
+  "notes": [
+    "Hashes computed from actual attached bytes; Word originals not rewritten.",
+    "Original DOCX/ZIP are conversation artifacts, not Git objects in this release.",
+    "The caesthetic mirror excludes binary packages; do not infer that it contains these DOCX files.",
+    "Paper wording is a new draft, not covered automatically by the earlier counsel approval.",
+    "P-/D-/S- are local paper-edition labels, not new canonical ED identifiers."
+  ],
+  "artifacts": [
+    {
+      "filename": "Expert_Dental_Paper_Pilot.docx",
+      "bytes": 67249,
+      "sha256": "be2266470fabcbfa1a5d48a49d6da9b901db360434d7b9d25df78e0d81c8ef7b",
+      "location": "conversation_attachment",
+      "binary_committed_to_git": false
+    },
+    {
+      "filename": "Expert_Dental_Staff_Instruction.docx",
+      "bytes": 42361,
+      "sha256": "f2f92668d1ea58070d85317618cdf1ad964fe79bacd05e0fa15b5a9289569628",
+      "location": "conversation_attachment",
+      "binary_committed_to_git": false
+    },
+    {
+      "filename": "Expert_Dental_Paper_Pilot_Word.zip",
+      "bytes": 392571,
+      "sha256": "be4ac307b6d6f50e3fe8cfced3e7f7b0c921200c3845c46e865b0e0cb64e47f9",
+      "location": "conversation_attachment",
+      "binary_committed_to_git": false
+    }
+  ],
+  "zip_entries": [
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/00_Инструкция_и_запуск_пилота.docx",
+      "bytes": 49443,
+      "sha256": "02e9606305c43b26f5d371fdd420f39b7bd405778c505ef282c4500ad492aa2d"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/01_Договор_с_пациентом.docx",
+      "bytes": 42535,
+      "sha256": "f27087308b69cd6ff67849443880cbe32c1c767cf1bb4f0e7d877dada0acdb16",
+      "zip_role": "P-01"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/02_Эпизод_лечения_анкета_план_ИДС.docx",
+      "bytes": 44755,
+      "sha256": "8ce5ade8a4b3e61f4ab44d5fb17d5da9e05d4b3e2ed5cb9c666005764641999f",
+      "zip_role": "P-02"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/03_Изменение_плана_или_отказ.docx",
+      "bytes": 40372,
+      "sha256": "e16ac2784d4cc9c085cebc7e7e37302bff9dbaad017a3708746a32f8934c6fc0",
+      "zip_role": "P-03"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/04_Трудовой_договор_с_врачом.docx",
+      "bytes": 43779,
+      "sha256": "574372241c9216cda749a1a4af501245e5b8560181f6ccd6503cfb5072db54ad",
+      "zip_role": "D-01"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/05_Допсоглашение_с_действующим_врачом.docx",
+      "bytes": 42039,
+      "sha256": "2e6384482d5667bb98945e3e9489e3ecdbcb53bde82e3334fdd08bcf9416d941",
+      "zip_role": "D-02"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/06_Прием_на_работу_и_проверка_допуска.docx",
+      "bytes": 41344,
+      "sha256": "a3e50ee45b9a4315864c95f4eade702c1a1bb6d82077a24cf52b67cebb82dadf",
+      "zip_role": "D-03"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/07_Краткая_инструкция_сотрудникам.docx",
+      "bytes": 42361,
+      "sha256": "f2f92668d1ea58070d85317618cdf1ad964fe79bacd05e0fa15b5a9289569628"
+    },
+    {
+      "zip_path": "Expert_Dental_Paper_Pilot_Word/Expert_Dental_Минимальный_бумажный_пакет.docx",
+      "bytes": 67249,
+      "sha256": "be2266470fabcbfa1a5d48a49d6da9b901db360434d7b9d25df78e0d81c8ef7b"
+    }
+  ]
+}
