@@ -473,7 +473,7 @@
     "docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md": "c3cb8ff0e4c2567698bdfbd9f0281f9af882f2ccf48fb3e064bed254308d95dd",
     "docs/ssot/CAESTHETIC_AUDIENCE_LISTS.md": "19e5d5966bcc3f9df63cd842bd4c128d53fa235f5213e6e7e2d5a736b5203220",
     "docs/ssot/CAESTHETIC_COMMERCIAL_OBJECTION_PLAYBOOK.md": "34ef133ee92b0d3f69a6547f51695dfbfd20c1deaa1cb820683bf237ff05bc5c",
-    "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md": "cdc7db590e6f14f6463832eafdefd25c1113f3ffd589df5a400e162c4cb75d8b",
+    "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md": "62b585a19d1de9db676d91a6391caae944220ccd064ba00554a38980a8eef26a",
     "docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_AUTOMATION_LAYER.md": "f2a8ee7e6a0aa76e2e5b28d682ce73aabdd9a3948005bceca74a31b97a5628b5",
     "docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_OPENER_CANON.md": "b7793cdc70960fb35fdb6f5af21c0efda105b881618e3e69739c4fbb550485dc",
     "docs/ssot/CAESTHETIC_DAILY_GROWTH_NOTE_VIDEO_PIPELINE.md": "da7ab03712d57706785086e8c59c67e65f63d011a0be0c487a730da2f5b09d89",
@@ -886,6 +886,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-05T12:26:52Z",
+  "updated_at_utc": "2026-09-05T13:13:52Z",
   "version": 1
 }
