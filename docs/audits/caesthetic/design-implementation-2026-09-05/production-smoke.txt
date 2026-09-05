@@ -1,0 +1,15 @@
+status=PASS
+checked_at=2026-09-05T16:52:18Z
+deployed_commit=c745ab4f0c9be378a6b90dbb923d5518ab0191c8
+delivery=cloudflare-worker-assets+vps2402-origin+sender-domain-route-cleanup
+home_url=https://caesthetic.com/
+growth_score_url=https://caesthetic.com/growth-score/
+sprint_url=https://caesthetic.com/sprint/
+outreach_removed_http=404
+sender_route_cleanup_count=5
+sender_caesthetic_co_url=https://caesthetic.co/
+sender_bebofix_url=https://bebofix.com/caesthetic/
+sender_bebonow_url=https://bebonow.com/caesthetic/
+sender_bototox_url=https://bototox.com/caesthetic/
+sender_grainee_url=https://grainee.com/caesthetic/
+spoken_score_url=https://caesthetic.com/score/spoken-medspa-snellville-9d7f3a5c2e184b61/

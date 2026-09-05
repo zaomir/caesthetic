@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-09-05T16:50:31.009725+00:00",
+  "releaseSha": "c745ab4f0c9be378a6b90dbb923d5518ab0191c8",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 10460,
+      "sha256": "42a87449a1f7640ef0a72b00cd567c65686134cd2d14ee91f8b632d8bc26f00f"
+    },
+    {
+      "path": "/pricing/",
+      "status": 200,
+      "bytes": 10237,
+      "sha256": "0f1d4a7167ddb52ddbc4250d846b127a6102aae4b739c922feee64c8ae363ee9"
+    },
+    {
+      "path": "/assets/css/tokens.css",
+      "status": 200,
+      "bytes": 4989,
+      "sha256": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543",
+      "matches_release": true
+    },
+    {
+      "path": "/assets/css/access.css",
+      "status": 200,
+      "bytes": 934,
+      "sha256": "99a0906ddf3956396a75c193d30c6579bf90211b0a79764898a4c4e723a984c0",
+      "matches_release": true
+    },
+    {
+      "path": "/assets/brand/logo-square-web.png",
+      "status": 200,
+      "bytes": 42098,
+      "sha256": "c4e22961673c04295b757ed8f1e834375f04449bf08927034500eba734c0bca1",
+      "matches_release": true
+    },
+    {
+      "path": "/assets/brand/logo-long-web.png",
+      "status": 200,
+      "bytes": 70454,
+      "sha256": "f5847c5a090adb08e8d4d4ac22f8254926892a3e0da2d6b5fc777048ee0fb464",
+      "matches_release": true
+    }
+  ]
+}

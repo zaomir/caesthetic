@@ -7,8 +7,8 @@
 
 - SSOT 3.1.0 and machine projection: `docs/caesthetic/design/README.md`. Shared mobile/readability/accessibility fixes, initial CSS, optimized logo derivatives, report and access-state presentation implemented without report-data/commercial mutations.
 - New design gate covers registered routes, tokens, exact existing exceptions and protected assets; canonical deploy requires exact artifact acceptance. GitHub main rulesets remain unavailable under the current plan; no subscription/settings change claimed.
-- Local release suites: 35 targeted checks and 33 navigation/renderer checks passed. Full suite: 439 passed, 25 failures identical to unmodified main, 4 skipped; no new failing test identifiers. Browser runs: full Chromium plus representative Firefox/WebKit, with evidence limits recorded.
-- Evidence: `docs/audits/caesthetic/design-implementation-2026-09-05/README.md`. Publication and production acceptance are pending the canonical workflow and must be recorded before declaring release complete.
+- Local release suites: 35 targeted checks (plus two subsequent token-rejection tests) and 33 navigation/renderer checks passed. Full suite: 439 passed, 25 failures identical to unmodified main, 4 skipped; no new failing test identifiers. Browser runs: full Chromium plus representative Firefox/WebKit, with evidence limits recorded.
+- Evidence: `docs/audits/caesthetic/design-implementation-2026-09-05/README.md`. Released to https://caesthetic.com/ at `c745ab4f0c9be378a6b90dbb923d5518ab0191c8`; canonical workflow 33978593096 and production smoke PASS at 2026-09-05T16:52:18Z. Exact-release browser acceptance: Chromium 171, Firefox 24, WebKit 24; production 56 routes × 3 widths = 168 observations, zero reported errors. See release-receipt.json, ci-summary.json, production-browser.json and production-smoke.txt in the evidence folder.
 
 ## 2026-09-05 — Unified design canon and page review
 

@@ -23,7 +23,7 @@ GitHub returned 403 with a plan-upgrade requirement for private-repository branc
 
 Local evidence records observations, engine, source identity and time. Earlier local runs can precede final documentation/contract changes; the release workflow repeats acceptance against the committed SHA. Successful conformance requires the release workflow, not stale local JSON. Chromium checks every route plus the local fixture; Firefox/WebKit cover representative families. Existing navigation/request tests cover keyboard/focus, dialog validation and multiple widths without real lead submissions.
 
-The unmodified main baseline has 25 failing tests in the broader CAESTHETIC suite (commercial/copy/publication expectations). Those are recorded separately from this change; do not rewrite pricing or approved facts to make unrelated old expectations pass. Targeted renderer/privacy/design and navigation suites pass. Final release and production evidence are appended after workflow confirmation.
+The unmodified main baseline has 25 failing tests in the broader CAESTHETIC suite (commercial/copy/publication expectations). Those are recorded separately from this change; do not rewrite pricing or approved facts to make unrelated old expectations pass. Targeted renderer/privacy/design and navigation suites pass. Final release evidence is recorded below.
 
 Automated checks do not certify complete WCAG compliance, field Core Web Vitals, every assistive technology, or successful production authentication/payment. Protected production screens and local source are distinct coverage. No production lead/payment/research action is performed by design QA.
 
@@ -36,3 +36,12 @@ Automated checks do not certify complete WCAG compliance, field Core Web Vitals,
 ![Repaired mobile steps](home-repaired.png)
 ![Repaired mobile pricing](pricing-repaired.png)
 ![Desktop navigation at 1600px](desktop-header.png)
+
+## Production acceptance
+
+- Deployed SHA: `c745ab4f0c9be378a6b90dbb923d5518ab0191c8`. [Canonical workflow 33978593096](https://github.com/zaomir/grainee-v2/actions/runs/33978593096): **success**. Production smoke: **PASS**, 2026-09-05T16:52:18Z.
+- Exact-release CI: Chromium 171 observations (56 routes plus local component fixture at three widths), Firefox 24, WebKit 24; zero reported errors. `release-receipt.json` and `ci-summary.json` bind acceptance to runtime, SSOT and contract hashes.
+- Production: 56 registered routes at 320/390/1440 = 168 observations, zero reported errors; see `production-browser.json`. Protected routes cover their anonymous access screens here; the canonical protected-score smoke separately passed its existing two-report access checks. No claim of authenticated content coverage for every private route.
+- Independent public verification: home and pricing HTTP 200; token CSS, access CSS and both optimized logo assets match release bytes exactly (`independent-live.json`).
+- `production-smoke.txt` preserves the canonical deployment record. This evidence/status-only follow-up does not alter deployed runtime and requires no additional deployment.
+- Remaining work: retire reviewed legacy static exceptions before 2026-10-05; reconcile the 25 baseline failing tests with current commercial authorities; enable main branch rulesets when the GitHub plan permits. Manual assistive-technology review and field Core Web Vitals remain outside automated acceptance.
