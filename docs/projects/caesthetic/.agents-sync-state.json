@@ -21,6 +21,7 @@
     "docs/audits/caesthetic/connect4-page/build-950547571d95b8ab18849671103e8fc7d9e57154-33972568929-1.json": "1e65f7c70214dd37bfb65a635230a6f344b97f697aa0551850213957d891543c",
     "docs/audits/caesthetic/connect4-page/build-d563e79cf9b3b2b69acb5c82e8a49a3c123a6fd8-33971196177-1.json": "5a0a0b33594609c67db3f69b6b5f4ea327781b094b0771866402b7cc31dcb4a9",
     "docs/audits/caesthetic/connect4-page/engagement-local-20260905.json": "d88a6e3fdefe20c610a3d22009f0ed1988952f05795b6ccaf5aa64aa00c74f78",
+    "docs/audits/caesthetic/connect4-page/engagement-production-37650bbf14024fc80186632b8faf4fa7240b1243.json": "a71dd7837f0144a6af1a7182674a2250d85a8ad5ba8696f14725fa277aa5a646",
     "docs/audits/caesthetic/connect4-page/local-bdf7687a633695bfe4242029977037dab3cf8056.json": "69cea899cdb11bbf5a3cb42cc205cae517a89f3ed329016e48ba8973beeaf6f9",
     "docs/audits/caesthetic/connect4-page/local-qa.json": "96ce0ce4c403e9d0ce45e12d87c89626e5c58ace867e75bbb9218cec7bc658aa",
     "docs/audits/caesthetic/connect4-page/owner-media-local-33972467779.json": "c651442df255102d2853b2e4cf2575dd31c1fd068c9d408f044f9a2dd0acd343",
@@ -919,6 +920,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-05T15:15:52Z",
+  "updated_at_utc": "2026-09-05T15:17:22Z",
   "version": 1
 }
