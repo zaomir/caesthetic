@@ -39,6 +39,8 @@ import {
   CHECK500_STYLE_REFERENCE_SHA256,
 } from "./growth-score-report-template.mjs";
 
+import { OWNER_V2, ownerV2Document } from "./growth-score-owner-v2.mjs";
+
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");
 const realScoreSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*-[a-f0-9]{16,}$/;
@@ -2310,6 +2312,7 @@ export function renderGrowthReport(report) {
   if (isNetworkParent) validateMultiLocationNetworkReport(report);
   const networkView = isNetworkParent ? buildMultiLocationPresentationModel(report) : null;
   const result = scoreGrowthReport(report);
+  if (report.presentation?.layout_contract === OWNER_V2) return ownerV2Document(report, result);
   const isDemo = report.reportKind === "demo";
   const isPilot = report.presentation?.kind === "pilot";
   const isLocalizedClient = report.presentation?.kind === "localized_client";

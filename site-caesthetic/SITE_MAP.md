@@ -111,3 +111,9 @@ Salon aliases keep safe query/UTM and 301 to the English Beauty Salons route:
 Private client reports and `/private/` assets are not public navigation surfaces. The `/score/` catalog generator excludes private client names, locations and unguessable routes. Catalog/demo routes are crawlable only so their `noindex` directive can be applied.
 
 The production header, footer, favicon and Open Graph metadata use the canonical assets under `/assets/brand/`.
+
+## Spoken versioned private report views
+
+- `/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/` — unlisted RU direct-link presentation v2; original parent URL remains v1.
+- `/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/` — paired protected EN presentation v2.
+- Presentation children reference existing approved source reports and are not separate audit/catalog records; neither is added to the public sitemap.

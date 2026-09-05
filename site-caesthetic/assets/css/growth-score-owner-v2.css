@@ -1,0 +1,353 @@
+/* Scoped v2 typography: two families, three roles; v1 assets are untouched. */
+.cae-score-v2 {
+  --v2-small: 0.875rem;
+  --v2-body: 1.125rem;
+  --v2-heading: 2rem;
+  background: var(--cae-bg);
+  color: var(--cae-text);
+  font: var(--v2-body)/1.55 var(--cae-font);
+}
+.cae-score-v2 * {
+  box-sizing: border-box;
+}
+.cae-score-v2 :is(p, li, a, button, summary, td, th, input, label) {
+  font-size: var(--v2-body);
+  line-height: 1.55;
+  font-family: var(--cae-font);
+}
+.cae-score-v2 :is(h1, h2) {
+  font-family: var(--cae-font-display);
+  font-size: var(--v2-heading);
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  color: inherit;
+}
+.cae-score-v2 :is(h3, h4) {
+  font-family: var(--cae-font);
+  font-size: var(--v2-body);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+  color: inherit;
+}
+.cae-score-v2 :is(p, ul, ol) {
+  margin: 0 0 1rem;
+}
+.cae-score-v2 :is(.v2-meta, .v2-meta a, .v2-state, .v2-refs a) {
+  font: 400 var(--v2-small)/1.5 var(--cae-font);
+  color: var(--cae-muted);
+  text-transform: none;
+  letter-spacing: normal;
+}
+.cae-score-v2 a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+.cae-score-v2 :is(a, button, summary):focus-visible {
+  outline: 3px solid var(--cae-signal);
+  outline-offset: 4px;
+}
+.cae-score-v2 :is(button, .cae-btn) {
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--cae-accent);
+  border-radius: var(--cae-radius);
+  background: transparent;
+  color: inherit;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: normal;
+  cursor: pointer;
+}
+.cae-score-v2 .cae-btn--primary {
+  background: var(--cae-signal);
+  color: var(--cae-bg);
+  border-color: var(--cae-signal);
+}
+.v2-wrap {
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.v2-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 0.5rem max(24px, calc((100% - 1120px) / 2));
+  border-bottom: 1px solid var(--cae-border);
+}
+.v2-bar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.v2-bar span {
+  flex: 1;
+}
+.v2-overview {
+  padding-block: 2rem;
+}
+.v2-primary {
+  border-top: 1px solid var(--cae-signal);
+  padding: 1.5rem;
+  margin-block: 1.5rem;
+  background: var(--cae-bg-2);
+}
+.v2-strength {
+  padding: 1.25rem 0;
+}
+.v2-section {
+  padding: 3rem 0;
+  border-top: 1px solid var(--cae-border);
+  scroll-margin-top: 1rem;
+}
+.v2-section > p {
+  max-width: 80ch;
+}
+.v2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+  align-items: stretch;
+}
+.v2-grid > article {
+  min-width: 0;
+  border: 1px solid var(--cae-border);
+  padding: 1.5rem;
+}
+.v2-grid > article > :last-child {
+  margin-bottom: 0;
+}
+.v2-surfaces {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.v2-four {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 1rem 1rem 1rem 2.5rem;
+  gap: 1rem;
+  border: 1px solid var(--cae-border-strong);
+}
+.v2-method,
+.v2-note {
+  padding: 1.5rem;
+  margin-block: 1.5rem;
+  border: 1px solid var(--cae-border);
+}
+.v2-note {
+  border-top: 1px solid var(--cae-signal);
+}
+.cae-score-v2 details {
+  border: 1px solid var(--cae-border);
+  margin-block: 0.75rem;
+  min-width: 0;
+}
+.cae-score-v2 summary {
+  display: list-item;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 56px;
+}
+.cae-score-v2 details[open] > summary {
+  border-bottom: 1px solid var(--cae-border);
+}
+.v2-details-body {
+  padding: 1.5rem;
+  min-width: 0;
+}
+.v2-details-body > :last-child {
+  margin-bottom: 0;
+}
+.v2-focus > details:first-child {
+  border-top: 1px solid var(--cae-signal);
+}
+.v2-repairs {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.v2-repairs details {
+  margin: 0;
+  height: 100%;
+}
+.v2-repairs summary {
+  min-height: 140px;
+}
+.v2-metric {
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--cae-border);
+  scroll-margin-top: 1rem;
+}
+.v2-metric a {
+  overflow-wrap: anywhere;
+}
+.cae-score-v2 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cae-score-v2 figure {
+  margin: 1.5rem 0;
+}
+.v2-table-scroll {
+  overflow: auto;
+  max-width: 100%;
+  margin-block: 1.5rem;
+}
+.v2-table-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 860px;
+}
+.v2-table-scroll :is(th, td) {
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--cae-border);
+  padding: 1rem;
+  min-width: 150px;
+}
+.v2-table-scroll caption {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.v2-stop {
+  border-top: 1px solid var(--cae-signal);
+  padding: 1.5rem;
+}
+.v2-check {
+  margin-block: 2.5rem;
+  padding: 2.5rem 2rem;
+  border-block: 1px solid var(--cae-accent);
+  text-align: center;
+  background: var(--cae-bg-2);
+}
+.v2-check > :is(p, h2) {
+  max-width: 65ch;
+  margin-inline: auto;
+}
+.v2-check .cae-btn {
+  width: min(100%, 660px);
+  margin-block: 0.75rem 1.5rem;
+}
+.v2-check--final {
+  margin-top: 1.5rem;
+}
+.v2-sprint {
+  padding: 2rem;
+  border: 2px solid var(--cae-signal);
+  margin-top: 2rem;
+}
+.v2-share {
+  margin-block: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.v2-signature {
+  font-style: italic;
+}
+#report-navigation {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem 1rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--cae-border);
+}
+#report-navigation a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.v2-skip {
+  position: absolute;
+  left: -10000px;
+}
+.v2-skip:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 1rem;
+  background: var(--cae-bg);
+  z-index: 100;
+}
+.cae-score-v2 dialog {
+  max-width: min(620px, calc(100% - 32px));
+}
+@media (max-width: 899px) {
+  .v2-surfaces,
+  .v2-repairs,
+  .v2-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #report-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .v2-wrap {
+    width: calc(100% - 32px);
+  }
+  .v2-bar {
+    padding-inline: 16px;
+  }
+  .v2-bar span {
+    flex-basis: 100%;
+    order: -1;
+  }
+  .v2-grid,
+  .v2-four,
+  #report-navigation {
+    grid-template-columns: 1fr;
+  }
+  .v2-section {
+    padding: 2rem 0;
+  }
+  .v2-primary,
+  .v2-method,
+  .v2-note,
+  .v2-details-body,
+  .v2-grid > article,
+  .v2-sprint,
+  .v2-check {
+    padding: 1.25rem;
+  }
+  .cae-score-v2 summary {
+    padding: 1.25rem;
+  }
+  .v2-repairs summary {
+    min-height: 0;
+  }
+  .v2-share button {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.cae-score-v2 .v2-check--final h2 {
+  font-size: var(--v2-body);
+}
+.cae-score-v2 .v2-bar :is(a, span) {
+  font-size: var(--v2-small);
+}
+
+/* Approved Check500 palette from check500-style/1.0.0; scoped to the version. */
+.cae-score-v2 .v2-check {
+  --check-paper: #f0ede6;
+  --check-ink: #0b2438;
+  background: var(--check-paper);
+  color: var(--check-ink);
+  border-color: var(--check-ink);
+}
+
+/* This stylesheet is loaded exclusively by v2 pages. */
+html,
+body.cae-score-v2 {
+  overflow-x: visible;
+  overflow-y: visible;
+}
