@@ -34,6 +34,41 @@
         50
       ]
     },
+    "case.miami-concierge-medspa-consult-path.cover": {
+      "media_id": "case.miami-concierge-medspa-consult-path.cover",
+      "src": "/assets/case-studies/covers/miami-concierge-medspa-consult-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Miami concierge med spa consult-path case. Empty reception still life, no people, no logos, no readable text.",
+      "alt": "Empty clinic reception desk. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "9493e108bd297f8fc7c8f9e3a4b6e10e07eabbd3ad819dbb9a4078eb1dd35f27",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/miami-concierge-medspa-consult-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life for CASE-2026-E66B0DF7, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        58
+      ]
+    },
     "case.placeholder.case-01.cover": {
       "media_id": "case.placeholder.case-01.cover",
       "src": "/assets/case-studies/placeholders/booking-path.svg",
@@ -786,7 +821,7 @@
     },
     "case.method.connect4.system": {
       "media_id": "case.method.connect4.system",
-      "src": "/assets/connect4/connect4-system--sha256-d08d308928b9e780.jpg",
+      "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png",
       "type": "image",
       "kind": "concept-diagram",
       "state": "approved",
@@ -794,12 +829,12 @@
       "alt": "Connect4 aligns Search and Maps, Website, Social, and Reviews and Reputation around your practice. Lead Intake is a separate layer from inquiry through response and follow-up to a booked consultation.",
       "width": 1536,
       "height": 1024,
-      "sha256": "d08d308928b9e780a5974eee286ef79b66d7c3687a7c28fec2a7f5261443fd9a",
-      "bytes": 331661,
-      "mime": "image/jpeg",
+      "sha256": "418640233de4420aa843a79516bebdbfd2247b8b6846a64d001caf38e88b870b",
+      "bytes": 699668,
+      "mime": "image/png",
       "rights": {
         "status": "approved",
-        "source": "Owner-supplied Connect4 illustration; explicit instruction to use this image in Case Studies How we work, 2026-09-05."
+        "source": "Owner instruction 2026-09-05: reuse exact desktop/mobile Connect4 pair on Case Studies."
       },
       "consent": {
         "required": false,
@@ -818,8 +853,7 @@
         50
       ],
       "crop": "contain",
-      "source_file": "0D1446ED-457F-4699-A241-D5FA712B2E70(1).jpeg",
-      "source_library_id": "libfile_667218c20a04819182e4a4651d95e918",
+      "source_file": "connect4-four-surfaces-landscape-caesthetic.png",
       "approved_at": "2026-09-05",
       "usage_note": "Use complete diagram with a readable HTML explanation and full-size link. Do not substitute the patient-route or paid-traffic-loss illustrations."
     },
@@ -1170,6 +1204,37 @@
       ],
       "allowed_routes": [
         "/connect4/"
+      ],
+      "transformations": "none; original bytes locked"
+    },
+    "case.method.connect4.system.mobile": {
+      "media_id": "case.method.connect4.system.mobile",
+      "src": "/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png",
+      "type": "image",
+      "kind": "approved-conceptual-illustration",
+      "state": "approved",
+      "purpose": "Owner-provided system conceptual illustration; approved for Connect4 by the 2026-09-05 instruction, not client evidence.",
+      "alt": "Connect4 system illustration in mobile format.",
+      "width": 864,
+      "height": 1821,
+      "sha256": "f6d76ea568668324c2147c59cb35aa01b429ffadb4b52154746478e7de849630",
+      "format": "mobile",
+      "source": "site-caesthetic/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png",
+      "rights": {
+        "status": "approved",
+        "source": "Owner instruction 2026-09-05: reuse exact desktop/mobile Connect4 pair on Case Studies."
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/"
       ],
       "transformations": "none; original bytes locked"
     }

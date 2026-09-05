@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
-  <link rel="stylesheet" href="/assets/css/case-studies.css?v=connect4-20260905">
+  <link rel="stylesheet" href="/assets/css/case-studies.css?v=connect4-case-pair-20260905">
 <link rel="stylesheet" href="/assets/css/point-of-contact.css">
 <link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
 </head>
@@ -36,7 +36,7 @@
           <a class="cae-btn cae-btn--primary" href="#case-library">Explore case studies</a>
           <a class="cae-cases-text-link" href="#how-we-work">See how we work <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="cae-cases-disclosure">The library is being prepared for public release. Test records are explicitly labeled. They are not client results or evidence.</p>
+        <p class="cae-cases-disclosure">Each case shows its evidence level. Modeled records are labeled and are not client results.</p>
       </div>
       <aside class="cae-cases-hero__brief" aria-label="What every case study documents">
         <p class="cae-kicker">Every case file shows</p>
@@ -68,10 +68,14 @@
       </div>
 
       <figure class="cae-connect4__figure" aria-labelledby="connect4-caption">
-        <img data-media-id="case.method.connect4.system" width="1536" height="1024" loading="lazy" decoding="async" alt="Connect4 aligns Search and Maps, Website, Social, and Reviews and Reputation around your practice. Lead Intake is a separate layer from inquiry through response and follow-up to a booked consultation.">
+        <picture data-connect4-picture="system">
+          <source media="(max-width: 767px)" srcset="/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png" width="864" height="1821">
+          <img data-media-id="case.method.connect4.system" src="/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Connect4 aligns Search and Maps, Website, Social, and Reviews and Reputation around your practice. Lead Intake is a separate layer from inquiry through response and follow-up to a booked consultation.">
+        </picture>
         <figcaption id="connect4-caption">
           <span>Four public surfaces. A separate layer for handling inquiries.</span>
-          <a class="cae-case-link" data-media-link="case.method.connect4.system" href="#connect4-explanation">View full-size diagram <span aria-hidden="true">↗</span></a>
+          <a class="cae-case-link cae-connect4__link--desktop" data-media-link="case.method.connect4.system" href="/assets/connect4/owner-20260905/connect4-four-surfaces-landscape-caesthetic.png">View full-size diagram <span aria-hidden="true">↗</span></a>
+          <a class="cae-case-link cae-connect4__link--mobile" data-media-link="case.method.connect4.system.mobile" href="/assets/connect4/owner-20260905/connect4-four-surfaces-portrait-caesthetic.png">View full-size diagram <span aria-hidden="true">↗</span></a>
         </figcaption>
       </figure>
 
@@ -277,7 +281,7 @@
 <script src="/assets/js/caesthetic-pricing.generated.js"></script>
 <script src="/assets/js/caesthetic-config.js"></script>
 <script src="/assets/js/caesthetic.js" defer></script>
-<script src="/assets/js/media-registry.js?v=connect4-20260905" defer></script>
-<script src="/assets/js/case-studies.js" defer></script>
+<script src="/assets/js/media-registry.js?v=case-library-20260905" defer></script>
+<script src="/assets/js/case-studies.js?v=case-library-20260905" defer></script>
 </body>
 </html>

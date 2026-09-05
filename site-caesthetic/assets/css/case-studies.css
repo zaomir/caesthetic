@@ -537,3 +537,12 @@
   .cae-connect4__operations > div + div { padding-top: var(--cae-space-6); border-top: 1px solid var(--cae-border); }
   .cae-connect4 .cae-process-bridge { align-items: flex-start; flex-direction: column; gap: var(--cae-space-3); }
 }
+
+/* Owner-approved Connect4 art direction; preserve each original aspect ratio. */
+.cae-connect4__figure picture { display: block; }
+.cae-connect4__link--mobile { display: none; }
+@media (max-width: 767px) {
+  .cae-connect4__figure img { aspect-ratio: 864 / 1821; }
+  .cae-connect4__link--desktop { display: none; }
+  .cae-connect4__link--mobile { display: inline-flex; }
+}

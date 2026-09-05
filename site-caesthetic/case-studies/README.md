@@ -1,6 +1,8 @@
 # CAESTHETIC case studies
 
-The catalog and Full Case Page render only immutable snapshots returned by Case Intake's published-case API. Drafts and review records never appear as a public fallback.
+The catalog and Full Case Page render only immutable snapshots returned by Case Intake's published-case API. Drafts, review records and TEST fixtures never appear as a public fallback.
+
+Operating program (search → fill → niche cover → publish → smoke): `docs/ssot/CAESTHETIC_CASE_STUDIES_COLLECTION.md`.
 
 ## Content source
 
@@ -17,18 +19,17 @@ The page and case data refer only to stable semantic `media_id` values. Replace 
 
 ## Publish a case
 
-1. Confirm the case narrative, metric definition, baseline, denominator, timeframe, limitations, data source and CAESTHETIC relationship to the work.
-2. Confirm image rights and, when people or clinical material are shown, documented consent and allowed channels.
-3. Add the approved, versioned asset to the site asset library.
-4. Update the existing `media_id` entry with the approved path, intrinsic dimensions, factual alt text, rights and consent status.
+1. Follow `docs/ssot/CAESTHETIC_CASE_STUDIES_COLLECTION.md` (Track A permissioned work or Track B modeled study).
+2. Confirm the case narrative, metric definition, baseline, denominator, timeframe, limitations, data source and CAESTHETIC relationship to the work.
+3. Generate a niche-relevant 4:3 editorial still life (no people, logos, or readable text). Save `site-caesthetic/assets/case-studies/covers/{slug}.webp` and register `case.{slug}.cover`.
+4. Run `node scripts/caesthetic/check-case-cover.mjs {slug}`.
 5. Complete the Russian Case Intake form and choose “Опубликовать”.
 6. Confirm the response contains `catalogVisible: true` and a public URL.
-7. Run `node scripts/caesthetic/check-case-study-contract.mjs`.
-8. Complete desktop and mobile visual QA before adding the routes to the sitemap or removing `noindex`.
+7. Confirm desktop and mobile visual QA. Keep `noindex` until a permissioned Track A case is live.
 
 ## Release blockers
 
 - Do not add these routes to the sitemap until the first real, approved case and public-approved media are live.
 - Do not publish invented client names, patients, testimonials, dashboards, metrics or medical outcomes.
 - A save to draft or review must never overwrite the active public snapshot.
-- A record cannot become `publishable` without a clean slug, comparable baseline/outcome definitions, denominator, dates, budget context, practice contribution, limitations, data source, attribution class, approved client permission and public-approved media rights.
+- A record cannot become a shipped catalog case without a clean slug, comparable baseline/outcome definitions, denominator, dates, budget context, practice contribution, limitations, data source, attribution class, the correct evidence label, and a registered niche cover. Track A also requires approved client permission. Track B must stay `modeled` / `not_claimed`.

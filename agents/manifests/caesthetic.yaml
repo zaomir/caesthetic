@@ -59,6 +59,7 @@ topics:
   connect4_explanation: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   connect4_landing: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   connect4_reusable_section: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  case_studies_collection: docs/ssot/CAESTHETIC_CASE_STUDIES_COLLECTION.md
   strategy: docs/ssot/CAESTHETIC.md
   growth_score:
     ssot: docs/ssot/CAESTHETIC.md

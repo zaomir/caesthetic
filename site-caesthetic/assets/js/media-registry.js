@@ -5,7 +5,7 @@
 
   function loadRegistry() {
     if (!registryPromise) {
-      registryPromise = fetch('/media/registry.json?v=connect4-20260905', { credentials: 'same-origin' })
+      registryPromise = fetch('/media/registry.json?v=case-library-20260905', { credentials: 'same-origin' })
         .then(function (response) {
           if (!response.ok) throw new Error('Media registry unavailable');
           return response.json();
@@ -22,14 +22,15 @@
 
       images.forEach(function (image) {
         var mediaId = image.getAttribute('data-media-id');
-        var entry = entries[mediaId];
+        var fallbackId = image.getAttribute('data-media-fallback');
+        var entry = entries[mediaId] || (fallbackId ? entries[fallbackId] : null);
         if (!entry) {
           image.setAttribute('data-media-state', 'missing');
           return;
         }
 
         image.src = entry.src;
-        image.alt = entry.alt || '';
+        if (entry.alt) image.alt = entry.alt;
         image.width = entry.width;
         image.height = entry.height;
         image.setAttribute('data-media-state', entry.state);
@@ -52,7 +53,13 @@
     });
   }
 
-  window.CAESTHETIC_MEDIA = { load: loadRegistry, resolve: resolve };
+  window.CAESTHETIC_MEDIA = {
+    load: loadRegistry,
+    resolve: resolve,
+    coverMediaId: function (item) {
+      return item && item.id ? 'case.' + item.id + '.cover' : '';
+    }
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () { resolve(document); });

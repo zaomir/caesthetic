@@ -26,6 +26,14 @@
     evidenceLevel: 'Evidence'
   };
   var emptyFilters = { goal: '', industry: '', country: '', scale: '', evidenceLevel: '', sort: 'relevance' };
+  function isPublicCatalogCase(item) {
+    if (!item || !item.id) return false;
+    var id = String(item.id);
+    var title = String(item.title || '').trim();
+    if (/^test[-_]/i.test(id)) return false;
+    if (/^TEST\b/i.test(title)) return false;
+    return true;
+  }
   var state = { cases: [], filters: Object.assign({}, emptyFilters), visible: 8 };
   var list = document.querySelector('[data-case-list]');
   if (!list) return;
@@ -121,7 +129,8 @@
     var figure = element('figure', 'cae-media-slot cae-case-row__visual');
     var frame = element('div', 'cae-media-slot__frame');
     var image = document.createElement('img');
-    image.setAttribute('data-media-id', item.mediaId || 'case.library.hero.abstract');
+    image.setAttribute('data-media-id', (window.CAESTHETIC_MEDIA && window.CAESTHETIC_MEDIA.coverMediaId(item)) || item.mediaId || 'case.library.hero.abstract');
+    image.setAttribute('data-media-fallback', item.mediaId || 'case.library.hero.abstract');
     image.setAttribute('alt', item.imageAlt || 'Context image for ' + item.title);
     image.setAttribute('loading', 'lazy');
     image.setAttribute('decoding', 'async');
@@ -235,7 +244,8 @@
     };
     var image = document.querySelector('[data-featured-media] img');
     image.removeAttribute('src');
-    image.setAttribute('data-media-id', item.mediaId || 'case.library.hero.abstract');
+    image.setAttribute('data-media-id', (window.CAESTHETIC_MEDIA && window.CAESTHETIC_MEDIA.coverMediaId(item)) || item.mediaId || 'case.library.hero.abstract');
+    image.setAttribute('data-media-fallback', item.mediaId || 'case.library.hero.abstract');
     image.setAttribute('alt', item.imageAlt || 'Context image for ' + item.title);
     if (window.CAESTHETIC_MEDIA) window.CAESTHETIC_MEDIA.resolve(document.querySelector('[data-featured-media]'));
   }
@@ -406,7 +416,7 @@
   fetch('/case-studies/intake/api/public-cases', { credentials: 'same-origin' })
     .then(function (response) { if (!response.ok) throw new Error('Published case data unavailable'); return response.json(); })
     .then(function (data) {
-      var cases = data && Array.isArray(data.cases) ? data.cases : [];
+      var cases = (data && Array.isArray(data.cases) ? data.cases : []).filter(isPublicCatalogCase);
       if (!cases.length) throw new Error('No published cases');
       initialize(cases);
     })

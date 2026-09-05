@@ -6,6 +6,15 @@
   var evidenceLabels = { verified: 'Verified evidence', client_reported: 'Client-reported result', modeled: 'Modeled result' };
   var returnPath = '/case-studies/#case-library';
 
+  function isPublicCatalogCase(item) {
+    if (!item || !item.id) return false;
+    var id = String(item.id);
+    var title = String(item.title || '').trim();
+    if (/^test[-_]/i.test(id)) return false;
+    if (/^TEST\b/i.test(title)) return false;
+    return true;
+  }
+
   function track(eventName, detail) {
     if (!Array.isArray(window.dataLayer)) return;
     window.dataLayer.push(Object.assign({ event: eventName }, detail || {}));
@@ -176,7 +185,8 @@
     renderPagination(item, cases);
     var cover = document.querySelector('[data-case-cover]');
     cover.removeAttribute('src');
-    cover.setAttribute('data-media-id', item.mediaId || 'case.library.hero.abstract');
+    cover.setAttribute('data-media-id', (window.CAESTHETIC_MEDIA && window.CAESTHETIC_MEDIA.coverMediaId(item)) || item.mediaId || 'case.library.hero.abstract');
+    cover.setAttribute('data-media-fallback', item.mediaId || 'case.library.hero.abstract');
     cover.setAttribute('alt', 'Illustrative cover for ' + item.title);
     if (window.CAESTHETIC_MEDIA) window.CAESTHETIC_MEDIA.resolve(document.querySelector('[data-case-cover-slot]'));
     document.querySelector('[data-case-content]').hidden = false;
@@ -190,16 +200,19 @@
 
   configureReturnPath();
   var requestedId = new URLSearchParams(window.location.search).get('id');
-  if (!requestedId) return showError();
+  if (!requestedId || /^test[-_]/i.test(requestedId)) return showError();
   fetch('/case-studies/intake/api/public-cases?id=' + encodeURIComponent(requestedId), { credentials: 'same-origin' })
     .then(function (response) { if (!response.ok) throw new Error('Published case unavailable'); return response.json(); })
     .then(function (data) {
-      var cases = data && Array.isArray(data.cases) ? data.cases : [];
+      var cases = (data && Array.isArray(data.cases) ? data.cases : []).filter(isPublicCatalogCase);
       var item = cases.find(function (candidate) { return candidate.id === requestedId; });
       if (!item) throw new Error('Case not found');
       return fetch('/case-studies/intake/api/public-cases', { credentials: 'same-origin' })
         .then(function (response) { return response.ok ? response.json() : { cases: [item] }; })
-        .then(function (all) { setCase(item, Array.isArray(all.cases) && all.cases.length ? all.cases : [item]); });
+        .then(function (all) {
+          var siblings = (Array.isArray(all.cases) ? all.cases : []).filter(isPublicCatalogCase);
+          setCase(item, siblings.length ? siblings : [item]);
+        });
     })
     .catch(showError);
 }());
