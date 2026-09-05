@@ -579,3 +579,7 @@ The reusable owner-facing point-of-contact component uses the founder-provided `
 - Production root: `site-caesthetic/`
 
 `docs/ssot/CAESTHETIC_DELIVERY_AND_COMMUNICATION.md` is deprecated after this consolidation and only points here.
+
+## Visual-system authority
+
+`docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md` is the single shared visual canon for website, reports and derived brand materials. It preserves the exact asset, copy and product contracts in this master and its specialist adapters. The 2026-09-05 v3 consolidation is documentation only; runtime adoption is tracked in `docs/audits/caesthetic/design-system-2026-09-05/README.md`.

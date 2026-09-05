@@ -743,7 +743,7 @@ export function networkFocusDecisionHtml(report) {
     <p class="cae-kicker">Why this focus location</p>
     <h3 class="cae-report-subhead" id="network-focus-decision-title">Pilot selection criteria</h3>
     <p>${escapeHtml(view.focus_decision.manager_rationale)}</p>
-    <div class="cae-table-scroll"><table><thead><tr><th scope="col">Criterion</th><th scope="col">Assessment</th><th scope="col">Public evidence</th></tr></thead><tbody>${view.focus_decision.criteria.map((criterion) => `<tr><th scope="row">${escapeHtml(criterion.label)}</th><td>${escapeHtml(criterion.assessment)}</td><td>${evidenceRefsHtml(criterion.evidence_refs)}</td></tr>`).join("")}</tbody></table></div>
+    <div class="cae-table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table><thead><tr><th scope="col">Criterion</th><th scope="col">Assessment</th><th scope="col">Public evidence</th></tr></thead><tbody>${view.focus_decision.criteria.map((criterion) => `<tr><th scope="row">${escapeHtml(criterion.label)}</th><td>${escapeHtml(criterion.assessment)}</td><td>${evidenceRefsHtml(criterion.evidence_refs)}</td></tr>`).join("")}</tbody></table></div>
     <p class="cae-report-note"><strong>Not a performance ranking.</strong> The focus location was selected as the most useful public-evidence pilot, not labeled the network’s weakest business.</p>
   </section>`;
 }
@@ -866,7 +866,7 @@ export function networkComparisonHtml(report) {
   const view = buildMultiLocationPresentationModel(report);
   const header = NETWORK_SURFACES.map((surface) => `<th scope="col">${escapeHtml(surface === "search" ? "Search" : surface[0].toUpperCase() + surface.slice(1))}</th>`).join("");
   const rowsHtml = (rows) => rows.map((row) => `<tr${row.is_focus ? ' data-focus-location="true"' : ""}><th scope="row">${escapeHtml(row.location_name)}${row.is_focus ? "<small>Focus location</small>" : ""}</th>${row.cells.map((cell) => `<td data-surface="${escapeHtml(cell.surface_label)}" data-state="${escapeHtml(cell.state)}"><strong>${escapeHtml(cell.state_label)}</strong><span>${escapeHtml(cell.summary)}</span></td>`).join("")}</tr>`).join("");
-  const tableHtml = (rows, label) => `<div class="cae-table-scroll"><table aria-label="${escapeHtml(label)}"><thead><tr><th scope="col">Location</th>${header}</tr></thead><tbody>${rowsHtml(rows)}</tbody></table></div>`;
+  const tableHtml = (rows, label) => `<div class="cae-table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table aria-label="${escapeHtml(label)}"><thead><tr><th scope="col">Location</th>${header}</tr></thead><tbody>${rowsHtml(rows)}</tbody></table></div>`;
   const additionalRows = view.additional_comparison_rows.length ? `<details class="cae-network-more"><summary>Compare ${escapeHtml(view.additional_comparison_rows.length)} more reviewed locations</summary>${tableHtml(view.additional_comparison_rows, "Additional reviewed locations")}</details>` : "";
   return `<section class="cae-network-comparison" id="network-comparison" aria-labelledby="network-comparison-title">
     <p class="cae-kicker">Internal network comparison</p>

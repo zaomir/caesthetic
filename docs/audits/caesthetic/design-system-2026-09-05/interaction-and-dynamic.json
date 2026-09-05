@@ -1,0 +1,911 @@
+{
+  "checked_at": "2026-09-05T15:58:32.488Z",
+  "screenshots": [
+    "/tmp/caesthetic-design-screenshots/detail-home.png",
+    "/tmp/caesthetic-design-screenshots/detail-_pricing_.png",
+    "/tmp/caesthetic-design-screenshots/detail-_score_demo-medical-aesthetics-search-gap_.png",
+    "/tmp/caesthetic-design-screenshots/detail-_score_spoken-medspa-snellville-9d7f3a5c2e184b61-rus_v2_.png"
+  ],
+  "overflowDetails": [
+    {
+      "route": "/",
+      "data": [
+        {
+          "tag": "P",
+          "cls": "cae-step__num",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "P",
+          "cls": "",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "A",
+          "cls": "cae-btn cae-btn--primary",
+          "chain": [
+            {
+              "tag": "DIV",
+              "cls": "cae-actions",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "P",
+          "cls": "cae-step__num",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "P",
+          "cls": "",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "cae-btn cae-btn--primary",
+          "chain": [
+            {
+              "tag": "DIV",
+              "cls": "cae-actions",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/pricing/",
+      "data": [
+        {
+          "tag": "P",
+          "cls": "cae-step__num",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3 cae-pricing-grid",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "P",
+          "cls": "cae-price-block__amount",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3 cae-pricing-grid",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "P",
+          "cls": "",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3 cae-pricing-grid",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "A",
+          "cls": "cae-btn cae-btn--primary",
+          "chain": [
+            {
+              "tag": "DIV",
+              "cls": "cae-actions",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3 cae-pricing-grid",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "P",
+          "cls": "cae-step__num",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3 cae-pricing-grid",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "P",
+          "cls": "cae-price-block__amount",
+          "chain": [
+            {
+              "tag": "ARTICLE",
+              "cls": "cae-step",
+              "x": "visible",
+              "width": 389
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-steps-3 cae-pricing-grid",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 350
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "visible",
+              "width": 390
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "data": [
+        {
+          "tag": "TABLE",
+          "cls": "cae-report-comparison-matrix",
+          "chain": [
+            {
+              "tag": "DIV",
+              "cls": "cae-report-comparison-wrap",
+              "x": "auto",
+              "width": 352
+            },
+            {
+              "tag": "DETAILS",
+              "cls": "cae-mobile-comparison",
+              "x": "visible",
+              "width": 354
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 354
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "clip",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "",
+          "chain": [
+            {
+              "tag": "DIV",
+              "cls": "cae-mobile-competitor-tabs",
+              "x": "auto",
+              "width": 390
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 354
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "clip",
+              "width": 390
+            },
+            {
+              "tag": "BODY",
+              "cls": "cae-score-report cae-score-report--mobile-story",
+              "x": "clip",
+              "width": 390
+            }
+          ]
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "",
+          "chain": [
+            {
+              "tag": "DIV",
+              "cls": "cae-mobile-competitor-tabs",
+              "x": "auto",
+              "width": 390
+            },
+            {
+              "tag": "DIV",
+              "cls": "cae-wrap",
+              "x": "visible",
+              "width": 354
+            },
+            {
+              "tag": "SECTION",
+              "cls": "cae-section",
+              "x": "visible",
+              "width": 390
+            },
+            {
+              "tag": "MAIN",
+              "cls": "",
+              "x": "clip",
+              "width": 390
+            },
+            {
+              "tag": "BODY",
+              "cls": "cae-score-report cae-score-report--mobile-story",
+              "x": "clip",
+              "width": 390
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "data": [
+        {
+          "tag": "TABLE",
+          "cls": "",
+          "chain": [
+            {
+              "tag": "DIV",
+              "cls": "v2-table-scroll",
+              "x": "auto",
+              "width": 316
+            },
+            {
+              "tag": "DIV",
+              "cls": "v2-details-body",
+              "x": "visible",
+              "width": 356
+            },
+            {
+              "tag": "DETAILS",
+              "cls": "",
+              "x": "visible",
+              "width": 358
+            },
+            {
+              "tag": "SECTION",
+              "cls": "v2-section",
+              "x": "visible",
+              "width": 358
+            },
+            {
+              "tag": "MAIN",
+              "cls": "v2-wrap",
+              "x": "visible",
+              "width": 358
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "keyboard": [
+    {
+      "route": "/",
+      "test": "drawer keyboard Tab 20 times then Escape",
+      "sequence": [
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "cae-menu-btn",
+          "inNav": false,
+          "id": "cae-menu-btn"
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "cae-menu-btn",
+          "inNav": false,
+          "id": "cae-menu-btn"
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        },
+        {
+          "tag": "A",
+          "cls": "cae-nav__link",
+          "inNav": true,
+          "id": ""
+        }
+      ],
+      "afterEscape": {
+        "focused": "cae-menu-btn",
+        "expanded": "false"
+      }
+    },
+    {
+      "route": "/connect4/",
+      "test": "FAQ Enter",
+      "open": true
+    }
+  ],
+  "dynamic": [
+    {
+      "route": "/case-studies/case/?id=miami-concierge-medspa-consult-path",
+      "viewport": 320,
+      "h1": 2,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": true,
+      "access": false
+    },
+    {
+      "route": "/case-studies/case/?id=miami-concierge-medspa-consult-path",
+      "viewport": 390,
+      "h1": 2,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": true,
+      "access": false
+    },
+    {
+      "route": "/case-studies/case/?id=miami-concierge-medspa-consult-path",
+      "viewport": 1440,
+      "h1": 2,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": true,
+      "access": false
+    },
+    {
+      "route": "/case-studies/case/?id=test-ai-booking-friction",
+      "viewport": 320,
+      "h1": 2,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": true,
+      "access": false
+    },
+    {
+      "route": "/case-studies/case/?id=test-ai-booking-friction",
+      "viewport": 390,
+      "h1": 2,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": true,
+      "access": false
+    },
+    {
+      "route": "/case-studies/case/?id=test-ai-booking-friction",
+      "viewport": 1440,
+      "h1": 2,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": true,
+      "access": false
+    },
+    {
+      "route": "/preview/design-system-review-invalid/",
+      "viewport": 320,
+      "h1": 0,
+      "bodyFont": "Times",
+      "bodySize": "16px",
+      "main": false,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/preview/design-system-review-invalid/",
+      "viewport": 390,
+      "h1": 0,
+      "bodyFont": "Times",
+      "bodySize": "16px",
+      "main": false,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/preview/design-system-review-invalid/",
+      "viewport": 1440,
+      "h1": 0,
+      "bodyFont": "Times",
+      "bodySize": "16px",
+      "main": false,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/case-studies/intake/guide/",
+      "viewport": 320,
+      "h1": 0,
+      "bodyFont": "Times",
+      "bodySize": "16px",
+      "main": false,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/case-studies/intake/guide/",
+      "viewport": 390,
+      "h1": 0,
+      "bodyFont": "Times",
+      "bodySize": "16px",
+      "main": false,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/case-studies/intake/guide/",
+      "viewport": 1440,
+      "h1": 0,
+      "bodyFont": "Times",
+      "bodySize": "16px",
+      "main": false,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/definitely-not-existing-design-review",
+      "viewport": 320,
+      "h1": 1,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/definitely-not-existing-design-review",
+      "viewport": 390,
+      "h1": 1,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    },
+    {
+      "route": "/definitely-not-existing-design-review",
+      "viewport": 1440,
+      "h1": 1,
+      "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+      "bodySize": "16px",
+      "main": true,
+      "bodyOverflow": false,
+      "visibleContent": false,
+      "access": false
+    }
+  ]
+}

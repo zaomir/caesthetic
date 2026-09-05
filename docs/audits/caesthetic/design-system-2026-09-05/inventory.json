@@ -1,0 +1,2082 @@
+{
+  "source_sha": "5dad5f00ed2a1105a0542ff42841bdd612ec4374",
+  "scope": "all tracked HTML under site-caesthetic; HTTP GET without credentials or form submission; fragments excluded from route probing",
+  "checked_at": "2026-09-05T16:01:11.407779+00:00",
+  "limitations": "Static flags are heuristics, not rendered WCAG findings. Access form/status does not certify report content. Dynamic worker-only routes are separately inventoried. No private content copied into evidence.",
+  "pages": [
+    {
+      "source": "site-caesthetic/404.html",
+      "route": "/404.html",
+      "kind": "public",
+      "source_sha256": "f4933939ef42afed7fcf47ecfc89dae3667319cd8ccbb8287bb796e1ff2f661f",
+      "stylesheets": [
+        "/assets/css/caesthetic.css"
+      ],
+      "scripts": [],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 307,
+        "location": "https://caesthetic.com/404",
+        "content_type": null,
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "same_as_source": false,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/_handoff/lane-b/footer.html",
+      "route": "/_handoff/lane-b/footer.html",
+      "kind": "fragment",
+      "source_sha256": "9e436ec5640d6a566e518ab54b801451b298953c678a40b6a99887044cf72427",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "source": "site-caesthetic/_handoff/lane-b/header.html",
+      "route": "/_handoff/lane-b/header.html",
+      "kind": "fragment",
+      "source_sha256": "05a077b3d3b5c376b704a711002ffd681d693dd4de661a617b4b848e31289c5b",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "source": "site-caesthetic/_handoff/lane-c/caesthetic-analytics-snippet.html",
+      "route": "/_handoff/lane-c/caesthetic-analytics-snippet.html",
+      "kind": "fragment",
+      "source_sha256": "0b231dd8627f66bfb3c23fdd96eadf44e772f61f8de63bf3e2b2954998444deb",
+      "stylesheets": [],
+      "scripts": [
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "source": "site-caesthetic/about/index.html",
+      "route": "/about/",
+      "kind": "public",
+      "source_sha256": "1f45df1c03a740b440f5cab9fb78f7d2724f04163f166bebb7261a66ea461b76",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 12828,
+        "sha256": "1f45df1c03a740b440f5cab9fb78f7d2724f04163f166bebb7261a66ea461b76",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/audit/index.html",
+      "route": "/audit/",
+      "kind": "redirect",
+      "source_sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 560,
+        "sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/audits/index.html",
+      "route": "/audits/",
+      "kind": "redirect",
+      "source_sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 560,
+        "sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/beauty-salons/index.html",
+      "route": "/beauty-salons/",
+      "kind": "public",
+      "source_sha256": "d1ae88ede0f17b9fc656d62e7bdbde0fa6765dde7e81b762f7a518c82313677d",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/beauty-salons.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/analytics.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/beauty-salons.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 24477,
+        "sha256": "d1ae88ede0f17b9fc656d62e7bdbde0fa6765dde7e81b762f7a518c82313677d",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/case-studies/case/index.html",
+      "route": "/case-studies/case/",
+      "kind": "public",
+      "source_sha256": "12011b630c5d4f401cd5ebb77014f2449be26dfd366eaf281523e5c08fa2cde2",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/case-studies.css",
+        "/assets/css/case-study-detail.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/media-registry.js",
+        "/assets/js/case-study-detail.js"
+      ],
+      "h1_count": 2,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 1,
+      "form_fields": 0,
+      "flags": [
+        "h1-count-review",
+        "image-dimensions-review",
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 11383,
+        "sha256": "12011b630c5d4f401cd5ebb77014f2449be26dfd366eaf281523e5c08fa2cde2",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/case-studies/index.html",
+      "route": "/case-studies/",
+      "kind": "public",
+      "source_sha256": "f6fc74b57c652d1af318112f99808eaca0d8ecb14fb7a00a35fafd079dea0c2d",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/case-studies.css?v=connect4-20260905"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/media-registry.js?v=connect4-20260905",
+        "/assets/js/case-studies.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 1,
+      "form_fields": 11,
+      "flags": [
+        "image-dimensions-review",
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 17879,
+        "sha256": "f6fc74b57c652d1af318112f99808eaca0d8ecb14fb7a00a35fafd079dea0c2d",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/case-studies/intake/index.html",
+      "route": "/case-studies/intake/",
+      "kind": "public",
+      "source_sha256": "9f748b576e26cf09b5dd15598df8a168e14ab97c7d7f48beffeec46c3e55c848",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 404,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 147,
+        "sha256": "f79176d8160a9e40606c1253fcd82e5d9607fcb314f9a36112ceca0d710aafb3",
+        "same_as_source": false,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/connect4/index.html",
+      "route": "/connect4/",
+      "kind": "public",
+      "source_sha256": "01b599fbbac50be22ff3d40a13a80c946fa46a08a552dec5c852ac277bc8299d",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/connect4.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 7,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 33658,
+        "sha256": "01b599fbbac50be22ff3d40a13a80c946fa46a08a552dec5c852ac277bc8299d",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/es/salones-de-belleza/index.html",
+      "route": "/es/salones-de-belleza/",
+      "kind": "public",
+      "source_sha256": "4bd60d30ed554b985c1d4f06086f8a038afdd911c38840244336dae76d00e601",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/beauty-salons.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/analytics.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/beauty-salons.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 24650,
+        "sha256": "4bd60d30ed554b985c1d4f06086f8a038afdd911c38840244336dae76d00e601",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/fr/salons-de-beaute/index.html",
+      "route": "/fr/salons-de-beaute/",
+      "kind": "public",
+      "source_sha256": "1ec0a7abc7c90a31335e4621022b1768c2131761c11d19cf6fae03e8b8135482",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/beauty-salons.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/analytics.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/beauty-salons.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 25565,
+        "sha256": "1ec0a7abc7c90a31335e4621022b1768c2131761c11d19cf6fae03e8b8135482",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/growth-score/index.html",
+      "route": "/growth-score/",
+      "kind": "public",
+      "source_sha256": "c85132360e5d0635e5b7aad217ce757619f5e1610558c0602d62f789017fe198",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 13,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 14921,
+        "sha256": "c85132360e5d0635e5b7aad217ce757619f5e1610558c0602d62f789017fe198",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/growth-system/index.html",
+      "route": "/growth-system/",
+      "kind": "public",
+      "source_sha256": "f0c5f49c1b3d43424404579d86b79bbaec13867e446f8b66260f045999622ee7",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 10834,
+        "sha256": "f0c5f49c1b3d43424404579d86b79bbaec13867e446f8b66260f045999622ee7",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/index.html",
+      "route": "/",
+      "kind": "public",
+      "source_sha256": "988d77a2ca327e739ca430273a13c3923f7d7f89981a8ab35648744ff828a6a2",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 10323,
+        "sha256": "988d77a2ca327e739ca430273a13c3923f7d7f89981a8ab35648744ff828a6a2",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/lead-to-revenue-check/index.html",
+      "route": "/lead-to-revenue-check/",
+      "kind": "public",
+      "source_sha256": "b9eb6609e3836d93f57778a4e219ff296ef4a8a2e617866e5418003948fc0207",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 10792,
+        "sha256": "b9eb6609e3836d93f57778a4e219ff296ef4a8a2e617866e5418003948fc0207",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/legal/cookies/index.html",
+      "route": "/legal/cookies/",
+      "kind": "public",
+      "source_sha256": "04da0e99a5c1c21b98b224db718e412a3084d641fead7602c28e1e8110b91cdf",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 2233,
+        "sha256": "04da0e99a5c1c21b98b224db718e412a3084d641fead7602c28e1e8110b91cdf",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/legal/index.html",
+      "route": "/legal/",
+      "kind": "redirect",
+      "source_sha256": "3c55d7ce6d67ea8d0bd60584de4fc8119d78f679c61cac8a4394695a09b65fad",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 415,
+        "sha256": "3c55d7ce6d67ea8d0bd60584de4fc8119d78f679c61cac8a4394695a09b65fad",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/legal/payment-terms/index.html",
+      "route": "/legal/payment-terms/",
+      "kind": "public",
+      "source_sha256": "e73281d8cb17c16e44e995aac14309ac22b91f60a98973464acbb641efb92e8a",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 6754,
+        "sha256": "e73281d8cb17c16e44e995aac14309ac22b91f60a98973464acbb641efb92e8a",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/legal/privacy/index.html",
+      "route": "/legal/privacy/",
+      "kind": "public",
+      "source_sha256": "1a41e44c0177708cbbd20c3eb5fbe7ce723af032adcc810e42ff35f0d02ae974",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 6099,
+        "sha256": "1a41e44c0177708cbbd20c3eb5fbe7ce723af032adcc810e42ff35f0d02ae974",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/legal/terms/index.html",
+      "route": "/legal/terms/",
+      "kind": "public",
+      "source_sha256": "7f8ca0353b5c0e5852e12eb7fc6819d8a5e192c7f35947704dafdecd17fe0d3d",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 6980,
+        "sha256": "7f8ca0353b5c0e5852e12eb7fc6819d8a5e192c7f35947704dafdecd17fe0d3d",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/multi-location-growth-score/index.html",
+      "route": "/multi-location-growth-score/",
+      "kind": "redirect",
+      "source_sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 560,
+        "sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/pay/index.html",
+      "route": "/pay/",
+      "kind": "public",
+      "source_sha256": "28bed4b52a5f85bbe26e5d153ce7b25d2f24d1d5a780e7e12861838afdcf352e",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js"
+      ],
+      "h1_count": 1,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 4,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 10306,
+        "sha256": "28bed4b52a5f85bbe26e5d153ce7b25d2f24d1d5a780e7e12861838afdcf352e",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/pricing/index.html",
+      "route": "/pricing/",
+      "kind": "public",
+      "source_sha256": "b6e8f709379624946b0acb7e3eba4f5c74e93a565f25799652fcf63b2010c3a3",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/growth.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 10104,
+        "sha256": "b6e8f709379624946b0acb7e3eba4f5c74e93a565f25799652fcf63b2010c3a3",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/privacy/index.html",
+      "route": "/privacy/",
+      "kind": "redirect",
+      "source_sha256": "a30e583671f7ab1f2128075bcc261e670cb08f6df3b9882321a7759f246ae7b3",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 1457,
+        "sha256": "a30e583671f7ab1f2128075bcc261e670cb08f6df3b9882321a7759f246ae7b3",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/bonita/offer/index.html",
+      "route": "/private/bonita/offer/",
+      "kind": "private",
+      "source_sha256": "a9b68b1452c247fdc4a843194cdf9247a2bad4157bdf5b10a27ec316dec85713",
+      "stylesheets": [],
+      "scripts": [
+        "/private/bonita/gate.js"
+      ],
+      "h1_count": 2,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 1,
+      "flags": [
+        "h1-count-review",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 39780,
+        "sha256": "a9b68b1452c247fdc4a843194cdf9247a2bad4157bdf5b10a27ec316dec85713",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/expert-dental/index.html",
+      "route": "/private/expert-dental/",
+      "kind": "private",
+      "source_sha256": "1eafad643a45838fc0263ef89e2ca345e5f2393862f3fad88fa1ef1af5c1e592",
+      "stylesheets": [],
+      "scripts": [
+        "/private/expert-dental/gate.js"
+      ],
+      "h1_count": 2,
+      "images": 3,
+      "missing_alt": 0,
+      "unreserved_images": 3,
+      "form_fields": 1,
+      "flags": [
+        "h1-count-review",
+        "image-dimensions-review",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 49478,
+        "sha256": "1eafad643a45838fc0263ef89e2ca345e5f2393862f3fad88fa1ef1af5c1e592",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/expert-dental/offer/index.html",
+      "route": "/private/expert-dental/offer/",
+      "kind": "private",
+      "source_sha256": "11ea17e483b8af348fb934696c61a27a1fc6b319b9d7d1d638c6955120b5d9d0",
+      "stylesheets": [],
+      "scripts": [
+        "/private/expert-dental/gate.js"
+      ],
+      "h1_count": 2,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 1,
+      "flags": [
+        "h1-count-review",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 36318,
+        "sha256": "11ea17e483b8af348fb934696c61a27a1fc6b319b9d7d1d638c6955120b5d9d0",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/expert-dental-estimate/index.html",
+      "route": "/private/expert-dental-estimate/",
+      "kind": "private",
+      "source_sha256": "9b6c97f73946cef643f44e148bf1bbbe3f212bb722285a45f836967dcc98a7af",
+      "stylesheets": [
+        "/assets/css/caesthetic.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic.js"
+      ],
+      "h1_count": 1,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 1,
+      "form_fields": 8,
+      "flags": [
+        "image-dimensions-review",
+        "legacy-action-type-review",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 29599,
+        "sha256": "9b6c97f73946cef643f44e148bf1bbbe3f212bb722285a45f836967dcc98a7af",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/expert-dental-estimate-v2/index.html",
+      "route": "/private/expert-dental-estimate-v2/",
+      "kind": "private",
+      "source_sha256": "31df39849fec4007f6f92f1de62221e41f5c820623ac25c6e72f9f4e638171ab",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "./estimate-v2.css",
+        "./estimate-v2-fixes.css"
+      ],
+      "scripts": [
+        "./estimate-v2-gate.js?v=20260718-3",
+        "/assets/js/caesthetic.js",
+        "./estimate-v2-data-v7.js",
+        "./estimate-v2-v5.js"
+      ],
+      "h1_count": 2,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 1,
+      "form_fields": 5,
+      "flags": [
+        "h1-count-review",
+        "image-dimensions-review",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 15870,
+        "sha256": "31df39849fec4007f6f92f1de62221e41f5c820623ac25c6e72f9f4e638171ab",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/faina-perukarnya/index.html",
+      "route": "/private/faina-perukarnya/",
+      "kind": "private",
+      "source_sha256": "54d45da62489236507ba42a1c8d194c6b61d928d3ead321cc6254f92d331789c",
+      "stylesheets": [],
+      "scripts": [
+        "payload-1.js?v=20260725-7",
+        "payload-2.js?v=20260725-7",
+        "payload-3.js?v=20260725-7",
+        "payload-4.js?v=20260725-7"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "main-landmark-missing",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 3578,
+        "sha256": "54d45da62489236507ba42a1c8d194c6b61d928d3ead321cc6254f92d331789c",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/faina-perukarnya-v2/index.html",
+      "route": "/private/faina-perukarnya-v2/",
+      "kind": "private",
+      "source_sha256": "147d921ff58de7fd1e5260cf5e16dae9e268b2d0080aeb6801fa0fab2180efa9",
+      "stylesheets": [
+        "/private/templates/local-reputation-launch/template.css?v=20260725-template-1"
+      ],
+      "scripts": [
+        "./client.js?v=20260725-template-1",
+        "/private/templates/local-reputation-launch/template.js?v=20260725-template-1"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 1,
+      "flags": [
+        "shared-system-not-linked"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 1789,
+        "sha256": "147d921ff58de7fd1e5260cf5e16dae9e268b2d0080aeb6801fa0fab2180efa9",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/fermerskiy-ostrovok/index.html",
+      "route": "/private/fermerskiy-ostrovok/",
+      "kind": "private",
+      "source_sha256": "856dfb811492613e326bb0480c25eefe4bbc87bd95f0751750a3d9c3fc52eac4",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 2,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 1,
+      "flags": [
+        "h1-count-review",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 30439,
+        "sha256": "856dfb811492613e326bb0480c25eefe4bbc87bd95f0751750a3d9c3fc52eac4",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/nogi-v-ruki/index.html",
+      "route": "/private/nogi-v-ruki/",
+      "kind": "private",
+      "source_sha256": "1aece5531cfc4c809d8224f043c4b938815383c67fbf7bfe16f8828093bfc38f",
+      "stylesheets": [],
+      "scripts": [
+        "/private/nogi-v-ruki/gate.js"
+      ],
+      "h1_count": 2,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 1,
+      "flags": [
+        "h1-count-review",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 25935,
+        "sha256": "1aece5531cfc4c809d8224f043c4b938815383c67fbf7bfe16f8828093bfc38f",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/nogi-v-ruki/offer/index.html",
+      "route": "/private/nogi-v-ruki/offer/",
+      "kind": "redirect",
+      "source_sha256": "9acd61590d1d68e8f8adbedfac4cc45655fec0f678dd9eb09e563547fafe2404",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 544,
+        "sha256": "9acd61590d1d68e8f8adbedfac4cc45655fec0f678dd9eb09e563547fafe2404",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "route": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "kind": "private",
+      "source_sha256": "aa3839b2744327a5e7efdfe69aa801845f7f9e5db7ce46916f7e5f651bf4cee6",
+      "stylesheets": [
+        "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      ],
+      "scripts": [],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "main-landmark-missing",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 307,
+        "location": "https://caesthetic.com/private/prodavay-kak-faunder/assets/decks/pisarevsky-events",
+        "content_type": null,
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "same_as_source": false,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/prodavay-kak-faunder/index.html",
+      "route": "/private/prodavay-kak-faunder/",
+      "kind": "private",
+      "source_sha256": "aa328173fd9c8a0a98700f923efd8db8a119bbbb8adace0b27d5fd0649683338",
+      "stylesheets": [
+        "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560;9..144,650&family=Source+Sans+3:wght@400;600;700&display=swap",
+        "./styles.css"
+      ],
+      "scripts": [
+        "./content.js",
+        "./app.js"
+      ],
+      "h1_count": 2,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 1,
+      "flags": [
+        "h1-count-review",
+        "shared-system-not-linked",
+        "local-css-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 5762,
+        "sha256": "aa328173fd9c8a0a98700f923efd8db8a119bbbb8adace0b27d5fd0649683338",
+        "same_as_source": true,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/private/prodavay-kak-faunder/transcript-body.html",
+      "route": "/private/prodavay-kak-faunder/transcript-body.html",
+      "kind": "fragment",
+      "source_sha256": "cb93e777632610c0563725a0b4d2042d20ccd7a0f9bddf7c74061b155d0eec21",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "source": "site-caesthetic/ru/salony-krasoty/index.html",
+      "route": "/ru/salony-krasoty/",
+      "kind": "public",
+      "source_sha256": "59b1309ff13fa5a5432c995d513dbfaffe26d4c6229735bc397b0b7b9b0deee8",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/beauty-salons.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/analytics.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/beauty-salons.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 30633,
+        "sha256": "59b1309ff13fa5a5432c995d513dbfaffe26d4c6229735bc397b0b7b9b0deee8",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/index.html",
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "kind": "report",
+      "source_sha256": "9b0266e354a66ad81ae33d68e1303e3706ba938fa6a6beba183d90f55bb674f4",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 404,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 89,
+        "sha256": "28dea4dc031139d1922f90f0bba415e3fc5d85f6b7a07820549cef5599baa006",
+        "same_as_source": false,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/aurora-medspa-x7k9m2/index.html",
+      "route": "/score/aurora-medspa-x7k9m2/",
+      "kind": "report",
+      "source_sha256": "e232df609763f680e846ce76c65a5c15e0a9a80bf4691b2b323c54568e3dffc9",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 404,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 89,
+        "sha256": "28dea4dc031139d1922f90f0bba415e3fc5d85f6b7a07820549cef5599baa006",
+        "same_as_source": false,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/demo-aesthetics-clinic-reputation-gap/index.html",
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "kind": "report",
+      "source_sha256": "8254868ea3cdf0763b39e025b8c6ab061ab783e74c58642ebc982cd69ba3ebba",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 72079,
+        "sha256": "8254868ea3cdf0763b39e025b8c6ab061ab783e74c58642ebc982cd69ba3ebba",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/demo-injector-practice-booking-friction/index.html",
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "kind": "report",
+      "source_sha256": "2d2ca487aa804e0dc1cce96218388c1bd3d9c1a642765c5659079bca3737a587",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 80546,
+        "sha256": "2d2ca487aa804e0dc1cce96218388c1bd3d9c1a642765c5659079bca3737a587",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/demo-medical-aesthetics-search-gap/index.html",
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "kind": "report",
+      "source_sha256": "d689398b2a1cf31f6fb7b3db0fa9369ac99a003a8d14323d14af2648d15e51d3",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 70684,
+        "sha256": "d689398b2a1cf31f6fb7b3db0fa9369ac99a003a8d14323d14af2648d15e51d3",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/demo-multi-location-growth-score/focus-location/index.html",
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "kind": "report",
+      "source_sha256": "9fc84fffb93773a663934e8d4b9b9561db8443a580f5aec43e764fc2134e38b7",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 52259,
+        "sha256": "9fc84fffb93773a663934e8d4b9b9561db8443a580f5aec43e764fc2134e38b7",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/demo-multi-location-growth-score/index.html",
+      "route": "/score/demo-multi-location-growth-score/",
+      "kind": "report",
+      "source_sha256": "c52570e884517201a2e6e79bcb09447eeb3d1cc6c2d9ec54bdb419ec2c93744d",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 72030,
+        "sha256": "c52570e884517201a2e6e79bcb09447eeb3d1cc6c2d9ec54bdb419ec2c93744d",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/demo-publish-control-plane-network/focus-location/index.html",
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "kind": "report",
+      "source_sha256": "f89d40f74fa740885e3b39d65344a0627f147462ab87c79146547d8e357df2ff",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 61501,
+        "sha256": "f89d40f74fa740885e3b39d65344a0627f147462ab87c79146547d8e357df2ff",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/demo-publish-control-plane-network/index.html",
+      "route": "/score/demo-publish-control-plane-network/",
+      "kind": "report",
+      "source_sha256": "98970b7a67e35cbb2877ca4f6af0fe929dee71f28fdcf0134ec585e37fc84247",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 61566,
+        "sha256": "98970b7a67e35cbb2877ca4f6af0fe929dee71f28fdcf0134ec585e37fc84247",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/index.html",
+      "route": "/score/",
+      "kind": "public",
+      "source_sha256": "b374a88da1f8a83b4bec5f10898062be6eaa6e603198832e0ab5b978478b1007",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 3356,
+        "sha256": "b374a88da1f8a83b4bec5f10898062be6eaa6e603198832e0ab5b978478b1007",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/index.html",
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "kind": "report",
+      "source_sha256": "f4d9cf202e58c86f28e1dd378be48433166c53deb76b434982c7a474d6460aa6",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js",
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 1487,
+        "sha256": "784dc8a0aa7401e944a3c0ffa056a9de40ce67f5072edf3450a95c48c1e5e1e3",
+        "same_as_source": false,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/index.html",
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "kind": "report",
+      "source_sha256": "2e485c67ddfeb74555e9492a4f406ce3056cb2809ebc04fec2a16a3c2a20eba9",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css"
+      ],
+      "scripts": [
+        "/assets/js/growth-cockpit.js"
+      ],
+      "h1_count": 1,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 1482,
+        "sha256": "f6b2c8b9f9acf8ed28ee693038803a9b37b2c77cf5faf72921ed2b5cf12cdfcc",
+        "same_as_source": false,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+      "kind": "report",
+      "source_sha256": "1eea919d3c6885dc8a378e3f0671b004c2ad449ac8d53f691b8a3eb20927ddaf",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css?v=2.1.4"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/growth-cockpit.js?v=1.1.6"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 1486,
+        "sha256": "24841e8beb6db1236301d22693150393e8cc950df53731c329a8f3f718467964",
+        "same_as_source": false,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+      "kind": "report",
+      "source_sha256": "2cacceb06ddb8ccc2683c8b5430c5167c8081999a2fae5a53add7fe68bd24d27",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-score-owner-v2.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/growth-score-owner-v2.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 1489,
+        "sha256": "fb7f381880f66182f5363e0169b28413f7a4e994c2220a93964931c3b4c217f8",
+        "same_as_source": false,
+        "access_form": true,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/",
+      "kind": "report",
+      "source_sha256": "39af10ea614478ca9061118266f1eae41bf669f0240fb861a94c1ec6b4e89a66",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-report.css?v=2.1.4"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/growth-cockpit.js?v=1.1.6"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 43713,
+        "sha256": "39af10ea614478ca9061118266f1eae41bf669f0240fb861a94c1ec6b4e89a66",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "kind": "report",
+      "source_sha256": "938415bc2ca9d82be9107271bd804967b3f57db4050500ae9f81f78f7f5c48f4",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth-score-owner-v2.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/growth-score-owner-v2.js"
+      ],
+      "h1_count": 1,
+      "images": 2,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 68792,
+        "sha256": "938415bc2ca9d82be9107271bd804967b3f57db4050500ae9f81f78f7f5c48f4",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/sprint/index.html",
+      "route": "/sprint/",
+      "kind": "public",
+      "source_sha256": "df0accbe566472cb7b8fbb9d4836ba20dd14fc4bdff10b17d402a986b738d4dc",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-pricing.generated.js",
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 9593,
+        "sha256": "df0accbe566472cb7b8fbb9d4836ba20dd14fc4bdff10b17d402a986b738d4dc",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/support/index.html",
+      "route": "/support/",
+      "kind": "public",
+      "source_sha256": "a637824e779af471cdbddbfeeb6ee08280e539e230840134a8d4c753ff705231",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [
+        "/assets/js/caesthetic-config.js",
+        "/assets/js/caesthetic.js",
+        "/assets/js/analytics.js"
+      ],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [
+        "late-visual-css",
+        "legacy-action-type-review"
+      ],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 4182,
+        "sha256": "a637824e779af471cdbddbfeeb6ee08280e539e230840134a8d4c753ff705231",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    },
+    {
+      "source": "site-caesthetic/templates/footer.html",
+      "route": "/templates/footer.html",
+      "kind": "fragment",
+      "source_sha256": "a1c658f8bfaa5fea730cdc73bd97940b9cbbd50f8764efbf1018e695456265c1",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "source": "site-caesthetic/templates/header.html",
+      "route": "/templates/header.html",
+      "kind": "fragment",
+      "source_sha256": "e35580d275e23679ff9f9211faa039089d46a033bf25f03753f166e4601087e6",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 1,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "source": "site-caesthetic/templates/partner-tech-fieldset.html",
+      "route": "/templates/partner-tech-fieldset.html",
+      "kind": "fragment",
+      "source_sha256": "7ff740a769d1b981ffb53263c899e46e9e431cd2e73e7ae92ef6eb38d4171696",
+      "stylesheets": [],
+      "scripts": [],
+      "h1_count": 0,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 5,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "source": "site-caesthetic/terms/index.html",
+      "route": "/terms/",
+      "kind": "redirect",
+      "source_sha256": "9bccac28c54ee3fdb95f0a9329bf00b8d9f0b6ede345901bb9da0e7ed470fdd0",
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css"
+      ],
+      "scripts": [],
+      "h1_count": 1,
+      "images": 0,
+      "missing_alt": 0,
+      "unreserved_images": 0,
+      "form_fields": 0,
+      "flags": [],
+      "missing_local_assets": [],
+      "rendered_review": "NOT_ASSESSED",
+      "live": {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html",
+        "bytes": 1453,
+        "sha256": "9bccac28c54ee3fdb95f0a9329bf00b8d9f0b6ede345901bb9da0e7ed470fdd0",
+        "same_as_source": true,
+        "access_form": false,
+        "error": null
+      }
+    }
+  ]
+}

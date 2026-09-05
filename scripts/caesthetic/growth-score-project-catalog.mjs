@@ -250,6 +250,8 @@ export function renderPublicCatalogHtml(publicCatalog) {
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
   <link rel="stylesheet" href="/assets/css/growth.css">
+<link rel="stylesheet" href="/assets/css/point-of-contact.css">
+<link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
 </head>
 <body>
 <div id="cae-header-slot"></div>

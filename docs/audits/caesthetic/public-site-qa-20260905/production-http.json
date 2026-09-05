@@ -1,0 +1,382 @@
+{
+  "checked_at_utc": "2026-09-05T15:54:34.106635+00:00",
+  "expected_sha": "9db22c06eb8ac05509bfae7e2c0279a2d567cb13",
+  "kind": "read-only HTTP byte/status verification, not browser UI",
+  "results": [
+    {
+      "url": "https://caesthetic.com/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/",
+      "bytes": 10323,
+      "sha256": "988d77a2ca327e739ca430273a13c3923f7d7f89981a8ab35648744ff828a6a2",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/about/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/about/",
+      "bytes": 12828,
+      "sha256": "1f45df1c03a740b440f5cab9fb78f7d2724f04163f166bebb7261a66ea461b76",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/beauty-salons/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/beauty-salons/",
+      "bytes": 24477,
+      "sha256": "d1ae88ede0f17b9fc656d62e7bdbde0fa6765dde7e81b762f7a518c82313677d",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/case-studies/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/case-studies/",
+      "bytes": 17879,
+      "sha256": "f6fc74b57c652d1af318112f99808eaca0d8ecb14fb7a00a35fafd079dea0c2d",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/case-studies/case/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/case-studies/case/",
+      "bytes": 11383,
+      "sha256": "12011b630c5d4f401cd5ebb77014f2449be26dfd366eaf281523e5c08fa2cde2",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/connect4/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/connect4/",
+      "bytes": 33658,
+      "sha256": "01b599fbbac50be22ff3d40a13a80c946fa46a08a552dec5c852ac277bc8299d",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/es/salones-de-belleza/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/es/salones-de-belleza/",
+      "bytes": 24650,
+      "sha256": "4bd60d30ed554b985c1d4f06086f8a038afdd911c38840244336dae76d00e601",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/fr/salons-de-beaute/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/fr/salons-de-beaute/",
+      "bytes": 25565,
+      "sha256": "1ec0a7abc7c90a31335e4621022b1768c2131761c11d19cf6fae03e8b8135482",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/growth-score/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/growth-score/",
+      "bytes": 14921,
+      "sha256": "c85132360e5d0635e5b7aad217ce757619f5e1610558c0602d62f789017fe198",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/growth-system/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/growth-system/",
+      "bytes": 10834,
+      "sha256": "f0c5f49c1b3d43424404579d86b79bbaec13867e446f8b66260f045999622ee7",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/lead-to-revenue-check/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/lead-to-revenue-check/",
+      "bytes": 10792,
+      "sha256": "b9eb6609e3836d93f57778a4e219ff296ef4a8a2e617866e5418003948fc0207",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/legal/cookies/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/legal/cookies/",
+      "bytes": 2233,
+      "sha256": "04da0e99a5c1c21b98b224db718e412a3084d641fead7602c28e1e8110b91cdf",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/legal/payment-terms/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/legal/payment-terms/",
+      "bytes": 6754,
+      "sha256": "e73281d8cb17c16e44e995aac14309ac22b91f60a98973464acbb641efb92e8a",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/legal/privacy/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/legal/privacy/",
+      "bytes": 6099,
+      "sha256": "1a41e44c0177708cbbd20c3eb5fbe7ce723af032adcc810e42ff35f0d02ae974",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/legal/terms/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/legal/terms/",
+      "bytes": 6980,
+      "sha256": "7f8ca0353b5c0e5852e12eb7fc6819d8a5e192c7f35947704dafdecd17fe0d3d",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/pay/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/pay/",
+      "bytes": 10306,
+      "sha256": "28bed4b52a5f85bbe26e5d153ce7b25d2f24d1d5a780e7e12861838afdcf352e",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/pricing/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/pricing/",
+      "bytes": 10104,
+      "sha256": "b6e8f709379624946b0acb7e3eba4f5c74e93a565f25799652fcf63b2010c3a3",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/ru/salony-krasoty/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/ru/salony-krasoty/",
+      "bytes": 30633,
+      "sha256": "59b1309ff13fa5a5432c995d513dbfaffe26d4c6229735bc397b0b7b9b0deee8",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/",
+      "bytes": 3356,
+      "sha256": "b374a88da1f8a83b4bec5f10898062be6eaa6e603198832e0ab5b978478b1007",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/demo-aesthetics-clinic-reputation-gap/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/demo-aesthetics-clinic-reputation-gap/",
+      "bytes": 72079,
+      "sha256": "8254868ea3cdf0763b39e025b8c6ab061ab783e74c58642ebc982cd69ba3ebba",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/demo-injector-practice-booking-friction/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/demo-injector-practice-booking-friction/",
+      "bytes": 80546,
+      "sha256": "2d2ca487aa804e0dc1cce96218388c1bd3d9c1a642765c5659079bca3737a587",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/demo-medical-aesthetics-search-gap/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/demo-medical-aesthetics-search-gap/",
+      "bytes": 70684,
+      "sha256": "d689398b2a1cf31f6fb7b3db0fa9369ac99a003a8d14323d14af2648d15e51d3",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/demo-multi-location-growth-score/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/demo-multi-location-growth-score/",
+      "bytes": 72030,
+      "sha256": "c52570e884517201a2e6e79bcb09447eeb3d1cc6c2d9ec54bdb419ec2c93744d",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/demo-multi-location-growth-score/focus-location/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/demo-multi-location-growth-score/focus-location/",
+      "bytes": 52259,
+      "sha256": "9fc84fffb93773a663934e8d4b9b9561db8443a580f5aec43e764fc2134e38b7",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/demo-publish-control-plane-network/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/demo-publish-control-plane-network/",
+      "bytes": 61566,
+      "sha256": "98970b7a67e35cbb2877ca4f6af0fe929dee71f28fdcf0134ec585e37fc84247",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/score/demo-publish-control-plane-network/focus-location/",
+      "bytes": 61501,
+      "sha256": "f89d40f74fa740885e3b39d65344a0627f147462ab87c79146547d8e357df2ff",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/sprint/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/sprint/",
+      "bytes": 9593,
+      "sha256": "df0accbe566472cb7b8fbb9d4836ba20dd14fc4bdff10b17d402a986b738d4dc",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/support/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/support/",
+      "bytes": 4182,
+      "sha256": "a637824e779af471cdbddbfeeb6ee08280e539e230840134a8d4c753ff705231",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/audit/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/audit/",
+      "bytes": 560,
+      "sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/audits/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/audits/",
+      "bytes": 560,
+      "sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/multi-location-growth-score/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/multi-location-growth-score/",
+      "bytes": 560,
+      "sha256": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/legal/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/legal/",
+      "bytes": 415,
+      "sha256": "3c55d7ce6d67ea8d0bd60584de4fc8119d78f679c61cac8a4394695a09b65fad",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/privacy/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/privacy/",
+      "bytes": 1457,
+      "sha256": "a30e583671f7ab1f2128075bcc261e670cb08f6df3b9882321a7759f246ae7b3",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/terms/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/terms/",
+      "bytes": 1453,
+      "sha256": "9bccac28c54ee3fdb95f0a9329bf00b8d9f0b6ede345901bb9da0e7ed470fdd0",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/beauty/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/beauty-salons/",
+      "bytes": 24477,
+      "sha256": "d1ae88ede0f17b9fc656d62e7bdbde0fa6765dde7e81b762f7a518c82313677d"
+    },
+    {
+      "url": "https://caesthetic.com/go/new-salon-launch/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/beauty-salons/",
+      "bytes": 24477,
+      "sha256": "d1ae88ede0f17b9fc656d62e7bdbde0fa6765dde7e81b762f7a518c82313677d"
+    },
+    {
+      "url": "https://caesthetic.com/go/salon-growth/",
+      "status": 200,
+      "final_url": "https://caesthetic.com/beauty-salons/",
+      "bytes": 24477,
+      "sha256": "d1ae88ede0f17b9fc656d62e7bdbde0fa6765dde7e81b762f7a518c82313677d"
+    },
+    {
+      "url": "https://caesthetic.com/sitemap.xml",
+      "status": 200,
+      "final_url": "https://caesthetic.com/sitemap.xml",
+      "bytes": 1906,
+      "sha256": "6746e253ebb779c371f8b96c128f223026ecbd53209c33129d14a2df24c0b695",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/robots.txt",
+      "status": 200,
+      "final_url": "https://caesthetic.com/robots.txt",
+      "bytes": 1984,
+      "sha256": "1abd54e4e8fdefe1a55a66066285626a045b74a2da4f9bfc08d8f903f0081fb1",
+      "matches_checkout": false,
+      "expected_edge_augmentation": "Cloudflare Managed Content prefix; repository robots file preserved verbatim as suffix",
+      "canonical_suffix_matches": true
+    },
+    {
+      "url": "https://caesthetic.com/templates/header.html",
+      "status": 200,
+      "final_url": "https://caesthetic.com/templates/header",
+      "bytes": 2907,
+      "sha256": "e35580d275e23679ff9f9211faa039089d46a033bf25f03753f166e4601087e6",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/templates/footer.html",
+      "status": 200,
+      "final_url": "https://caesthetic.com/templates/footer",
+      "bytes": 2910,
+      "sha256": "a1c658f8bfaa5fea730cdc73bd97940b9cbbd50f8764efbf1018e695456265c1",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/assets/css/caesthetic.css",
+      "status": 200,
+      "final_url": "https://caesthetic.com/assets/css/caesthetic.css",
+      "bytes": 67249,
+      "sha256": "756135a3c2747d48044d8c7297224ebf99c11c04ebd33719b688fd1b659ca36f",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/assets/css/growth.css",
+      "status": 200,
+      "final_url": "https://caesthetic.com/assets/css/growth.css",
+      "bytes": 25571,
+      "sha256": "13294b3ccde8afeb73e56d6ec163c3145ea26c5427fbb5b42f583f390966948f",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/assets/js/caesthetic.js",
+      "status": 200,
+      "final_url": "https://caesthetic.com/assets/js/caesthetic.js",
+      "bytes": 29568,
+      "sha256": "1fe4aab2ec3f7a2094d14c03a9cb34a8551d35e2d4ed69888bdeb9c4bd54653b",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/assets/js/salon-funnel-copy.js",
+      "status": 200,
+      "final_url": "https://caesthetic.com/assets/js/salon-funnel-copy.js",
+      "bytes": 3432,
+      "sha256": "9a1d33fad1222801864304f5686a3208f4266a4a0c94ae83dbbc434aadbacc6d",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/assets/js/caesthetic-config.js",
+      "status": 200,
+      "final_url": "https://caesthetic.com/assets/js/caesthetic-config.js",
+      "bytes": 3525,
+      "sha256": "3a2eb7d3b00cbe646839d466505808e594af4f9394358bd449ea0afbf140775a",
+      "matches_checkout": true
+    },
+    {
+      "url": "https://caesthetic.com/__qa_nonexistent_20260905__/",
+      "status": 404,
+      "final_url": "https://caesthetic.com/__qa_nonexistent_20260905__/",
+      "bytes": 886,
+      "sha256": "f4933939ef42afed7fcf47ecfc89dae3667319cd8ccbb8287bb796e1ff2f661f"
+    }
+  ],
+  "failures": []
+}

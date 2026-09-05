@@ -1,0 +1,32 @@
+{
+  "command": "npx impeccable detect site-caesthetic",
+  "result": "findings; triaged, not a zero-warning pass",
+  "categories": {
+    "monotonous-spacing": 1,
+    "side-tab": 124,
+    "layout-transition": 4,
+    "cramped-padding": 895,
+    "all-caps-body": 191,
+    "tight-leading": 18,
+    "clipped-overflow-container": 10,
+    "aphoristic-cadence": 3,
+    "broken-image": 3,
+    "hero-eyebrow-chip": 6,
+    "overused-font": 3,
+    "cream-palette": 1,
+    "pulsing-dot": 2,
+    "undersized-ui-text": 159,
+    "wide-tracking": 8,
+    "low-contrast": 106,
+    "ai-color-palette": 12,
+    "extreme-negative-tracking": 13,
+    "skipped-heading": 4,
+    "gradient-text": 21,
+    "dark-glow": 5,
+    "nested-cards": 3,
+    "kicker-above-heading": 8,
+    "em-dash-overuse": 5,
+    "gpt-thin-border-wide-shadow": 4,
+    "numbered-section-labels": 12
+  }
+}

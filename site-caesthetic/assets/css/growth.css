@@ -115,6 +115,8 @@
 }
 
 .cae-step {
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding: var(--cae-space-6) 0;
   border-top: 2px solid var(--cae-border-strong);
 }
@@ -649,7 +651,7 @@
 .cae-surface-stack { margin-top: var(--cae-space-7); }
 .cae-surface { padding: var(--cae-space-7) 0; border-top: 1px solid var(--cae-border-strong); }
 .cae-surface__header { display: flex; justify-content: space-between; gap: var(--cae-space-6); align-items: end; }
-.cae-surface__header h2 { margin: 0; font-family: var(--cae-font-display); font-size: var(--cae-text-3xl); font-weight: 400; }
+.cae-surface__header h2 { margin: 0; font-family: var(--cae-font-display); font-size: var(--cae-text-2xl); font-weight: 400; }
 .cae-surface__score { font-family: var(--cae-font-mono); font-size: var(--cae-text-lg); text-align: right; }
 .cae-evidence-coverage { color: var(--cae-muted); font-size: var(--cae-text-sm); }
 .cae-metric-list { margin-top: var(--cae-space-5); border-top: 1px solid var(--cae-border); }
@@ -937,7 +939,7 @@
 
 @media (max-width: 800px) {
   .cae-leak-list li {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--cae-space-2);
   }
   .cae-steps-3,
@@ -945,7 +947,7 @@
   .cae-split-lists,
   .cae-person,
   .cae-sample-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .cae-owner-questions,
   .cae-gate-grid,
@@ -955,7 +957,7 @@
   .cae-check-branch,
   .cae-check-path,
   .cae-check-commercial {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .cae-owner-questions p {
     min-height: 0;
@@ -970,7 +972,7 @@
   .cae-allocation-model > b {
     justify-self: start;
   }
-  .cae-demo-list a, .cae-score-index, .cae-diagnosis, .cae-score-summary__intro, .cae-diagnosis-summary, .cae-methodology { grid-template-columns: 1fr; }
+  .cae-demo-list a, .cae-score-index, .cae-diagnosis, .cae-score-summary__intro, .cae-diagnosis-summary, .cae-methodology { grid-template-columns: minmax(0, 1fr); }
   .cae-score-index a { border-right: 0; border-bottom: 1px solid var(--cae-border); }
   .cae-score-index a:last-child { border-bottom: 0; }
   .cae-surface__header { align-items: start; }
@@ -978,10 +980,10 @@
   .cae-score-card-grid { grid-template-columns: 1fr 1fr; }
   .cae-score-card:nth-child(2) { border-right: 0; }
   .cae-score-card:nth-child(-n+2) { border-bottom: 1px solid var(--cae-border); }
-  .cae-score-cross .cae-score-card, .cae-competitor-list li { grid-template-columns: 1fr; }
+  .cae-score-cross .cae-score-card, .cae-competitor-list li { grid-template-columns: minmax(0, 1fr); }
   .cae-diagnosis-summary article + article { padding-left: 0; border-top: 1px solid var(--cae-border-strong); border-left: 0; }
   .cae-methodology__action { display: grid; }
-  .cae-score-intake__grid { grid-template-columns: 1fr; }
+  .cae-score-intake__grid { grid-template-columns: minmax(0, 1fr); }
   .cae-score-intake__wide { grid-column: auto; }
   .cae-score-intake__actions { align-items: stretch; }
   .cae-score-intake__actions .cae-btn { width: 100%; white-space: normal; }
@@ -994,7 +996,7 @@
   .cae-brand__tag {
     display: none;
   }
-  .cae-score-card-grid { grid-template-columns: 1fr; }
+  .cae-score-card-grid { grid-template-columns: minmax(0, 1fr); }
   .cae-score-card, .cae-score-card:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--cae-border); }
   .cae-score-card:last-child { border-bottom: 0; }
   .cae-score-intake { padding: var(--cae-space-4); }

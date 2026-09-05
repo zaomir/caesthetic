@@ -1,0 +1,1609 @@
+{
+  "identity": {
+    "sha": "196294d0e21e7a7586be9aef4d6e2e3538317a26",
+    "runtimeHash": "ca99f807d39c61317b31919449b613403934ac279c07bedb4614be30a0c7be57",
+    "ssotHash": "13ab28de609233c4df4bde3086bfcb9f9ea83aae85ea576ab895e3e52b3e0a26",
+    "contractHash": "c336fd4d99c2b0170da1e4001484398d0733bade76fcdb6792501af1fce3ced6"
+  },
+  "base": "http://127.0.0.1:59129",
+  "checkedAt": "2026-09-05T16:26:29.105Z",
+  "results": [
+    {
+      "route": "/404.html",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/about/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/audit/",
+      "profile": "redirect",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/404.html",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/audit/",
+      "profile": "redirect",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/about/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/404.html",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/audit/",
+      "profile": "redirect",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/about/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/audits/",
+      "profile": "redirect",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/beauty-salons/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/case-studies/case/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/audits/",
+      "profile": "redirect",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/beauty-salons/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/case-studies/case/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/audits/",
+      "profile": "redirect",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/beauty-salons/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/case-studies/case/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/case-studies/intake/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/case-studies/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/connect4/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/case-studies/intake/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/case-studies/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/case-studies/intake/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/connect4/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/case-studies/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/connect4/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/growth-score/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/growth-score/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/growth-system/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/growth-score/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/growth-system/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "profile": "check500",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/growth-system/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "profile": "check500",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/cookies/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "profile": "check500",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/cookies/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/legal/",
+      "profile": "redirect",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/cookies/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/",
+      "profile": "redirect",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/legal/",
+      "profile": "redirect",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/privacy/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/terms/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/privacy/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/multi-location-growth-score/",
+      "profile": "redirect",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/privacy/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/legal/terms/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/multi-location-growth-score/",
+      "profile": "redirect",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/legal/terms/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/pay/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/multi-location-growth-score/",
+      "profile": "redirect",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/pricing/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/pay/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/privacy/",
+      "profile": "redirect",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/pay/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/pricing/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/private/bonita/offer/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/privacy/",
+      "profile": "redirect",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/pricing/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/private/bonita/offer/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/privacy/",
+      "profile": "redirect",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/private/expert-dental/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/bonita/offer/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/expert-dental/offer/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/expert-dental/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/expert-dental/offer/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/expert-dental/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/expert-dental-estimate/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/private/expert-dental/offer/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/faina-perukarnya/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/expert-dental-estimate-v2/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/expert-dental-estimate/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/private/faina-perukarnya/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/expert-dental-estimate/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/private/expert-dental-estimate-v2/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/faina-perukarnya/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/faina-perukarnya-v2/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/expert-dental-estimate-v2/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/fermerskiy-ostrovok/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/faina-perukarnya-v2/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/nogi-v-ruki/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/fermerskiy-ostrovok/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/faina-perukarnya-v2/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/nogi-v-ruki/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/fermerskiy-ostrovok/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/nogi-v-ruki/offer/",
+      "profile": "redirect",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/nogi-v-ruki/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/nogi-v-ruki/offer/",
+      "profile": "redirect",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/private/nogi-v-ruki/offer/",
+      "profile": "redirect",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/",
+      "profile": "private-legacy",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/",
+      "profile": "private-legacy",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true,
+      "axe": []
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/",
+      "profile": "private-legacy",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": true
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/aurora-medspa-x7k9m2/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/aurora-medspa-x7k9m2/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/aurora-medspa-x7k9m2/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+      "profile": "spoken-v2",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+      "profile": "spoken-v2",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+      "profile": "spoken-v2",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "profile": "spoken-v2",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/sprint/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "profile": "spoken-v2",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/sprint/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "profile": "spoken-v2",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/support/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/sprint/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/terms/",
+      "profile": "redirect",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/support/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/__design-kit/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/support/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/terms/",
+      "profile": "redirect",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/__design-kit/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/terms/",
+      "profile": "redirect",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/__design-kit/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    }
+  ],
+  "errors": []
+}

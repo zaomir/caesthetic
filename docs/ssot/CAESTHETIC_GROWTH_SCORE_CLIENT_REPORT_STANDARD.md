@@ -585,8 +585,8 @@ Acceptance requires:
 6. Four Surfaces unchanged; Cross-Surface remains separate; Lead Intake/internal conversion is not rendered as a fifth surface;
 7. for new authoring: one reviewed `journeyGraph` artifact, both deterministic public views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
 8. one reviewed `decisionViews` artifact: all five views use only existing approved report evidence, retain the exact Four Surfaces, keep all automation flags false, render inference/hold review fail-closed and do not change Overall or Focus Selection;
-9. Hero uses client-logo provenance/fallback rules, adaptive four-slot assignment and no invented success journey;
-10. Hero uses the exact canonical title and composition, colors each segment from its own edge, and shows no false green Social/Reviews → Lead Intake relationship;
+9. Hero uses the exact immutable PNG and hash in §3.1, with proportional scaling only; no client-logo overlay, adaptive reconstruction or invented success journey;
+10. Hero uses the exact canonical title and locked artwork; the separate evidence-driven Broken Connections Map colors each segment from its own approved edge and shows no false green Social/Reviews → Lead Intake relationship;
 11. Broken Connections Map appears from the same graph artifact before Focus Gaps in the owner visual flow, shares the exact edge IDs/states, omits optional unassessed relationships and retains detailed evidence drill-down later;
 12. Lead-to-Revenue Map keeps unassessed downstream states gray and contains no unsupported internal-cause diagnosis; both Check placements match their copy/placement contracts, remain visible without behavior gating, do not claim a leak and do not replace a separate evidence-backed Sprint CTA;
 13. internal review anchors `1101–1109` are absent from final approved client source;

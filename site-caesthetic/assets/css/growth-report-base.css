@@ -80,8 +80,8 @@
 .cae-report-disclosure {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--cae-border);
-  background: var(--cae-surface-soft);
-  color: var(--cae-text-muted);
+  background: var(--cae-bg-2);
+  color: var(--cae-muted);
   font-size: 0.82rem;
   text-align: center;
 }
@@ -265,7 +265,7 @@
   align-items: start;
   padding: var(--cae-space-6);
   border: 1px solid var(--cae-border);
-  border-radius: 14px;
+  border-radius: var(--cae-radius);
   background: var(--cae-report-card-bg);
   color: inherit;
   text-decoration: none;
@@ -315,7 +315,7 @@ a.cae-report-walkthrough:hover {
 
 /* Legacy walkthrough without photo grid */
 .cae-report-walkthrough:not(:has(.cae-report-walkthrough__media)) {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 /* ─── Current state summary ─── */
@@ -325,7 +325,7 @@ a.cae-report-walkthrough:hover {
   grid-row: span 2;
   gap: var(--cae-space-4);
   border: 1px solid var(--cae-border);
-  border-radius: 14px;
+  border-radius: var(--cae-radius);
   background: var(--cae-report-card-bg);
 }
 
@@ -638,7 +638,7 @@ a.cae-report-walkthrough:hover {
 }
 
 .cae-report-priority {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   padding: var(--cae-space-6);
   border: 1px solid var(--cae-border);
   border-top: 0;
@@ -995,7 +995,7 @@ a.cae-report-walkthrough:hover {
 
 .cae-report-problems {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
   margin-top: var(--cae-space-4);
   border-top: 2px solid var(--cae-border-strong);
@@ -1313,7 +1313,7 @@ a.cae-report-walkthrough:hover {
 
 @media (max-width: 1024px) {
   .cae-report-hero__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-report-state {
@@ -1322,7 +1322,7 @@ a.cae-report-walkthrough:hover {
 
   .cae-report-burden,
   .cae-report-roadmap {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
 }
@@ -1333,7 +1333,7 @@ a.cae-report-walkthrough:hover {
   .cae-report-competitors,
   .cae-report-task,
   .cae-report-method__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-report-paths,
@@ -1346,7 +1346,7 @@ a.cae-report-walkthrough:hover {
   }
 
   .cae-report-score-nav {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-report-score-nav a {
@@ -1364,7 +1364,7 @@ a.cae-report-walkthrough:hover {
   }
 
   #problem-inventory:not(:has(.cae-report-filters)) .cae-report-problems {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -1391,7 +1391,7 @@ a.cae-report-walkthrough:hover {
   .cae-report-competitor-card dl,
   .cae-report-competitive-decisions,
   .cae-report-market-gap__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-report-surface > header,
@@ -1406,7 +1406,7 @@ a.cae-report-walkthrough:hover {
   }
 
   .cae-report-metric {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-report-metric small {
@@ -1418,7 +1418,7 @@ a.cae-report-walkthrough:hover {
   }
 
   .cae-report-header__byline {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-sticky-sprint {
@@ -1501,7 +1501,7 @@ a.cae-report-walkthrough:hover {
 .cae-gap-map__legend .cae-gap-map__mark--backlog {
   background: var(--cae-data-neutral-bg);
   color: var(--cae-data-neutral);
-  border-radius: 999px;
+  border-radius: var(--cae-radius-sm);
 }
 
 .cae-gap-map__mark--insufficient .cae-gap-map__symbol,
@@ -1560,7 +1560,7 @@ a.cae-report-walkthrough:hover {
 .cae-sprint-fit article {
   padding: var(--cae-space-5);
   border: 1px solid var(--cae-border);
-  border-radius: 14px;
+  border-radius: var(--cae-radius);
   background: var(--cae-report-card-bg);
 }
 
@@ -1585,7 +1585,7 @@ a.cae-report-walkthrough:hover {
   gap: 0.35rem;
   padding: 0.2rem 0.55rem;
   border: 1px solid currentColor;
-  border-radius: 999px;
+  border-radius: var(--cae-radius-sm);
   background: rgba(255, 255, 255, 0.34);
   color: var(--cae-signal);
   font-family: var(--cae-font-mono);
@@ -1674,7 +1674,7 @@ a.cae-report-walkthrough:hover {
   }
 
   .cae-score-report #report-intro .cae-report-paths {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -1762,7 +1762,7 @@ a.cae-report-walkthrough:hover {
   }
 
   .cae-score-report .cae-point-of-contact__person {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
 }
@@ -1787,7 +1787,7 @@ a.cae-report-walkthrough:hover {
   padding: clamp(1rem, 2vw, 1.5rem);
   border: 1px solid var(--cae-border);
   border-radius: var(--cae-radius-lg);
-  background: var(--cae-surface);
+  background: var(--cae-bg);
 }
 
 .cae-score-report .cae-lead-to-revenue-map-asset img {
@@ -1805,6 +1805,8 @@ a.cae-report-walkthrough:hover {
 
 @media (max-width: 720px) {
   .cae-score-report .cae-report-hero__support-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.cae-report-metric > *, .cae-report-note { min-width: 0; overflow-wrap: anywhere; }

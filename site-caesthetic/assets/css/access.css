@@ -1,0 +1,12 @@
+@import url("tokens.css");
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cae-bg); color: var(--cae-text); font: 400 1rem/1.6 var(--cae-font); }
+.gate { width: min(440px, calc(100% - 40px)); margin: 10vh auto; padding: 24px 0; border-top: 2px solid var(--cae-text); }
+.k { font: 500 .875rem/1.5 var(--cae-font-mono); color: var(--cae-signal); }
+h1 { font: 400 2rem/1.15 var(--cae-font-display); overflow-wrap: anywhere; }
+label { display: block; margin: 24px 0 8px; }
+input, button { width: 100%; min-height: 48px; padding: 12px; font: inherit; border: 1px solid var(--cae-muted); border-radius: var(--cae-radius-sm); }
+button { margin-top: 16px; background: var(--cae-text-strong); color: var(--cae-bg); cursor: pointer; }
+a { color: var(--cae-accent); text-decoration: underline; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.m { min-height: 24px; color: var(--cae-data-negative); }

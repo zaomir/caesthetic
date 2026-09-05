@@ -1,15 +1,15 @@
 {
   "source_sha": "1c60e6381bba7b15c09b670918cf9ce8b801652e",
   "files": {
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "1eea919d3c6885dc8a378e3f0671b004c2ad449ac8d53f691b8a3eb20927ddaf",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "291f0f2f41d2aaeea5eaf74b9a31ede1133341b1b4c76459b172eb584044ae57",
     "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "d80be9dc0cc33563964ae3c7a02a83ae30d9921686e1d902c89a9a3477281dcf",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "39af10ea614478ca9061118266f1eae41bf669f0240fb861a94c1ec6b4e89a66",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "7d670b67622fa37423a6d254ce4360495e3430986442bfd7e4994541d63e5e3f",
     "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "c784b000bb52d17d471cbd66cd1dc5e43d945b61a30af99ce7e4c506d482e882",
-    "site-caesthetic/assets/css/tokens.css": "befd310d72a2ec466faea1715757e94bbb0808d33842a2825a1507a00335b07c",
-    "site-caesthetic/assets/css/caesthetic.css": "756135a3c2747d48044d8c7297224ebf99c11c04ebd33719b688fd1b659ca36f",
-    "site-caesthetic/assets/css/growth-report.css": "c7d7013898bd594ece9b4d24ae5c0715a64a874fefd40a13aa9ff96dddb09bd8",
+    "site-caesthetic/assets/css/tokens.css": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543",
+    "site-caesthetic/assets/css/caesthetic.css": "2853c707ed0a08814012b20945e1dfecf2a6070320a7d5c65c8efeb64b74015e",
+    "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
     "site-caesthetic/assets/js/caesthetic.js": "1fe4aab2ec3f7a2094d14c03a9cb34a8551d35e2d4ed69888bdeb9c4bd54653b",
-    "site-caesthetic/assets/js/caesthetic-config.js": "3a2eb7d3b00cbe646839d466505808e594af4f9394358bd449ea0afbf140775a",
+    "site-caesthetic/assets/js/caesthetic-config.js": "eea113bafcc14b5d54be3b1b79dba2fd06a948726145dc701bab78d250e08656",
     "site-caesthetic/assets/js/growth-cockpit.js": "39176e08bde8fabc6e14302c262305acc68a9c15548e52d4a724cc88a39412e9",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
@@ -17,5 +17,6 @@
     "date": "2026-09-05",
     "reason": "Authorized public-site QA repair: shared sticky header, drawer and request modal; report documents/data and locked illustration remain unchanged.",
     "evidence": "docs/audits/caesthetic/public-site-qa-20260905.md"
-  }
+  },
+  "design_migration": "SSOT v3 implementation: initial CSS, accessible tables, shared UI readability; data and immutable artwork unchanged."
 }

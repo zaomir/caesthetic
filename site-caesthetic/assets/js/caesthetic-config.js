@@ -39,14 +39,6 @@ window.CAESTHETIC = {
 
 /* Owner-facing accountability layer. The component itself decides which page types qualify. */
 (() => {
-  const href = "/assets/css/point-of-contact.css";
-  if (!document.querySelector(`link[href="${href}"]`)) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  }
-
   const src = "/assets/js/point-of-contact.js";
   if (!document.querySelector(`script[src="${src}"]`)) {
     const script = document.createElement("script");
@@ -81,16 +73,5 @@ window.CAESTHETIC = {
     script.src = src;
     script.defer = true;
     document.head.appendChild(script);
-  }
-})();
-
-/* Global Impeccable execution layer */
-(() => {
-  const href = "/assets/css/caesthetic-impeccable.css";
-  if (!document.querySelector(`link[href="${href}"]`)) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
   }
 })();

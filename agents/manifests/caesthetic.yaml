@@ -8,6 +8,7 @@ read_first:
   - docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md
   - docs/projects/caesthetic/AGENTS.md
   - docs/ssot/CAESTHETIC.md
+  - docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md
   - docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   - docs/projects/caesthetic/PROJECT_STATUS.md
 
@@ -49,6 +50,7 @@ forbidden_paths:
 protected_paths: []
 
 topics:
+  design_system: docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md
   connect4: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   "4444": docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   "Четверки": docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
@@ -87,6 +89,8 @@ topics:
   expert_dental_contributions: docs/projects/caesthetic/expert-dental-contributions/
 
 commands:
+  design_check: node scripts/caesthetic/design-gate.mjs
+  design_browser: node scripts/caesthetic/design-browser.mjs
   sync: cd /var/www/grainee-v2 && git pull --ff-only origin main
   sync_bidirectional: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
   smoke: curl -fsS -o /dev/null -w '%{http_code}' https://caesthetic.com/

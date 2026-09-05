@@ -800,7 +800,7 @@ function treatmentOpportunityMatrixHtml(view) {
   if (view.status !== "assessed") return decisionViewNotAssessedHtml("Treatment Opportunity Matrix", "Treatment-by-surface evidence has not been reviewed.");
   return `<details class="cae-decision-view" data-decision-view="treatment-opportunity-matrix" open>
     <summary>Treatment Opportunity Matrix <span class="cae-status-pill">UNSCORED</span></summary>
-    <div class="cae-table-scroll"><table><thead><tr><th>Treatment</th>${SURFACE_NAV.map((surface) => `<th>${escapeHtml(surface.label)}</th>`).join("")}</tr></thead><tbody>
+    <div class="cae-table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table><thead><tr><th>Treatment</th>${SURFACE_NAV.map((surface) => `<th>${escapeHtml(surface.label)}</th>`).join("")}</tr></thead><tbody>
       ${view.items.map((treatment) => `<tr><th><strong>${escapeHtml(treatment.label)}</strong><small>${escapeHtml(sentenceCase(treatment.priority))} · ${treatment.observed_surface_count}/4 surfaces assessed</small></th>${SURFACE_NAV.map((surface) => `<td data-status="${escapeHtml(treatment.surfaces[surface.id].status)}">${decisionViewCellHtml(treatment.surfaces[surface.id])}</td>`).join("")}</tr>`).join("")}
     </tbody></table></div>
   </details>`;
@@ -810,7 +810,7 @@ function providerVisibilityMapHtml(view) {
   if (view.status !== "assessed") return decisionViewNotAssessedHtml("Provider Visibility Map", "Provider identity and proof have not been reviewed across the Four Surfaces.");
   return `<details class="cae-decision-view" data-decision-view="provider-visibility-map">
     <summary>Provider Visibility Map <span class="cae-status-pill">UNSCORED</span></summary>
-    <div class="cae-table-scroll"><table><thead><tr><th>Provider</th>${SURFACE_NAV.map((surface) => `<th>${escapeHtml(surface.label)}</th>`).join("")}</tr></thead><tbody>
+    <div class="cae-table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table><thead><tr><th>Provider</th>${SURFACE_NAV.map((surface) => `<th>${escapeHtml(surface.label)}</th>`).join("")}</tr></thead><tbody>
       ${view.items.map((provider) => `<tr><th><strong>${escapeHtml(provider.label)}</strong><small>${escapeHtml(provider.role)} · ${provider.observed_surface_count}/4 surfaces assessed</small></th>${SURFACE_NAV.map((surface) => `<td data-status="${escapeHtml(provider.surfaces[surface.id].status)}">${decisionViewCellHtml(provider.surfaces[surface.id])}</td>`).join("")}</tr>`).join("")}
     </tbody></table></div>
   </details>`;
@@ -2187,6 +2187,8 @@ function plainOwnerBriefDocumentHtml(report, result, { pageTitle, metaDescriptio
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
   <link rel="stylesheet" href="/assets/css/growth-report.css?v=2.1.4">
+<link rel="stylesheet" href="/assets/css/point-of-contact.css">
+<link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
 </head>
 <body class="cae-score-report cae-score-report--plain-owner cae-score-report--brief">
 ${disclosure}
@@ -2374,6 +2376,8 @@ export function renderGrowthReport(report) {
   <link rel="icon" href="/assets/brand/logo-square.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
   <link rel="stylesheet" href="/assets/css/growth-report.css">
+<link rel="stylesheet" href="/assets/css/point-of-contact.css">
+<link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
 </head>
 <body class="cae-score-report${isNetworkParent ? " cae-score-report--multi-location" : ""}${isFocusLocationChild ? " cae-score-report--focus-location" : ""}${plainOwner ? " cae-score-report--plain-owner" : ""}">
 ${disclosure}

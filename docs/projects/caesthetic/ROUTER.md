@@ -85,3 +85,7 @@ Canonical kit: `site-caesthetic/assets/brand/`
 | Long / horizontal lockup | `/assets/brand/logo-long.svg` · `/assets/brand/logo-long.png` | `/brand/logo-long.svg` · `/brand/logo-long.png` |
 
 Do not create a public Sprint-2 product route without a new founder decision and router update.
+
+## Visual authority
+
+All CAESTHETIC design-system, typography, color, component and responsive work routes to `docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md`. `site-caesthetic/DESIGN.md` is its shim. Other projects’ Design Kits are not CAESTHETIC identity sources.

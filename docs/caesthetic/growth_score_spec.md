@@ -368,7 +368,7 @@ The Journey Graph artifact remains mandatory and drives validation, derived anal
 
 `representative_journeys[]` contains no more than three continuous edge-id paths: `strongest`, `primary_constraint` and/or `supporting`, each assigned to one of the three fixed prospect slots. These are representative evidence-backed paths, never claims about tracked individual patients.
 
-Renderer-state rule: each visible public segment uses the status of its own referenced edge. A journey-level worst state may summarize a path in text but may not recolor clean/not-assessed neighboring segments. Hero and Broken Connections Map are projections of the same edge registry. Optional `not_assessed` relationships are excluded from the owner-facing aggregate; a conditional unverified Reviews → Lead Intake route remains gray; a Social → Lead Intake route may be red only when the approved edge evidence confirms the break or no clear next step.
+Renderer-state rule: each visible public segment uses the status of its own referenced edge. A journey-level worst state may summarize a path in text but may not recolor clean/not-assessed neighboring segments. The Broken Connections Map is a projection of the edge registry; the immutable Hero is not a data projection and has no runtime edge binding. Optional `not_assessed` relationships are excluded from the owner-facing aggregate; a conditional unverified Reviews → Lead Intake route remains gray; a Social → Lead Intake route may be red only when the approved edge evidence confirms the break or no clear next step.
 
 #### Human review gate
 
@@ -752,8 +752,8 @@ Growth Score is not complete until production tests prove all of the following:
 - prominent synthetic/no-client-relationship demo disclosure;
 - correction events do not activate a global rule; promoted rules require version, approver, changelog, validation and rollback;
 - render-drift check against generated report artifacts.
-- exact Hero title/composition; four surface statuses; gray `LEAD INTAKE · NOT ASSESSED`; same-artifact edge IDs/states in Hero and Broken Connections Map; no optional-unassessed edge and no false green Social/Reviews → Lead Intake;
-- mobile Hero primary-route composition and vertical Lead-to-Revenue pipeline with no body overflow;
+- exact locked Hero PNG/title/hash with proportional scaling only; independently verify four surface statuses, gray `LEAD INTAKE · NOT ASSESSED`, and same-artifact edge IDs/states in the Broken Connections Map/evidence drill-down; no false green or unsupported edge state;
+- mobile scales the intact locked Hero proportionally with no alternative composition; Lead-to-Revenue and evidence components reflow without body overflow, preserving their separate asset contracts;
 - `caesthetic-4444-commercial-core/1.0.0` is present in every supported locale: the report explains 4444, connects the primary `$2,500` Sprint action to the approved 4444 priority, preserves the complete implementation paths and does not sell an isolated name/technical repair as the main product;
 - exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent, using the `check500-section/en-US/1.0.0` source lock and its direct-continuation Sprint credit rule, with the middle section after the post-enquiry map, the final section after the primary Sprint offer, all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
 

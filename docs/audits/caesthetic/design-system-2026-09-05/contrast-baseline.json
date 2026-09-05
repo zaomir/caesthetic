@@ -1,0 +1,102 @@
+[
+  {
+    "fg": "text",
+    "bg": "bg",
+    "ratio": 16.48
+  },
+  {
+    "fg": "text",
+    "bg": "bg-2",
+    "ratio": 15.61
+  },
+  {
+    "fg": "text",
+    "bg": "bg-3",
+    "ratio": 14.49
+  },
+  {
+    "fg": "text-strong",
+    "bg": "bg",
+    "ratio": 17.8
+  },
+  {
+    "fg": "text-strong",
+    "bg": "bg-2",
+    "ratio": 16.86
+  },
+  {
+    "fg": "text-strong",
+    "bg": "bg-3",
+    "ratio": 15.65
+  },
+  {
+    "fg": "muted",
+    "bg": "bg",
+    "ratio": 5.63
+  },
+  {
+    "fg": "muted",
+    "bg": "bg-2",
+    "ratio": 5.33
+  },
+  {
+    "fg": "muted",
+    "bg": "bg-3",
+    "ratio": 4.94
+  },
+  {
+    "fg": "muted-2",
+    "bg": "bg",
+    "ratio": 6.66
+  },
+  {
+    "fg": "muted-2",
+    "bg": "bg-2",
+    "ratio": 6.31
+  },
+  {
+    "fg": "muted-2",
+    "bg": "bg-3",
+    "ratio": 5.86
+  },
+  {
+    "fg": "accent",
+    "bg": "bg",
+    "ratio": 11.14
+  },
+  {
+    "fg": "accent",
+    "bg": "bg-2",
+    "ratio": 10.56
+  },
+  {
+    "fg": "accent",
+    "bg": "bg-3",
+    "ratio": 9.8
+  },
+  {
+    "fg": "signal",
+    "bg": "bg",
+    "ratio": 8.9
+  },
+  {
+    "fg": "signal",
+    "bg": "bg-2",
+    "ratio": 8.43
+  },
+  {
+    "fg": "signal",
+    "bg": "bg-3",
+    "ratio": 7.82
+  },
+  {
+    "fg": "border",
+    "bg": "bg",
+    "ratio": 1.44
+  },
+  {
+    "fg": "border-data",
+    "bg": "bg",
+    "ratio": 1.99
+  }
+]

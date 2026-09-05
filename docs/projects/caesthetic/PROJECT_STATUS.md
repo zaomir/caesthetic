@@ -3,13 +3,26 @@
 **Updated:** 2026-09-05
 **Phase:** Phase 1 — proof + outbound readiness
 
+## 2026-09-05 — Design-system implementation and enforced release
+
+- SSOT 3.1.0 and machine projection: `docs/caesthetic/design/README.md`. Shared mobile/readability/accessibility fixes, initial CSS, optimized logo derivatives, report and access-state presentation implemented without report-data/commercial mutations.
+- New design gate covers registered routes, tokens, exact existing exceptions and protected assets; canonical deploy requires exact artifact acceptance. GitHub main rulesets remain unavailable under the current plan; no subscription/settings change claimed.
+- Local release suites: 35 targeted checks and 33 navigation/renderer checks passed. Full suite: 439 passed, 25 failures identical to unmodified main, 4 skipped; no new failing test identifiers. Browser runs: full Chromium plus representative Firefox/WebKit, with evidence limits recorded.
+- Evidence: `docs/audits/caesthetic/design-implementation-2026-09-05/README.md`. Publication and production acceptance are pending the canonical workflow and must be recorded before declaring release complete.
+
+## 2026-09-05 — Unified design canon and page review
+
+- Visual SSOT: `docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md` v3.0.0; DESIGN.md is now its entry shim. Cool marketing, warm reports and isolated Spoken v2 are explicit profiles. Conflicting dynamic-versus-locked Hero rules are reconciled without changing assets.
+- Evidence and ordered remediation: `docs/audits/caesthetic/design-system-2026-09-05/README.md`; every-source/page checklist: `PAGE_MATRIX.md` in the same folder. 56 routes at 320/390/1440, 7 fragments, 2 published dynamic case details and additional edge states; protected content reviewed locally, not unlocked in production.
+- Documentation only. Runtime conformance is incomplete; mobile clipping is the first recommended repair. Implementation, deployment, full assistive-technology/cross-browser review and authorized success states remain separate work. No customer facts, scores or commercial terms changed.
+
 ## 2026-09-05 — Public-site navigation and request QA repairs
 
 - User authorized fixing the live QA findings through main, deployment and smoke.
 - Shared header slot owns sticky positioning; drawer closes and unlocks after breakpoint changes, traps focus and covers the consent banner. Native request dialog shares scroll locking and restores focus after Escape/close.
 - Delegated request triggers support delayed localized salon footers; EN/RU/ES/FR question dialogs use Name + Email. Literal footer escape text is removed.
 - Lead-to-Revenue skip link is keyboard-visible without shifting the header. Public Score catalog loads its existing hero/list styles, including its generator.
-- Local validation and exact scope/limitations: `docs/audits/caesthetic/public-site-qa-20260905.md`. Production release evidence is recorded there after canonical deployment; live interactive QA remains blocked by browser security policy.
+- Local validation and exact scope/limitations: `docs/audits/caesthetic/public-site-qa-20260905.md`. Released at `9db22c06eb8ac05509bfae7e2c0279a2d567cb13`; exact-SHA workflow `33976106029` and production smoke PASS (2026-09-05T15:54:48Z). Independent HTTP verification: 47 URLs, 42 exact file matches, no unexpected failures. Live interactive QA remains blocked by browser security policy.
 - Shared CSS/JS hashes in the Spoken v1 fixture are intentionally advanced for these authorized shared repairs; report HTML/data, report-specific assets and the locked illustration hashes are unchanged.
 
 ## 2026-09-05 — Spoken Growth Score presentation v2

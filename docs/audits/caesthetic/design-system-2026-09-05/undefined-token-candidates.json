@@ -1,0 +1,110 @@
+[
+  {
+    "token": "--cae-shadow-glow",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2.css"
+  },
+  {
+    "token": "--cae-gradient-cta",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2.css"
+  },
+  {
+    "token": "--cae-magenta",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2.css"
+  },
+  {
+    "token": "--cae-cyan",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2.css"
+  },
+  {
+    "token": "--cae-gradient-card",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2.css"
+  },
+  {
+    "token": "--cae-rose",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2.css"
+  },
+  {
+    "token": "--cae-pink",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2.css"
+  },
+  {
+    "token": "--cae-shadow-glow",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2-fixes.css"
+  },
+  {
+    "token": "--cae-gradient-card",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2-fixes.css"
+  },
+  {
+    "token": "--cae-radius-pill",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2-fixes.css"
+  },
+  {
+    "token": "--cae-pink",
+    "file": "site-caesthetic/private/expert-dental-estimate-v2/estimate-v2-fixes.css"
+  },
+  {
+    "token": "--cae-text-muted",
+    "file": "site-caesthetic/assets/css/growth-report-base.css"
+  },
+  {
+    "token": "--cae-surface-soft",
+    "file": "site-caesthetic/assets/css/growth-report-base.css"
+  },
+  {
+    "token": "--cae-surface",
+    "file": "site-caesthetic/assets/css/growth-report-base.css"
+  },
+  {
+    "token": "--cae-score",
+    "file": "site-caesthetic/assets/css/growth-report-mobile.css"
+  },
+  {
+    "token": "--cae-text-3xl",
+    "file": "site-caesthetic/assets/css/growth.css"
+  },
+  {
+    "token": "--cae-text-muted",
+    "file": "site-caesthetic/assets/css/growth-report.css"
+  },
+  {
+    "token": "--cae-text-3xl",
+    "file": "site-caesthetic/assets/css/growth-report.css"
+  },
+  {
+    "token": "--cae-color-ink",
+    "file": "site-caesthetic/pay/index.html"
+  },
+  {
+    "token": "--cae-color-border",
+    "file": "site-caesthetic/pay/index.html"
+  },
+  {
+    "token": "--cae-shadow-glow",
+    "file": "site-caesthetic/private/expert-dental-estimate/index.html"
+  },
+  {
+    "token": "--cae-gradient-cta",
+    "file": "site-caesthetic/private/expert-dental-estimate/index.html"
+  },
+  {
+    "token": "--cae-magenta",
+    "file": "site-caesthetic/private/expert-dental-estimate/index.html"
+  },
+  {
+    "token": "--cae-pink",
+    "file": "site-caesthetic/private/expert-dental-estimate/index.html"
+  },
+  {
+    "token": "--cae-gradient-card",
+    "file": "site-caesthetic/private/expert-dental-estimate/index.html"
+  },
+  {
+    "token": "--cae-surface",
+    "file": "site-caesthetic/private/expert-dental-estimate/index.html"
+  },
+  {
+    "token": "--cae-radius-pill",
+    "file": "site-caesthetic/private/expert-dental-estimate/index.html"
+  }
+]

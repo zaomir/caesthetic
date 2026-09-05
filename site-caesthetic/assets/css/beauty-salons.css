@@ -76,7 +76,7 @@
 
 .cae-salon-topbar__cta {
   min-height: 44px;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .cae-salon-backlink {
@@ -875,7 +875,7 @@
   .cae-salon-operational,
   .cae-salon-dont-fund,
   .cae-salon-form-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-salon-route {
@@ -883,11 +883,11 @@
   }
 
   .cae-salon-product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-salon-evidence {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-salon-evidence__label {
@@ -938,11 +938,11 @@
   .cae-salon-form__grid,
   .cae-salon-operational__list,
   .cae-salon-footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .cae-salon-evidence__row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--cae-space-2);
   }
 
@@ -974,3 +974,6 @@
     transition: none !important;
   }
 }
+
+/* Prose links remain identifiable without color. */
+.cae-salon-footer a[href^="mailto:"] { text-decoration: underline; text-underline-offset: .2em; }

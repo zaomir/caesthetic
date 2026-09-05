@@ -1,0 +1,51 @@
+[
+  {
+    "path": "assets/css/tokens.css",
+    "same": true,
+    "live_sha256": "befd310d72a2ec466faea1715757e94bbb0808d33842a2825a1507a00335b07c",
+    "source_sha256": "befd310d72a2ec466faea1715757e94bbb0808d33842a2825a1507a00335b07c",
+    "bytes": 4991
+  },
+  {
+    "path": "assets/css/caesthetic.css",
+    "same": true,
+    "live_sha256": "f531c1abf869f58113f302b294087921b4d9b8b801eecf9c5e31e138b591cb13",
+    "source_sha256": "f531c1abf869f58113f302b294087921b4d9b8b801eecf9c5e31e138b591cb13",
+    "bytes": 66453
+  },
+  {
+    "path": "assets/css/growth.css",
+    "same": true,
+    "live_sha256": "13294b3ccde8afeb73e56d6ec163c3145ea26c5427fbb5b42f583f390966948f",
+    "source_sha256": "13294b3ccde8afeb73e56d6ec163c3145ea26c5427fbb5b42f583f390966948f",
+    "bytes": 25571
+  },
+  {
+    "path": "assets/css/caesthetic-impeccable.css",
+    "same": true,
+    "live_sha256": "5012e3695e913505981d2778164d795321123fab6e283c24f28030b1b9d165b2",
+    "source_sha256": "5012e3695e913505981d2778164d795321123fab6e283c24f28030b1b9d165b2",
+    "bytes": 5905
+  },
+  {
+    "path": "assets/css/growth-report.css",
+    "same": true,
+    "live_sha256": "c7d7013898bd594ece9b4d24ae5c0715a64a874fefd40a13aa9ff96dddb09bd8",
+    "source_sha256": "c7d7013898bd594ece9b4d24ae5c0715a64a874fefd40a13aa9ff96dddb09bd8",
+    "bytes": 60595
+  },
+  {
+    "path": "assets/css/growth-score-owner-v2.css",
+    "same": true,
+    "live_sha256": "7e9815c025f00dfcf16834b581b5cebca65bc983994ea426b95de527d26ecd95",
+    "source_sha256": "7e9815c025f00dfcf16834b581b5cebca65bc983994ea426b95de527d26ecd95",
+    "bytes": 7064
+  },
+  {
+    "path": "assets/css/connect4.css",
+    "same": true,
+    "live_sha256": "ef3642510ac97d4cbdcd002ce157c51db22a7561f07c0f5978cfcc062f0b16e2",
+    "source_sha256": "ef3642510ac97d4cbdcd002ce157c51db22a7561f07c0f5978cfcc062f0b16e2",
+    "bytes": 8170
+  }
+]

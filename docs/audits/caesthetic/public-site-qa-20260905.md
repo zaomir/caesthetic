@@ -1,6 +1,6 @@
 # CAESTHETIC — исправление QA, 2026-09-05
 
-Статус до deployment: исправления готовы, локальные проверки PASS. Production evidence добавляется после canonical deploy. Это не подтверждение полного интерактивного QA production.
+Статус: исправления в main и production. Canonical deploy и production HTTP smoke — PASS. Полный интерактивный QA production остаётся заблокирован политикой браузера.
 
 ## Основание
 
@@ -100,3 +100,16 @@ Live browser отказал: «Browser security check unavailable; admin-enforce
 During final sync, upstream `3f913bda` deleted the newly deployed v2 renderer module/supporting source/tests/spec evidence while `render-growth-score.mjs` still imported it. Local test confirmed `ERR_MODULE_NOT_FOUND`. The merge restores exactly the existing committed files (with the already documented shared-runtime fixture hashes) and preserves newer ops/sync records. No case facts or rendering feature were changed. Renderer tests repeated after recovery.
 
 Upstream `77be33f0` subsequently restored the same dependencies and added sync protection. This release incorporates that newer recovery and its updated evidence/tooling, keeping the authorized shared-runtime hashes.
+
+## Production acceptance
+
+- Live: https://caesthetic.com/
+- Merged PR: https://github.com/zaomir/grainee-v2/pull/1500
+- **Deployed SHA: `9db22c06eb8ac05509bfae7e2c0279a2d567cb13`**.
+- Canonical exact-SHA workflow: https://github.com/zaomir/grainee-v2/actions/runs/33976106029 — completed/success. Origin, Worker/CDN, sender route cleanup, canonical public smoke and protected-client smoke passed.
+- `.deploy/caesthetic.last-success`: `status=PASS`, `checked_at=2026-09-05T15:54:48Z`, same deployed commit. PR Fast checks also passed.
+- Independent read-only verification: **47 URLs, 42 exact file matches, zero unexpected status/file failures**. `/__qa_nonexistent_20260905__/` returns expected 404. `robots.txt` returns 200 with a Cloudflare Managed Content prefix; repository bytes remain intact as its suffix. This expected edge augmentation is explicitly recorded, not hidden as an exact match.
+- All changed runtime files (shared CSS/JS, salon adapter, four salon HTML pages, Score catalog) are confirmed on production by their exact bytes. Request API delivery and full interactive production behavior are not implied by HTTP verification.
+- [release.json](public-site-qa-20260905/release.json) · [production-http.json](public-site-qa-20260905/production-http.json).
+
+Known reproduced QA defects in this report are fixed and shipped. Outstanding validation is listed above; it is not a claim of remaining confirmed defects or a completed exhaustive live-browser audit.

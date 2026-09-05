@@ -1,0 +1,907 @@
+{
+  "engine": "axe-core 4.13.0",
+  "source_sha": "a9676b80fb227ce35a824e652490a96edb6c9776",
+  "method": "390px, isolated context, writes blocked, analytics declined only in test context; automated WCAG-tag checks, manual incomplete checks remain open",
+  "pages": [
+    {
+      "route": "/404.html",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 9
+    },
+    {
+      "route": "/404.html",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 9
+    },
+    {
+      "route": "/case-studies/case/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 22
+    },
+    {
+      "route": "/beauty-salons/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "help": "Links must be distinguishable without relying on color",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[href=\"mailto:info@caesthetic.com\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.21:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5f7f8, surrounding text: #a8a8a6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 1
+        }
+      ],
+      "passes": 27
+    },
+    {
+      "route": "/about/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ],
+      "passes": 25
+    },
+    {
+      "route": "/case-studies/intake/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 5
+    },
+    {
+      "route": "/case-studies/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-prohibited-attr?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".cae-active-filters"
+              ],
+              "summary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ],
+      "passes": 27
+    },
+    {
+      "route": "/case-studies/intake/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 16
+    },
+    {
+      "route": "/connect4/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ],
+      "passes": 30
+    },
+    {
+      "route": "/es/salones-de-belleza/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "help": "Links must be distinguishable without relying on color",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[href=\"mailto:info@caesthetic.com\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.21:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5f7f8, surrounding text: #a8a8a6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "incomplete": [],
+      "passes": 27
+    },
+    {
+      "route": "/growth-score/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 28
+    },
+    {
+      "route": "/fr/salons-de-beaute/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "help": "Links must be distinguishable without relying on color",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[href=\"mailto:info@caesthetic.com\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.21:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5f7f8, surrounding text: #a8a8a6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ],
+      "passes": 27
+    },
+    {
+      "route": "/growth-system/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 1
+        }
+      ],
+      "passes": 25
+    },
+    {
+      "route": "/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 2
+        }
+      ],
+      "passes": 24
+    },
+    {
+      "route": "/legal/cookies/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 24
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 25
+    },
+    {
+      "route": "/legal/payment-terms/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 24
+    },
+    {
+      "route": "/legal/privacy/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 26
+    },
+    {
+      "route": "/legal/terms/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 24
+    },
+    {
+      "route": "/private/bonita/offer/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 13
+    },
+    {
+      "route": "/pay/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 22
+    },
+    {
+      "route": "/private/bonita/offer/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 13
+    },
+    {
+      "route": "/pricing/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 3
+        }
+      ],
+      "passes": 24
+    },
+    {
+      "route": "/private/expert-dental/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 13
+    },
+    {
+      "route": "/private/expert-dental/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 13
+    },
+    {
+      "route": "/private/expert-dental/offer/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 13
+    },
+    {
+      "route": "/private/expert-dental-estimate-v2/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 1
+        },
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ],
+      "passes": 18
+    },
+    {
+      "route": "/private/expert-dental-estimate/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 132
+        }
+      ],
+      "passes": 22
+    },
+    {
+      "route": "/private/expert-dental/offer/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 13
+    },
+    {
+      "route": "/private/faina-perukarnya/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 7
+        }
+      ],
+      "passes": 16
+    },
+    {
+      "route": "/private/expert-dental-estimate-v2/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 1
+        },
+        {
+          "id": "color-contrast",
+          "count": 6
+        },
+        {
+          "id": "link-in-text-block",
+          "count": 1
+        }
+      ],
+      "passes": 23
+    },
+    {
+      "route": "/private/faina-perukarnya-v2/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ],
+      "passes": 19
+    },
+    {
+      "route": "/private/fermerskiy-ostrovok/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 12
+    },
+    {
+      "route": "/private/nogi-v-ruki/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 13
+    },
+    {
+      "route": "/private/fermerskiy-ostrovok/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 6
+        }
+      ],
+      "passes": 12
+    },
+    {
+      "route": "/private/faina-perukarnya-v2/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ],
+      "passes": 19
+    },
+    {
+      "route": "/private/nogi-v-ruki/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 13
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".active > .subtitle"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.38 (foreground color: #6b6e88, background color: #f4f0e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "incomplete": [],
+      "passes": 10
+    },
+    {
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "html-has-lang",
+          "impact": "serious",
+          "help": "<html> element must have a lang attribute",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "html"
+              ],
+              "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+            }
+          ]
+        }
+      ],
+      "incomplete": [],
+      "passes": 3
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 19
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".active > .subtitle"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.38 (foreground color: #6b6e88, background color: #f4f0e8, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "incomplete": [],
+      "passes": 10
+    },
+    {
+      "route": "/ru/salony-krasoty/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "help": "Links must be distinguishable without relying on color",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/link-in-text-block?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "a[href=\"mailto:info@caesthetic.com\"]"
+              ],
+              "summary": "Fix any of the following:\n  The link has insufficient color contrast of 2.21:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5f7f8, surrounding text: #a8a8a6)\n  The link has no styling (such as underline) to distinguish it from the surrounding text"
+            }
+          ]
+        }
+      ],
+      "incomplete": [],
+      "passes": 27
+    },
+    {
+      "route": "/score/aurora-medspa-x7k9m2/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "html-has-lang",
+          "impact": "serious",
+          "help": "<html> element must have a lang attribute",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/html-has-lang?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                "html"
+              ],
+              "summary": "Fix any of the following:\n  The <html> element does not have a lang attribute"
+            }
+          ]
+        }
+      ],
+      "incomplete": [],
+      "passes": 3
+    },
+    {
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 1
+        },
+        {
+          "id": "color-contrast",
+          "count": 18
+        }
+      ],
+      "passes": 31
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 19
+    },
+    {
+      "route": "/score/aurora-medspa-x7k9m2/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 9
+    },
+    {
+      "route": "/score/demo-aesthetics-clinic-reputation-gap/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 6
+        },
+        {
+          "id": "color-contrast",
+          "count": 16
+        }
+      ],
+      "passes": 32
+    },
+    {
+      "route": "/score/demo-medical-aesthetics-search-gap/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 6
+        },
+        {
+          "id": "color-contrast",
+          "count": 16
+        }
+      ],
+      "passes": 32
+    },
+    {
+      "route": "/score/demo-injector-practice-booking-friction/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 6
+        },
+        {
+          "id": "color-contrast",
+          "count": 20
+        }
+      ],
+      "passes": 32
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/focus-location/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 6
+        },
+        {
+          "id": "color-contrast",
+          "count": 15
+        }
+      ],
+      "passes": 29
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "help": "Scrollable region must have keyboard access",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/scrollable-region-focusable?application=axeAPI",
+          "nodes": [
+            {
+              "target": [
+                ".cae-network-focus-decision > .cae-table-scroll"
+              ],
+              "summary": "Fix any of the following:\n  Element should have focusable content\n  Element should be focusable"
+            }
+          ]
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 5
+        },
+        {
+          "id": "color-contrast",
+          "count": 15
+        }
+      ],
+      "passes": 27
+    },
+    {
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 16
+    },
+    {
+      "route": "/score/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 23
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 5
+        },
+        {
+          "id": "color-contrast",
+          "count": 13
+        }
+      ],
+      "passes": 27
+    },
+    {
+      "route": "/score/demo-publish-control-plane-network/focus-location/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 6
+        },
+        {
+          "id": "color-contrast",
+          "count": 19
+        }
+      ],
+      "passes": 29
+    },
+    {
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 16
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 16
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 16
+    },
+    {
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 6
+        },
+        {
+          "id": "color-contrast",
+          "count": 23
+        }
+      ],
+      "passes": 33
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 8
+        }
+      ],
+      "passes": 26
+    },
+    {
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "count": 6
+        },
+        {
+          "id": "color-contrast",
+          "count": 21
+        }
+      ],
+      "passes": 32
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+      "mode": "local-source",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 24
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 9
+        }
+      ],
+      "passes": 28
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 24
+    },
+    {
+      "route": "/sprint/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 25
+    },
+    {
+      "route": "/support/",
+      "mode": "production",
+      "viewport": 390,
+      "violations": [],
+      "incomplete": [],
+      "passes": 25
+    }
+  ]
+}

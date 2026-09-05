@@ -1,0 +1,237 @@
+{
+  "identity": {
+    "sha": "196294d0e21e7a7586be9aef4d6e2e3538317a26",
+    "runtimeHash": "09ed34cb5e67f428d706646df03264f74b5fa3414f525fbf2d8cf12edb2c7f53",
+    "ssotHash": "13ab28de609233c4df4bde3086bfcb9f9ea83aae85ea576ab895e3e52b3e0a26",
+    "contractHash": "9178c6327fad5a01bd05d169cfc04cafc21d71f37f2df53f35eecbae49bfeb6c"
+  },
+  "base": "http://127.0.0.1:58868",
+  "checkedAt": "2026-09-05T16:21:55.126Z",
+  "results": [
+    {
+      "route": "/connect4/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/beauty-salons/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/connect4/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/beauty-salons/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/beauty-salons/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/connect4/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "profile": "check500",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/pricing/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "profile": "standard-report",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "profile": "check500",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/pricing/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "profile": "standard-report",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/lead-to-revenue-check/",
+      "profile": "check500",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/pricing/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/demo-multi-location-growth-score/",
+      "profile": "standard-report",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "profile": "spoken-v2",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/__design-kit/",
+      "profile": "marketing",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/__design-kit/",
+      "profile": "marketing",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "profile": "spoken-v2",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": []
+    },
+    {
+      "route": "/__design-kit/",
+      "profile": "marketing",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/",
+      "profile": "spoken-v2",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false
+    }
+  ],
+  "errors": []
+}

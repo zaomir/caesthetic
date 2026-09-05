@@ -1,0 +1,4463 @@
+{
+  "source_sha": "5dad5f00ed2a1105a0542ff42841bdd612ec4374",
+  "checked_at": "2026-09-05T16:01:49.159Z",
+  "method": "Refreshed local source only at 320/390/1440 in isolated Chromium; protected production states are in rendered-pages.json. Writes blocked. Geometry is a heuristic, not a WCAG certificate.",
+  "pages": [
+    {
+      "route": "/case-studies/intake/",
+      "kind": "public",
+      "liveStatus": 404,
+      "renders": [
+        {
+          "url": "/case-studies/intake/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Inter, ui-sans-serif, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(246, 241, 233)",
+          "h1": {
+            "font": "Georgia, \"Times New Roman\", serif",
+            "size": "32px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/case-studies/intake/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Inter, ui-sans-serif, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(246, 241, 233)",
+          "h1": {
+            "font": "Georgia, \"Times New Roman\", serif",
+            "size": "32px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/case-studies/intake/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Inter, ui-sans-serif, system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(246, 241, 233)",
+          "h1": {
+            "font": "Georgia, \"Times New Roman\", serif",
+            "size": "52px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/bonita/offer/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/bonita/offer/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 230,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 230,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/bonita/offer/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 276,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 276,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/bonita/offer/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 374,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 374,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/expert-dental/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/expert-dental/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 230,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 230,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/expert-dental/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 276,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 276,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/expert-dental/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 374,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 374,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/404.html",
+      "kind": "public",
+      "liveStatus": 307,
+      "renders": [
+        {
+          "url": "/404.html",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "38.4px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "px": 11
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "px": 11
+            }
+          ],
+          "smallTextCount": 2,
+          "actions": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 280,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 280,
+              "h": 48,
+              "px": 11,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/404.html",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "46.8px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "px": 11
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "px": 11
+            }
+          ],
+          "smallTextCount": 2,
+          "actions": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 350,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 350,
+              "h": 48,
+              "px": 11,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/404.html",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "100.8px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "px": 11
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "px": 11
+            }
+          ],
+          "smallTextCount": 2,
+          "actions": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 82,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 146,
+              "h": 48,
+              "px": 11,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/expert-dental/offer/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/expert-dental/offer/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 230,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 230,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/expert-dental/offer/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 276,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 276,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/expert-dental/offer/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 374,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(246, 241, 255)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 374,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/faina-perukarnya-v2/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/faina-perukarnya-v2/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#gate-password",
+              "w": 234,
+              "h": 50,
+              "px": 16.8,
+              "bg": "rgba(0, 0, 0, 0.24)",
+              "color": "rgb(245, 249, 248)",
+              "radius": "8px"
+            },
+            {
+              "selector": "button.button",
+              "w": 234,
+              "h": 50,
+              "px": 16,
+              "bg": "rgb(119, 229, 222)",
+              "color": "rgb(5, 11, 13)",
+              "radius": "8px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/private/templates/local-reputation-launch/template.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/faina-perukarnya-v2/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+            "size": "31.2px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#gate-password",
+              "w": 304,
+              "h": 50,
+              "px": 16.8,
+              "bg": "rgba(0, 0, 0, 0.24)",
+              "color": "rgb(245, 249, 248)",
+              "radius": "8px"
+            },
+            {
+              "selector": "button.button",
+              "w": 304,
+              "h": 50,
+              "px": 16,
+              "bg": "rgb(119, 229, 222)",
+              "color": "rgb(5, 11, 13)",
+              "radius": "8px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/private/templates/local-reputation-launch/template.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/faina-perukarnya-v2/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+            "size": "36px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#gate-password",
+              "w": 380,
+              "h": 50,
+              "px": 16.8,
+              "bg": "rgba(0, 0, 0, 0.24)",
+              "color": "rgb(245, 249, 248)",
+              "radius": "8px"
+            },
+            {
+              "selector": "button.button",
+              "w": 380,
+              "h": 50,
+              "px": 16,
+              "bg": "rgb(119, 229, 222)",
+              "color": "rgb(5, 11, 13)",
+              "radius": "8px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/private/templates/local-reputation-launch/template.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/expert-dental-estimate-v2/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/expert-dental-estimate-v2/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "32px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password.ev2-input",
+              "w": 209,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0.32)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button#audit-unlock.cae-btn.cae-btn--primary",
+              "w": 209,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 254,
+              "h": 48,
+              "px": 11,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 254,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/private/expert-dental-estimate-v2/estimate-v2.css",
+            "/private/expert-dental-estimate-v2/estimate-v2-fixes.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/expert-dental-estimate-v2/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "32px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password.ev2-input",
+              "w": 276,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0.32)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button#audit-unlock.cae-btn.cae-btn--primary",
+              "w": 276,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 324,
+              "h": 48,
+              "px": 11,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 324,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/private/expert-dental-estimate-v2/estimate-v2.css",
+            "/private/expert-dental-estimate-v2/estimate-v2-fixes.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/expert-dental-estimate-v2/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "57.6px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password.ev2-input",
+              "w": 394,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0.32)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button#audit-unlock.cae-btn.cae-btn--primary",
+              "w": 394,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 128,
+              "h": 48,
+              "px": 11,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 123,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/private/expert-dental-estimate-v2/estimate-v2.css",
+            "/private/expert-dental-estimate-v2/estimate-v2-fixes.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/fermerskiy-ostrovok/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/fermerskiy-ostrovok/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#password",
+              "w": 212,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(248, 242, 234)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button",
+              "w": 212,
+              "h": 64,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/fermerskiy-ostrovok/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#password",
+              "w": 276,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(248, 242, 234)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button",
+              "w": 276,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/fermerskiy-ostrovok/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "-apple-system, \"system-ui\", Inter, \"Segoe UI\", Arial, sans-serif",
+            "size": "28px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#password",
+              "w": 374,
+              "h": 51,
+              "px": 18,
+              "bg": "rgba(255, 255, 255, 0.06)",
+              "color": "rgb(248, 242, 234)",
+              "radius": "16px"
+            },
+            {
+              "selector": "button",
+              "w": 374,
+              "h": 46,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/nogi-v-ruki/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/nogi-v-ruki/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 240, 230)",
+          "h1": {
+            "font": "\"Arial Narrow\", Inter, sans-serif",
+            "size": "30px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 202,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "14px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 202,
+              "h": 52,
+              "px": 16,
+              "bg": "rgb(123, 36, 58)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/nogi-v-ruki/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 240, 230)",
+          "h1": {
+            "font": "\"Arial Narrow\", Inter, sans-serif",
+            "size": "30px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 272,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "14px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 272,
+              "h": 52,
+              "px": 16,
+              "bg": "rgb(123, 36, 58)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/nogi-v-ruki/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Inter, -apple-system, \"system-ui\", \"Segoe UI\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 240, 230)",
+          "h1": {
+            "font": "\"Arial Narrow\", Inter, sans-serif",
+            "size": "44px",
+            "weight": "700"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#audit-password",
+              "w": 370,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "14px"
+            },
+            {
+              "selector": "button#audit-unlock",
+              "w": 370,
+              "h": 52,
+              "px": 16,
+              "bg": "rgb(123, 36, 58)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+      "kind": "private",
+      "liveStatus": 307,
+      "renders": [
+        {
+          "url": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Manrope, system-ui, -apple-system, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(6, 7, 15)",
+          "h1": {
+            "font": "Manrope, system-ui, -apple-system, sans-serif",
+            "size": "34px",
+            "weight": "800"
+          },
+          "visibleMain": false,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#prev",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            },
+            {
+              "selector": "button#next",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            }
+          ],
+          "smallTargets": [
+            {
+              "selector": "button#prev",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            },
+            {
+              "selector": "button#next",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            }
+          ],
+          "missingImages": [],
+          "styles": [
+            "/css2"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Manrope, system-ui, -apple-system, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(6, 7, 15)",
+          "h1": {
+            "font": "Manrope, system-ui, -apple-system, sans-serif",
+            "size": "34px",
+            "weight": "800"
+          },
+          "visibleMain": false,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#prev",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            },
+            {
+              "selector": "button#next",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            }
+          ],
+          "smallTargets": [
+            {
+              "selector": "button#prev",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            },
+            {
+              "selector": "button#next",
+              "w": 30,
+              "h": 30,
+              "px": 14,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            }
+          ],
+          "missingImages": [],
+          "styles": [
+            "/css2"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/prodavay-kak-faunder/assets/decks/pisarevsky-events.html",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "Manrope, system-ui, -apple-system, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(26, 24, 32)",
+          "h1": {
+            "font": "Manrope, system-ui, -apple-system, sans-serif",
+            "size": "80.64px",
+            "weight": "800"
+          },
+          "visibleMain": false,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#prev",
+              "w": 34,
+              "h": 34,
+              "px": 16,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            },
+            {
+              "selector": "button#next",
+              "w": 34,
+              "h": 34,
+              "px": 16,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            }
+          ],
+          "smallTargets": [
+            {
+              "selector": "button#prev",
+              "w": 34,
+              "h": 34,
+              "px": 16,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            },
+            {
+              "selector": "button#next",
+              "w": 34,
+              "h": 34,
+              "px": 16,
+              "bg": "rgba(255, 255, 255, 0.1)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "50%"
+            }
+          ],
+          "missingImages": [],
+          "styles": [
+            "/css2"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/private/prodavay-kak-faunder/",
+      "kind": "private",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/private/prodavay-kak-faunder/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"Source Sans 3\", \"Segoe UI\", system-ui, sans-serif",
+          "bodySize": "17px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "Fraunces, Georgia, serif",
+            "size": "29.6px",
+            "weight": "560"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#gatePassword",
+              "w": 214,
+              "h": 56,
+              "px": 17.6,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(12, 26, 34)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button",
+              "w": 214,
+              "h": 55,
+              "px": 17,
+              "bg": "rgb(12, 26, 34)",
+              "color": "rgb(244, 247, 249)",
+              "radius": "0px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/css2",
+            "/private/prodavay-kak-faunder/styles.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/prodavay-kak-faunder/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"Source Sans 3\", \"Segoe UI\", system-ui, sans-serif",
+          "bodySize": "17px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "Fraunces, Georgia, serif",
+            "size": "29.6px",
+            "weight": "560"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#gatePassword",
+              "w": 284,
+              "h": 56,
+              "px": 17.6,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(12, 26, 34)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button",
+              "w": 284,
+              "h": 55,
+              "px": 17,
+              "bg": "rgb(12, 26, 34)",
+              "color": "rgb(244, 247, 249)",
+              "radius": "0px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/css2",
+            "/private/prodavay-kak-faunder/styles.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/private/prodavay-kak-faunder/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"Source Sans 3\", \"Segoe UI\", system-ui, sans-serif",
+          "bodySize": "17px",
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "h1": {
+            "font": "Fraunces, Georgia, serif",
+            "size": "29.6px",
+            "weight": "560"
+          },
+          "visibleMain": true,
+          "accessForm": true,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "input#gatePassword",
+              "w": 358,
+              "h": 56,
+              "px": 17.6,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(12, 26, 34)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button",
+              "w": 358,
+              "h": 55,
+              "px": 17,
+              "bg": "rgb(12, 26, 34)",
+              "color": "rgb(244, 247, 249)",
+              "radius": "0px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/css2",
+            "/private/prodavay-kak-faunder/styles.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+      "kind": "report",
+      "liveStatus": 404,
+      "renders": [
+        {
+          "url": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "35.2px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table.cae-report-comparison-matrix",
+              "x": 19,
+              "w": 1021
+            },
+            {
+              "selector": "button",
+              "x": 268,
+              "w": 143
+            },
+            {
+              "selector": "button",
+              "x": 418,
+              "w": 232
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 365
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 365
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 824
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 824
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 307
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 307
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 723
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 723
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 463
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 463
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 713
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 713
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "x": 18,
+              "w": 374
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 18,
+              "w": 305
+            },
+            {
+              "selector": "p.cae-lead",
+              "x": 18,
+              "w": 305
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "x": 18,
+              "w": 305
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            }
+          ],
+          "overflowCount": 32,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#cae-menu-btn.cae-menu-btn",
+              "w": 44,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 243,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 143,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 232,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 47,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 60,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 64,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 83,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 157,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 107,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 374,
+              "h": 51,
+              "px": 16,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "42.9px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table.cae-report-comparison-matrix",
+              "x": 19,
+              "w": 1021
+            },
+            {
+              "selector": "button",
+              "x": 268,
+              "w": 143
+            },
+            {
+              "selector": "button",
+              "x": 418,
+              "w": 232
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 824
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 824
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 723
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 723
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 463
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 463
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 713
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 713
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 717
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "h3",
+              "x": 19,
+              "w": 819
+            },
+            {
+              "selector": "p.cae-report-note",
+              "x": 19,
+              "w": 819
+            }
+          ],
+          "overflowCount": 24,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#cae-menu-btn.cae-menu-btn",
+              "w": 44,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 243,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 143,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 232,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 47,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 60,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 64,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 83,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 157,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 107,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 374,
+              "h": 51,
+              "px": 16,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/aesthetemed-public-evidence-7c3e91b4a8f26d50/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "18px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "64px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#cae-menu-btn.cae-menu-btn",
+              "w": 44,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 66,
+              "h": 46,
+              "px": 18,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 269,
+              "h": 44,
+              "px": 18,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 158,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 258,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 50,
+              "h": 44,
+              "px": 18,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 64,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 69,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 90,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 173,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 116,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 415,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/score/aurora-medspa-x7k9m2/",
+      "kind": "report",
+      "liveStatus": 404,
+      "renders": [
+        {
+          "url": "/score/aurora-medspa-x7k9m2/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "44.8px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "px": 11
+            }
+          ],
+          "smallTextCount": 1,
+          "actions": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 214,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/aurora-medspa-x7k9m2/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "44.8px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "px": 11
+            }
+          ],
+          "smallTextCount": 1,
+          "actions": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 214,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/aurora-medspa-x7k9m2/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "64px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "px": 11
+            }
+          ],
+          "smallTextCount": 1,
+          "actions": [
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 214,
+              "h": 48,
+              "px": 11,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+      "kind": "report",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "35.2px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table.cae-report-comparison-matrix",
+              "x": 19,
+              "w": 928
+            },
+            {
+              "selector": "button",
+              "x": 323,
+              "w": 175
+            },
+            {
+              "selector": "button",
+              "x": 504,
+              "w": 95
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 341
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 341
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 319
+            },
+            {
+              "selector": "p.cae-kicker",
+              "x": 19,
+              "w": 324
+            },
+            {
+              "selector": "p",
+              "x": 19,
+              "w": 324
+            }
+          ],
+          "overflowCount": 39,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#cae-menu-btn.cae-menu-btn",
+              "w": 44,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 245,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 245,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 218,
+              "h": 100,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 55,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 81,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 76,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 112,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 161,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 138,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 152,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "42.9px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table.cae-report-comparison-matrix",
+              "x": 19,
+              "w": 928
+            },
+            {
+              "selector": "button",
+              "x": 323,
+              "w": 175
+            },
+            {
+              "selector": "button",
+              "x": 504,
+              "w": 95
+            },
+            {
+              "selector": "p",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "p",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "p",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "p",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "p",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "p",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "p",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "h3",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "p.cae-report-note",
+              "x": 18,
+              "w": 595
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "x": 18,
+              "w": 383
+            }
+          ],
+          "overflowCount": 13,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#cae-menu-btn.cae-menu-btn",
+              "w": 44,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 315,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 315,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 288,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 55,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 81,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 76,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 112,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 161,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 138,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 152,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "18px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "64px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button#cae-menu-btn.cae-menu-btn",
+              "w": 44,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 66,
+              "h": 46,
+              "px": 18,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 412,
+              "h": 98,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 412,
+              "h": 98,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 660,
+              "h": 58,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 58,
+              "h": 44,
+              "px": 18,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 88,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 82,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 122,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 178,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 151,
+              "h": 44,
+              "px": 18,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 168,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+      "kind": "report",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "35.2px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table.cae-report-comparison-matrix",
+              "x": 19,
+              "w": 928
+            },
+            {
+              "selector": "button",
+              "x": 274,
+              "w": 299
+            },
+            {
+              "selector": "button",
+              "x": 580,
+              "w": 166
+            },
+            {
+              "selector": "button",
+              "x": 753,
+              "w": 229
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "x": 18,
+              "w": 386
+            }
+          ],
+          "overflowCount": 5,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 245,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 245,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 218,
+              "h": 100,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 55,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 81,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 76,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 112,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 161,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 249,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 299,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 166,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "42.9px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table.cae-report-comparison-matrix",
+              "x": 19,
+              "w": 928
+            },
+            {
+              "selector": "button",
+              "x": 274,
+              "w": 299
+            },
+            {
+              "selector": "button",
+              "x": 580,
+              "w": 166
+            },
+            {
+              "selector": "button",
+              "x": 753,
+              "w": 229
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "x": 18,
+              "w": 386
+            }
+          ],
+          "overflowCount": 5,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 315,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 315,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 288,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 55,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 81,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 76,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 112,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 161,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 249,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 299,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 166,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "18px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "64px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 66,
+              "h": 46,
+              "px": 18,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 412,
+              "h": 91,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 412,
+              "h": 91,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 660,
+              "h": 58,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.is-active",
+              "w": 58,
+              "h": 44,
+              "px": 18,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 88,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 82,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 122,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 178,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 276,
+              "h": 44,
+              "px": 18,
+              "bg": "rgb(11, 36, 56)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 333,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button",
+              "w": 183,
+              "h": 44,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+      "kind": "report",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "35.2px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "p.cae-kicker",
+              "x": 18,
+              "w": 305
+            },
+            {
+              "selector": "p.cae-lead",
+              "x": 18,
+              "w": 305
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "x": 18,
+              "w": 305
+            }
+          ],
+          "overflowCount": 3,
+          "smallText": [
+            {
+              "selector": "a",
+              "px": 13
+            },
+            {
+              "selector": "a",
+              "px": 13
+            },
+            {
+              "selector": "a",
+              "px": 13
+            }
+          ],
+          "smallTextCount": 3,
+          "actions": [
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-report-share__button",
+              "w": 284,
+              "h": 52,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 282,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 282,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 252,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 245,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 252,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 200,
+              "h": 48,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 305,
+              "h": 51,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-report-share__button",
+              "w": 284,
+              "h": 52,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 254,
+              "h": 48,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 254,
+              "h": 48,
+              "px": 16,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "16px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "42.9px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a",
+              "px": 13
+            },
+            {
+              "selector": "a",
+              "px": 13
+            },
+            {
+              "selector": "a",
+              "px": 13
+            }
+          ],
+          "smallTextCount": 3,
+          "actions": [
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 62,
+              "h": 44,
+              "px": 16,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-report-share__button",
+              "w": 354,
+              "h": 52,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 352,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 352,
+              "h": 44,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 322,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 315,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 322,
+              "h": 76,
+              "px": 16,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 200,
+              "h": 48,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 354,
+              "h": 51,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-report-share__button",
+              "w": 354,
+              "h": 52,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 324,
+              "h": 48,
+              "px": 16,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 324,
+              "h": 48,
+              "px": 16,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "18px",
+          "bodyBg": "rgb(244, 241, 235)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "64px",
+            "weight": "300"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [
+            {
+              "selector": "a",
+              "px": 13
+            },
+            {
+              "selector": "a",
+              "px": 13
+            },
+            {
+              "selector": "a",
+              "px": 13
+            }
+          ],
+          "smallTextCount": 3,
+          "actions": [
+            {
+              "selector": "button.cae-mobile-report-nav__progress",
+              "w": 66,
+              "h": 46,
+              "px": 18,
+              "bg": "rgb(255, 255, 255)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-report-share__button",
+              "w": 240,
+              "h": 55,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 938,
+              "h": 46,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "button.cae-mobile-card-toggle",
+              "w": 938,
+              "h": 46,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "12px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 660,
+              "h": 58,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 441,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 660,
+              "h": 58,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(255, 255, 255)",
+              "radius": "0px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 219,
+              "h": 49,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 337,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 16, 19)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-report-share__button",
+              "w": 240,
+              "h": 55,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(11, 36, 56)",
+              "radius": "999px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 244,
+              "h": 49,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(90, 100, 108)",
+              "radius": "2px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 246,
+              "h": 49,
+              "px": 18,
+              "bg": "rgb(11, 16, 19)",
+              "color": "rgb(240, 237, 230)",
+              "radius": "2px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-report.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css",
+            "/assets/css/growth-report-mobile.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+      "kind": "report",
+      "liveStatus": 200,
+      "renders": [
+        {
+          "url": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+          "viewport": 320,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "18px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "32px",
+            "weight": "600"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table",
+              "x": 37,
+              "w": 860
+            }
+          ],
+          "overflowCount": 1,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button",
+              "w": 288,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 248,
+              "h": 82,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 248,
+              "h": 82,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 244,
+              "h": 82,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 248,
+              "h": 82,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button",
+              "w": 164,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button",
+              "w": 288,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 254,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 254,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-score-owner-v2.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+          "viewport": 390,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "18px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "32px",
+            "weight": "600"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [
+            {
+              "selector": "table",
+              "x": 37,
+              "w": 860
+            }
+          ],
+          "overflowCount": 1,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button",
+              "w": 358,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 318,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 318,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 314,
+              "h": 82,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 318,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button",
+              "w": 164,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button",
+              "w": 358,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 324,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 324,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-score-owner-v2.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        },
+        {
+          "url": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/",
+          "viewport": 1440,
+          "height": 900,
+          "bodyOverflow": false,
+          "bodyFont": "\"IBM Plex Sans\", \"Helvetica Neue\", Arial, sans-serif",
+          "bodySize": "18px",
+          "bodyBg": "rgb(245, 247, 248)",
+          "h1": {
+            "font": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+            "size": "32px",
+            "weight": "600"
+          },
+          "visibleMain": true,
+          "accessForm": false,
+          "overflow": [],
+          "overflowCount": 0,
+          "smallText": [],
+          "smallTextCount": 0,
+          "actions": [
+            {
+              "selector": "button",
+              "w": 147,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 660,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--outline",
+              "w": 249,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 324,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "a.cae-btn.cae-btn--primary",
+              "w": 660,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button",
+              "w": 164,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button",
+              "w": 147,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--ghost",
+              "w": 174,
+              "h": 54,
+              "px": 18,
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(20, 25, 28)",
+              "radius": "4px"
+            },
+            {
+              "selector": "button.cae-btn.cae-btn--primary",
+              "w": 179,
+              "h": 54,
+              "px": 18,
+              "bg": "rgb(123, 36, 75)",
+              "color": "rgb(245, 247, 248)",
+              "radius": "4px"
+            }
+          ],
+          "smallTargets": [],
+          "missingImages": [],
+          "styles": [
+            "/assets/css/caesthetic.css",
+            "/assets/css/growth-score-owner-v2.css",
+            "/assets/css/point-of-contact.css",
+            "/assets/css/caesthetic-impeccable.css"
+          ],
+          "mode": "local-source",
+          "jsErrors": []
+        }
+      ],
+      "errors": []
+    }
+  ]
+}
