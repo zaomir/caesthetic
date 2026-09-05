@@ -1037,6 +1037,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-05T19:05:08Z",
+  "updated_at_utc": "2026-09-05T19:15:58Z",
   "version": 1
 }
