@@ -847,7 +847,7 @@
     "site-caesthetic/assets/js/growth-score-owner-v2.js": "915883d45ed7b6432741909668289cb2e447c5a41e1663ca58cb66c954964ab6",
     "site-caesthetic/assets/js/growth.js": "a0b2e06520b9a58c28b93d80628e380924e53ae2c2659cb83c4932bf475c20dc",
     "site-caesthetic/assets/js/media-registry.js": "ad2dd6edb31eefd189d08d3bc216c596029627fd8c7916349aba29260f2e4357",
-    "site-caesthetic/assets/js/point-of-contact.js": "adda506f997d50873ec04cb4f98f93d9c4f41d3a677af83dfb4c8cab4a3b361a",
+    "site-caesthetic/assets/js/point-of-contact.js": "10d0a873466b0d769988349a5b337ee0531f7456591312e1ba901dd93877eb54",
     "site-caesthetic/assets/js/salon-funnel-copy.js": "9a1d33fad1222801864304f5686a3208f4266a4a0c94ae83dbbc434aadbacc6d",
     "site-caesthetic/audit/index.html": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
     "site-caesthetic/audits/index.html": "cc41a8218aaa826786575c9c8d9c2179669ff397c351b1f99c2779cc26bd7f22",
@@ -857,7 +857,7 @@
     "site-caesthetic/brand/logo-square.png": "5e7031f129cd59a538ad9e9ad99bea4f2656d96d9387bc71841608bf9ee0adf4",
     "site-caesthetic/brand/logo-square.svg": "9c16f91d5f25553b8af2bab4b0f5400fb9f67ac967d401d18b6b32d2a0e9cfd1",
     "site-caesthetic/case-studies/README.md": "1cf3f8d56b275f1fac70b771e7da9e27a20af6f22c2a4b09517de74fc22ac776",
-    "site-caesthetic/case-studies/case/index.html": "a8cedefd2627ca1aad4dd0d16117dd51d92cddeab1ae6c9915575b93fa6dc5b1",
+    "site-caesthetic/case-studies/case/index.html": "fb2a7b5eddd89faf4531c00ee5fe0bb4b231cf4844ab882222cfc34eb4ab72a0",
     "site-caesthetic/case-studies/index.html": "1250ff23e4f73bb0c3e34041b9e799ff497478a8f31ff8a9921e0b537336cc27",
     "site-caesthetic/case-studies/intake/index.html": "9f748b576e26cf09b5dd15598df8a168e14ab97c7d7f48beffeec46c3e55c848",
     "site-caesthetic/connect4/index.html": "560d5ff72bccacc83eb3f9e513e014df282b95504ce87c2f34e8fb5fc573a595",
@@ -890,7 +890,7 @@
     "site-caesthetic/fr/salons-de-beaute/index.html": "b0a73993c11a69e04ac6de5b23344167a8688e5035618d92e221c53a5b049110",
     "site-caesthetic/growth-score/index.html": "b38b27a68b9364e66ab9eb1b78e354bbf03509943a76881fc12229983f601ed8",
     "site-caesthetic/growth-system/index.html": "db7590f9895cb40fd6daef25b0e2a48c885e7d73aa0b0693437e836b26bdecdd",
-    "site-caesthetic/index.html": "42a87449a1f7640ef0a72b00cd567c65686134cd2d14ee91f8b632d8bc26f00f",
+    "site-caesthetic/index.html": "034fba77827db0a674c0a653088acf8290aca3f3a3b7439fc1d34b971fc3ed64",
     "site-caesthetic/lead-to-revenue-check/index.html": "bafb638bdc0dacff82cddf575b45c7356788f5259d951930601fdb059e8258bf",
     "site-caesthetic/legal/cookies/index.html": "88efb25dc435339babb704f0836986d705d87a77ea195e7d6adaacb62aed0c9e",
     "site-caesthetic/legal/index.html": "3c55d7ce6d67ea8d0bd60584de4fc8119d78f679c61cac8a4394695a09b65fad",
@@ -1005,6 +1005,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-05T18:22:37Z",
+  "updated_at_utc": "2026-09-05T18:53:36Z",
   "version": 1
 }

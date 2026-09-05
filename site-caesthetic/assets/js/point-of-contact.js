@@ -14,7 +14,10 @@
     "lead-to-revenue-check",
     "growth-system",
     "pricing",
-    "support"
+    "support",
+    "connect4",
+    "case-studies",
+    "beauty-salons"
   ]);
 
   function validLinkedIn(url) {
@@ -57,7 +60,12 @@
   function render(slot) {
     var analyst = window.CAESTHETIC && window.CAESTHETIC.analyst;
     if (!analyst || !analyst.name || !analyst.role) return;
-    var isRussian = (document.documentElement.lang || "").toLowerCase().startsWith("ru");
+    var locale = (document.documentElement.lang || "en").toLowerCase().split("-")[0];
+    var isRussian = locale === "ru";
+    var localized = {
+      es: { label: "Tu contacto en CAESTHETIC", portrait: "Retrato de Valerie Petra", link: "Ver a Valerie en LinkedIn", lead: "Valerie explica los hallazgos, coordina el trabajo de CAESTHETIC según el alcance acordado y te informa de los próximos pasos. Otros especialistas pueden participar en tareas concretas; Valerie sigue siendo tu contacto." },
+      fr: { label: "Votre contact chez CAESTHETIC", portrait: "Portrait de Valerie Petra", link: "Voir Valerie sur LinkedIn", lead: "Valerie explique les constats, coordonne le travail de CAESTHETIC selon le périmètre convenu et vous informe des prochaines étapes. D’autres spécialistes peuvent intervenir sur certaines tâches ; Valerie reste votre interlocutrice." }
+    }[locale];
     var displayName = isRussian ? "Валерия Петра" : analyst.name;
 
     var section = el("section", "cae-section cae-point-of-contact");
@@ -71,18 +79,18 @@
       image.src = analyst.photo;
       image.width = 140;
       image.height = 140;
-      image.alt = isRussian ? "Портрет Валерии Петры" : "Portrait of " + analyst.name;
+      image.alt = localized ? localized.portrait : isRussian ? "Портрет Валерии Петры" : "Portrait of " + analyst.name;
       image.loading = "lazy";
       image.decoding = "async";
       person.appendChild(image);
     }
 
     var copy = document.createElement("div");
-    copy.appendChild(el("p", "cae-kicker", isRussian ? "Ваш контакт в CAESTHETIC" : "Your CAESTHETIC point of contact"));
+    copy.appendChild(el("p", "cae-kicker", localized ? localized.label : isRussian ? "Ваш контакт в CAESTHETIC" : "Your CAESTHETIC point of contact"));
     copy.appendChild(el("h2", "cae-h2", displayName));
 
     var lead = el("p", "cae-lead");
-    lead.appendChild(document.createTextNode(isRussian
+    lead.appendChild(document.createTextNode(localized ? localized.lead : isRussian
       ? "Валерия объяснит выводы, согласует работу команды CAESTHETIC и расскажет, что будет дальше. К отдельным задачам могут подключаться другие специалисты, но за связь с вами отвечает Валерия."
       : analyst.name + " · " + analyst.role +
         " is your owner-facing point of contact for this process. She coordinates CAESTHETIC's work around the agreed scope, presents the findings, and makes sure you know what happens next. Specialist execution may involve other members of the distributed team; your owner-facing accountability stays clear."
@@ -91,7 +99,7 @@
 
     if (analyst.linkedinVerified === true && validLinkedIn(analyst.linkedin)) {
       var actions = el("div", "cae-actions");
-      var link = el("a", "cae-btn cae-btn--outline", isRussian ? "Валерия в LinkedIn" : "View Valerie on LinkedIn");
+      var link = el("a", "cae-btn cae-btn--outline", localized ? localized.link : isRussian ? "Валерия в LinkedIn" : "View Valerie on LinkedIn");
       link.href = analyst.linkedin;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
