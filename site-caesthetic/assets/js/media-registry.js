@@ -5,7 +5,7 @@
 
   function loadRegistry() {
     if (!registryPromise) {
-      registryPromise = fetch('/media/registry.json?v=case-library-20260905', { credentials: 'same-origin' })
+      registryPromise = fetch('/media/registry.json?v=case-library-wave2-20260905', { credentials: 'same-origin' })
         .then(function (response) {
           if (!response.ok) throw new Error('Media registry unavailable');
           return response.json();

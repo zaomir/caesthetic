@@ -74,7 +74,7 @@ Reject and regenerate if the file contains people, logos, or readable text.
 
 Priority geos: United States first, then United Kingdom, then Paris / France. Niches: med spa / aesthetics, dermatology, dental, adjacent legal only when the operating pattern transfers and the vertical is labeled.
 
-Current public library: one Track B case, `miami-concierge-medspa-consult-path` (CASE-2026-E66B0DF7). Catalog stays `noindex` until a permissioned Track A case exists.
+Current public library: 33 Track B cases (Miami plus wave-2 US/UK/Paris pattern studies). Catalog stays `noindex` until a permissioned Track A case exists.
 
 ## 5. Evidence and QA
 

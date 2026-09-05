@@ -1237,6 +1237,1126 @@
         "/case-studies/"
       ],
       "transformations": "none; original bytes locked"
+    },
+    "case.scottsdale-hayden-consult-split.cover": {
+      "media_id": "case.scottsdale-hayden-consult-split.cover",
+      "src": "/assets/case-studies/covers/scottsdale-hayden-consult-split.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Scottsdale, AZ med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty reception. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e8fa0c1a6311d77a69ec17ce0023a6b74b846f9cc04707487e8befa21e418e41",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/scottsdale-hayden-consult-split.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.scottsdale-san-salvador-treatment-or-consult.cover": {
+      "media_id": "case.scottsdale-san-salvador-treatment-or-consult.cover",
+      "src": "/assets/case-studies/covers/scottsdale-san-salvador-treatment-or-consult.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Scottsdale, AZ med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty reception. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e8fa0c1a6311d77a69ec17ce0023a6b74b846f9cc04707487e8befa21e418e41",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/scottsdale-san-salvador-treatment-or-consult.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.scottsdale-north-card-hold-booking.cover": {
+      "media_id": "case.scottsdale-north-card-hold-booking.cover",
+      "src": "/assets/case-studies/covers/scottsdale-north-card-hold-booking.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Scottsdale, AZ med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty lobby kiosk and vacant chair. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "46dd7443f64226578827b2d94cb2261622add195155133a272a0934ba181caaf",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/scottsdale-north-card-hold-booking.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.scottsdale-mescal-phone-text-path.cover": {
+      "media_id": "case.scottsdale-mescal-phone-text-path.cover",
+      "src": "/assets/case-studies/covers/scottsdale-mescal-phone-text-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Scottsdale, AZ med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty marble desk with a telephone off the hook. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bfba28f4c1beb01762e46a0569174c67b9726ac3ebb65a0445d1853fae282999",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/scottsdale-mescal-phone-text-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.paradise-valley-consult-credit-path.cover": {
+      "media_id": "case.paradise-valley-consult-credit-path.cover",
+      "src": "/assets/case-studies/covers/paradise-valley-consult-credit-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Paradise Valley, AZ med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty reception. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e8fa0c1a6311d77a69ec17ce0023a6b74b846f9cc04707487e8befa21e418e41",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/paradise-valley-consult-credit-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.charlotte-cliff-cameron-paid-consult-form.cover": {
+      "media_id": "case.charlotte-cliff-cameron-paid-consult-form.cover",
+      "src": "/assets/case-studies/covers/charlotte-cliff-cameron-paid-consult-form.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Charlotte, NC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty desk. A thick stack of blank cards beside one small card. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bacde09fd4fd3f516312e98ededccf4b3c567aa3bca3efc4d5df063e9d0d7d45",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/charlotte-cliff-cameron-paid-consult-form.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.charlotte-cumberland-physician-consult.cover": {
+      "media_id": "case.charlotte-cumberland-physician-consult.cover",
+      "src": "/assets/case-studies/covers/charlotte-cumberland-physician-consult.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Charlotte, NC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty desk. A thick stack of blank cards beside one small card. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bacde09fd4fd3f516312e98ededccf4b3c567aa3bca3efc4d5df063e9d0d7d45",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/charlotte-cumberland-physician-consult.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.charlotte-pineville-form-sla.cover": {
+      "media_id": "case.charlotte-pineville-form-sla.cover",
+      "src": "/assets/case-studies/covers/charlotte-pineville-form-sla.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Charlotte, NC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty desk. A thick stack of blank cards beside one small card. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bacde09fd4fd3f516312e98ededccf4b3c567aa3bca3efc4d5df063e9d0d7d45",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/charlotte-pineville-form-sla.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.charlotte-randolph-consult-wait.cover": {
+      "media_id": "case.charlotte-randolph-consult-wait.cover",
+      "src": "/assets/case-studies/covers/charlotte-randolph-consult-wait.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Charlotte, NC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty desk. A thick stack of blank cards beside one small card. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bacde09fd4fd3f516312e98ededccf4b3c567aa3bca3efc4d5df063e9d0d7d45",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/charlotte-randolph-consult-wait.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.tampa-dale-mabry-portal-membership.cover": {
+      "media_id": "case.tampa-dale-mabry-portal-membership.cover",
+      "src": "/assets/case-studies/covers/tampa-dale-mabry-portal-membership.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Tampa, FL med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty lobby kiosk and vacant chair. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "46dd7443f64226578827b2d94cb2261622add195155133a272a0934ba181caaf",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/tampa-dale-mabry-portal-membership.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.austin-bee-caves-two-office-path.cover": {
+      "media_id": "case.austin-bee-caves-two-office-path.cover",
+      "src": "/assets/case-studies/covers/austin-bee-caves-two-office-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Austin, TX med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty marble desk with a telephone off the hook. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bfba28f4c1beb01762e46a0569174c67b9726ac3ebb65a0445d1853fae282999",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/austin-bee-caves-two-office-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.greenville-woods-crossing-consult-first.cover": {
+      "media_id": "case.greenville-woods-crossing-consult-first.cover",
+      "src": "/assets/case-studies/covers/greenville-woods-crossing-consult-first.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Greenville, SC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty reception. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e8fa0c1a6311d77a69ec17ce0023a6b74b846f9cc04707487e8befa21e418e41",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/greenville-woods-crossing-consult-first.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.greenville-physician-portal-path.cover": {
+      "media_id": "case.greenville-physician-portal-path.cover",
+      "src": "/assets/case-studies/covers/greenville-physician-portal-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Greenville, SC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty lobby kiosk and vacant chair. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "46dd7443f64226578827b2d94cb2261622add195155133a272a0934ba181caaf",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/greenville-physician-portal-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.charleston-multi-location-next-step.cover": {
+      "media_id": "case.charleston-multi-location-next-step.cover",
+      "src": "/assets/case-studies/covers/charleston-multi-location-next-step.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Charleston, SC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Three closed doors, one path of light. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "c4addb1aa99a2d158c1a41b09260b8d056056fd0a824c810171f707d8322a0db",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/charleston-multi-location-next-step.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.raleigh-cary-consult-routing.cover": {
+      "media_id": "case.raleigh-cary-consult-routing.cover",
+      "src": "/assets/case-studies/covers/raleigh-cary-consult-routing.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Raleigh, NC med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty reception. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e8fa0c1a6311d77a69ec17ce0023a6b74b846f9cc04707487e8befa21e418e41",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/raleigh-cary-consult-routing.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.dallas-preston-derm-transparency-path.cover": {
+      "media_id": "case.dallas-preston-derm-transparency-path.cover",
+      "src": "/assets/case-studies/covers/dallas-preston-derm-transparency-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Dallas, TX dermatology pattern study. No people, no logos, no readable text.",
+      "alt": "Empty marble desk with a telephone off the hook. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bfba28f4c1beb01762e46a0569174c67b9726ac3ebb65a0445d1853fae282999",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/dallas-preston-derm-transparency-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.addison-derm-phone-hours-path.cover": {
+      "media_id": "case.addison-derm-phone-hours-path.cover",
+      "src": "/assets/case-studies/covers/addison-derm-phone-hours-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Addison, TX dermatology pattern study. No people, no logos, no readable text.",
+      "alt": "Empty marble desk with a telephone off the hook. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bfba28f4c1beb01762e46a0569174c67b9726ac3ebb65a0445d1853fae282999",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/addison-derm-phone-hours-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.atlanta-four-office-derm-routing.cover": {
+      "media_id": "case.atlanta-four-office-derm-routing.cover",
+      "src": "/assets/case-studies/covers/atlanta-four-office-derm-routing.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Atlanta, GA dermatology pattern study. No people, no logos, no readable text.",
+      "alt": "Three closed doors, one path of light. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "c4addb1aa99a2d158c1a41b09260b8d056056fd0a824c810171f707d8322a0db",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/atlanta-four-office-derm-routing.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.dallas-coit-derm-contact-split.cover": {
+      "media_id": "case.dallas-coit-derm-contact-split.cover",
+      "src": "/assets/case-studies/covers/dallas-coit-derm-contact-split.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Dallas, TX dermatology pattern study. No people, no logos, no readable text.",
+      "alt": "Empty desk. A thick stack of blank cards beside one small card. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bacde09fd4fd3f516312e98ededccf4b3c567aa3bca3efc4d5df063e9d0d7d45",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/dallas-coit-derm-contact-split.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.denver-derm-consult-path.cover": {
+      "media_id": "case.denver-derm-consult-path.cover",
+      "src": "/assets/case-studies/covers/denver-derm-consult-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Denver, CO dermatology pattern study. No people, no logos, no readable text.",
+      "alt": "Empty reception. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e8fa0c1a6311d77a69ec17ce0023a6b74b846f9cc04707487e8befa21e418e41",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/denver-derm-consult-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.nashville-restorative-dental-request.cover": {
+      "media_id": "case.nashville-restorative-dental-request.cover",
+      "src": "/assets/case-studies/covers/nashville-restorative-dental-request.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Nashville, TN dental pattern study. No people, no logos, no readable text.",
+      "alt": "Empty consult light over a closed tray. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6b4a679ab8276d7b6496f06a05da6c78541e6cdf05849b0d87d635fee61373a0",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/nashville-restorative-dental-request.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.austin-westlake-dental-consult.cover": {
+      "media_id": "case.austin-westlake-dental-consult.cover",
+      "src": "/assets/case-studies/covers/austin-westlake-dental-consult.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Austin, TX dental pattern study. No people, no logos, no readable text.",
+      "alt": "Empty consult light over a closed tray. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6b4a679ab8276d7b6496f06a05da6c78541e6cdf05849b0d87d635fee61373a0",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/austin-westlake-dental-consult.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.charlotte-southpark-dental-handoff.cover": {
+      "media_id": "case.charlotte-southpark-dental-handoff.cover",
+      "src": "/assets/case-studies/covers/charlotte-southpark-dental-handoff.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Charlotte, NC dental pattern study. No people, no logos, no readable text.",
+      "alt": "Empty consult light over a closed tray. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6b4a679ab8276d7b6496f06a05da6c78541e6cdf05849b0d87d635fee61373a0",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/charlotte-southpark-dental-handoff.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.london-harley-whatsapp-consult.cover": {
+      "media_id": "case.london-harley-whatsapp-consult.cover",
+      "src": "/assets/case-studies/covers/london-harley-whatsapp-consult.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published London med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Two closed unlabeled folders and one envelope on an empty desk. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d844fe58169aea0836c39db3b6c4dc4c78a0b85c3a5def2fcac749266bbcfad4",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/london-harley-whatsapp-consult.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.london-manchester-academy-sites.cover": {
+      "media_id": "case.london-manchester-academy-sites.cover",
+      "src": "/assets/case-studies/covers/london-manchester-academy-sites.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published London med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Three closed doors, one path of light. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "c4addb1aa99a2d158c1a41b09260b8d056056fd0a824c810171f707d8322a0db",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/london-manchester-academy-sites.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.london-paris-dual-city-handoff.cover": {
+      "media_id": "case.london-paris-dual-city-handoff.cover",
+      "src": "/assets/case-studies/covers/london-paris-dual-city-handoff.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published London med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Two closed unlabeled folders and one envelope on an empty desk. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d844fe58169aea0836c39db3b6c4dc4c78a0b85c3a5def2fcac749266bbcfad4",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/london-paris-dual-city-handoff.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.paris-iena-consult-or-phone.cover": {
+      "media_id": "case.paris-iena-consult-or-phone.cover",
+      "src": "/assets/case-studies/covers/paris-iena-consult-or-phone.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Paris med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty reception. Three cords join into one path. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e8fa0c1a6311d77a69ec17ce0023a6b74b846f9cc04707487e8befa21e418e41",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/paris-iena-consult-or-phone.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.manchester-paris-waitlist-whatsapp.cover": {
+      "media_id": "case.manchester-paris-waitlist-whatsapp.cover",
+      "src": "/assets/case-studies/covers/manchester-paris-waitlist-whatsapp.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Manchester med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Two closed unlabeled folders and one envelope on an empty desk. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d844fe58169aea0836c39db3b6c4dc4c78a0b85c3a5def2fcac749266bbcfad4",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/manchester-paris-waitlist-whatsapp.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.naples-consult-call-path.cover": {
+      "media_id": "case.naples-consult-call-path.cover",
+      "src": "/assets/case-studies/covers/naples-consult-call-path.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Naples, FL med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty marble desk with a telephone off the hook. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bfba28f4c1beb01762e46a0569174c67b9726ac3ebb65a0445d1853fae282999",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/naples-consult-call-path.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.houston-medspa-portal-split.cover": {
+      "media_id": "case.houston-medspa-portal-split.cover",
+      "src": "/assets/case-studies/covers/houston-medspa-portal-split.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Houston, TX med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty lobby kiosk and vacant chair. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "46dd7443f64226578827b2d94cb2261622add195155133a272a0934ba181caaf",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/houston-medspa-portal-split.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.london-harley-dental-consult.cover": {
+      "media_id": "case.london-harley-dental-consult.cover",
+      "src": "/assets/case-studies/covers/london-harley-dental-consult.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published London dental pattern study. No people, no logos, no readable text.",
+      "alt": "Empty consult light over a closed tray. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6b4a679ab8276d7b6496f06a05da6c78541e6cdf05849b0d87d635fee61373a0",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/london-harley-dental-consult.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
+    },
+    "case.nashville-midtown-call-or-request.cover": {
+      "media_id": "case.nashville-midtown-call-or-request.cover",
+      "src": "/assets/case-studies/covers/nashville-midtown-call-or-request.webp",
+      "type": "image",
+      "kind": "abstract-editorial",
+      "state": "approved",
+      "purpose": "Illustrative cover for the published Nashville, TN med spa pattern study. No people, no logos, no readable text.",
+      "alt": "Empty marble desk with a telephone off the hook. Illustrative cover, not a photograph of the practice.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "bfba28f4c1beb01762e46a0569174c67b9726ac3ebb65a0445d1853fae282999",
+      "format": "webp",
+      "source": "site-caesthetic/assets/case-studies/covers/nashville-midtown-call-or-request.webp",
+      "rights": {
+        "status": "approved",
+        "source": "CAESTHETIC generated editorial still life, 2026-09-05"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/case-studies/",
+        "/case-studies/case/"
+      ],
+      "focal_point": [
+        50,
+        55
+      ]
     }
   }
 }
