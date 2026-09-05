@@ -536,6 +536,7 @@
     "scripts/caesthetic/asset-worker/worker.mjs": "2c64d8cda9a9e823649d001b88d6c6028670113f53c76d618b4b198fe86f0396",
     "scripts/caesthetic/audit-storage.mjs": "10fc919312df34f3a82377ceba4d5c43c7e8c638f677379e05619fda2a6d055d",
     "scripts/caesthetic/build-aesthetemed-growth-score.mjs": "2f62590db3b80ff371a12d5abd3adb2ab898083536772a93b01986918fa7f549",
+    "scripts/caesthetic/build-connect4-page.mjs": "26bdfef7560407d77132fed51b2e555bd7e51f0c2b5b159d813e6449590fa87c",
     "scripts/caesthetic/build-nohy-v-ruky-growth-score.mjs": "de7d86bbc0da2bcc7caf4c7df78b3f6dd2ecf71ac945dcbc7473cbca27a34eb5",
     "scripts/caesthetic/build-prestige-growth-score-pilot.mjs": "4159a5e9aaedea1322aeea27d6529c53da724bbd239ba63657e61011562e3c13",
     "scripts/caesthetic/build-spoken-medspa-russian.mjs": "b4a7bf0fd3f7a4a074fc000eaff1953de58131b19b453f21ea684994ef383031",
@@ -552,6 +553,7 @@
     "scripts/caesthetic/cae_wave1_public_enrich.py": "62bcf4db20bd0766082a77570e50052268273634f4ce069c48abfde45252ff3b",
     "scripts/caesthetic/caesthetic-repo-sync-contract.mjs": "ddff0be6ae81a635b3547f4d49ee01978b476c5988bdbc0af3156593c910d58a",
     "scripts/caesthetic/compose-template-reel-example.py": "17e99f1ff51b84bd25d00d11203d93ddfa21db34605167373d3b7c93c31745a1",
+    "scripts/caesthetic/connect4-page-browser-qa.mjs": "e04f59637d8916dce4cee6c0a943af39bda4c04eec819ff1f2c0f04020436fba",
     "scripts/caesthetic/continuous-sync-runner.sh": "1808168f655e732576d8bce4158996d8e3cb0e81d39daa8c64fb22d9ae89c62b",
     "scripts/caesthetic/dec829-parity-guard.mjs": "541e9d37ac2212cefcc2b90ea41b8361eb93d17c6a6299c01ab8cff3fa779369",
     "scripts/caesthetic/entertainment-rotation.py": "32fc87af02d636285298752a3d6af16b24d8f39b6ce6c6e4a996ce9184b97f47",
@@ -707,6 +709,7 @@
     "site-caesthetic/assets/css/caesthetic.css": "f531c1abf869f58113f302b294087921b4d9b8b801eecf9c5e31e138b591cb13",
     "site-caesthetic/assets/css/case-studies.css": "c5ece7134501c66f97f335ca5d334ea551251edbc96109221512a20df4764449",
     "site-caesthetic/assets/css/case-study-detail.css": "22abe0027964c47ffd96797e0c453d69a438a0089f036ec1e3eca86f3e7ea454",
+    "site-caesthetic/assets/css/connect4.css": "5b6d063f393fc02f41788c5d47f4cbe327285a57902a9fecab9ba3a1a0d4b2d1",
     "site-caesthetic/assets/css/growth-report-base.css": "6f9b4a170933751f4ad2f9bcc9f548c4e3ad27d96f21b1a15d7ded63f550966f",
     "site-caesthetic/assets/css/growth-report-mobile.css": "fb1ffc446587998bf789f7511d8e76c1ae5a7664a2855cd8ff579858f92c84be",
     "site-caesthetic/assets/css/growth-report.css": "c7d7013898bd594ece9b4d24ae5c0715a64a874fefd40a13aa9ff96dddb09bd8",
@@ -822,6 +825,7 @@
     "tests/caesthetic/caesthetic-4444-commercial-canon.test.mjs": "001962b45ec66dc46f70e1d860d69d9fc3b90e69313e20ab0e4bccd732d0ab80",
     "tests/caesthetic/case-studies-runtime.test.mjs": "9f553097e0fba739dad761138ba4523fb7fb1e7b3a5f69028097f6618585d429",
     "tests/caesthetic/check500-copy-lock.test.mjs": "12810a6cd3b73950e41b06949ac4a182f36b9e5f7be996b8af599edb766df7d5",
+    "tests/caesthetic/connect4-page.test.mjs": "a16f3fa3f4084fd3a5f168793888d5fc5c5b7f254d55aee19e50eb45338b8341",
     "tests/caesthetic/delfin_readiness_test.py": "7e1fe7d0e484c2804dbabb00da6c25a31a4febfa4907712f7f20edc46cc69618",
     "tests/caesthetic/dispute-evidence-runtime.test.mjs": "ee07971a3f5f45687b306877ade86985dd22b7dbd186e3b529e00d3604559844",
     "tests/caesthetic/entertainment-rotation.test.py": "76662f35c88e74c9942404db2df38acba75fae2d9c47ad664b75b32ec7157ee2",
@@ -886,6 +890,6 @@
     "tests/caesthetic/v2-public-canon.test.mjs": "cb8f729f0187227cffe082d46b7e07bbf76fd4d19034523b0880e6ce243ab6cd"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-05T13:30:21Z",
+  "updated_at_utc": "2026-09-05T13:53:07Z",
   "version": 1
 }
