@@ -15,4 +15,5 @@
   <url><loc>https://caesthetic.com/legal/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://caesthetic.com/legal/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://caesthetic.com/legal/cookies/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://caesthetic.com/connect4/</loc></url>
 </urlset>

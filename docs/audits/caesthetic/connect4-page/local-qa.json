@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "mode": "local",
+  "deployed_sha": "0b1563b21d8453750d687577488ceb1111520542",
+  "checked_at": "2026-09-05T13:53:51.853Z",
+  "widths": [
+    {
+      "width": 320,
+      "status": "PASS",
+      "image": "mobile-v1.png"
+    },
+    {
+      "width": 360,
+      "status": "PASS",
+      "image": "mobile-v1.png"
+    },
+    {
+      "width": 390,
+      "status": "PASS",
+      "image": "mobile-v1.png"
+    },
+    {
+      "width": 430,
+      "status": "PASS",
+      "image": "mobile-v1.png"
+    },
+    {
+      "width": 768,
+      "status": "PASS",
+      "image": "journey-v1.png"
+    },
+    {
+      "width": 1024,
+      "status": "PASS",
+      "image": "journey-v1.png"
+    },
+    {
+      "width": 1440,
+      "status": "PASS",
+      "image": "journey-v1.png"
+    },
+    {
+      "width": 1920,
+      "status": "PASS",
+      "image": "journey-v1.png"
+    }
+  ],
+  "asset_hashes": [],
+  "form": {
+    "two_fields": true,
+    "required_validation": true,
+    "error_and_retry": true,
+    "success": true,
+    "focus_return": true,
+    "source_and_intent": true,
+    "backend": "mocked"
+  },
+  "remaining_image_pairs": [
+    "system",
+    "service-example",
+    "delivery-handoff",
+    "paid-traffic-readiness"
+  ],
+  "url": "http://127.0.0.1:36225/connect4/",
+  "javascript_errors": []
+}

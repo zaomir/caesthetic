@@ -822,6 +822,68 @@
       "source_library_id": "libfile_667218c20a04819182e4a4651d95e918",
       "approved_at": "2026-09-05",
       "usage_note": "Use complete diagram with a readable HTML explanation and full-size link. Do not substitute the patient-route or paid-traffic-loss illustrations."
+    },
+    "connect4.journey.desktop": {
+      "media_id": "connect4.journey.desktop",
+      "src": "/assets/connect4/connect4-patient-journey-v1.png",
+      "type": "image",
+      "kind": "approved-conceptual-illustration",
+      "state": "approved",
+      "purpose": "Connect4 journey; explicitly labeled aesthetic-practice example, not a general ownership diagram.",
+      "alt": "One possible client journey through the four connected public surfaces and separate Lead Intake.",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "229821d3ef70194dedd278fff76841e1cea671148e8e06807177d9f26781b180",
+      "format": "desktop",
+      "source": "docs/ssot/assets/caesthetic/connect4-patient-journey-v1.png",
+      "rights": {
+        "status": "owner-provided",
+        "source": "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-visuals"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/connect4/"
+      ],
+      "transformations": "none; original bytes locked"
+    },
+    "connect4.journey.mobile": {
+      "media_id": "connect4.journey.mobile",
+      "src": "/assets/connect4/connect4-patient-journey-mobile-v1.png",
+      "type": "image",
+      "kind": "approved-conceptual-illustration",
+      "state": "approved",
+      "purpose": "Connect4 journey; explicitly labeled aesthetic-practice example, not a general ownership diagram.",
+      "alt": "One possible client journey through the four connected public surfaces and separate Lead Intake.",
+      "width": 841,
+      "height": 1870,
+      "sha256": "68ec264d36113b954c7b770bb956d687ce35a7b8615a2fc28f6fcfff09f43a56",
+      "format": "mobile",
+      "source": "docs/ssot/assets/caesthetic/connect4-patient-journey-mobile-v1.png",
+      "rights": {
+        "status": "owner-provided",
+        "source": "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-visuals"
+      },
+      "consent": {
+        "required": false,
+        "status": "not_required"
+      },
+      "allowed_channels": [
+        "public",
+        "local",
+        "protected-preview"
+      ],
+      "allowed_routes": [
+        "/connect4/"
+      ],
+      "transformations": "none; original bytes locked"
     }
   }
 }
