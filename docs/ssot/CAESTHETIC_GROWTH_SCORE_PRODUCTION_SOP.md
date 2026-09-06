@@ -683,3 +683,26 @@ Manager Assignment
 → Approved Client Pages
 → Protected Delivery
 ```
+
+
+## 2026-09-06 — Catalog-bound selection before report publication
+
+Apply `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md` §2.1 (`report-value-gate`),
+owner directive #1521, before publishing findings, answers, priorities, repair
+plans or offers. Every client-visible task maps to a supported catalog module
+and its actual eligibility/horizon. An out-of-catalog task stays internal until
+a named CAESTHETIC manager discusses and explicitly decides its exact publication
+and scope. A general implementation request is not that case-specific decision.
+
+Separate patient-choice/enquiry materiality from the value of CAESTHETIC delivery.
+Do not justify a $2,500 Sprint with an isolated outdated name, typo or other easy
+DIY correction. Small observations belong in a compact final team-fixes section;
+they are not lost-client evidence or a Top 3 sales argument. A quick but genuinely
+urgent broken-path fix should be disclosed for immediate correction, without
+inflating the paid scope. First-month selection requires evidence, a supported
+intervention, meaningful client value, feasible deliverable/dependencies and a
+verification criterion. Missing research is not itself a business leak. If the
+material priority set is not yet supported, research further rather than fill
+it with minor errors. Preserve the human selection gate and the existing
+Primary + two Supporting schema. Longer/recurring eligible work is shown later.
+The optional $500 Check remains the separately authorized post-enquiry branch.

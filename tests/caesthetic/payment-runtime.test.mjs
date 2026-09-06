@@ -48,8 +48,9 @@ test('payment page shows exact amount and captures explicit payer authorization 
   assert.match(nginxOrigin, /try_files \/pay\/index\.html/);
 });
 
-test('reusable Wise link remains server-side and redirect completion is never payment proof', () => {
-  assert.match(fn, /Deno\.env\.get\("CAESTHETIC_WISE_PAYMENT_LINK"\)/);
+test('order-specific Wise link remains server-side and redirect completion is never payment proof', () => {
+  assert.match(fn, /const wisePaymentLink = row\.provider_payment_link/);
+  assert.doesNotMatch(fn, /Deno\.env\.get\("CAESTHETIC_WISE_PAYMENT_LINK"\)/);
   assert.match(fn, /action === "authorize_stripe"/);
   assert.match(fn, /payment_method_types\[0\].*us_bank_account/);
   assert.match(fn, /metadata\[caesthetic_payment_request_id\]/);

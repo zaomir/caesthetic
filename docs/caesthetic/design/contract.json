@@ -23,7 +23,7 @@
     "redirect",
     "check500",
     "connect4",
-    "owner-decision-report/3.0.0"
+    "owner-decision-report/3.1.0"
   ],
   "pages": [
     {
@@ -296,7 +296,8 @@
         "/assets/css/caesthetic.css",
         "/assets/css/growth.css",
         "/assets/css/point-of-contact.css",
-        "/assets/css/caesthetic-impeccable.css"
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/service-examples.css"
       ]
     },
     {
@@ -1076,7 +1077,8 @@
         "/assets/css/caesthetic.css",
         "/assets/css/growth.css",
         "/assets/css/point-of-contact.css",
-        "/assets/css/caesthetic-impeccable.css"
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/service-examples.css"
       ]
     },
     {
@@ -1160,7 +1162,7 @@
     {
       "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/index.html",
       "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/",
-      "profile": "owner-decision-report/3.0.0",
+      "profile": "owner-decision-report/3.1.0",
       "viewports": [
         320,
         390,
@@ -1170,7 +1172,7 @@
     {
       "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/index.html",
       "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/",
-      "profile": "owner-decision-report/3.0.0",
+      "profile": "owner-decision-report/3.1.0",
       "viewports": [
         320,
         390,

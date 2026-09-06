@@ -1,6 +1,7 @@
 import { check500USCopy } from "./check500-copy.mjs";
 import { SURFACES, validateConsistency, validateResearchPublication, assertReviewed, digest, safeURL } from "./consistency-contract.mjs";
-export const OWNER_V3 = "owner-decision-report/3.0.0";
+import { validateChoiceQuestions } from "./choice-questions-contract.mjs";
+export const OWNER_V3 = "owner-decision-report/3.1.0";
 export const SPOKEN_CASE = "spoken-medspa-snellville-2026";
 export const V3_SECTION_IDS = Object.freeze(["gap-map", "focus-gaps", "sprint-fit", "repair-paths", "do-not-fund", "gap-inventory", "evidence-and-competitors", "scores-and-methodology", "next-step"]);
 export function ownerV3Model(report, score) {
@@ -21,7 +22,7 @@ export function ownerV3Model(report, score) {
   if (!Array.isArray(inventory) || inventory.some(g => !/^[A-Za-z0-9_-]+$/.test(g.id)) || new Set(inventory.map(g => g.id)).size !== inventory.length) throw new Error("V3_INVALID: unsafe or duplicate gap identifier");
   const metrics = new Map([...report.surfaces.flatMap(s => s.metrics.map(m => [`${s.id}.${m.metric_id}`, m])), ...report.crossSurface.metrics.map(m => [`cross.${m.metric_id}`, m])]);
   const approvedMetrics = [...metrics].filter(([, m]) => m.reviewer_status === "approved" && m.finding && m.source && m.collected_at);
-  const selected = selectedIds.map((id, i) => {
+  selectedIds.map((id, i) => {
     const item = inventory.find(g => g.id === id);
     if (!item) throw new Error(`V3_INVALID: missing priority ${id}`);
     return { ...item, display_title: ctx.copy.priority_titles[i], refs: item.evidence_refs.filter(id => metrics.has(id)), role: i ? "supporting" : "primary" };
@@ -34,7 +35,12 @@ export function ownerV3Model(report, score) {
   if (ctx.copy.section_titles?.length !== 9 || ctx.copy.surface_names?.length !== 4) throw new Error("V3_INVALID: copy structure");
   // Drafts stay masked unless the scoped, frozen source-observation package validates.
   const queries = ctx.matrix.queries.map(q => ({ ...q, cells: Object.fromEntries(SURFACES.map(surface => [surface, preview && !research ? { status: "insufficient_evidence", observations: [] } : q.cells[surface]])) }));
-  return { locale, preview, research, coverage: ctx.registry.coverage, copy: ctx.copy, ownerCopy: { ...report.presentation.owner_copy, check500: locale === "en-US" ? check500USCopy() : report.presentation.owner_copy.check500 }, release: ctx.release, queries, sources: registry.sources, observations: registry.observations, selected, selectedIds, inventory, metrics, approvedMetrics, score, report, sourceVersion: report.verifiedFactSetVersion, inputDigest: digest(ctx.release.inputs) };
+  const choices = (research || !preview) ? validateChoiceQuestions(ctx.choices, { release: ctx.release, registry, metrics, inventory }) : [];
+  const narrative = choices.length ? ctx.choices : null;
+  // Frozen decisions remain source history. Only a newly reviewed value-gated
+  // selection can become a personalized offer in the revised presentation.
+  const selected = narrative?.commercial_selection.status === 'approved' ? narrative.commercial_selection.priority_ids.map((id, i) => { const g = inventory.find(g => g.id === id); return { ...g, display_title: g.title, refs: g.evidence_refs, role: i ? 'supporting' : 'primary' }; }) : [];
+  return { narrative, addenda: narrative?.repair_addenda || [], choices, locale, preview, research, coverage: ctx.registry.coverage, copy: ctx.copy, ownerCopy: { ...report.presentation.owner_copy, check500: locale === "en-US" ? check500USCopy() : report.presentation.owner_copy.check500 }, release: ctx.release, queries, sources: registry.sources, observations: registry.observations, selected, selectedIds: selected.map(g => g.id), inventory, metrics, approvedMetrics, score, report, sourceVersion: report.verifiedFactSetVersion, inputDigest: digest(ctx.release.inputs) };
 }
 export function approvedAction(action) {
   if (action?.type === "request" && ["sprint", "check", "question"].includes(action.intent)) return action;

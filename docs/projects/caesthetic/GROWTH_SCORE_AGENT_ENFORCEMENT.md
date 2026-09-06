@@ -6,7 +6,7 @@ canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
 consistency_standard: docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md
 canonical_ref: zaomir/grainee-v2 origin/main resolved at run start
-updated: 2026-09-04
+updated: 2026-09-06
 ---
 
 # Growth Score audit — mandatory AI-agent enforcement
@@ -177,7 +177,7 @@ Name changes and isolated technical repairs remain evidence-backed instructions 
 dependencies, not the main product. The `$500` Lead-to-Revenue Check remains the
 secondary branch governed by `check500-two-placement/1.0.0`.
 
-### 6.1 First research block: Соответствие 4444
+### 6.1 First research block: *Соответствие* 4444
 
 Apply `caesthetic-4444-consistency-first/1.0.0` from
 `docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md` before the other full-research
@@ -193,13 +193,16 @@ Inspect available post text, video descriptions and video transcripts separately
 then user comments, practice comment replies, reviews and owner review replies.
 A profile-only or follower-count check is not completed Social research.
 
+Enforce `platform-access-pass/1.0.0` in consistency standard §5.1 and Production SOP §7: every new or explicitly resumed research pass covers Instagram, Facebook, TikTok, YouTube and Google Maps / GBP. Prefer available Aside or another available user-authorized browser; recheck the actual session. If login blocks reading, immediately remind the user to sign in in that browser, naming the platform, exact URL and unread material. Passwords/2FA stay in the browser, never chat or evidence. Continue independent research and retry the pending source after sign-in, updating per-platform provenance and coverage. No login is needed for already readable public YouTube/Maps material. A login prompt is an access limitation, not proof of private content or absence. Ordinary authorized sign-in permits public-source reading only; do not read DMs/private groups, request clinic/admin access, or react/publish/send messages under this research instruction.
+
+
 Keep `exact_match`, `semantic_match`, `contradiction`, `not_found_in_sample`
 and `insufficient_evidence` distinct. Inaccessible content is not an absent
 phrase. Human verification is required for automatic transcript matches. Keep
 practice-authored text separate from independent patient speech; never force
 keywords into reviews/comments, bypass access restrictions or invent frequency.
 
-The first diagnostic question is «Проверка соответствия ключевых фраз».
+The first research check is «Проверка *соответствия* ключевых фраз»; reader order is separate.
 A material, verified correspondence failure may be proposed as the first problem;
 it is not an automatic binding constraint or Top 3 selection. Show coherent
 language as a strength and unavailable evidence as unavailable. Preserve the
@@ -233,3 +236,33 @@ If an agent cannot satisfy a gate, access the canonical rules, establish public
 provenance, identify the approving manager or preserve the required evidence,
 it must stop the affected stage and report `BLOCKED` with the exact missing
 requirement. It must not improvise, weaken a gate or treat a draft as approved.
+
+
+## 2026-09-06 — Publication eligibility and commercial materiality
+
+Apply `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md` §2.1 (`report-value-gate`),
+owner directive #1521, before publishing findings, answers, priorities, repair
+plans or offers. Every client-visible task maps to a supported catalog module
+and its actual eligibility/horizon. An out-of-catalog task stays internal until
+a named CAESTHETIC manager discusses and explicitly decides its exact publication
+and scope. A general implementation request is not that case-specific decision.
+
+Separate patient-choice/enquiry materiality from the value of CAESTHETIC delivery.
+Do not justify a $2,500 Sprint with an isolated outdated name, typo or other easy
+DIY correction. Small observations belong in a compact final team-fixes section;
+they are not lost-client evidence or a Top 3 sales argument. A quick but genuinely
+urgent broken-path fix should be disclosed for immediate correction, without
+inflating the paid scope. First-month selection requires evidence, a supported
+intervention, meaningful client value, feasible deliverable/dependencies and a
+verification criterion. Missing research is not itself a business leak. If the
+material priority set is not yet supported, research further rather than fill
+it with minor errors. Preserve the human selection gate and the existing
+Primary + two Supporting schema. Longer/recurring eligible work is shown later.
+The optional $500 Check remains the separately authorized post-enquiry branch.
+
+
+The owner-approved Spoken reader direction is now four open questions followed
+by one unnumbered Connect4 consistency conclusion, then evidence-backed Month-1
+scope. Apply `caesthetic-choice-synthesis/1.0.0` in the Client Report Standard;
+do not retain the superseded fifth numbered question or force a consistency
+failure to sell Connect4. Research order and final human approval remain intact.

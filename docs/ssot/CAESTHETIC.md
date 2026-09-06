@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.33
-updated: 2026-09-05
+version: 3.34
+updated: 2026-09-06
 scope: CAESTHETIC master strategy and product-funnel canon
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 public_program_name: Connect4
@@ -10,6 +10,7 @@ internal_program_id: "4444"
 parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
 marketing_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
 related:
+  - docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
   - docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   - docs/ssot/CAESTHETIC_CASE_STUDIES_COLLECTION.md
   - docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md
@@ -561,6 +562,7 @@ Founder-confirmed on 2026-08-12: **Valerie Petra** is the public face of CAESTHE
 The reusable owner-facing point-of-contact component uses the founder-provided `08-portrait-glasses-office-blazer.png` source (SHA-256 `4b3e0574a6b2ebb3d29e0e0eebdfb72e7609c8c997190fbf06daa3566b987c56`) through the optimized public derivative `/assets/img/team/valerie-petra-office-portrait.webp`. The component belongs on accountable delivery and decision surfaces, not on `/about/`; About remains the corporate category, operating-model and evidence-standard page. Replacing the photo or LinkedIn URL requires a new founder-confirmed source and repository-authority update. Stable technical ids and service/file names containing `valeriia` remain unchanged unless a separately scoped migration is approved.
 
 ## 12. Authority map
+- Products and implementation services, First Sprint / Inside-out eligibility, 30D/LONG/ONGOING and dependencies: `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md` — subordinate catalog; this master retains funnel and pricing authority.
 - Global architecture: `docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md`
 - Global marketing canon: `docs/ssot/MARKETING_SYSTEM_STANDARD.md`
 - Productization / Growth Control: `docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md`

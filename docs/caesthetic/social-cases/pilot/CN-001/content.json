@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.1",
+  "case_alias": "CN-001",
+  "series": "CAESTHETIC Case Notes",
+  "status": "draft_for_review",
+  "primary_destination_url": "https://caesthetic.com/growth-score/",
+  "service_module_ids": [
+    "A03",
+    "A10"
+  ],
+  "recommended_internal_module_ids": [
+    "B01"
+  ],
+  "module_usage_note": "Module IDs are internal routing metadata. A03 and A10 describe the scoped implementation connection; B01 is a recommendation for subsequent work, not work claimed as completed.",
+  "evidence": {
+    "industry": "Med spa",
+    "location_count": 1,
+    "metric_definition": "Scheduled consultations divided by qualified inbound inquiries matching the advertised service list; spam, blanks and duplicates excluded.",
+    "before": {
+      "start": "2025-01-06",
+      "end": "2025-04-05",
+      "qualified_enquiries": 201,
+      "scheduled_consultations": 36,
+      "consultation_rate_rounded_percent": 18,
+      "recorded_first_human_reply_within_2h": 54,
+      "reply_rate_rounded_percent": 27
+    },
+    "after": {
+      "start": "2025-05-05",
+      "end": "2025-08-02",
+      "qualified_enquiries": 220,
+      "scheduled_consultations": 59,
+      "consultation_rate_rounded_percent": 27,
+      "recorded_first_human_reply_within_2h": 123,
+      "reply_rate_rounded_percent": 56
+    },
+    "headline_delta_approx_percentage_points": 9,
+    "media_spend_increased": false,
+    "publisher_evidence_level": "verified",
+    "publisher_attribution": "direct",
+    "holdout_group": false,
+    "limitations": [
+      "Seasonality, staffing, other channels and unpaid media could also affect consultation volume.",
+      "Comparison does not isolate each intervention.",
+      "No recorded reply within two hours does not establish whether a reply was late, absent or unrecorded."
+    ],
+    "proposed_next_step": "Review inquiries without a recorded reply within two hours and check team handoffs."
+  },
+  "video": {
+    "duration_seconds": 39,
+    "slide_durations_seconds": [
+      3,
+      5,
+      5,
+      6,
+      5,
+      6,
+      5,
+      4
+    ],
+    "aspect_ratio": "9:16",
+    "source": "same eight slides; reflow text instead of cropping",
+    "voiceover": "unrendered script in speaker_notes",
+    "export_format": "MP4",
+    "audio_status": "silent_AAC_no_voice_or_music"
+  },
+  "publication_rules": {
+    "first_comment_auto_publish": false,
+    "link_mode": {
+      "instagram": "profile_link",
+      "linkedin": "caption_direct_url",
+      "facebook": "caption_direct_url"
+    },
+    "caption_hard_limits": {
+      "instagram": 2200,
+      "linkedin": 3000
+    },
+    "caption_editorial_target_max_characters": 1000,
+    "blog_status": "not_published",
+    "use_blog_url_in_social": false,
+    "current_cta_target": "https://caesthetic.com/growth-score/",
+    "failed_case_hashtag": null,
+    "related_article_urls": [],
+    "allowed_locales": [
+      "en"
+    ]
+  },
+  "languages": {
+    "en": {
+      "article": {
+        "title": "Three ways to inquire. One clear next step.",
+        "subtitle": "A med spa simplified its consultation request and assigned responsibility for the first reply. The recorded consultation booking rate moved from about 18% to 27%.",
+        "slug": "one-consultation-request-clear-response-owner",
+        "read_minutes": 3,
+        "file": "article-en.md",
+        "primary_cta_label": "Get your free Growth Score",
+        "primary_cta_url": "https://caesthetic.com/growth-score/",
+        "contextual_service_url": "https://caesthetic.com/sprint/",
+        "word_count": 598,
+        "service_module_ids": [
+          "A03",
+          "A10"
+        ],
+        "recommended_internal_module_ids": [
+          "B01"
+        ]
+      },
+      "slides": [
+        {
+          "number": 1,
+          "type": "cover",
+          "kicker": "THE CASE",
+          "title": "Three ways to inquire.\nOne clear next step.",
+          "body": "A clearer route to a consultation.",
+          "rows": [],
+          "metric_note": "",
+          "speaker_notes": "Three ways to inquire. One clear next step.",
+          "duration_seconds": 3
+        },
+        {
+          "number": 2,
+          "type": "situation",
+          "kicker": "THE SITUATION",
+          "title": "Three competing starts.",
+          "body": "",
+          "rows": [
+            {
+              "label": "",
+              "value": "Consultation"
+            },
+            {
+              "label": "",
+              "value": "Online skin analysis"
+            },
+            {
+              "label": "",
+              "value": "Phone call"
+            }
+          ],
+          "metric_note": "",
+          "speaker_notes": "One med spa offered a consultation, skin analysis and a phone number.",
+          "duration_seconds": 5
+        },
+        {
+          "number": 3,
+          "type": "bottleneck",
+          "kicker": "THE CONSTRAINT",
+          "title": "The handoff was unclear.",
+          "body": "No named response owner on the public route.",
+          "rows": [],
+          "metric_note": "",
+          "speaker_notes": "The public route also lacked a named response owner.",
+          "duration_seconds": 5,
+          "visual": {
+            "type": "handoff",
+            "items": [
+              "Public request",
+              "Who responds?"
+            ]
+          }
+        },
+        {
+          "number": 4,
+          "type": "changes",
+          "kicker": "THE CHANGE",
+          "title": "One request. One owner.",
+          "body": "One consultation request.\nA two-hour response rule.",
+          "rows": [],
+          "metric_note": "",
+          "speaker_notes": "The change: one consultation request, with a two-hour reply rule.",
+          "duration_seconds": 6,
+          "visual": {
+            "type": "sequence",
+            "items": [
+              "Request",
+              "Owner",
+              "Reply"
+            ]
+          }
+        },
+        {
+          "number": 5,
+          "type": "roles",
+          "kicker": "THE RESPONSIBILITY",
+          "title": "A shared responsibility.",
+          "body": "",
+          "rows": [
+            {
+              "label": "CAESTHETIC",
+              "value": "Route, rules, measurement."
+            },
+            {
+              "label": "Practice",
+              "value": "Ownership, consistent next steps."
+            }
+          ],
+          "metric_note": "",
+          "speaker_notes": "CAESTHETIC defined the route and measurement. The practice owned responses.",
+          "duration_seconds": 5
+        },
+        {
+          "number": 6,
+          "type": "result",
+          "kicker": "THE RESULT",
+          "title": "Consultation booking rate.",
+          "body": "About +9 percentage points.",
+          "rows": [
+            {
+              "label": "Before",
+              "value": "18%"
+            },
+            {
+              "label": "After",
+              "value": "27%"
+            }
+          ],
+          "metric_note": "Scheduled consultations / qualified inquiries.\n6 Jan–5 Apr 2025: 36/201.\n5 May–2 Aug 2025: 59/220.\nRounded rates. No holdout group.",
+          "speaker_notes": "The recorded consultation booking rate rose from eighteen to twenty-seven percent.",
+          "duration_seconds": 6
+        },
+        {
+          "number": 7,
+          "type": "lesson",
+          "kicker": "THE NEXT QUESTION",
+          "title": "The work wasn’t finished.",
+          "body": "56% had a recorded reply within two hours.\nNext: investigate the remaining inquiries.",
+          "rows": [],
+          "metric_note": "Recorded first human reply within 2 hours: 123/220.\n5 May–2 Aug 2025. Follow-up is proposed.",
+          "speaker_notes": "But only fifty-six percent had a recorded reply within two hours.",
+          "duration_seconds": 5,
+          "visual": {
+            "type": "reply_rate",
+            "field": "reply_rate_rounded_percent"
+          }
+        },
+        {
+          "number": 8,
+          "type": "cta",
+          "kicker": "YOUR NEXT STEP",
+          "title": "Get your free Growth Score",
+          "body": "Start with your public inquiry path.",
+          "rows": [],
+          "metric_note": "",
+          "speaker_notes": "Start with your free Growth Score.",
+          "duration_seconds": 4
+        }
+      ],
+      "carousel": {
+        "captions": {
+          "instagram": "A consultation, an online skin analysis and a phone number: one med spa offered three separate starts. The public route did not identify a response owner.\n\nThe change combined one consultation request, a named owner and a two-hour first-response rule. Media spend stayed unchanged.\n\nConsultation bookings / qualified inquiries moved from 36/201 (18%) to 59/220 (27%). Periods: 6 Jan–5 Apr and 5 May–2 Aug 2025. Rates are rounded; there was no holdout group.\n\nRecorded replies within two hours reached 56%. Reviewing the remaining inquiries is a proposed next step.\n\nGet your free Growth Score — link in profile.\n\n#CAESTHETICCaseNotes #LeadIntake #MedSpa",
+          "linkedin": "A consultation, an online skin analysis and a phone number: one med spa offered three separate starts. The public route did not identify a response owner.\n\nThe change combined one consultation request, a named owner and a two-hour first-response rule. Media spend stayed unchanged.\n\nConsultation bookings / qualified inquiries moved from 36/201 (18%) to 59/220 (27%). Periods: 6 Jan–5 Apr and 5 May–2 Aug 2025. Rates are rounded; there was no holdout group.\n\nRecorded replies within two hours reached 56%. Reviewing the remaining inquiries is a proposed next step.\n\nGet your free Growth Score: https://caesthetic.com/growth-score/\n\n#CAESTHETICCaseNotes #LeadIntake #MedSpa",
+          "facebook": "A consultation, an online skin analysis and a phone number: one med spa offered three separate starts. The public route did not identify a response owner.\n\nThe change combined one consultation request, a named owner and a two-hour first-response rule. Media spend stayed unchanged.\n\nConsultation bookings / qualified inquiries moved from 36/201 (18%) to 59/220 (27%). Periods: 6 Jan–5 Apr and 5 May–2 Aug 2025. Rates are rounded; there was no holdout group.\n\nRecorded replies within two hours reached 56%. Reviewing the remaining inquiries is a proposed next step.\n\nGet your free Growth Score: https://caesthetic.com/growth-score/\n\n#CAESTHETICCaseNotes #LeadIntake #MedSpa"
+        },
+        "first_comment": {
+          "instagram": "",
+          "linkedin": "Get your free Growth Score: https://caesthetic.com/growth-score/",
+          "facebook": "Get your free Growth Score: https://caesthetic.com/growth-score/"
+        },
+        "destination_url": "https://caesthetic.com/growth-score/",
+        "hashtags": [
+          "#CAESTHETICCaseNotes",
+          "#LeadIntake",
+          "#MedSpa"
+        ],
+        "hashtags_included_in_captions": true,
+        "alt_text": "Eight text slides about an anonymized med spa: three competing inquiry options, an unclear handoff, one consultation request, a named response owner and a two-hour rule. CAESTHETIC defined the route and measurement; the practice handled replies. Scheduled consultations rose from 36/201 (about 18%) to 59/220 (about 27%) qualified inquiries across the stated 2025 periods. There was no holdout group. Recorded replies within two hours reached 56%; reviewing the remainder is proposed. Final slide invites a free Growth Score through the profile link.",
+        "first_comment_mode": "optional_alternative_only; exclude from automatic publishing; remove caption URL if using this alternative",
+        "caption_character_counts": {
+          "instagram": 653,
+          "linkedin": 672,
+          "facebook": 672
+        }
+      },
+      "short_post": {
+        "captions": {
+          "instagram": "Who owns the next inquiry?\n\nIn this med spa case, the public inquiry route did not name a response owner. The work paired one consultation request with a named owner and a two-hour first-response rule.\n\nCAESTHETIC defined the route, response rule and measurement. The practice owned the replies.\n\nRecorded first human replies within two hours moved from 54/201 (27%) to 123/220 (56%) qualified inquiries. Periods: 6 Jan–5 Apr and 5 May–2 Aug 2025; rates rounded.\n\nThe remaining inquiries need review: the metric does not tell us whether replies were late, absent or unrecorded.\n\nGet your free Growth Score — link in profile.\n\n#CAESTHETICCaseNotes #LeadIntake #MedSpa",
+          "linkedin": "Who owns the next inquiry?\n\nIn this med spa case, the public inquiry route did not name a response owner. The work paired one consultation request with a named owner and a two-hour first-response rule.\n\nCAESTHETIC defined the route, response rule and measurement. The practice owned the replies.\n\nRecorded first human replies within two hours moved from 54/201 (27%) to 123/220 (56%) qualified inquiries. Periods: 6 Jan–5 Apr and 5 May–2 Aug 2025; rates rounded.\n\nThe remaining inquiries need review: the metric does not tell us whether replies were late, absent or unrecorded.\n\nGet your free Growth Score: https://caesthetic.com/growth-score/\n\n#CAESTHETICCaseNotes #LeadIntake #MedSpa",
+          "facebook": "Who owns the next inquiry?\n\nIn this med spa case, the public inquiry route did not name a response owner. The work paired one consultation request with a named owner and a two-hour first-response rule.\n\nCAESTHETIC defined the route, response rule and measurement. The practice owned the replies.\n\nRecorded first human replies within two hours moved from 54/201 (27%) to 123/220 (56%) qualified inquiries. Periods: 6 Jan–5 Apr and 5 May–2 Aug 2025; rates rounded.\n\nThe remaining inquiries need review: the metric does not tell us whether replies were late, absent or unrecorded.\n\nGet your free Growth Score: https://caesthetic.com/growth-score/\n\n#CAESTHETICCaseNotes #LeadIntake #MedSpa"
+        },
+        "first_comment": {
+          "instagram": "",
+          "linkedin": "Get your free Growth Score: https://caesthetic.com/growth-score/",
+          "facebook": "Get your free Growth Score: https://caesthetic.com/growth-score/"
+        },
+        "destination_url": "https://caesthetic.com/growth-score/",
+        "hashtags": [
+          "#CAESTHETICCaseNotes",
+          "#LeadIntake",
+          "#MedSpa"
+        ],
+        "hashtags_included_in_captions": true,
+        "alt_text": "Typography card reading “Who owns the next inquiry?” and “A clear request needs a clear handoff.” CAESTHETIC Case Notes, CN-001. No patient or clinic photograph.",
+        "first_comment_mode": "optional_alternative_only; exclude from automatic publishing; remove caption URL if using this alternative",
+        "image": {
+          "title": "Who owns the next inquiry?",
+          "subtitle": "A clear request needs a clear handoff.",
+          "brief": "Portrait typography card using the canonical cool-paper background and CAESTHETIC navy/burgundy palette as the carousel. Large question as the focal point, a short supporting line below, small CAESTHETIC Case Notes / CN-001 footer. Generous margins. No people, clinic imagery, invented dashboards or outcome badge. Keep the design distinct from the carousel cover through the ownership question.",
+          "alt_text": "Typography card reading “Who owns the next inquiry?” and “A clear request needs a clear handoff.” CAESTHETIC Case Notes, CN-001. No patient or clinic photograph.",
+          "sequence_labels": [
+            "Inquiry",
+            "Named owner",
+            "Next action"
+          ]
+        },
+        "caption_character_counts": {
+          "instagram": 666,
+          "linkedin": 685,
+          "facebook": 685
+        }
+      },
+      "visible_slide_word_count_excluding_metadata": 92,
+      "speaker_notes_word_count": 77
+    }
+  },
+  "visuals": {
+    "cover_before_count": "3",
+    "cover_after_count": "1"
+  },
+  "publication_locale": "en-US",
+  "package_version": "1.1.0"
+}

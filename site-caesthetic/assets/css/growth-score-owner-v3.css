@@ -1,5 +1,5 @@
-/* owner-decision-report/3.0.0 — scoped warm report profile; Check500 is its locked exception. */
-html[data-layout-contract="owner-decision-report/3.0.0"] { overflow: visible; scroll-padding-top: 8rem; }
+/* owner-decision-report/3.1.0 — scoped warm report profile; Check500 is its locked exception. */
+html[data-layout-contract="owner-decision-report/3.1.0"] { overflow: visible; scroll-padding-top: 8rem; }
 .cae-score-v3 {
   --v3-paper: #F0EDE6;
   --v3-soft: #E7E2D9;
@@ -142,5 +142,18 @@ ol.v3-list { list-style: decimal; }
   .v3-section { padding-block: var(--cae-space-6); }
 }
 @media (prefers-reduced-motion: reduce) {
-  html[data-layout-contract="owner-decision-report/3.0.0"] { scroll-behavior: auto; }
+  html[data-layout-contract="owner-decision-report/3.1.0"] { scroll-behavior: auto; }
+}
+
+/* Four open answers, followed by the unnumbered synthesis. */
+.cae-score-v3 .v3-choice { padding: 32px 0; border-top: 1px solid var(--v3-line, #C9C3B8); }
+.cae-score-v3 .v3-choice:first-of-type { border-top: 0; padding-top: 8px; }
+.cae-score-v3 .v3-choice-narrative { display: grid; gap: 20px; margin: 24px 0; }
+.cae-score-v3 .v3-choice-narrative dt { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+.cae-score-v3 .v3-choice-narrative dd { margin: 0; font-size: 18px; }
+.cae-score-v3 .v3-choice-narrative .v3-list { margin: 0; }
+.cae-score-v3 .v3-choice-provenance { overflow-wrap: anywhere; }
+.cae-score-v3 .v3-synthesis { border-inline-start: 2px solid var(--cae-signal); padding-inline: var(--cae-space-5); background: var(--v3-soft); }
+@media (min-width: 768px) {
+  .cae-score-v3 .v3-choice-narrative { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
 }

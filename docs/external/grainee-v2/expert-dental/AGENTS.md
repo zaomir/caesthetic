@@ -58,6 +58,10 @@ git fetch origin main -q && git pull --ff-only origin main
 
 ## 3. Pick project or knowledge domain context
 
+### CAESTHETIC products and implementation services
+
+CAESTHETIC «продукты», «услуги», «implementation catalog», «Sprint services», «что мы делаем» → `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md` (First Sprint / Inside-out, 30D/LONG/ONGOING, M2+, dependencies). The master retains funnel/pricing authority. For a list of deliverable services read this catalog; for the approved Connect4 explanation use the concept route below. No per-service prices or new public SKUs are implied.
+
 ### Connect4 / 4444 — shared explanation route
 
 Any discussion or authoring of **Connect4**, **4444**, **Четверки** or **Четвёрки** routes to [`docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md`](docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-routing) on current `zaomir/grainee-v2/main`, regardless of the niche used in the example. Read the master `docs/ssot/CAESTHETIC.md` for commercial boundaries; use the concept SSOT for the approved definition, client-neutral vocabulary, EN/RU base copy, landing, reusable section and visual grammar. These are aliases of one program, not permission to invent a new group of four. Public name: **Connect4**.

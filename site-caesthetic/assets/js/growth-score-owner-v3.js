@@ -1,7 +1,7 @@
 /* Progressive enhancement. The report, sources and matrix remain readable without JS. */
 (() => {
   "use strict";
-  if (document.documentElement.dataset.layoutContract !== "owner-decision-report/3.0.0") return;
+  if (document.documentElement.dataset.layoutContract !== "owner-decision-report/3.1.0") return;
   const ru = document.documentElement.lang === "ru";
   const targetFromHash = () => {
     try { return document.getElementById(decodeURIComponent(location.hash.slice(1))); }

@@ -758,3 +758,23 @@ Growth Score is not complete until production tests prove all of the following:
 - exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent, using the `check500-section/en-US/1.0.0` source lock and its direct-continuation Sprint credit rule, with the middle section after the post-enquiry map, the final section after the primary Sprint offer, all outside-in internal stages gray and no unsupported internal, booking or revenue conclusion.
 
 Any legacy scorer may remain only as a thin CLI/import wrapper around the one production scoring authority. Two independent metric catalogues or scoring implementations are forbidden.
+
+
+## 2026-09-06 — Spoken choice-synthesis presentation adapter
+
+`owner-decision-report/3.1.0` implements the scoped
+`caesthetic-choice-synthesis/1.0.0` contract in the Client Report Standard.
+The pinned private packet contains four ordered questions, a separate Connect4
+conclusion, catalog-linked actions, minor team fixes and commercial-selection
+state. It references the existing observation register and approved metric map.
+The builder also pins the current catalog authority; changed authority fails
+until the packet is checked and frozen again. No second score is introduced.
+
+The public booking observation establishes that consultation terms are available
+before details/payment. With no defensible new paid Top 3, the source-observation
+preview shows the real selection result and no historical priority or seven-gap
+sales cards. Frozen original diagnosis/scores remain unchanged in source history.
+Generic product information is not a personalized Sprint recommendation. A new
+client release requires a current named-human selection with separate patient
+materiality and delivery value, supported catalog modules, evidence and plans.
+No engineering signature satisfies this gate. See the scoped SSOT amendment.

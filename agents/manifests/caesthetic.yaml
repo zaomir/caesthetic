@@ -50,6 +50,12 @@ forbidden_paths:
 protected_paths: []
 
 topics:
+  products_and_services: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
+  продукты: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
+  услуги: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
+  implementation catalog: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
+  Sprint services: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
+  что мы делаем: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
   session_delivery: docs/runtime/PROJECT_RUNTIME_STANDARD.md
   design_system: docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md
   connect4: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md

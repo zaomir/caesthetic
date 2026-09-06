@@ -14,6 +14,7 @@ CAESTHETIC is the US growth operating system for independent aesthetic practices
 Only Growth Score, the first 30-Day Growth Sprint and optional Growth System are public product-line concepts. Sprint 2 is an unpublished post-Day-30 finite implementation continuation when justified.
 
 ## Authority
+- Products/services, implementation catalog and Sprint services: `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md` — First Sprint / Inside-out, horizons, dependencies; module prices are not required.
 - Strategy/product funnel: `docs/ssot/CAESTHETIC.md`
 - Growth System operations, Client Growth Statement, Growth Ledger and request/add-on routing: `docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md`
 - Growth economics, the client-specific Growth Budget and Performance Fee: `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`. AGV/AGC are legacy operational analytics only and are not a reusable invoice or Performance Fee basis.

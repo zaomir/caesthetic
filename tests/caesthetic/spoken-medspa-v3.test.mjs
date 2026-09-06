@@ -8,6 +8,7 @@ import { renderGrowthReport } from '../../scripts/caesthetic/render-growth-score
 import { scoreGrowthReport } from '../../site-caesthetic/assets/js/growth-score-engine.mjs';
 import { OWNER_V3, V3_SECTION_IDS, ownerV3Model, approvedAction } from '../../scripts/caesthetic/growth-score-owner-v3-model.mjs';
 import { validateConsistency, validateResearchPublication, digest, reviewDigest, assertReviewed, safeURL, SURFACES } from '../../scripts/caesthetic/consistency-contract.mjs';
+import { CHOICE_IDS, validateChoiceQuestions } from '../../scripts/caesthetic/choice-questions-contract.mjs';
 import { italicizeV3Keyword } from '../../scripts/caesthetic/growth-score-owner-v3.mjs';
 const read = p => fs.readFileSync(path.join(ROOT,p),'utf8');
 const count = (s,re) => [...s.matchAll(re)].length;
@@ -40,18 +41,33 @@ for(const locale of Object.keys(V3_PARENTS)) {
   const html=renderGrowthReport(buildV3(locale));
   assert.equal(html,read(`site-caesthetic/score/${V3_PARENTS[locale]}/v3/index.html`));
   assert.deepEqual([...html.matchAll(/<section[^>]* id="([^"]+)" data-cockpit-order="(\d)"/g)].map(x=>x[1]),V3_SECTION_IDS);
-  assert.equal(count(html,/data-gap-role="primary"/g),1);assert.equal(count(html,/data-gap-role="supporting"/g),2);
-  assert.equal(count(html,/data-inventory-gap=/g),7);assert.equal(count(html,/data-surface=/g),4);
+  assert.equal(count(html,/data-gap-role="primary"/g),0);assert.equal(count(html,/data-gap-role="supporting"/g),0);
+  assert.equal(count(html,/data-inventory-gap=/g),0);assert.equal(count(html,/data-surface=/g),4);
   assert.equal(count(html,/data-cae-check-inquiry/g),2);assert.equal(count(html,/data-cae-sprint-inquiry/g),1);
   assert.equal(count(html,/data-cae-question /g),1);assert.equal(count(html,/data-v3-share=/g),2);
   assert.equal(count(html,/data-v3-query=/g),10);
+  assert.equal(count(html,/data-connect4-conclusion/g),1);
+  assert.ok(html.indexOf('id="choice-competitors"')<html.indexOf('id="connect4-conclusion"'));
+  assert.ok(html.indexOf('data-team-fixes')>html.indexOf('data-v3-share="end"'));
+  assert.match(html,/data-commercial-selection="not_supported"/);
+  assert.doesNotMatch(html,/id="priority-SMS|id="inventory-SMS|низкочастотн|low-frequency|три главные помехи|Below are the three main barriers/);
+  assert.ok(html.includes('observation-O-BOOKING-CONSULT'));
+
   assert.ok(html.indexOf('id="report-intro"')<html.indexOf('id="method-intro"'));
-  assert.ok(html.indexOf('id="method-intro"')<html.indexOf('id="gap-map"'));
+  assert.ok(html.indexOf('id="gap-map"')<html.indexOf('id="choice-offer"'));
+  assert.ok(html.indexOf('id="connect4-conclusion"')<html.indexOf('id="method-intro"'));
+  assert.ok(html.indexOf('id="method-intro"')<html.indexOf('id="focus-gaps"'));
+  assert.ok(html.indexOf('id="evidence-and-competitors"')<html.indexOf('id="consistency-matrix"'));
+  assert.deepEqual([...html.matchAll(/<article[^>]*data-choice-question="([^"]+)"/g)].map(m=>m[1]),CHOICE_IDS);
+  assert.equal(count(html,/data-choice-part=/g),16);
+  assert.equal(count(html,/data-choice-sources=/g),4);
+  assert.doesNotMatch(html,/<details[^>]*data-choice-question/);
   assert.ok(html.indexOf('data-cae-sprint-inquiry')>html.indexOf('id="next-step"'));
   assert.match(html,/data-v3-preview-banner/);assert.match(html,/data-release-stage="review_preview"/);
   assert.match(html,/v3-welcome/);assert.doesNotMatch(html,/<details[^>]*class="[^"]*welcome/);
   assert.match(html,/class="v3-signature"/);assert.doesNotMatch(html,/v2-primary|v2-protect|growth-cockpit\.js|growth-report\.css/);
   if(locale==='en-US') assert.doesNotMatch(html,/[А-Яа-яЁё]/);
+  assert.doesNotMatch(html.replace(/<[^>]+>/g,''),/clinician_trust_proof/,'public source labels are readable');
   for(const ref of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${ref[1]}"`),`Unresolved ${ref[1]}`);
   const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(x=>x[1]);assert.equal(ids.length,new Set(ids).size,'duplicate IDs');
  });
@@ -103,7 +119,7 @@ test('preview masks all draft findings even when draft observations are added',(
  const r=buildV3('en-US'),f=withObservedFixture();r.presentation.v3.matrix=f.matrix;r.presentation.v3.registry=f.registry;
  delete r.presentation.v3.release.presentation_mode;
  const html=renderGrowthReport(r);assert.doesNotMatch(html,/Test-only example/);
- const matrix=html.slice(html.indexOf('id="consistency-matrix"'),html.indexOf('id="focus-gaps"'));
+ const matrix=html.slice(html.indexOf('id="consistency-matrix"'),html.indexOf('id="scores-and-methodology"'));
  assert.doesNotMatch(matrix,/data-v3-state="exact_match"/);
 });
 test('frozen research publishes all forty bounded cells with actual source provenance',()=>{
@@ -186,4 +202,60 @@ test('private source/revision artifacts do not mirror to the public satellite',(
  assert.ok(policy.scorePublicPaths.includes(`/score/${V3_PARENTS.ru}/`));
  assert.ok(policy.scoreProtectedPaths.some(e=>e.prefix===`/score/${V3_PARENTS['en-US']}/`));
  assert.doesNotMatch(read('site-caesthetic/sitemap.xml'),/spoken-medspa/);
+});
+
+const choiceFixture = () => {
+ const report=buildV3('ru'), model=ownerV3Model(report,scoreGrowthReport(report));
+ return {packet:structuredClone(p.choices),context:{release:structuredClone(p.release),registry:{sources:new Map(model.sources),observations:new Map([...model.observations].map(([k,v])=>[k,structuredClone(v)]))},metrics:model.metrics,inventory:model.inventory}};
+};
+for(const [name,change,re] of [
+ ['question order',f=>f.packet.questions.reverse(),/four ordered/],
+ ['missing translation',f=>delete f.packet.questions[0].answer.ru,/paired text/],
+ ['dangling source',f=>f.packet.questions[0].evidence_refs=['observation:missing'],/dangling observation/],
+ ['unapproved metric',f=>f.packet.questions[0].evidence_refs=['metric:missing'],/unapproved or missing/],
+ ['missing addendum',f=>f.packet.questions[0].repair_addendum_ref='missing',/dangling repair addendum/],
+ ['missing repair',f=>{delete f.packet.questions[0].preserve;f.packet.questions[0].repair_ref='missing';},/dangling repair/],
+ ['duplicate review',f=>f.context.registry.observations.get('O-REVIEW-AZIA').author_key='google-florence-nonon',/duplicate review/],
+ ['reply as recurrence',f=>f.context.registry.observations.get('O-REVIEW-AZIA').content_type='owner_review_reply',/independent reviews/],
+ ['unstated sample',f=>delete f.packet.questions[2].recurrence.window,/bounded review sample/],
+ ['fifth question',f=>f.packet.questions.push(structuredClone(f.packet.questions[0])),/four ordered/],
+ ['missing synthesis',f=>delete f.packet.connect4_conclusion,/separate Connect4/],
+ ['out-of-catalog action',f=>f.packet.questions[0].catalog_modules=['B99'],/out-of-catalog publication/],
+ ['minor fix promoted',f=>f.packet.team_fixes[0].materiality='priority',/cannot inflate paid scope/],
+ ['missing value result',f=>delete f.packet.commercial_selection.finding,/actual result/],
+ ['filler priorities',f=>f.packet.commercial_selection.priority_ids=['SMS-26-01'],/actual result/],
+ ['unsupported approval',f=>{f.packet.commercial_selection.status='approved';f.packet.commercial_selection.priority_ids=['SMS-26-01','SMS-26-02','SMS-26-03'];},/separate patient and delivery value/],
+ ['preservation without check',f=>delete f.packet.questions[1].preserve.verify,/preservation check/]
+])test(`choice contract rejects ${name}`,()=>{
+ const f=choiceFixture();change(f);f.context.release.choice_questions_digest=digest(f.packet);
+ assert.throws(()=>validateChoiceQuestions(f.packet,f.context),re);
+});
+test('choice copy is frozen and does not inherit engineering approval',()=>{
+ const f=choiceFixture();f.packet.questions[0].answer.ru+=' changed';
+ assert.throws(()=>validateChoiceQuestions(f.packet,f.context),/after freeze/);
+ const fresh=choiceFixture();fresh.context.release.stage='client_release';
+ assert.throws(()=>validateChoiceQuestions(fresh.packet,fresh.context),/REVIEW_REQUIRED/);
+});
+
+
+test('paid selection requires current per-priority value review and a content-bound selection review',()=>{
+ const f=choiceFixture(), selection=f.packet.commercial_selection;
+ selection.status='approved'; selection.priority_ids=['SMS-26-01','SMS-26-02','SMS-26-03'];
+ // Synthetic value evidence is only for exercising the gate, never a Spoken finding.
+ f.context.inventory=structuredClone(f.context.inventory);
+ for(const id of selection.priority_ids){
+  const g=f.context.inventory.find(g=>g.id===id);
+  g.patient_choice_materiality={ru:'Тестовый путь', 'en-US':'Synthetic path'};
+  g.delivery_value={ru:'Тестовый результат', 'en-US':'Synthetic outcome'};
+  g.catalog_modules=['A08'];approveFixture(g);
+ }
+ f.context.release.choice_questions_digest=digest(f.packet);
+ assert.throws(()=>validateChoiceQuestions(f.packet,f.context),/commercial selection/);
+ approveFixture(selection);f.context.release.choice_questions_digest=digest(f.packet);
+ assert.doesNotThrow(()=>validateChoiceQuestions(f.packet,f.context));
+ const primary=f.context.inventory.find(g=>g.id===selection.priority_ids[0]), retained=primary.evidence_refs;
+ primary.evidence_refs=[];approveFixture(primary);assert.throws(()=>validateChoiceQuestions(f.packet,f.context),/retained approved evidence/);
+ primary.evidence_refs=retained;approveFixture(primary);
+ f.context.inventory.find(g=>g.id===selection.priority_ids[0]).delivery_value.ru+=' changed';
+ assert.throws(()=>validateChoiceQuestions(f.packet,f.context),/commercial priority/);
 });

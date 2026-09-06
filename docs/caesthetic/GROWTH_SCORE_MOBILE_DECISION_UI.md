@@ -176,3 +176,26 @@ method and access limitations. The Russian keyword *соответствие* an
 inflections are italicized at render time without changing attributes, scripts,
 source text or approved images. The `source_observations` presentation is
 research within the existing review stage, not a replacement for human approval.
+
+
+## 2026-09-06 — Spoken 3.1 four answers and Connect4 synthesis
+
+The scoped paired `/v3/` routes implement `caesthetic-choice-synthesis/1.0.0`.
+Four open answers retain What observed → Why it matters → Change → Verification.
+An unnumbered Connect4 conclusion follows the fourth answer; the method picture
+remains inside a native disclosure. The source matrix stays in section seven.
+A dated observation result may be positive. Source links open their native
+containers, with the target below the sticky bar. Full answers work without JS.
+
+The September 6 booking follow-through disproved the proposed missing-terms
+claim: the public consultation card discloses the fee before personal details.
+The new sample does not justify a paid Top 3. Show this actual result rather than
+reusing archived priorities or inserting empty priority cards. One generic Sprint
+inquiry remains primary; two exact Check500 blocks remain conditional on the
+internal enquiry boundary. Do not present the generic product as purchased or
+personalized scope. Put the minor policy-name correction in the final disclosure.
+
+Retain nine section IDs, four surfaces, approved 14/18/32px type roles, all eight
+PNG bytes, request/share flows and immutable parent/v2 artifacts. Catalog input,
+paired copy, sources, independent review identities and selection state are
+validated before either language is written. Client release remains fail-closed.

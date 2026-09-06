@@ -76,6 +76,8 @@ try {
       [
         "/",
         "/pricing/",
+        "/sprint/",
+        "/growth-system/",
         "/beauty-salons/",
         "/connect4/",
         "/lead-to-revenue-check/",

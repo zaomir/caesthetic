@@ -287,6 +287,17 @@ New pages and profile changes must update the route registry, source/generator, 
 The 2026-09-05 implementation replaces JS-injected visual styles with initial HTML stylesheet links, uses losslessly preserved source logos plus smaller delivery PNGs, repairs mobile grids/CTA wrapping and report table keyboard access, and aligns access/error shells with shared tokens. It does not change protected image bytes, report evidence or commercial terms. Field CWV and exhaustive manual assistive-technology certification are separate evidence requirements; automated PASS is not a WCAG certificate.
 
 
+### Public service examples — 2026-09-06 (#1523)
+
+The existing marketing-profile ruled list supports the service examples on
+`/sprint/` and `/growth-system/`. `service-examples.css` is scoped to these
+sections: 16px body type, 65ch text measure, token-based spacing, underlined
+links and anchor clearance below the shared header. Target sections use
+`tabindex="-1"` so the existing keyboard anchor handler transfers focus.
+The stylesheet is registered for both pages; no global tokens, protected media
+or report profiles change. Rationale, module mapping and scoped QA:
+`docs/caesthetic/PUBLIC_SERVICE_EXAMPLES.md`.
+
 ### Scoped owner-report v3 profile — 2026-09-05
 
 `owner-decision-report/3.0.0` is the isolated Spoken RU/EN preview/release profile;

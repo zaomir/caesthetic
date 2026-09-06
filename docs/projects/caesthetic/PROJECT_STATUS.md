@@ -159,6 +159,12 @@ Known limits:
 - Registry incoming registered; execution still bootstrap `CURRENT.json` until next release.
 - Agent card: `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md`.
 
+## Products and services catalog — 2026-09-06
+
+- Canonical internal catalog: `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md`; source-backed consolidation of existing work, Expert Dental and Arizona proposals, with no per-service prices.
+- First Sprint / Inside-out, 30D/LONG/ONGOING, M2+ and dependency gates are explicit. Source proposals are not represented as completed cases.
+- Documentation only; no runtime, public SKU, scoring or deployment change. Main acceptance is recorded in `docs/runtime/projects/caesthetic/sessions/2026-09-06-products-services.json`.
+
 ## Canonical product state
 - 4444: primary CAESTHETIC product; alignment of demand language across the exact Four Surfaces under `caesthetic-4444-commercial-core/1.0.0`.
 - Growth Score: free; shows whether and where the Four Surfaces fail to operate as one demand-language system, using one schema-v5 engine/template (`growth-score-report-template/5.2.0`), AI-assisted research and named-human-approved evidence/decisions.

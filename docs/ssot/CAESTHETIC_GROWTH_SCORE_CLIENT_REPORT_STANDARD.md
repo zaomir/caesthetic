@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.8
-updated: 2026-09-04
+version: 2.9
+updated: 2026-09-06
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/CAESTHETIC.md
@@ -651,3 +651,121 @@ Search wording is not a local-rank or frequency measurement. Russian
 This scoped correction does not approve new Class A facts or a new diagnosis:
 the existing final named-human gate, approved decisions and PNG bytes remain.
 The case package records the actual sample in `RESEARCH-2026-09-06.md`.
+
+
+## 2026-09-06 — Catalog and client-value gate
+
+Apply `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md` §2.1 (`report-value-gate`),
+owner directive #1521, before publishing findings, answers, priorities, repair
+plans or offers. Every client-visible task maps to a supported catalog module
+and its actual eligibility/horizon. An out-of-catalog task stays internal until
+a named CAESTHETIC manager discusses and explicitly decides its exact publication
+and scope. A general implementation request is not that case-specific decision.
+
+Separate patient-choice/enquiry materiality from the value of CAESTHETIC delivery.
+Do not justify a $2,500 Sprint with an isolated outdated name, typo or other easy
+DIY correction. Small observations belong in a compact final team-fixes section;
+they are not lost-client evidence or a Top 3 sales argument. A quick but genuinely
+urgent broken-path fix should be disclosed for immediate correction, without
+inflating the paid scope. First-month selection requires evidence, a supported
+intervention, meaningful client value, feasible deliverable/dependencies and a
+verification criterion. Missing research is not itself a business leak. If the
+material priority set is not yet supported, research further rather than fill
+it with minor errors. Preserve the human selection gate and the existing
+Primary + two Supporting schema. Longer/recurring eligible work is shown later.
+The optional $500 Check remains the separately authorized post-enquiry branch.
+
+
+## 2026-09-06 — Four questions, then the Connect4 conclusion
+
+Owner accepted the revised direction: four questions precede a separate,
+unnumbered conclusion about cross-surface consistency. Contract:
+`caesthetic-choice-synthesis/1.0.0`. This supersedes the pending five-question
+proposal for the scoped Spoken `owner-decision-report/3.1.0` revision. The new
+presentation is not yet a published or approved new client diagnosis. Preserve
+the canonical public product name Connect4; consistency describes its value,
+not a new headline SKU, score dimension or fifth surface.
+
+The four open questions, in order:
+
+1. What is the person buying, and how clear are the terms?
+2. Why can they trust the practitioner?
+3. Which reasons for choosing and questions recur in reviews?
+4. Where do competitors explain their offer more convincingly?
+
+Each answer states observed evidence, why it matters for practice choice, the
+appropriate direction of change/preservation, and how to check it. Keep dates,
+sources and material limitations available without payment. The fourth question
+does not predetermine competitor superiority. Positive findings are allowed;
+review themes require retained independent records and a bounded sample.
+
+Then render the unnumbered synthesis **Connect4: how the four surfaces work
+together**. It joins the answers into a patient decision: what already supports
+one clear offer, what material discontinuity is evidenced, and what coordinated
+repair is justified. Service, provider, geography, promise, proof and next step
+remain internal criteria. Do not add a fifth/sixth numbered question, recite the
+four answers, or diagnose broken consistency merely because Connect4 is sold.
+A synthesis may establish that consistency is strong; the actual priority still
+follows evidence. An isolated outdated name is a minor DIY item, not its headline.
+
+The narrative continues to three linked Month-1 priorities, named deliverables,
+30-day acceptance/dependencies, and one primary $2,500 Sprint offer. Use the
+catalog value gate (§2.1) to distinguish paid-scope value from DIY fixes and
+unknowns. The main constraint explains the supporting work. A fourth executable
+task may be a dependency; do not silently change Primary + two Supporting.
+Old approved scores/decisions remain archived source records, not automatic
+approval of a new commercial selection. New material conclusions need the actual
+human gate. Research further if the paid priority set is not defensible.
+
+Keep exactly two unchanged canonical Check $500 sections: the middle placement
+follows the post-enquiry boundary; the final secondary placement follows Sprint.
+The Check remains a useful smaller first engagement for the separately authorized
+internal path, with its existing credit rule; never sell a public evidence unlock.
+Later eligible work states its horizon and trigger. The compact DIY fixes block
+is the final content block after the primary commercial decision and details.
+
+Implementation mapping preserves the nine machine sections: `gap-map` contains
+four answers, the Connect4 conclusion and optional method disclosure; `focus-gaps`
+selects the three priorities; `sprint-fit` defines the first-month boundary and
+mid Check; `repair-paths` owns full plans; `do-not-fund` states evidence-backed
+spending deferrals; `gap-inventory` holds material later work; section seven owns
+sources/comparisons/matrix; section eight owns methodology; `next-step` owns
+Sprint, final Check, optional continuation and the final DIY disclosure. Minor
+items remain recorded in the private full inventory but do not inflate the
+material client inventory. Welcome stays open; removed opening constraint/protect
+cards are not restored. All eight approved v3 PNG bytes and v1/v2 remain intact.
+
+A future scoped descriptor separates four question IDs from `connect4_conclusion`
+and references one source register, catalog-linked findings and shared repair
+plans. Reject dangling references, unsupported priority claims, copied review
+identities and unapproved out-of-catalog publication. No new chart, metric or
+screen is required to make this commercial narrative work.
+
+
+### Spoken 3.1 implementation when the paid set is not supported
+
+The current owner request authorizes implementation of justified, rule-compliant
+changes and production verification. The read-only booking follow-through on
+2026-09-06 found an accessible consultation card with terms before personal data.
+This corrects the proposed absence claim. The retained sample does not establish
+three material paid priorities; old approval does not cure that evidence gap.
+
+For this source-observation preview, the nine sections may carry the actual
+selection result, a bounded useful refinement, generic delivery sequence,
+evidence-based spending boundary and later-work eligibility. Do not fill them
+with blank cards or archived claims. Keep the old seven-item inventory and Top 3
+in private frozen history, not the new sales narrative. The paired publication
+must not call a generic Sprint inquiry a personalized recommendation. Preserve
+both exact Check blocks, sources, method and assets; minor team fixes remain last.
+This is a researched preview, not a final client diagnosis. Final client release
+still fails without a defensible Primary + two Supporting and actual content-bound
+human approval. This scoped behavior does not change the global selection schema.
+
+Technical contract: four stable question IDs; `connect4_conclusion` separately;
+catalog-linked actions; `team_fixes` marked minor; `commercial_selection` with
+an actual finding and research direction when not supported. Reject a fifth
+question, unsupported modules, dangling references, repeated review identities,
+modified pinned inputs, an inflated minor fix and unreviewed paid selection.
+Build both languages before writing either. Test readable no-JS answers, keyboard
+source links, final DIY position, no body overflow, exact artwork and keyword
+italics. Runtime shipment and client content approval have separate receipts.

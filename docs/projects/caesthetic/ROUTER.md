@@ -8,6 +8,12 @@ Primary direct cold sender: `caesthetic.co`
 Conditional historical/professional branch: `bototox.com` · `toxifillers.com`
 Protected public/transactional domain: `caesthetic.com`
 
+## Продукты и услуги — внутренний каталог
+
+**CAESTHETIC «продукты», «услуги», «implementation catalog», «Sprint services», «что мы делаем» → [`Продукты и услуги`](../../ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md#catalog-routing).** Здесь — First Sprint Eligible / Inside-out, 30D/LONG/ONGOING, M2+ и dependency gates. Read master `CAESTHETIC.md` for funnel/pricing; use Operating Model §5 for commercial request classes. Catalog rows are interventions, not new headline products. Source provenance: `docs/projects/caesthetic/product/PRODUCTS_AND_SERVICES_SOURCES.md`.
+
+Если «что мы делаем» означает перечень работ/границы Sprint — сначала каталог; если определение Connect4 или reusable «Как мы работаем» — concept route ниже. Это маршрутизация знаний без public redirect/deploy.
+
 ## Connect4 — canonical explanation route
 
 **Connect4 / 4444 / Четверки / Четвёрки → [`docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md`](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-routing)** on current `zaomir/grainee-v2/main`. These names identify one program; only Connect4 is public. The master `CAESTHETIC.md` §2 retains product/funnel/pricing authority. The concept SSOT owns the owner-approved explanation contract `connect4-explanation/1.0.0` and its later versions.
@@ -89,3 +95,7 @@ Do not create a public Sprint-2 product route without a new founder decision and
 ## Visual authority
 
 All CAESTHETIC design-system, typography, color, component and responsive work routes to `docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md`. `site-caesthetic/DESIGN.md` is its shim. Other projects’ Design Kits are not CAESTHETIC identity sources.
+
+## Social case packages / Истории кейса
+
+«Соцкейсы», «истории кейса», «карусели кейсов», Case Notes and case-to-blog/social production → `docs/ssot/CAESTHETIC_SOCIAL_CASES.md`. One source-backed case produces the article, eight-slide carousel, short post and derived MP4. Artifact provenance and the CN-001 pilot are indexed in `docs/caesthetic/social-cases/ARTIFACTS.md`; current design and service catalog retain their authorities. Hooppy transport remains in `docs/ssot/HOOPPY_API.md`. A generated pack is not a scheduled or published post.

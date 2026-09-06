@@ -57,6 +57,10 @@ Visual grammar: dashed line passes **through all four blocks**; a separate solid
 
 These existing medical-context images are distinct from new neutral-language assets still to be provided/approved and from the locked report visual below. Do not rewrite their pixels to match generic terminology. Keep implementation, adoption and measured impact separate. On stale mirror/version conflict, check current `grainee-v2/main` and history; an old file is not a new owner decision.
 
+## Products and services route
+
+CAESTHETIC «продукты», «услуги», «implementation catalog», «Sprint services», «что мы делаем» → `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md` on current main. This is the sole internal module catalog; master product/funnel and operating-model request-class authorities retain precedence. Read its source register for Expert Dental / Arizona provenance. Catalog eligibility is not an all-inclusive Sprint or verified implementation claim. For the approved Connect4 explanation continue using the concept SSOT above.
+
 ## Invariants
 - `Connect4` is the exact public program name. `4444` and `Четверки` remain internal aliases for the same CAESTHETIC Four Surfaces model: Search / Website / Social / Reputation. All new or revised public copy and visuals use Connect4; existing internal identifiers, paths and historical records stay stable. Naming authority: `docs/ssot/CAESTHETIC.md` §2.
 - Lead Intake is the separate fifth operational layer after an inquiry, never a fifth public surface or scoring dimension. For the Case Studies explainer, Paid Ads appears only later in Stop / Do Not Fund Yet.

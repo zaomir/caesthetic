@@ -18,10 +18,11 @@ const confined = (base, rel) => {
 export function loadV3Package({ root = ROOT, packageDir = path.join(root, V3_PACKAGE), clientRelease = false } = {}) {
   const release = readJSON(path.join(packageDir, "release.json"));
   if (release.contract !== "spoken-v3-release/1.0.0" || release.case_id !== SPOKEN_CASE) throw new Error("V3_INVALID: release contract/case");
+  if (release.catalog_source?.path !== 'docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md' || digest(fs.readFileSync(path.join(root, release.catalog_source.path))) !== release.catalog_source.sha256) throw new Error('V3_INPUT_CHANGED: catalog authority');
   for (const [name, hash] of Object.entries(release.inputs || {})) {
     if (digest(fs.readFileSync(confined(packageDir, name))) !== hash) throw new Error(`V3_INPUT_CHANGED: ${name}`);
   }
-  for (const name of ["approved-report.ru.json", "approved-report.en-US.json", "copy.ru.json", "copy.en-US.json", "consistency.json", "source-register.json"]) if (!release.inputs?.[name]) throw new Error(`V3_INVALID: missing pinned input ${name}`);
+  for (const name of ["approved-report.ru.json", "approved-report.en-US.json", "copy.ru.json", "copy.en-US.json", "consistency.json", "source-register.json", "choice-questions.json"]) if (!release.inputs?.[name]) throw new Error(`V3_INVALID: missing pinned input ${name}`);
   const reports = Object.fromEntries(Object.keys(V3_PARENTS).map(l => [l, readJSON(path.join(packageDir, `approved-report.${l}.json`))]));
   const copies = Object.fromEntries(Object.keys(V3_PARENTS).map(l => [l, readJSON(path.join(packageDir, `copy.${l}.json`))]));
   if (JSON.stringify(Object.keys(copies.ru).sort()) !== JSON.stringify(Object.keys(copies["en-US"]).sort())) throw new Error("V3_INVALID: paired copy keys differ");
@@ -40,13 +41,14 @@ export function loadV3Package({ root = ROOT, packageDir = path.join(root, V3_PAC
   validateConsistency(matrix, registry, { clientRelease: final });
   validateResearchPublication(release, matrix, registry);
   if (final) { assertReviewed(release.research_alignment, "Research Alignment"); assertReviewed(release, "client release"); }
-  return { release, reports, copies, matrix, registry };
+  const choices = readJSON(path.join(packageDir, "choice-questions.json"));
+  return { release, reports, copies, matrix, registry, choices };
 }
 export function buildV3(locale, options = {}) {
   const key = locale === "en" ? "en-US" : locale;
   if (!Object.hasOwn(V3_PARENTS, key)) throw new Error("V3_INVALID: unsupported locale");
   const p = loadV3Package(options), report = structuredClone(p.reports[key]);
-  report.presentation = { ...report.presentation, layout_contract: OWNER_V3, revision: "3", v3: { release: p.release, copy: p.copies[key], matrix: p.matrix, registry: p.registry } };
+  report.presentation = { ...report.presentation, layout_contract: OWNER_V3, revision: "3", v3: { release: p.release, copy: p.copies[key], matrix: p.matrix, registry: p.registry, choices: p.choices } };
   return report;
 }
 export function generateV3(options = {}) {

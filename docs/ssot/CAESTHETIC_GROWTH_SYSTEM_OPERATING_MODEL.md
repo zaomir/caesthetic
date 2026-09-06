@@ -219,6 +219,8 @@ No external service is a mandatory dependency of this canon. Configure or reuse 
 
 ## 5. Client Request Router
 
+Supported service modules and their First Sprint / Inside-out eligibility, 30D/LONG/ONGOING horizons and dependencies live in `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md`. Use that single catalog before the classification below; Catalog B eligibility does not imply inclusion in the fixed management scope. This section continues to own the four commercial request classes.
+
 Every new request enters one router before work starts. The default behavior is to understand and classify the request, not automatically reject it and not silently absorb it into the fixed management scope.
 
 ### 5.1 Fixed management routing context

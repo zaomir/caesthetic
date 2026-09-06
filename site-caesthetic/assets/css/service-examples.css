@@ -1,0 +1,30 @@
+/* Scoped use of the existing ruled-list component; CAESTHETIC design SSOT 3.1. */
+.cae-service-examples {
+  scroll-margin-top: calc(var(--cae-header-h) + var(--cae-space-6));
+}
+
+.cae-service-examples .cae-list li > div {
+  max-width: 65ch;
+  font-size: var(--cae-text-base);
+}
+
+.cae-service-examples p:not(.cae-lead) {
+  max-width: 65ch;
+}
+
+.cae-service-examples .cae-h3 {
+  margin-bottom: var(--cae-space-3);
+}
+
+.cae-service-examples .cae-lead {
+  margin-block: var(--cae-space-5);
+}
+
+.cae-service-examples p + p {
+  margin-top: var(--cae-space-4);
+}
+
+.cae-service-link {
+  text-decoration: underline;
+  text-underline-offset: var(--cae-space-1);
+}

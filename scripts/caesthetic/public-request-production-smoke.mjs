@@ -3,6 +3,7 @@ import fs from "node:fs";
 
 const SUPABASE_URL = (process.env.SUPABASE_URL || "https://lwyumrgygbuowndwcsvc.supabase.co").replace(/\/$/, "");
 const PROJECT_REF = "lwyumrgygbuowndwcsvc";
+const REQUIRE_EMAIL_NOTIFICATION = process.env.REQUIRE_EMAIL_NOTIFICATION === "true";
 const outputIndex = process.argv.indexOf("--output");
 const outputPath = outputIndex >= 0 ? process.argv[outputIndex + 1] : "";
 
@@ -44,7 +45,8 @@ if (
   body.ok !== true ||
   !body.request_id ||
   body.notification_sent !== true ||
-  body.telegram_notification_sent !== true
+  body.telegram_notification_sent !== true ||
+  (REQUIRE_EMAIL_NOTIFICATION && body.email_notification_sent !== true)
 ) {
   throw new Error(
     `request capture failed closed: status=${response.status} error=${body.error || "invalid_response"}`
@@ -52,6 +54,7 @@ if (
     + ` notification_sent=${body.notification_sent === true}`
     + ` telegram_notification_sent=${body.telegram_notification_sent === true}`
     + ` email_notification_sent=${body.email_notification_sent === true}`
+    + ` require_email_notification=${REQUIRE_EMAIL_NOTIFICATION}`
     + ` qa_test=${body.qa_test === true}`,
   );
 }
@@ -74,6 +77,7 @@ const result = {
   request_row_created: true,
   telegram_notification_sent: true,
   email_notification_sent: body.email_notification_sent === true,
+  email_notification_required: REQUIRE_EMAIL_NOTIFICATION,
   notify_to_contract: "CAESTHETIC_NOTIFY_TO -> CAESTHETIC_GROWTH_SCORE_NOTIFY_TO -> notifications@caesthetic.com",
   qa_marker: payload.name.startsWith("[TEST/QA]"),
   qa_rate_limit_bypass_authenticated: body.qa_test === true,

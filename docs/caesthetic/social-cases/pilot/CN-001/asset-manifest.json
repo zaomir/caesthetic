@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "profile": "social-case-editorial/1.0.0",
+  "design_authority": "docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md",
+  "design_version": "3.1.0",
+  "background": "canonical flat cool paper, no user background supplied",
+  "assets": [
+    {
+      "file": "logo-square.png",
+      "url": "https://caesthetic.com/assets/brand/logo-square.png",
+      "sha256": "5e7031f129cd59a538ad9e9ad99bea4f2656d96d9387bc71841608bf9ee0adf4"
+    },
+    {
+      "file": "tokens.css",
+      "url": "https://caesthetic.com/assets/css/tokens.css",
+      "sha256": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543"
+    },
+    {
+      "file": "IBMPlexSans-variable.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsans/IBMPlexSans%5Bwdth,wght%5D.ttf",
+      "sha256": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3"
+    },
+    {
+      "file": "SourceSerif4-variable.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourceserif4/SourceSerif4%5Bopsz,wght%5D.ttf",
+      "sha256": "97b2d4da6e3cb494b5a1e66ae176914d852ccabef49e0c02c0df25f3e39aca0b"
+    },
+    {
+      "file": "OFL-IBMPlexSans.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsans/OFL.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "file": "OFL-SourceSerif4.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/sourceserif4/OFL.txt",
+      "sha256": "5f94c3fd3a23131a417ab5a0c8452de57e70c3cfb9f604d88241f7065ebf9fd9"
+    }
+  ]
+}
