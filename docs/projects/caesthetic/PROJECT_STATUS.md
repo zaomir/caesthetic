@@ -1,7 +1,14 @@
 # CAESTHETIC — Project Status
 
-**Updated:** 2026-09-05
+**Updated:** 2026-09-06
 **Phase:** Phase 1 — proof + outbound readiness
+
+## 2026-09-06 — Public service examples released
+
+- Existing Sprint and Growth System pages now explain supported work, first-Sprint boundaries, continuing horizons and evidence/access gates. Individual services have no public prices; product economics and headline funnel are preserved.
+- Live: https://caesthetic.com/sprint/#services and https://caesthetic.com/growth-system/#services. Deployed source: `d22dbd762b3b24d453a08bcb053a1948d2d5c51d`; canonical workflow `34049393970` and Agent API Bridge `34049332818` succeeded.
+- Exact-release browser acceptance: 249 observations; production conformance: 174; independent production checks: 32, all without reported errors. Both pages and scoped CSS match source bytes. No real leads submitted.
+- Decision, module mapping, full changed-file list and remaining comprehension/impact questions: `docs/caesthetic/PUBLIC_SERVICE_EXAMPLES.md`. Release evidence records inherited detector/pricing-test limitations and the bridge SHA observation. This confirms delivery, not client adoption or business impact.
 
 ## 2026-09-05 — Design-system implementation and enforced release
 

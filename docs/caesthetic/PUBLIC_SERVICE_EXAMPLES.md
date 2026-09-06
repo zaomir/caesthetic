@@ -58,3 +58,54 @@ Release acceptance: source/module and scope review; both routes at 320, 390, 768
 No analytics baseline or actual prospect-comprehension interviews are available in this task. After sufficient normal traffic, compare existing `sprint_scope_requested` and Growth System inquiry events with qualified inquiries and scope-mismatch reasons; volume alone does not establish fit or causality. Owner: CAESTHETIC commercial owner. Review when a useful sample exists, not an invented deadline or automatic monitoring commitment.
 
 Open business question: do prospects understand that the examples are selected into a written scope rather than all included? If real inquiries show repeated confusion, shorten/reword the examples before expanding the public list. Keep the internal catalog current; a new public standalone catalog requires evidence of a distinct visitor need. Publication acceptance is delivery evidence, not Impact Verified.
+
+## Release and evidence — 2026-09-06
+
+- Implementation merged in [PR #1529](https://github.com/zaomir/grainee-v2/pull/1529), commit `21442b5bf2a533ca7c8f37720679e85c41c3d471`.
+- Actual accepted/deployed source: `d22dbd762b3b24d453a08bcb053a1948d2d5c51d`. [Canonical deploy](https://github.com/zaomir/grainee-v2/actions/runs/34049393970) and [Agent API Bridge](https://github.com/zaomir/grainee-v2/actions/runs/34049332818) succeeded.
+- Live: [Sprint examples](https://caesthetic.com/sprint/#services), [delivery horizons](https://caesthetic.com/sprint/#delivery-horizons), [Growth System examples](https://caesthetic.com/growth-system/#services).
+- Exact-artifact CI: Chromium 177, Firefox 36, WebKit 36 observations, zero errors. Both changed routes were covered in every engine. Production conformance: 174 observations, zero errors; independent Chromium/WebKit acceptance: 32 observations, zero errors. Both HTML files and the scoped stylesheet returned 200 and matched source bytes. Canonical smoke: 24 URLs, all 200.
+- Local commercial/navigation checks: 27 PASS; required release contract tests: 83 PASS. Docs and design guards pass. The 12 inherited full-page detector findings match base exactly; five legacy pricing failures also reproduce on unchanged base. No new detector exception was added. Detailed limits and hashes: [release evidence](../runtime/projects/caesthetic/evidence/2026-09-06-public-services-release.json).
+- The bridge checked requested ancestor `21442b5b` but dispatched the request commit `d22dbd76`; only the request JSON differs. This release records the actual SHA and accepted artifact, not an assumed pin. Platform follow-up: review propagation of `requested_sha`; this task does not change the bridge.
+- Remaining business question: whether these examples improve inquiry fit and scope comprehension. No customer impact is claimed; the review criteria and owner remain above.
+
+### Changed files
+
+The implementation, release request/evidence and closeout touch the following task-scoped files. Automated runtime packet files are included; unrelated concurrent work is excluded.
+
+- `.deploy/caesthetic.last-success` (refreshed by the canonical deployment workflow)
+- `agents/generated/context-index.json`
+- `docs/FOUNDER-NOTES.md`
+- `docs/LAST_SYNC.md`
+- `docs/agent-api/requests/deploy-caesthetic-public-services-20260906.json`
+- `docs/agent-api/results/deploy-caesthetic-public-services-20260906.json`
+- `docs/caesthetic/PUBLIC_SERVICE_EXAMPLES.md`
+- `docs/caesthetic/design/contract.json`
+- `docs/projects/caesthetic/PROJECT_STATUS.md`
+- `docs/runtime/projects/caesthetic/BACKLOG.md`
+- `docs/runtime/projects/caesthetic/CONTINUE_FROM.md`
+- `docs/runtime/projects/caesthetic/CURRENT_STATE.md`
+- `docs/runtime/projects/caesthetic/DECISIONS.md`
+- `docs/runtime/projects/caesthetic/LAST_SHIP.md`
+- `docs/runtime/projects/caesthetic/METRICS.md`
+- `docs/runtime/projects/caesthetic/NEXT_ACTIONS.md`
+- `docs/runtime/projects/caesthetic/OPEN_DECISIONS.md`
+- `docs/runtime/projects/caesthetic/PENDING_COMMANDS.md`
+- `docs/runtime/projects/caesthetic/PROJECT_HEALTH.md`
+- `docs/runtime/projects/caesthetic/TASKS.md`
+- `docs/runtime/projects/caesthetic/WORK_LOG.md`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-browser.json`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-checks.json`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-delivery.json`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-design-receipt.json`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-design-static.json`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-production-browser.json`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-production-files.json`
+- `docs/runtime/projects/caesthetic/evidence/2026-09-06-public-services-release.json`
+- `docs/runtime/projects/caesthetic/sessions/2026-09-06-public-services.json`
+- `docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md`
+- `docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md`
+- `scripts/caesthetic/design-browser.mjs`
+- `site-caesthetic/assets/css/service-examples.css`
+- `site-caesthetic/growth-system/index.html`
+- `site-caesthetic/sprint/index.html`
