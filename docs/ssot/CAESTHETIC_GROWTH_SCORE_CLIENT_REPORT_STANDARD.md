@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.9
+version: 2.10
 updated: 2026-09-06
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -769,3 +769,60 @@ modified pinned inputs, an inflated minor fix and unreviewed paid selection.
 Build both languages before writing either. Test readable no-JS answers, keyboard
 source links, final DIY position, no body overflow, exact artwork and keyword
 italics. Runtime shipment and client content approval have separate receipts.
+
+### 2026-09-06 — Criterion-led client reading and urgent plan
+
+Owner requested the final Russian reading experience: approved four-surface
+artwork and Connect4 explanation before Contents, H2 question titles, H3 narrative
+labels, current niche criteria, and an image-first **Ваш срочный план**.
+This is an existing-product presentation change, not an additional audit or SKU.
+
+For the scoped Spoken view, use this sequence: welcome → question navigation →
+open Connect4 explanation with the existing system image pair → closed Contents →
+the existing nine semantic sections. Move the existing Stop pair to the start of
+`focus-gaps`, immediately after its heading. Keep four responsive picture elements,
+eight immutable PNGs, the two unchanged Check sections and existing access rules.
+Public name remains Connect4; 4444 is its internal shorthand, not another product.
+
+Each question is an H2. Its six H3 parts are: what good practice looks like, what
+we observed, why it matters for practice choice, where it differs, what to change,
+and how to verify. A positive finding or an unassessed criterion is valid. Do not
+force every criterion into a defect. Use one readable column, the approved
+14/18/32px warm report profile and token spacing; deeper provenance stays in
+native disclosures. Russian *соответствие* and its noun inflections are italic.
+
+Criteria describe public communication, not clinical quality or regulatory
+certification. For an aesthetic practice, the research brief uses these checks:
+
+| Question | Collection criterion | Retained evidence and acceptance |
+|---|---|---|
+| Offer and terms | Service purpose, consultation, cost determination, required payment, credit/cancellation conditions and next action are understandable before data submission. | Capture page and booking stage separately; distinguish deposit from treatment cost; recheck the same route on phone and desktop. |
+| Practitioner trust | Named practitioner, actual professional role, relevant experience, supportable qualifications and appropriate consultation expectations. | Separate practice statements from independent verification. Clinical owner confirms roles and medical copy; link service and profile without inventing credentials. |
+| Reviews | Individual independent records, stated period/selection, reasons versus questions, useful privacy-safe replies. | Retain separate links; no rating filter or population-frequency claim from a small sample. Do not prescribe patient language, gate invitations or expose medical details in replies. |
+| Competitor explanation | Same service/decision stage, explicit first visit and terms, traceable provider and next step. | Compare page placement and action, not presumed conversion or care quality. Adapt the useful pattern to the client's own approved terms. |
+
+Primary guidance checked 2026-09-06: [AAD consultation questions](https://www.aad.org/public/cosmetic/safety/ask-questions),
+[FDA filler-provider guidance](https://www.fda.gov/consumers/consumer-updates/dermal-filler-dos-and-donts-wrinkles-lips-and-more),
+[Google reviews](https://support.google.com/business/answer/3474122?hl=en),
+[Google Ads landing-page guidance](https://support.google.com/google-ads/answer/6238826?hl=en).
+These inform our communication rubric; they do not validate a client diagnosis.
+The FDA source concerns fillers. AAD's dermatologist recommendation is not a
+claim that every med-spa practitioner must hold that title. No universal numerical
+benchmark or guaranteed marketing outcome is derived from these sources.
+
+`caesthetic-niche-criteria/1.0.0` extends the existing synthesis packet with dated
+criterion sources, their basis/scope, and per-question `ideal`, `deviation` and
+`criterion_refs`. Client facts continue to reference the one source register.
+The existing content-bound release/selection gate is retained; engineering
+approval never supplies a named medical or commercial reviewer.
+
+The urgent plan explains why to prepare the chosen decision/enquiry path before
+a new paid launch or budget increase. A diagram is a principle, not a calculation
+of this practice's losses. Actual campaign waste, causality or stop-spend advice
+requires relevant evidence. Proposed coordination may connect A02/A03/A06/A08/A09:
+confirmed facts → approved copy → dependent page/link updates → whole-path acceptance
+→ update owner. Complexity comes from those dependencies, not invented tasks or
+claims that a team or freelancer cannot perform them. A $2,500 Sprint still needs
+the material-value gate and a feasible Primary + two Supporting selection. The
+$500 Check remains the conditional post-enquiry diagnostic, never an evidence
+unlock. Minor DIY items remain the final disclosure.

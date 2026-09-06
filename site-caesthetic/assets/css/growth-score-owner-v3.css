@@ -149,14 +149,20 @@ ol.v3-list { list-style: decimal; }
 }
 
 /* Four open answers, followed by the unnumbered synthesis. */
-.cae-score-v3 .v3-choice { padding: 32px 0; border-top: 1px solid var(--v3-line, #C9C3B8); }
-.cae-score-v3 .v3-choice:first-of-type { border-top: 0; padding-top: 8px; }
-.cae-score-v3 .v3-choice-narrative { display: grid; gap: 20px; margin: 24px 0; }
-.cae-score-v3 .v3-choice-narrative dt { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-.cae-score-v3 .v3-choice-narrative dd { margin: 0; font-size: 18px; }
+.cae-score-v3 .v3-choice { padding: var(--cae-space-12) 0; border-top: 1px solid var(--v3-line); }
+.cae-score-v3 .v3-choice:first-of-type { border-top: 0; padding-top: var(--cae-space-2); }
+.cae-score-v3 .v3-choice-narrative { max-width: 70ch; margin: var(--cae-space-6) 0; }
+.cae-score-v3 .v3-choice-narrative > div + div { margin-top: var(--cae-space-6); }
+.cae-score-v3 .v3-choice-narrative h3 { margin-bottom: var(--cae-space-2); }
+.cae-score-v3 .v3-choice-narrative p { margin: 0; }
 .cae-score-v3 .v3-choice-narrative .v3-list { margin: 0; }
 .cae-score-v3 .v3-choice-provenance { overflow-wrap: anywhere; }
 .cae-score-v3 .v3-synthesis { border-inline-start: 2px solid var(--cae-signal); padding-inline: var(--cae-space-5); background: var(--v3-soft); }
-@media (min-width: 768px) {
-  .cae-score-v3 .v3-choice-narrative { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+.v3-connect4-intro > .v3-figure, #focus-gaps > .v3-figure { max-width: 56rem; margin: 0 auto var(--cae-space-8); }
+.v3-connect4-intro .v3-surface-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--cae-space-8); }
+.v3-urgent-intro, .v3-urgent-steps { max-width: 70ch; }
+.v3-urgent-steps li { padding-left: var(--cae-space-2); }
+.v3-urgent-steps li + li { margin-top: var(--cae-space-6); }
+@media (max-width: 767px) {
+  .v3-connect4-intro .v3-surface-list { grid-template-columns: minmax(0, 1fr); }
 }

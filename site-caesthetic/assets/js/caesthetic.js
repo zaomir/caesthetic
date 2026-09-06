@@ -327,14 +327,20 @@
           '<label for="cae-request-email">' + requestCopy.email + '</label>' +
           '<input id="cae-request-email" name="email" type="email" autocomplete="email" inputmode="email" required>' +
           '<button class="cae-btn cae-btn--primary" type="submit">' + requestCopy.send + '</button>' +
-          '<p class="cae-request-modal__status" role="status" aria-live="polite"></p>' +
         '</form>' +
+        '<div class="cae-request-modal__status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">' +
+          '<svg class="cae-request-modal__check" viewBox="0 0 64 64" aria-hidden="true" focusable="false" hidden><circle cx="32" cy="32" r="29"></circle><path d="m19 32 9 9 18-19"></path></svg>' +
+          '<p data-cae-request-message></p>' +
+        '</div>' +
       '</div>';
     document.body.appendChild(dialog);
 
     var form = qs("form", dialog);
     var close = qs(".cae-request-modal__close", dialog);
     var status = qs(".cae-request-modal__status", dialog);
+    var message = qs("[data-cae-request-message]", dialog);
+    var check = qs(".cae-request-modal__check", dialog);
+    var opening = 0;
     var kicker = qs("[data-cae-request-kicker]", dialog);
     var title = qs("#cae-request-modal-title", dialog);
     var intro = qs("[data-cae-request-intro]", dialog);
@@ -360,6 +366,7 @@
       dialog.close();
     }
     function openDialog(trigger) {
+      opening += 1;
       activeTrigger = trigger || null;
       var meta = metaFor(trigger);
       requestIntent = meta.intent;
@@ -367,7 +374,12 @@
       kicker.textContent = meta.kicker;
       title.textContent = meta.title;
       intro.textContent = meta.intro;
-      status.textContent = "";
+      message.textContent = "";
+      check.setAttribute("hidden", "");
+      status.classList.remove("is-success");
+      form.hidden = false;
+      intro.hidden = false;
+      kicker.hidden = false;
       form.reset();
       var modalSubmit = qs('button[type="submit"]', form);
       modalSubmit.disabled = false;
@@ -379,6 +391,7 @@
 
     close.addEventListener("click", closeDialog);
     dialog.addEventListener("close", function () {
+      opening += 1;
       setScrollLocked("request", false);
       if (activeTrigger && activeTrigger.isConnected) activeTrigger.focus({ preventScroll: true });
     });
@@ -394,6 +407,10 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var submit = qs('button[type="submit"]', form);
+      if (submit.disabled || form.hidden || !form.reportValidity()) return;
+      var submittedOpening = opening;
+      var submittedKind = requestKind;
+      var submittedIntent = requestIntent;
       var payload = {
         action: "caesthetic_public_request",
         name: String(new FormData(form).get("name") || "").trim(),
@@ -402,7 +419,7 @@
         page_url: window.location.href
       };
       submit.disabled = true;
-      status.textContent = requestCopy.sending;
+      message.textContent = requestCopy.sending;
       fetch((window.CAESTHETIC_API && window.CAESTHETIC_API.request) || "", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -413,13 +430,22 @@
           return data;
         });
       }).then(function () {
-        status.textContent = requestKind === "question" ? requestCopy.questionSuccess : requestCopy.success;
-        submit.textContent = requestCopy.sent;
+        // A response from a closed/reopened dialog must not change the new form.
+        if (submittedOpening !== opening || !dialog.open) return;
+        form.hidden = true;
+        intro.hidden = true;
+        kicker.hidden = true;
+        title.textContent = requestCopy.sent;
+        check.removeAttribute("hidden");
+        status.classList.add("is-success");
+        message.textContent = submittedKind === "question" ? requestCopy.questionSuccess : requestCopy.success;
+        status.focus({ preventScroll: true });
         if (window.caestheticAnalytics && typeof window.caestheticAnalytics.track === "function") {
-          window.caestheticAnalytics.track("caesthetic_request_submitted", { request_kind: requestKind, intent: requestIntent });
+          window.caestheticAnalytics.track("caesthetic_request_submitted", { request_kind: submittedKind, intent: submittedIntent });
         }
       }).catch(function () {
-        status.textContent = requestCopy.failed;
+        if (submittedOpening !== opening || !dialog.open) return;
+        message.textContent = requestCopy.failed;
         submit.disabled = false;
       });
     });

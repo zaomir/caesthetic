@@ -55,7 +55,13 @@ try {
   await page.waitForFunction(()=>document.documentElement.dataset.v3Ready==='true');
   await page.evaluate(()=>document.fonts.ready);
   assert.deepEqual(await page.locator('[data-choice-question]').evaluateAll(a=>a.map(e=>e.dataset.choiceQuestion)),CHOICE_IDS);
-  assert.equal(await page.locator('[data-choice-part]:visible').count(),16);
+  assert.equal(await page.locator('[data-choice-part]:visible').count(),24);
+  assert.deepEqual(await page.locator('[data-choice-question] > [id^="choice-title-"]').evaluateAll(a=>a.map(e=>[e.tagName,getComputedStyle(e).fontSize])),CHOICE_IDS.map(()=>['H2','32px']));
+  assert.equal(await page.locator('[data-choice-part] > h3').count(),24);
+  assert.ok(await page.locator('[data-choice-part] > h3').evaluateAll(a=>a.every(e=>getComputedStyle(e).fontSize==='18px')));
+  assert.ok(await page.locator('#focus-gaps').evaluate(e=>e.children[1].matches('figure[data-v3-media="stop"]')));
+  assert.equal(await page.locator('#method-intro [data-surface]').count(),4);
+  assert.equal(await page.locator('#method-intro picture:visible').count(),1);
   assert.equal(await page.locator('[data-connect4-conclusion]').count(),1);
   assert.equal(await page.locator('[data-gap-role]').count(),0);
   assert.equal(await page.locator('[data-commercial-selection]').getAttribute('data-commercial-selection'),'not_supported');
@@ -63,6 +69,7 @@ try {
   assert.equal(await page.locator('[data-choice-sources][open]').count(),0);
   await page.locator('[data-choice-sources="offer"] summary').focus();await page.keyboard.press('Enter');
   assert.equal(await page.locator('[data-choice-sources="offer"]').getAttribute('open'),'');
+  assert.equal(await page.locator('[data-choice-sources="offer"] [data-criterion-source]').count(),2);
   await page.keyboard.press('Enter');
   const reject=page.getByRole('button',{name:locale==='ru'?'Отказаться':'Reject analytics',exact:true});if(await reject.isVisible())await reject.click();
   for(const width of [320,375,390,430,768,1024,1440]){
@@ -92,7 +99,7 @@ try {
     const destinations=[...CHOICE_IDS.map(id=>'#choice-'+id),'#connect4-conclusion'];
     assert.deepEqual(await page.locator('[data-choice-navigation] a').evaluateAll(a=>a.map(e=>e.hash)),destinations);
     assert.equal(await page.locator('.v3-research').count(),0);
-    assert.ok(await page.locator('#report-intro').evaluate(e=>e.nextElementSibling.id==='report-navigation'));
+    assert.ok(await page.locator('#report-intro').evaluate(e=>e.nextElementSibling.id==='method-intro'&&e.nextElementSibling.nextElementSibling.id==='report-navigation'));
     assert.equal(await page.locator('#report-navigation').getAttribute('open'),null);
     for(const [i,hash] of destinations.entries()){
      const link=page.locator(`[data-choice-navigation] a[href="${hash}"]`);
@@ -125,7 +132,7 @@ try {
   result.actions.push({locale,kind:'source-provenance-and-keyword',status:'PASS'});
   // Hash navigation opens nested disclosures and leaves target below the sticky bar.
   await page.locator('#choice-practitioner .v3-choice-provenance a').first().click();
-  assert.equal(await page.locator('#evidence-register').getAttribute('open'),'');
+  assert.equal(await page.locator('#source-observations').getAttribute('open'),'');
   await page.waitForFunction(()=>document.getElementById(decodeURIComponent(location.hash.slice(1))).getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight,{},{timeout:5000});
   await page.evaluate(()=>{location.hash='query-K10';});await page.waitForFunction(()=>document.querySelector('#remaining-queries').open&&document.querySelector('#query-K10').open);
   await page.evaluate(()=>{document.querySelectorAll('.v3-query-list details').forEach(e=>e.open=true);});
@@ -157,7 +164,7 @@ try {
   const accessibility=await new AxeBuilder({page}).include('main').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(accessibility.violations.map(v=>({id:v.id,nodes:v.nodes.length})),[]);result.actions.push({locale,kind:'axe-main',status:'PASS'});
   await context.close();
-  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),9);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('[data-choice-part]:visible').count(),16);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
+  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),9);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('[data-choice-part]:visible').count(),24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
 }catch(error){

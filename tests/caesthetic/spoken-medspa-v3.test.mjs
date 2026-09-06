@@ -55,11 +55,11 @@ for(const locale of Object.keys(V3_PARENTS)) {
 
   assert.ok(html.indexOf('id="report-intro"')<html.indexOf('id="method-intro"'));
   assert.ok(html.indexOf('id="gap-map"')<html.indexOf('id="choice-offer"'));
-  assert.ok(html.indexOf('id="connect4-conclusion"')<html.indexOf('id="method-intro"'));
+  assert.ok(html.indexOf('id="method-intro"')<html.indexOf('id="report-navigation"'));
   assert.ok(html.indexOf('id="method-intro"')<html.indexOf('id="focus-gaps"'));
   assert.ok(html.indexOf('id="evidence-and-competitors"')<html.indexOf('id="consistency-matrix"'));
   assert.deepEqual([...html.matchAll(/<article[^>]*data-choice-question="([^"]+)"/g)].map(m=>m[1]),CHOICE_IDS);
-  assert.equal(count(html,/data-choice-part=/g),16);
+  assert.equal(count(html,/data-choice-part=/g),24);
   assert.equal(count(html,/data-choice-sources=/g),4);
   assert.doesNotMatch(html,/<details[^>]*data-choice-question/);
   assert.ok(html.indexOf('data-cae-sprint-inquiry')>html.indexOf('id="next-step"'));
@@ -210,6 +210,10 @@ const choiceFixture = () => {
 };
 for(const [name,change,re] of [
  ['question order',f=>f.packet.questions.reverse(),/four ordered/],
+ ['missing niche criterion',f=>delete f.packet.questions[0].ideal,/ideal and observed deviation/],
+ ['untraceable criterion',f=>f.packet.questions[0].criterion_refs=['UNKNOWN'],/criterion source reference/],
+ ['unsafe criterion source',f=>f.packet.criteria_sources[0].url='javascript:alert(1)',/criterion provenance/],
+ ['undated criterion',f=>delete f.packet.criteria_sources[0].checked_at,/criterion provenance/],
  ['missing translation',f=>delete f.packet.questions[0].answer.ru,/paired text/],
  ['dangling source',f=>f.packet.questions[0].evidence_refs=['observation:missing'],/dangling observation/],
  ['unapproved metric',f=>f.packet.questions[0].evidence_refs=['metric:missing'],/unapproved or missing/],

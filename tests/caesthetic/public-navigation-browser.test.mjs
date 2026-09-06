@@ -240,7 +240,11 @@ test('request retry requires confirmed delivery and preserves two-field payload'
     await page.waitForFunction(()=>document.querySelector('dialog [type=submit]').disabled===false);
     assert.match(await dialog.textContent(),/could not|couldn't|failed/i);
     await dialog.locator('[type=submit]').click();
-    await page.waitForFunction(()=>document.querySelector('dialog [type=submit]').textContent==='Sent');
+    await page.waitForFunction(()=>document.querySelector('dialog form').hidden);
+    assert.equal(await dialog.locator('.cae-request-modal__check').isVisible(),true);
+    assert.equal(await dialog.locator('[type=submit]').isVisible(),false);
+    assert.equal(await dialog.locator('[role=status]').evaluate(el=>el===document.activeElement),true);
+    assert.equal(await dialog.isVisible(),true);
     assert.equal(payloads.length,2);
     assert.equal(payloads[0].name,'QA Owner');
     assert.equal(payloads[0].email,'qa@example.com');

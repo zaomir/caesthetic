@@ -269,6 +269,8 @@
     "docs/raimov/professional/clinical-club/README.md": "ec8eec703cc53bc6a17fa902ebe4988276ea2046569457eabd87f8a28a045a78",
     "docs/raimov/professional/whole-person-study-club/README.md": "d8516eb5cf9210ef0faab46ab8b98d489d924c9433ba0186667e6d23cc1c467e",
     "docs/raimov/release/PRICING_BUILD_REQUEST.json": "0834209782d555eb812f8570bc1314e25bb56d2204d11b5075938afb785f3b9b",
+    "docs/raimov/release/RAIM_SMILE_PRICING_RELEASE_2026-09-06.json": "61735396c574268c143ed6368765acccbf856debfdeaea42d8624c8607649235",
+    "docs/raimov/release/RAIM_SMILE_PRICING_RELEASE_2026-09-06.md": "5c77f2621b8a99211eb7c001e38a9a22593d439cb71bfa6f06648ed7fbc8410b",
     "docs/raimov/release/README.md": "46e5a9a16993a8d61d08689731a61092cae7774dffac4b88b3e2834415934dd3",
     "docs/raimov/technology/README.md": "b7b6c8ecddf2ea895aacf82c6df7189f752e3b4446e7174ce6d4676eb7f8160a",
     "docs/ssot/ELITE_DENTAL_STRATEGY.md": "8aff0d09a108d8a5f1acd045ecdabf670a7a6b310d45dda1531fb2a6b310d759",
@@ -305,7 +307,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "98419cc09fe95f57fcb01e866a090f0c615631d0",
+  "source_sha": "912785ad9ccd1753927c79034dd12cc96d0794aa",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

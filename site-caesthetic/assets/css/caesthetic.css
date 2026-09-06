@@ -2567,3 +2567,31 @@ input:not([type="checkbox"]):not([type="radio"]), select, textarea { font-size: 
 
 
 .cae-menu-btn, .cae-nav__link, .cae-nav__dropdown-toggle, .cae-footer__links a { font-size: var(--cae-text-base); }
+
+/* Public request completion: persistent native dialog, only backend-confirmed. */
+.cae-request-modal [hidden] { display: none !important; }
+.cae-request-modal__status { margin-top: var(--cae-space-4); }
+.cae-request-modal__status p { margin: 0; }
+.cae-request-modal__status.is-success {
+  display: grid;
+  justify-items: center;
+  gap: var(--cae-space-6);
+  padding-block: var(--cae-space-6);
+  color: var(--cae-text);
+  text-align: center;
+  font-size: var(--cae-text-lg);
+}
+.cae-request-modal__check {
+  width: var(--cae-space-20);
+  height: var(--cae-space-20);
+  fill: none;
+  stroke: var(--cae-accent);
+  stroke-width: 2;
+}
+.cae-request-modal__check path {
+  stroke: var(--cae-signal);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cae-request-modal__panel > .cae-h2 { padding-right: var(--cae-space-10); }

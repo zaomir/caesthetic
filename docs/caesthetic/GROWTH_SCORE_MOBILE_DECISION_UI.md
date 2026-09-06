@@ -214,3 +214,20 @@ Keyboard activation focuses the answer and places it below the sticky bar.
 Native links also work without JavaScript. Targets stay at least 44px high and
 wrap within mobile width. This presentation change does not alter research,
 commercial selection, approval state, pricing or approved images.
+
+## Scoped Spoken reading update — 2026-09-06
+
+Owner request: display the approved Connect4 system picture and explanation before
+Contents, then four H2 questions with six H3 analysis parts. The Stop picture now
+opens `focus-gaps` / «Ваш срочный план». Its accompanying explanation is a general
+infrastructure-before-advertising principle, with no invented Spoken spend or loss.
+
+Authority: Client Report Standard v2.10 and Design System §10. Keep the warm
+14/18/32px profile, one narrative column, four responsive pictures/eight immutable
+PNGs, all nine section IDs, real inline provenance, two exact Check sections,
+conditional paid selection and final DIY disclosure. Full-page hash navigation
+must still reveal nested evidence and keep the target below the sticky bar.
+
+Criterion sources are dated and scoped; practitioner claims remain self-reports.
+Niche guidance is not an automatic defect, a regulatory audit or proof of paid
+scope. Current source observations remain distinct from final content approval.

@@ -1,5 +1,5 @@
 /** Presentation references, not a second diagnosis or evidence store. */
-import { assertReviewed, digest } from './consistency-contract.mjs';
+import { assertReviewed, digest, safeURL } from './consistency-contract.mjs';
 export const CHOICE_IDS = Object.freeze(['offer', 'practitioner', 'reviews', 'competitors']);
 const ensure = (value, message) => { if (!value) throw new Error(`CHOICE_INVALID: ${message}`); };
 const paired = value => value && ['ru', 'en-US'].every(l => typeof value[l] === 'string' && value[l].trim());
@@ -7,6 +7,18 @@ export function validateChoiceQuestions(packet, { release, registry, metrics, in
   ensure(packet?.contract === 'caesthetic-choice-synthesis/1.0.0' && packet.case_id === release.case_id, 'contract/case');
   ensure(release.choice_questions_digest === digest(packet), 'answers changed after freeze');
   ensure(JSON.stringify(packet.questions?.map(q => q.id)) === JSON.stringify(CHOICE_IDS), 'four ordered questions');
+  ensure(packet.assessment_contract === 'caesthetic-niche-criteria/1.0.0', 'niche assessment contract');
+  const criteria = new Map();
+  for (const source of packet.criteria_sources || []) {
+    ensure(/^[A-Z-]+$/.test(source.id) && !criteria.has(source.id), 'unique criterion source');
+    ensure(safeURL(source.url) && Number.isFinite(Date.parse(source.checked_at)) && paired(source.title) && paired(source.basis) && paired(source.scope), 'criterion provenance');
+    ensure(['professional_guidance', 'platform_guidance'].includes(source.authority), 'criterion authority');
+    criteria.set(source.id, source);
+  }
+  for (const q of packet.questions) {
+    ensure(paired(q.ideal) && paired(q.deviation), `${q.id} ideal and observed deviation`);
+    ensure(q.criterion_refs?.length && new Set(q.criterion_refs).size === q.criterion_refs.length && q.criterion_refs.every(id => criteria.has(id)), `${q.id} criterion source reference`);
+  }
   const addenda = new Map();
   for (const a of packet.repair_addenda || []) {
     ensure(/^[a-z-]+$/.test(a.id) && !addenda.has(a.id) && inventory.some(g => g.id === a.repair_ref) && paired(a.change) && paired(a.verify), 'repair addendum');
