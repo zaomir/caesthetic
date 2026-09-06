@@ -48,6 +48,18 @@ window.CAESTHETIC = {
   }
 })();
 
+/* Shared confirmation copy/accessibility for public lead forms. Submit handlers
+   remain authoritative: this layer never reveals success on its own. */
+(() => {
+  const src = "/assets/js/form-confirmation.js";
+  if (!document.querySelector(`script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+})();
+
 /* Growth Score report commercial routing is renderer-owned.
    Do not auto-load /assets/js/growth-report-funnel.js: each eligible report owns
    two always-visible Check sections plus at most one evidence-backed Sprint CTA;

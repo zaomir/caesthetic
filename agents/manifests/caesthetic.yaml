@@ -50,6 +50,7 @@ forbidden_paths:
 protected_paths: []
 
 topics:
+  session_delivery: docs/runtime/PROJECT_RUNTIME_STANDARD.md
   design_system: docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md
   connect4: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   "4444": docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
@@ -90,6 +91,8 @@ topics:
   expert_dental_contributions: docs/projects/caesthetic/expert-dental-contributions/
 
 commands:
+  session_sync: python3 scripts/runtime/caesthetic_session.py sync
+  session_check: python3 scripts/runtime/caesthetic_session.py check
   design_check: node scripts/caesthetic/design-gate.mjs
   design_browser: node scripts/caesthetic/design-browser.mjs
   sync: cd /var/www/grainee-v2 && git pull --ff-only origin main
@@ -107,6 +110,8 @@ agents_sync: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --comm
 agents_seed: bash scripts/caesthetic/sync-agents-bidirectional.sh --apply --commit --push
 
 definition_of_done:
+  - Session journal covers every scoped user requirement and affected route/locale with evidence
+  - Session packet is synchronized and complete validates main plus required production evidence
   - AI-agent policy check passes with no canonical version/commit drift
   - Audit full research remains blocked before named-manager Research Alignment approval
   - CAESTHETIC master SSOT remains authoritative

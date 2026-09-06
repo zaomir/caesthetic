@@ -9,14 +9,15 @@
     "site-caesthetic/assets/css/caesthetic.css": "2853c707ed0a08814012b20945e1dfecf2a6070320a7d5c65c8efeb64b74015e",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
     "site-caesthetic/assets/js/caesthetic.js": "1fe4aab2ec3f7a2094d14c03a9cb34a8551d35e2d4ed69888bdeb9c4bd54653b",
-    "site-caesthetic/assets/js/caesthetic-config.js": "eea113bafcc14b5d54be3b1b79dba2fd06a948726145dc701bab78d250e08656",
+    "site-caesthetic/assets/js/caesthetic-config.js": "0a471dbfc5adb0af386109d2a38e88d44f6238af725b133f421fd26583810c7e",
     "site-caesthetic/assets/js/growth-cockpit.js": "39176e08bde8fabc6e14302c262305acc68a9c15548e52d4a724cc88a39412e9",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
   "shared_runtime_update": {
-    "date": "2026-09-05",
-    "reason": "Authorized public-site QA repair: shared sticky header, drawer and request modal; report documents/data and locked illustration remain unchanged.",
-    "evidence": "docs/audits/caesthetic/public-site-qa-20260905.md"
+    "date": "2026-09-06",
+    "reason": "Shared public form-confirmation loader is already on main (831ea735b). Fixture hash refreshed to current main bytes so CAESTHETIC contract tests match origin/main; Spoken v1 report documents remain unchanged.",
+    "previous_config_sha256": "eea113bafcc14b5d54be3b1b79dba2fd06a948726145dc701bab78d250e08656",
+    "evidence": "site-caesthetic/assets/js/caesthetic-config.js on origin/main"
   },
   "design_migration": "SSOT v3 implementation: initial CSS, accessible tables, shared UI readability; data and immutable artwork unchanged."
 }

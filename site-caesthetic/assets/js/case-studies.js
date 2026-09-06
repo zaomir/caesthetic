@@ -10,13 +10,11 @@
   };
   var evidenceLabels = {
     verified: 'Verified evidence',
-    client_reported: 'Client-reported',
-    modeled: 'Modeled result'
+    client_reported: 'Client-reported'
   };
   var evidenceDescriptions = {
     verified: 'Checked against an available source',
-    client_reported: 'Reported by the clinic',
-    modeled: 'Analytical scenario—not a client outcome'
+    client_reported: 'Reported by the clinic'
   };
   var filterLabels = {
     goal: 'Goal',

@@ -3,7 +3,7 @@
 
   var goalLabels = { bookings: 'More bookings', conversion: 'Better conversion', retention: 'Retention', reputation: 'Reputation', 'multi-location': 'Multi-location' };
   var relevanceLabels = { 'closest-match': 'Closest practice match', 'adjacent-model': 'Adjacent operating model', 'transferable-pattern': 'Transferable operating pattern' };
-  var evidenceLabels = { verified: 'Verified evidence', client_reported: 'Client-reported result', modeled: 'Modeled result' };
+  var evidenceLabels = { verified: 'Verified evidence', client_reported: 'Client-reported result' };
   var returnPath = '/case-studies/#case-library';
 
   function isPublicCatalogCase(item) {

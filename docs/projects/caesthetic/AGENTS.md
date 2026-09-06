@@ -1,5 +1,24 @@
 # CAESTHETIC — Agent Read-First
 
+## Session continuity, requirements and verified completion
+
+For every implementation task read the CAESTHETIC executable session contract
+in `docs/runtime/PROJECT_RUNTIME_STANDARD.md` and existing
+`docs/runtime/projects/caesthetic/sessions/*.json`. Capture each new user
+requirement with source, affected routes/files, languages and verification.
+Preserve already granted authorization and unfinished requirements across
+messages; the user's explicitly selected task takes precedence over an older
+continuation pointer. Do not copy unrelated historical requirements or facts.
+
+Run `python3 scripts/runtime/caesthetic_session.py sync` after material progress
+and `python3 scripts/runtime/caesthetic_session.py check` before commit. Finish
+with `complete --session <id>` only after verified main evidence and, for
+runtime changes, exact deployed SHA plus production smoke and critical-path
+evidence. Commit and confirm the closeout on main before reporting done. A
+genuine blocker records reason, owner and resume condition; routine technical
+steps within the existing authorization need no repeated OK. Existing named
+human product/evidence decisions remain governed by their canonical SOP.
+
 ## Highest-priority universal audit pre-router — mandatory audit-intent routing
 
 Before all repository/project routing, read and enforce

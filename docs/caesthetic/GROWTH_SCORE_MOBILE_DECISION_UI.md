@@ -127,10 +127,11 @@ report snapshots, paired copy, the source register, query matrix, approved image
 hashes and the versioned Check500 US copy. The renderer uses one view model; it
 never fetches the parent report or an outside source at build/page-load time.
 
-Current release stage is **review_preview**, visibly labelled on both pages.
-Ten candidate phrases are proposed from the inherited Botox/filler topic; they
-are not measured low-frequency queries. Forty neutral cells are not fabricated
-findings. Draft observations cannot render as verified matches in preview.
+Current release stage is **review_preview**; both pages identify the observed
+source research separately from approved diagnosis. Ten phrases retain the
+inherited Botox/filler topic; they are not measured low-frequency queries.
+The 2026-09-06 source-observation package replaces the initially empty forty
+cells with bounded source results. Other draft packages remain masked.
 `--client-release` refuses publication until the query set, evidence, matrix and
 whole input release have current named-human content-bound approvals. Hashes
 prevent stale review reuse; they do not authenticate a human identity against a
@@ -167,3 +168,11 @@ Browser QA: `scripts/caesthetic/spoken-v3-browser-qa.mjs`; it must mock every le
 submission and keep raw screenshots in private workflow artifacts, not a public
 mirror. Release evidence and the research blocker belong to the existing case,
 not new fake client evidence.
+
+2026-09-06 Spoken v3 correction: every matrix cell links to its observed source
+records, with bounded sample language and separately labelled authorship.
+Native source disclosures include excerpt, URL, context, collection date,
+method and access limitations. The Russian keyword *соответствие* and noun
+inflections are italicized at render time without changing attributes, scripts,
+source text or approved images. The `source_observations` presentation is
+research within the existing review stage, not a replacement for human approval.

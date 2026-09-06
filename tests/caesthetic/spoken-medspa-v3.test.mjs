@@ -7,11 +7,17 @@ import { ROOT, V3_PACKAGE, V3_PARENTS, buildV3, loadV3Package, generateV3, write
 import { renderGrowthReport } from '../../scripts/caesthetic/render-growth-score.mjs';
 import { scoreGrowthReport } from '../../site-caesthetic/assets/js/growth-score-engine.mjs';
 import { OWNER_V3, V3_SECTION_IDS, ownerV3Model, approvedAction } from '../../scripts/caesthetic/growth-score-owner-v3-model.mjs';
-import { validateConsistency, digest, reviewDigest, assertReviewed, safeURL, SURFACES } from '../../scripts/caesthetic/consistency-contract.mjs';
+import { validateConsistency, validateResearchPublication, digest, reviewDigest, assertReviewed, safeURL, SURFACES } from '../../scripts/caesthetic/consistency-contract.mjs';
+import { italicizeV3Keyword } from '../../scripts/caesthetic/growth-score-owner-v3.mjs';
 const read = p => fs.readFileSync(path.join(ROOT,p),'utf8');
 const count = (s,re) => [...s.matchAll(re)].length;
 const p = loadV3Package();
-const fixture = () => ({ matrix: structuredClone(p.matrix), registry: structuredClone(p.registry) });
+const fixture = () => {
+ const matrix=structuredClone(p.matrix),registry=structuredClone(p.registry);
+ registry.observations=[];
+ for(const q of matrix.queries)for(const s of SURFACES)q.cells[s]={status:'insufficient_evidence',observations:[]};
+ return {matrix,registry};
+};
 // Synthetic signatures are test fixtures only, never delivery evidence or actual human approval.
 const approveFixture = value => { value.review = { status:'approved', by:'SYNTHETIC TEST REVIEWER', at:'2026-09-05T18:00:00Z', content_sha256:reviewDigest(value) }; return value; };
 function withObservedFixture(status='exact_match') {
@@ -95,9 +101,32 @@ test('another case or unsupported locale cannot render as Spoken v3',()=>{
 });
 test('preview masks all draft findings even when draft observations are added',()=>{
  const r=buildV3('en-US'),f=withObservedFixture();r.presentation.v3.matrix=f.matrix;r.presentation.v3.registry=f.registry;
+ delete r.presentation.v3.release.presentation_mode;
  const html=renderGrowthReport(r);assert.doesNotMatch(html,/Test-only example/);
  const matrix=html.slice(html.indexOf('id="consistency-matrix"'),html.indexOf('id="focus-gaps"'));
  assert.doesNotMatch(matrix,/data-v3-state="exact_match"/);
+});
+test('frozen research publishes all forty bounded cells with actual source provenance',()=>{
+ assert.equal(validateResearchPublication(p.release,p.matrix,p.registry),true);
+ const html=renderGrowthReport(buildV3('ru'));
+ assert.equal(count(html,/data-source-observation=/g),p.registry.observations.length);
+ assert.match(html,/data-v3-matrix-stage="source_observations"/);
+ assert.doesNotMatch(html,/Ожидает проверки|Черновые фразы|pending_review|нет подтверждённых наблюдений/i);
+ for(const q of p.matrix.queries){assert.equal(q.frequency,null);for(const s of SURFACES){
+  assert.ok(q.cells[s].observations.length);assert.ok(q.cells[s].coverage.ru);
+  for(const match of q.cells[s].observations)assert.ok(html.includes(`href="#observation-${match.observation_id}"`));
+ }}
+ for(const o of p.registry.observations){assert.ok(o.method.ru&&o.limitations.ru);assert.notEqual(o.review?.status,'approved');}
+ const changed=structuredClone(p.registry);changed.observations[0].excerpt+=' changed';
+ assert.throws(()=>validateResearchPublication(p.release,p.matrix,changed),/changed after freeze/);
+ assert.throws(()=>validateResearchPublication({...p.release,stage:'client_release'},p.matrix,p.registry),/impersonate/);
+ delete changed.observations[0].method;
+ assert.throws(()=>validateResearchPublication({...p.release,research_package_digest:digest({matrix:p.matrix,registry:changed})},p.matrix,changed),/research provenance/);
+});
+test('Russian keyword inflections are italic without corrupting markup or double wrapping',()=>{
+ const input='<p title="соответствие">Соответствие и соответствия <em>соответствием</em>.</p><script>const x="соответствие";</script>';
+ const expected='<p title="соответствие"><em>Соответствие</em> и <em>соответствия</em> <em>соответствием</em>.</p><script>const x="соответствие";</script>';
+ assert.equal(italicizeV3Keyword(input),expected);assert.equal(italicizeV3Keyword(expected),expected);
 });
 for(const [name,mutate,re] of [
  ['nine phrases',f=>f.matrix.queries.pop(),/exactly 10/],

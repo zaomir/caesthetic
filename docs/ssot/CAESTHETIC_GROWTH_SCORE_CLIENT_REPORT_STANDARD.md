@@ -637,3 +637,17 @@ The original schema-v5, exact nine numbered sections, four surfaces, three
 selected priorities and human decisions remain. A `review_preview` is visibly
 not an approved new client diagnosis. The US-English Check500 1.1.0 spelling
 correction is opt-in under the parent Check contract; older exact copy stays.
+
+### Scoped Spoken v3 source-observation correction — 2026-09-06
+
+The owner's continuation authorizes actual public-source observations in the
+existing v3 research view. `presentation_mode=source_observations` requires a
+frozen source/matrix digest, nonempty bounded cells and per-observation method,
+context and limitations. Publish exact source text separately from semantic
+interpretation; keep company content, independent reviews and owner replies
+distinct. Login-gated material is an access limitation, never negative evidence.
+Search wording is not a local-rank or frequency measurement. Russian
+*соответствие* and its noun inflections use semantic italic in visible text.
+This scoped correction does not approve new Class A facts or a new diagnosis:
+the existing final named-human gate, approved decisions and PNG bytes remain.
+The case package records the actual sample in `RESEARCH-2026-09-06.md`.

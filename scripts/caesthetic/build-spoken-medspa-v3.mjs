@@ -5,7 +5,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { renderGrowthReport } from "./render-growth-score.mjs";
 import { OWNER_V3, SPOKEN_CASE } from "./growth-score-owner-v3-model.mjs";
 import { check500USCopy } from "./check500-copy.mjs";
-import { digest, assertReviewed, validateConsistency } from "./consistency-contract.mjs";
+import { digest, assertReviewed, validateConsistency, validateResearchPublication } from "./consistency-contract.mjs";
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 export const V3_PACKAGE = `docs/audits/caesthetic/growth-score/cases/${SPOKEN_CASE}/revisions/v3`;
 export const V3_PARENTS = Object.freeze({ ru: "spoken-medspa-snellville-9d7f3a5c2e184b61-rus", "en-US": "spoken-medspa-snellville-9d7f3a5c2e184b61" });
@@ -38,6 +38,7 @@ export function loadV3Package({ root = ROOT, packageDir = path.join(root, V3_PAC
   const final = clientRelease || release.stage === "client_release";
   if (final && release.stage !== "client_release") throw new Error("REVIEW_REQUIRED: v3 is a working preview, not a client release");
   validateConsistency(matrix, registry, { clientRelease: final });
+  validateResearchPublication(release, matrix, registry);
   if (final) { assertReviewed(release.research_alignment, "Research Alignment"); assertReviewed(release, "client release"); }
   return { release, reports, copies, matrix, registry };
 }
@@ -56,7 +57,7 @@ export function generateV3(options = {}) {
     const html = renderGrowthReport(report);
     if (locale === "en-US" && /[А-Яа-яЁё]/.test(html)) throw new Error("V3_INVALID: Cyrillic leaked into English HTML");
     result.set(`${dir}/index.html`, html);
-    result.set(`${dir}/presentation.json`, JSON.stringify({ layout_contract: OWNER_V3, revision: "3", stage: release.stage, source_ref: release.source_ref, source_input_digest: digest(release.inputs), matrix_status: release.stage === "client_release" ? "reviewed" : "pending_review" }, null, 2) + "\n");
+    result.set(`${dir}/presentation.json`, JSON.stringify({ layout_contract: OWNER_V3, revision: "3", stage: release.stage, source_ref: release.source_ref, source_input_digest: digest(release.inputs), matrix_status: release.presentation_mode === "source_observations" ? "source_observations" : release.stage === "client_release" ? "reviewed" : "pending_review" }, null, 2) + "\n");
   }
   return result;
 }

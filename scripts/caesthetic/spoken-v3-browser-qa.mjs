@@ -56,7 +56,8 @@ try {
   const reject=page.getByRole('button',{name:locale==='ru'?'Отказаться':'Reject analytics',exact:true});if(await reject.isVisible())await reject.click();
   for(const width of [320,375,390,430,768,1024,1440]){
    await page.setViewportSize({width,height:900});
-   await page.evaluate(async()=>{const imgs=[...document.images];imgs.forEach(i=>i.loading='eager');await Promise.all(imgs.map(i=>i.decode()));});
+   await page.evaluate(async()=>{const imgs=[...document.images];imgs.forEach(i=>i.loading='eager');await new Promise(requestAnimationFrame);await Promise.allSettled(imgs.map(i=>i.decode()));});
+   await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0));
    const measured=await page.evaluate(()=>{
     const visible=e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden';
     const elements=[...document.querySelectorAll('main :is(h1,h2,h3,p,a,summary,button,img,article)')].filter(visible);
@@ -64,10 +65,10 @@ try {
     const ordinary=elements.filter(e=>!e.closest('.v3-check500'));
     const meta=document.querySelector('.v3-research>.v3-meta'),address=document.querySelector('.v3-overview>.v3-meta:nth-of-type(2)');
     const role=e=>{const s=getComputedStyle(e);return [s.fontFamily,s.fontSize,s.fontWeight,s.lineHeight];};
-    return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overflow:outside.map(e=>e.outerHTML.slice(0,140)),sizes:[...new Set(ordinary.map(e=>getComputedStyle(e).fontSize))],families:[...new Set(ordinary.map(e=>getComputedStyle(e).fontFamily))],signature:getComputedStyle(document.querySelector('.v3-signature')).fontStyle,metadata:role(meta),address:role(address),images:[...document.images].map(i=>({src:i.currentSrc,loaded:i.complete&&i.naturalWidth>0})),buttons:[...document.querySelectorAll('main button, main .cae-btn')].filter(visible).map(e=>({height:e.getBoundingClientRect().height,width:e.getBoundingClientRect().width}))};
+    return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overflow:outside.map(e=>e.outerHTML.slice(0,140)),sizeDetails:ordinary.filter(e=>getComputedStyle(e).fontSize==='16px').map(e=>e.outerHTML.slice(0,180)),sizes:[...new Set(ordinary.map(e=>getComputedStyle(e).fontSize))],families:[...new Set(ordinary.map(e=>getComputedStyle(e).fontFamily))],signature:getComputedStyle(document.querySelector('.v3-signature')).fontStyle,metadata:role(meta),address:role(address),images:[...document.images].map(i=>({src:i.currentSrc,loaded:i.complete&&i.naturalWidth>0})),buttons:[...document.querySelectorAll('main button, main .cae-btn')].filter(visible).map(e=>({height:e.getBoundingClientRect().height,width:e.getBoundingClientRect().width}))};
    });
    assert.deepEqual(measured.overflow,[],`${locale} ${width}`);assert.ok(measured.scrollWidth<=width,`${locale} body overflow ${width}`);
-   assert.ok(measured.sizes.length<=3,`Type roles ${measured.sizes}`);assert.ok(measured.families.length<=2,`Font roles ${measured.families}`);
+   assert.ok(measured.sizes.length<=3,`Type roles ${measured.sizes}: ${JSON.stringify(measured.sizeDetails)}`);assert.ok(measured.families.length<=2,`Font roles ${measured.families}`);
    assert.equal(measured.signature,'italic');assert.deepEqual(measured.metadata,measured.address);
    assert.ok(measured.images.every(i=>i.loaded));assert.ok(measured.buttons.every(b=>b.height>=44&&b.width>=44));
    const sys=measured.images.find(i=>i.src.includes('four-surfaces'));
@@ -80,33 +81,49 @@ try {
    }
   }
   await page.setViewportSize({width:390,height:844});
+  // Source observations remain usable after opening the complete research package.
+  await page.evaluate(()=>document.querySelectorAll('#gap-map details, #source-observations details, #source-observations').forEach(e=>e.open=true));
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'expanded source observations overflow');
+  assert.equal(await page.locator('[data-source-observation]').count(),loadV3Package().registry.observations.length);
+  if(locale==='ru')assert.deepEqual(await page.evaluate(()=>{
+   const bad=[],walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+   while(walker.nextNode()){const n=walker.currentNode;if(/соответстви[еяюий]|соответствием/iu.test(n.textContent)&&!n.parentElement.closest('script,style')&&getComputedStyle(n.parentElement).fontStyle!=='italic')bad.push(n.textContent);}
+   return bad;
+  }),[],'all Russian keyword inflections use italic');
+  await page.locator('#query-K01 a[href^="#observation-"]').first().click();
+  await page.waitForFunction(()=>document.getElementById(decodeURIComponent(location.hash.slice(1)))?.open);
+  await page.locator('#source-observations').screenshot({path:path.join(out,`${locale}-390-source-observations.png`),style:'.v3-bar { visibility: hidden; }'});
+  await page.evaluate(()=>document.querySelectorAll('#gap-map details, #source-observations details, #source-observations').forEach(e=>e.open=false));
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  result.actions.push({locale,kind:'source-provenance-and-keyword',status:'PASS'});
   // Hash navigation opens nested disclosures and leaves target below the sticky bar.
   await page.locator('.v3-priority .v3-ref-links a').first().click();
   assert.equal(await page.locator('#evidence-register').getAttribute('open'),'');
-  assert.ok(await page.evaluate(()=>document.getElementById(decodeURIComponent(location.hash.slice(1))).getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));
+  await page.waitForFunction(()=>document.getElementById(decodeURIComponent(location.hash.slice(1))).getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight,{},{timeout:5000});
   await page.evaluate(()=>{location.hash='query-K10';});await page.waitForFunction(()=>document.querySelector('#remaining-queries').open&&document.querySelector('#query-K10').open);
   await page.evaluate(()=>{document.querySelectorAll('.v3-query-list details').forEach(e=>e.open=true);});
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))));
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   // Every semantic section, including tall content and the final document edge.
   for(const id of V3_SECTION_IDS){
    await page.evaluate(id=>{const el=document.getElementById(id);scrollTo(0,el.getBoundingClientRect().top+scrollY-document.querySelector('.v3-bar').offsetHeight-24);},id);
-   await page.waitForTimeout(80);assert.equal(await page.locator('#report-navigation a[aria-current="location"]').getAttribute('href'),'#'+id);
+   await page.waitForFunction(id=>document.querySelector('#report-navigation a[aria-current="location"]')?.getAttribute('href')==='#'+id,id,{timeout:5000});
   }
   // Native keyboard disclosures and focus restoration in all three request intents.
   for(const [selector,kind] of [['[data-cae-sprint-inquiry]','sprint'],['[data-cae-check-inquiry]','check'],['[data-cae-question]','question']]){
    const trigger=page.locator(selector).first();await trigger.click();
-   const dialog=page.locator('dialog[open]');assert.equal(await dialog.count(),1);
+   const dialog=page.locator('dialog[open]');await dialog.waitFor({state:'visible',timeout:5000});assert.equal(await dialog.count(),1);
    assert.deepEqual(await dialog.locator('input').evaluateAll(a=>a.map(e=>e.name).sort()),['email','name']);
    const box=await dialog.boundingBox();assert.ok(box.x>=0&&box.x+box.width<=390&&box.y>=0&&box.y+box.height<=844,'dialog fits');
-   await page.keyboard.press('Escape');assert.equal(await page.locator('dialog[open]').count(),0);
-   assert.ok(await trigger.evaluate(e=>e===document.activeElement));result.actions.push({locale,kind,status:'PASS'});
+   await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden',timeout:5000});
+   await page.waitForFunction(selector=>document.querySelector(selector)===document.activeElement,selector,{timeout:5000});result.actions.push({locale,kind,status:'PASS'});
   }
   // Failure, retained input, retry, success and duplicate prevention without real leads.
   await page.locator('[data-cae-question]').click();const dialog=page.locator('dialog[open]');
   await dialog.locator('[name="name"]').fill('QA Synthetic');await dialog.locator('[name="email"]').fill('qa@example.invalid');
   mockFailure=true;await dialog.locator('button[type="submit"]').click();await page.waitForTimeout(300);
   assert.equal(await dialog.locator('[name="email"]').inputValue(),'qa@example.invalid');assert.ok(await dialog.locator('button[type="submit"]').isEnabled());
-  mockFailure=false;await dialog.locator('button[type="submit"]').click();await page.waitForTimeout(300);assert.ok(await dialog.locator('button[type="submit"]').isDisabled());await page.keyboard.press('Escape');
+  mockFailure=false;await dialog.locator('button[type="submit"]').click();await page.waitForTimeout(300);assert.ok(await dialog.locator('button[type="submit"]').isDisabled());await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden',timeout:5000});
   result.actions.push({locale,kind:'mocked-error-retry-success',status:'PASS',mocked_requests:posts.length});
   await page.evaluate(()=>{Object.defineProperty(navigator,'share',{configurable:true,value:async data=>{window.__v3Shared=data;}});Object.defineProperty(navigator,'canShare',{configurable:true,value:()=>true});});
   await page.locator('[data-v3-share="end"]').click();assert.ok(await page.evaluate(()=>window.__v3Shared.url.endsWith('/v3/')&&!window.__v3Shared.url.includes('#')));
@@ -116,6 +133,13 @@ try {
   if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),9);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('.v3-priority[open]').count(),1);await noJS.close();}
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
-}catch(error){result.status='FAIL';result.failure=error.stack;process.exitCode=1;}
+}catch(error){
+ result.status='FAIL';result.failure=error.stack;process.exitCode=1;
+ const failedPage=browser.contexts().flatMap(c=>c.pages()).at(-1);
+ if(failedPage)try{
+  result.failed_navigation=await failedPage.evaluate(()=>{const t=document.getElementById(decodeURIComponent(location.hash.slice(1)));return {hash:location.hash,targetTop:t?.getBoundingClientRect().top,barHeight:document.querySelector('.v3-bar')?.offsetHeight,scrollY,scrollHeight:document.documentElement.scrollHeight,innerHeight};});
+  await failedPage.screenshot({path:path.join(out,'failure.png')});
+ }catch{}
+}
 finally{fs.writeFileSync(path.join(out,'result.json'),JSON.stringify(result,null,2)+'\n');await browser.close();await new Promise(r=>server.close(r));}
 console.log(JSON.stringify({status:result.status,engine,viewports:result.viewports.length,actions:result.actions.length,out,failure:result.failure||null}));

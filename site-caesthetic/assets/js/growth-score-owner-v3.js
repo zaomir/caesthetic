@@ -11,12 +11,19 @@
     const target = targetFromHash();
     if (!target) return;
     for (let p = target; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
-    const top = target.getBoundingClientRect().top + scrollY - (document.querySelector(".v3-bar")?.offsetHeight || 0) - 24;
     if (focus) {
       if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
       target.focus({ preventScroll: true });
     }
-    window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+    const align = () => {
+      if (targetFromHash() !== target) return;
+      const top = target.getBoundingClientRect().top + scrollY - (document.querySelector(".v3-bar")?.offsetHeight || 0) - 24;
+      window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
+    };
+    align();
+    // Firefox can apply native disclosure/scroll anchoring after the first layout.
+    // Re-align the same navigation target after that layout has settled.
+    requestAnimationFrame(() => requestAnimationFrame(align));
   }
   document.addEventListener("click", event => {
     const a = event.target instanceof Element ? event.target.closest('a[href^="#"]') : null;

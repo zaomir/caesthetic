@@ -16,6 +16,7 @@ html[data-layout-contract="owner-decision-report/3.0.0"] { overflow: visible; sc
 .cae-score-v3 :is(h1,h2) { font-family: var(--cae-font-display); font-size: 2rem; line-height: 1.18; font-weight: 400; color: var(--v3-ink); margin: 0 0 var(--cae-space-6); overflow-wrap: break-word; }
 .cae-score-v3 :is(h3,h4) { font-family: var(--cae-font); font-size: 1.125rem; line-height: 1.45; font-weight: 600; margin: 0 0 var(--cae-space-3); color: inherit; }
 .cae-score-v3 :is(p,ul,ol,dl,blockquote) { margin: 0 0 var(--cae-space-4); }
+.cae-score-v3 .cae-lead { font-size: 1.125rem; }
 .cae-score-v3 :is(p,li,summary,td,th) { overflow-wrap: anywhere; }
 .cae-score-v3 a { color: inherit; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
 .cae-score-v3 a:hover { color: var(--cae-signal); }

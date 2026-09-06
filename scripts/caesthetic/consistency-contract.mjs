@@ -1,4 +1,4 @@
-/** Connect4 evidence contract. A preview is not permission to publish new findings. */
+/** Connect4 evidence contract. Source observations are distinct from approved diagnoses. */
 import { createHash } from "node:crypto";
 export const CONSISTENCY_CONTRACT = "caesthetic-consistency-matrix/1.0.0";
 export const SURFACES = Object.freeze(["search", "website", "social", "reputation"]);
@@ -29,6 +29,23 @@ export function safeURL(value) {
   } catch { return null; }
 }
 const ensure = (condition, message) => { if (!condition) throw new Error(`CONSISTENCY_INVALID: ${message}`); };
+const hasText = value => typeof value === "string" ? Boolean(value.trim()) : Boolean(value && ["ru", "en-US"].every(k => typeof value[k] === "string" && value[k].trim()));
+// Observed-source publication is never a signature or a new approved diagnosis.
+export function validateResearchPublication(release, matrix, registry) {
+  if (release.presentation_mode !== "source_observations") return false;
+  ensure(release.stage === "review_preview", "source observations cannot impersonate client approval");
+  ensure(release.research_package_digest === digest({ matrix, registry }), "research publication changed after freeze");
+  ensure(registry.research?.contract === "spoken-public-source-research/1.0.0", "research method contract");
+  ensure(Number.isFinite(Date.parse(registry.research.collected_at)), "research date");
+  for (const o of registry.observations) {
+    ensure(o.verification_state === "source_observed" && hasText(o.context) && hasText(o.method) && hasText(o.limitations), `research provenance ${o.id}`);
+  }
+  for (const q of matrix.queries) for (const surface of SURFACES) {
+    ensure(q.cells[surface].observations.length > 0, `research cannot publish empty cell ${q.id}/${surface}`);
+    ensure(hasText(q.cells[surface].coverage), `research sample boundary ${q.id}/${surface}`);
+  }
+  return true;
+}
 export function validateConsistency(matrix, registry, { clientRelease = false } = {}) {
   ensure(matrix?.contract === CONSISTENCY_CONTRACT, "contract");
   ensure(registry?.contract === "caesthetic-public-source-register/1.0.0", "source register contract");
@@ -87,7 +104,7 @@ export function validateConsistency(matrix, registry, { clientRelease = false } 
           ensure(norm(o.excerpt).includes(norm(q.phrase)), `exact match cannot be translation or paraphrase ${q.id}`);
         }
         if (match.status === "not_found_in_sample") ensure(match.sample && Number.isInteger(match.sample.count) && match.sample.count > 0 && Number.isFinite(Date.parse(match.sample.start)) && Number.isFinite(Date.parse(match.sample.end)) && Date.parse(match.sample.start) <= Date.parse(match.sample.end) && match.sample.source_ids?.length && match.sample.source_ids.every(id => sources.has(id) && sources.get(id).surface === surface), `absence requires bounded sample ${q.id}`);
-        if (match.status === "semantic_match" || match.status === "contradiction") ensure(typeof match.rationale === "string" && match.rationale.trim(), `interpretation rationale ${q.id}`);
+        if (match.status === "semantic_match" || match.status === "contradiction") ensure(hasText(match.rationale), `interpretation rationale ${q.id}`);
         if (clientRelease) { assertReviewed(o, `observation ${o.id}`); assertReviewed(match, `match ${q.id}/${surface}`); }
       }
     }
