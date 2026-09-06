@@ -74,7 +74,7 @@ try {
     const elements=[...document.querySelectorAll('main :is(h1,h2,h3,p,a,summary,button,img,article)')].filter(visible);
     const outside=elements.filter(e=>!e.closest('.v3-table-desktop')&&(e.getBoundingClientRect().left < -1||e.getBoundingClientRect().right > innerWidth+1));
     const ordinary=elements.filter(e=>!e.closest('.v3-check500'));
-    const meta=document.querySelector('.v3-research>.v3-meta'),address=document.querySelector('.v3-overview>.v3-meta:nth-of-type(2)');
+    const meta=document.querySelector('.v3-overview>.v3-meta:first-of-type'),address=document.querySelector('.v3-overview>.v3-meta:nth-of-type(2)');
     const role=e=>{const s=getComputedStyle(e);return [s.fontFamily,s.fontSize,s.fontWeight,s.lineHeight];};
     return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overflow:outside.map(e=>e.outerHTML.slice(0,140)),sizeDetails:ordinary.filter(e=>getComputedStyle(e).fontSize==='16px').map(e=>e.outerHTML.slice(0,180)),sizes:[...new Set(ordinary.map(e=>getComputedStyle(e).fontSize))],families:[...new Set(ordinary.map(e=>getComputedStyle(e).fontFamily))],signature:getComputedStyle(document.querySelector('.v3-signature')).fontStyle,metadata:role(meta),address:role(address),images:[...document.images].map(i=>({src:i.currentSrc,loaded:i.complete&&i.naturalWidth>0})),buttons:[...document.querySelectorAll('main button, main .cae-btn')].filter(visible).map(e=>({height:e.getBoundingClientRect().height,width:e.getBoundingClientRect().width}))};
    });
@@ -87,8 +87,24 @@ try {
    result.viewports.push({locale,...measured});
    if([390,1440].includes(width)){
     await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,`${locale}-${width}-top.png`)});
-    for(const id of ['method-intro','choice-offer','choice-reviews','gap-map','focus-gaps'])await page.locator('#'+id).screenshot({path:path.join(out,`${locale}-${width}-${id}.png`),style:'.v3-bar { visibility: hidden; }'});
+    for(const id of ['report-intro','method-intro','choice-offer','choice-reviews','gap-map','focus-gaps'])await page.locator('#'+id).screenshot({path:path.join(out,`${locale}-${width}-${id}.png`),style:'.v3-bar { visibility: hidden; }'});
     await page.locator('[data-cae-check-placement="mid"]').screenshot({path:path.join(out,`${locale}-${width}-check.png`),style:'.v3-bar { visibility: hidden; }'});
+    const destinations=[...CHOICE_IDS.map(id=>'#choice-'+id),'#connect4-conclusion'];
+    assert.deepEqual(await page.locator('[data-choice-navigation] a').evaluateAll(a=>a.map(e=>e.hash)),destinations);
+    assert.equal(await page.locator('.v3-research').count(),0);
+    assert.ok(await page.locator('#report-intro').evaluate(e=>e.nextElementSibling.id==='report-navigation'));
+    assert.equal(await page.locator('#report-navigation').getAttribute('open'),null);
+    for(const [i,hash] of destinations.entries()){
+     const link=page.locator(`[data-choice-navigation] a[href="${hash}"]`);
+     assert.ok(await link.evaluate(e=>e.getBoundingClientRect().height>=44));
+     if(i===0){await link.focus();await page.keyboard.press('Enter');}else await link.click();
+     await page.waitForFunction(hash=>{
+      const target=document.getElementById(hash.slice(1));
+      const top=target.getBoundingClientRect().top;
+      return location.hash===hash&&document.activeElement===target&&top>=document.querySelector('.v3-bar').offsetHeight&&top<innerHeight;
+     },hash,{timeout:5000});
+    }
+    result.actions.push({locale,width,kind:'four-question-and-conclusion-navigation',status:'PASS'});
    }
   }
   await page.setViewportSize({width:390,height:844});
@@ -141,7 +157,7 @@ try {
   const accessibility=await new AxeBuilder({page}).include('main').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(accessibility.violations.map(v=>({id:v.id,nodes:v.nodes.length})),[]);result.actions.push({locale,kind:'axe-main',status:'PASS'});
   await context.close();
-  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),9);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('[data-choice-part]:visible').count(),16);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await noJS.close();}
+  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),9);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('[data-choice-part]:visible').count(),16);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
 }catch(error){

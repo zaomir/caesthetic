@@ -199,3 +199,18 @@ Retain nine section IDs, four surfaces, approved 14/18/32px type roles, all eigh
 PNG bytes, request/share flows and immutable parent/v2 artifacts. Catalog input,
 paired copy, sources, independent review identities and selection state are
 validated before either language is written. Client release remains fail-closed.
+
+## 2026-09-06 — Spoken question navigation
+
+The paired v3 opening omits the redundant “Sources reviewed” overview links.
+“How to use this report” introduces four questions; each complete numbered row
+is a native link with a decorative arrow to its corresponding `choice-*` answer.
+A separate, unnumbered conclusions row links to `connect4-conclusion`. Question
+labels come from the same frozen narrative as the answer headings. The closed
+“Contents” disclosure immediately follows this navigation. Preserve evidence
+links alongside observations and all existing source disclosures.
+
+Keyboard activation focuses the answer and places it below the sticky bar.
+Native links also work without JavaScript. Targets stay at least 44px high and
+wrap within mobile width. This presentation change does not alter research,
+commercial selection, approval state, pricing or approved images.

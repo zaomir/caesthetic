@@ -341,7 +341,7 @@
     "docs/caesthetic/CAESTHETIC_SSOT.md": "930130300c6c4e3a60751044a2757bf169952b50905f534d1b32afc944efa5ba",
     "docs/caesthetic/CASE_LIBRARY_TEXT_FIRST_PLAN.md": "03de79d623c1a16d92b7a32fbb48626096eadae4c21016cf459af2638954709f",
     "docs/caesthetic/GROWTH_PREVIEW_V1.md": "dd6f4b076f27f506b39b1b9e54fd4f9005af7c99824c5707a54ee9f8fec0a73a",
-    "docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md": "3f53a2b3f6977b8aa730bd148a8ae67c067ff6cde9f2a78273a7a361dae32b4e",
+    "docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md": "8a2438483483796bbb055bdeb88d0068365fda2785296b895305e1a7992fb364",
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md": "fe6ef1ea7fddff1244437b38ecc7d29b8f54f4f2496fea1cb75ca3b8bb1161bc",
     "docs/caesthetic/GROWTH_SCORE_PILOT_LANGUAGE_POLICY.md": "afc51512681be24293e448599b3aafd27ac60f43635aed02b8b43b753a8364f6",
     "docs/caesthetic/PUBLIC_SERVICE_EXAMPLES.md": "c1767fbded9c0fd3f65a9a561548582c048265e3f4bbb879d97b092e996518e1",
@@ -678,7 +678,7 @@
     "scripts/caesthetic/growth-score-ops.mjs": "ddf8bf0d2dfdc014aeb0fe2fe79b942542489cff0d95fb8b316ed321d0256385",
     "scripts/caesthetic/growth-score-owner-v2.mjs": "5d6228c6680c466aa631502f0d6fca06d95b0887ae1d5a31bb3236a1c9aea799",
     "scripts/caesthetic/growth-score-owner-v3-model.mjs": "fc990c42d4f834e5cfd75fdbeaafa76c92fad6dfddbaa9c548d370767b48fc6b",
-    "scripts/caesthetic/growth-score-owner-v3.mjs": "0ac90f20122952964f8ee4ba30a854ce819e56f4ed0b62c51548a90b9ca6973f",
+    "scripts/caesthetic/growth-score-owner-v3.mjs": "e6cb1fc8297f18f076ce5d5bf702b6886302cb90397d0edddb5760cd66e07a81",
     "scripts/caesthetic/growth-score-project-catalog.mjs": "c354517d6c8c9ebea3015b3d1a3ac4622d231b5ba89dedfe1c869ff16ebe5f17",
     "scripts/caesthetic/growth-score-qa-lead.mjs": "edf13119fa9f5c12b83e51cc9d42001f90dcf20168f77cacde4310e07fca6a3f",
     "scripts/caesthetic/growth-score-report-template.mjs": "8cfe7576dd9321b9651015bc62a15d9a61b52d5faa6c6df750e9e499bd92b16b",
@@ -759,7 +759,7 @@
     "scripts/caesthetic/score-pin-runtime.mjs": "15bd5523e1c62b1816a2528272e7e0ce98f6739be7647134902adb54eac1c1cc",
     "scripts/caesthetic/seed-ig-students-w34.py": "fb67d60f7687932e29d32a7931b80e497eaeb78cc6e9fad8b63634a7f5ae1bca",
     "scripts/caesthetic/spoken-v2-browser-qa.mjs": "65ebdcaffb6f5b59f068075f0a2ca2b4e6e06cb947414c0f82880b7c477a9c09",
-    "scripts/caesthetic/spoken-v3-browser-qa.mjs": "91b58c467c7857b281cbd232dd1913179035b4217bb3412882f0fc204c31c7ac",
+    "scripts/caesthetic/spoken-v3-browser-qa.mjs": "c131a691d89d670458f44d586b3ee58ae3b6939101ee74db1b0b9064115de884",
     "scripts/caesthetic/sync-agents-bidirectional.sh": "28babd473314fc7152ad03d378bcb5712b701fc6aa9e0ce73998d92ec1dc7c22",
     "scripts/caesthetic/sync-from-agents-repo.sh": "b70c7a816c964f98ce0c5a04059aa3e1e67b7fb2af4b44ea09d5297382c85502",
     "scripts/caesthetic/sync-ig-voc-dropbox.sh": "f33864072b348b60eb5690ea7ab6564026a193aa07421f1ba90a5f080adfb938",
@@ -870,7 +870,7 @@
     "site-caesthetic/assets/css/growth-report-mobile.css": "d21e4e4355e49f25bac91f096749d9015354d45b1d736c98b220ca5a3253cfae",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
     "site-caesthetic/assets/css/growth-score-owner-v2.css": "7e9815c025f00dfcf16834b581b5cebca65bc983994ea426b95de527d26ecd95",
-    "site-caesthetic/assets/css/growth-score-owner-v3.css": "2908ea177eb8988dc821d51629f84b87f3804858896aa1334bd72b41ee875bde",
+    "site-caesthetic/assets/css/growth-score-owner-v3.css": "239e3f28cac26fd3707f1552be5110e2422f777de1a9e7342ff878a6fea19d90",
     "site-caesthetic/assets/css/growth.css": "d43c7c09c6b158008ce6f73a03b8986e4fd6f671739227d4acf03f1b1b9d0fe6",
     "site-caesthetic/assets/css/point-of-contact.css": "64e9b2fed1f17e9deadb6cf0c7407db2edbd1c495a23ca182fc9f7eaaa9674fa",
     "site-caesthetic/assets/css/service-examples.css": "4e36383676053034b9736801d4e2d048bfe7743aaace21d4500d00e879d756a4",
@@ -1072,6 +1072,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-06T20:07:22Z",
+  "updated_at_utc": "2026-09-06T20:20:08Z",
   "version": 1
 }

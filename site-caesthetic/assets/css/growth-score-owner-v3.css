@@ -36,10 +36,13 @@ html[data-layout-contract="owner-decision-report/3.1.0"] { overflow: visible; sc
 .v3-overview { padding-block: var(--cae-space-12); }
 .v3-welcome { max-width: 48rem; margin-top: var(--cae-space-8); padding-block: var(--cae-space-6); border-block: 1px solid var(--v3-line); }
 .v3-signature { font-style: italic; }
-.v3-research { margin-block: var(--cae-space-6); }
-.v3-source-list, .v3-ref-links, .v3-jump-links { display: flex; gap: var(--cae-space-3) var(--cae-space-6); flex-wrap: wrap; }
-.v3-source-list a, .v3-ref-links a { font-size: .875rem; min-height: 44px; display: inline-flex; align-items: center; flex-wrap: wrap; }
+.v3-ref-links { display: flex; gap: var(--cae-space-3) var(--cae-space-6); flex-wrap: wrap; }
+.v3-ref-links a { font-size: .875rem; min-height: 44px; display: inline-flex; align-items: center; flex-wrap: wrap; }
 .v3-ref-links { margin-bottom: var(--cae-space-6); }
+.v3-question-nav { max-width: 70ch; }
+.v3-question-links { list-style: none; padding: 0; }
+.v3-question-links a { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) auto; gap: var(--cae-space-3); align-items: baseline; min-height: 48px; padding-block: var(--cae-space-3); }
+.v3-conclusion-link { display: flex; justify-content: space-between; align-items: baseline; gap: var(--cae-space-3); min-height: 48px; padding-block: var(--cae-space-3); }
 .v3-share { display: flex; gap: var(--cae-space-4); flex-wrap: wrap; align-items: center; margin-top: var(--cae-space-6); }
 .v3-share [role="status"] { font-size: .875rem; }
 .v3-section { padding-block: var(--cae-space-16); border-top: 1px solid var(--v3-line); scroll-margin-top: 8rem; }
