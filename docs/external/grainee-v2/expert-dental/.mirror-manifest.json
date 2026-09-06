@@ -227,6 +227,8 @@
     "docs/raimov/operations/expert-dental/pricing/PRICE_CATALOG.json": "ff7eb1c5c30f6f6b3fc04db36a2254efa68f3227f168d7537fa4c21fccac9d50",
     "docs/raimov/operations/expert-dental/pricing/PRICE_TABLE.md": "a930a53abfa15e5a51d43e92ac6080b421647354702408bdc620ee5bbbfedefa",
     "docs/raimov/operations/expert-dental/pricing/QUESTIONS_FOR_ATABEK_ASSISTANT_2026-08-05.md": "e4473fba9ebe628b9e98df2f3963cfc2a7bd241e1d80954522d109f210223984",
+    "docs/raimov/operations/expert-dental/pricing/RAIM_SMILE_PRICE_AUDIT.json": "890d8e306b275b8093de8e66c8ec7dd48111c62d2c8fd5e0af634a5e5706b8c6",
+    "docs/raimov/operations/expert-dental/pricing/README.md": "9b35162f42033b21bae6e7a4096ea02a6e394db7c29e0ae702eabdb5be835de6",
     "docs/raimov/operations/expert-dental/reports/2026-08-first-half/AGENT_HANDOFF_V1_1.md": "f4ec4e7b59004a93f4fbddeee2c5eac6bb209d4bba1ebb7a35b36b859285a65e",
     "docs/raimov/operations/expert-dental/reports/2026-08-first-half/AGENT_WEB_PROMPT.md": "1d4ffcee65f288811a0c06008bbb6125ce811c6b292c70fa32d14537d3c7f043",
     "docs/raimov/operations/expert-dental/reports/2026-08-first-half/README.md": "c5ea8ba12b5a208b2720e62359f0c771eda095abc6f9789bcf764eab80ec647c",
@@ -266,6 +268,7 @@
     "docs/raimov/professional/README.md": "5333092aa797c4c2ea3400a82b9cc20916779ebec64489021f0df1a2bf45ee58",
     "docs/raimov/professional/clinical-club/README.md": "ec8eec703cc53bc6a17fa902ebe4988276ea2046569457eabd87f8a28a045a78",
     "docs/raimov/professional/whole-person-study-club/README.md": "d8516eb5cf9210ef0faab46ab8b98d489d924c9433ba0186667e6d23cc1c467e",
+    "docs/raimov/release/PRICING_BUILD_REQUEST.json": "0834209782d555eb812f8570bc1314e25bb56d2204d11b5075938afb785f3b9b",
     "docs/raimov/release/README.md": "46e5a9a16993a8d61d08689731a61092cae7774dffac4b88b3e2834415934dd3",
     "docs/raimov/technology/README.md": "b7b6c8ecddf2ea895aacf82c6df7189f752e3b4446e7174ce6d4676eb7f8160a",
     "docs/ssot/ELITE_DENTAL_STRATEGY.md": "8aff0d09a108d8a5f1acd045ecdabf670a7a6b310d45dda1531fb2a6b310d759",
@@ -302,7 +305,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "e066653f8eae21f241d37dde2fae3cb645342a6f",
+  "source_sha": "361ac19cfba1ac10203d47d08392a6f47f92783a",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

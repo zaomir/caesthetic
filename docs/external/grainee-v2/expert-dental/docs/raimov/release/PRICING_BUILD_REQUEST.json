@@ -1,0 +1,8 @@
+{
+  "task": "raimsmile-operator-price-guide",
+  "revision": 3,
+  "baseMain": "21f26abc5ac95a01c67df3a7f4bc454694df10eb",
+  "scope": "canonical price rendering, first-viewport tariffs, 12 contextual sections, browser and repository gates",
+  "productionAuthorized": true,
+  "productionWorkflow": ".github/workflows/deploy-raimsmile.yml"
+}

@@ -1,0 +1,1664 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-06",
+  "operator": "Expert Dental Studio",
+  "source": "docs/raimov/operations/expert-dental/pricing/PRICE_CATALOG.json",
+  "catalogRevision": "2026-08-29",
+  "catalogSha256": "ff7eb1c5c30f6f6b3fc04db36a2254efa68f3227f168d7537fa4c21fccac9d50",
+  "counts": {
+    "catalogRows": 96,
+    "publishedAmounts": 93,
+    "clarificationRows": 3,
+    "excluded": 0,
+    "workbookRows": 110,
+    "linkedContentPages": 12
+  },
+  "catalog": [
+    {
+      "id": "screening-smile-preview",
+      "direction": "screening",
+      "name": "Цифровая примерка улыбки",
+      "sourcePrice": "0 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "screening-checkup",
+      "direction": "screening",
+      "name": "Именной чек-ап",
+      "sourcePrice": "0 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "screening-checkup-followup",
+      "direction": "screening",
+      "name": "Чек-ап после срочного приёма",
+      "sourcePrice": "0 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "consult-general",
+      "direction": "diagnostics",
+      "name": "Консультация — общие врачи (терапевт, ортодонт, ортопед, хирург)",
+      "sourcePrice": "550 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "consult-mir-ali-prostho-implant",
+      "direction": "diagnostics",
+      "name": "Консультация — д-р Мир Али (ортопедия, имплантация)",
+      "sourcePrice": "1 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "consult-atabek-ortho",
+      "direction": "diagnostics",
+      "name": "Консультация — д-р Атабек Раимов (ортодонтия)",
+      "sourcePrice": "3 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "consult-gnathology",
+      "direction": "diagnostics",
+      "name": "Консультация гнатология — д-р Атабек / д-р Мир Али",
+      "sourcePrice": "5 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "diagnostics-axiography-tmj",
+      "direction": "diagnostics",
+      "name": "Электронная аксиография (диагностика ВНЧС)",
+      "sourcePrice": "80 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "second-opinion",
+      "direction": "diagnostics",
+      "name": "Разбор плана лечения из другой клиники",
+      "sourcePrice": "3 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "aesthetic-diagnostics",
+      "direction": "aesthetics",
+      "name": "Эстетическая диагностика",
+      "sourcePrice": "10 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "veneer-emax",
+      "direction": "aesthetics",
+      "name": "Керамический винир E-max",
+      "sourcePrice": "33 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "composite-aesthetic",
+      "direction": "aesthetics",
+      "name": "Композитная эстетическая реставрация",
+      "sourcePrice": "11 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "whitening-office",
+      "direction": "aesthetics",
+      "name": "Отбеливание офисное",
+      "sourcePrice": "15 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "whitening-home",
+      "direction": "aesthetics",
+      "name": "Домашнее отбеливание",
+      "sourcePrice": "8 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "night-guard",
+      "direction": "aesthetics",
+      "name": "Защитная ночная каппа",
+      "sourcePrice": "15 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "veneer-temporary",
+      "direction": "aesthetics",
+      "name": "Временные виниры",
+      "sourcePrice": "15 000 сом",
+      "state": "clarify",
+      "reason": "Сначала необходимо согласовать количество зубов и состав временного комплекта."
+    },
+    {
+      "id": "restoration-removal",
+      "direction": "aesthetics",
+      "name": "Снятие старых виниров или реставраций",
+      "sourcePrice": "1 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-c12e75022d",
+      "direction": "pediatric",
+      "name": "Герметизация фиссур временного зуба",
+      "sourcePrice": "2 200 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-d70887ab85",
+      "direction": "pediatric",
+      "name": "Герметизация фиссур постоянного зуба",
+      "sourcePrice": "3 850 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-1f920f5b16",
+      "direction": "pediatric",
+      "name": "Профессиональная гигиена полости рта в период временного прикуса (2 челюсти)",
+      "sourcePrice": "2 750 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-290569adc1",
+      "direction": "pediatric",
+      "name": "Лечение кариеса временного зуба — поверхностный",
+      "sourcePrice": "1 650 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-464162722f",
+      "direction": "pediatric",
+      "name": "Лечение кариеса временного зуба — средний",
+      "sourcePrice": "2 750 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-b7162333f1",
+      "direction": "pediatric",
+      "name": "Лечение кариеса временного зуба — глубокий",
+      "sourcePrice": "3 850 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-c9e00633a8",
+      "direction": "pediatric",
+      "name": "Лечение кариеса временного зуба — периодонтит с пломбой",
+      "sourcePrice": "4 950 – 7 700 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-da53d745e8",
+      "direction": "pediatric",
+      "name": "Удаление временного зуба — лёгкая степень",
+      "sourcePrice": "550 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-fb341cf934",
+      "direction": "pediatric",
+      "name": "Удаление временного зуба — средняя степень",
+      "sourcePrice": "1 320 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-9864dcd282",
+      "direction": "pediatric",
+      "name": "Удаление временного зуба — тяжёлая степень",
+      "sourcePrice": "2 200 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-e3bc1a872f",
+      "direction": "pediatric",
+      "name": "Детская коронка (стандартная стальная коронка 3M)",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "pediatric-39791e9947",
+      "direction": "pediatric",
+      "name": "Детская коронка (эстетическая коронка PMMA)",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "hygiene-light",
+      "direction": "hygiene",
+      "name": "Профессиональная гигиена — постоянный прикус, лёгкая степень (2 челюсти)",
+      "sourcePrice": "4 400 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "hygiene-medium",
+      "direction": "hygiene",
+      "name": "Профессиональная гигиена — постоянный прикус, средняя степень (2 челюсти)",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "hygiene-heavy",
+      "direction": "hygiene",
+      "name": "Профессиональная гигиена — постоянный прикус, тяжёлая степень (2 челюсти)",
+      "sourcePrice": "7 700 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-caries-front",
+      "direction": "therapy",
+      "name": "Лечение кариеса постоянного зуба во фронтальном отделе",
+      "sourcePrice": "4 400 – 15 400 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-00f99d7205",
+      "direction": "therapy",
+      "name": "Восстановление постоянного зуба «Билдап» — разрушение до 1/3 коронковой части",
+      "sourcePrice": "6 050 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-37e6f971a7",
+      "direction": "therapy",
+      "name": "Восстановление постоянного зуба «Билдап» — разрушение до 2/3 коронковой части",
+      "sourcePrice": "8 800 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-870b2f9ed4",
+      "direction": "therapy",
+      "name": "Восстановление постоянного зуба «Билдап» — разрушение до 3/3 коронковой части",
+      "sourcePrice": "11 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-feec6c8672",
+      "direction": "therapy",
+      "name": "Лечение кариеса постоянного зуба в жевательном отделе — поверхностный",
+      "sourcePrice": "4 400 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-e2b4a98123",
+      "direction": "therapy",
+      "name": "Лечение кариеса постоянного зуба в жевательном отделе — средний",
+      "sourcePrice": "6 050 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-2eb447e051",
+      "direction": "therapy",
+      "name": "Лечение кариеса постоянного зуба в жевательном отделе — глубокий",
+      "sourcePrice": "7 150 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-9b534e6d00",
+      "direction": "therapy",
+      "name": "Лечение кариеса постоянного зуба в жевательном отделе с вовлечением контактных пунктов — поверхностный",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-da485987a6",
+      "direction": "therapy",
+      "name": "Лечение кариеса постоянного зуба в жевательном отделе с вовлечением контактных пунктов — средний",
+      "sourcePrice": "7 150 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-73b3bf77b4",
+      "direction": "therapy",
+      "name": "Лечение кариеса постоянного зуба в жевательном отделе с вовлечением контактных пунктов — глубокий",
+      "sourcePrice": "8 800 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-cdfd97433c",
+      "direction": "therapy",
+      "name": "Травма зуба — фиксация собственного фрагмента",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "therapy-cc71f05020",
+      "direction": "therapy",
+      "name": "Травма зуба — шинирование",
+      "sourcePrice": "3 300 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-ad64d2139a",
+      "direction": "endodontics",
+      "name": "Лечение каналов постоянных зубов — первое посещение",
+      "sourcePrice": "2 200 сом / 1 канал",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-497bf87888",
+      "direction": "endodontics",
+      "name": "Лечение каналов постоянных зубов — второе посещение",
+      "sourcePrice": "1 650 сом / 1 канал",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-78dd607829",
+      "direction": "endodontics",
+      "name": "Лечение каналов постоянных зубов — перелечивание",
+      "sourcePrice": "3 300 сом / 1 канал",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-ff1d16509a",
+      "direction": "endodontics",
+      "name": "Лечение каналов постоянных зубов — перелечивание с обтурацией",
+      "sourcePrice": "4 400 сом / 1 канал",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-92617f99dc",
+      "direction": "endodontics",
+      "name": "Прямое покрытие пульпы зуба препаратом из группы МТА",
+      "sourcePrice": "3 300 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-55ceb4add6",
+      "direction": "endodontics",
+      "name": "Лечение периодонтита 1-й степени сложности (перелечивание каналов) под микроскопом",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-9edebffba5",
+      "direction": "endodontics",
+      "name": "Лечение периодонтита 2-й степени сложности (перелечивание каналов) под микроскопом",
+      "sourcePrice": "7 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-27c44dc437",
+      "direction": "endodontics",
+      "name": "Лечение периодонтита 3-й степени сложности (перелечивание каналов) под микроскопом",
+      "sourcePrice": "10 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "endodontics-4306aba98b",
+      "direction": "endodontics",
+      "name": "Извлечение инородного тела из корневого канала (работа под микроскопом)",
+      "sourcePrice": "3 500 – 15 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-b56b9964d8",
+      "direction": "surgery",
+      "name": "Удаление постоянного зуба — лёгкая степень",
+      "sourcePrice": "3 300 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-05209926dd",
+      "direction": "surgery",
+      "name": "Удаление постоянного зуба — средняя степень",
+      "sourcePrice": "4 950 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-0ccff2d178",
+      "direction": "surgery",
+      "name": "Удаление постоянного зуба — тяжёлая степень",
+      "sourcePrice": "7 150 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-543aace037",
+      "direction": "surgery",
+      "name": "Удаление зуба мудрости — лёгкая степень",
+      "sourcePrice": "4 400 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-a295b089cf",
+      "direction": "surgery",
+      "name": "Удаление зуба мудрости — средняя степень",
+      "sourcePrice": "6 150 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-748c1537ce",
+      "direction": "surgery",
+      "name": "Удаление зуба мудрости — тяжёлая степень",
+      "sourcePrice": "7 700 – 15 400 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-d68bc5bbcc",
+      "direction": "surgery",
+      "name": "Наложение швов",
+      "sourcePrice": "550 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "surgery-067b5b6fa0",
+      "direction": "surgery",
+      "name": "Гингивоэктомия",
+      "sourcePrice": "1 650 сом / область 1 зуба",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-c98af1d1d4",
+      "direction": "prosthodontics",
+      "name": "Снятие слепков",
+      "sourcePrice": "2 750 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-3820c31930",
+      "direction": "prosthodontics",
+      "name": "Снятие коронки",
+      "sourcePrice": "550 – 1 100 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-a2e7a64523",
+      "direction": "prosthodontics",
+      "name": "Временная коронка из PMMA долгого ношения",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "crown-emax",
+      "direction": "prosthodontics",
+      "name": "Эстетическая коронка E-max",
+      "sourcePrice": "33 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "crown-zirconia",
+      "direction": "prosthodontics",
+      "name": "Эстетическая коронка «Цирконий»",
+      "sourcePrice": "28 600 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "crown-pressed-ceramic",
+      "direction": "prosthodontics",
+      "name": "Эстетическая коронка «Прессованная керамика»",
+      "sourcePrice": "33 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "crown-refractor",
+      "direction": "prosthodontics",
+      "name": "Эстетическая коронка «Рефрактор»",
+      "sourcePrice": "38 700 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "crown-metal-ceramic",
+      "direction": "prosthodontics",
+      "name": "Коронка металлокерамика",
+      "sourcePrice": "11 000 – 15 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-970d1f5e1e",
+      "direction": "prosthodontics",
+      "name": "Протезирование беззубых челюстей — акриловый протез",
+      "sourcePrice": "21 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-98d37ab48f",
+      "direction": "prosthodontics",
+      "name": "Протезирование беззубых челюстей — нейлоновый протез",
+      "sourcePrice": "28 600 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-e893ce0a50",
+      "direction": "prosthodontics",
+      "name": "Частичный протез — бабочка из акрила (1 зуб)",
+      "sourcePrice": "5 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-d71285832b",
+      "direction": "prosthodontics",
+      "name": "Частичное протезирование — бабочка из акрила (2 и более зубов)",
+      "sourcePrice": "8 800 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-3b50d824b0",
+      "direction": "prosthodontics",
+      "name": "Частичное протезирование — бабочка из нейлона (1 зуб)",
+      "sourcePrice": "7 700 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "prosthodontics-7e921ab653",
+      "direction": "prosthodontics",
+      "name": "Частичное протезирование — бабочка из нейлона (2 и более зубов)",
+      "sourcePrice": "9 900 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implant-megagen-anyone",
+      "direction": "implantation",
+      "name": "Имплантация Megagen Anyone",
+      "sourcePrice": "58 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implant-megagen-anyridge",
+      "direction": "implantation",
+      "name": "Имплантация Megagen AnyRidge",
+      "sourcePrice": "67 760 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implant-straumann",
+      "direction": "implantation",
+      "name": "Имплантация Straumann",
+      "sourcePrice": "130 500 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implantation-9ef46f29e1",
+      "direction": "implantation",
+      "name": "Мультиюнит на имплантат",
+      "sourcePrice": "5 720 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implantation-3d45df006d",
+      "direction": "implantation",
+      "name": "Ти-бэйз на имплантате",
+      "sourcePrice": "2 860 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implantation-7d704df877",
+      "direction": "implantation",
+      "name": "Формирователь десневой манжеты (ФДМ) на имплантате",
+      "sourcePrice": "2 750 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implantation-612b2b131c",
+      "direction": "implantation",
+      "name": "Коронка на имплантате из диоксида циркония",
+      "sourcePrice": "34 100 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implantation-5d9c320fd3",
+      "direction": "implantation",
+      "name": "Коронка на имплантате из металлокерамики",
+      "sourcePrice": "28 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "implantation-169300e16a",
+      "direction": "implantation",
+      "name": "Временная коронка долгого ношения на имплантате из пластмассы",
+      "sourcePrice": "13 200 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "ortho-braces",
+      "direction": "orthodontics",
+      "name": "Ортодонтическое лечение у взрослых — установка брекет-системы",
+      "sourcePrice": "50 000 – 220 000 сом",
+      "state": "clarify",
+      "reason": "Стоимость установки зависит от системы и объёма. До записи уточните количество челюстей и оплату последующих визитов. Это не цена всего курса."
+    },
+    {
+      "id": "orthodontics-fbfe00abeb",
+      "direction": "orthodontics",
+      "name": "Аппарат MARPE (небное расширение, дети и подростки)",
+      "sourcePrice": "60 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "orthodontics-88a5743310",
+      "direction": "orthodontics",
+      "name": "Аппарат Марко Росса (небное расширение, дети)",
+      "sourcePrice": "25 000 – 40 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "orthodontics-1172c75035",
+      "direction": "orthodontics",
+      "name": "Съёмная расширяющая ортодонтическая пластина",
+      "sourcePrice": "12 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "orthodontics-041fc0d663",
+      "direction": "orthodontics",
+      "name": "Сканирование полости рта",
+      "sourcePrice": "4 000 сом",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "ortho-aligners",
+      "direction": "orthodontics",
+      "name": "Элайнеры",
+      "sourcePrice": "300 – 3 500 $",
+      "state": "clarify",
+      "reason": "Стоимость в сомах и объём курса клиника подтверждает до записи. Автоматический пересчёт валюты не используется."
+    },
+    {
+      "id": "orthodontics-fe72e21fb7",
+      "direction": "orthodontics",
+      "name": "Снятие брекет-системы",
+      "sourcePrice": "2 750 сом / 1 челюсть",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "orthodontics-84e7b4ac50",
+      "direction": "orthodontics",
+      "name": "Каппа ретенирующая",
+      "sourcePrice": "3 850 сом / 1 челюсть",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "orthodontics-0ffa60bd6d",
+      "direction": "orthodontics",
+      "name": "Ретейнер несъёмный",
+      "sourcePrice": "3 850 сом / 1 челюсть",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "care12-adult",
+      "direction": "care12",
+      "name": "RAIM SMILE · SmileCare 12 Adult",
+      "sourcePrice": "9 900 сом / 12 мес",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "care12-family-addon",
+      "direction": "care12",
+      "name": "RAIM SMILE · SmileCare 12 Additional Adult (2-й взрослый)",
+      "sourcePrice": "7 900 сом / 12 мес",
+      "state": "published",
+      "reason": ""
+    },
+    {
+      "id": "care12-kids",
+      "direction": "care12",
+      "name": "RAIM SMILE · SmileCare 12 Kids",
+      "sourcePrice": "5 500 сом / 12 мес",
+      "state": "published",
+      "reason": ""
+    }
+  ],
+  "workbook": {
+    "source": "docs/raimov/operations/expert-dental/pricing/MARKETING_FAQ_PRICE_WORKBOOK.json",
+    "authority": "Reference only. No workbook price overrides the confirmed catalogue.",
+    "rows": [
+      {
+        "n": 1,
+        "name": "Консультация + (фотопротокол, Составление плана лечения",
+        "price": "550 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 2,
+        "name": "Герметизация фиссур временного зуба (Осмотр, Визуальная диагностика, cнятие зубных осложнений, постановка коффердама, постановка герметика)",
+        "price": "2 200 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 3,
+        "name": "Герметизация фиссур постоянного зуба (осмотр, визуальная диагностика, постановка коффердама, постановка герметика)",
+        "price": "3 850 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 4,
+        "name": "Профессиональная гигиена полости рта в период временного прикуса (2 челюсти) (осмотр, визуальная диагностика, снятие твердых и мягких зубных отложений, полировка зубов)",
+        "price": "2 750 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 5,
+        "name": "Профессиональная гигиена полости рта в период постоянного прикуса ЛЕГКОЙ СТЕПЕНИ (2 челюсти) (осмотр, визуальная диагностика, снятие твердых и мягких зубных отложений, полировка зубов)",
+        "price": "4 400 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 6,
+        "name": "Лечение кариеса временного зуба ПОВЕРХНОСТНЫЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "1 650 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 7,
+        "name": "Лечение кариеса временного зуба СРЕДНИЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "2 750 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 8,
+        "name": "Лечение кариеса временного зуба ГЛУБОКИЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "3 850 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 9,
+        "name": "Лечение кариеса временного зуба ПЕРИОДОНТИТ С ПЛОМБОЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "4 950 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 10,
+        "name": "Лечение кариеса постоянного зуба ВО ФРОНТАЛЬНОМ ОТДЕЛЕ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "4 400 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 11,
+        "name": "Восстановление постоянного зуба «Билдап» с разрушением до 1/3 коронковой части",
+        "price": "6 050 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 12,
+        "name": "Лечение кариеса постоянного зуба в жевательном отделе ПОВЕРХНОСТНЫЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "4 400 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 13,
+        "name": "Лечение кариеса постоянного зуба в жевательном отделе СРЕДНИЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "6 050 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 14,
+        "name": "Лечение кариеса постоянного зуба в жевательном отделе ГЛУБОКИЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "7 150 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 15,
+        "name": "Лечение кариеса постоянного зуба в жевательном отделе с вовлечением контактных пунктов ПОВЕРХНОСТНЫЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы",
+        "price": "5 500 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 16,
+        "name": "Лечение кариеса постоянного зуба в жевательном отделе с вовлечением контактных пунктов СРЕДНИЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "7 150 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 17,
+        "name": "Лечение кариеса постоянного зуба в жевательном отделе с вовлечением контактных пунктов ГЛУБОКИЙ (осмотр, рентгенодиагностика (при необходимости), постановка коффердама, препарирование, реставрация с использованием светоотверждаемой композитной пломбы)",
+        "price": "8 800 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 18,
+        "name": "Лечение каналов постоянных зубов ПЕРВОЕ ПОСЕЩЕНИЕ (осмотр, рентгендиагностика до и после лечения, постановка коффердама, Механическая и химическая обработка)",
+        "price": "2 200 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 19,
+        "name": "Лечение каналов постоянных зубов ВТОРОЕ ПОСЕЩЕНИЕ (осмотр, рентгендиагностика до и после лечения, постановка коффердама, Обтурация)",
+        "price": "1 650 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 20,
+        "name": "Прямое покрытие пульпы зуба препаратом из группы МТА",
+        "price": "3 300 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 21,
+        "name": "Удаление временного зуба ЛЕГКОЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "550 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 22,
+        "name": "Удаление временного зуба СРЕДНЕЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "1 320 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 23,
+        "name": "Удаление временного зуба ТЯЖЕЛОЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "2 200 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 24,
+        "name": "Удаление постоянного зуба ЛЕГКОЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "3 300 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 25,
+        "name": "Удаление постоянного зуба СРЕДНЕЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "4 950 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 26,
+        "name": "Удаление постоянного зуба ТЯЖЕЛОЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "7 150 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 27,
+        "name": "Удаление постоянного зуба МУДРОСТИ ЛЕГКОЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "4 400 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 28,
+        "name": "Удаление постоянного зуба МУДРОСТИ СРЕДНЕЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "6 150 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 29,
+        "name": "Удаление постоянного зуба мудрости ТЯЖЕЛОЙ СТЕПЕНИ (осмотр, рентгенодиагностика до и после при необходимости, аппликационная и инфильтрационная анестезия, удаление)",
+        "price": "7 700 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 30,
+        "name": "Наложение швов",
+        "price": "550 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 31,
+        "name": "Травма зуба, фиксация собственного фрагмента зуба",
+        "price": "5 500 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 32,
+        "name": "Травма зуба — шинирование",
+        "price": "3 300 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 33,
+        "name": "Детская коронка (Восстановление зуба с помощью стандартной стальной коронки ЗМ",
+        "price": "5 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 34,
+        "name": "Детская коронка (Восстановление зуба с помощью стандартной эстетической коронки РММА)",
+        "price": "5 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 35,
+        "name": "Снятие слепков",
+        "price": "2 750 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 36,
+        "name": "Восстановление зуба с помощью эстетической коронки из E-max",
+        "price": "33 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 37,
+        "name": "Восстановление зуба с помощью эстетической коронки из \"Цирконий\"",
+        "price": "28 600 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 38,
+        "name": "Восстановление зуба с помощью эстетической коронки из \"Прессованная керамика\"",
+        "price": "33 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 39,
+        "name": "Восстановление зуба с помощью эстетической коронки из \"Рефрактор\"",
+        "price": "38 700 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 40,
+        "name": "Временная коронка из ПММА долгого ношения",
+        "price": "5 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 41,
+        "name": "Восстановление зуба с помощью эстетической коронки из \"Металлокерамика\"",
+        "price": "11 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 42,
+        "name": "Лечение каналов постоянных зубов ПЕРЕЛЕЧИВАНИЕ (осмотр, рентгендиагностика до и после лечения, постановка коффердама, РАСПЛОМБИРОВАНИЕ канала, Механическая и химическая обработка)",
+        "price": "3 300 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 43,
+        "name": "Лечение каналов постоянных зубов ПЕРЕЛЕЧИВАНИЕ С ОБТУРАЦИЕЙ(осмотр, рентгендиагностика до и после лечения, постановка коффердама, РАСПЛОМБИРОВАНИЕ канала, Механическая и химическая обработка ОБТУРАЦИЯ)",
+        "price": "4 400 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 44,
+        "name": "Имплантация (постановка имплантата \"Megagen\" - anyone)",
+        "price": "58 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 45,
+        "name": "Гингивоэктомия",
+        "price": "1 650 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 46,
+        "name": "Мультиюнит на имплантат",
+        "price": "5 720 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 47,
+        "name": "Ти-бэйз на имплантате",
+        "price": "2 860 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 48,
+        "name": "снятие коронки",
+        "price": "550 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 49,
+        "name": "Имплантация (Постановка Имплантата \"Megagen\" - AnyRidge)",
+        "price": "67 760 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 50,
+        "name": "Имплантация (Постановка имплантата \"Straumann\"",
+        "price": "130 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 51,
+        "name": "Каппа ретенирующая",
+        "price": "3 850 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 52,
+        "name": "Снятие брекет-системы",
+        "price": "2 750 сом",
+        "unit": "одна челюсть",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 53,
+        "name": "Ретейнер несъёмный",
+        "price": "3 850 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 54,
+        "name": "Протезирование беззубых челюстей (Акриловый протез)",
+        "price": "21 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 55,
+        "name": "Протезирование беззубых челюстей (Нейлоновый протез)",
+        "price": "28 600 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 56,
+        "name": "Частичный протез (Бабочка из Акрила 1 зуб)",
+        "price": "5 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 57,
+        "name": "Частичное протезирование (бабочка — 2 и более зубов) из акрила",
+        "price": "8 800 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 58,
+        "name": "Частичное протезирование (Бабочка - 2 и более зубов) из Нейлона",
+        "price": "9 900 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 59,
+        "name": "Частичное протезирование (Бабочка - 1 зуб) из Нейлона",
+        "price": "7 700 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 60,
+        "name": "Формирователь десневой манжеты (ФДМ) на имплантате",
+        "price": "2 750 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 61,
+        "name": "Коронка на имплантате из \"Диоксид Цирконий\"",
+        "price": "34 100 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 62,
+        "name": "Коронка на имплантате из \"Металлокерамика\"",
+        "price": "28 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 63,
+        "name": "Временная коронка долгого ношения на имплантате из \"Пластмасса\"",
+        "price": "13 200 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 64,
+        "name": "Установка Минивинта ортодонтического",
+        "price": "7 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 65,
+        "name": "Активация минивинта ортодонтического",
+        "price": "1 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 66,
+        "name": "Приклейка кнопки на зуб",
+        "price": "1 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 67,
+        "name": "Замена ортодонтической дуги",
+        "price": "1 500 сом",
+        "unit": "челюсть",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 68,
+        "name": "ортодонтическое шинирование",
+        "price": "1 100 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 69,
+        "name": "Накусочная композитная накладка ортодонтическая",
+        "price": "1 100 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 70,
+        "name": "Межчелюстные эластики",
+        "price": "300 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 71,
+        "name": "Эластофорс (ортодонтическая эластичная цепочка)",
+        "price": "550 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 72,
+        "name": "Активация пружины на дуге композитным материалом",
+        "price": "550 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 73,
+        "name": "Изгиб ортодонтической дуги 1го и 2го порядка",
+        "price": "550 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 74,
+        "name": "3D-сканирование зубов",
+        "price": "4 000 сом",
+        "unit": "челюсть",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 75,
+        "name": "Лечение каналов постоянных зубов В ОДНО ПОСЕЩЕНИЕ С ОБТУРАЦИЕЙ (осмотр, рентгендиагностика до и после лечения, постановка коффердама, Механическая и химическая обработка, обтурация)",
+        "price": "2 750 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 76,
+        "name": "Установка брекет системы фирмы: Damon ormco",
+        "price": "9 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 77,
+        "name": "Вскрытие периостита по переходной складке",
+        "price": "1 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 78,
+        "name": "Диагностическое препарирование",
+        "price": "500 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 79,
+        "name": "Установка Брекет системы damon q ormco",
+        "price": "90 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 80,
+        "name": "Лечение каналов во временном прикусе с одномоментным пломбированием",
+        "price": "0 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 81,
+        "name": "Наращивание костной ткани с забором с ретромолярной области",
+        "price": "10 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 82,
+        "name": "Сплинт терапия (Аксиография, сканирование полости рта, Изготовление сплинт каппы)",
+        "price": "55 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 83,
+        "name": "Снятие несъемной ортодонтической конструкции + чистка клея",
+        "price": "2 200 сом",
+        "unit": "челюсть",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 84,
+        "name": "Активация (коррекция) ортодонтической конструкции",
+        "price": "1 500 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 85,
+        "name": "Установка брекет системы biomim orthoclassic",
+        "price": "88 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 86,
+        "name": "Виниры",
+        "price": "26 400 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 87,
+        "name": "Удаление Импланта",
+        "price": "3 300 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 88,
+        "name": "Профессиональная гигиена полости рта в период постоянного прикуса СРЕДНЕЙ СТЕПЕНИ (2 челюсти) (осмотр, визуальная диагностика, снятие твердых и мягких зубных отложений, полировка зубов)",
+        "price": "5 500 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 89,
+        "name": "Профессиональная гигиена полости рта в период постоянного прикуса ТЯЖЕЛОЙ СТЕПЕНИ (2 челюсти) (осмотр, визуальная диагностика, снятие твердых и мягких зубных отложений, полировка зубов)",
+        "price": "7 700 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 90,
+        "name": "All on 4 (4 имплантата фирмы megagen, 4 мультиюнита, 4 заглушки, Цельная конструкция на 4 тибэйсах из ПММА долгого ношения)",
+        "price": "300 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 91,
+        "name": "All on 6 (6 имплантата фирмы megagen, 6 мультиюнита, 6 заглушки, Цельная конструкция на 4 тибэйсах из ПММА долгого ношения)",
+        "price": "400 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 92,
+        "name": "Установка Брекет системы фирмы: orthoclassic H4",
+        "price": "180 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 93,
+        "name": "Приём",
+        "price": "300 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 94,
+        "name": "Приём +",
+        "price": "500 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 95,
+        "name": "КЛКТ(конусно-лучевая компьютерная томография)",
+        "price": "6 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 96,
+        "name": "Установка брекет системы OC H4",
+        "price": "150 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 97,
+        "name": "Трейнер детский ортодонтический",
+        "price": "3 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 98,
+        "name": "Небнорасширяющий Аппарат Марпе",
+        "price": "60 000 сом",
+        "unit": "процедура",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 99,
+        "name": "Не съемный ортодонтический аппарат Марко-Росса",
+        "price": "40 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 100,
+        "name": "Накладка из Пресс керамики",
+        "price": "24 200 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 101,
+        "name": "Лечение периодонтита 1й степени сложности (перелечивание каналов) под микроскопом",
+        "price": "5 500 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 102,
+        "name": "Лечение периодонтита 2й степени сложности (перелечивание каналов) под микроскопом",
+        "price": "7 500 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 103,
+        "name": "Лечение периодонтита 3й степени сложности (перелечивание каналов) под микроскопом",
+        "price": "10 000 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 104,
+        "name": "Восстановление постоянного зуба «Билдап» с разрушением до 3/3 коронковой части",
+        "price": "11 500 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 105,
+        "name": "Извлечение инородного тела с корневого канала (работа под микроскопом)",
+        "price": "3 500 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 106,
+        "name": "Восстановление постоянного зуба «Билдап» с разрушением до 2/3 коронковой части",
+        "price": "8 800 сом",
+        "unit": "зуб",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 107,
+        "name": "Изготовление Накладок из керамо-пластмассы",
+        "price": "2 500 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 108,
+        "name": "Циркониевые коронки на титановой балке",
+        "price": "250 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 109,
+        "name": "Лечение каналов постоянных зубов В ОДНО ПОСЕЩЕНИЕ С ОБТУРАЦИЕЙ (осмотр, рентгендиагностика до и после лечения, постановка коффердама, Механическая и химическая обработка, обтурация) под микроскопом",
+        "price": "3 500 сом",
+        "unit": "канал",
+        "disposition": "reference_only_not_imported"
+      },
+      {
+        "n": 110,
+        "name": "Держатель места",
+        "price": "4 000 сом",
+        "unit": "штука",
+        "disposition": "reference_only_not_imported"
+      }
+    ]
+  },
+  "referenceFiles": [
+    {
+      "path": "docs/audits/raimovdental-workspace/I7_3_PRICE_FEAR_LAST_RUN.md",
+      "sha256": "1f58f15f143124939f5079ea01bba178bb586c668ec6447dd790296808e8a71e"
+    },
+    {
+      "path": "docs/projects/raimovdental/tilda/PRICE_SECTION_TILDA_AI_PROMPT.md",
+      "sha256": "55db542fa7fc249e22a52e7de7268bf453814f8fb40fb38c1e8b32bc09fcac9c"
+    },
+    {
+      "path": "docs/projects/raimovdental/tilda/price-table-zero-block.html",
+      "sha256": "d89a4268bba6a32dba56839083efe7eb4247b6f549c17b083ddc259cbc05e54e"
+    },
+    {
+      "path": "docs/raimov/operations/expert-dental/membership/smilecare12-product.contract.json",
+      "sha256": "d3dedb62f685a97670c5ef67a225e560968671cb44e504a2580b5c3bbe887418"
+    },
+    {
+      "path": "docs/raimov/operations/expert-dental/pricing/MARKETING_FAQ_PRICE_WORKBOOK.json",
+      "sha256": "289fb9cebd66fdc7224bcf2a67fc6b3485b27b64a873978ecc25aa452eecb0a0"
+    },
+    {
+      "path": "docs/raimov/operations/expert-dental/pricing/MARKETING_FAQ_PRICE_WORKBOOK.md",
+      "sha256": "8a907e69b23a1d2609fd9188a4ddb702a489569463f86e9edf98045bbd01792d"
+    },
+    {
+      "path": "docs/raimov/operations/expert-dental/pricing/PRICE_CATALOG.json",
+      "sha256": "ff7eb1c5c30f6f6b3fc04db36a2254efa68f3227f168d7537fa4c21fccac9d50"
+    },
+    {
+      "path": "docs/raimov/operations/expert-dental/pricing/PRICE_TABLE.md",
+      "sha256": "a930a53abfa15e5a51d43e92ac6080b421647354702408bdc620ee5bbbfedefa"
+    },
+    {
+      "path": "docs/raimov/operations/expert-dental/pricing/QUESTIONS_FOR_ATABEK_ASSISTANT_2026-08-05.md",
+      "sha256": "e4473fba9ebe628b9e98df2f3963cfc2a7bd241e1d80954522d109f210223984"
+    },
+    {
+      "path": "docs/raimov/operations/expert-dental/pricing/README.md",
+      "sha256": "9b35162f42033b21bae6e7a4096ea02a6e394db7c29e0ae702eabdb5be835de6"
+    },
+    {
+      "path": "docs/raimov/patient-funnel/RAIM_SMILE_SECOND_OPINION_PRODUCT.md",
+      "sha256": "c1838394df56d7b71d29e511f145d74b54906757e7b93f836e74f10c74c62028"
+    },
+    {
+      "path": "docs/raimov/release/PRICING_BUILD_REQUEST.json",
+      "sha256": "0834209782d555eb812f8570bc1314e25bb56d2204d11b5075938afb785f3b9b"
+    },
+    {
+      "path": "scripts/raimov/build-raim-smile-prices.mjs",
+      "sha256": "f05fac883f4770da477e120b1a841ed659469acbd3a408f60689a4aba2767a16"
+    },
+    {
+      "path": "scripts/raimov/install-pricing-hook.mjs",
+      "sha256": "e4ac0eeaab077e7c5375d9b152b949541c1ca873dabf754a05d0da78da05404f"
+    },
+    {
+      "path": "scripts/raimov/raim-smile-prices-intro.mjs",
+      "sha256": "cf5222aedc795babb9ce852566fa6e515de4a6b95960481ce25cef7fa0e25b7b"
+    },
+    {
+      "path": "scripts/raimov/sync-price-table.mjs",
+      "sha256": "9353f56e408611dc02ba1ede141f71fe319806d3ea706ba3a60909170f6a5048"
+    },
+    {
+      "path": "scripts/raimov/verify-raim-smile-pricing-release.mjs",
+      "sha256": "47b79e7d533a0462f34a358478bcb88a04f1499da0408b53cc3594f2df7afb37"
+    },
+    {
+      "path": "site-raimovdental/docs/website-studio/site-raimovdental-raim-smile-prices.md",
+      "sha256": "d6e2937b20978b99d9d91330117478d0901257f75516bec4a55a1e86e1f4be71"
+    },
+    {
+      "path": "site-raimovdental/raim-smile/faq/index.html",
+      "sha256": "0d1c2e942daaacbc234555e5fe9cc5ffee419028e5b7acc7fe53924fd4304684"
+    },
+    {
+      "path": "site-raimovdental/raim-smile/second-opinion/index.html",
+      "sha256": "17101dd19d224e1caf62509ad1639880472cd9ba199876ed3f6fc219944185c2"
+    },
+    {
+      "path": "site-raimovdental/src/data/faq.en.json",
+      "sha256": "f5a6f98488926fc3290b0530677753b6888b1c4eb2781734d1dbff22276f1ffa"
+    },
+    {
+      "path": "site-raimovdental/src/data/faq.ru.json",
+      "sha256": "f024be3356dcc6b0d9bd409dbad045549d5f88660d2ec0b6f0ffd9058bb604b5"
+    },
+    {
+      "path": "tests/raimovdental/raim-smile-prices.browser.mjs",
+      "sha256": "e66f96186bac091d0972f51995c6d854274eb9123355457c1542f780d3787400"
+    },
+    {
+      "path": "tests/raimovdental/raim-smile-prices.test.mjs",
+      "sha256": "38e5b9c035c7b1eb08dbd4ace87fcbd0f50d65262bb5bf65d5a85d0ed648bb4c"
+    },
+    {
+      "path": "tests/raimovdental/smilecare12-product-contract.test.mjs",
+      "sha256": "d31a6555989afe8e24251521708e94fe05de45644ace2e6c7a833ac066375390"
+    }
+  ]
+}
