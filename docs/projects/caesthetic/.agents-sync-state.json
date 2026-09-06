@@ -885,7 +885,7 @@
     "site-caesthetic/assets/js/caesthetic-pricing.generated.js": "ed91cf69c814d749fcccbc00e44307fc6117dcf1f43620b37bbed0b660038159",
     "site-caesthetic/assets/js/caesthetic.js": "1fe4aab2ec3f7a2094d14c03a9cb34a8551d35e2d4ed69888bdeb9c4bd54653b",
     "site-caesthetic/assets/js/case-studies.js": "7fb499c995296d599888d71761ba161d3dc0c4ba84302cafb8559acdaaf2fd5e",
-    "site-caesthetic/assets/js/case-study-content.js": "5bb332fc113ac0575ec615280f6f497788997adddbeca84273688947552ecf32",
+    "site-caesthetic/assets/js/case-study-content.js": "9ffc2676eeb6de064e124ab8766d2fe4619554ac004a10f0154fa10eeee58da3",
     "site-caesthetic/assets/js/case-study-detail.js": "ca9ebdc3578d7822cf207cd06e52acd4013cf772c316e5dd5c64b84d2ffc91f5",
     "site-caesthetic/assets/js/form-confirmation.js": "701745d96d44ce0e50223005224e73cac5bd6324ced3f252cee2112609968548",
     "site-caesthetic/assets/js/growth-cockpit.js": "39176e08bde8fabc6e14302c262305acc68a9c15548e52d4a724cc88a39412e9",
@@ -904,8 +904,8 @@
     "site-caesthetic/brand/logo-square.png": "5e7031f129cd59a538ad9e9ad99bea4f2656d96d9387bc71841608bf9ee0adf4",
     "site-caesthetic/brand/logo-square.svg": "9c16f91d5f25553b8af2bab4b0f5400fb9f67ac967d401d18b6b32d2a0e9cfd1",
     "site-caesthetic/case-studies/README.md": "39b577de1737b3fde7ade7adaa7b85b2ef5aebe6a100647048b0832f2608436c",
-    "site-caesthetic/case-studies/case/index.html": "9df371f1f3282fd6fc6b2b95ec859b6d3ab982f3a8adfe9c4f2099cb2126f8d3",
-    "site-caesthetic/case-studies/index.html": "f25e5f12ebd4536a922f113e236fb3f9275a78151020386bf178122273c76072",
+    "site-caesthetic/case-studies/case/index.html": "96c96d886ba737eebad90bf637f0482fadde6761ccfc3377077e01535508d5ee",
+    "site-caesthetic/case-studies/index.html": "862c72a5a77d007c3ceca0b9b9ad9f6f5f178b59ec07cc2be4fe69db6ad8313f",
     "site-caesthetic/case-studies/intake/index.html": "9f748b576e26cf09b5dd15598df8a168e14ab97c7d7f48beffeec46c3e55c848",
     "site-caesthetic/connect4/index.html": "560d5ff72bccacc83eb3f9e513e014df282b95504ce87c2f34e8fb5fc573a595",
     "site-caesthetic/docs/QA_MANIFEST.md": "117ba48f5b514dc8fa14bc3ae9440acbcac8cc03e1099770bf0fddf31af0677f",
@@ -1057,6 +1057,6 @@
     "tests/caesthetic/wise-invoice-cockpit.test.mjs": "54bef0a0c04c3957dc0fc1f31a95bfa258b1ff601a4d22cdf97327bca744bf4d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-06T15:22:59Z",
+  "updated_at_utc": "2026-09-06T15:38:37Z",
   "version": 1
 }

@@ -46,7 +46,7 @@
   function load(id) {
     return Promise.all([
       fetch('/case-studies/intake/api/public-cases' + (id ? '?id=' + encodeURIComponent(id) : ''), { credentials: 'same-origin' }).then(function (r) { if (!r.ok) throw new Error('Case data unavailable'); return r.json(); }),
-      fetch('/assets/data/case-study-summaries.json?v=text-cases-20260906').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
+      fetch('/assets/data/case-study-summaries.json?v=text-cases-20260906-r4').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
     ]).then(function (data) { return { cases: (data[0].cases || []).filter(isPublic).map(clean), summaries: data[1].cases || {} }; });
   }
   window.CAESTHETIC_CASES = { labels: labels, evidenceLabel: evidenceLabel, metricValue: metricValue, text: text, clean: clean, view: view, isPublic: isPublic, safeReturn: safeReturn, load: load };
