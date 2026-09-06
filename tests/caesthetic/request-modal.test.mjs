@@ -87,7 +87,7 @@ test("two-field request endpoint validates, rate-limits and stores requests priv
   assert.match(fn, /notification_sent:\s*true/);
   assert.match(fn, /apiKey === serviceKey/);
   assert.match(productionSmoke, /request_row_created:\s*true/);
-  assert.match(productionSmoke, /operator_notification_sent:\s*true/);
+  assert.match(productionSmoke, /telegram_notification_sent:\s*true/);
   assert.match(productionSmoke, /response\.status !== 201/);
   assert.match(migration, /ENABLE ROW LEVEL SECURITY/);
   assert.match(migration, /REVOKE ALL[\s\S]*anon, authenticated/);

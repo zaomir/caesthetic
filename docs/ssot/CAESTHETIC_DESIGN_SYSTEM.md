@@ -196,6 +196,8 @@ Persistent visible labels, proper input type/autocomplete, hint and error associ
 
 Request modal baseline width min(560px,100% - 32px), radius 6px, close target 44×44px. MUST fit dynamic viewport, scroll internally when keyboard is open, trap focus through native dialog or equivalent, close on Escape and return focus. Do not add unrequested fields. Test success/error offline with intercepted requests; never create real leads during visual QA.
 
+The shared public request dialog replaces its form and introductory prompt only after the backend confirms success. Show an 80px navy outlined circle with a burgundy check, a concise localized message in a polite atomic status region, and keep the close control. Move focus to confirmation, never auto-close, reset on reopening, and ignore responses from prior openings. Error and pending states retain fields; they never display the check. The dedicated multi-stage Growth Score intake retains its optional stage.
+
 ### Footer, FAQ, errors
 
 Footer baseline 1.4/.7/.7/.7 → 2 → 1 columns. Do not shrink legal/help links below the essential-text floor. FAQ uses native details/summary or an equivalent keyboard-accessible disclosure. 404, redirects, loading, empty, access/password and payment states belong to the system; protection is not a design failure. Their success and error states require explicit coverage.
