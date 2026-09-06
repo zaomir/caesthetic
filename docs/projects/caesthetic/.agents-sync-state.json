@@ -990,6 +990,7 @@
     "tests/caesthetic/attributed-sales-compensation-canon.test.mjs": "73e91d664df9bffeaa1fe3f1adeb0546fa898bd1c58a2b8f99e8919611273569",
     "tests/caesthetic/audit-storage.test.mjs": "41ff3eff653bd0362881ab01aeec6c0b38a28f529af45e6119aa72f6a2386279",
     "tests/caesthetic/beauty-salons-vertical.test.mjs": "9cc42ba1ff8a61e1ad205254b654d83ea1b7916c6c07d8139189dcdc0b4b694b",
+    "tests/caesthetic/billing-email-key.test.mjs": "47db3638f46a4ff5eb99f5116f72bfeb2158385ea8125217a13efa54139f8819",
     "tests/caesthetic/cae-ig-dolphin-current-dryrun.test.mjs": "2f51d74f89ce262e7dba1ea69643bbe65c20bcec468607e683f67d4e74b4cceb",
     "tests/caesthetic/cae-wave1-no-write.test.py": "f582a3108fe11deb2b1d92ace1473db419c2848c07d1c7b6a18fce02acee10ed",
     "tests/caesthetic/cae-wave1-public-enrich.test.py": "308550ce13c015aec9860a26293da3fdd41cca29901c3fddcafb4406e49aceaa",
@@ -1071,6 +1072,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-06T18:23:37Z",
+  "updated_at_utc": "2026-09-06T20:04:07Z",
   "version": 1
 }
