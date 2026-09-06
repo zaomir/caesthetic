@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "cases": {
+    "london-harley-whatsapp-consult": {
+      "sourceTitle": "How a London med spa replaced WhatsApp, email and web prompts across cities with one city-specific consult owner",
+      "sourceUpdatedAt": 1788706746463,
+      "title": "One consultation request across city-specific contact channels",
+      "situation": "Visitors encounter WhatsApp, email and web prompts across cities.",
+      "approach": "Align the consultation request across channels and name a response owner for each city."
+    },
+    "raleigh-cary-consult-routing": {
+      "sourceTitle": "How a Raleigh, NC med spa replaced a split public next step with one consult request",
+      "sourceUpdatedAt": 1788706786808,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    },
+    "greenville-physician-portal-path": {
+      "sourceTitle": "How a Greenville, SC med spa replaced account and card-hold friction before a first consult with a consult request that does not require a portal login",
+      "sourceUpdatedAt": 1788706792266,
+      "title": "A simpler first step before accounts and card holds",
+      "situation": "The public booking path asks for a portal account or card hold before a first consultation.",
+      "approach": "Offer a clear consultation request before the portal step, with a named response owner."
+    },
+    "charlotte-cliff-cameron-paid-consult-form": {
+      "sourceTitle": "How a Charlotte, NC med spa replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706797360,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "scottsdale-san-salvador-treatment-or-consult": {
+      "sourceTitle": "How a Scottsdale, AZ med spa replaced a split public next step with one consult request",
+      "sourceUpdatedAt": 1788706802657,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    },
+    "scottsdale-north-card-hold-booking": {
+      "sourceTitle": "How a Scottsdale, AZ med spa replaced account and card-hold friction before a first consult with a consult request that does not require a portal login",
+      "sourceUpdatedAt": 1788706809133,
+      "title": "A simpler first step before accounts and card holds",
+      "situation": "The public booking path asks for a portal account or card hold before a first consultation.",
+      "approach": "Offer a clear consultation request before the portal step, with a named response owner."
+    },
+    "paradise-valley-consult-credit-path": {
+      "sourceTitle": "How a Paradise Valley, AZ med spa replaced a split public next step with one consult request",
+      "sourceUpdatedAt": 1788706859259,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    },
+    "charlotte-cumberland-physician-consult": {
+      "sourceTitle": "How a Charlotte, NC med spa replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706864324,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "charlotte-pineville-form-sla": {
+      "sourceTitle": "How a Charlotte, NC med spa replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706870391,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "tampa-dale-mabry-portal-membership": {
+      "sourceTitle": "How a Tampa, FL med spa replaced account and card-hold friction before a first consult with a consult request that does not require a portal login",
+      "sourceUpdatedAt": 1788706875730,
+      "title": "A simpler first step before accounts and card holds",
+      "situation": "The public booking path asks for a portal account or card hold before a first consultation.",
+      "approach": "Offer a clear consultation request before the portal step, with a named response owner."
+    },
+    "austin-bee-caves-two-office-path": {
+      "sourceTitle": "How a Austin, TX med spa replaced a phone-only public path with a written consult request with an owner",
+      "sourceUpdatedAt": 1788706880628,
+      "title": "A written consultation request alongside the phone option",
+      "situation": "Visitors rely on calling the practice to take the next step.",
+      "approach": "Add a written consultation request and identify who will respond."
+    },
+    "greenville-woods-crossing-consult-first": {
+      "sourceTitle": "How a Greenville, SC med spa replaced a split public next step with one consult request",
+      "sourceUpdatedAt": 1788706890912,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    },
+    "charleston-multi-location-next-step": {
+      "sourceTitle": "How a Charleston, SC med spa replaced one inbox for several locations with a location-owned consult handoff",
+      "sourceUpdatedAt": 1788706895405,
+      "title": "Route each consultation request to the right location",
+      "situation": "Several locations share an inquiry path without a clear handoff to the local team.",
+      "approach": "Identify the requested location and assign a response owner for each handoff."
+    },
+    "addison-derm-phone-hours-path": {
+      "sourceTitle": "How a Addison, TX dermatology replaced a phone-only public path with a written consult request with an owner",
+      "sourceUpdatedAt": 1788706900370,
+      "title": "A written consultation request alongside the phone option",
+      "situation": "Visitors rely on calling the practice to take the next step.",
+      "approach": "Add a written consultation request and identify who will respond."
+    },
+    "atlanta-four-office-derm-routing": {
+      "sourceTitle": "How a Atlanta, GA dermatology replaced one inbox for several locations with a location-owned consult handoff",
+      "sourceUpdatedAt": 1788706905515,
+      "title": "Route each consultation request to the right location",
+      "situation": "Several locations share an inquiry path without a clear handoff to the local team.",
+      "approach": "Identify the requested location and assign a response owner for each handoff."
+    },
+    "dallas-coit-derm-contact-split": {
+      "sourceTitle": "How a Dallas, TX dermatology replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706912577,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "denver-derm-consult-path": {
+      "sourceTitle": "How a Denver, CO dermatology replaced a split public next step with one consult request",
+      "sourceUpdatedAt": 1788706921752,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    },
+    "nashville-restorative-dental-request": {
+      "sourceTitle": "How a Nashville, TN dental replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706926259,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "austin-westlake-dental-consult": {
+      "sourceTitle": "How a Austin, TX dental replaced a phone-only public path with a written consult request with an owner",
+      "sourceUpdatedAt": 1788706932264,
+      "title": "A written consultation request alongside the phone option",
+      "situation": "Visitors rely on calling the practice to take the next step.",
+      "approach": "Add a written consultation request and identify who will respond."
+    },
+    "charlotte-southpark-dental-handoff": {
+      "sourceTitle": "How a Charlotte, NC dental replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706937364,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "london-manchester-academy-sites": {
+      "sourceTitle": "How a London med spa replaced one inbox for several locations with a location-owned consult handoff",
+      "sourceUpdatedAt": 1788706942094,
+      "title": "Route each consultation request to the right location",
+      "situation": "Several locations share an inquiry path without a clear handoff to the local team.",
+      "approach": "Identify the requested location and assign a response owner for each handoff."
+    },
+    "london-paris-dual-city-handoff": {
+      "sourceTitle": "How a London med spa replaced WhatsApp, email and web prompts across cities with one city-specific consult owner",
+      "sourceUpdatedAt": 1788706953735,
+      "title": "One consultation request across city-specific contact channels",
+      "situation": "Visitors encounter WhatsApp, email and web prompts across cities.",
+      "approach": "Align the consultation request across channels and name a response owner for each city."
+    },
+    "paris-iena-consult-or-phone": {
+      "sourceTitle": "How a Paris med spa replaced a split public next step with one consult request",
+      "sourceUpdatedAt": 1788706958302,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    },
+    "manchester-paris-waitlist-whatsapp": {
+      "sourceTitle": "How a Manchester med spa replaced WhatsApp, email and web prompts across cities with one city-specific consult owner",
+      "sourceUpdatedAt": 1788706962522,
+      "title": "One consultation request across city-specific contact channels",
+      "situation": "Visitors encounter WhatsApp, email and web prompts across cities.",
+      "approach": "Align the consultation request across channels and name a response owner for each city."
+    },
+    "naples-consult-call-path": {
+      "sourceTitle": "How a Naples, FL med spa replaced a phone-only public path with a written consult request with an owner",
+      "sourceUpdatedAt": 1788706966869,
+      "title": "A written consultation request alongside the phone option",
+      "situation": "Visitors rely on calling the practice to take the next step.",
+      "approach": "Add a written consultation request and identify who will respond."
+    },
+    "houston-medspa-portal-split": {
+      "sourceTitle": "How a Houston, TX med spa replaced account and card-hold friction before a first consult with a consult request that does not require a portal login",
+      "sourceUpdatedAt": 1788706971071,
+      "title": "A simpler first step before accounts and card holds",
+      "situation": "The public booking path asks for a portal account or card hold before a first consultation.",
+      "approach": "Offer a clear consultation request before the portal step, with a named response owner."
+    },
+    "nashville-midtown-call-or-request": {
+      "sourceTitle": "How a Nashville, TN med spa replaced a phone-only public path with a written consult request with an owner",
+      "sourceUpdatedAt": 1788706981230,
+      "title": "A written consultation request alongside the phone option",
+      "situation": "Visitors rely on calling the practice to take the next step.",
+      "approach": "Add a written consultation request and identify who will respond."
+    },
+    "london-harley-dental-consult": {
+      "sourceTitle": "How a London dental replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706985850,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "dallas-preston-derm-transparency-path": {
+      "sourceTitle": "How a Dallas, TX dermatology replaced a phone-only public path with a written consult request with an owner",
+      "sourceUpdatedAt": 1788706992693,
+      "title": "A written consultation request alongside the phone option",
+      "situation": "Visitors rely on calling the practice to take the next step.",
+      "approach": "Add a written consultation request and identify who will respond."
+    },
+    "charlotte-randolph-consult-wait": {
+      "sourceTitle": "How a Charlotte, NC med spa replaced a long first form with no reply clock with a short consult request and a response rule",
+      "sourceUpdatedAt": 1788706997267,
+      "title": "A shorter consultation request with a clear response owner",
+      "situation": "The first form asks for several details without saying when someone will reply.",
+      "approach": "Keep the first request focused, state the response time and assign responsibility for the reply."
+    },
+    "scottsdale-mescal-phone-text-path": {
+      "sourceTitle": "How a Scottsdale, AZ med spa replaced a phone-only public path with a written consult request with an owner",
+      "sourceUpdatedAt": 1788707001677,
+      "title": "A written consultation request alongside the phone option",
+      "situation": "Visitors rely on calling the practice to take the next step.",
+      "approach": "Add a written consultation request and identify who will respond."
+    },
+    "scottsdale-hayden-consult-split": {
+      "sourceTitle": "How a Scottsdale, AZ med spa replaced a split public next step with one consult request",
+      "sourceUpdatedAt": 1788707005878,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    },
+    "miami-concierge-medspa-consult-path": {
+      "sourceTitle": "How a Downtown Miami concierge med spa replaced a split inquiry path with one consult workflow",
+      "sourceUpdatedAt": 1788706638316,
+      "title": "Make the first consultation step easier to follow",
+      "situation": "Visitors encounter competing ways to request a consultation, with no clear response owner.",
+      "approach": "Use one clear consultation request across the public path and name the person responsible for the reply."
+    }
+  }
+}

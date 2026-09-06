@@ -1976,66 +1976,6 @@
       "expires": "2026-10-05"
     },
     {
-      "id": "4d8213f79aecdc4b381248600e636cb381af9771ab661af61755142c2bddc199",
-      "file": "site-caesthetic/assets/css/case-studies.css",
-      "selector": ".cae-featured-delta",
-      "rule": "spacing-scale",
-      "value": "padding: 4px 10px",
-      "count": 1,
-      "owner": "CAESTHETIC Engineering",
-      "task": "DS-12",
-      "reason": "Existing scoped styling retained during incremental migration; no new occurrences permitted.",
-      "expires": "2026-10-05"
-    },
-    {
-      "id": "960e32063303dd53c8cba0a7f0a653c6e7344131746f4470666cdb275592761c",
-      "file": "site-caesthetic/assets/css/case-studies.css",
-      "selector": ".cae-case-before-after__delta",
-      "rule": "spacing-scale",
-      "value": "padding: 3px 8px",
-      "count": 1,
-      "owner": "CAESTHETIC Engineering",
-      "task": "DS-12",
-      "reason": "Existing scoped styling retained during incremental migration; no new occurrences permitted.",
-      "expires": "2026-10-05"
-    },
-    {
-      "id": "9f763006b7758dbca5c1b9098e536d8116cf6a03f7589a6422f2aa067a765a5b",
-      "file": "site-caesthetic/assets/css/case-studies.css",
-      "selector": ".cae-case-mobile-toolbar div",
-      "rule": "spacing-scale",
-      "value": "gap: 2px",
-      "count": 1,
-      "owner": "CAESTHETIC Engineering",
-      "task": "DS-12",
-      "reason": "Existing scoped styling retained during incremental migration; no new occurrences permitted.",
-      "expires": "2026-10-05"
-    },
-    {
-      "id": "54271e59208f545aa57b7e91f4107379bf7851354dabf905ae5b506996ff16cd",
-      "file": "site-caesthetic/assets/css/case-study-detail.css",
-      "selector": ".cae-case-metric__delta",
-      "rule": "spacing-scale",
-      "value": "padding: 5px 12px",
-      "count": 1,
-      "owner": "CAESTHETIC Engineering",
-      "task": "DS-12",
-      "reason": "Existing scoped styling retained during incremental migration; no new occurrences permitted.",
-      "expires": "2026-10-05"
-    },
-    {
-      "id": "c75d019eca13508727d2282eedd043ae0e870a746ee1e61dfb4488192ef74194",
-      "file": "site-caesthetic/assets/css/case-study-detail.css",
-      "selector": ".cae-case-audit__card > span",
-      "rule": "synthetic-weight",
-      "value": "font-weight: 800",
-      "count": 1,
-      "owner": "CAESTHETIC Engineering",
-      "task": "DS-12",
-      "reason": "Existing scoped styling retained during incremental migration; no new occurrences permitted.",
-      "expires": "2026-10-05"
-    },
-    {
       "id": "999037cd68c04b8ebd3fce93f8e27280768d5b0ef27db0941585944013a6d901",
       "file": "site-caesthetic/assets/css/connect4.css",
       "selector": ".c4-page h1",
@@ -13615,22 +13555,6 @@
       "selector": ".cae-btn--outline-inv",
       "rule": "scoped-token",
       "value": "--outline-inv:hover",
-      "count": 1
-    },
-    {
-      "id": "0b19aca45fd602cb0bebe571385c51a6b7aed615846d8e829bd27d553701a8d1",
-      "file": "site-caesthetic/assets/css/case-studies.css",
-      "selector": ":root",
-      "rule": "scoped-token",
-      "value": "--cae-case-subnav-h: 56px",
-      "count": 1
-    },
-    {
-      "id": "261a548e8548844d8931b76a826f032f32bc89d71a03a660a511b783b39a955f",
-      "file": "site-caesthetic/assets/css/case-studies.css",
-      "selector": ":root",
-      "rule": "scoped-token",
-      "value": "--cae-case-subnav-h: 52px",
       "count": 1
     },
     {

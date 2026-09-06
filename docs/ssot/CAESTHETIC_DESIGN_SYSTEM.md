@@ -182,6 +182,14 @@ The production Impeccable overlay makes cae-panel transparent, square and shadow
 
 Evidence strip base 5 columns; content breakpoints 2 then 1. Numbers need units, period, source and status where applicable. Tables need captions/headers; mobile may stack labelled records or use a labelled local scroll region when genuine two-dimensional comparison is essential. Never shrink a full table to unreadable type. Data visualizations need textual equivalents; no fabricated metrics or false status coloring.
 
+### Text-first case catalog and case page — 2026-09-06
+
+Use the existing v3.1.0 tokens, typography and ruled editorial surfaces. The library follows a compact introduction; the Connect4 explanation follows the library. A single column of wide case rows presents context and situation beside approach on desktop and stacks those groups on mobile. A row contains one descriptive case link. Cards and case-page summaries MUST NOT contain cover images, image placeholders or reserved image columns. Approved method and contact imagery outside those components retains its existing contract.
+
+The case page progresses from an executive brief through situation, approach, supported results, source/limitations and applicability. Missing supported results collapse the numeric module and show a plain source-availability note; they do not produce invented values or a decorative evidence badge. Short editorial fields must remain source-grounded under `CAESTHETIC_CASE_STUDIES_COLLECTION.md`.
+
+Use native, labelled goal and practice-type selectors, with country, scale and sorting under an additional-filters disclosure. Preserve shareable filter URLs and the reader's loaded results and return position. Verify keyboard focus, narrow-width reflow, loading/error/empty states and both supported-result and no-result cases. This component adds no palette, imagery or publication-approval exception.
+
 ### Forms and dialogs
 
 Persistent visible labels, proper input type/autocomplete, hint and error association, required state in text, status announcements, clear recovery and retained valid entries. Do not use placeholder as label. Default fields radius 4px, min-height 48px, font floor 16px. Textarea grows vertically. A form's accessible purpose and progress must remain clear without JavaScript.

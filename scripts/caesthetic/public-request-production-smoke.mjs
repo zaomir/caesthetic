@@ -39,11 +39,20 @@ const response = await fetch(endpoint, {
   body: JSON.stringify(payload),
 });
 const body = await response.json().catch(() => ({}));
-if (response.status !== 201 || body.ok !== true || !body.request_id || body.notification_sent !== true) {
+if (
+  response.status !== 201 ||
+  body.ok !== true ||
+  !body.request_id ||
+  body.notification_sent !== true ||
+  body.telegram_notification_sent !== true
+) {
   throw new Error(
     `request capture failed closed: status=${response.status} error=${body.error || "invalid_response"}`
     + ` ok=${body.ok === true} request_id=${Boolean(body.request_id)}`
-    + ` notification_sent=${body.notification_sent === true} qa_test=${body.qa_test === true}`,
+    + ` notification_sent=${body.notification_sent === true}`
+    + ` telegram_notification_sent=${body.telegram_notification_sent === true}`
+    + ` email_notification_sent=${body.email_notification_sent === true}`
+    + ` qa_test=${body.qa_test === true}`,
   );
 }
 
@@ -63,7 +72,9 @@ const result = {
   response_status: response.status,
   request_id: body.request_id,
   request_row_created: true,
-  operator_notification_sent: true,
+  telegram_notification_sent: true,
+  email_notification_sent: body.email_notification_sent === true,
+  notify_to_contract: "CAESTHETIC_NOTIFY_TO -> CAESTHETIC_GROWTH_SCORE_NOTIFY_TO -> notifications@caesthetic.com",
   qa_marker: payload.name.startsWith("[TEST/QA]"),
   qa_rate_limit_bypass_authenticated: body.qa_test === true,
 };

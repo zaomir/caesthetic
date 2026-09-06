@@ -1,218 +1,49 @@
 (function () {
   'use strict';
-
-  var goalLabels = { bookings: 'More bookings', conversion: 'Better conversion', retention: 'Retention', reputation: 'Reputation', 'multi-location': 'Multi-location' };
-  var relevanceLabels = { 'closest-match': 'Closest practice match', 'adjacent-model': 'Adjacent operating model', 'transferable-pattern': 'Transferable operating pattern' };
-  var evidenceLabels = { verified: 'Verified evidence', client_reported: 'Client-reported result' };
-  var returnPath = '/case-studies/#case-library';
-
-  function isPublicCatalogCase(item) {
-    if (!item || !item.id) return false;
-    var id = String(item.id);
-    var title = String(item.title || '').trim();
-    if (/^test[-_]/i.test(id)) return false;
-    if (/^TEST\b/i.test(title)) return false;
-    return true;
-  }
-
-  function track(eventName, detail) {
-    if (!Array.isArray(window.dataLayer)) return;
-    window.dataLayer.push(Object.assign({ event: eventName }, detail || {}));
-  }
-
-  function safeReturnPath(value) {
-    if (!value) return '';
-    try {
-      var url = new URL(value, window.location.origin);
-      if (url.origin !== window.location.origin) return '';
-      if (url.pathname.indexOf('/case-studies/') !== 0 || url.pathname.indexOf('/case-studies/case/') === 0) return '';
-      return url.pathname + url.search + (url.hash || '#case-library');
-    } catch (error) {
-      return '';
-    }
-  }
-
-  function configureReturnPath() {
-    var params = new URLSearchParams(window.location.search);
-    var candidate = safeReturnPath(params.get('return'));
-    if (!candidate) {
-      try { candidate = safeReturnPath(sessionStorage.getItem('cae.caseCatalogReturn')); } catch (error) { candidate = ''; }
-    }
-    returnPath = candidate || returnPath;
-    document.querySelectorAll('[data-case-back]').forEach(function (link) { link.href = returnPath; });
-  }
-
-  function caseDetailHref(id) {
-    return '/case-studies/case/?id=' + encodeURIComponent(id) + '&return=' + encodeURIComponent(returnPath);
-  }
-
-  function setText(selector, value, fallback) {
-    var node = document.querySelector(selector);
-    if (node) node.textContent = value || fallback || '';
-  }
-  function create(tag, className, copy) {
-    var node = document.createElement(tag);
-    if (className) node.className = className;
-    if (typeof copy === 'string') node.textContent = copy;
-    return node;
-  }
-  function metrics(item) {
-    if (Array.isArray(item.metrics) && item.metrics.length) return item.metrics;
-    return [{
-      id: 'primary', name: 'Primary business metric', definition: item.metricDefinition || '',
-      before: { display: item.baseline || 'Baseline documented', denominator: item.denominator || '' },
-      after: { display: item.outcome || 'Outcome documented', denominator: item.denominator || '' },
-      delta: { display: item.delta || 'Change documented' }, timeframe: item.timeframe || '',
-      source: item.dataSource || '', evidenceLevel: item.evidenceLevel || 'client_reported', caveat: item.limitations || '', isHeadline: true
-    }];
-  }
-  function evidenceValue(item, key, fallback) {
-    var value = item[key];
-    if (typeof value === 'string' && value) return value;
-    var evidence = item.evidence || {};
-    value = evidence[key];
-    if (value && typeof value === 'object' && typeof value.display === 'string') return value.display;
-    if (typeof value === 'string' && value) return value;
-    return fallback;
-  }
-  function renderMetrics(item) {
-    var container = document.querySelector('[data-metric-grid]');
-    container.replaceChildren();
-    metrics(item).slice(0, 6).forEach(function (metric, index) {
-      var card = create('article', 'cae-case-metric' + (index === 0 ? ' cae-case-metric--primary' : ''));
-      var head = create('div', 'cae-case-metric__head');
-      head.append(create('span', '', index === 0 ? 'Headline metric' : 'Supporting metric'), create('b', '', evidenceLabels[metric.evidenceLevel] || 'Evidence documented'));
-      var title = create('h3', 'cae-h3', metric.name || 'Business metric');
-      var flow = create('div', 'cae-case-metric__flow');
-      var before = create('div', 'cae-case-metric__point');
-      before.append(create('span', '', 'Before'), create('strong', '', (metric.before || {}).display || 'Baseline documented'));
-      var arrow = create('span', 'cae-case-metric__arrow', '→');
-      arrow.setAttribute('aria-hidden', 'true');
-      var after = create('div', 'cae-case-metric__point');
-      after.append(create('span', '', 'After'), create('strong', '', (metric.after || {}).display || 'Outcome documented'));
-      flow.append(before, arrow, after);
-      var delta = create('p', 'cae-case-metric__delta', (metric.delta || {}).display || 'Change documented');
-      var meta = create('dl', 'cae-case-metric__meta');
-      [['Window', metric.timeframe], ['Denominator', (metric.after || {}).denominator || (metric.before || {}).denominator], ['Source', metric.source]].forEach(function (pair) {
-        if (!pair[1]) return;
-        var row = create('div');
-        row.append(create('dt', '', pair[0]), create('dd', '', pair[1]));
-        meta.appendChild(row);
-      });
-      card.append(head, title, flow, delta);
-      if (metric.definition) card.appendChild(create('p', 'cae-case-metric__definition', metric.definition));
-      if (meta.childElementCount) card.appendChild(meta);
-      if (metric.caveat) card.appendChild(create('p', 'cae-case-metric__caveat', metric.caveat));
-      container.appendChild(card);
+  var library = window.CAESTHETIC_CASES;
+  var params = new URLSearchParams(location.search);
+  var returnPath = library.safeReturn(params.get('return'));
+  if (!params.has('return')) { try { returnPath = library.safeReturn(sessionStorage.getItem('cae.caseCatalogReturn')); } catch (error) { /* optional storage */ } }
+  document.querySelectorAll('[data-case-back]').forEach(function (link) { link.href = returnPath; });
+  function set(selector, value) { var node = document.querySelector(selector); if (node) { node.textContent = library.text(value); node.hidden = !library.text(value); } }
+  function make(tag, name, copy) { var node = document.createElement(tag); if (name) node.className = name; if (copy) node.textContent = copy; return node; }
+  function track(event, data) { if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: event }, data)); }
+  function href(id) { return '/case-studies/case/?id=' + encodeURIComponent(id) + '&return=' + encodeURIComponent(returnPath); }
+  function renderMetrics(metrics) {
+    var grid = document.querySelector('[data-metric-grid]'); grid.replaceChildren();
+    metrics.slice(0, 6).forEach(function (metric) {
+      var article = make('article', 'cae-case-metric');
+      article.append(make('p', 'cae-case-label', library.evidenceLabel(metric)), make('h3', 'cae-h3', metric.name));
+      if (metric.definition) article.append(make('p', '', metric.definition));
+      var flow = make('div', 'cae-case-metric__flow');
+      [['Before', metric.before], ['After', metric.after]].forEach(function (pair) { var part = make('div'); part.append(make('span', '', pair[0]), make('strong', '', pair[1].display)); if (pair[1].denominator) part.append(make('p', 'cae-case-source', pair[1].denominator)); flow.append(part); }); article.append(flow);
+      var meta = make('dl'); [['Period', metric.timeframe], ['Source', metric.source], ['Context', metric.caveat]].forEach(function (pair) { if (!pair[1]) return; var row = make('div'); row.append(make('dt', '', pair[0]), make('dd', '', pair[1])); meta.append(row); }); article.append(meta); grid.append(article);
     });
   }
-  function renderInterventions(item) {
-    var list = document.querySelector('[data-interventions]');
-    list.replaceChildren();
-    var interventions = Array.isArray(item.interventions) ? item.interventions : [];
-    if (!interventions.length && item.workstreams) interventions = item.workstreams.split(/\r?\n/).filter(Boolean);
-    if (!interventions.length) interventions = ['Intervention sequence documented in the case'];
-    interventions.slice(0, 8).forEach(function (copy, index) {
-      var row = create('li');
-      row.append(create('span', '', String(index + 1).padStart(2, '0')), create('p', '', copy));
-      list.appendChild(row);
-    });
-  }
-  function renderLinkedAudit(item) {
+  function render(item, data) {
+    var view = library.view(item, data.summaries); document.title = view.title + ' | CAESTHETIC';
+    set('[data-case-id]', item.caseCode); set('[data-goal-label]', library.labels[(item.goals || [])[0]] || 'Case study'); set('[data-case-meta]', view.context); set('[data-case-title]', view.title); set('[data-owner-question]', item.ownerQuestion); set('[data-short-situation]', view.situation); set('[data-short-approach]', view.approach);
+    var context = document.querySelector('[data-case-context]');
+    [['Practice', item.clientName], ['Location', [item.city, item.country].filter(Boolean).join(', ')], ['Operating model', item.businessModel], ['Scale', item.practiceScale || item.locationCount]].forEach(function (pair) { if (!pair[1]) return; var row = make('div'); row.append(make('dt', '', pair[0]), make('dd', '', pair[1])); context.append(row); });
+    set('[data-before-copy]', item.situationBefore || item.before); set('[data-diagnosis-copy]', item.bindingConstraint || item.diagnosis); set('[data-diagnosis-evidence]', item.constraintEvidence);
+    var steps = Array.isArray(item.interventions) ? item.interventions : (item.workstreams || '').split(/\r?\n/); steps.filter(Boolean).slice(0, 8).forEach(function (copy) { document.querySelector('[data-interventions]').append(make('li', '', copy)); });
+    set('[data-caesthetic-role]', item.caestheticRole); set('[data-practice-contribution]', item.practiceContribution);
+    renderMetrics(view.metrics); set('[data-results-note]', view.metrics.length ? 'Read each result with its source, period and measurement context.' : 'No sourced before-and-after result is available for this case. The approach and its source context are documented below.');
+    if (view.metrics.length) set('[data-after-copy]', item.resultNarrative || item.after);
+    set('[data-data-source]', item.dataSource || 'A source has not been provided.'); set('[data-limitations]', item.limitations || 'Additional context has not been provided.');
+    if (item.budgetContext) { document.querySelector('[data-budget-section]').hidden = false; set('[data-budget]', item.budgetContext); }
+    set('[data-applicability]', item.applicability);
     var audit = item.linkedAudit;
-    if (!audit || !audit.url || audit.permission !== 'approved' || audit.redactionStatus !== 'verified' || audit.accessLevel === 'internal_only') return;
-    var section = document.querySelector('[data-audit-section]');
-    var nav = document.querySelector('[data-audit-nav]');
-    var link = document.querySelector('[data-audit-link]');
-    section.hidden = false;
-    nav.hidden = false;
-    setText('[data-audit-title]', audit.title, 'Anonymized source audit');
-    setText('[data-audit-access]', audit.accessLevel === 'request_nda' ? 'Extended copy by request / NDA' : 'Anonymized public copy');
-    setText('[data-audit-meta]', [audit.pageCount ? audit.pageCount + ' pages' : '', audit.reviewedDate ? 'Reviewed ' + audit.reviewedDate : ''].filter(Boolean).join(' · '), 'Redaction verified');
-    link.href = audit.url;
-    link.textContent = audit.accessLevel === 'request_nda' ? 'Request the extended audit' : 'Open anonymized audit';
-    link.addEventListener('click', function () { track('case_audit_open', { case_id: item.id, access_level: audit.accessLevel }); });
-  }
-  function renderPagination(item, cases) {
-    var index = cases.indexOf(item);
-    var previous = cases[(index - 1 + cases.length) % cases.length];
-    var next = cases[(index + 1) % cases.length];
-    var previousLink = document.querySelector('[data-prev-link]');
-    var nextLink = document.querySelector('[data-next-link]');
-    if (cases.length < 2) {
-      document.querySelector('[data-case-pagination]').hidden = true;
-      return;
+    if (audit && /^https:\/\//i.test(audit.url || '') && audit.permission === 'approved' && audit.redactionStatus === 'verified' && ['public_redacted', 'request_nda'].includes(audit.accessLevel)) {
+      document.querySelector('[data-audit-section]').hidden = false; set('[data-audit-title]', audit.title || 'Anonymized source audit'); set('[data-audit-meta]', [audit.pageCount ? audit.pageCount + ' pages' : '', audit.reviewedDate ? 'Reviewed ' + audit.reviewedDate : ''].filter(Boolean).join(' · ')); var link = document.querySelector('[data-audit-link]'); link.href = audit.url; link.textContent = audit.accessLevel === 'request_nda' ? 'Request the extended audit →' : 'Open anonymized audit →'; link.addEventListener('click', function () { track('case_audit_open', { case_id: item.id }); });
     }
-    previousLink.href = caseDetailHref(previous.id);
-    nextLink.href = caseDetailHref(next.id);
-    setText('[data-prev-title]', previous.title);
-    setText('[data-next-title]', next.title);
+    if (data.cases.length > 1) {
+      var index = data.cases.findIndex(function (c) { return c.id === item.id; }); var previous = data.cases[(index - 1 + data.cases.length) % data.cases.length]; var next = data.cases[(index + 1) % data.cases.length];
+      document.querySelector('[data-case-pagination]').hidden = false; document.querySelector('[data-prev-link]').href = href(previous.id); document.querySelector('[data-next-link]').href = href(next.id); set('[data-prev-title]', library.view(previous, data.summaries).title); set('[data-next-title]', library.view(next, data.summaries).title);
+    }
+    document.querySelector('[data-case-loading]').hidden = true; document.querySelector('[data-case-content]').hidden = false; track('case_detail_view', { case_id: item.id });
   }
-  function setCase(item, cases) {
-    var primaryGoal = (item.goals || [])[0] || 'bookings';
-    var headline = metrics(item)[0];
-    var evidenceStatus = evidenceLabels[item.evidenceLevel] || item.evidenceStatus || 'Evidence documented';
-    document.title = item.title + ' | CAESTHETIC';
-    setText('[data-case-id]', item.caseCode || item.id);
-    setText('[data-goal-label]', goalLabels[primaryGoal], 'Business growth');
-    setText('[data-case-meta]', [item.industry, item.country, item.businessModel].filter(Boolean).join(' · '));
-    setText('[data-case-title]', item.title);
-    setText('[data-case-summary]', item.summary);
-    setText('[data-relevance-label]', relevanceLabels[item.relevanceTier], 'Practice relevance');
-    setText('[data-evidence-status]', evidenceStatus);
-    setText('[data-client-name]', item.clientName, 'Anonymized practice');
-    setText('[data-context-industry]', item.industry, 'Industry documented');
-    setText('[data-context-country]', [item.city, item.country].filter(Boolean).join(', '), 'Market documented');
-    setText('[data-context-model]', item.businessModel, 'Operating model documented');
-    setText('[data-context-scale]', item.practiceScale || item.locationCount, 'Scale documented');
-    setText('[data-applicability]', item.applicability, 'The operating pattern and its transfer limits are documented in this case.');
-    setText('[data-before-copy]', item.before || item.situationBefore, 'The starting condition is documented in the case evidence.');
-    setText('[data-diagnosis-copy]', item.diagnosis || item.bindingConstraint, 'The binding constraint is documented in the case evidence.');
-    setText('[data-diagnosis-evidence]', item.constraintEvidence, 'The diagnosis was checked against the available operating evidence.');
-    setText('[data-after-copy]', item.after || item.resultNarrative, 'The resulting operating change is documented in the case evidence.');
-    setText('[data-attribution]', item.attribution, 'Attribution is limited to the available evidence.');
-    setText('[data-ledger-baseline]', (headline.before || {}).display, evidenceValue(item, 'baseline', 'Baseline documented'));
-    setText('[data-ledger-denominator]', (headline.after || {}).denominator || (headline.before || {}).denominator, evidenceValue(item, 'denominator', 'Denominator documented'));
-    setText('[data-ledger-timeframe]', headline.timeframe, evidenceValue(item, 'timeframe', 'Measurement window documented'));
-    setText('[data-ledger-budget]', evidenceValue(item, 'budgetContext', 'Budget context documented'));
-    setText('[data-ledger-practice-contribution]', evidenceValue(item, 'practiceContribution', 'Practice contribution documented'));
-    setText('[data-ledger-limitations]', evidenceValue(item, 'limitations', 'Limitations documented'));
-    setText('[data-ledger-source]', headline.source || evidenceValue(item, 'dataSource', 'Source documented'));
-    setText('[data-ledger-relationship]', evidenceValue(item, 'caestheticRole', 'CAESTHETIC role documented'));
-    renderMetrics(item);
-    renderInterventions(item);
-    renderLinkedAudit(item);
-    renderPagination(item, cases);
-    var cover = document.querySelector('[data-case-cover]');
-    cover.removeAttribute('src');
-    cover.setAttribute('data-media-id', (window.CAESTHETIC_MEDIA && window.CAESTHETIC_MEDIA.coverMediaId(item)) || item.mediaId || 'case.library.hero.abstract');
-    cover.setAttribute('data-media-fallback', item.mediaId || 'case.library.hero.abstract');
-    cover.setAttribute('alt', 'Illustrative cover for ' + item.title);
-    if (window.CAESTHETIC_MEDIA) window.CAESTHETIC_MEDIA.resolve(document.querySelector('[data-case-cover-slot]'));
-    document.querySelector('[data-case-content]').hidden = false;
-    track('case_detail_view', { case_id: item.id, evidence_level: item.evidenceLevel || 'documented' });
-  }
-  function showError() {
-    document.querySelector('[data-case-content]').hidden = true;
-    document.querySelector('[data-case-error]').hidden = false;
-    document.title = 'Case unavailable | CAESTHETIC';
-  }
-
-  configureReturnPath();
-  var requestedId = new URLSearchParams(window.location.search).get('id');
-  if (!requestedId || /^test[-_]/i.test(requestedId)) return showError();
-  fetch('/case-studies/intake/api/public-cases?id=' + encodeURIComponent(requestedId), { credentials: 'same-origin' })
-    .then(function (response) { if (!response.ok) throw new Error('Published case unavailable'); return response.json(); })
-    .then(function (data) {
-      var cases = (data && Array.isArray(data.cases) ? data.cases : []).filter(isPublicCatalogCase);
-      var item = cases.find(function (candidate) { return candidate.id === requestedId; });
-      if (!item) throw new Error('Case not found');
-      return fetch('/case-studies/intake/api/public-cases', { credentials: 'same-origin' })
-        .then(function (response) { return response.ok ? response.json() : { cases: [item] }; })
-        .then(function (all) {
-          var siblings = (Array.isArray(all.cases) ? all.cases : []).filter(isPublicCatalogCase);
-          setCase(item, siblings.length ? siblings : [item]);
-        });
-    })
-    .catch(showError);
+  function error(unavailable) { document.querySelector('[data-case-loading]').hidden = true; document.querySelector('[data-case-error]').hidden = false; if (!unavailable) { set('[data-error-title]', 'We couldn’t load this case.'); set('[data-error-copy]', 'Please reload the page to try again, or return to the case studies.'); } document.title = 'Case unavailable | CAESTHETIC'; }
+  var id = params.get('id'); if (!id || /^test[-_]/i.test(id)) return error(true);
+  library.load().then(function (data) { var item = data.cases.find(function (c) { return c.id === id; }); if (!item) return error(true); render(item, data); }).catch(function () { error(false); });
 }());

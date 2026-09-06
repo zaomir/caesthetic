@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Growth Case Studies | CAESTHETIC</title>
-  <meta name="description" content="See how CAESTHETIC finds a growth constraint, changes the operating system and verifies what moved in aesthetic practices.">
+  <meta name="description" content="Explore consultation requests, booking and follow-up in aesthetic practices. Find a situation close to yours and review the approach.">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <link rel="canonical" href="https://caesthetic.com/case-studies/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="CAESTHETIC Growth Case Studies">
-  <meta property="og:description" content="Before-and-after growth cases with documented constraints, interventions and evidence boundaries.">
+  <meta property="og:description" content="Practice situations, approaches and the sources behind each case.">
   <meta property="og:url" content="https://caesthetic.com/case-studies/">
   <meta property="og:image" content="https://caesthetic.com/assets/brand/logo-square.png">
   <meta name="twitter:card" content="summary">
@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
-  <link rel="stylesheet" href="/assets/css/case-studies.css?v=connect4-case-pair-20260905">
+  <link rel="stylesheet" href="/assets/css/case-studies.css?v=text-cases-20260906">
 <link rel="stylesheet" href="/assets/css/point-of-contact.css">
 <link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
 </head>
@@ -27,40 +27,41 @@
 
 <main class="cae-cases-page">
   <section class="cae-cases-hero" aria-labelledby="cases-title">
-    <div class="cae-wrap cae-cases-hero__grid">
-      <div class="cae-cases-hero__copy">
-        <p class="cae-kicker">Growth work, documented</p>
-        <h1 class="cae-h1" id="cases-title">We find the constraint. Change the system. Verify the impact.</h1>
-        <p class="cae-lead">See how clinics moved from a visible symptom to one operating priority—and what the evidence showed after the change.</p>
-        <div class="cae-cases-hero__actions">
-          <a class="cae-btn cae-btn--primary" href="#case-library">Explore case studies</a>
-          <a class="cae-cases-text-link" href="#how-we-work">See how we work <span aria-hidden="true">↓</span></a>
-        </div>
-      </div>
-      <aside class="cae-cases-hero__brief" aria-label="What every case study documents">
-        <p class="cae-kicker">Every case file shows</p>
-        <ol>
-          <li><span>01</span><div><strong>Starting condition</strong><small>The baseline and business context</small></div></li>
-          <li><span>02</span><div><strong>Binding constraint</strong><small>The limiting step—not the loudest symptom</small></div></li>
-          <li><span>03</span><div><strong>Operating change</strong><small>What CAESTHETIC and the clinic changed</small></div></li>
-          <li><span>04</span><div><strong>Measured impact</strong><small>Before, after, timeframe and evidence level</small></div></li>
-        </ol>
-      </aside>
+    <div class="cae-wrap">
+      <p class="cae-kicker">Case studies</p>
+      <h1 class="cae-h1" id="cases-title">Find a situation close to yours.</h1>
+      <p class="cae-lead">Explore how consultation requests, booking and follow-up work in practices like yours. Each case explains the situation, the approach and the sources behind it.</p>
+      <a class="cae-case-link" href="#how-we-work">How we approach the work <span aria-hidden="true">↓</span></a>
     </div>
   </section>
-
-  <nav class="cae-cases-subnav" aria-label="Case studies page sections">
+  <section class="cae-case-library" id="case-library" aria-labelledby="library-title" tabindex="-1" data-library-content>
     <div class="cae-wrap">
-      <a href="#how-we-work" data-section-link="how-we-work"><span>01</span>How we work</a>
-      <a href="#case-library" data-section-link="case-library"><span>02</span>Case studies</a>
+      <h2 class="cae-h2" id="library-title">Explore the cases</h2>
+      <div class="cae-case-filters" aria-label="Filter case studies">
+        <label>What would you like to improve?<select data-filter="goal"><option value="">All topics</option></select></label>
+        <label>Practice type<select data-filter="industry"><option value="">All practice types</option></select></label>
+        <button class="cae-case-filter-clear" type="button" data-clear-filters disabled>Clear filters</button>
+      </div>
+      <details class="cae-case-more-filters">
+        <summary><span data-more-filters-label>More filters</span></summary>
+        <div class="cae-case-filters cae-case-filters--advanced">
+          <label>Country<select data-filter="country"><option value="">All countries</option></select></label>
+          <label>Number of locations<select data-filter="scale"><option value="">Any size</option></select></label>
+          <label>Sort by<select data-filter="sort"><option value="relevance">Practice relevance</option><option value="title">Title A–Z</option><option value="country">Country A–Z</option></select></label>
+        </div>
+      </details>
+      <div class="cae-case-results-meta" role="status"><span data-result-count>Loading cases…</span><span data-visible-range></span></div>
+      <div class="cae-case-list" data-case-list><noscript><p>Enable JavaScript to load and filter the case studies.</p></noscript></div>
+      <div class="cae-case-empty" data-empty-state hidden><h3 class="cae-h3">No cases match these filters.</h3><p>Try a broader topic or remove a filter.</p><button type="button" class="cae-btn cae-btn--outline" data-empty-clear>View all cases</button></div>
+      <button class="cae-case-load-more" type="button" data-load-more hidden>Show more cases</button>
     </div>
-  </nav>
-
+  </section>
+  <section class="cae-section cae-case-load-error" data-load-error hidden><div class="cae-wrap"><h2 class="cae-h2">We couldn’t load the cases.</h2><p class="cae-lead">Please reload the page to try again.</p><button type="button" class="cae-btn cae-btn--outline" data-retry-cases>Try again</button></div></section>
   <section class="cae-section cae-how-we-work cae-connect4" id="how-we-work" aria-labelledby="how-title">
     <div class="cae-wrap">
       <div class="cae-how-we-work__head">
         <div>
-          <p class="cae-kicker">01 · How we work</p>
+          <p class="cae-kicker">How we work</p>
           <h2 class="cae-h2" id="how-title">Build a path from local search to patient inquiries.</h2>
         </div>
         <p class="cae-lead">Connect4 synchronizes four public surfaces with Lead Intake to help your practice attract and handle inquiries from organic search and Maps, without relying on paid advertising.</p>
@@ -117,170 +118,21 @@
       </div>
 
       <div class="cae-process-bridge">
-        <p><strong>See what changed in practice.</strong> Each case separates the starting problem, the work delivered and the results supported by evidence.</p>
+        <p><strong>Find a situation close to yours.</strong> Explore the context, approach and available sources in each case.</p>
         <a class="cae-case-link" href="#case-library">Explore the cases <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
 
-  <section class="cae-section cae-case-library" id="case-library" aria-labelledby="library-title" tabindex="-1" data-library-content>
-    <div class="cae-wrap">
-      <div class="cae-case-library__head">
-        <div>
-          <p class="cae-kicker">02 · Case studies · <span data-library-total>0</span> published</p>
-          <h2 class="cae-h2" id="library-title">Results in practice.</h2>
-        </div>
-        <p class="cae-lead">Choose the business problem closest to your practice, then inspect the baseline, intervention and evidence boundary.</p>
-      </div>
-
-      <div class="cae-case-goals" role="group" aria-label="Filter cases by business goal">
-        <button type="button" class="cae-case-goal is-active" data-case-goal="" aria-pressed="true">All cases</button>
-        <button type="button" class="cae-case-goal" data-case-goal="bookings" aria-pressed="false">More bookings</button>
-        <button type="button" class="cae-case-goal" data-case-goal="conversion" aria-pressed="false">Better conversion</button>
-        <button type="button" class="cae-case-goal" data-case-goal="retention" aria-pressed="false">Retention</button>
-        <button type="button" class="cae-case-goal" data-case-goal="reputation" aria-pressed="false">Reputation</button>
-        <button type="button" class="cae-case-goal" data-case-goal="multi-location" aria-pressed="false">Multi-location</button>
-      </div>
-
-      <section class="cae-featured-case" aria-labelledby="featured-title" data-featured-section hidden>
-        <div class="cae-featured-case__label">
-          <p class="cae-kicker">Featured case</p>
-          <span>A complete published case file</span>
-        </div>
-        <article class="cae-featured-case__grid" data-featured-case aria-live="polite">
-          <figure class="cae-media-slot cae-media-slot--featured" data-featured-media>
-            <div class="cae-media-slot__frame">
-              <img data-media-id="case.placeholder.case-01.cover" alt="" decoding="async">
-              <span class="cae-media-slot__fallback" aria-hidden="true">Case visual</span>
-            </div>
-            <figcaption>Context image · not performance evidence</figcaption>
-          </figure>
-          <div class="cae-featured-case__story">
-            <p class="cae-case-meta" data-featured-meta>Market · Practice type · Scale</p>
-            <h3 class="cae-h2" id="featured-title" data-featured-title>Loading case…</h3>
-            <p class="cae-lead" data-featured-summary>Loading the published case summary.</p>
-            <a class="cae-case-link" href="/case-studies/" data-featured-link>See what changed →</a>
-          </div>
-          <div class="cae-featured-case__proof">
-            <p class="cae-case-proof__label">Business performance · before and after</p>
-            <div class="cae-featured-before-after">
-              <div><span>Before</span><strong data-featured-before>Not measured</strong></div>
-              <span aria-hidden="true">→</span>
-              <div><span>After</span><strong data-featured-after>Not measured</strong></div>
-            </div>
-            <b class="cae-featured-delta" data-featured-delta>Change documented</b>
-            <dl>
-              <div><dt>Window</dt><dd data-featured-window>Measurement window documented</dd></div>
-              <div><dt>Evidence</dt><dd data-featured-status>Evidence documented</dd></div>
-            </dl>
-          </div>
-        </article>
-      </section>
-
-      <div class="cae-case-filters" aria-label="Filter case studies">
-        <label>Goal
-          <select data-filter="goal">
-            <option value="">All goals</option>
-            <option value="bookings">More bookings</option>
-            <option value="conversion">Better conversion</option>
-            <option value="retention">Retention</option>
-            <option value="reputation">Reputation</option>
-            <option value="multi-location">Multi-location</option>
-          </select>
-        </label>
-        <label>Practice type<select data-filter="industry"><option value="">All practice types</option></select></label>
-        <label>Market<select data-filter="country"><option value="">All markets</option></select></label>
-        <label>Scale<select data-filter="scale"><option value="">All practice scales</option></select></label>
-        <label>Evidence<select data-filter="evidenceLevel"><option value="">All evidence</option><option value="verified">Verified</option><option value="client_reported">Client-reported</option></select></label>
-        <label>Sort
-          <select data-filter="sort">
-            <option value="relevance">Most relevant</option>
-            <option value="title">Title A–Z</option>
-            <option value="country">Market A–Z</option>
-          </select>
-        </label>
-        <button class="cae-case-filter-clear" type="button" data-clear-filters disabled>Clear all</button>
-      </div>
-
-      <div class="cae-case-mobile-toolbar">
-        <div><strong data-result-count-mobile>Loading cases…</strong><span data-active-goal-mobile>All published cases</span></div>
-        <button class="cae-case-filter-trigger" type="button" data-open-filters>Filters · <span data-filter-count>0</span></button>
-      </div>
-
-      <div class="cae-active-filters" data-active-filters role="group" aria-label="Active filters" hidden></div>
-
-      <div class="cae-case-results-meta" aria-live="polite" aria-atomic="true">
-        <span data-result-count>Loading published cases…</span>
-        <span data-visible-range></span>
-      </div>
-
-      <div class="cae-case-list" data-case-list><noscript><p>JavaScript is required to load the published case library.</p></noscript></div>
-
-      <div class="cae-case-empty" data-empty-state hidden>
-        <h3 class="cae-h3">No published cases match these filters.</h3>
-        <p>Remove one or more filters to see the closest operating patterns.</p>
-        <button type="button" class="cae-btn cae-btn--outline" data-empty-clear>View all cases</button>
-      </div>
-
-      <button class="cae-case-load-more" type="button" data-load-more>Show more cases</button>
-
-      <aside class="cae-evidence-legend" aria-labelledby="evidence-legend-title">
-        <div><p class="cae-kicker">Evidence standard</p><h3 class="cae-h3" id="evidence-legend-title">The label changes what the result means.</h3></div>
-        <dl>
-          <div><dt>Verified</dt><dd>Checked against an available source.</dd></div>
-          <div><dt>Client-reported</dt><dd>Reported by the clinic and clearly identified as such.</dd></div>
-
-        </dl>
-      </aside>
-    </div>
-  </section>
-
-  <section class="cae-section cae-case-load-error" data-load-error hidden>
-    <div class="cae-wrap"><p class="cae-kicker">Case studies</p><h2 class="cae-h2">Published cases are temporarily unavailable.</h2><p class="cae-lead">Please try again shortly. No draft, test substitute or unapproved case is shown.</p></div>
-  </section>
-
-  <section class="cae-section cae-section--dark cae-case-cta" aria-labelledby="cases-cta-title">
-    <div class="cae-wrap cae-case-cta__grid">
-      <div><p class="cae-kicker">Your practice</p><h2 class="cae-h2" id="cases-cta-title">Find the first constraint.</h2><p class="cae-lead">Start with a free, practice-specific Growth Score before deciding what to fund.</p></div>
-      <a class="cae-btn cae-btn--outline-inv" href="/growth-score/">Get your free Growth Score</a>
-    </div>
-  </section>
+  <section class="cae-section cae-section--dark cae-case-cta" aria-labelledby="cases-cta-title"><div class="cae-wrap cae-case-cta__grid"><div><p class="cae-kicker">Your practice</p><h2 class="cae-h2" id="cases-cta-title">Where should your practice start?</h2><p class="cae-lead">Get a free Growth Score to identify the first priority for your practice.</p></div><a class="cae-btn cae-btn--outline-inv" href="/growth-score/">Get your free Growth Score</a></div></section>
 </main>
-
-<dialog class="cae-case-filter-dialog" data-filter-dialog aria-labelledby="filter-dialog-title">
-  <form method="dialog" data-mobile-filter-form>
-    <div class="cae-case-filter-dialog__head">
-      <div><p class="cae-kicker">Case studies</p><h2 class="cae-h3" id="filter-dialog-title">Filter cases</h2></div>
-      <button type="button" class="cae-case-filter-dialog__close" data-close-filters aria-label="Close filters">Close</button>
-    </div>
-    <div class="cae-case-filter-dialog__body">
-      <label>Goal
-        <select data-mobile-filter="goal">
-          <option value="">All goals</option>
-          <option value="bookings">More bookings</option>
-          <option value="conversion">Better conversion</option>
-          <option value="retention">Retention</option>
-          <option value="reputation">Reputation</option>
-          <option value="multi-location">Multi-location</option>
-        </select>
-      </label>
-      <label>Practice type<select data-mobile-filter="industry"><option value="">All practice types</option></select></label>
-      <label>Market<select data-mobile-filter="country"><option value="">All markets</option></select></label>
-      <label>Scale<select data-mobile-filter="scale"><option value="">All practice scales</option></select></label>
-      <label>Evidence<select data-mobile-filter="evidenceLevel"><option value="">All evidence</option><option value="verified">Verified</option><option value="client_reported">Client-reported</option></select></label>
-    </div>
-    <div class="cae-case-filter-dialog__actions">
-      <button type="button" class="cae-btn cae-btn--ghost" data-mobile-clear>Clear all</button>
-      <button type="submit" class="cae-btn cae-btn--primary">Show <span data-dialog-result-count>0</span> cases</button>
-    </div>
-  </form>
-</dialog>
-
+<div data-cae-point-of-contact></div>
 <div id="cae-footer-slot"></div>
 <script src="/assets/js/caesthetic-pricing.generated.js"></script>
 <script src="/assets/js/caesthetic-config.js"></script>
 <script src="/assets/js/caesthetic.js" defer></script>
 <script src="/assets/js/media-registry.js?v=case-library-wave2-20260905" defer></script>
-<script src="/assets/js/case-studies.js?v=case-library-wave2-20260905" defer></script>
+<script src="/assets/js/case-study-content.js?v=text-cases-20260906" defer></script>
+<script src="/assets/js/case-studies.js?v=text-cases-20260906" defer></script>
 </body>
 </html>

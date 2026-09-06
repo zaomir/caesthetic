@@ -3,7 +3,7 @@ owner: CAESTHETIC
 status: active
 version: 3.5
 created: 2026-08-30
-updated: 2026-09-04
+updated: 2026-09-06
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
 project_master: docs/ssot/CAESTHETIC.md
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -251,6 +251,10 @@ After alignment approval, collect dated, reproducible evidence across exactly:
 4. Reputation / Reviews;
 5. Cross-Surface Consistency as a separate, unweighted layer;
 6. Competitive Decision Analysis as a cross-cutting, unscored decision layer.
+
+Mandatory platform pass (`platform-access-pass/1.0.0`, owner decision 2026-09-06): inspect Instagram, Facebook, TikTok, YouTube and Google Maps / GBP for every new or explicitly resumed research scope. Follow `docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md` §5.1 for ownership discovery, source types and per-platform coverage. Prefer available Aside, or another available browser with a user-authorized research session. Ordinary sign-in to read public material is allowed; it does not grant access to private audit evidence or require clinic/admin credentials.
+
+If sign-in is required to continue, immediately remind the user to sign in directly in the named browser with the exact source URL and blocked material types. Never request passwords or 2FA codes in chat. Continue independent accessible research, retain the pending source, then retry it after sign-in and update coverage. A login prompt alone must not be labelled private content, absent evidence or completed research. Public YouTube/Maps sources need no login when already readable. Keep all five platform records even when discovery or access fails; retain actual provenance and sample limits. This is an in-task reminder, not a scheduled notification or permission to send messages/react/publish.
 
 Every candidate evidence item retains:
 
