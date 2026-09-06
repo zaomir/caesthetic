@@ -1071,6 +1071,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-06T18:07:50Z",
+  "updated_at_utc": "2026-09-06T18:11:23Z",
   "version": 1
 }
