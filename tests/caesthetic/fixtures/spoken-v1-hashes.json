@@ -8,14 +8,20 @@
     "site-caesthetic/assets/css/tokens.css": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543",
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
-    "site-caesthetic/assets/js/caesthetic.js": "02533fddc0016f65a68b372c23e01ad906600eaa03e327c6f3ad4ee9ec8a866b",
+    "site-caesthetic/assets/js/caesthetic.js": "19430a59f2d688e14e8c56c5880c846040b6fed206dbbb28ba89a4043442be3d",
     "site-caesthetic/assets/js/caesthetic-config.js": "0a471dbfc5adb0af386109d2a38e88d44f6238af725b133f421fd26583810c7e",
     "site-caesthetic/assets/js/growth-cockpit.js": "39176e08bde8fabc6e14302c262305acc68a9c15548e52d4a724cc88a39412e9",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
   "shared_runtime_update": {
-    "date": "2026-09-06",
-    "reason": "#1536: authorized shared public-request popup success and focus/reset repairs. Report documents, data and locked images preserved."
+    "date": "2026-09-07",
+    "reason": "Owner-selected v3 question trigger may omit its redundant introduction. Shared modal supports explicit data-cae-request-omit-intro; all existing triggers preserve their copy. Parent/v2 documents, data, styles and images remain unchanged."
   },
-  "design_migration": "SSOT v3 implementation: initial CSS, accessible tables, shared UI readability; data and immutable artwork unchanged."
+  "design_migration": "SSOT v3 implementation: initial CSS, accessible tables, shared UI readability; data and immutable artwork unchanged.",
+  "shared_runtime_history": [
+    {
+      "date": "2026-09-06",
+      "reason": "#1536: authorized shared public-request popup success and focus/reset repairs. Report documents, data and locked images preserved."
+    }
+  ]
 }

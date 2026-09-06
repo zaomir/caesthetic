@@ -779,7 +779,10 @@ This is an existing-product presentation change, not an additional audit or SKU.
 
 For the scoped Spoken view, use this sequence: welcome → question navigation →
 open Connect4 explanation with the existing system image pair → closed Contents →
-the existing nine semantic sections. Move the existing Stop pair to the start of
+the existing nine semantic sections. Within Connect4, the heading and introductory
+paragraph precede the unchanged system picture and caption; the four numbered
+surface descriptions follow it (owner placement correction, 2026-09-07).
+Move the existing Stop pair to the start of
 `focus-gaps`, immediately after its heading. Keep four responsive picture elements,
 eight immutable PNGs, the two unchanged Check sections and existing access rules.
 Public name remains Connect4; 4444 is its internal shorthand, not another product.
@@ -826,3 +829,37 @@ claims that a team or freelancer cannot perform them. A $2,500 Sprint still need
 the material-value gate and a feasible Primary + two Supporting selection. The
 $500 Check remains the conditional post-enquiry diagnostic, never an evidence
 unlock. Minor DIY items remain the final disclosure.
+
+### 2026-09-07 — Scoped client-view cleanup and website style
+
+Explicit owner corrections supersede the earlier Spoken v3 presentation rules:
+remove the “How Connect4 works” link, every “Sources for this answer” disclosure,
+and the entire `evidence-and-competitors` and `scores-and-methodology` sections.
+`owner-decision-report/3.2.0` therefore renders seven consecutive client sections;
+remove those two Contents entries as well. The original nine-section diagnostic
+model, scored history, criteria and source register remain unchanged internally.
+Do not leave empty or hidden versions of removed sections, or orphan hash links.
+Compact dated provenance links beside answers now open the original public URLs.
+
+Apply the approved website colors, editorial type and controls as specified by
+Design System's September 7 scoped profile; the two Check sections keep their
+exact separate style and copy. Reuse the locked fix-the-leaks landscape/portrait
+PNG pair below the paragraph in `do-not-fund`, before the recheck conditions.
+Keep the existing image-first urgent plan. The owner subsequently removes the
+continuation disclosure and its engagement picture: four responsive figures
+remain, reusing the system, journey and Stop pairs. All eight source PNGs remain
+unchanged; no additional or altered media.
+
+Connect4 introduction order remains heading → explanatory paragraph → system
+figure and caption → four numbered surfaces. Verify both locales at 320–1440px,
+visible artwork placement, shared computed style, no-JS content, seven Contents
+targets, usable direct provenance, dialogs/share and exact production bytes.
+This presentation authorization does not change research or paid selection.
+
+Subsequent owner corrections remove the conclusion's urgent-plan jump and
+limitations footer, the booking-explanation link, route-work checklist,
+continuation disclosure and complete small-team-fixes disclosure. Their underlying
+evidence remains in the research packet. Keep the existing limitations alongside
+the four answers and the explicit unassessed enquiry boundary. Use the canonical
+website Sprint price-block and exact Check500 style. Omit the question-dialog
+Name/email/page-context introductory paragraph for these report triggers.

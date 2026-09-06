@@ -1,9 +1,9 @@
 import { check500USCopy } from "./check500-copy.mjs";
 import { SURFACES, validateConsistency, validateResearchPublication, assertReviewed, digest, safeURL } from "./consistency-contract.mjs";
 import { validateChoiceQuestions } from "./choice-questions-contract.mjs";
-export const OWNER_V3 = "owner-decision-report/3.1.0";
+export const OWNER_V3 = "owner-decision-report/3.2.0";
 export const SPOKEN_CASE = "spoken-medspa-snellville-2026";
-export const V3_SECTION_IDS = Object.freeze(["gap-map", "focus-gaps", "sprint-fit", "repair-paths", "do-not-fund", "gap-inventory", "evidence-and-competitors", "scores-and-methodology", "next-step"]);
+export const V3_SECTION_IDS = Object.freeze(["gap-map", "focus-gaps", "sprint-fit", "repair-paths", "do-not-fund", "gap-inventory", "next-step"]);
 export function ownerV3Model(report, score) {
   const ctx = report?.presentation?.v3;
   if (report?.audit?.project_id !== SPOKEN_CASE || report.reportState !== "approved_report" || !ctx || ctx.release.layout_contract !== OWNER_V3) throw new Error("V3_INVALID: approved Spoken case and versioned inputs required");
@@ -32,7 +32,7 @@ export function ownerV3Model(report, score) {
     const a = ctx.release.assets?.[role]?.[format];
     if (!a || !/^\/assets\/connect4\/(owner|engagement)-20260905\/[^/]+\.png$/.test(a.src) || !/^[a-f0-9]{64}$/.test(a.sha256) || !Number.isInteger(a.width) || !Number.isInteger(a.height)) throw new Error(`V3_INVALID: approved asset ${role}/${format}`);
   }
-  if (ctx.copy.section_titles?.length !== 9 || ctx.copy.surface_names?.length !== 4) throw new Error("V3_INVALID: copy structure");
+  if (ctx.copy.section_titles?.length !== V3_SECTION_IDS.length || ctx.copy.surface_names?.length !== 4) throw new Error("V3_INVALID: copy structure");
   // Drafts stay masked unless the scoped, frozen source-observation package validates.
   const queries = ctx.matrix.queries.map(q => ({ ...q, cells: Object.fromEntries(SURFACES.map(surface => [surface, preview && !research ? { status: "insufficient_evidence", observations: [] } : q.cells[surface]])) }));
   const choices = (research || !preview) ? validateChoiceQuestions(ctx.choices, { release: ctx.release, registry, metrics, inventory }) : [];

@@ -4,7 +4,7 @@ status: active
 authority: canonical
 version: 3.1.0
 created: 2026-09-05
-updated: 2026-09-05
+updated: 2026-09-07
 scope: CAESTHETIC brand visual system, public website, reports and derived materials
 supersedes: site-caesthetic/DESIGN.md visual rules v2.1
 baseline_ref: 5dad5f00ed2a1105a0542ff42841bdd612ec4374
@@ -300,7 +300,7 @@ The stylesheet is registered for both pages; no global tokens, protected media
 or report profiles change. Rationale, module mapping and scoped QA:
 `docs/caesthetic/PUBLIC_SERVICE_EXAMPLES.md`.
 
-### Scoped owner-report v3 profile — 2026-09-05
+### Historical owner-report v3 profile — 2026-09-05
 
 `owner-decision-report/3.0.0` is the isolated Spoken RU/EN preview/release profile;
 its current stage is declared separately from layout version. Retain the warm
@@ -322,3 +322,33 @@ Register both child routes, readable states and private browser acceptance.
 The working preview is not a certification of new query evidence or commercial
 impact. Legacy routes remain regression-tested; input/review packages and raw
 browser captures are excluded from the public satellite mirror.
+
+### Spoken v3 shared-site presentation — 2026-09-07
+
+The owner's explicit request to match the approved CAESTHETIC website supersedes
+the warm 14/18/32px v3 profile for the two Spoken `/v3/` routes only.
+`owner-decision-report/3.2.0` uses the shared cool `bg/bg-2`, charcoal `text`,
+`text-strong`, border and almost-black primary-button tokens. Use the shared
+page-hero H1, editorial H2/H3 scale and 1180px container, with 96/64px section
+rhythm. Long-form body remains 18px; metadata 14px and action text 16px.
+
+The four existing `--v3-*` layout aliases now resolve shared semantic tokens.
+Only `.v3-check500` retains its exact ivory/navy aliases, burgundy CTA and existing
+18px action typography under `check500-style/1.0.0`. This migration does not
+recolor approved raster art or alter parent/v2 styles.
+
+Owner-requested reading cleanup removes the two research/method sections and
+per-answer source disclosures from this client view. Keep compact dated public
+links beside the answers and retain all underlying evidence and validation.
+The fix-the-leaks pair also appears below the expense-deferral paragraph; its
+earlier urgent-plan placement remains. Four picture elements reuse the approved system, journey and Stop pairs.
+The engagement picture is omitted with the removed continuation block; all eight
+original PNGs remain immutable in the asset register. The Connect4 system figure remains after its introduction.
+
+The Sprint offer reuses the website's `cae-price-block` from `growth.css`: dark
+field, light editorial headings, the published-price typographic role and
+responsive token padding. Its one primary button retains a visible light border
+inside the dark field. Preserve copy, inquiry behavior and the two adjacent
+Check sections. The report question trigger omits the redundant introductory
+paragraph through the shared modal's explicit `data-cae-request-omit-intro` flag;
+other triggers retain their existing introductory copy.

@@ -23,7 +23,7 @@
     "redirect",
     "check500",
     "connect4",
-    "owner-decision-report/3.1.0"
+    "owner-decision-report/3.2.0"
   ],
   "pages": [
     {
@@ -1162,21 +1162,35 @@
     {
       "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/index.html",
       "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/",
-      "profile": "owner-decision-report/3.1.0",
+      "profile": "owner-decision-report/3.2.0",
       "viewports": [
         320,
         390,
         1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css",
+        "/assets/css/point-of-contact.css",
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/growth-score-owner-v3.css"
       ]
     },
     {
       "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/index.html",
       "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/",
-      "profile": "owner-decision-report/3.1.0",
+      "profile": "owner-decision-report/3.2.0",
       "viewports": [
         320,
         390,
         1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css",
+        "/assets/css/point-of-contact.css",
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/growth-score-owner-v3.css"
       ]
     }
   ],
@@ -14920,44 +14934,64 @@
       "count": 1
     },
     {
-      "id": "eb1f0d68843f26d9308b813b601d78a82fc129c3756b844225b075ae644c5fbb",
+      "id": "816b0b42fd2f452f870e8d6bd4b6d5d6a4ea1a17ca210ccbd41c8105e4ec9b2e",
       "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
       "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-paper: var(--cae-bg)",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Owner-requested v3 aliases of shared site tokens; Design System September 7 profile."
+    },
+    {
+      "id": "a3ee68c15971cd46ea69e048328c325a70cfbe49f3ed52fab4261ddfe240629d",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-soft: var(--cae-bg-2)",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Owner-requested v3 aliases of shared site tokens; Design System September 7 profile."
+    },
+    {
+      "id": "7d1d56b9001dd298dcd27c8694399e18673aad43ff38bbf0a54615c5026edd59",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-ink: var(--cae-text)",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Owner-requested v3 aliases of shared site tokens; Design System September 7 profile."
+    },
+    {
+      "id": "1c6c66845f38ed24e565f18d5c538d283d3c1792b42bc9662f1c5ff29bd3c08e",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".cae-score-v3",
+      "rule": "scoped-token",
+      "value": "--v3-line: var(--cae-border)",
+      "count": 1,
+      "owner": "CAESTHETIC",
+      "reason": "Owner-requested v3 aliases of shared site tokens; Design System September 7 profile."
+    },
+    {
+      "id": "804dc1a19bd518221fe34aa22fcbfc257df3596d3a63c804d7bf6a67702e4dab",
+      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
+      "selector": ".v3-check500",
       "rule": "scoped-token",
       "value": "--v3-paper: #F0EDE6",
       "count": 1,
       "owner": "CAESTHETIC",
-      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
+      "reason": "Exact Check500 ivory/navy offer contract; Design System September 7 v3 scope."
     },
     {
-      "id": "68cca4989701b6f85311c44af83420a4db3d8b85744ecfe893eebe194f96ecff",
+      "id": "73755f82847b3c5ed19bdd4eeb31df708ab6620606da4743211a40104a442d15",
       "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
-      "selector": ".cae-score-v3",
-      "rule": "scoped-token",
-      "value": "--v3-soft: #E7E2D9",
-      "count": 1,
-      "owner": "CAESTHETIC",
-      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
-    },
-    {
-      "id": "21db7199283e1219477dbd80fdb08ed1280223cc54759b4b5f89a0c27e807b01",
-      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
-      "selector": ".cae-score-v3",
+      "selector": ".v3-check500",
       "rule": "scoped-token",
       "value": "--v3-ink: #0B2438",
       "count": 1,
       "owner": "CAESTHETIC",
-      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
-    },
-    {
-      "id": "48b87103cbdc8d61c8b55501186f7fbc5d364b0a1f5d296f62f7c86968d83394",
-      "file": "site-caesthetic/assets/css/growth-score-owner-v3.css",
-      "selector": ".cae-score-v3",
-      "rule": "scoped-token",
-      "value": "--v3-line: #C9C3B8",
-      "count": 1,
-      "owner": "CAESTHETIC",
-      "reason": "Explicit v3 aliases of the existing warm owner-report palette; Design System scoped v3 profile."
+      "reason": "Exact Check500 ivory/navy offer contract; Design System September 7 v3 scope."
     }
   ]
 }

@@ -5,7 +5,7 @@ import http from 'node:http';
 import assert from 'node:assert/strict';
 import { chromium, firefox, webkit } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-import { ROOT, V3_PARENTS, loadV3Package } from './build-spoken-medspa-v3.mjs';
+import { ROOT, V3_PARENTS } from './build-spoken-medspa-v3.mjs';
 import { digest } from './consistency-contract.mjs';
 import { CHOICE_IDS } from './choice-questions-contract.mjs';
 import { V3_SECTION_IDS } from './growth-score-owner-v3-model.mjs';
@@ -56,24 +56,22 @@ try {
   await page.evaluate(()=>document.fonts.ready);
   assert.deepEqual(await page.locator('[data-choice-question]').evaluateAll(a=>a.map(e=>e.dataset.choiceQuestion)),CHOICE_IDS);
   assert.equal(await page.locator('[data-choice-part]:visible').count(),24);
-  assert.deepEqual(await page.locator('[data-choice-question] > [id^="choice-title-"]').evaluateAll(a=>a.map(e=>[e.tagName,getComputedStyle(e).fontSize])),CHOICE_IDS.map(()=>['H2','32px']));
+  assert.deepEqual(await page.locator('[data-choice-question] > [id^="choice-title-"]').evaluateAll(a=>a.map(e=>e.tagName)),CHOICE_IDS.map(()=>'H2'));
   assert.equal(await page.locator('[data-choice-part] > h3').count(),24);
-  assert.ok(await page.locator('[data-choice-part] > h3').evaluateAll(a=>a.every(e=>getComputedStyle(e).fontSize==='18px')));
   assert.ok(await page.locator('#focus-gaps').evaluate(e=>e.children[1].matches('figure[data-v3-media="stop"]')));
   assert.equal(await page.locator('#method-intro [data-surface]').count(),4);
   assert.equal(await page.locator('#method-intro picture:visible').count(),1);
   assert.equal(await page.locator('[data-connect4-conclusion]').count(),1);
   assert.equal(await page.locator('[data-gap-role]').count(),0);
   assert.equal(await page.locator('[data-commercial-selection]').getAttribute('data-commercial-selection'),'not_supported');
-  assert.ok(await page.locator('[data-team-fixes]').evaluate(e => e === e.parentElement.lastElementChild));
-  assert.equal(await page.locator('[data-choice-sources][open]').count(),0);
-  await page.locator('[data-choice-sources="offer"] summary').focus();await page.keyboard.press('Enter');
-  assert.equal(await page.locator('[data-choice-sources="offer"]').getAttribute('open'),'');
-  assert.equal(await page.locator('[data-choice-sources="offer"] [data-criterion-source]').count(),2);
-  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('[data-team-fixes], [data-v3-media="engagement"], .v3-urgent-steps, #connect4-conclusion a').count(),0);
+  assert.equal(await page.locator('[data-choice-sources], #evidence-and-competitors, #scores-and-methodology, a[href="/connect4/"]').count(),0);
+  assert.equal(await page.locator('picture').count(),4);
+  assert.equal(await page.locator('[data-expense-illustration] picture').count(),1);
   const reject=page.getByRole('button',{name:locale==='ru'?'Отказаться':'Reject analytics',exact:true});if(await reject.isVisible())await reject.click();
   for(const width of [320,375,390,430,768,1024,1440]){
    await page.setViewportSize({width,height:900});
+   await page.waitForFunction(()=>Math.abs(parseFloat(getComputedStyle(document.querySelector('[data-choice-question] > h2')).fontSize)-Math.min(60.8,Math.max(32,innerWidth*.04)))<1,{},{timeout:5000});
    await page.evaluate(async()=>{const imgs=[...document.images];imgs.forEach(i=>i.loading='eager');await new Promise(requestAnimationFrame);await Promise.allSettled(imgs.map(i=>i.decode()));});
    await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0));
    const measured=await page.evaluate(()=>{
@@ -86,15 +84,32 @@ try {
     return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overflow:outside.map(e=>e.outerHTML.slice(0,140)),sizeDetails:ordinary.filter(e=>getComputedStyle(e).fontSize==='16px').map(e=>e.outerHTML.slice(0,180)),sizes:[...new Set(ordinary.map(e=>getComputedStyle(e).fontSize))],families:[...new Set(ordinary.map(e=>getComputedStyle(e).fontFamily))],signature:getComputedStyle(document.querySelector('.v3-signature')).fontStyle,metadata:role(meta),address:role(address),images:[...document.images].map(i=>({src:i.currentSrc,loaded:i.complete&&i.naturalWidth>0})),buttons:[...document.querySelectorAll('main button, main .cae-btn')].filter(visible).map(e=>({height:e.getBoundingClientRect().height,width:e.getBoundingClientRect().width}))};
    });
    assert.deepEqual(measured.overflow,[],`${locale} ${width}`);assert.ok(measured.scrollWidth<=width,`${locale} body overflow ${width}`);
-   assert.ok(measured.sizes.length<=3,`Type roles ${measured.sizes}: ${JSON.stringify(measured.sizeDetails)}`);assert.ok(measured.families.length<=2,`Font roles ${measured.families}`);
+   assert.ok(measured.sizes.every(size=>parseFloat(size)>=14),'essential text floor');assert.ok(measured.families.length<=2,`Font roles ${measured.families}`);
    assert.equal(measured.signature,'italic');assert.deepEqual(measured.metadata,measured.address);
    assert.ok(measured.images.every(i=>i.loaded));assert.ok(measured.buttons.every(b=>b.height>=44&&b.width>=44));
    const sys=measured.images.find(i=>i.src.includes('four-surfaces'));
    assert.ok(sys.src.includes(width<=767?'portrait':'landscape'),'approved art direction');
+   measured.connect4_order=await page.locator('#method-intro').evaluate(section=>{
+    const elements=['#method-title',':scope > .v3-lead',':scope > figure[data-v3-media="system"]',':scope > .v3-surface-list'].map(selector=>section.querySelector(selector));
+    const bounds=elements.map(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom};});
+    return {reading_order:elements.every((e,i)=>!i||Boolean(elements[i-1].compareDocumentPosition(e)&Node.DOCUMENT_POSITION_FOLLOWING)),visual_order:bounds.every((r,i)=>!i||bounds[i-1].bottom<=r.top),bounds};
+   });
+   assert.ok(measured.connect4_order.reading_order&&measured.connect4_order.visual_order,`${locale} ${width}: Connect4 introduction → figure → surfaces`);
+   measured.design=await page.evaluate(()=>{
+    const style=selector=>{const s=getComputedStyle(document.querySelector(selector));return {color:s.color,background:s.backgroundColor,size:parseFloat(s.fontSize),family:s.fontFamily,weight:s.fontWeight};};
+    return {viewport:document.documentElement.clientWidth,body:style('body'),h2:style('[data-choice-question] > h2'),h3:style('[data-choice-part] > h3'),primary:style('[data-cae-sprint-inquiry]'),check:style('.v3-check500'),checkCTA:style('.v3-check500 .v3-primary')};
+   });
+   assert.equal(measured.design.body.background,'rgb(245, 247, 248)');assert.equal(measured.design.body.color,'rgb(20, 25, 28)');
+   assert.ok(Math.abs(measured.design.h2.size-Math.min(60.8,Math.max(32,measured.design.viewport*.04)))<.1,JSON.stringify({width,design:measured.design}));assert.equal(measured.design.h2.weight,'300');
+   assert.ok(Math.abs(measured.design.h3.size-Math.min(28,Math.max(21.6,measured.design.viewport*.022)))<.1,JSON.stringify({width,design:measured.design}));assert.ok(measured.design.h3.family.includes('Source Serif 4'));
+   assert.equal(measured.design.primary.background,'rgb(11, 16, 19)');assert.equal(measured.design.primary.size,16);
+   assert.equal(measured.design.check.background,'rgb(240, 237, 230)');assert.equal(measured.design.checkCTA.background,'rgb(123, 36, 75)');
+   measured.expense_illustration=await page.locator('[data-expense-illustration]').evaluate(e=>({after_text:e.previousElementSibling.tagName==='P'&&e.previousElementSibling.getBoundingClientRect().bottom<=e.getBoundingClientRect().top,src:e.querySelector('img').currentSrc,loaded:e.querySelector('img').naturalWidth>0}));
+   assert.ok(measured.expense_illustration.after_text&&measured.expense_illustration.loaded);assert.ok(measured.expense_illustration.src.includes(width<=767?'portrait':'landscape'));
    result.viewports.push({locale,...measured});
    if([390,1440].includes(width)){
     await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,`${locale}-${width}-top.png`)});
-    for(const id of ['report-intro','method-intro','choice-offer','choice-reviews','gap-map','focus-gaps'])await page.locator('#'+id).screenshot({path:path.join(out,`${locale}-${width}-${id}.png`),style:'.v3-bar { visibility: hidden; }'});
+    for(const id of ['report-intro','method-intro','choice-offer','choice-reviews','gap-map','focus-gaps','do-not-fund','next-step'])await page.locator('#'+id).screenshot({path:path.join(out,`${locale}-${width}-${id}.png`),style:'.v3-bar { visibility: hidden; }'});
     await page.locator('[data-cae-check-placement="mid"]').screenshot({path:path.join(out,`${locale}-${width}-check.png`),style:'.v3-bar { visibility: hidden; }'});
     const destinations=[...CHOICE_IDS.map(id=>'#choice-'+id),'#connect4-conclusion'];
     assert.deepEqual(await page.locator('[data-choice-navigation] a').evaluateAll(a=>a.map(e=>e.hash)),destinations);
@@ -115,29 +130,16 @@ try {
    }
   }
   await page.setViewportSize({width:390,height:844});
-  // Source observations remain usable after opening the complete research package.
-  await page.evaluate(()=>document.querySelectorAll('#gap-map details, #consistency-matrix details, #source-observations details, #source-observations').forEach(e=>e.open=true));
-  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'expanded source observations overflow');
-  assert.equal(await page.locator('[data-source-observation]').count(),loadV3Package().registry.observations.length);
   if(locale==='ru')assert.deepEqual(await page.evaluate(()=>{
    const bad=[],walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
    while(walker.nextNode()){const n=walker.currentNode;if(/соответстви[еяюий]|соответствием/iu.test(n.textContent)&&!n.parentElement.closest('script,style')&&getComputedStyle(n.parentElement).fontStyle!=='italic')bad.push(n.textContent);}
    return bad;
   }),[],'all Russian keyword inflections use italic');
-  await page.locator('#query-K01 a[href^="#observation-"]').first().click();
-  await page.waitForFunction(()=>document.getElementById(decodeURIComponent(location.hash.slice(1)))?.open);
-  await page.locator('#source-observations').screenshot({path:path.join(out,`${locale}-390-source-observations.png`),style:'.v3-bar { visibility: hidden; }'});
-  await page.evaluate(()=>document.querySelectorAll('#gap-map details, #consistency-matrix details, #source-observations details, #source-observations').forEach(e=>e.open=false));
-  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
-  result.actions.push({locale,kind:'source-provenance-and-keyword',status:'PASS'});
-  // Hash navigation opens nested disclosures and leaves target below the sticky bar.
-  await page.locator('#choice-practitioner .v3-choice-provenance a').first().click();
-  assert.equal(await page.locator('#source-observations').getAttribute('open'),'');
-  await page.waitForFunction(()=>document.getElementById(decodeURIComponent(location.hash.slice(1))).getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight,{},{timeout:5000});
-  await page.evaluate(()=>{location.hash='query-K10';});await page.waitForFunction(()=>document.querySelector('#remaining-queries').open&&document.querySelector('#query-K10').open);
-  await page.evaluate(()=>{document.querySelectorAll('.v3-query-list details').forEach(e=>e.open=true);});
-  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))));
-  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  const sources=await page.locator('.v3-choice-provenance a').evaluateAll(links=>links.map(a=>a.href));
+  assert.ok(sources.length>0&&sources.every(href=>href.startsWith('https://')),'inline provenance resolves directly to public sources');
+  result.actions.push({locale,kind:'compact-provenance-and-keyword',status:'PASS'});
+  // Finish hash navigation before testing independent manual scrolling.
+  await page.evaluate(()=>history.replaceState(null,'',location.pathname));
   // Every semantic section, including tall content and the final document edge.
   for(const id of V3_SECTION_IDS){
    await page.evaluate(id=>{const el=document.getElementById(id);scrollTo(0,el.getBoundingClientRect().top+scrollY-document.querySelector('.v3-bar').offsetHeight-24);},id);
@@ -148,6 +150,7 @@ try {
    const trigger=page.locator(selector).first();await trigger.click();
    const dialog=page.locator('dialog[open]');await dialog.waitFor({state:'visible',timeout:5000});assert.equal(await dialog.count(),1);
    assert.deepEqual(await dialog.locator('input').evaluateAll(a=>a.map(e=>e.name).sort()),['email','name']);
+   if(kind==='question'){assert.equal(await dialog.locator('[data-cae-request-intro]').textContent(),'');assert.equal(await dialog.locator('[data-cae-request-intro]').isVisible(),false);}
    const box=await dialog.boundingBox();assert.ok(box.x>=0&&box.x+box.width<=390&&box.y>=0&&box.y+box.height<=844,'dialog fits');
    await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden',timeout:5000});
    await page.waitForFunction(selector=>document.querySelector(selector)===document.activeElement,selector,{timeout:5000});result.actions.push({locale,kind,status:'PASS'});
@@ -164,7 +167,7 @@ try {
   const accessibility=await new AxeBuilder({page}).include('main').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(accessibility.violations.map(v=>({id:v.id,nodes:v.nodes.length})),[]);result.actions.push({locale,kind:'axe-main',status:'PASS'});
   await context.close();
-  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),9);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('[data-choice-part]:visible').count(),24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
+  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('[data-choice-part]:visible').count(),24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
 }catch(error){

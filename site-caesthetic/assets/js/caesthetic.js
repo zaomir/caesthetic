@@ -373,12 +373,12 @@
       requestKind = meta.kind;
       kicker.textContent = meta.kicker;
       title.textContent = meta.title;
-      intro.textContent = meta.intro;
+      intro.textContent = trigger && trigger.hasAttribute("data-cae-request-omit-intro") ? "" : meta.intro;
       message.textContent = "";
       check.setAttribute("hidden", "");
       status.classList.remove("is-success");
       form.hidden = false;
-      intro.hidden = false;
+      intro.hidden = !intro.textContent;
       kicker.hidden = false;
       form.reset();
       var modalSubmit = qs('button[type="submit"]', form);

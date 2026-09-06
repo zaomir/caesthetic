@@ -45,22 +45,24 @@ for(const locale of Object.keys(V3_PARENTS)) {
   assert.equal(count(html,/data-inventory-gap=/g),0);assert.equal(count(html,/data-surface=/g),4);
   assert.equal(count(html,/data-cae-check-inquiry/g),2);assert.equal(count(html,/data-cae-sprint-inquiry/g),1);
   assert.equal(count(html,/data-cae-question /g),1);assert.equal(count(html,/data-v3-share=/g),2);
-  assert.equal(count(html,/data-v3-query=/g),10);
+  assert.equal(count(html,/data-v3-query=/g),0);
   assert.equal(count(html,/data-connect4-conclusion/g),1);
   assert.ok(html.indexOf('id="choice-competitors"')<html.indexOf('id="connect4-conclusion"'));
-  assert.ok(html.indexOf('data-team-fixes')>html.indexOf('data-v3-share="end"'));
+  assert.doesNotMatch(html,/data-team-fixes|Продолжение — отдельное решение|Небольшие правки для команды|Порядок работы над выбранным маршрутом/);
   assert.match(html,/data-commercial-selection="not_supported"/);
   assert.doesNotMatch(html,/id="priority-SMS|id="inventory-SMS|низкочастотн|low-frequency|три главные помехи|Below are the three main barriers/);
-  assert.ok(html.includes('observation-O-BOOKING-CONSULT'));
+  assert.doesNotMatch(html,/What public booking showed|Что показала публичная форма записи/);
+  assert.doesNotMatch(html,/Источники этого ответа|Sources for this answer|id="evidence-and-competitors"|id="scores-and-methodology"|href="\/connect4\/"/);
+  assert.equal(count(html,/data-expense-illustration/g),1);
 
   assert.ok(html.indexOf('id="report-intro"')<html.indexOf('id="method-intro"'));
   assert.ok(html.indexOf('id="gap-map"')<html.indexOf('id="choice-offer"'));
   assert.ok(html.indexOf('id="method-intro"')<html.indexOf('id="report-navigation"'));
   assert.ok(html.indexOf('id="method-intro"')<html.indexOf('id="focus-gaps"'));
-  assert.ok(html.indexOf('id="evidence-and-competitors"')<html.indexOf('id="consistency-matrix"'));
+  assert.doesNotMatch(html,/id="consistency-matrix"/);
   assert.deepEqual([...html.matchAll(/<article[^>]*data-choice-question="([^"]+)"/g)].map(m=>m[1]),CHOICE_IDS);
   assert.equal(count(html,/data-choice-part=/g),24);
-  assert.equal(count(html,/data-choice-sources=/g),4);
+  assert.equal(count(html,/data-choice-sources=/g),0);
   assert.doesNotMatch(html,/<details[^>]*data-choice-question/);
   assert.ok(html.indexOf('data-cae-sprint-inquiry')>html.indexOf('id="next-step"'));
   assert.match(html,/data-v3-preview-banner/);assert.match(html,/data-release-stage="review_preview"/);
@@ -74,7 +76,7 @@ for(const locale of Object.keys(V3_PARENTS)) {
  test(`${locale}: exact approved picture pairs only, no private packet in public HTML`,()=>{
   const html=renderGrowthReport(buildV3(locale));
   assert.equal(count(html,/<picture>/g),4);
-  for(const pair of Object.values(p.release.assets)) for(const asset of Object.values(pair)) assert.ok(html.includes(asset.src));
+  for(const [role,pair] of Object.entries(p.release.assets)) for(const asset of Object.values(pair)) assert.equal(html.includes(asset.src),role!=="engagement");
   const allowed=new Set(Object.values(p.release.assets).flatMap(pair=>Object.values(pair).map(a=>a.src)));
   for(const image of html.matchAll(/<(?:img|source)\b[^>]*\b(?:src|srcset)="([^"]+)"/g)) assert.ok(allowed.has(image[1]),`Unapproved image ${image[1]}`);
   assert.doesNotMatch(html,/report\.json|approved-report|source-register\.json|client_release_approval|SYNTHETIC TEST REVIEWER|selected_by|reviewer_status|content_sha256/);
@@ -119,18 +121,19 @@ test('preview masks all draft findings even when draft observations are added',(
  const r=buildV3('en-US'),f=withObservedFixture();r.presentation.v3.matrix=f.matrix;r.presentation.v3.registry=f.registry;
  delete r.presentation.v3.release.presentation_mode;
  const html=renderGrowthReport(r);assert.doesNotMatch(html,/Test-only example/);
- const matrix=html.slice(html.indexOf('id="consistency-matrix"'),html.indexOf('id="scores-and-methodology"'));
- assert.doesNotMatch(matrix,/data-v3-state="exact_match"/);
+ const model=ownerV3Model(r,scoreGrowthReport(r));
+ assert.ok(model.queries.every(q=>Object.values(q.cells).every(c=>c.status==='insufficient_evidence')));
 });
-test('frozen research publishes all forty bounded cells with actual source provenance',()=>{
+test('compact view retains forty source-bound cells in the validated research model',()=>{
  assert.equal(validateResearchPublication(p.release,p.matrix,p.registry),true);
  const html=renderGrowthReport(buildV3('ru'));
- assert.equal(count(html,/data-source-observation=/g),p.registry.observations.length);
- assert.match(html,/data-v3-matrix-stage="source_observations"/);
+ const model=ownerV3Model(buildV3("ru"),scoreGrowthReport(buildV3("ru")));
+ assert.equal(model.observations.size,p.registry.observations.length);assert.equal(model.queries.length,10);
+ assert.equal(count(html,/data-source-observation=/g),0);
  assert.doesNotMatch(html,/Ожидает проверки|Черновые фразы|pending_review|нет подтверждённых наблюдений/i);
  for(const q of p.matrix.queries){assert.equal(q.frequency,null);for(const s of SURFACES){
   assert.ok(q.cells[s].observations.length);assert.ok(q.cells[s].coverage.ru);
-  for(const match of q.cells[s].observations)assert.ok(html.includes(`href="#observation-${match.observation_id}"`));
+  for(const match of q.cells[s].observations)assert.ok(model.observations.has(match.observation_id));
  }}
  for(const o of p.registry.observations){assert.ok(o.method.ru&&o.limitations.ru);assert.notEqual(o.review?.status,'approved');}
  const changed=structuredClone(p.registry);changed.observations[0].excerpt+=' changed';

@@ -231,3 +231,29 @@ must still reveal nested evidence and keep the target below the sticky bar.
 Criterion sources are dated and scoped; practitioner claims remain self-reports.
 Niche guidance is not an automatic defect, a regulatory audit or proof of paid
 scope. Current source observations remain distinct from final content approval.
+
+### 2026-09-07 — Connect4 figure placement
+
+Within the existing open Connect4 section, keep this reading order in both
+locales: heading → explanatory paragraph → approved system picture and caption →
+four numbered surface descriptions. Preserve image bytes and responsive source
+selection; browser QA checks this visible order at every report viewport.
+
+### 2026-09-07 — Client-facing cleanup, layout 3.2.0
+
+Owner removes the Connect4 detail-page link, all per-answer source disclosures,
+and the complete sources/comparison and methodology sections. Render seven
+client sections with consecutive Contents numbering. Keep direct dated public
+provenance, the validated research packet, four H2 questions and H3 narrative.
+Use the approved public-site palette and editorial H1/H2/H3 scale with 18px
+reading copy. The exact Check500 style remains scoped to its two sections.
+
+Place the owner's fix-the-leaks pair below the expense-deferral paragraph,
+before the conditions for reconsidering spending. Preserve the prior urgent
+placement and exact eight files; four responsive figures now render after the owner removed the continuation
+disclosure and engagement picture.
+
+The owner also removes the conclusion jump/limitations footer, booking link,
+route-work checklist and small-team-fixes block. Use the website Sprint
+`cae-price-block`; omit the report question-dialog introduction with its explicit
+trigger flag. Shared form success, retry and return-focus behavior stays intact.

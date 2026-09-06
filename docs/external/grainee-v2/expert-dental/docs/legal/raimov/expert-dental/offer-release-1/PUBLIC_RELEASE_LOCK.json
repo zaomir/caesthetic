@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "edition": "ED-OFFER-1.0",
+  "terms_sha256": "7d43bd52d8d5dca0dd9ae3889ddce650b2cac15b81b0dbad65b65cb91ab8bb80",
+  "font_sha256": "ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280",
+  "renderer": "reportlab==4.4.3",
+  "files": {
+    "offer-ru.pdf": {
+      "sha256": "f6f52f0334077b62e8c4ca52187100596c2a55e509e3660d15e5f06269b8e498",
+      "bytes": 38384
+    },
+    "offer-ky.pdf": {
+      "sha256": "ad2a8ee56a25b208a61d39562da093e79820a9b2d31928d696107b8a5ed61295",
+      "bytes": 38391
+    }
+  }
+}
