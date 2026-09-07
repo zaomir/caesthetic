@@ -906,7 +906,7 @@ TASK-CAESTHETIC-024 implements the owner's explicit replacement of the quoted
 legacy Sprint-card body by offer `spoken-four-surface-sprint/1.0.0` from
 [master §5.1](CAESTHETIC.md#spoken-four-surface-offer). Preserve the approved
 price-block design, responsive engagement image immediately after the existing
-scope paragraph, one working Sprint request action and the two canonical Check
+scope paragraph, one working Sprint product action and the two canonical Check
 sections. Render the four work surfaces, organic-search work, included Check,
 coordination, optional lower-cost continuation and direct-entry credit. Keep
 all Russian keyword inflections italic. Use existing site typography and grid.
@@ -918,3 +918,11 @@ restore removed sections or infer three new material gaps. The new offer body
 is RU-only; preserve the English rendered report byte-for-byte. Pinned paired
 input metadata may update without changing English client copy. No new universal
 retainer amount, guaranteed search movement or automatic future engagement.
+
+Verify report CTAs against the active
+[paid-product route contract](CAESTHETIC_PRODUCT_CHECKOUT_FUNNEL.md): Sprint and
+Check go to their product page, then the three-field electronic order; the
+question action retains its two-field dialog. Enable the production router in
+local report QA with `cae_product_routing_test=1`; localhost's legacy modal mode
+is not evidence of the production paid-product path. This QA correction changes
+neither the report HTML nor the canonical shared routing runtime.

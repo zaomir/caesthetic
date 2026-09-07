@@ -9,7 +9,7 @@
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
     "site-caesthetic/assets/js/caesthetic.js": "19430a59f2d688e14e8c56c5880c846040b6fed206dbbb28ba89a4043442be3d",
-    "site-caesthetic/assets/js/caesthetic-config.js": "3fc4d50bc890cadb909b6ee5ed10128ea43542944f065e626a22819f8f388259",
+    "site-caesthetic/assets/js/caesthetic-config.js": "e342b13cc35eb77ae35730d0c2ad14f5903718759ebd55f760f18f0d179a4e28",
     "site-caesthetic/assets/js/growth-cockpit.js": "39176e08bde8fabc6e14302c262305acc68a9c15548e52d4a724cc88a39412e9",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
@@ -28,6 +28,12 @@
       "reason": "Refresh the sole stale shared-config regression hash to the already-merged checkout edge change at 80edf992. Preflight compared fixture, origin/main and live: production still serves the prior config. No configuration or parent report is changed by this task; canonical deployment will verify the merged configuration.",
       "source_sha": "80edf992ef929dc4fa3a371d64aab6a7594c4804",
       "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-07-offer-integration/shared-config-baseline.json"
+    },
+    {
+      "date": "2026-09-07",
+      "reason": "Upstream changed only a shared-config explanatory comment while the exact-SHA deployment ran. Removing block comments produces byte-identical code. Refresh only the existing shared-config test hash; deployed runtime behavior and report content are unchanged. Production evidence continues to identify 77f1750c, not the later documentation wording.",
+      "source_sha": "bc392d5e8675f145e624612b248a2a74d854d7ac",
+      "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-07-offer-integration/main-closeout-integration.json"
     }
   ]
 }

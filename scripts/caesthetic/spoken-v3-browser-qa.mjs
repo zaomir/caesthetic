@@ -25,11 +25,11 @@ const server = http.createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base=production?'https://caesthetic.com':`http://127.0.0.1:${server.address().port}`;
 const browser = await {chromium,firefox,webkit}[engine].launch({headless:true});
-const result={status:'RUNNING',engine,browser:browser.version(),base,mode:production?'production-read-only':'local-build',checked_at:new Date().toISOString(),viewports:[],actions:[],errors:[],byte_checks:[]};
+const result={status:'RUNNING',engine,browser:browser.version(),base,mode:production?'production-read-only':'local-build',qa_source_sha256:digest(fs.readFileSync(import.meta.filename)),checked_at:new Date().toISOString(),viewports:[],actions:[],errors:[],byte_checks:[]};
 try {
  if(production){
   assert.match(process.env.CAE_EXPECTED_SHA||'',/^[a-f0-9]{40}$/);result.expected_sha=process.env.CAE_EXPECTED_SHA;
-  for(const rel of [`score/${V3_PARENTS.ru}/v3/index.html`,`score/${V3_PARENTS.ru}/v3/presentation.json`,'assets/css/growth-score-owner-v3.css','assets/js/growth-score-owner-v3.js']){
+  for(const rel of [`score/${V3_PARENTS.ru}/v3/index.html`,`score/${V3_PARENTS.ru}/v3/presentation.json`,'assets/css/growth-score-owner-v3.css','assets/js/growth-score-owner-v3.js','assets/js/caesthetic-config.js','assets/js/caesthetic.js','assets/js/product-routing.js']){
    const r=await fetch(base+'/'+rel);assert.equal(r.status,200,rel);const data=Buffer.from(await r.arrayBuffer());assert.equal(digest(data),digest(fs.readFileSync(path.join(ROOT,'site-caesthetic',rel))),rel);result.byte_checks.push(rel);
   }
   for(const suffix of ['v3/','v3/index.html','v3/presentation.json']){
@@ -50,7 +50,7 @@ try {
    return route.continue();
   });
   const page=await context.newPage();page.on('pageerror',e=>result.errors.push(`${locale}: ${e.message}`));
-  const url=`${base}/score/${V3_PARENTS[locale]}/v3/`;
+  const url=`${base}/score/${V3_PARENTS[locale]}/v3/${production?'':'?cae_product_routing_test=1'}`;
   const response=await page.goto(url,{waitUntil:'networkidle'});assert.equal(response.status(),200);
   await page.waitForFunction(()=>document.documentElement.dataset.v3Ready==='true');
   await page.evaluate(()=>document.fonts.ready);
@@ -166,8 +166,24 @@ try {
    await page.evaluate(id=>{const el=document.getElementById(id);scrollTo(0,el.getBoundingClientRect().top+scrollY-document.querySelector('.v3-bar').offsetHeight-24);},id);
    await page.waitForFunction(id=>document.querySelector('#report-navigation a[aria-current="location"]')?.getAttribute('href')==='#'+id,id,{timeout:5000});
   }
-  // Native keyboard disclosures and focus restoration in all three request intents.
-  for(const [selector,kind] of [['[data-cae-sprint-inquiry]','sprint'],['[data-cae-check-inquiry]','check'],['[data-cae-question]','question']]){
+  // Canonical paid-product route: report -> product -> three-field order.
+  // Enable the production router on localhost too; legacy modal mode is not a production check.
+  for(const [selector,kind,productPath,productCode] of [
+   ['[data-cae-sprint-inquiry]','sprint','/sprint/','growth_sprint'],
+   ['[data-cae-check-inquiry]','check','/lead-to-revenue-check/','lead_to_revenue_check']
+  ]){
+   const routed=await context.newPage();await routed.setViewportSize({width:390,height:844});routed.on('pageerror',e=>result.errors.push(`${locale}: ${e.message}`));
+   await routed.goto(url,{waitUntil:'networkidle'});
+   await Promise.all([routed.waitForURL(base+productPath),routed.locator(selector).first().click()]);
+   assert.equal(await routed.locator('dialog[open]').count(),0);
+   if(!production)await routed.goto(base+productPath+'?cae_product_routing_test=1',{waitUntil:'networkidle'});
+   await Promise.all([routed.waitForURL(base+'/pay/?product='+productCode),routed.locator(selector).first().click()]);
+   assert.deepEqual(await routed.locator('#product-order-form input').evaluateAll(nodes=>nodes.map(n=>n.name)),['practice_name','signer_name','signer_email']);
+   result.actions.push({locale,kind,status:'PASS',route:[productPath,'/pay/?product='+productCode],submitted:false});
+   await routed.close();
+  }
+  // Questions keep the two-field dialog, keyboard dismissal and focus restoration.
+  for(const [selector,kind] of [['[data-cae-question]','question']]){
    const trigger=page.locator(selector).first();await trigger.click();
    const dialog=page.locator('dialog[open]');await dialog.waitFor({state:'visible',timeout:5000});assert.equal(await dialog.count(),1);
    assert.deepEqual(await dialog.locator('input').evaluateAll(a=>a.map(e=>e.name).sort()),['email','name']);

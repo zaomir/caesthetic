@@ -571,7 +571,7 @@
     "docs/ssot/CAESTHETIC_FUNNEL_TOOLING_AND_LAUNCH_READINESS.md": "b1cf95a3457711c3dc6e420fb76f483e1969dd0d7ba28609920f8736cc1fd131",
     "docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md": "eb98a3b32c40b9f1f20abcd3fe50723b1a0281db38dc93bc8fb5b527132f8ec8",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md": "83d72bd297a85ad7fff5d698af0077eceba36696078a6f8fd60fdd9b2a0950db",
-    "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md": "2615cf2ea55fc9ccc4a282265cbfa2805b9e74a7324d735eb0c42a258add944f",
+    "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md": "5d13a73a1c6616b6405f6b3cd0cd766bdef3e013dc6cc8d9fb4bb430687a47e3",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md": "acdab4e80ec221c45f1cb17a1ed07ac4493cea6b20e6e30b80e0c2ffdf91a17b",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md": "dbe759034bc9e606f0f99f0fa47c31145aa0b88359e87d329fc85cdc34533fef",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md": "f975ebea0e0b4daba783095c7124fb40cc7a4b7999c368010e34a53cbb310ebf",
@@ -762,7 +762,7 @@
     "scripts/caesthetic/score-pin-runtime.mjs": "15bd5523e1c62b1816a2528272e7e0ce98f6739be7647134902adb54eac1c1cc",
     "scripts/caesthetic/seed-ig-students-w34.py": "fb67d60f7687932e29d32a7931b80e497eaeb78cc6e9fad8b63634a7f5ae1bca",
     "scripts/caesthetic/spoken-v2-browser-qa.mjs": "65ebdcaffb6f5b59f068075f0a2ca2b4e6e06cb947414c0f82880b7c477a9c09",
-    "scripts/caesthetic/spoken-v3-browser-qa.mjs": "2a980c58287cef8d72c9b9e177233fb3a02f9b1b9cde78f26d6005b3596bef98",
+    "scripts/caesthetic/spoken-v3-browser-qa.mjs": "330e48d430dc200bad342b6a38e583f89a9b60c944970ec292c516123345d9b3",
     "scripts/caesthetic/sync-agents-bidirectional.sh": "28babd473314fc7152ad03d378bcb5712b701fc6aa9e0ce73998d92ec1dc7c22",
     "scripts/caesthetic/sync-from-agents-repo.sh": "b70c7a816c964f98ce0c5a04059aa3e1e67b7fb2af4b44ea09d5297382c85502",
     "scripts/caesthetic/sync-ig-voc-dropbox.sh": "f33864072b348b60eb5690ea7ab6564026a193aa07421f1ba90a5f080adfb938",
@@ -1015,7 +1015,7 @@
     "tests/caesthetic/evidence-bank.test.mjs": "be80a54561d63d9e3fd42377eb8bb3382b37b533df613944cd848e3ecf091929",
     "tests/caesthetic/expert_dental_mirror_test.py": "3299954224c2c23709c977253ed5ae2026568956bb72b0693134e739af78bb09",
     "tests/caesthetic/fixtures/design-system.html": "857cf4f1df05c12a3f7dbaa3e91f3a681cc65469411d8f12e43cb45826413c3f",
-    "tests/caesthetic/fixtures/spoken-v1-hashes.json": "a4fb2d3e572bc744b9b5765ec15d015af10b4edd2ffffcb834f8c14c1bf48380",
+    "tests/caesthetic/fixtures/spoken-v1-hashes.json": "e40129792809de94218726d1f5dded7a3bc869223f22caf46a0b6f804517d5c8",
     "tests/caesthetic/form-confirmation.test.mjs": "315e531e8edab372b01333c076ac16429a5c29ce39091f20d0954ba04b024c3c",
     "tests/caesthetic/funnel-canon-sync.test.mjs": "18dfc28702e0cbeaa1c52b797b621abf9f7ccf4e0e62a3627da50776e067f3b5",
     "tests/caesthetic/growth-economics-engine.test.mjs": "734806af77508b927c4d92a923bc778e74339b0aa92bef1e64151fcc5282429a",
@@ -1083,6 +1083,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-07T03:22:56Z",
+  "updated_at_utc": "2026-09-07T03:30:22Z",
   "version": 1
 }
