@@ -47,3 +47,6 @@ SKU `screening-smile-preview`: 20 минут, обзорные фото, раз�
 Static: `node tests/raimovdental/raim-smile-preview.test.mjs` + existing pricing/public tests. Browser: `node tests/raimovdental/raim-smile-preview.browser.mjs`; Chromium, Firefox, WebKit, 320/390/768/1440/1920, menu/FAQ/CTA, edited-message context, Telegram fallback, no-JS. External destinations intercepted; zero actual messages.
 
 Release: `.github/workflows/deploy-raimsmile.yml`; browser checks run before cutover and after on production. Existing site-wide release attestation binds HTML/CSS/JS bytes to source SHA. Production result and open questions are recorded in the dated release record after verification.
+
+
+Production verified 2026-09-07: [dated release record](RAIM_SMILE_SMILE_PREVIEW_RELEASE_2026-09-07.md), source `4058e6803185dba8390f7b3a81499f98f1e26417`, workflow 34071665270 PASS. Clinical operational questions above remain open.
