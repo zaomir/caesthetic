@@ -170,7 +170,7 @@
     "docs/projects/healthcare-ecosystem/technology/README.md": "d59c75e0ce251860e81a16f5b379abb63c9d5f38b38bec91c4e5b2f019c6d253",
     "docs/projects/raimovdental/AGENTS.md": "821421721eb9a434c8d62a51e5b1e30e84c97c2a199c10e8c7642dab813feca8",
     "docs/projects/raimovdental/EXPERT_DENTAL_BIDIRECTIONAL_SYNC_CANARY.md": "8120fdac284780d927b4e0d2e04f9442175e9134539b221b0e22370c79aad311",
-    "docs/projects/raimovdental/ROUTER.md": "89ab0d68af6a4be51578f63493003b6bffcf4f8f2c074fec7fa5e6c2a3d2ef9a",
+    "docs/projects/raimovdental/ROUTER.md": "39ee3ae6177cf6356f7a8b92a7598da93fa020c5e70bd70a7411f95f09ea52ff",
     "docs/projects/raimovdental/balam/BALAM_STAGE0_WEBSITE_TZ.md": "0ab4f282edd34e19dafa2dc7af28a6a8390a1adb1200f144a4c7a1c34c937649",
     "docs/projects/raimovdental/balam/LAUNCH_KIT.md": "da378c691e6b96062328bbf9df0e5b254df386aa337243abee333717d72c89aa",
     "docs/projects/raimovdental/balam/README.md": "348821e4bf876ad8b61e371ad3320bbab34b6c8ec23d17cef09c3b9296af87c9",
@@ -275,6 +275,7 @@
     "docs/raimov/patient-funnel/RAIM_SMILE_LEAD_ROUTING_CRM_CONTRACT.md": "400390dc17974467d90d237ffeb7992ada77676b55bc76a3143c334400fd1730",
     "docs/raimov/patient-funnel/RAIM_SMILE_MULTI_OPERATOR_ROUTING_CONTRACT.md": "915b8e3e7cec0d761f712dbe704ab79421e062a8c31c14263d8a3fe2ff796b25",
     "docs/raimov/patient-funnel/RAIM_SMILE_SECOND_OPINION_PRODUCT.md": "c1838394df56d7b71d29e511f145d74b54906757e7b93f836e74f10c74c62028",
+    "docs/raimov/patient-funnel/RAIM_SMILE_SMILE_PREVIEW_PRODUCT.md": "370e5ef5a023b54ca5d1cd0a49d712c517b52a3213d745d7ea981a28f6c03fe0",
     "docs/raimov/patient-funnel/README.md": "bfbeb56c4fb53d72d3049c90f8fa5cf8f1d057e56312e3bb5623990f5922979a",
     "docs/raimov/patient-routing/README.md": "5f24870ea08cf2744e5464b992f4588a800e4efe8afcc0b64b4758edcc801937",
     "docs/raimov/personal-brand/RAIMOV_HUMAN_LOOP_HOME_MESSAGE.md": "5d2640911bd51f3c15c67b99135553c82c3c4f76ab7584f256fc3a3c08b3df5e",
@@ -322,7 +323,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "090141f70e670cb151ab1866103366d58ac64bf8",
+  "source_sha": "2cc5677014566c10d892ea633d12dc4f62bf7c1c",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

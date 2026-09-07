@@ -36,6 +36,7 @@
 - RAIM SMILE multi-operator routing: `docs/raimov/patient-funnel/RAIM_SMILE_MULTI_OPERATOR_ROUTING_CONTRACT.md`
 - RAIM SMILE operator registry/transition: `docs/raimov/operations/RAIM_SMILE_OPERATOR_REGISTRY_STANDARD.md`
 - RAIM SMILE marketplace legal gates: `docs/legal/raimov/RAIM_SMILE_OPERATOR_MARKETPLACE_LEGAL_GATES.md`
+- RAIM SMILE цифровая примерка улыбки: `docs/raimov/patient-funnel/RAIM_SMILE_SMILE_PREVIEW_PRODUCT.md`
 - RAIM SMILE Second Opinion product: `docs/raimov/patient-funnel/RAIM_SMILE_SECOND_OPINION_PRODUCT.md`
 - RAIM SMILE Treatment Coordinator: `docs/raimov/operations/expert-dental/RAIM_SMILE_TREATMENT_COORDINATOR_STANDARD.md`
 - **BALAM strategy / children-first:** `docs/ssot/RAIMOV_BALAM.md`
