@@ -399,7 +399,7 @@
     "docs/projects/caesthetic/intake/README.md": "d7384ed59ce1890ae29ba2d15b5a1c5d702bb67229c7a8048e0a244c34a057a7",
     "docs/projects/caesthetic/legal/CAESTHETIC_CHARGEBACK_DISPUTE_STRATEGY_DRAFT.md": "7439bbfc5216a6edaf6086a9764a0e5f937155482ac9d1c11d7a3a90f8aafe00",
     "docs/projects/caesthetic/legal/CAESTHETIC_CHARGEBACK_DISPUTE_STRATEGY_REVIEW.md": "0d244af90fbcd60e99951c50cdc1937508d3e34d6507320b152ab6bd65cb91b3",
-    "docs/projects/caesthetic/legal/CAESTHETIC_PAYMENT_EVIDENCE_RUNTIME.md": "076e9e23feb9bd9b98333c5253617c6d8f6b30c07bc3939b99fc7ff37a9629c2",
+    "docs/projects/caesthetic/legal/CAESTHETIC_PAYMENT_EVIDENCE_RUNTIME.md": "469826db49cff30fc5b38372cacc41f11b9795cbbc908fdc5938a8d1ab801f46",
     "docs/projects/caesthetic/legal/README.md": "dd2f6e6293815fbec0e5e3131ecab08a750402efd57e3ea692e3a8ba8fd9f816",
     "docs/projects/caesthetic/marketing/README.md": "ae804c18e707068602ce4fba08590e000335c0567e084b54a2b33b938b8a0f04",
     "docs/projects/caesthetic/operations/CASE_STUDIES_TRACK_A_INVENTORY_2026-09-05.md": "76d1a9b633e2235c158a61d46cce7bf51e0b57b6cce31a2c17fa0746127dce7c",
@@ -1088,6 +1088,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-07T17:36:23Z",
+  "updated_at_utc": "2026-09-07T17:39:37Z",
   "version": 1
 }

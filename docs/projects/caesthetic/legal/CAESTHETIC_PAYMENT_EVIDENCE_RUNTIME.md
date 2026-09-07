@@ -42,6 +42,14 @@ Provider-page verification on 2026-09-07: the first URL displays a request for 5
 
 This SSOT record confirms the supplied artifacts and product mapping. It does not claim server-side installation, successful checkout smoke, or credited funds. Activation and acceptance follow `docs/ssot/CAESTHETIC_PRODUCT_CHECKOUT_FUNNEL.md`. Keep provider URLs out of public site source/config; return a destination only after a valid Commercial Order and Payment Request. Never use the 500 USD Check request for Sprint, and preserve fail-closed behavior if the required rail is missing or invalid. A redirect never confirms payment.
 
+### 2.3 Product rail production acceptance — 2026-09-07
+
+The founder-supplied Check and Sprint requests in §2.2 are now installed server-side. Configuration activation: PR #1568, workflow `34147591078`, source `fba216a0d7e0af4df3e98209cf1aedd4bce9132b`. Final canonical product-order deployment and extended smoke: workflow `34148285270`, source/deployed SHA `37efc8b6d5bd0aa021ea9b0a192ea6beaa7a4ac3`.
+
+Both rails report ready on `https://caesthetic.com/api/v1/caesthetic-product-order?health=1`. Synthetic Check ($500), Sprint ($2,500) and Spoken offer ($2,500) orders passed Wise HTTP 200, expected payee and exact provider amount verification, while remaining `payment_pending` / `paid=false`; QA records were cleaned up. Public confirmation remains server-verified only. No real receipt of funds, settlement or service commencement is claimed.
+
+Canonical closeout, QA payment request IDs and evidence: `docs/runtime/projects/caesthetic/evidence/2026-09-07-purchase-closeout/closeout.json` and `product-order-smoke.json` in the same directory. The former missing-link blocker is resolved. The first actual incoming payment still requires ordinary billing reconciliation under §4; this is an operational verification boundary, not an absent configuration artifact.
+
 Stripe ACH:
 - code-side ACH Checkout is already prepared with `us_bank_account`;
 - it is fail-closed unless `STRIPE_SECRET_KEY` is configured;
