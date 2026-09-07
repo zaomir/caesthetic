@@ -11,7 +11,8 @@
 Owner decision `DEC-RAIM-SMILE-YEAR-OF-CARE-20260907`: public display name =
 **RAIM SMILE · Год заботы**; internal/legacy = `SmileCare 12 / care12`.
 Current routes, prices, benefits, technical identifiers, economics and VIP mechanics preserved.
-Release evidence: `docs/audits/raimov/releases/year-of-care/RELEASE.md`.
+Release: PR #1549 merged; deployed SHA `9e0cb3cfd1bcc63b9e55e3d199e40911c49a5941`; workflow 34071859482 SUCCESS; production smoke PASS.
+Evidence: `docs/audits/raimov/releases/year-of-care/RELEASE.md`.
 The existing operational and future-product statuses below are not changed by this naming release.
 
 ## Главный вывод

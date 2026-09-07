@@ -185,7 +185,7 @@
     "docs/raimov/AGENTS_SATELLITE.md": "67fb6a5ac4b60d07f3e7268b04416a29d9a7e690d4bcceb558b145bd22061390",
     "docs/raimov/AGENTS_SYNC_CONFLICTS.md": "d718370ead2b9538432bb71a8dfe6baaf992f41ab73129e37007379bdf1a7395",
     "docs/raimov/CURSOR_AGENTS_SETUP.md": "01cfb13d15e38185ea4f02e54b84d925daf968ddb12de15dc66fd7c281b5ab9c",
-    "docs/raimov/PROJECT_STATUS.md": "0f4547014ca04c6589a5a34eb236e567ca61ac717a86f32bdb7a0202f3cbe134",
+    "docs/raimov/PROJECT_STATUS.md": "c355af9cf4d4d322605da112b1262b167f493a9c5692cd36d26612d993da773f",
     "docs/raimov/README.md": "f6500fb6221088cb47818484cc1b793e1a5064ef97f52871a9a2fda9ae579ca9",
     "docs/raimov/academy/README.md": "d51b3a2cac625d3ee687de0ba661d201012eb2132c764f3af488f8a8c0ba0c3d",
     "docs/raimov/academy/WHOLE_PERSON_TREATMENT_PLANNING_INTENSIVE.md": "0561d81ce66a8156abd407bfe8d23609f9964cdddf76c20d4c80a07cb4f18251",
@@ -324,7 +324,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "2a340dbde46b9d838dc643ead5c64288c4d921c6",
+  "source_sha": "89513d4531eec855b1f1510e719bc15716813e4b",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",
