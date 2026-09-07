@@ -64,6 +64,9 @@ for(const locale of Object.keys(V3_PARENTS)) {
   assert.equal(count(html,/data-choice-part=/g),24);
   assert.equal(count(html,/data-choice-sources=/g),0);
   assert.doesNotMatch(html,/v3-choice-limit|v3-choice-provenance/);
+  assert.doesNotMatch(html,/id="(?:repair-paths|gap-inventory|useful-change)"|href="#(?:repair-|inventory-|useful-change)|Как проверить полезное изменение|Что рассматривать следующим/);
+  assert.equal(count(html,/data-v3-media="engagement"/g),1);
+  assert.match(html,/<p data-sprint-scope>[^<]+<\/p><figure[^>]*data-v3-media="engagement"/);
   assert.doesNotMatch(html.match(/<figure[^>]*data-v3-media="system"[\s\S]*?<\/figure>/)[0],/<figcaption/);
   assert.doesNotMatch(html,/<details[^>]*data-choice-question/);
   assert.ok(html.indexOf('data-cae-sprint-inquiry')>html.indexOf('id="next-step"'));
@@ -77,8 +80,8 @@ for(const locale of Object.keys(V3_PARENTS)) {
  });
  test(`${locale}: exact approved picture pairs only, no private packet in public HTML`,()=>{
   const html=renderGrowthReport(buildV3(locale));
-  assert.equal(count(html,/<picture>/g),4);
-  for(const [role,pair] of Object.entries(p.release.assets)) for(const asset of Object.values(pair)) assert.equal(html.includes(asset.src),role!=="engagement");
+  assert.equal(count(html,/<picture>/g),5);
+  for(const [role,pair] of Object.entries(p.release.assets)) for(const asset of Object.values(pair)) assert.ok(html.includes(asset.src));
   const allowed=new Set(Object.values(p.release.assets).flatMap(pair=>Object.values(pair).map(a=>a.src)));
   for(const image of html.matchAll(/<(?:img|source)\b[^>]*\b(?:src|srcset)="([^"]+)"/g)) assert.ok(allowed.has(image[1]),`Unapproved image ${image[1]}`);
   assert.doesNotMatch(html,/report\.json|approved-report|source-register\.json|client_release_approval|SYNTHETIC TEST REVIEWER|selected_by|reviewer_status|content_sha256/);

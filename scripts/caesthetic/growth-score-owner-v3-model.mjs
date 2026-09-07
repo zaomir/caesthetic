@@ -1,9 +1,9 @@
 import { check500USCopy } from "./check500-copy.mjs";
 import { SURFACES, validateConsistency, validateResearchPublication, assertReviewed, digest, safeURL } from "./consistency-contract.mjs";
 import { validateChoiceQuestions } from "./choice-questions-contract.mjs";
-export const OWNER_V3 = "owner-decision-report/3.2.0";
+export const OWNER_V3 = "owner-decision-report/3.3.0";
 export const SPOKEN_CASE = "spoken-medspa-snellville-2026";
-export const V3_SECTION_IDS = Object.freeze(["gap-map", "focus-gaps", "sprint-fit", "repair-paths", "do-not-fund", "gap-inventory", "next-step"]);
+export const V3_SECTION_IDS = Object.freeze(["gap-map", "focus-gaps", "sprint-fit", "do-not-fund", "next-step"]);
 export function ownerV3Model(report, score) {
   const ctx = report?.presentation?.v3;
   if (report?.audit?.project_id !== SPOKEN_CASE || report.reportState !== "approved_report" || !ctx || ctx.release.layout_contract !== OWNER_V3) throw new Error("V3_INVALID: approved Spoken case and versioned inputs required");

@@ -23,7 +23,7 @@
     "redirect",
     "check500",
     "connect4",
-    "owner-decision-report/3.2.0"
+    "owner-decision-report/3.3.0"
   ],
   "pages": [
     {
@@ -1162,7 +1162,7 @@
     {
       "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/index.html",
       "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/",
-      "profile": "owner-decision-report/3.2.0",
+      "profile": "owner-decision-report/3.3.0",
       "viewports": [
         320,
         390,
@@ -1179,7 +1179,7 @@
     {
       "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/index.html",
       "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/",
-      "profile": "owner-decision-report/3.2.0",
+      "profile": "owner-decision-report/3.3.0",
       "viewports": [
         320,
         390,

@@ -64,10 +64,13 @@ try {
   assert.equal(await page.locator('[data-connect4-conclusion]').count(),1);
   assert.equal(await page.locator('[data-gap-role]').count(),0);
   assert.equal(await page.locator('[data-commercial-selection]').getAttribute('data-commercial-selection'),'not_supported');
-  assert.equal(await page.locator('[data-team-fixes], [data-v3-media="engagement"], .v3-urgent-steps, #connect4-conclusion a').count(),0);
+  assert.equal(await page.locator('[data-team-fixes], .v3-urgent-steps, #connect4-conclusion a').count(),0);
   assert.equal(await page.locator('[data-choice-sources], #evidence-and-competitors, #scores-and-methodology, a[href="/connect4/"]').count(),0);
-  assert.equal(await page.locator('picture').count(),4);
+  assert.equal(await page.locator('picture').count(),5);
   assert.equal(await page.locator('[data-expense-illustration] picture').count(),1);
+  assert.equal(await page.locator('#repair-paths, #gap-inventory, #useful-change, a[href^="#repair-"], a[href^="#inventory-"], a[href="#gap-inventory"], a[href="#useful-change"]').count(),0);
+  assert.equal(await page.locator('[data-v3-media="engagement"]').count(),1);
+  assert.equal(await page.locator('[data-owner-sprint-offer] > [data-v3-media="engagement"] picture').count(),1);
   const reject=page.getByRole('button',{name:locale==='ru'?'Отказаться':'Reject analytics',exact:true});if(await reject.isVisible())await reject.click();
   for(const width of [320,375,390,430,768,1024,1440]){
    await page.setViewportSize({width,height:900});
@@ -106,6 +109,8 @@ try {
    assert.equal(measured.design.check.background,'rgb(240, 237, 230)');assert.equal(measured.design.checkCTA.background,'rgb(123, 36, 75)');
    measured.expense_illustration=await page.locator('[data-expense-illustration]').evaluate(e=>({after_text:e.previousElementSibling.tagName==='P'&&e.previousElementSibling.getBoundingClientRect().bottom<=e.getBoundingClientRect().top,src:e.querySelector('img').currentSrc,loaded:e.querySelector('img').naturalWidth>0}));
    assert.ok(measured.expense_illustration.after_text&&measured.expense_illustration.loaded);assert.ok(measured.expense_illustration.src.includes(width<=767?'portrait':'landscape'));
+   measured.sprint_illustration=await page.locator('[data-owner-sprint-offer] > [data-v3-media="engagement"]').evaluate(e=>({after_scope:e.previousElementSibling.matches('p[data-sprint-scope]')&&e.previousElementSibling.getBoundingClientRect().bottom<=e.getBoundingClientRect().top,src:e.querySelector('img').currentSrc,loaded:e.querySelector('img').naturalWidth>0}));
+   assert.ok(measured.sprint_illustration.after_scope&&measured.sprint_illustration.loaded);assert.ok(measured.sprint_illustration.src.includes(width<=767?'together-mobile':'together-desktop'));
    result.viewports.push({locale,...measured});
    if([390,1440].includes(width)){
     await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,`${locale}-${width}-top.png`)});
@@ -172,7 +177,7 @@ try {
   const accessibility=await new AxeBuilder({page}).include('main').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(accessibility.violations.map(v=>({id:v.id,nodes:v.nodes.length})),[]);result.actions.push({locale,kind:'axe-main',status:'PASS'});
   await context.close();
-  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),4);assert.equal(await plain.locator('[data-choice-part]:visible').count(),24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
+  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),5);assert.equal(await plain.locator('[data-choice-part]:visible').count(),24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
 }catch(error){

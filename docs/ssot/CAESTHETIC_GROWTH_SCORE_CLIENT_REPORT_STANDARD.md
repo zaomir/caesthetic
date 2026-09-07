@@ -876,3 +876,26 @@ front-desk response and follow-up remains separately agreed work, not an added
 surface or a finding about Spoken. The Russian shared contents label is
 “Оглавление” in navigation, its disclosure and accessible name. These scoped copy
 changes are recorded by TASK-CAESTHETIC-022; no new research or paid selection.
+
+### 2026-09-07 — Scoped five-section view and Sprint artwork
+
+The owner's subsequent correction removes the complete useful-change verification
+section (`repair-paths`, including `useful-change`) and “What to consider next”
+(`gap-inventory`). Remove their Contents entries and every generated jump to their
+repair/inventory targets. Do not hide or move duplicate sections elsewhere.
+`owner-decision-report/3.3.0` renders five consecutive sections: `gap-map`,
+`focus-gaps`, `sprint-fit`, `do-not-fund`, `next-step`. Keep the four answers'
+individual verification steps and all internal repair/source data.
+
+In the final Sprint offer, place the exact owner-supplied engagement desktop/mobile
+pair once, immediately after the quoted 30-day scope paragraph. Use responsive
+art direction, an accessible image description and no new caption. The supplied
+Dropbox files match the existing immutable engagement originals; five responsive
+figures now render, and all eight source PNGs remain unchanged. Do not restore
+the removed continuation disclosure. TASK-CAESTHETIC-023 records this delivery.
+
+The owner's question about first-Sprint work is answered from the implementation
+catalog: a coordinated, agreed 30-day scope around one substantial confirmed
+priority. For Spoken, first-visit clarity and connections to service/practitioner
+information are a working direction; the current packet still does not establish
+a material paid set. This presentation change does not approve new priorities.

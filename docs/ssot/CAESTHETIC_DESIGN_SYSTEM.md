@@ -355,3 +355,16 @@ inside the dark field. Preserve copy, inquiry behavior and the two adjacent
 Check sections. The report question trigger omits the redundant introductory
 paragraph through the shared modal's explicit `data-cae-request-omit-intro` flag;
 other triggers retain their existing introductory copy.
+
+### Spoken v3 five-section revision — 2026-09-07
+
+`owner-decision-report/3.3.0` preserves the shared-site typography, colors and
+canonical Sprint/Check components. The owner removes the useful-change checking
+and next-work sections and their navigation entries, leaving five sections.
+The immutable engagement desktop/mobile pair returns once inside the Sprint price
+block, immediately after its 30-day scope paragraph. Use the existing picture
+component, intrinsic dimensions and <=767px mobile source, without a caption.
+Five responsive figures now render; all eight original PNGs are preserved.
+This explicitly supersedes the earlier omission of the engagement picture, not
+the removal of its old continuation disclosure. Verify the image's DOM and visual
+order, art direction, both locales and all 320–1440px widths.

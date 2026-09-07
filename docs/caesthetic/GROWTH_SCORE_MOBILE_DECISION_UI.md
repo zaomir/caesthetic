@@ -269,3 +269,13 @@ contents label to “Оглавление”. Remove the system picture caption 
 answer limitation/link footers. Keep their source packet and validation intact;
 the four answers retain their existing bounded observations. Check both locales,
 navigation labels, caption/footer absence and exact production content.
+
+### 2026-09-07 — Five sections and responsive Sprint artwork
+
+TASK-CAESTHETIC-023 removes the useful-change verification and next-work sections,
+their Contents entries and generated repair/inventory jumps. Layout 3.3.0 keeps
+five consecutive section IDs and the four questions' own H3 verification steps.
+Place the exact owner engagement picture once within the Sprint offer after its
+quoted 30-day scope paragraph, with desktop/mobile source switching and no added
+caption. The supplied Dropbox file hashes match the existing approved originals.
+Keep the general offer and current research/value state unchanged.
