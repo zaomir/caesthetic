@@ -6,7 +6,7 @@ import path from 'node:path';
 import { ROOT, V3_PACKAGE, V3_PARENTS, buildV3, loadV3Package, generateV3, writeV3 } from '../../scripts/caesthetic/build-spoken-medspa-v3.mjs';
 import { renderGrowthReport } from '../../scripts/caesthetic/render-growth-score.mjs';
 import { scoreGrowthReport } from '../../site-caesthetic/assets/js/growth-score-engine.mjs';
-import { OWNER_V3, V3_SECTION_IDS, ownerV3Model, approvedAction } from '../../scripts/caesthetic/growth-score-owner-v3-model.mjs';
+import { OWNER_V3, V3_SECTION_IDS, SPOKEN_SPRINT_OFFER, ownerV3Model, approvedAction } from '../../scripts/caesthetic/growth-score-owner-v3-model.mjs';
 import { validateConsistency, validateResearchPublication, digest, reviewDigest, assertReviewed, safeURL, SURFACES } from '../../scripts/caesthetic/consistency-contract.mjs';
 import { CHOICE_IDS, validateChoiceQuestions } from '../../scripts/caesthetic/choice-questions-contract.mjs';
 import { italicizeV3Keyword } from '../../scripts/caesthetic/growth-score-owner-v3.mjs';
@@ -100,6 +100,42 @@ for(const locale of Object.keys(V3_PARENTS)) {
 test('baseline parent/v2 files and all eight approved PNGs are unmodified',()=>{
  for(const [file,hash] of Object.entries(p.release.frozen_baseline))assert.equal(digest(fs.readFileSync(path.join(ROOT,file))),hash,file);
  for(const pair of Object.values(p.release.assets))for(const a of Object.values(pair))assert.equal(digest(fs.readFileSync(path.join(ROOT,'site-caesthetic'+a.src))),a.sha256,a.src);
+});
+test('RU offer replaces the requested body with four surfaces and scoped commercial terms',()=>{
+ const report=buildV3('ru'),html=renderGrowthReport(report);
+ const card=html.match(/<article[^>]+data-owner-sprint-offer>[\s\S]*?<\/article>/)[0];
+ assert.ok(card.includes(`data-sprint-offer-contract="${SPOKEN_SPRINT_OFFER}"`));
+ assert.deepEqual([...card.matchAll(/data-offer-surface="([^"]+)"/g)].map(m=>m[1]),SURFACES);
+ assert.deepEqual([...card.matchAll(/data-offer-part="([^"]+)"/g)].map(m=>m[1]),['organic','included-check','ownership']);
+ assert.match(card,/социаль|Социаль/);assert.match(card,/комментариях и ответах от имени клиники/);
+ assert.match(card,/сами отзывы остаются словами пациентов/);
+ assert.match(card,/<em>соответствие<\/em>/);
+ assert.match(card,/без дополнительной оплаты проведём Lead-to-Revenue Check/);
+ assert.match(card,/По согласованным доступам/);
+ assert.match(card,/ежемесячного сопровождения будет ниже \$2,500/);
+ assert.match(card,/непосредственно после него[\s\S]*доплатить \$2,000/);
+ assert.match(card,/data-cae-sprint-inquiry>Начать 30-Day Growth Sprint<\/a>/);
+ for(const key of ['offer_scope_note','deliverables','client_input','day30','owner'])assert.ok(!card.includes(p.copies.ru[key]),key);
+ assert.doesNotMatch(card,/навсегда|гарантируем рост|обеспечим рост позиций/i);
+ assert.match(html,/data-commercial-selection="not_supported"/);
+ assert.equal(report.presentation.v3.release.stage,'review_preview');
+});
+test('the scoped RU commercial offer cannot change the frozen English client view',()=>{
+ const html=renderGrowthReport(buildV3('en-US'));
+ assert.equal(digest(html),p.release.commercial_offer.unchanged_en_html_sha256);
+ assert.doesNotMatch(html,/data-sprint-offer-contract|data-offer-surface|data-offer-check-alternative/);
+ assert.equal(p.copies['en-US'].connect4_offer,null);
+});
+test('the scoped offer refuses missing copy, a fifth surface and another locale',()=>{
+ for(const mutate of [
+  r=>{r.presentation.v3.copy.connect4_offer=null;},
+  r=>r.presentation.v3.copy.connect4_offer.surfaces.push({id:'lead_intake',title:'Test',body:'Test'}),
+  r=>{r.presentation.v3.copy.connect4_offer.included_check.paragraphs=[];},
+  r=>{r.presentation.v3.release.commercial_offer.locale='en-US';}
+ ]){
+  const r=structuredClone(buildV3('ru'));mutate(r);
+  assert.throws(()=>renderGrowthReport(r),/V3_INVALID: (scoped|incomplete|unscoped)/);
+ }
 });
 test('client release refuses a preview before any file is written',()=>{
  const out=fs.mkdtempSync(path.join(os.tmpdir(),'v3-write-test-'));

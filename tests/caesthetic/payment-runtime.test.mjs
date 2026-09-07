@@ -6,7 +6,9 @@ import test from 'node:test';
 const REPO = resolve(new URL('../..', import.meta.url).pathname);
 const SITE = resolve(REPO, 'site-caesthetic');
 const pay = readFileSync(resolve(SITE, 'pay/index.html'), 'utf8');
+const checkout = readFileSync(resolve(SITE, 'assets/js/product-checkout.js'), 'utf8');
 const config = readFileSync(resolve(SITE, 'assets/js/caesthetic-config.js'), 'utf8');
+const productOrder = readFileSync(resolve(REPO, 'supabase/functions/caesthetic-product-order/index.ts'), 'utf8');
 const fn = readFileSync(resolve(REPO, 'supabase/functions/caesthetic-payment/index.ts'), 'utf8');
 const email = readFileSync(resolve(REPO, 'supabase/functions/_shared/caesthetic-billing-email.ts'), 'utf8');
 const migration = readFileSync(resolve(REPO, 'supabase/migrations/20260824113000_caesthetic_payment_runtime.sql'), 'utf8');
@@ -14,41 +16,37 @@ const checkProductMigration = readFileSync(resolve(REPO, 'supabase/migrations/20
 const integrity = readFileSync(resolve(REPO, 'supabase/migrations/20260824114000_caesthetic_payment_integrity.sql'), 'utf8');
 const supabaseConfig = readFileSync(resolve(REPO, 'supabase/config.toml'), 'utf8');
 const cron = readFileSync(resolve(REPO, '.github/workflows/caesthetic-billing-cron.yml'), 'utf8');
-const nginxOrigin = readFileSync(resolve(REPO, 'deploy/nginx/caesthetic.com.origin.conf'), 'utf8');
 const stripeWebhook = readFileSync(resolve(REPO, 'supabase/functions/stripe-webhook/index.ts'), 'utf8');
-const qr = resolve(SITE, 'assets/img/wise-qr-code.png');
 
-test('public runtime exposes CAESTHETIC payment endpoint but no reusable provider URL', () => {
-  assert.match(config, /functions\/v1\/caesthetic-payment/);
-  assert.doesNotMatch(config + pay, /wise\.com\/pay\/business|buy\.stripe\.com/i);
-  assert.match(config, /signed_order_then_controlled_payment_request/);
+test('public paid-product runtime uses electronic order then controlled Wise rail without exposing reusable provider URLs', () => {
+  assert.match(config, /productOrder:\s*"https:\/\/evo\.do\/api\/v1\/caesthetic-product-order"/);
+  assert.match(config, /product_page_then_electronic_order_then_wise/);
+  assert.doesNotMatch(config + pay + checkout, /wise\.com\/pay\/business|buy\.stripe\.com/i);
+  assert.match(pay, /Practice or business name/i);
+  assert.match(pay, /name="practice_name"/);
+  assert.match(pay, /name="signer_name"/);
+  assert.match(pay, /name="signer_email"/);
+  assert.match(pay, /Continue to payment/i);
+  assert.match(pay, /electronically accept the standard product order/i);
+  assert.match(pay, /noindex,nofollow,noarchive/i);
+  assert.match(checkout, /action:\s*"create_order"/);
+  assert.match(checkout, /action:\s*"wise"/);
+  assert.match(checkout, /location\.assign\(data\.redirect_url\)/);
   assert.match(supabaseConfig, /\[functions\.caesthetic-payment\][\s\S]*verify_jwt\s*=\s*false/);
 });
 
-test('payment page shows exact amount and captures explicit payer authorization before redirect', () => {
-  assert.match(pay, /Exact amount due/i);
-  assert.match(pay, /Use the exact amount shown here/i);
-  assert.match(pay, /Pay from your US bank account/i);
-  assert.match(pay, /Recommended/i);
-  assert.match(pay, /Continue with ACH/i);
-  assert.match(pay, /Open Wise payment link/i);
-  assert.match(pay, /wise-qr-code\.png/i);
-  assert.match(pay, /@media \(min-width: 760px\)/i);
-  assert.match(pay, /control the account used for payment/i);
-  assert.match(pay, /business or personal account/i);
-  assert.match(pay, /payer_relationship/);
-  assert.match(pay, /payer_account_type/);
-  assert.match(pay, /attestation_accepted/);
-  assert.match(pay, /action,/);
-  assert.match(pay, /noindex,nofollow,noarchive/i);
-  assert.match(pay, /pathParts\[0\] === 'pay'/);
-  assert.match(pay, /pathParts\[1\]/);
-  assert.match(pay, /location\.assign\(data\.redirect_url\)/);
-  assert.ok(nginxOrigin.includes('location ~ ^/pay/[^/]+/?$'));
-  assert.match(nginxOrigin, /try_files \/pay\/index\.html/);
+test('product order fixes product and amount before Wise and never treats provider redirect as proof of payment', () => {
+  assert.match(productOrder, /growth_sprint:[\s\S]*250000/);
+  assert.match(productOrder, /lead_to_revenue_check:[\s\S]*50000/);
+  assert.match(productOrder, /payment_token_hash:\s*tokenHash/);
+  assert.match(productOrder, /action === "wise"/);
+  assert.match(productOrder, /paid:\s*\["credited",\s*"delivery_started"\]\.includes\(row\.status\)/);
+  assert.doesNotMatch(productOrder, /status:\s*"credited"[\s\S]{0,180}wise_redirect/i);
+  assert.doesNotMatch(productOrder, /searchParams\.set\("amount"/);
+  assert.doesNotMatch(productOrder, /searchParams\.set\("currency"/);
 });
 
-test('order-specific Wise link remains server-side and redirect completion is never payment proof', () => {
+test('legacy private payment requests remain server-controlled compatibility only', () => {
   assert.match(fn, /const wisePaymentLink = row\.provider_payment_link/);
   assert.doesNotMatch(fn, /Deno\.env\.get\("CAESTHETIC_WISE_PAYMENT_LINK"\)/);
   assert.match(fn, /action === "authorize_stripe"/);
@@ -66,26 +64,25 @@ test('order-specific Wise link remains server-side and redirect completion is ne
   assert.match(fn, /payment_provider_not_configured/);
   assert.match(fn, /action === "authorize_wise"/);
   assert.doesNotMatch(fn, /CAESTHETIC_WISE_OPEN_LINK/);
-  assert.doesNotMatch(fn, /wise\.com\/pay\/business/i);
   assert.doesNotMatch(fn, /status:\s*"credited"[\s\S]{0,180}wise_redirect/i);
 });
 
-test('Lead-to-Revenue Check payment is fixed-price, written-scope-first and product-aware', () => {
+test('Lead-to-Revenue Check remains fixed at $500 and product-aware in both new and legacy rails', () => {
   assert.match(checkProductMigration, /'lead_to_revenue_check'/);
   assert.match(checkProductMigration, /amount_minor\s*=\s*50000/);
   assert.match(checkProductMigration, /upper\(currency\)\s*=\s*'USD'/);
-  assert.match(checkProductMigration, /nullif\(btrim\(sow_id\),\s*''\)\s+IS\s+NOT\s+NULL/i);
+  assert.match(productOrder, /lead_to_revenue_check:[\s\S]*50000/);
   assert.match(fn, /lead_to_revenue_check:\s*"CAESTHETIC Lead-to-Revenue Check"/);
   assert.match(fn, /lead_to_revenue_check_price_invalid/);
-  assert.match(fn, /lead_to_revenue_check_scope_not_confirmed/);
   assert.match(fn, /product_data\]\[name\]", productLabel\(/);
   assert.match(fn, /order\.product_code !== "growth_sprint"/);
-  assert.doesNotMatch(fn, /product_data\]\[name\]", "CAESTHETIC 30-Day Growth Sprint"/);
 });
 
-test('opaque token is stored only as hash and never persisted in billing outbox', () => {
+test('opaque payment tokens are stored only as hashes and never persisted in billing outbox', () => {
   assert.match(fn, /payment_token_hash:\s*tokenHash/);
   assert.match(fn, /sha256Hex\(token\)/);
+  assert.match(productOrder, /payment_token_hash:\s*tokenHash/);
+  assert.match(productOrder, /sha256Hex\(token\)/);
   assert.doesNotMatch(fn, /payload:\s*\{\s*token\s*\}/);
   assert.doesNotMatch(migration, /payment_token\s+text/i);
 });
@@ -101,7 +98,6 @@ test('payment reconciliation has explicit mismatch states and provider transacti
   assert.match(fn, /provider_transaction_already_used/);
   assert.match(fn, /stripe_webhook/);
   assert.match(stripeWebhook, /checkout\.session\.async_payment_succeeded/);
-  assert.ok(readFileSync(qr).length > 1000);
 });
 
 test('billing communications are CAESTHETIC-isolated and reminders are scheduled through service role', () => {

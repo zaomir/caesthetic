@@ -19,6 +19,7 @@ export function loadV3Package({ root = ROOT, packageDir = path.join(root, V3_PAC
   const release = readJSON(path.join(packageDir, "release.json"));
   if (release.contract !== "spoken-v3-release/1.0.0" || release.case_id !== SPOKEN_CASE) throw new Error("V3_INVALID: release contract/case");
   if (release.catalog_source?.path !== 'docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md' || digest(fs.readFileSync(path.join(root, release.catalog_source.path))) !== release.catalog_source.sha256) throw new Error('V3_INPUT_CHANGED: catalog authority');
+  if (release.commercial_offer && (release.commercial_offer.authority_path !== 'docs/ssot/CAESTHETIC.md' || digest(fs.readFileSync(path.join(root, release.commercial_offer.authority_path))) !== release.commercial_offer.authority_sha256)) throw new Error('V3_INPUT_CHANGED: scoped offer authority');
   for (const [name, hash] of Object.entries(release.inputs || {})) {
     if (digest(fs.readFileSync(confined(packageDir, name))) !== hash) throw new Error(`V3_INPUT_CHANGED: ${name}`);
   }

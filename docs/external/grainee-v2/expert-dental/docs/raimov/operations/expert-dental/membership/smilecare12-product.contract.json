@@ -22,7 +22,8 @@
     "technicalIdentifiersUnchanged": true
   },
   "currentPublicBinding": {
-    "raimSmileRoute": "/smilecare-12/",
+    "raimSmileRoute": "/god-zaboty/",
+    "raimSmileLegacyRoute": "/smilecare-12/",
     "productName": "RAIM SMILE · Год заботы",
     "legacyProductName": "Expert Care 12",
     "route": "/services/smilecare-12/",

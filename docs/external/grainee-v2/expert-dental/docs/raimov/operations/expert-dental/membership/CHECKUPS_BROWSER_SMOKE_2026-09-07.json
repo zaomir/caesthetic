@@ -1,0 +1,26 @@
+{
+  "environment": "production",
+  "checks": [
+    "raimsmile 320: HTTP200, all benefits/prices, no overflow/errors",
+    "raimsmile 390: HTTP200, all benefits/prices, no overflow/errors",
+    "raimsmile 1440: HTTP200, all benefits/prices, no overflow/errors",
+    "https://raimsmile.com/services/care-12/: 301 /smilecare-12/",
+    "https://raimsmile.com/services/smilecare-12/: 301 /smilecare-12/",
+    "https://raimsmile.com/blog/expert-care-12/: 301 /smilecare-12/",
+    "clinic 320: HTTP200, all benefits/prices, no overflow/errors",
+    "clinic 390: HTTP200, all benefits/prices, no overflow/errors",
+    "clinic 1440: HTTP200, all benefits/prices, no overflow/errors",
+    "https://clinic.raimovdental.com/services/care-12/: 301 /services/smilecare-12/",
+    "https://clinic.raimovdental.com/blog/expert-care-12/: 301 /blog/smilecare-12/"
+  ],
+  "screenshots": [
+    "production-raimsmile-320.png",
+    "production-raimsmile-390.png",
+    "production-raimsmile-1440.png",
+    "production-clinic-320.png",
+    "production-clinic-390.png",
+    "production-clinic-1440.png"
+  ],
+  "externalMessagesSent": 0,
+  "status": "PASS"
+}

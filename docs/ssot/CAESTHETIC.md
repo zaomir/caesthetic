@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.34
-updated: 2026-09-06
+version: 3.35
+updated: 2026-09-07
 scope: CAESTHETIC master strategy and product-funnel canon
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 public_program_name: Connect4
@@ -442,6 +442,48 @@ Day-30 written email report:
 4. **Next path** — in-house / optional Sprint 2 / Growth System / defer-do-not-do.
 
 Report failures/no-movement honestly. The detailed inventory is the operating/evidence layer; the owner-facing summary uses the Client Growth Statement in section 8.
+
+<a id="spoken-four-surface-offer"></a>
+### 5.1 Spoken Russian v3 — scoped owner-approved commercial offer
+
+`spoken-four-surface-sprint/1.0.0`, owner decision and explicit publication request
+2026-09-07 (Spoken report task, approved offer writing block 68427).
+
+This commercial exception applies to the **Russian Spoken v3 offer only**. It
+replaces the quoted legacy Sprint-card scope note, deliverables, clinic-input,
+Day-30 and implementation-owner copy. The existing English report, other cases,
+public product pages and signed agreements are not implicitly migrated.
+
+- **$2,500 / 30 days:** coordinate Search/Google Maps, Website/blog, Social
+  profiles/posts/comments/practice replies, and Reputation/reviews/practice
+  replies. Agree the exact pages, platforms, materials, access and acceptance
+  before starting. This is a finite named scope across all four surfaces, not
+  an unlimited content or ongoing-management bundle. Use existing Catalog A
+  modules; post-enquiry work keeps its separate internal evidence/access boundary.
+- **Included Check:** the Lead-to-Revenue Check diagnostic and resulting next-step
+  plan are included without an additional charge, subject to the practice's
+  agreed access and the Check evidence contract. This is a future deliverable;
+  it does not mean the internal path has already been observed, a leak proved,
+  or implementation of every discovered internal task included.
+- **Alternative entry:** the standalone Check remains $500. Direct continuation
+  into the next qualifying agreed Sprint credits it once; the balance is $2,000
+  and the total remains $2,500. Existing credit eligibility is unchanged.
+- **Optional continuation:** for this offer, the agreed monthly marketing-support
+  price will be **below $2,500**, with scope and exact terms determined after the
+  Sprint in a separate agreement. This is no automatic enrolment, universal
+  retainer price, percentage or discount to the $2,500 finite Sprint Extension.
+  The existing optional Growth System agreement rules continue to apply.
+- Organic-search work means accurate real-service/geography language, useful
+  content and coherent links, without buying advertising placements. Do not
+  promise permanent rankings, ranking improvement, patients, revenue or ROI.
+  Retained materials do not imply permanent platform placement. Independent
+  reviews remain patient-authored; never dictate keywords or ratings.
+
+The owner has approved **commercial copy and these scoped terms**, not new
+research findings, paid-priority selection, measured impact or completed work.
+Preserve the current source observations, diagnostic states and review records.
+Exact RU copy lives in the frozen Spoken v3 `copy.ru.json` → `connect4_offer`;
+its content and commercial authority are pinned by `release.json`.
 
 ## 6. Optional Sprint 2 — finite implementation continuation
 Sprint Extension is **$2,500 per additional 30 days; not an upfront product, not promised and not required**. Offer it after Day 30 only when remaining high-value work is predominantly finite implementation. Owner decision 2026-09-05T14:18:08Z permits a descriptive optional “Further Sprint(s), only if needed” step on the Connect4 page; this is not a separately purchasable headline product or an automatic extension.

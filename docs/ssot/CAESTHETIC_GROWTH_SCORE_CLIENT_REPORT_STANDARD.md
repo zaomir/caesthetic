@@ -899,3 +899,22 @@ catalog: a coordinated, agreed 30-day scope around one substantial confirmed
 priority. For Spoken, first-visit clarity and connections to service/practitioner
 information are a working direction; the current packet still does not establish
 a material paid set. This presentation change does not approve new priorities.
+
+### 2026-09-07 — Spoken RU four-surface Sprint offer
+
+TASK-CAESTHETIC-024 implements the owner's explicit replacement of the quoted
+legacy Sprint-card body by offer `spoken-four-surface-sprint/1.0.0` from
+[master §5.1](CAESTHETIC.md#spoken-four-surface-offer). Preserve the approved
+price-block design, responsive engagement image immediately after the existing
+scope paragraph, one working Sprint request action and the two canonical Check
+sections. Render the four work surfaces, organic-search work, included Check,
+coordination, optional lower-cost continuation and direct-entry credit. Keep
+all Russian keyword inflections italic. Use existing site typography and grid.
+
+This is an owner-approved commercial proposal, not a replacement diagnostic
+selection. Keep all four answers, internal source provenance, the unsupported
+commercial-selection state, and pending research reviews unchanged. Do not
+restore removed sections or infer three new material gaps. The new offer body
+is RU-only; preserve the English rendered report byte-for-byte. Pinned paired
+input metadata may update without changing English client copy. No new universal
+retainer amount, guaranteed search movement or automatic future engagement.

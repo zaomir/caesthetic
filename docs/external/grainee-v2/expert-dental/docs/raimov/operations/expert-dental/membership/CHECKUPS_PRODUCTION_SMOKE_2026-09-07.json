@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-09-07T01:32:15.621611+00:00",
+  "mergedSha": "f323705f2c03f5910aab100f461084228fc42279",
+  "status": "PASS",
+  "externalMessagesSent": 0,
+  "surfaces": [
+    {
+      "url": "https://raimsmile.com/smilecare-12/",
+      "httpStatus": 200,
+      "deployedSha": "f323705f2c03f5910aab100f461084228fc42279",
+      "releaseMarker": "https://raimsmile.com/assets/prices-release.json",
+      "liveMarkers": [
+        "2 комплексных стоматологических чекапа",
+        "по показаниям",
+        "без доплаты",
+        "2 200",
+        "9 900",
+        "7 900",
+        "5 500",
+        "Год заботы"
+      ],
+      "htmlSha256": "170da435dfe62e472b3742356ce01d9de04aeff6d02fcf511b7697a3150de9d7",
+      "matchesDeploymentManifest": true
+    },
+    {
+      "url": "https://clinic.raimovdental.com/services/smilecare-12/",
+      "httpStatus": 200,
+      "deployedSha": "f323705f2c03f5910aab100f461084228fc42279",
+      "releaseMarker": "https://clinic.raimovdental.com/release.json",
+      "liveMarkers": [
+        "2 комплексных стоматологических чекапа",
+        "по показаниям",
+        "без доплаты",
+        "2 200",
+        "9 900",
+        "7 900",
+        "5 500",
+        "Год заботы"
+      ],
+      "htmlSha256": "f5264e46a79af49d3c9f0fe40f5834442275876d22617a065fcec4fd1e96ef08"
+    }
+  ],
+  "redirects": [
+    {
+      "url": "https://raimsmile.com/services/care-12/",
+      "status": 301,
+      "location": "https://raimsmile.com/smilecare-12/"
+    },
+    {
+      "url": "https://raimsmile.com/services/smilecare-12/",
+      "status": 301,
+      "location": "https://raimsmile.com/smilecare-12/"
+    },
+    {
+      "url": "https://raimsmile.com/blog/expert-care-12/",
+      "status": 301,
+      "location": "https://raimsmile.com/smilecare-12/"
+    },
+    {
+      "url": "https://raimsmile.com/blog/smilecare-12/",
+      "status": 301,
+      "location": "https://raimsmile.com/smilecare-12/"
+    },
+    {
+      "url": "https://clinic.raimovdental.com/services/care-12/",
+      "status": 301,
+      "location": "https://clinic.raimovdental.com/services/smilecare-12/"
+    },
+    {
+      "url": "https://clinic.raimovdental.com/blog/expert-care-12/",
+      "status": 301,
+      "location": "https://clinic.raimovdental.com/blog/smilecare-12/"
+    }
+  ],
+  "articleHttpStatus": 200,
+  "workflows": {
+    "raimSmile": 34073163294,
+    "clinicPatientSite": 34073163320
+  }
+}

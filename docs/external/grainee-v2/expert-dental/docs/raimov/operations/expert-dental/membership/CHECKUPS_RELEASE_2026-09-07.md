@@ -29,6 +29,16 @@ Adult и Additional Adult: 2 комплексных стоматологичес
 - Canonical deploy: `deploy-raimsmile.yml` для raimsmile.com и `deploy-expert-patient-staging.yml` для действующего clinic.raimovdental.com. Нового домена или cutover на expertdental.kg нет.
 - Rollback: revert task commit через PR и повтор двух штатных deploy workflows; отдельный production rollback drill не выполнялся.
 
-## Release evidence
+## Release evidence — VERIFIED
 
-Будет заполнено после merge, успешных workflows, проверки release markers и live redirects. До этого документ не утверждает production completion.
+- PR: https://github.com/zaomir/grainee-v2/pull/1553, merged 2026-09-07 01:29:08 UTC.
+- Merged SHA и deployed SHA обеих поверхностей: `f323705f2c03f5910aab100f461084228fc42279`.
+- Оба deploy workflows: `success`; metadata сохранены в `CHECKUPS_WORKFLOWS_2026-09-07.json`.
+- RAIM SMILE workflow: https://github.com/zaomir/grainee-v2/actions/runs/34073163294.
+- Clinic workflow: https://github.com/zaomir/grainee-v2/actions/runs/34073163320.
+- Live: https://raimsmile.com/smilecare-12/ и https://clinic.raimovdental.com/services/smilecare-12/ — HTTP 200.
+- Release markers: https://raimsmile.com/assets/prices-release.json (`sourceSha`) и https://clinic.raimovdental.com/release.json (`sha`).
+- `CHECKUPS_PRODUCTION_SMOKE_2026-09-07.json`: exact SHA, все восемь компонентов на RAIM SMILE, состав/цены обеих страниц, article HTTP 200, шесть legacy redirects 301; HTML RAIM SMILE совпадает с hash deployment manifest.
+- `CHECKUPS_BROWSER_SMOKE_2026-09-07.json`: обе поверхности на 320/390/1440 px, HTTP 200, без overflow и JS errors; внешние сообщения не отправлены.
+
+Подтверждено: программное внедрение, публикация, production smoke. Не подтверждено: клиническое исполнение нового состава, обучение/принятие командой и влияние на конверсию или экономику.

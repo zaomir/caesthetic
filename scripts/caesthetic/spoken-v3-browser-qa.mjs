@@ -71,6 +71,16 @@ try {
   assert.equal(await page.locator('#repair-paths, #gap-inventory, #useful-change, a[href^="#repair-"], a[href^="#inventory-"], a[href="#gap-inventory"], a[href="#useful-change"]').count(),0);
   assert.equal(await page.locator('[data-v3-media="engagement"]').count(),1);
   assert.equal(await page.locator('[data-owner-sprint-offer] > [data-v3-media="engagement"] picture').count(),1);
+  if(locale==='ru'){
+   const offer=page.locator('[data-owner-sprint-offer]');
+   assert.equal(await offer.locator('[data-sprint-offer-contract="spoken-four-surface-sprint/1.0.0"]').count(),1);
+   assert.deepEqual(await offer.locator('[data-offer-surface]').evaluateAll(nodes=>nodes.map(e=>e.dataset.offerSurface)),['search','website','social','reputation']);
+   assert.deepEqual(await offer.locator('[data-offer-surface] > h3').evaluateAll(nodes=>nodes.map(e=>e.tagName)),['H3','H3','H3','H3']);
+   assert.match(await offer.locator('[data-offer-part="included-check"]').innerText(),/без дополнительной оплаты/);
+   assert.match(await offer.locator('[data-offer-check-alternative]').innerText(),/доплатить \$2,000/);
+   assert.match(await offer.locator('[data-offer-continuation]').innerText(),/ниже \$2,500/);
+   assert.doesNotMatch(await offer.innerText(),/Для Spoken три существенных приоритета|Что входит в согласуемый объём|Что нужно от клиники|Что проверим на 30-й день|Ответственность за внедрение/);
+  }else assert.equal(await page.locator('[data-sprint-offer-contract]').count(),0);
   const reject=page.getByRole('button',{name:locale==='ru'?'Отказаться':'Reject analytics',exact:true});if(await reject.isVisible())await reject.click();
   for(const width of [320,375,390,430,768,1024,1440]){
    await page.setViewportSize({width,height:900});
@@ -116,6 +126,7 @@ try {
     await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,`${locale}-${width}-top.png`)});
     for(const id of ['report-intro','method-intro','choice-offer','choice-reviews','gap-map','focus-gaps','do-not-fund','next-step'])await page.locator('#'+id).screenshot({path:path.join(out,`${locale}-${width}-${id}.png`),style:'.v3-bar { visibility: hidden; }'});
     await page.locator('[data-cae-check-placement="mid"]').screenshot({path:path.join(out,`${locale}-${width}-check.png`),style:'.v3-bar { visibility: hidden; }'});
+    await page.locator('[data-owner-sprint-offer]').screenshot({path:path.join(out,`${locale}-${width}-sprint-offer.png`),style:'.v3-bar { visibility: hidden; }'});
     const destinations=[...CHOICE_IDS.map(id=>'#choice-'+id),'#connect4-conclusion'];
     assert.deepEqual(await page.locator('[data-choice-navigation] a').evaluateAll(a=>a.map(e=>e.hash)),destinations);
     assert.equal(await page.locator('.v3-research').count(),0);

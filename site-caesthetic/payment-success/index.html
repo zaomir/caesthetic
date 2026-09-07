@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US" data-page="payment-success">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Payment received — CAESTHETIC</title>
+  <meta name="description" content="Verified CAESTHETIC payment confirmation.">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/brand/favicon.png">
+  <link rel="stylesheet" href="/assets/css/caesthetic.css">
+  <link rel="stylesheet" href="/assets/css/growth.css">
+  <link rel="stylesheet" href="/assets/css/point-of-contact.css">
+  <link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
+</head>
+<body>
+<div id="cae-header-slot"></div>
+<main>
+  <section class="cae-hero-simple">
+    <div class="cae-wrap cae-wrap--narrow">
+      <p class="cae-kicker">CAESTHETIC payment</p>
+      <h1 class="cae-h1" id="payment-success-title">Confirming your payment.</h1>
+      <p class="cae-lead" id="payment-success-lead">We show “Payment received” only after the CAESTHETIC payment record confirms credited funds.</p>
+    </div>
+  </section>
+  <section class="cae-section">
+    <div class="cae-wrap cae-wrap--narrow">
+      <div id="payment-success-error" class="cae-form-error" role="alert" tabindex="-1" hidden></div>
+      <div id="payment-success-confirming" class="cae-form-success" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
+        <h2 class="cae-h2">We’re confirming your payment.</h2>
+        <p>Wise may take a little time to post and reconcile the transfer. You can keep this page open; we’ll check the CAESTHETIC payment record automatically.</p>
+        <p id="payment-success-confirming-order"></p>
+      </div>
+      <div id="payment-success-paid" class="cae-form-success" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden>
+        <svg class="cae-request-modal__check" aria-hidden="true" width="72" height="72" viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="32" r="29"></circle><path d="m19 32 9 9 18-19"></path></svg>
+        <h2 class="cae-h2">Payment received.</h2>
+        <p>Thank you. We’ve received your payment for <strong id="payment-success-product"></strong>. CAESTHETIC will contact you within 24 hours with the next step.</p>
+        <p><span id="payment-success-amount"></span> · Order <span id="payment-success-order"></span></p>
+      </div>
+      <div class="cae-actions"><a class="cae-btn cae-btn--outline" href="/">Return to CAESTHETIC</a></div>
+    </div>
+  </section>
+</main>
+<div id="cae-footer-slot"></div>
+<script src="/assets/js/caesthetic-pricing.generated.js"></script>
+<script src="/assets/js/caesthetic-config.js"></script>
+<script src="/assets/js/caesthetic.js" defer></script>
+<script src="/assets/js/payment-success.js" defer></script>
+<script src="/assets/js/analytics.js" defer></script>
+</body>
+</html>

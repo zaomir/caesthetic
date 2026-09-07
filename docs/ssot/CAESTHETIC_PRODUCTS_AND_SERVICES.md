@@ -2,9 +2,9 @@
 owner: CAESTHETIC
 status: active
 type: ssot
-version: 1.2.0
+version: 1.2.1
 created: 2026-09-06
-updated: 2026-09-06
+updated: 2026-09-07
 scope: internal products and implementation service catalog; eligibility, horizons and dependencies
 parent: docs/ssot/CAESTHETIC.md
 architecture_parent: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
@@ -42,6 +42,13 @@ Connect4 содержит ровно четыре публичные повер�
 | Lead-to-Revenue Check | Условная диагностика material post-enquiry неопределённости, которую нельзя разрешить публичными данными, с отдельным внутренним доступом. | $500; [Check SSOT](CAESTHETIC_LEAD_TO_REVENUE_CHECK.md). Не обязательный этап и не headline product; однократный credit в следующий qualifying Sprint только по его правилам. |
 | Sprint Extension | Дополнительная конечная реализация, если её обосновывает Day-30 evidence, доступ, vendor dependency или объективный срок. | $2,500 за дополнительные 30 дней; только после Day 30, не обязательный upfront product. |
 | Optional Growth System | Регулярное владение согласованными growth-процессами, adoption и измерением, с Client Growth Statement. | По мастер §7, Operating Model и подписанному соглашению. Отдельно выбранный annual engagement не возникает автоматически после Sprint. Универсальной recurring fee, ставки Performance Fee или cap здесь нет. |
+
+**Именованное предложение Spoken RU v3 (2026-09-07):**
+[мастер §5.1](CAESTHETIC.md#spoken-four-surface-offer) закрепляет согласованную
+работу на всех четырёх поверхностях, включённый без доплаты Check и необязательное
+сопровождение дешевле $2,500 в месяц. Это условия конкретного предложения, а не
+новая универсальная комплектация каталога. Доступы, факты, объём и приёмка
+фиксируются до начала; диагноз и завершённая работа из текста оффера не следуют.
 
 Новый сайт, staffing, CRM и другие большие модули оформляются как finite add-on / отдельный SOW в существующей модели, если подтверждена потребность. Они не становятся headline products. Продукты самой клиники, включая обсуждавшиеся в Аризоне программы помощи, не являются услугами лечения от CAESTHETIC.
 
@@ -231,3 +238,5 @@ Day-30 email: **Done / materially resolved → Started & continuing → Not star
 
 | 1.1.0 | 2026-09-06 | Owner-directed catalog/publication gate, prior manager decision for out-of-catalog work, separate patient materiality and CAESTHETIC value, DIY findings at the end, Month-1 commercial justification. |
 | 1.2.0 | 2026-09-06 | Curated public examples on existing Sprint/Growth System pages; no line-item prices, new products or blanket inclusion; evidence/access and delivery horizons remain visible. |
+
+| 1.2.1 | 2026-09-07 | Scoped Spoken RU offer: included Check, four-surface finite scope and optional lower-cost support; master §5.1 owns the exception. |

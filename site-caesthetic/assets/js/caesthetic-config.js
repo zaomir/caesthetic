@@ -1,11 +1,12 @@
 /**
- * CAESTHETIC runtime config — US aesthetic growth funnel (Phase 1).
+ * CAESTHETIC runtime config — US aesthetic growth funnel.
  * Payment provider credentials and provider URLs remain server-side only.
  */
 window.CAESTHETIC_API = {
   supabaseFunctions: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1",
   submitScore: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/submit-caesthetic-growth-score",
   payment: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/caesthetic-payment",
+  productOrder: "https://evo.do/api/v1/caesthetic-product-order",
   request: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/submit-caesthetic-growth-score",
 };
 
@@ -17,10 +18,11 @@ window.CAESTHETIC = {
   scoreTurnaround: "",
   contactEmail: "info@caesthetic.com",
   billingEmail: "info@caesthetic.com",
-  /* Signed Order -> private CAESTHETIC payment request -> configured provider.
-     Stripe ACH is the recommended US-bank route and Wise is the alternative.
-     No reusable Stripe/Wise checkout URL is stored in public runtime. */
-  approvedSprintPaymentPolicy: "signed_order_then_controlled_payment_request",
+  /* Public paid-product path:
+     product page -> three-field electronic Order -> controlled Wise rail ->
+     confirmed funds. Provider URLs stay server-side; provider redirect is not
+     proof of payment. */
+  approvedSprintPaymentPolicy: "product_page_then_electronic_order_then_wise",
   phoneDisplay: "",
   phoneE164: "",
   legalEntity: "OXFORD PROJETS",
@@ -32,12 +34,20 @@ window.CAESTHETIC = {
     linkedinVerified: true,
     photo: "/assets/img/team/valerie-petra-office-portrait.webp",
   },
-  /* Approved GA4 web stream. Meta stays dataLayer-only until separately approved. */
   ga4MeasurementId: "G-PNQB0W9YB2",
   metaPixelId: "",
 };
 
-/* Owner-facing accountability layer. The component itself decides which page types qualify. */
+(() => {
+  const src = "/assets/js/product-routing.js";
+  if (!document.querySelector(`script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.src = src;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+})();
+
 (() => {
   const src = "/assets/js/point-of-contact.js";
   if (!document.querySelector(`script[src="${src}"]`)) {
@@ -48,8 +58,6 @@ window.CAESTHETIC = {
   }
 })();
 
-/* Shared confirmation copy/accessibility for public lead forms. Submit handlers
-   remain authoritative: this layer never reveals success on its own. */
 (() => {
   const src = "/assets/js/form-confirmation.js";
   if (!document.querySelector(`script[src="${src}"]`)) {
@@ -60,12 +68,10 @@ window.CAESTHETIC = {
   }
 })();
 
-/* Growth Score report commercial routing is renderer-owned.
-   Do not auto-load /assets/js/growth-report-funnel.js: each eligible report owns
-   two always-visible Check sections plus at most one evidence-backed Sprint CTA;
-   Multi-Location focus children return to the parent decision instead. */
+/* Growth Score report commercial routing is renderer-owned for placement and
+   evidence semantics. The global paid-product router controls only where
+   approved Sprint/Check CTAs navigate after the user clicks them. */
 
-/* Localized Beauty Salon shells use a separate footer/copy surface. */
 (() => {
   const salonPrefixes = [
     "/beauty-salons",

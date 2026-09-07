@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.6
+version: 1.7
 created: 2026-09-02
-updated: 2026-09-04
+updated: 2026-09-07
 scope: canonical commercial and evidence contract for the CAESTHETIC Lead-to-Revenue Check
 copy_contract: check500-section/en-US/1.0.0
 placement_contract: check500-two-placement/1.0.0
@@ -57,6 +57,16 @@ The public headline funnel remains `Growth Score → 30-Day Growth Sprint → op
 - The credit is not a separate discount, cash-equivalent, refund promise or recurring balance. It applies only to the next qualifying CAESTHETIC Sprint purchased as the direct continuation of the Check.
 - The Check recommendation does not alter the Growth Score binding constraint, Top 3, Do Not Fund Yet or any Four-Surface score.
 - No revenue, patient, ROI, ranking or conversion outcome is guaranteed.
+
+### 2.1 Scoped included-Check offer
+
+The owner-approved Russian Spoken v3 offer, `spoken-four-surface-sprint/1.0.0`,
+includes this diagnostic and a next-step plan in the $2,500 Sprint without an
+additional charge. [Master §5.1](CAESTHETIC.md#spoken-four-surface-offer) owns the
+exact applicability and commercial exception. All evidence/access boundaries
+below remain in force; inclusion does not assert completed research or an
+internal defect. Standalone price, one-time direct-continuation credit, two
+canonical Check sections and their frozen locale copy remain unchanged.
 
 ## 3. Evidence boundary
 

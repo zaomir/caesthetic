@@ -462,6 +462,25 @@
       ]
     },
     {
+      "source": "site-caesthetic/payment-success/index.html",
+      "route": "/payment-success/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/growth.css",
+        "/assets/css/point-of-contact.css",
+        "/assets/css/caesthetic-impeccable.css"
+      ]
+    },
+    {
       "source": "site-caesthetic/pricing/index.html",
       "route": "/pricing/",
       "profile": "marketing",

@@ -4,71 +4,96 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>Secure payment — CAESTHETIC</title>
-  <meta name="description" content="Private CAESTHETIC payment request.">
+  <title>Order and payment — CAESTHETIC</title>
+  <meta name="description" content="Secure CAESTHETIC product order and payment status.">
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/brand/favicon.png">
   <link rel="stylesheet" href="/assets/css/caesthetic.css">
   <link rel="stylesheet" href="/assets/css/growth.css">
-  <style>
-    .cae-payment-methods { display:grid; gap:1rem; margin-top:2rem; }
-    .cae-payment-method { border:1px solid var(--cae-color-border,#d9ded8); border-radius:1rem; padding:1.25rem; }
-    .cae-payment-method--recommended { border-color:var(--cae-color-ink,#18311b); }
-    .cae-payment-method__head { display:flex; justify-content:space-between; gap:1rem; align-items:baseline; }
-    .cae-payment-method__label { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; }
-    .cae-payment-method__copy { margin:.35rem 0 1rem; }
-    .cae-wise-qr { display:none; text-align:center; margin:1.25rem auto 0; }
-    .cae-wise-qr img { width:min(100%,16rem); border-radius:.75rem; }
-    @media (min-width: 760px) { .cae-wise-qr { display:block; } }
-  </style>
-<link rel="stylesheet" href="/assets/css/point-of-contact.css">
-<link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
+  <link rel="stylesheet" href="/assets/css/point-of-contact.css">
+  <link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
 </head>
 <body>
 <div id="cae-header-slot"></div>
 <main>
   <section class="cae-hero-simple">
     <div class="cae-wrap cae-wrap--narrow">
-      <p class="cae-kicker">Private payment request</p>
-      <h1 class="cae-h1">Review before you pay.</h1>
-      <p class="cae-lead" id="payment-status">Loading payment request…</p>
+      <p class="cae-kicker" id="payment-kicker">Secure product order</p>
+      <h1 class="cae-h1" id="payment-title">Complete your CAESTHETIC order.</h1>
+      <p class="cae-lead" id="payment-status">Product and price are fixed before the payment provider opens.</p>
     </div>
   </section>
 
   <section class="cae-section">
     <div class="cae-wrap cae-wrap--narrow">
-      <div id="payment-error" hidden class="cae-disclaimer"></div>
-      <div id="payment-card" hidden>
-        <dl>
-          <dt>Practice</dt><dd id="pay-practice"></dd>
-          <dt>Service</dt><dd id="pay-service">CAESTHETIC service stated in your written Order</dd>
-          <dt>Invoice</dt><dd id="pay-invoice"></dd>
-          <dt>SOW</dt><dd id="pay-sow"></dd>
-          <dt>Seller</dt><dd>OXFORD PROJETS trading as CAESTHETIC</dd>
-        </dl>
-        <div class="cae-price-block" style="margin-top:var(--cae-space-6)">
-          <p class="cae-kicker">Exact amount due</p>
-          <p class="cae-price-block__amount" id="pay-amount"></p>
-          <p><strong>Use the exact amount shown here. CAESTHETIC confirms payment only after the provider credits the invoice.</strong></p>
-        </div>
+      <div id="payment-error" class="cae-form-error" role="alert" tabindex="-1" hidden></div>
 
-        <form id="payer-form" style="margin-top:var(--cae-space-6)">
+      <div id="checkout-panel" hidden>
+        <div class="cae-price-block">
+          <p class="cae-kicker">Your order</p>
+          <h2 class="cae-h2" id="order-product">CAESTHETIC product</h2>
+          <p class="cae-price-block__amount" id="order-price"></p>
+          <p id="order-scope"></p>
+        </div>
+        <form class="cae-form" id="product-order-form" novalidate>
+          <label>Practice or business name<input name="practice_name" autocomplete="organization" required maxlength="160"></label>
+          <label>Your name<input name="signer_name" autocomplete="name" required maxlength="160"></label>
+          <label>Work email<input type="email" name="signer_email" autocomplete="email" inputmode="email" required maxlength="200"></label>
+          <p class="cae-form-error" id="order-error" role="alert" tabindex="-1" hidden></p>
+          <button class="cae-btn cae-btn--primary" type="submit">Continue to payment</button>
+          <p class="cae-disclaimer">By continuing, you confirm that you are authorized to purchase and pay for this product for the practice or business named above and electronically accept the standard product order, the <a href="/legal/payment-terms/">Payment Terms</a> and the applicable <a href="/legal/terms/">Terms of Use</a>. No patient or clinical data is requested here.</p>
+        </form>
+      </div>
+
+      <div id="payment-ready-panel" tabindex="-1" hidden>
+        <div class="cae-form-success" role="status" aria-live="polite" aria-atomic="true">
+          <h2 class="cae-h2">Your payment step is ready.</h2>
+          <p><strong id="ready-product"></strong> · <span id="ready-amount"></span></p>
+          <p>Order: <span id="ready-order"></span></p>
+        </div>
+        <div class="cae-actions">
+          <button class="cae-btn cae-btn--primary" type="button" id="wise-open">Open Wise to pay</button>
+          <button class="cae-btn cae-btn--outline" type="button" id="check-payment">I've paid — check status</button>
+        </div>
+        <p class="cae-disclaimer" id="payment-waiting">CAESTHETIC confirms payment only after funds are credited and reconciled.</p>
+      </div>
+
+      <div id="confirming-panel" tabindex="-1" hidden>
+        <div class="cae-form-success" role="status" aria-live="polite" aria-atomic="true">
+          <h2 class="cae-h2">We're confirming your payment.</h2>
+          <p>Wise may take a little time to post the transfer for <strong id="confirming-product"></strong>. This page checks the CAESTHETIC payment record automatically.</p>
+          <p>Order: <span id="confirming-order"></span></p>
+        </div>
+        <div class="cae-actions"><button class="cae-btn cae-btn--outline" type="button" id="check-payment-confirming" onclick="document.getElementById('check-payment').click()">Check again</button></div>
+      </div>
+
+      <div id="thank-you-panel" tabindex="-1" hidden>
+        <div class="cae-form-success" role="status" aria-live="polite" aria-atomic="true">
+          <svg aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" focusable="false"><circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 32.5 28.5 41 45 23.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2 class="cae-h2">Payment received.</h2>
+          <p>Thank you. We've received your payment for <strong id="thanks-product"></strong>. CAESTHETIC will contact you within 24 hours with the next step.</p>
+          <p><span id="thanks-amount"></span> · Order <span id="thanks-order"></span></p>
+        </div>
+      </div>
+
+      <div id="legacy-panel" hidden>
+        <div class="cae-price-block">
+          <p class="cae-kicker">Private payment request</p>
+          <dl>
+            <dt>Practice</dt><dd id="legacy-practice"></dd>
+            <dt>Service</dt><dd id="legacy-service"></dd>
+            <dt>Invoice</dt><dd id="legacy-invoice"></dd>
+          </dl>
+          <p class="cae-price-block__amount" id="legacy-amount"></p>
+          <p><strong>CAESTHETIC confirms payment only after the provider credits the invoice.</strong></p>
+        </div>
+        <form class="cae-form" id="legacy-payer-form">
           <label>Your full name<input name="payer_name" autocomplete="name" required maxlength="160"></label>
           <label>Your relationship to the practice<select name="payer_relationship" required><option value="owner_or_officer">Owner or officer</option><option value="contracting_entity">Contracting entity</option><option value="authorized_third_party">Authorized third party</option></select></label>
           <label>Account you expect to use<select name="payer_account_type" required><option value="individual">Personal / individual account</option><option value="company">Company / business account</option><option value="unknown">Not sure / provider decides</option></select></label>
-          <label style="display:flex;gap:.75rem;align-items:flex-start;margin-top:1rem"><input type="checkbox" name="attest" required style="width:auto;margin-top:.3rem"><span>I confirm that I control the account used for payment and am authorized to pay this invoice on behalf of the practice named above. A business or personal account that I control may be used.</span></label>
-          <p class="cae-disclaimer">CAESTHETIC records this authorization for the commercial payment record. We do not receive your card number, bank login, or online-banking credentials. Payment is completed with the payment provider.</p>
-          <div class="cae-payment-methods">
-            <section class="cae-payment-method cae-payment-method--recommended">
-              <div class="cae-payment-method__head"><strong>Pay from your US bank account</strong><span class="cae-payment-method__label">Recommended</span></div>
-              <p class="cae-payment-method__copy">Secure Stripe ACH checkout. Choose your bank and authorize the transfer without entering CAESTHETIC bank details.</p>
-              <button type="submit" class="cae-btn cae-btn--primary" id="stripe-pay-button" data-payment-action="authorize_stripe">Continue with ACH</button>
-            </section>
-            <section class="cae-payment-method">
-              <div class="cae-payment-method__head"><strong>Already use Wise?</strong><span class="cae-payment-method__label">Alternative</span></div>
-              <p class="cae-payment-method__copy">Open the reusable Wise payment link. The exact invoice amount and payer authorization remain recorded by CAESTHETIC.</p>
-              <button type="submit" class="cae-btn" id="wise-pay-button" data-payment-action="authorize_wise">Open Wise payment link</button>
-              <div class="cae-wise-qr"><p><strong>Paying from another device?</strong><br>Scan this QR code with your phone to open the same Wise flow.</p><img src="/assets/img/wise-qr-code.png" alt="Wise payment QR code" width="800" height="800" loading="lazy"></div>
-            </section>
+          <label><input type="checkbox" name="attest" required> I confirm that I control the account used for payment and am authorized to pay this invoice on behalf of the practice named above.</label>
+          <div class="cae-actions">
+            <button type="submit" class="cae-btn cae-btn--primary" data-payment-action="authorize_stripe">Continue with ACH</button>
+            <button type="submit" class="cae-btn cae-btn--outline" data-payment-action="authorize_wise">Open Wise payment link</button>
           </div>
         </form>
       </div>
@@ -76,98 +101,11 @@
   </section>
 </main>
 <div id="cae-footer-slot"></div>
+<script src="/assets/js/caesthetic-pricing.generated.js"></script>
 <script src="/assets/js/caesthetic-config.js"></script>
 <script src="/assets/js/caesthetic.js" defer></script>
-<script>
-(() => {
-  const params = new URLSearchParams(location.search);
-  const pathParts = location.pathname.split('/').filter(Boolean);
-  const token = params.get('token') || (pathParts[0] === 'pay' && pathParts[1] ? pathParts[1] : '');
-  const api = window.CAESTHETIC_API?.payment;
-  const contact = window.CAESTHETIC?.billingEmail || window.CAESTHETIC?.contactEmail || 'info@caesthetic.com';
-  const status = document.getElementById('payment-status');
-  const errorBox = document.getElementById('payment-error');
-  const card = document.getElementById('payment-card');
-  const form = document.getElementById('payer-form');
-  const buttons = [...document.querySelectorAll('[data-payment-action]')];
-  const productLabels = Object.freeze({
-    growth_sprint: 'CAESTHETIC 30-Day Growth Sprint',
-    lead_to_revenue_check: 'CAESTHETIC Lead-to-Revenue Check',
-    growth_system: 'CAESTHETIC Growth System',
-    performance_fee: 'CAESTHETIC Performance Fee',
-  });
-
-  const fail = (message) => {
-    status.textContent = 'This payment request is not available.';
-    errorBox.textContent = message;
-    errorBox.hidden = false;
-    card.hidden = true;
-  };
-
-  if (!token || !api) {
-    fail('The payment link is incomplete. Please use the private link sent by CAESTHETIC.');
-    return;
-  }
-
-  fetch(`${api}?token=${encodeURIComponent(token)}`, { headers: { Accept: 'application/json' } })
-    .then(async (r) => ({ ok: r.ok, status: r.status, data: await r.json().catch(() => ({})) }))
-    .then(({ ok, status: httpStatus, data }) => {
-      if (!ok) {
-        fail(httpStatus === 410 ? `This payment request has expired. Please contact ${contact}.` : `We could not load this payment request. Please contact ${contact}.`);
-        return;
-      }
-      if (['credited','delivery_started','refunded','returned'].includes(data.status)) {
-        fail(['credited','delivery_started'].includes(data.status) ? 'Payment for this request has already been received.' : 'This payment request is closed.');
-        return;
-      }
-      document.getElementById('pay-practice').textContent = data.practice_name || '—';
-      document.getElementById('pay-service').textContent = productLabels[data.product_code] || 'CAESTHETIC service stated in your written Order';
-      document.getElementById('pay-invoice').textContent = data.invoice_number || data.order_number || '—';
-      document.getElementById('pay-sow').textContent = data.sow_id || 'As stated in your written Order';
-      document.getElementById('pay-amount').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: data.currency || 'USD' }).format((data.amount_minor || 0) / 100) + ` ${data.currency || 'USD'}`;
-      status.textContent = 'Confirm the invoice and payer authorization before continuing.';
-      card.hidden = false;
-    })
-    .catch(() => fail(`We could not load this payment request. Please contact ${contact}.`));
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const button = event.submitter || document.getElementById('stripe-pay-button');
-    const action = button?.dataset?.paymentAction || 'authorize_stripe';
-    buttons.forEach((item) => { item.disabled = true; });
-    button.textContent = action === 'authorize_stripe' ? 'Preparing secure ACH…' : 'Opening Wise…';
-    const fd = new FormData(form);
-    try {
-      const response = await fetch(api, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action,
-          token,
-          payer_name: String(fd.get('payer_name') || ''),
-          payer_relationship: String(fd.get('payer_relationship') || ''),
-          payer_account_type: String(fd.get('payer_account_type') || 'unknown'),
-          attestation_accepted: fd.get('attest') === 'on',
-        }),
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok || !data.redirect_url) {
-        if (['payment_provider_not_configured', 'stripe_not_configured'].includes(data.error)) {
-          fail(`Payment setup is being finalized. Your order remains valid; CAESTHETIC will notify you when payment is enabled. Questions: ${contact}.`);
-        } else {
-          fail(`We could not continue to the payment provider. Please contact ${contact}.`);
-        }
-        return;
-      }
-      location.assign(data.redirect_url);
-    } catch {
-      fail(`We could not continue to the payment provider. Please contact ${contact}.`);
-    } finally {
-      buttons.forEach((item) => { item.disabled = false; });
-      button.textContent = action === 'authorize_stripe' ? 'Continue with ACH' : 'Open Wise payment link';
-    }
-  });
-})();
-</script>
+<script src="/assets/js/product-checkout.js" defer></script>
+<script src="/assets/js/payment-success-redirect.js" defer></script>
+<script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>
