@@ -12,7 +12,8 @@
     "2026-08-06 clinic update: aesthetics direction added — эстетическая диагностика 10000, винир E-max 33000/зуб, композитная реставрация 11000/зуб, отбеливание офисное 15000, домашнее 8000, ночная каппа 15000, временные виниры 15000, снятие старых 1000/зуб; разбор чужого плана 3000; screening direction added (цифровая примерка и чек-ап — 0 сом); cta.label fixed per §6.4",
     "2026-08-06 reconciliation: grainee-v2 clinic-confirmed directions replace the conflicting satellite proposed aesthetics draft",
     "2026-08-07 Total decision DEC-800: current Care 12 benefit binding approved for patient-site publication as clinic_confirmed_public information/inquiry; operational activation and checkout remain separate gates",
-    "2026-08-29 owner decision DEC-861: public display name and routes migrate to RAIM SMILE · SmileCare 12 without changing prices, SKU ids, benefits, limits or activation state"
+    "2026-08-29 owner decision DEC-861: public display name and routes migrate to RAIM SMILE · SmileCare 12 without changing prices, SKU ids, benefits, limits or activation state",
+    "2026-09-07 owner decision DEC-RAIM-SMILE-YEAR-OF-CARE-20260907: public display name = RAIM SMILE · Год заботы; internal/legacy aliases and all SKU ids, prices, benefits, routes and activation states preserved"
   ],
   "disclaimer": "Итоговая стоимость определяется после осмотра и диагностики. Цена консультации зависит от врача и направления. Цены на лечение указаны ориентировочно и могут зависеть от сложности случая.",
   "consultationFees": {
@@ -84,7 +85,7 @@
   "adjustments": [
     {
       "sku": "care12-heavy-hygiene-surcharge",
-      "name": "Доплата SmileCare 12 за тяжёлую степень профгигиены",
+      "name": "Доплата Год заботы за тяжёлую степень профгигиены",
       "price": "2 200 сом",
       "basis": "Разница между тяжёлой степенью 7 700 сом и покрываемой средней степенью 5 500 сом"
     }
@@ -169,7 +170,7 @@
     ]
   },
   "membership": {
-    "productFamily": "RAIM SMILE · SmileCare 12",
+    "productFamily": "RAIM SMILE · Год заботы",
     "legacyProductFamily": "Expert Care 12",
     "status": "clinic_confirmed_public",
     "decision": "DEC-800 + DEC-861",
@@ -197,6 +198,17 @@
       "noShow": "Финальные правила переноса и неявки администратор сообщает до оформления; сайт не списывает визиты автоматически",
       "publicPublish": "approved_for_patient_site_information_and_whatsapp_inquiry",
       "activation": "no_checkout; availability and final contractual terms are confirmed by clinic administration"
+    },
+    "naming": {
+      "publicName": "Год заботы",
+      "publicDisplayName": "RAIM SMILE · Год заботы",
+      "internalName": "SmileCare 12 / care12",
+      "legacyAliases": [
+        "SmileCare 12",
+        "Care 12",
+        "Expert Care 12"
+      ],
+      "decision": "docs/founder-notes/DEC-RAIM-SMILE-YEAR-OF-CARE-20260907.md"
     }
   },
   "directions": [
@@ -367,7 +379,7 @@
           "includes": "Осмотр, визуальная диагностика, снятие твёрдых и мягких зубных отложений аппаратом Air Flow и УЗ, полировка зубов",
           "price": "2 750 сом",
           "careEligible": "kids",
-          "careNote": "Входит в RAIM SMILE · SmileCare 12 Kids (до 2 раз / 12 мес), когда абонемент доступен"
+          "careNote": "Входит в RAIM SMILE · Год заботы Kids (до 2 раз / 12 мес), когда абонемент доступен"
         },
         {
           "name": "Лечение кариеса временного зуба — поверхностный",
@@ -426,7 +438,7 @@
           "price": "4 400 сом",
           "sku": "hygiene-light",
           "careEligible": "light",
-          "careNote": "Входит в RAIM SMILE · SmileCare 12 Adult (до 2 раз / 12 мес), когда абонемент доступен"
+          "careNote": "Входит в RAIM SMILE · Год заботы Adult (до 2 раз / 12 мес), когда абонемент доступен"
         },
         {
           "name": "Профессиональная гигиена — постоянный прикус, средняя степень (2 челюсти)",
@@ -434,7 +446,7 @@
           "price": "5 500 сом",
           "sku": "hygiene-medium",
           "careEligible": "medium",
-          "careNote": "Входит в RAIM SMILE · SmileCare 12 Adult (до 2 раз / 12 мес), когда абонемент доступен"
+          "careNote": "Входит в RAIM SMILE · Год заботы Adult (до 2 раз / 12 мес), когда абонемент доступен"
         },
         {
           "name": "Профессиональная гигиена — постоянный прикус, тяжёлая степень (2 челюсти)",
@@ -801,7 +813,7 @@
     },
     {
       "id": "care12",
-      "name": "RAIM SMILE · SmileCare 12",
+      "name": "RAIM SMILE · Год заботы",
       "status": "clinic_confirmed_public",
       "publishGate": "DEC-800 current benefit information + DEC-861 naming cutover; WhatsApp inquiry only; no checkout",
       "publicRoute": "/services/smilecare-12/",
@@ -811,7 +823,7 @@
       "items": [
         {
           "sku": "care12-adult",
-          "name": "RAIM SMILE · SmileCare 12 Adult",
+          "name": "RAIM SMILE · Год заботы Adult",
           "includes": "2 профгигиены лёгкой или средней степени / 12 мес; 2 контрольных осмотра / обновление Паспорта; приоритет записи при срочной проблеме в duty-слотах; напоминания recare",
           "exclusions": "Тяжёлая гигиена целиком; терапия; эндодонтия; хирургия; ортопедия; имплантация; ортодонтия; снимки/КТ; безлимит визитов",
           "price": "9 900 сом / 12 мес",
@@ -822,7 +834,7 @@
         },
         {
           "sku": "care12-family-addon",
-          "name": "RAIM SMILE · SmileCare 12 Additional Adult (2-й взрослый)",
+          "name": "RAIM SMILE · Год заботы Additional Adult (2-й взрослый)",
           "includes": "Тот же профилактический лимит, что Adult, для второго члена семьи на том же договоре",
           "exclusions": "Те же исключения, что Adult",
           "price": "7 900 сом / 12 мес",
@@ -833,7 +845,7 @@
         },
         {
           "sku": "care12-kids",
-          "name": "RAIM SMILE · SmileCare 12 Kids",
+          "name": "RAIM SMILE · Год заботы Kids",
           "includes": "2 детские профгигиены временного прикуса / 12 мес; 2 контрольных осмотра; напоминания",
           "exclusions": "Лечение кариеса, удаления, детские коронки, ортодонтия — всегда отдельно",
           "price": "5 500 сом / 12 мес",

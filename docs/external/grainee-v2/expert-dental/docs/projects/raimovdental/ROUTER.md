@@ -46,7 +46,7 @@
 - BALAM Stage 0 website TZ: `docs/projects/raimovdental/balam/BALAM_STAGE0_WEBSITE_TZ.md`
 - BALAM brand-use counsel: `docs/legal/raimov/clearances/BALAM_EXPERT_BRAND_COUNSEL_2026-08-13.md`
 - BALAM execution contour: `docs/projects/raimovdental/balam/README.md`
-- patient motivation/current RAIM SMILE · SmileCare 12 benefit-binding authority: `docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md`
+- patient motivation/current RAIM SMILE · Год заботы benefit-binding authority: `docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md`
 - historical Month-1 plan: `docs/ssot/EXPERT_DENTAL_MONTH_1_PLAN_AND_REPORTS.md`
 - Month-1 lessons for future Sprint/add-on design: `docs/ssot/EXPERT_DENTAL_MONTH_1_RETROSPECTIVE.md`
 - access continuity: `docs/ssot/RAIMOV_ACCESS_CONTINUITY_SYSTEM.md`
@@ -120,7 +120,7 @@ Partnership rules:
 - CAESTHETIC is the separate partnership operator/employer; 30% collected/non-refunded partner/VIP SmileCare 12 membership revenue, 100% Coordination Fee and a contract-specific Attributed Sales Performance Fee are owner-approved options; medical/dental attributed-sales fees activate through the ordinary signed Commercial Schedule and verified attribution without special legal/fiscal/advertising/privacy/fee-splitting activation gates; coordinator and clinician medical-sales percentages remain `0%`;
 - public `24/7 medical care` claims are forbidden; only proven after-hours/24-7 non-clinical VIP coordination may use that availability language;
 - future VIP access uses phone as eligibility key, not a password, with no first-step OTP; active match reveals only `Call coordinator` and `WhatsApp coordinator`, while mismatch stays neutral and no PII is disclosed; runtime is not implemented;
-- **RAIM SMILE · SmileCare 12** is the owner-approved public name for the unchanged current binding under `DEC-861`; expanded v2 plans and partner activation remain gated;
+- **RAIM SMILE · Год заботы** is the owner-approved public name for the unchanged current binding under `DEC-861`; expanded v2 plans and partner activation remain gated;
 - no named partner claim is ACTIVE before agreement, brand approval, capacity, legal/privacy and operator gates;
 - partner CRM contains no PHI.
 

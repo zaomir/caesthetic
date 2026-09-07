@@ -6,6 +6,14 @@
 **Master brand:** RAIMOV DENTAL  
 **Public site:** Stage B at `/ru/`; Access & Continuity at `/ru/access-continuity/`; Stage A protected at `/stage-a/`
 
+## Naming update — 2026-09-07
+
+Owner decision `DEC-RAIM-SMILE-YEAR-OF-CARE-20260907`: public display name =
+**RAIM SMILE · Год заботы**; internal/legacy = `SmileCare 12 / care12`.
+Current routes, prices, benefits, technical identifiers, economics and VIP mechanics preserved.
+Release evidence: `docs/audits/raimov/releases/year-of-care/RELEASE.md`.
+The existing operational and future-product statuses below are not changed by this naming release.
+
 ## Главный вывод
 
 Owner approved the post-competitive-audit **Expert Dental Patient Conversion & Continuity Implementation** as the active implementation strategy. Canon: `docs/ssot/EXPERT_DENTAL_PATIENT_CONVERSION_CONTINUITY_IMPLEMENTATION.md`. It converts the audit into one clinic-wide program across Public Truth, office journey, administrators, clinicians/internal referrals, Treatment Coordinator, document flow, infrastructure/SQNS/telephony, sites/social, reputation/continuity and paid-demand gates. It also establishes a separate IT-architect RACI: system architecture, SQNS/telephony/guidebook/e-sign technical layer, data/PHI boundaries, event architecture, vendor verification, observability, release/smoke/rollback and technical acceptance. This is docs/control-plane adoption only: no runtime, product activation, public claim, e-sign go-live or paid-media launch is implied.

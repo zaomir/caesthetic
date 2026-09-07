@@ -26,6 +26,19 @@ links_to:
 
 # Expert Dental — система мотивации пациентов
 
+## Публичное имя — решение владельца 2026-09-07
+
+Действующее публичное имя: **RAIM SMILE · Год заботы**. Короткое имя: **Год заботы**.
+`publicName: Год заботы`; `internalName: SmileCare 12 / care12`.
+`SmileCare 12`, `Care 12` и `Expert Care 12` — временные internal/legacy aliases, не публичные display names.
+Authority: `docs/founder-notes/DEC-RAIM-SMILE-YEAR-OF-CARE-20260907.md`, superseding только naming в DEC-861.
+Все цены, benefits, economics, VIP mechanics, SKU ids, contractId, file paths и аналитические mappings сохранены.
+`raimsmile.com/smilecare-12/` остаётся canonical продукта; на patient-site сохраняются
+`/services/smilecare-12/`, `/blog/smilecare-12/` и их legacy redirects. Нового slug нет.
+Предыдущие решения и release evidence ниже остаются историческими; legacy wording
+в технических/операционных разделах обозначает тот же продукт.
+
+
 ## 0. Главный вывод
 
 Expert Dental нуждается не в разрозненных скидках, а в единой системе, которая удерживает пациента на пути:
@@ -35,7 +48,7 @@ Expert Dental нуждается не в разрозненных скидках
 Система состоит из **трёх слоёв**:
 
 1. **Continuity (фундамент)** — Access & Continuity: срочный вход, Паспорт, сертификат чек-апа, запись до ухода, тёплая передача.
-2. **Membership (удержание)** — RAIM SMILE · SmileCare 12: текущие цены и patient-site inquiry подтверждены DEC-800, имя и canonical routes — DEC-861; checkout, expanded v2 и автоматическая операционная активация остаются за отдельными gates.
+2. **Membership (удержание)** — RAIM SMILE · Год заботы: текущие цены и patient-site inquiry подтверждены DEC-800, имя и canonical routes — DEC-861; checkout, expanded v2 и автоматическая операционная активация остаются за отдельными gates.
 3. **Loyalty ledger (учёт)** — баллы Expert Points: начисление за оплаченное поведение и redeem в профилактику/сервис.
 
 Отзывы **не входят** в начисление и redeem. Reward-for-review запрещён. Предварительный отбор «только довольных» до запроса запрещён (DEC-774 / DEC-786 / DEC-787).
@@ -85,7 +98,7 @@ Layer A · CONTINUITY (DEC-774 + DEC-787)
   pre-book / warm handoff /
   Post-Visit Feedback Loop (CSAT → public invite | private recovery; без reward)
 
-Layer B · MEMBERSHIP — RAIM SMILE · SmileCare 12
+Layer B · MEMBERSHIP — RAIM SMILE · Год заботы
   patient-site information/inquiry approved (DEC-800);
   checkout and automatic activation remain gated by capacity + unit economics
 
@@ -362,7 +375,7 @@ WhatsApp **не** просит «ответьте цифрой». Он даёт 
 
 ---
 
-# 5. Layer B — RAIM SMILE · SmileCare 12 (абонемент)
+# 5. Layer B — RAIM SMILE · Год заботы (абонемент)
 
 Публичное имя изменено решением `DEC-861`. В этом Layer B продолжают действовать прежние три SKU, цены, лимиты и exclusions. Это не активация целевых `Essential`, `Perio`, `Kids & Teens` или `Family Account`.
 
@@ -412,7 +425,7 @@ WhatsApp **не** просит «ответьте цифрой». Он даёт 
 
 ## 5.3. Gate операционной активации
 
-Checkout и автоматическая активация RAIM SMILE · SmileCare 12 включаются только если:
+Checkout и автоматическая активация RAIM SMILE · Год заботы включаются только если:
 
 1. Layer A пилот дал ≥1 положительную когорту 30/60/90;
 2. unit economics абонемента при max-usage ≥ целевой маржи клиники;
@@ -592,7 +605,7 @@ Care 12 inquiry по DEC-800; production cutover на `expertdental.kg`, checkou
 
 - баллы / скидка / сертификат / Care ↔ отзыв или оценка;
 - предварительный отбор только «довольных» до отправки CSAT;
-- называть RAIM SMILE · SmileCare 12 страховкой;
+- называть RAIM SMILE · Год заботы страховкой;
 - обещать бесплатное лечение через программу лояльности;
 - публиковать неподтверждённые цены Care / курса баллов;
 - хранить диагнозы и снимки в loyalty ledger или журнале отзывов;
@@ -643,5 +656,5 @@ Ala-carte и Care SKU живут в одном каталоге:
 ## Не является текущим фактом
 
 - работающие Expert Points;
-- checkout и автоматическая активация RAIM SMILE · SmileCare 12;
+- checkout и автоматическая активация RAIM SMILE · Год заботы;
 - публичные patient claims о программе лояльности на `raimovdental.com`.

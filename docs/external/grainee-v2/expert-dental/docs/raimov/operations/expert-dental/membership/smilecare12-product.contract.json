@@ -8,10 +8,22 @@
     "currentPublicProduct": "docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md",
     "currentPriceCatalog": "docs/raimov/operations/expert-dental/pricing/PRICE_CATALOG.json",
     "namingMigration": "docs/raimov/partnerships/SMILECARE_12_NAMING_MIGRATION.md",
-    "publicNamingDecision": "docs/founder-notes/DEC-861_smilecare12-safe-public-naming-cutover.md"
+    "publicNamingDecision": "docs/founder-notes/DEC-RAIM-SMILE-YEAR-OF-CARE-20260907.md"
+  },
+  "naming": {
+    "publicName": "Год заботы",
+    "publicDisplayName": "RAIM SMILE · Год заботы",
+    "internalName": "SmileCare 12 / care12",
+    "legacyAliases": [
+      "SmileCare 12",
+      "Care 12",
+      "Expert Care 12"
+    ],
+    "technicalIdentifiersUnchanged": true
   },
   "currentPublicBinding": {
-    "productName": "RAIM SMILE · SmileCare 12",
+    "raimSmileRoute": "/smilecare-12/",
+    "productName": "RAIM SMILE · Год заботы",
     "legacyProductName": "Expert Care 12",
     "route": "/services/smilecare-12/",
     "legacyRoute": "/services/care-12/",
@@ -28,21 +40,21 @@
     "skus": [
       {
         "id": "care12-adult",
-        "displayName": "RAIM SMILE · SmileCare 12 Adult",
+        "displayName": "RAIM SMILE · Год заботы Adult",
         "priceKgs": 9900,
         "migrationCandidate": "essential",
         "benefitsChangeApproved": false
       },
       {
         "id": "care12-family-addon",
-        "displayName": "RAIM SMILE · SmileCare 12 Additional Adult",
+        "displayName": "RAIM SMILE · Год заботы Additional Adult",
         "priceKgs": 7900,
         "migrationCandidate": "legacy_additional_adult",
         "benefitsChangeApproved": false
       },
       {
         "id": "care12-kids",
-        "displayName": "RAIM SMILE · SmileCare 12 Kids",
+        "displayName": "RAIM SMILE · Год заботы Kids",
         "priceKgs": 5500,
         "migrationCandidate": "kids_teens",
         "benefitsChangeApproved": false
@@ -50,7 +62,7 @@
     ]
   },
   "targetNetworkBinding": {
-    "displayName": "RAIM SMILE · SmileCare 12",
+    "displayName": "RAIM SMILE · Год заботы",
     "stableId": "smilecare_12",
     "futureSlug": "smilecare-12",
     "migrationState": "CURRENT_LEGACY_BINDING_PUBLIC_NAME_ACTIVE_EXPANDED_V2_GATED",

@@ -58,6 +58,19 @@ links_to:
 
 # RAIMOV.md — Master SSOT
 
+## Публичное имя — решение владельца 2026-09-07
+
+Действующее публичное имя: **RAIM SMILE · Год заботы**. Короткое имя: **Год заботы**.
+`publicName: Год заботы`; `internalName: SmileCare 12 / care12`.
+`SmileCare 12`, `Care 12` и `Expert Care 12` — временные internal/legacy aliases, не публичные display names.
+Authority: `docs/founder-notes/DEC-RAIM-SMILE-YEAR-OF-CARE-20260907.md`, superseding только naming в DEC-861.
+Все цены, benefits, economics, VIP mechanics, SKU ids, contractId, file paths и аналитические mappings сохранены.
+`raimsmile.com/smilecare-12/` остаётся canonical продукта; на patient-site сохраняются
+`/services/smilecare-12/`, `/blog/smilecare-12/` и их legacy redirects. Нового slug нет.
+Предыдущие решения и release evidence ниже остаются историческими; legacy wording
+в технических/операционных разделах обозначает тот же продукт.
+
+
 ## Owner-approved RAIMOV WHOLE PERSON brand platform
 
 From `DEC-864` (2026-08-30), Atabek Raimov's personal brand is built around **evidence-aware Whole-Person Dentistry** and its signature platform **RAIMOV WHOLE PERSON**. Atabek is the **clinical architect of complex dental cases**: he considers the dentofacial system in the context of the whole person, treats within dental scope, coordinates interdisciplinary care and refers outside that scope.
@@ -162,7 +175,7 @@ Layer 4 · LEGAL / OPERATIONS / RELEASE
 | RAIM SMILE case economics input | `docs/raimov/clinic-growth/RAIM_SMILE_PROFITABILITY_INPUT.md` |
 | Фазы, аудитория, глубина и CTA сайта | `RAIMOV_DENTAL_WEBSITE_STRATEGY.md` |
 | Срочный вход, бесплатный триаж, Паспорт V0/V1, чек-ап и непрерывность лечения | `RAIMOV_ACCESS_CONTINUITY_SYSTEM.md` |
-| Мотивация пациентов: Continuity + RAIM SMILE · SmileCare 12 + Expert Points + Feedback Loop | `EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md` |
+| Мотивация пациентов: Continuity + RAIM SMILE · Год заботы + Expert Points + Feedback Loop | `EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md` |
 | Lessons первого месяца для будущих Sprint/add-on решений | `EXPERT_DENTAL_MONTH_1_RETROSPECTIVE.md` — исторический план из 16 пунктов не меняет |
 | Пятилетние внутренние ориентиры | `RAIMOV_10M_MASTERPLAN.md` |
 | BALAM strategy: children-first, presentation-only до Atabek GO | `RAIMOV_BALAM.md` + `DEC-814_balam-first-presentation-gate.md` |
@@ -252,7 +265,7 @@ Layer 4 · LEGAL / OPERATIONS / RELEASE
 | `DEC-858` | RAIM SMILE permanent brand protocol tied to Raimov methodology; Second Opinion + Treatment Coordinator; no promise of personal Atabek treatment |
 | `DEC-859` | Expert Dental = current, not permanent operator; transition + qualified operator network/marketplace architecture |
 | `DEC-860` | Partnership Network first-class channel; recommended network naming, later superseded for the current binding by `DEC-861` |
-| `DEC-861` | Owner-approved current-binding public naming cutover to `RAIM SMILE · SmileCare 12`; prices/benefits unchanged, expanded v2 gated |
+| `DEC-861` | Owner-approved current-binding public naming cutover to `RAIM SMILE · Год заботы`; prices/benefits unchanged, expanded v2 gated |
 | `DEC-862` | CAESTHETIC partnership operator/employer; 30% collected partner/VIP SmileCare 12 membership fee + 100% Coordination Fee; zero treatment share; phone-key VIP access without first-step OTP |
 | `DEC-863` | RAIMOV DENTAL personal expert platform; Second Opinion first patient product; Clinical Case Club first professional product; Academy later |
 | `DEC-864` | RAIMOV WHOLE PERSON master identity; Assessment, Study Club, Intensive and evidence/scope boundaries; DEC-863 partial override |
@@ -317,12 +330,12 @@ Layer 4 · LEGAL / OPERATIONS / RELEASE
 
 ## 4.5. Patient Motivation System (Expert Dental)
 
-- Единая система мотивации пациентов — три слоя: Continuity (A) → RAIM SMILE · SmileCare 12 (B) → Expert Points (C).
+- Единая система мотивации пациентов — три слоя: Continuity (A) → RAIM SMILE · Год заботы (B) → Expert Points (C).
 - Layer A = фундамент DEC-774; Layers B/C не запускаются раньше Phase gates.
 - Баллы начисляются за оплату, on-time recare, paid referral и семью; **не** за отзывы/UGC.
 - Post-Visit Feedback Loop (DEC-787) входит в Layer A: CSAT → 4–5: `/write` затем `/maps` / 1–3: закрытая recovery; `/feedback/` открывает звёзды.
 - Redeem — гигиена, сервис, приоритет слота; не high-ticket % до диагностики и не кешбек.
-- RAIM SMILE · SmileCare 12 — профилактический абонемент, не страховка; RAIM SMILE не является медицинским оператором.
+- RAIM SMILE · Год заботы — профилактический абонемент, не страховка; RAIM SMILE не является медицинским оператором.
 - Публичные claims о работающих Points/Care запрещены до operational launch.
 - Полный канон: `docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md`; решения: `DEC-786`, `DEC-787`.
 
@@ -404,7 +417,7 @@ Layer 4 · LEGAL / OPERATIONS / RELEASE
 - Preferred package: `Private Dental Privilege = SmileCare 12 benefit + Coordination Fee`; Coordination Fee преимущественно оплачивает B2B partner.
 - Future VIP access uses phone as eligibility key, not password, without first-step OTP. Active match reveals only Call/WhatsApp coordinator; neutral mismatch, HMAC index, rate limiting, anti-enumeration, audit and automatic expiry/revocation are mandatory. Runtime is not implemented.
 - `24/7` допускается только как after-hours/24-7 non-clinical VIP coordination после real staffing/backup/SLA; никогда не medical care.
-- `RAIM SMILE · SmileCare 12` — owner-approved public name по `DEC-861`. Current Adult / Additional Adult / Kids prices and benefits are unchanged; trademark counsel and expanded-v2 clinic/fiscal/capacity/ledger/pilot gates remain open.
+- `RAIM SMILE · Год заботы` — owner-approved public name по `DEC-861`. Current Adult / Additional Adult / Kids prices and benefits are unchanged; trademark counsel and expanded-v2 clinic/fiscal/capacity/ledger/pilot gates remain open.
 - Site-wide role/indexing/page contract future B2B hub определяет master; `RAIM_SMILE_PARTNERSHIP_PAGE_STRATEGY.md` хранит только route-specific implementation detail.
 - Generic hub рекомендуется сделать indexable только после Gate 6. Partner-specific/eligibility routes по умолчанию `noindex`, contract-scoped и вне sitemap.
 - Protected representative source exists in authoritative `grainee-v2` at `site-raimovdental/raim-smile-partners-preview/`: Basic Auth/noindex/no-store, three representative scenarios and a non-submitting business-only form. It is isolated from the production `raimsmile.com` source and does not add a live route, CRM activation, partner claim or deploy.
@@ -478,7 +491,7 @@ Next permitted operational outputs:
 | CRM/medical data split and consents | privacy/operations | OPEN |
 | Passport V0/V1 templates | continuity | NOT STARTED |
 | Cohort economics | scale gate | NOT STARTED |
-| RAIM SMILE · SmileCare 12 | retention (Motivation Layer B) | CURRENT-BINDING PUBLIC NAME/INQUIRY APPROVED — DEC-800 + DEC-861; checkout, expanded v2 and operational activation deferred |
+| RAIM SMILE · Год заботы | retention (Motivation Layer B) | CURRENT-BINDING PUBLIC NAME/INQUIRY APPROVED — DEC-800 + DEC-861; checkout, expanded v2 and operational activation deferred |
 | Expert Points ledger | loyalty (Motivation Layer C) | DEFERRED — DEC-786 |
 | Motivation Phase 0 scripts (pre-book + smile preview + CSAT loop) | clinic ops | SPEC READY — admin training and live execution evidence pending |
 | Separate urgent-care capacity | investment | DEFERRED |
@@ -505,7 +518,7 @@ Next permitted operational outputs:
 - не публиковать неподтверждённые цены, квоты и сроки сертификата;
 - не связывать сертификат, скидку или лечение с отзывом;
 - не хранить медицинские данные в обычной маркетинговой CRM;
-- не называть RAIM SMILE · SmileCare 12 страховкой и не выдавать public information/inquiry за operational activation;
+- не называть RAIM SMILE · Год заботы страховкой и не выдавать public information/inquiry за operational activation;
 - не начислять баллы/скидки за отзыв, оценку, пост или сторис;
 - не отбирать только «довольных» до отправки CSAT (DEC-787);
 - не заявлять Expert Points или программу лояльности как уже работающие до Phase gates;
