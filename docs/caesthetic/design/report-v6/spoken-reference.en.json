@@ -1,0 +1,144 @@
+{
+  "locale": "en",
+  "business_name": "Spoken Med Spa",
+  "address": "2121 Fountain Drive, Suite M, Snellville, Georgia 30078, USA",
+  "research_date": "6–7 September 2026",
+  "greeting": "Hello, Ivy.",
+  "summary": "Spoken already has services, a team, reviews and a working public route to booking. The next step is to connect them into a clear path to a first enquiry.",
+  "proposal_title": "What we propose for Spoken over the next month",
+  "proposal_summary": "Make the first visit clear before booking and connect the patient journey from Google, the website, social profiles and reviews. CAESTHETIC coordinates the plan, material approval and checks of the transitions.",
+  "questions_intro": "What patients need to understand before booking — and how clearly Spoken answers these questions.",
+  "questions": [
+    {
+      "id": "offer",
+      "title": "What is someone buying, and how clear are the conditions?",
+      "summary": "The service is explained, but first-visit conditions are split between the page and booking.",
+      "observation": "The neurotoxin page describes the consultation and treatment. The consultation booking card states 60 minutes and a $100 deposit; how the deposit is credited appears in the full description.",
+      "why": "Before booking, a person needs to connect the treatment, consultation and visit conditions.",
+      "change": "Put the conditions into a short first-visit card next to booking. Spoken confirms the conditions and clinical copy; the website and booking information are updated together.",
+      "verification": "Repeat each saved entry point on mobile and desktop up to the consultation card, without submitting data. Check the service, Snellville location, first step and conditions.",
+      "criterion": "Before booking, someone understands the service, purpose of consultation, practitioner, pricing process and limitations.",
+      "departure": "The conditions exist but are revealed after category selection. A booking-system failure was not found.",
+      "evidence_refs": [
+        "source-export:question-1"
+      ]
+    },
+    {
+      "id": "provider",
+      "title": "Why can someone trust the practitioner?",
+      "summary": "Spoken shows people and professional roles. These should be connected to the specific visit.",
+      "observation": "The About page presents Ivy Cleveland as a Nurse Practitioner and Gianna R. as a Registered Nurse. The neurotoxin consultation journey is described separately from the biographies.",
+      "why": "A name and explanation of experience help someone understand who provides the service and what to ask before a consultation.",
+      "change": "The practice confirms who performs the selected treatment and what may be published. Add a short practitioner introduction to the service page with a link to the full profile.",
+      "verification": "Compare the service page, profile and selected social materials with the practitioner card confirmed by the practice.",
+      "criterion": "The service explains who is responsible for consultation and treatment: name, role, relevant experience and a route to qualification information.",
+      "departure": "The practitioner profile is a strength. Team experience is not explained next to the neurotoxin offer. This is an explanatory gap, not a judgment about qualifications.",
+      "evidence_refs": [
+        "source-export:question-2"
+      ]
+    },
+    {
+      "id": "reviews",
+      "title": "Which reasons for choosing and questions recur in reviews?",
+      "summary": "The saved reviews value clear explanations and calm, attentive care.",
+      "observation": "Previously saved reviewers value answers to their questions. In the recent sample, Cam describes explanations during the visit and Seble describes Ivy’s attention. The practice replies thank them for their ratings in general terms.",
+      "why": "This is a specific strength that can be explained before a visit and supported by replies that engage with what a reviewer actually said.",
+      "change": "Include a clear consultation description in first-visit materials and prepare useful replies to specific review themes. Patients choose their own review wording and rating.",
+      "verification": "Compare each reply with its source review: address the theme, omit generic promotional inserts and disclose no personal clinical details.",
+      "criterion": "Reasons for choosing come from independent review records with a stated sample. Replies are useful and protect personal information.",
+      "departure": "Explanations recur in a small sample, but no specific recurring question was established. Two texts are not enough to prescribe a change to the review process.",
+      "evidence_refs": [
+        "source-export:question-3"
+      ]
+    },
+    {
+      "id": "competitors",
+      "title": "Where do competitors explain their offer more clearly?",
+      "summary": "Three local practices illustrate useful patterns: conditions before booking, clear roles and a concrete first step.",
+      "observation": "dermani explains consultation and deposit terms before location selection. About Face names the owner and supervising physician separately. A Defined Image identifies the consultation provider beside the invitation to enquire.",
+      "why": "These patterns answer questions before an enquiry. They do not establish better clinical care or higher enquiry volume.",
+      "change": "Combine the useful patterns in Spoken’s materials: conditions beside the action, a specific practitioner role and a clear first visit. Keep the practice’s own prices and clinical approach.",
+      "verification": "A person can find who will see them, what happens at the first visit and what to do next without searching separate sections.",
+      "criterion": "Compare the same task and decision stage: clarity of the first visit, conditions, practitioner and next step.",
+      "departure": "dermani explains conditions earlier at this point in the journey. Spoken can adapt the placement while preserving its own terms; clinical superiority was not established.",
+      "evidence_refs": [
+        "source-export:question-4"
+      ]
+    }
+  ],
+  "synthesis_title": "Connect4: how the surfaces support one decision",
+  "synthesis_body": [
+    "The website, social profiles, Google presence and reviews should help someone understand the same business. Connect4 aligns these four surfaces so a visitor can reach an enquiry, whichever entry point they use.",
+    "Spoken already has a service, practitioners, reviews and several enquiry entry points. Visit conditions and reasons to trust the practice are currently presented in separate places. Connecting them lets each transition continue the explanation."
+  ],
+  "plan_intro": "One first-enquiry journey across four public surfaces. Before starting, we agree the pages, posts, access and acceptance criteria.",
+  "plan": [
+    {
+      "id": "visit",
+      "title": "A clear first visit",
+      "result": "An agreed first-visit card on the service page: who the consultation suits, who conducts it, what is included, duration, deposit and next step.",
+      "done_when": "The person finds the conditions and practitioner on the service page, then reaches the correct booking category.",
+      "materials": "Update the neurotoxin page, short practitioner introduction and one pre-visit question-and-answer material.",
+      "evidence_refs": [
+        "source-export:plan-1"
+      ]
+    },
+    {
+      "id": "routes",
+      "title": "Transitions between surfaces",
+      "result": "A configured route from Google, the website, the links page, Instagram/Facebook and one confirmed reputation listing.",
+      "done_when": "All agreed entry points reach the right service and enquiry action without dead ends.",
+      "materials": "Create a link register and check each transition on mobile and desktop.",
+      "evidence_refs": [
+        "source-export:plan-2"
+      ]
+    },
+    {
+      "id": "trust",
+      "title": "Trust before an enquiry",
+      "result": "First Visit and Who Will See You materials, a Google post, six question responses and up to six useful review replies.",
+      "done_when": "Roles, conditions and actions agree with the visit card; replies disclose no patient data.",
+      "materials": "Publish only after practice approval. Patients choose their own review wording and ratings.",
+      "evidence_refs": [
+        "source-export:plan-3"
+      ]
+    }
+  ],
+  "defer": "Increasing advertising spend is a separate decision. Consider it after confirming the selected enquiry route and obtaining comparison data. Reading public pages alone is not a basis for changing the budget.",
+  "intake_title": "What happens after a patient enquires",
+  "intake_body": [
+    "The public journey ends with an enquiry. The response, follow-up, booking, visit and payment belong to a separate internal layer, which we check with authorized access to practice data.",
+    "We check the first response, follow-up, booking, consultation and payment to identify steps where enquiries may be lost."
+  ],
+  "intake_details": "We agree access to messages and enquiry records with the practice before starting. Changes in enquiry volume are assessed separately against available baseline data. We do not claim to measure data we cannot access.",
+  "offer_title": "Four surfaces: consistent information and a clear enquiry route",
+  "offer_body": "Over the month, we will connect first-visit information across Google, the website, social profiles and reputation listings. Aligning services, practitioners, conditions and the next step will help people enquire with Spoken from each surface.",
+  "surfaces": [
+    {
+      "title": "Search and Google",
+      "body": "Listing, service description and link to the enquiry route."
+    },
+    {
+      "title": "Website and blog",
+      "body": "Service page, practitioner introduction and enquiry transition."
+    },
+    {
+      "title": "Social profiles",
+      "body": "Consistent information in profiles, posts and practice replies."
+    },
+    {
+      "title": "Reviews and reputation",
+      "body": "Current information and useful practice replies."
+    }
+  ],
+  "coordination": "One CAESTHETIC owner coordinates copy, publications and transition checks. You accept the complete result: updated materials, checked enquiry routes, team instructions and a follow-up plan.",
+  "commercial": {
+    "offer_id": "spoken-four-surface-sprint-v1",
+    "included_check": true,
+    "continuation": "scoped-below-sprint",
+    "credit": true
+  },
+  "limitations": [
+    "After you place your order, we will contact you by email to agree the scope, start date and access needed. We will then begin implementing the plan and share progress on the agreed tasks."
+  ]
+}

@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.11
+version: 2.12
 updated: 2026-09-07
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -964,3 +964,16 @@ urgent-plan presentation while retaining its research record. These scoped
 corrections preserve the English HTML, the original eight report illustrations,
 diagnostic states and commercial terms. Each user instruction is tracked in
 `docs/runtime/projects/caesthetic/sessions/2026-09-07-spoken-report-edits.json`.
+
+
+## Report v6 — owner-selected Claude Design import (2026-09-07)
+
+The owner supplied the complete Claude Design archive and selected it for reusable **v6** reports. For new single-location RU/EN authoring, the preferred route is `createGrowthScoreV6ReportTemplate({locale})` / `growth-score-report-template.mjs --presentation v6 --locale ru|en`. The existing `render-growth-score.mjs` dispatches `presentation.layout_contract: growth-score-client/v6.0.0` after its normal diagnostic validation and scoring. Diagnostic schema v5 and the existing scoring-template version remain unchanged; v6 identifies the presentation, not a new scoring engine.
+
+Implementation and source register: `docs/caesthetic/design/report-v6/README.md` and `source-manifest.json` in that folder. The exact ZIP is retained. One renderer, shared CSS/behavior and paired content fixtures serve both languages. New authoring starts with empty case fields, never the Spoken reference copy. The v6 content's business and locale must match the case, its plan IDs must match the approved Primary plus two Supporting Gaps, and its question/plan references must resolve to the underlying report.
+
+This explicit presentation selection supersedes the nine-section visual order only for the v6 single-location profile. Its five reading blocks are introduction/proposal; four questions plus synthesis; 30-day plan; post-enquiry boundary; implementation offer. The underlying diagnostic sections, evidence, limitations and approval state remain intact. Multi-Location parents/children keep their existing decision renderer; frozen reports keep their existing profile until a separately requested version is created.
+
+Preserve the supplied cool-paper 720px editorial design, dark final offer, native inline disclosures, visible short answers, primary Sprint action and two secondary Check placements. Prices resolve from the existing pricing config. The top plan button targets `#next-step`. Sticky CTA is initially hidden and restores correctly in both scroll directions; share success must be truthful; print reveals details. RU/EN use the same structural and commercial rules. The selected logo's original bytes are registered in the source manifest. Portability fixes may improve contrast, keyboard/touch behavior, reading sizes and print without changing case facts.
+
+Included Check, direct-entry credit and a recurring tariff below the Sprint price are scoped to the named Spoken offer; they are not template-wide commercial promises. The imported mockup is a design reference, not authority to approve diagnostic claims or bypass client-publication controls. This tooling import does not publish v6 at a client URL or alter existing v3 reports.

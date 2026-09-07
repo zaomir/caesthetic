@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { fileURLToPath } from "node:url";
+import { CLIENT_V6, createV6Content } from "./growth-score-client-v6.mjs";
 import {
   CANONICAL_METRICS,
   DECISION_VIEWS_ARTIFACT_VERSION,
@@ -430,6 +431,15 @@ export function createGrowthScoreReportTemplate() {
 }
 
 
+/** Owner-selected v6 presentation; schema-v5 evidence and review gates stay intact. */
+export function createGrowthScoreV6ReportTemplate({ locale = "en" } = {}) {
+  const report = createGrowthScoreReportTemplate();
+  report.reportContext.report_locale = locale;
+  report.presentation = { ...report.presentation, layout_contract: CLIENT_V6, v6: createV6Content(locale) };
+  return report;
+}
+
+
 function networkGapSlot(gap) {
   return {
     ...gap,
@@ -580,5 +590,10 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  process.stdout.write(`${JSON.stringify(createGrowthScoreReportTemplate(), null, 2)}\n`);
+  const args = process.argv.slice(2);
+  const presentation = args[args.indexOf("--presentation") + 1];
+  const locale = args.includes("--locale") ? args[args.indexOf("--locale") + 1] : "en";
+  if (args.includes("--presentation") && !["v6", "legacy"].includes(presentation)) throw new TypeError("Unknown presentation profile");
+  const report = presentation === "v6" ? createGrowthScoreV6ReportTemplate({ locale }) : createGrowthScoreReportTemplate();
+  process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
 }

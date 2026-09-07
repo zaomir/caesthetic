@@ -23,7 +23,8 @@
     "redirect",
     "check500",
     "connect4",
-    "owner-decision-report/3.3.0"
+    "owner-decision-report/3.3.0",
+    "growth-score-client/v6.0.0"
   ],
   "pages": [
     {
@@ -1211,6 +1212,36 @@
         "/assets/css/caesthetic-impeccable.css",
         "/assets/css/growth-score-owner-v3.css"
       ]
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v6/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v6/",
+      "profile": "growth-score-client/v6.0.0",
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/growth-score-v6.css"
+      ],
+      "generator": "scripts/caesthetic/build-spoken-medspa-v6.mjs"
+    },
+    {
+      "source": "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v6/index.html",
+      "route": "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v6/",
+      "profile": "growth-score-client/v6.0.0",
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/growth-score-v6.css"
+      ],
+      "generator": "scripts/caesthetic/build-spoken-medspa-v6.mjs"
     }
   ],
   "tokens": {
@@ -1332,7 +1363,8 @@
     "docs/ssot/assets/caesthetic/connect4-paid-traffic-leaks-mobile-v1.png": "86c7d9166fbe9a2786ce0e6bd2c51b0c61c9f07b9bacc489d014a86e6881c62a",
     "docs/ssot/assets/caesthetic/connect4-patient-journey-mobile-v1.png": "68ec264d36113b954c7b770bb956d687ce35a7b8615a2fc28f6fcfff09f43a56",
     "docs/ssot/assets/caesthetic/connect4-patient-journey-v1.png": "229821d3ef70194dedd278fff76841e1cea671148e8e06807177d9f26781b180",
-    "site-caesthetic/assets/brand/caesthetic-logo-owner--sha256-fe3efc26cd0d3143.png": "fe3efc26cd0d31439799b0d6d062bd2e209275277c0d1ecb6211fad1215faac9"
+    "site-caesthetic/assets/brand/caesthetic-logo-owner--sha256-fe3efc26cd0d3143.png": "fe3efc26cd0d31439799b0d6d062bd2e209275277c0d1ecb6211fad1215faac9",
+    "site-caesthetic/assets/brand/report-v6-logo.png": "c4e22961673c04295b757ed8f1e834375f04449bf08927034500eba734c0bca1"
   },
   "assetBudgets": {
     "site-caesthetic/assets/brand/logo-square-web.png": 80000,

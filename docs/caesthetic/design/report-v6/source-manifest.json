@@ -1,0 +1,25 @@
+{
+  "version": "growth-score-client/v6.0.0",
+  "uploaded_name": "Страница отчёта по аудиту.zip",
+  "archive_sha256": "3cbe056cdee6b42af98ac6ddff656ade9559061c2be7a3656796e26723cb55b4",
+  "source_entry": "SprintOffer.dc.html",
+  "source_files": {
+    "ds-base.js": "0d16a2cd4c29e7a4de95ee79cc6cfd0c00669438cdf1240c4a028f932d441bce",
+    ".thumbnail": "5381c691d2402495660973fccbf26cf6d348a779135fc5d93448a462b9853fd0",
+    "support.js": "8fe7df74405f3c55f49b7249c74ea1397e65d07dea2b1bd3b4a489bec2e28cbe",
+    "SprintOffer.dc.html": "b32055ea52a5acb2d22046ed2fb247a51eb1659df76a53acd3b007968754de04",
+    "uploads/Spoken-UX-Designer-Brief.md": "763f3ed12b8776681475dd2cb9811fa004671e97629c538edaf90f8fcb6f7395",
+    "assets/brand/logo-square.png": "c4e22961673c04295b757ed8f1e834375f04449bf08927034500eba734c0bca1",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/_ds_manifest.json": "3028666959298fc10be32f11f3119d84a0b14c112b86c4084d8ef2e88d96ab8b",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/styles.css": "3404ebffa65dd45108b94c3107edd5b1381de725e7309e4f005c4db01cfa966d",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/_adherence.oxlintrc.json": "31ce01025c2f27d6a3c4e49add2bcba4a34c3f9caf8a7828fa114f813ed94daf",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/readme.md": "dc41b0a0e541a37de7f478252a3e9006850fe6bc0fc39c7f2ff451bfbc34e475",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/_ds_bundle.js": "fb234a5272c002830d37ba9d29d0def93708ce20a810bc4329d9c6132e6e1ef8",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/tokens/spacing.css": "b946fc3429e35820e22fd966ed51936c626c5609baa2b39b8bbdfe9f4435cc03",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/tokens/motion.css": "1fa4e260c4a7e872d819b45dfb1d427bc2a010d7f9c5bd28df9e026a3a945b05",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/tokens/typography.css": "337b1b0bce1902cb2235fbea21fb7460fd96d01b851cf8f0e6811cf9e204601c",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/tokens/colors.css": "e04cc40ee0b8de61be6ff14f143db63a636302718e1736e2621ca088bb5f5d78",
+    "_ds/caesthetic-design-system-b8a1ab0f-357f-41f2-a613-380e0f0322ff/tokens/base.css": "d06bb528413d80ab87fe5271881b135d91913f5f5a6333f6626eb5285e9777f5"
+  },
+  "scope": "Owner-selected reusable single-location report presentation. Source text is a Spoken design reference, not a default for other businesses. Historical public reports are not regenerated."
+}

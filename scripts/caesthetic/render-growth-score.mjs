@@ -41,6 +41,7 @@ import {
 
 import { OWNER_V2, ownerV2Document } from "./growth-score-owner-v2.mjs";
 import { OWNER_V3, ownerV3Document } from "./growth-score-owner-v3.mjs";
+import { CLIENT_V6, renderClientV6Report } from "./growth-score-client-v6.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const scoreRoot = path.join(repoRoot, "site-caesthetic/score");
@@ -2315,6 +2316,7 @@ export function renderGrowthReport(report) {
   if (isNetworkParent) validateMultiLocationNetworkReport(report);
   const networkView = isNetworkParent ? buildMultiLocationPresentationModel(report) : null;
   const result = scoreGrowthReport(report);
+  if (report.presentation?.layout_contract === CLIENT_V6) return renderClientV6Report(report);
   if (report.presentation?.layout_contract === OWNER_V2) return ownerV2Document(report, result);
   if (report.presentation?.layout_contract === OWNER_V3) return ownerV3Document(report, result);
   const isDemo = report.reportKind === "demo";

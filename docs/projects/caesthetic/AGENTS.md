@@ -150,3 +150,8 @@ Before any CAESTHETIC Instagram username / warm / queue work:
    (rebuilds queue → proxy-preflight → start `833304152` → story/like/follow under caps → stop)  
    Caps Day-1: story ~120 · like ~30 · follow 5–8. Cold DM off.
 5. Never treat harvest / candidate tag alone as FINAL write authority — approved wave still required for `CAE_MEDSPA_IG_FINAL_V1` (DEC-819)
+
+
+## New single-location report presentation — v6
+
+For new Russian/English report authoring, use the owner-selected v6 design: `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` → `docs/caesthetic/design/report-v6/README.md`. Start with `createGrowthScoreV6ReportTemplate({locale})` or `node scripts/caesthetic/growth-score-report-template.mjs --presentation v6 --locale ru|en`; render through the existing renderer. Keep schema-v5 evidence/review gates, two Check placements and scoped commercial terms. Do not clone Spoken facts into new cases, regenerate frozen routes, or use this single-location design to remove network decisions.
