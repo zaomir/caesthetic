@@ -29,7 +29,7 @@ const result={status:'RUNNING',engine,browser:browser.version(),base,mode:produc
 try {
  if(production){
   assert.match(process.env.CAE_EXPECTED_SHA||'',/^[a-f0-9]{40}$/);result.expected_sha=process.env.CAE_EXPECTED_SHA;
-  for(const rel of [`score/${V3_PARENTS.ru}/v3/index.html`,`score/${V3_PARENTS.ru}/v3/presentation.json`,'assets/css/growth-score-owner-v3.css','assets/js/growth-score-owner-v3.js','assets/js/caesthetic-config.js','assets/js/caesthetic.js','assets/js/product-routing.js','assets/css/spoken-offer.css','assets/js/spoken-offer-data.js','assets/js/spoken-offer-page.js','assets/js/product-checkout.js','sprint/index.html','pay/index.html']){
+  for(const rel of [`score/${V3_PARENTS.ru}/v3/index.html`,`score/${V3_PARENTS.ru}/v3/presentation.json`,'assets/css/growth-score-owner-v3.css','assets/brand/caesthetic-logo-owner--sha256-fe3efc26cd0d3143.png','assets/js/growth-score-owner-v3.js','assets/js/caesthetic-config.js','assets/js/caesthetic.js','assets/js/product-routing.js','assets/css/spoken-offer.css','assets/js/spoken-offer-data.js','assets/js/spoken-offer-page.js','assets/js/product-checkout.js','sprint/index.html','pay/index.html']){
    const r=await fetch(base+'/'+rel);assert.equal(r.status,200,rel);const data=Buffer.from(await r.arrayBuffer());assert.equal(digest(data),digest(fs.readFileSync(path.join(ROOT,'site-caesthetic',rel))),rel);result.byte_checks.push(rel);
   }
   for(const suffix of ['v3/','v3/index.html','v3/presentation.json']){
@@ -56,7 +56,7 @@ try {
   await page.evaluate(()=>document.fonts.ready);
   assert.deepEqual(await page.locator('[data-choice-question]').evaluateAll(a=>a.map(e=>e.dataset.choiceQuestion)),CHOICE_IDS);
   assert.equal(await page.locator('[data-choice-part]:visible').count(),locale==='ru'?16:24);
-  assert.deepEqual(await page.locator('[data-choice-question] > [id^="choice-title-"]').evaluateAll(a=>a.map(e=>e.tagName)),CHOICE_IDS.map(()=>'H2'));
+  assert.deepEqual(await page.locator('[data-choice-question] > [id^="choice-title-"]').evaluateAll(a=>a.map(e=>e.tagName)),CHOICE_IDS.map(id=>locale==='ru'&&id==='offer'?'H3':'H2'));
   assert.equal(await page.locator('[data-choice-part] > h3').count(),24);
   assert.ok(await page.locator('#focus-gaps').evaluate(e=>e.children[1].matches('figure[data-v3-media="stop"]')));
   assert.equal(await page.locator('#method-intro [data-surface]').count(),4);
@@ -75,6 +75,16 @@ try {
    assert.equal(await page.locator('.v3-bar a[href="../v2/"]').count(),0);
    assert.equal(await page.locator('[data-proposed-work]').count(),3);
    assert.ok(await page.locator('[data-v3-plan-link]').evaluate(e=>e.closest('#report-overview')!==null));
+   assert.equal(await page.locator('[data-owner-decision]').evaluate(e=>e.previousElementSibling?.querySelector('[data-v3-share]')?.dataset.v3Share),'start');
+   assert.equal(await page.locator('[data-v3-plan-link]').getAttribute('href'),'#next-step');
+   assert.equal(await page.locator('[data-v3-plan-link]').textContent(),'Посмотреть план от Caesthetic →');
+   assert.equal(await page.locator('.v3-bar > .v3-meta').count(),0);
+   assert.equal(await page.locator('.v3-brand-icon').evaluate(e=>e.complete&&e.naturalWidth===192),true);
+   assert.equal(await page.locator('#section-title-1').evaluate(e=>getComputedStyle(e).fontWeight),'600');
+   assert.equal(await page.locator('#focus-gaps a[href*="support.google.com/google-ads"]').count(),0);
+   await page.locator('[data-v3-plan-link]').click();
+   assert.equal(new URL(page.url()).hash,'#next-step');
+   assert.equal(await page.locator('#next-step > header h2').textContent(),'Кто выполнит изменения');
    for(const details of await page.locator('.v3-choice-criteria').all()){
      await details.locator('summary').click();assert.equal(await details.locator('[data-choice-part]:visible').count(),2);await details.locator('summary').click();
    }
@@ -160,7 +170,8 @@ try {
   assert.equal(await page.locator('.v3-choice-limit, .v3-choice-provenance, [data-v3-media="system"] figcaption').count(),0);
   const copy=JSON.parse(fs.readFileSync(path.join(ROOT,`docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/revisions/v3/copy.${locale}.json`),'utf8'));
   assert.equal(await page.locator('#report-navigation > summary').textContent(),copy.contents);
-  assert.equal(await page.locator('.v3-bar a[href="#report-navigation"]').textContent(),copy.contents);
+  if(locale==='ru') assert.equal(await page.locator('.v3-bar a[href="#report-navigation"]').count(),0);
+  else assert.equal(await page.locator('.v3-bar a[href="#report-navigation"]').textContent(),copy.contents);
   assert.equal(await page.locator('#method-intro > .v3-lead').textContent(),copy.method_body);
   assert.equal(await page.locator('#method-intro > .v3-note').textContent(),copy.method_conclusion);
   assert.equal(await page.locator('#method-intro > p:last-child').textContent(),copy.method_boundary);

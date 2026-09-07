@@ -931,8 +931,8 @@ neither the report HTML nor the canonical shared routing runtime.
 ### Spoken RU owner-decision refinement (2026-09-07)
 
 The authorized RU refinement `spoken-owner-decision/1.0.0` places the concise
-business recommendation and a link to the monthly plan in the overview. Four H2
-questions retain the visible sequence observation → why it matters → change →
+business recommendation and a link to the implementation offer in the overview.
+The four questions retain the visible sequence observation → why it matters → change →
 verification. Supporting ideal-state and deviation criteria are native disclosures.
 Connect4 remains the conclusion after the questions; its approved illustration
 stays under the concept introduction and before the surface descriptions.
@@ -948,3 +948,19 @@ removed sources/methodology and minor-DIY client sections are not restored.
 
 Commercial copy and the product/order route must agree on the included Check,
 credit, four-surface scope, pre-start dependencies and optional follow-on terms.
+
+Owner-selected RU presentation corrections, 2026-09-07: place the monthly
+recommendation directly after the Valerie Petra signature and start-share button.
+Its CTA reads «Посмотреть план от Caesthetic →» and targets `#next-step`
+(«Кто выполнит изменения»). The header retains the home brand link with the exact
+owner-supplied 192×192 PNG at
+`/assets/brand/caesthetic-logo-owner--sha256-fe3efc26cd0d3143.png` (SHA-256
+`fe3efc26cd0d31439799b0d6d062bd2e209275277c0d1ecb6211fad1215faac9`), displayed
+at 48×48 without pixel edits; omit the header's client/version label and Contents
+link. Keep the in-body Contents disclosure. Emphasize the Four Questions section
+heading with the loaded Source Serif 4 weight 600. Use the existing H3 role for
+the offer-clarity question, and remove the Google Ads guidance link from the
+urgent-plan presentation while retaining its research record. These scoped
+corrections preserve the English HTML, the original eight report illustrations,
+diagnostic states and commercial terms. Each user instruction is tracked in
+`docs/runtime/projects/caesthetic/sessions/2026-09-07-spoken-report-edits.json`.

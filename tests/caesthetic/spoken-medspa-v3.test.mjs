@@ -83,6 +83,12 @@ for(const locale of Object.keys(V3_PARENTS)) {
   assert.equal(count(html,/<picture>/g),5);
   for(const [role,pair] of Object.entries(p.release.assets)) for(const asset of Object.values(pair)) assert.ok(html.includes(asset.src));
   const allowed=new Set(Object.values(p.release.assets).flatMap(pair=>Object.values(pair).map(a=>a.src)));
+  if(locale==='ru'){
+   const logo='/assets/brand/caesthetic-logo-owner--sha256-fe3efc26cd0d3143.png';
+   allowed.add(logo);
+   assert.equal(digest(fs.readFileSync(path.join(ROOT,'site-caesthetic'+logo))),'fe3efc26cd0d31439799b0d6d062bd2e209275277c0d1ecb6211fad1215faac9');
+   assert.equal(html.split(`src="${logo}"`).length-1,1);
+  }
   for(const image of html.matchAll(/<(?:img|source)\b[^>]*\b(?:src|srcset)="([^"]+)"/g)) assert.ok(allowed.has(image[1]),`Unapproved image ${image[1]}`);
   assert.doesNotMatch(html,/report\.json|approved-report|source-register\.json|client_release_approval|SYNTHETIC TEST REVIEWER|selected_by|reviewer_status|content_sha256/);
   const publicMeta=JSON.parse(read(`site-caesthetic/score/${V3_PARENTS[locale]}/v3/presentation.json`));
