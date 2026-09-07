@@ -163,7 +163,6 @@ ol.v3-list { list-style: decimal; }
 .cae-score-v3 .v3-choice-narrative h3 { margin-bottom: var(--cae-space-2); }
 .cae-score-v3 .v3-choice-narrative p { margin: 0; }
 .cae-score-v3 .v3-choice-narrative .v3-list { margin: 0; }
-.cae-score-v3 .v3-choice-provenance { overflow-wrap: anywhere; }
 .cae-score-v3 .v3-synthesis { border-inline-start: 2px solid var(--cae-signal); padding-inline: var(--cae-space-5); background: var(--v3-soft); }
 .v3-connect4-intro > .v3-figure, #focus-gaps > .v3-figure { max-width: 56rem; margin: 0 auto var(--cae-space-8); }
 .v3-stop-media { max-width: 56rem; margin: var(--cae-space-8) auto; }

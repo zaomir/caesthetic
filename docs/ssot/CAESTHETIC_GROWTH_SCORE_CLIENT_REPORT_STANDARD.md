@@ -839,7 +839,10 @@ and the entire `evidence-and-competitors` and `scores-and-methodology` sections.
 remove those two Contents entries as well. The original nine-section diagnostic
 model, scored history, criteria and source register remain unchanged internally.
 Do not leave empty or hidden versions of removed sections, or orphan hash links.
-Compact dated provenance links beside answers now open the original public URLs.
+The owner's subsequent copy correction removes the four answer-footer limitation
+paragraphs and their dated public-source link rows. Keep source references,
+limitations, criteria and validators in the internal research packet; the answer
+prose retains its existing factual scope. Do not leave hidden footer duplicates.
 
 Apply the approved website colors, editorial type and controls as specified by
 Design System's September 7 scoped profile; the two Check sections keep their
@@ -851,15 +854,25 @@ remain, reusing the system, journey and Stop pairs. All eight source PNGs remain
 unchanged; no additional or altered media.
 
 Connect4 introduction order remains heading → explanatory paragraph → system
-figure and caption → four numbered surfaces. Verify both locales at 320–1440px,
+figure without a caption → four numbered surfaces. Verify both locales at 320–1440px,
 visible artwork placement, shared computed style, no-JS content, seven Contents
-targets, usable direct provenance, dialogs/share and exact production bytes.
+targets, removed answer footers, dialogs/share and exact production bytes.
 This presentation authorization does not change research or paid selection.
 
 Subsequent owner corrections remove the conclusion's urgent-plan jump and
 limitations footer, the booking-explanation link, route-work checklist,
 continuation disclosure and complete small-team-fixes disclosure. Their underlying
-evidence remains in the research packet. Keep the existing limitations alongside
-the four answers and the explicit unassessed enquiry boundary. Use the canonical
+evidence remains in the research packet. The owner also removes the four answers'
+limitation/link footers; retain the separately scoped work after an enquiry in
+plain language. Use the canonical
 website Sprint price-block and exact Check500 style. Omit the question-dialog
 Name/email/page-context introductory paragraph for these report triggers.
+
+Use the owner's visitor-to-enquiry Connect4 introduction. Explain the work for a
+doctor through patient understanding, agreed treatment/practitioner/visit details,
+coordinated updates, one accountable CAESTHETIC lead and materials retained by the
+practice. Patients choose their own review wording and ratings. Checking the
+front-desk response and follow-up remains separately agreed work, not an added
+surface or a finding about Spoken. The Russian shared contents label is
+“Оглавление” in navigation, its disclosure and accessible name. These scoped copy
+changes are recorded by TASK-CAESTHETIC-022; no new research or paid selection.

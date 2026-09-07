@@ -63,6 +63,8 @@ for(const locale of Object.keys(V3_PARENTS)) {
   assert.deepEqual([...html.matchAll(/<article[^>]*data-choice-question="([^"]+)"/g)].map(m=>m[1]),CHOICE_IDS);
   assert.equal(count(html,/data-choice-part=/g),24);
   assert.equal(count(html,/data-choice-sources=/g),0);
+  assert.doesNotMatch(html,/v3-choice-limit|v3-choice-provenance/);
+  assert.doesNotMatch(html.match(/<figure[^>]*data-v3-media="system"[\s\S]*?<\/figure>/)[0],/<figcaption/);
   assert.doesNotMatch(html,/<details[^>]*data-choice-question/);
   assert.ok(html.indexOf('data-cae-sprint-inquiry')>html.indexOf('id="next-step"'));
   assert.match(html,/data-v3-preview-banner/);assert.match(html,/data-release-stage="review_preview"/);

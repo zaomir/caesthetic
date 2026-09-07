@@ -135,9 +135,14 @@ try {
    while(walker.nextNode()){const n=walker.currentNode;if(/соответстви[еяюий]|соответствием/iu.test(n.textContent)&&!n.parentElement.closest('script,style')&&getComputedStyle(n.parentElement).fontStyle!=='italic')bad.push(n.textContent);}
    return bad;
   }),[],'all Russian keyword inflections use italic');
-  const sources=await page.locator('.v3-choice-provenance a').evaluateAll(links=>links.map(a=>a.href));
-  assert.ok(sources.length>0&&sources.every(href=>href.startsWith('https://')),'inline provenance resolves directly to public sources');
-  result.actions.push({locale,kind:'compact-provenance-and-keyword',status:'PASS'});
+  assert.equal(await page.locator('.v3-choice-limit, .v3-choice-provenance, [data-v3-media="system"] figcaption').count(),0);
+  const copy=JSON.parse(fs.readFileSync(path.join(ROOT,`docs/audits/caesthetic/growth-score/cases/spoken-medspa-snellville-2026/revisions/v3/copy.${locale}.json`),'utf8'));
+  assert.equal(await page.locator('#report-navigation > summary').textContent(),copy.contents);
+  assert.equal(await page.locator('.v3-bar a[href="#report-navigation"]').textContent(),copy.contents);
+  assert.equal(await page.locator('#method-intro > .v3-lead').textContent(),copy.method_body);
+  assert.equal(await page.locator('#method-intro > .v3-note').textContent(),copy.method_conclusion);
+  assert.equal(await page.locator('#method-intro > p:last-child').textContent(),copy.method_boundary);
+  result.actions.push({locale,kind:'doctor-copy-contents-removed-footers-and-keyword',status:'PASS'});
   // Finish hash navigation before testing independent manual scrolling.
   await page.evaluate(()=>history.replaceState(null,'',location.pathname));
   // Every semantic section, including tall content and the final document edge.

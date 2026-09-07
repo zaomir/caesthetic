@@ -243,8 +243,9 @@ selection; browser QA checks this visible order at every report viewport.
 
 Owner removes the Connect4 detail-page link, all per-answer source disclosures,
 and the complete sources/comparison and methodology sections. Render seven
-client sections with consecutive Contents numbering. Keep direct dated public
-provenance, the validated research packet, four H2 questions and H3 narrative.
+client sections with consecutive Contents numbering. Keep the validated research
+packet, four H2 questions and H3 narrative. The later owner correction below
+removes the dated public link rows from the client view.
 Use the approved public-site palette and editorial H1/H2/H3 scale with 18px
 reading copy. The exact Check500 style remains scoped to its two sections.
 
@@ -257,3 +258,14 @@ The owner also removes the conclusion jump/limitations footer, booking link,
 route-work checklist and small-team-fixes block. Use the website Sprint
 `cae-price-block`; omit the report question-dialog introduction with its explicit
 trigger flag. Shared form success, retry and return-focus behavior stays intact.
+
+### 2026-09-07 — Doctor-facing copy and answer footers
+
+TASK-CAESTHETIC-022 applies the owner's Connect4 visitor-to-enquiry wording and
+explains the work through patient understanding, agreed clinic information,
+coordinated implementation and retained materials. Separately agreed front-desk
+and follow-up checks stay explicit in plain language. Rename the shared Russian
+contents label to “Оглавление”. Remove the system picture caption and the four
+answer limitation/link footers. Keep their source packet and validation intact;
+the four answers retain their existing bounded observations. Check both locales,
+navigation labels, caption/footer absence and exact production content.

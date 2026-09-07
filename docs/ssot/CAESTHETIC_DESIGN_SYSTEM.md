@@ -338,12 +338,15 @@ Only `.v3-check500` retains its exact ivory/navy aliases, burgundy CTA and exist
 recolor approved raster art or alter parent/v2 styles.
 
 Owner-requested reading cleanup removes the two research/method sections and
-per-answer source disclosures from this client view. Keep compact dated public
-links beside the answers and retain all underlying evidence and validation.
+per-answer source disclosures from this client view. The owner's subsequent
+correction also removes the four limitation paragraphs and dated link rows below
+the answers. Retain all underlying evidence and validation internally.
 The fix-the-leaks pair also appears below the expense-deferral paragraph; its
 earlier urgent-plan placement remains. Four picture elements reuse the approved system, journey and Stop pairs.
 The engagement picture is omitted with the removed continuation block; all eight
-original PNGs remain immutable in the asset register. The Connect4 system figure remains after its introduction.
+original PNGs remain immutable in the asset register. The Connect4 system figure
+remains after its introduction, without the owner-removed caption. Its accessible
+image description remains. The Russian contents label is “Оглавление”.
 
 The Sprint offer reuses the website's `cae-price-block` from `growth.css`: dark
 field, light editorial headings, the published-price typographic role and
