@@ -29,6 +29,19 @@ Wise:
 
 This records the approved candidate without changing payment-settlement or reconciliation rules.
 
+### 2.2 Canonical founder-supplied Wise product links — 2026-09-07
+
+Source: founder supplied both exact URLs in the CAESTHETIC purchase-flow closeout conversation and explicitly instructed that they be retained in SSOT. This register is the authority for these provider URLs; do not reconstruct them from chat memory or substitute one product's request for another.
+
+| Product code | Amount | Canonical Wise request URL | Server-side configuration |
+|---|---|---|---|
+| `lead_to_revenue_check` | 500 USD | https://wise.com/pay/r/kwMcyJYZK6SpTxc | `CAESTHETIC_WISE_CHECK_LINK` (legacy `CAESTHETIC_WISE_PAYMENT_LINK` is Check-only) |
+| `growth_sprint` | 2,500 USD | https://wise.com/pay/r/WVbdR-I6EYxKmI8 | `CAESTHETIC_WISE_SPRINT_LINK` |
+
+Provider-page verification on 2026-09-07: the first URL displays a request for 500 USD; the second displays 2500 USD and description `CAESTHETIC 30-Day Growth Sprint`. Both display `Rovlex International Ltd`. The URLs are founder-supplied product payment requests, not generic Wise Business open links; neither belongs in `CAESTHETIC_WISE_OPEN_LINK`.
+
+This SSOT record confirms the supplied artifacts and product mapping. It does not claim server-side installation, successful checkout smoke, or credited funds. Activation and acceptance follow `docs/ssot/CAESTHETIC_PRODUCT_CHECKOUT_FUNNEL.md`. Keep provider URLs out of public site source/config; return a destination only after a valid Commercial Order and Payment Request. Never use the 500 USD Check request for Sprint, and preserve fail-closed behavior if the required rail is missing or invalid. A redirect never confirms payment.
+
 Stripe ACH:
 - code-side ACH Checkout is already prepared with `us_bank_account`;
 - it is fail-closed unless `STRIPE_SECRET_KEY` is configured;
