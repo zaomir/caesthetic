@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/assets/css/growth.css">
   <link rel="stylesheet" href="/assets/css/point-of-contact.css">
   <link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
+  <link rel="stylesheet" href="/assets/css/spoken-offer.css">
 </head>
 <body>
 <div id="cae-header-slot"></div>
@@ -33,6 +34,7 @@
           <h2 class="cae-h2" id="order-product">CAESTHETIC product</h2>
           <p class="cae-price-block__amount" id="order-price"></p>
           <p id="order-scope"></p>
+          <div id="order-offer-details" hidden></div>
         </div>
         <form class="cae-form" id="product-order-form" novalidate>
           <label>Practice or business name<input name="practice_name" autocomplete="organization" required maxlength="160"></label>
@@ -48,7 +50,7 @@
         <div class="cae-form-success" role="status" aria-live="polite" aria-atomic="true">
           <h2 class="cae-h2">Your payment step is ready.</h2>
           <p><strong id="ready-product"></strong> · <span id="ready-amount"></span></p>
-          <p>Order: <span id="ready-order"></span></p>
+          <p>Order: <span id="ready-order"></span></p><p id="ready-offer-scope" hidden></p>
         </div>
         <div class="cae-actions">
           <button class="cae-btn cae-btn--primary" type="button" id="wise-open">Open Wise to pay</button>

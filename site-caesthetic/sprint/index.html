@@ -15,12 +15,31 @@
 <link rel="stylesheet" href="/assets/css/point-of-contact.css">
 <link rel="stylesheet" href="/assets/css/caesthetic-impeccable.css">
   <link rel="stylesheet" href="/assets/css/service-examples.css">
+  <link rel="stylesheet" href="/assets/css/spoken-offer.css">
 </head>
 <body>
 <div id="cae-header-slot"></div>
 <main>
+  <section class="cae-hero-simple" id="spoken-offer" hidden aria-labelledby="spoken-offer-title">
+    <div class="cae-wrap cae-wrap--narrow">
+      <p class="cae-kicker">Spoken Med Spa · 30-Day Growth Sprint · $2,500</p>
+      <h1 class="cae-h1" id="spoken-offer-title" data-spoken-offer-title></h1>
+      <p class="cae-lead" data-spoken-offer-scope></p>
+      <div class="cae-actions"><a class="cae-btn cae-btn--primary" href="/pay/?product=growth_sprint&amp;offer=spoken-four-surface-sprint-v1" data-spoken-order-link>Continue to order · $2,500</a></div>
+      <h2 class="cae-h2">Your proposed Month-1 deliverables</h2>
+      <ul data-spoken-deliverables></ul>
+      <h2 class="cae-h2">Included Check and Day-30 handover</h2>
+      <p data-spoken-included_check></p><p data-spoken-acceptance></p>
+      <h2 class="cae-h2">Price and your alternative</h2>
+      <p data-spoken-credit></p>
+      <div class="cae-actions"><a class="cae-btn cae-btn--outline" href="/lead-to-revenue-check/" data-cae-check-inquiry>Start with the $500 Check</a><button class="cae-btn cae-btn--outline" type="button" data-cae-question data-cae-intent="spoken_sprint_check_credit">Already paid for a Check? Verify my credit</button></div>
+      <p data-spoken-continuation></p><p data-spoken-boundary></p>
+      <p><a href="/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v3/#focus-gaps">Return to your report and proposed plan</a> · <a href="/legal/payment-terms/">Payment Terms</a></p>
+    </div>
+  </section>
 
-  <section class="cae-hero-simple">
+
+  <section data-generic-sprint-section class="cae-hero-simple">
     <div class="cae-wrap cae-wrap--narrow">
       <p class="cae-kicker">30-Day Growth Sprint · <span data-cae-sprint-price>$2,500</span></p>
       <h1 class="cae-h1">Thirty days, scoped from the diagnosis.</h1>
@@ -29,15 +48,15 @@
         <button class="cae-btn cae-btn--primary" type="button" data-cae-sprint-inquiry data-cae-intent="30_day_growth_sprint_2500">Request Sprint · $2,500</button>
         <button class="cae-btn cae-btn--outline" type="button" data-cae-check-inquiry data-cae-intent="lead_to_revenue_check_500">Start smaller · $500 Check</button>
       </div>
-      <p class="cae-disclaimer">Both request flows ask only for Name and Email. Practice-specific scope, access and delivery details are handled after the commercial next step is confirmed.</p>
+      <p class="cae-disclaimer">Your electronic Order asks for practice name, your name and work email. Scope, access and the Sprint Start Date are confirmed before implementation.</p>
       <p><a class="cae-service-link" href="#services">See examples of Sprint work</a></p>
     </div>
   </section>
 
-  <section class="cae-section cae-service-examples" tabindex="-1" id="services" aria-labelledby="sprint-services-title">
+  <section data-generic-sprint-section class="cae-section cae-service-examples" tabindex="-1" id="services" aria-labelledby="sprint-services-title">
     <div class="cae-wrap cae-wrap--narrow">
       <h2 class="cae-h2" id="sprint-services-title">What we can improve in your first Sprint</h2>
-      <p class="cae-lead">The diagnosis identifies the priority. We agree the work needed to address it, including connected changes across the four public surfaces. These are examples: your <span data-cae-sprint-price>$2,500</span> Sprint includes only the written scope confirmed before payment.</p>
+      <p class="cae-lead">The diagnosis identifies the priority. We agree the work needed to address it, including connected changes across the four public surfaces. These are examples: your <span data-cae-sprint-price>$2,500</span> Sprint includes only the written implementation scope confirmed before work begins.</p>
       <ul class="cae-list" aria-label="Four public surfaces">
         <li><span aria-hidden="true">01</span><div><h3 class="cae-h3">Search / Google Business Profile</h3><p>Correct categories, services, location details and appointment links so your Maps listing matches your practice and website.</p></div></li>
         <li><span aria-hidden="true">02</span><div><h3 class="cae-h3">Website, including your blog</h3><p>Clarify selected treatment and provider pages, improve mobile enquiry steps, and update selected blog articles with useful links and a clear next step.</p></div></li>
@@ -50,7 +69,7 @@
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft">
+  <section data-generic-sprint-section class="cae-section cae-section--soft">
     <div class="cae-wrap">
       <h2 class="cae-h2">A task is not shipped because a draft exists.</h2>
       <ol class="cae-gate-grid">
@@ -64,7 +83,7 @@
     </div>
   </section>
 
-  <section class="cae-section">
+  <section data-generic-sprint-section class="cae-section">
     <div class="cae-wrap cae-split-lists">
       <div>
         <h2 class="cae-h2">Boundaries stay visible</h2>
@@ -78,7 +97,7 @@
       </div>
       <div>
         <h2 class="cae-h2">Written, inspectable, asynchronous</h2>
-        <p class="cae-lead">The Order states the practice-specific scope before payment. Access blockers, client approvals and vendor dependencies change the plan transparently rather than creating fictional progress.</p>
+        <p class="cae-lead">The electronic Order records the fixed product and price before payment. We confirm the implementation scope, access and start date before work begins. Access blockers, client approvals and vendor dependencies change the plan transparently rather than creating fictional progress.</p>
         <h3 class="cae-h3">Behind the enquiry: access comes first</h3>
         <p>A public review does not show how your CRM or call handling works. Rebuilding those systems is outside a first Sprint based only on public evidence. Any essential operational handoff needs its own evidence, access and agreement.</p>
         <p>Patient operations is an internal conversion layer informed by evidence, not a fifth public surface. <a class="cae-service-link" href="/growth-system/#services">See how further work is scoped</a>.</p>
@@ -86,13 +105,13 @@
     </div>
   </section>
 
-  <section class="cae-section">
+  <section data-generic-sprint-section class="cae-section">
     <div class="cae-wrap">
       <div class="cae-price-block">
         <p class="cae-kicker">Published price</p>
         <p class="cae-price-block__amount"><span data-cae-sprint-price>$2,500</span> USD</p>
         <h2 class="cae-h2">One practice · 30 days · written scope</h2>
-        <p>The public request asks only for Name and Email. CAESTHETIC then confirms the practice-specific scope and written Order before issuing a private payment request.</p>
+        <p>The electronic Order records the fixed product and price before payment. CAESTHETIC then confirms your implementation scope, required access and Sprint Start Date.</p>
         <div class="cae-check-credit">
           <p class="cae-step__num">Prefer a smaller paid first step?</p>
           <p>The Lead-to-Revenue Check is always available for <span data-cae-check-price>$500</span>. It maps the authorized path from enquiry to payment and is never mandatory before a Sprint.</p>
@@ -110,7 +129,7 @@
     </div>
   </section>
 
-  <section class="cae-section cae-section--soft cae-service-examples" tabindex="-1" id="delivery-horizons" aria-labelledby="delivery-horizons-title">
+  <section data-generic-sprint-section class="cae-section cae-section--soft cae-service-examples" tabindex="-1" id="delivery-horizons" aria-labelledby="delivery-horizons-title">
     <div class="cae-wrap cae-wrap--narrow">
       <h2 class="cae-h2" id="delivery-horizons-title">What finishes in 30 days, and what continues</h2>
       <ul class="cae-list">
@@ -122,10 +141,10 @@
     </div>
   </section>
 
-  <section class="cae-section">
+  <section data-generic-sprint-section class="cae-section">
     <div class="cae-wrap cae-wrap--narrow">
       <h2 class="cae-h2">Terms stay inspectable before purchase.</h2>
-      <p class="cae-lead">The written Order states the practice-specific scope, access dependencies, payment terms, cancellation treatment and any applicable refund terms before payment. General payment terms are published at <a href="/legal/payment-terms/">Payment Terms</a>.</p>
+      <p class="cae-lead">Review the fixed product, price, payment terms and cancellation/refund treatment before payment. The exact implementation scope, access dependencies and Sprint Start Date are confirmed before work begins. General payment terms are published at <a href="/legal/payment-terms/">Payment Terms</a>.</p>
     </div>
   </section>
 
@@ -134,6 +153,7 @@
 <script src="/assets/js/caesthetic-pricing.generated.js"></script>
 <script src="/assets/js/caesthetic-config.js"></script>
 <script src="/assets/js/caesthetic.js" defer></script>
+<script src="/assets/js/spoken-offer-page.js" defer></script>
 <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>

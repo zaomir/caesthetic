@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.10
-updated: 2026-09-06
+version: 2.11
+updated: 2026-09-07
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/CAESTHETIC.md
@@ -926,3 +926,25 @@ question action retains its two-field dialog. Enable the production router in
 local report QA with `cae_product_routing_test=1`; localhost's legacy modal mode
 is not evidence of the production paid-product path. This QA correction changes
 neither the report HTML nor the canonical shared routing runtime.
+
+
+### Spoken RU owner-decision refinement (2026-09-07)
+
+The authorized RU refinement `spoken-owner-decision/1.0.0` places the concise
+business recommendation and a link to the monthly plan in the overview. Four H2
+questions retain the visible sequence observation → why it matters → change →
+verification. Supporting ideal-state and deviation criteria are native disclosures.
+Connect4 remains the conclusion after the questions; its approved illustration
+stays under the concept introduction and before the surface descriptions.
+
+A source-backed implementation recommendation contains three dependent work
+blocks, each with real observation references, approved A-catalog modules,
+finite deliverables and acceptance. It must not impersonate a human-approved
+Top 3, causal loss estimate or final diagnostic release. Existing review states,
+source history, English report bytes, two canonical Check sections and all eight
+approved image assets are preserved. The superseded-version link is omitted only
+in the current RU client reading view. Detailed research remains in the case SSOT;
+removed sources/methodology and minor-DIY client sections are not restored.
+
+Commercial copy and the product/order route must agree on the included Check,
+credit, four-surface scope, pre-start dependencies and optional follow-on terms.

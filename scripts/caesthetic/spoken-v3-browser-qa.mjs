@@ -29,7 +29,7 @@ const result={status:'RUNNING',engine,browser:browser.version(),base,mode:produc
 try {
  if(production){
   assert.match(process.env.CAE_EXPECTED_SHA||'',/^[a-f0-9]{40}$/);result.expected_sha=process.env.CAE_EXPECTED_SHA;
-  for(const rel of [`score/${V3_PARENTS.ru}/v3/index.html`,`score/${V3_PARENTS.ru}/v3/presentation.json`,'assets/css/growth-score-owner-v3.css','assets/js/growth-score-owner-v3.js','assets/js/caesthetic-config.js','assets/js/caesthetic.js','assets/js/product-routing.js']){
+  for(const rel of [`score/${V3_PARENTS.ru}/v3/index.html`,`score/${V3_PARENTS.ru}/v3/presentation.json`,'assets/css/growth-score-owner-v3.css','assets/js/growth-score-owner-v3.js','assets/js/caesthetic-config.js','assets/js/caesthetic.js','assets/js/product-routing.js','assets/css/spoken-offer.css','assets/js/spoken-offer-data.js','assets/js/spoken-offer-page.js','assets/js/product-checkout.js','sprint/index.html','pay/index.html']){
    const r=await fetch(base+'/'+rel);assert.equal(r.status,200,rel);const data=Buffer.from(await r.arrayBuffer());assert.equal(digest(data),digest(fs.readFileSync(path.join(ROOT,'site-caesthetic',rel))),rel);result.byte_checks.push(rel);
   }
   for(const suffix of ['v3/','v3/index.html','v3/presentation.json']){
@@ -55,7 +55,7 @@ try {
   await page.waitForFunction(()=>document.documentElement.dataset.v3Ready==='true');
   await page.evaluate(()=>document.fonts.ready);
   assert.deepEqual(await page.locator('[data-choice-question]').evaluateAll(a=>a.map(e=>e.dataset.choiceQuestion)),CHOICE_IDS);
-  assert.equal(await page.locator('[data-choice-part]:visible').count(),24);
+  assert.equal(await page.locator('[data-choice-part]:visible').count(),locale==='ru'?16:24);
   assert.deepEqual(await page.locator('[data-choice-question] > [id^="choice-title-"]').evaluateAll(a=>a.map(e=>e.tagName)),CHOICE_IDS.map(()=>'H2'));
   assert.equal(await page.locator('[data-choice-part] > h3').count(),24);
   assert.ok(await page.locator('#focus-gaps').evaluate(e=>e.children[1].matches('figure[data-v3-media="stop"]')));
@@ -72,6 +72,12 @@ try {
   assert.equal(await page.locator('[data-v3-media="engagement"]').count(),1);
   assert.equal(await page.locator('[data-owner-sprint-offer] > [data-v3-media="engagement"] picture').count(),1);
   if(locale==='ru'){
+   assert.equal(await page.locator('.v3-bar a[href="../v2/"]').count(),0);
+   assert.equal(await page.locator('[data-proposed-work]').count(),3);
+   assert.ok(await page.locator('[data-v3-plan-link]').evaluate(e=>e.closest('#report-overview')!==null));
+   for(const details of await page.locator('.v3-choice-criteria').all()){
+     await details.locator('summary').click();assert.equal(await details.locator('[data-choice-part]:visible').count(),2);await details.locator('summary').click();
+   }
    const offer=page.locator('[data-owner-sprint-offer]');
    assert.equal(await offer.locator('[data-sprint-offer-contract="spoken-four-surface-sprint/1.0.0"]').count(),1);
    assert.deepEqual(await offer.locator('[data-offer-surface]').evaluateAll(nodes=>nodes.map(e=>e.dataset.offerSurface)),['search','website','social','reputation']);
@@ -174,12 +180,16 @@ try {
   ]){
    const routed=await context.newPage();await routed.setViewportSize({width:390,height:844});routed.on('pageerror',e=>result.errors.push(`${locale}: ${e.message}`));
    await routed.goto(url,{waitUntil:'networkidle'});
-   await Promise.all([routed.waitForURL(base+productPath),routed.locator(selector).first().click()]);
+   const scoped=locale==='ru'&&kind==='sprint';
+   const offerSuffix=scoped?'?offer=spoken-four-surface-sprint-v1':'';
+   const orderPath='/pay/?product='+productCode+(scoped?'&offer=spoken-four-surface-sprint-v1':'');
+   await Promise.all([routed.waitForURL(base+productPath+offerSuffix),routed.locator(selector).first().click()]);
    assert.equal(await routed.locator('dialog[open]').count(),0);
-   if(!production)await routed.goto(base+productPath+'?cae_product_routing_test=1',{waitUntil:'networkidle'});
-   await Promise.all([routed.waitForURL(base+'/pay/?product='+productCode),routed.locator(selector).first().click()]);
+   if(!production)await routed.goto(base+productPath+(scoped?offerSuffix+'&':'?')+'cae_product_routing_test=1',{waitUntil:'networkidle'});
+   await Promise.all([routed.waitForURL(base+orderPath),routed.locator(scoped?'[data-spoken-order-link]':selector).first().click()]);
+   if(scoped){await routed.locator('#order-offer-details').waitFor({state:'visible'});assert.match(await routed.locator('#order-offer-details').innerText(),/included at no additional charge/);}
    assert.deepEqual(await routed.locator('#product-order-form input').evaluateAll(nodes=>nodes.map(n=>n.name)),['practice_name','signer_name','signer_email']);
-   result.actions.push({locale,kind,status:'PASS',route:[productPath,'/pay/?product='+productCode],submitted:false});
+   result.actions.push({locale,kind,status:'PASS',route:[productPath+offerSuffix,orderPath],submitted:false});
    await routed.close();
   }
   // Questions keep the two-field dialog, keyboard dismissal and focus restoration.
@@ -204,7 +214,7 @@ try {
   const accessibility=await new AxeBuilder({page}).include('main').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(accessibility.violations.map(v=>({id:v.id,nodes:v.nodes.length})),[]);result.actions.push({locale,kind:'axe-main',status:'PASS'});
   await context.close();
-  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),5);assert.equal(await plain.locator('[data-choice-part]:visible').count(),24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
+  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),5);assert.equal(await plain.locator('[data-choice-part]:visible').count(),locale==='ru'?16:24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
 }catch(error){

@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.1
+version: 1.3
 created: 2026-09-07
 updated: 2026-09-07
 scope: paid public product routing, electronic order, Wise handoff and payment confirmation for Lead-to-Revenue Check and 30-Day Growth Sprint
@@ -21,6 +21,8 @@ For the two fixed-price public paid products, the canonical route is:
 `any approved product CTA → product page → three-field electronic Order → controlled Wise rail → confirmed funds → payment confirmation page`.
 
 This routing supersedes only the older public `CTA → Name/Email request modal → manual/private payment request` path for the `$500` Lead-to-Revenue Check and `$2,500` 30-Day Growth Sprint. It does not change the Four Surfaces, Growth Score diagnosis, Check evidence rules, Sprint outcome boundaries, Growth System, or evidence/impact standards.
+
+The customer-facing CAESTHETIC purchase path remains on `caesthetic.com` until the browser intentionally opens Wise. No CAESTHETIC product-order API on another public website is part of the customer route.
 
 ## Route contract
 
@@ -71,7 +73,13 @@ The 24-hour commitment is a contact/handoff commitment, not an implementation or
 
 ## Runtime placement
 
-`caesthetic-product-order` is a VDS-tier public endpoint at `https://evo.do/api/v1/caesthetic-product-order`. Its source remains under `supabase/functions/` because the self-hosted VDS Edge Runtime synchronizes that source tree, but it is **not deployed as a new Supabase Edge Function**. This follows the active EF placement rule that new functions default to VDS and avoids consuming another Supabase slot while the project is at the platform function cap.
+The customer-facing product-order endpoint is same-origin:
+
+`https://caesthetic.com/api/v1/caesthetic-product-order`
+
+Cloudflare treats `/api/` as a CAESTHETIC runtime prefix and sends it to the canonical VPS2402 origin. The CAESTHETIC nginx origin proxies only this exact path to the local self-hosted edge runtime at `127.0.0.1:54321/caesthetic-product-order`. The browser therefore remains on `caesthetic.com`; the local runtime host and provider configuration are not exposed as a second public CAESTHETIC website.
+
+The handler source remains under `supabase/functions/` because the self-hosted VDS Edge Runtime synchronizes that source tree, but it is **not deployed as a new Supabase Edge Function**. This follows the active EF placement rule that new functions default to VDS and avoids consuming another Supabase slot while the project is at the platform function cap.
 
 The handler writes the canonical CAESTHETIC Commercial Order / Payment Request / payment-evidence tables in Supabase using server-side VDS credentials. No Supabase service credential or Wise provider URL is exposed to the browser.
 
@@ -91,6 +99,7 @@ Production acceptance requires:
 
 - non-product Sprint/Check CTA routes to the relevant product page, not a request modal;
 - same-product CTA on the product page routes to the three-field order page;
+- product Order API is same-origin on `caesthetic.com`;
 - browser cannot change product price;
 - order exists before Wise opens;
 - `$500` and `$2,500` are enforced server-side;
@@ -99,3 +108,32 @@ Production acceptance requires:
 - Sprint Wise rail is live or the runtime fails closed with an explicit infrastructure blocker;
 - pending/unverified payments never show `Payment received`;
 - credited payment shows the confirmation and 24-hour contact message.
+
+
+## Spoken case offer continuity (2026-09-07)
+
+Owner-approved remediation extends the existing RU case offer through the canonical
+product and Order path, without changing generic pricing or the English report:
+`RU Spoken report → /sprint/?offer=spoken-four-surface-sprint-v1 → /pay/?product=growth_sprint&offer=spoken-four-surface-sprint-v1`.
+
+The selector is an allowlisted offer identity, never browser-supplied price or scope.
+`supabase/functions/caesthetic-product-order/spoken-offer.mjs` is the executable,
+versioned terms snapshot; `build-spoken-offer.mjs` deterministically copies its public
+counterpart. The server validates product and named practice, stores its `sow_id`,
+full terms snapshot and digest in order evidence, and restores the identity from
+the stored order. Unknown offers fail closed. Generic orders remain unchanged.
+
+The included Check covers enquiry through payment with agreed non-clinical access;
+additional internal implementation remains separate. The finite proposed material
+set and all four editable surfaces are confirmed before implementation and the
+30-day clock. A proposal is not a newly approved binding diagnostic constraint.
+
+A qualifying prior Check receives one $500 credit, leaving $2,000. Eligibility and
+credited funds must be verified by the operator in the existing commercial-order
+process before issuing the balance order. The public $2,500 checkout does not apply
+an automatic credit, accept a coupon, or infer eligibility from a query parameter,
+email or practice name. Product and order pages explicitly direct prior Check
+buyers to credit verification before ordering. No new payment rail is introduced.
+
+Optional scoped monthly support below $2,500 retains the case-specific master
+terms; no automatic renewal or universal Growth System price is introduced.

@@ -19,7 +19,8 @@ const cron = readFileSync(resolve(REPO, '.github/workflows/caesthetic-billing-cr
 const stripeWebhook = readFileSync(resolve(REPO, 'supabase/functions/stripe-webhook/index.ts'), 'utf8');
 
 test('public paid-product runtime uses electronic order then controlled Wise rail without exposing reusable provider URLs', () => {
-  assert.match(config, /productOrder:\s*"https:\/\/evo\.do\/api\/v1\/caesthetic-product-order"/);
+  assert.match(config, /productOrder:\s*"\/api\/v1\/caesthetic-product-order"/);
+  assert.doesNotMatch(config, /productOrder:\s*"https?:\/\//);
   assert.match(config, /product_page_then_electronic_order_then_wise/);
   assert.doesNotMatch(config + pay + checkout, /wise\.com\/pay\/business|buy\.stripe\.com/i);
   assert.match(pay, /Practice or business name/i);
@@ -31,7 +32,7 @@ test('public paid-product runtime uses electronic order then controlled Wise rai
   assert.match(pay, /noindex,nofollow,noarchive/i);
   assert.match(checkout, /action:\s*"create_order"/);
   assert.match(checkout, /action:\s*"wise"/);
-  assert.match(checkout, /location\.assign\(data\.redirect_url\)/);
+  assert.match(checkout, /location\.assign\(result\.data\.redirect_url\)/);
   assert.match(supabaseConfig, /\[functions\.caesthetic-payment\][\s\S]*verify_jwt\s*=\s*false/);
 });
 
@@ -42,8 +43,9 @@ test('product order fixes product and amount before Wise and never treats provid
   assert.match(productOrder, /action === "wise"/);
   assert.match(productOrder, /paid:\s*\["credited",\s*"delivery_started"\]\.includes\(row\.status\)/);
   assert.doesNotMatch(productOrder, /status:\s*"credited"[\s\S]{0,180}wise_redirect/i);
-  assert.doesNotMatch(productOrder, /searchParams\.set\("amount"/);
-  assert.doesNotMatch(productOrder, /searchParams\.set\("currency"/);
+  assert.match(productOrder, /searchParams\.set\("amount", \(spec\.amount_minor \/ 100\)\.toFixed\(2\)\)/);
+  assert.match(productOrder, /searchParams\.set\("currency", spec\.currency\)/);
+  assert.doesNotMatch(productOrder, /searchParams\.set\("(?:amount|currency)",\s*body\./);
 });
 
 test('legacy private payment requests remain server-controlled compatibility only', () => {

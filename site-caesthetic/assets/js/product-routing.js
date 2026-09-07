@@ -15,9 +15,14 @@
     return path.endsWith("/") ? path : path + "/";
   }
 
-  function destination(kind) {
+  function destination(kind, trigger) {
     var path = currentPath();
-    if (kind === "sprint") return path === SPRINT_PAGE ? "/pay/?product=growth_sprint" : SPRINT_PAGE;
+    if (kind === "sprint") {
+      var offer = (trigger && trigger.getAttribute('data-cae-offer')) || (path === SPRINT_PAGE ? params.get('offer') : '');
+      var target = path === SPRINT_PAGE ? "/pay/?product=growth_sprint" : SPRINT_PAGE;
+      if (offer === 'spoken-four-surface-sprint-v1') target += (target.indexOf('?') === -1 ? '?' : '&') + 'offer=' + offer;
+      return target;
+    }
     return path === CHECK_PAGE ? "/pay/?product=lead_to_revenue_check" : CHECK_PAGE;
   }
 
@@ -67,7 +72,7 @@
         : null;
       if (!trigger) return;
       var kind = trigger.hasAttribute("data-cae-sprint-inquiry") ? "sprint" : "check";
-      var target = destination(kind);
+      var target = destination(kind, trigger);
       event.preventDefault();
       event.stopImmediatePropagation();
       track(kind, target);

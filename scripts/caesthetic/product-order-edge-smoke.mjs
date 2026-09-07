@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { SPOKEN_OFFER } from '../../supabase/functions/caesthetic-product-order/spoken-offer.mjs';
 
 const PROJECT_REF = 'lwyumrgygbuowndwcsvc';
-const endpoint = process.env.CAESTHETIC_PRODUCT_ORDER_URL || 'https://evo.do/api/v1/caesthetic-product-order';
+const endpoint = process.env.CAESTHETIC_PRODUCT_ORDER_URL || 'https://caesthetic.com/api/v1/caesthetic-product-order';
 const output = process.argv.includes('--output') ? process.argv[process.argv.indexOf('--output') + 1] : '';
 
 async function resolveServiceKey() {
@@ -35,13 +36,14 @@ async function post(body) {
   const r = await fetch(endpoint, { method:'POST', headers:auth, body:JSON.stringify(body) });
   return { r, data:await r.json().catch(()=>({})) };
 }
-async function smokeProduct(product_code, expectedMinor) {
+async function smokeProduct(product_code, expectedMinor, offer = null) {
   let orderId = '';
   try {
-    const create = await post({ action:'create_order', qa_test:true, terms_accepted:true, product_code, practice_name:'[TEST/QA] CAESTHETIC checkout smoke', signer_name:'QA Owner', signer_email:'qa+product-checkout@example.com', source_url:'https://caesthetic.com/pay/?qa=1' });
+    const create = await post({ action:'create_order', qa_test:true, terms_accepted:true, product_code, offer_id:offer?.id, practice_name:offer ? offer.practice : '[TEST/QA] CAESTHETIC checkout smoke', signer_name:'QA Owner', signer_email:'qa+product-checkout@example.com', source_url:'https://caesthetic.com/pay/?qa=1' });
     assert.equal(create.r.status, 201, JSON.stringify(create.data));
     assert.equal(create.data.amount_minor, expectedMinor);
     assert.equal(create.data.qa_test, true);
+    if(offer){assert.equal(create.data.sow_id,offer.sow_id);assert.equal(create.data.offer_id,offer.id);}
     assert.equal(create.data.wise_ready, true, `${product_code} Wise rail must be ready`);
     assert.ok(create.data.token && create.data.order_id);
     orderId = create.data.order_id;
@@ -54,6 +56,7 @@ async function smokeProduct(product_code, expectedMinor) {
     assert.equal(statusResponse.status, 200);
     assert.equal(status.amount_minor, expectedMinor);
     assert.equal(status.paid, false);
+    if(offer){assert.equal(status.offer_id,offer.id);assert.equal(status.sow_id,offer.sow_id);assert.equal(status.offer_scope,offer.scope);}
     return { order_created:true, wise_ready:true, status:status.status };
   } finally {
     if (orderId) {
@@ -66,6 +69,7 @@ async function smokeProduct(product_code, expectedMinor) {
 const health = await getHealth();
 const check = await smokeProduct('lead_to_revenue_check', 50000);
 const sprint = await smokeProduct('growth_sprint', 250000);
-const result = { ok:true, checked_at:new Date().toISOString(), check, sprint, wise_ready:health.wise_ready };
+const spoken = await smokeProduct('growth_sprint', 250000, SPOKEN_OFFER);
+const result = { ok:true, endpoint, spoken, checked_at:new Date().toISOString(), check, sprint, wise_ready:health.wise_ready };
 if (output) fs.writeFileSync(output, JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify(result));

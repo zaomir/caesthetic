@@ -40,12 +40,21 @@ export function ownerV3Model(report, score) {
     const text = [offer.surfaces_title, offer.continuation, offer.cta, offer.alternative, ...(offer.intro || []), ...offer.surfaces.flatMap(s => [s.title, s.body]), ...['organic', 'included_check', 'ownership'].flatMap(key => [offer[key]?.title, ...(offer[key]?.paragraphs || [])])];
     if (!offer.intro?.length || ['organic', 'included_check', 'ownership'].some(key => !offer[key]?.paragraphs?.length) || text.some(v => typeof v !== 'string' || !v.trim())) throw new Error('V3_INVALID: incomplete four-surface offer');
   } else if (offer) throw new Error('V3_INVALID: unscoped commercial offer');
+  const decision = ctx.copy.owner_decision;
+  if (decision) {
+    if (locale !== 'ru' || decision.contract !== 'spoken-owner-decision/1.0.0' || decision.kind !== 'implementation_recommendation' || decision.plan?.length !== 3) throw new Error('V3_INVALID: scoped owner decision');
+    if (!['summary_title','summary','summary_cta','criteria_label','plan_intro','value','research_date'].every(k => typeof decision[k] === 'string' && decision[k].trim()) || new Set(decision.plan.map(w => w.id)).size !== 3) throw new Error('V3_INVALID: incomplete owner decision');
+    for (const work of decision.plan) {
+      if (!['id','title','basis','deliverable','acceptance'].every(k => typeof work[k] === 'string' && work[k].trim()) || !work.modules?.length || work.modules.some(id => !/^A(?:0[1-9]|10)$/.test(id)) || !work.evidence_refs?.length || work.evidence_refs.some(id => !registry.observations.has(id))) throw new Error('V3_INVALID: proposed work requires evidence, catalog, deliverable and acceptance');
+    }
+  }
   // Drafts stay masked unless the scoped, frozen source-observation package validates.
   const queries = ctx.matrix.queries.map(q => ({ ...q, cells: Object.fromEntries(SURFACES.map(surface => [surface, preview && !research ? { status: "insufficient_evidence", observations: [] } : q.cells[surface]])) }));
   const choices = (research || !preview) ? validateChoiceQuestions(ctx.choices, { release: ctx.release, registry, metrics, inventory }) : [];
   const narrative = choices.length ? ctx.choices : null;
   // Frozen decisions remain source history. Only a newly reviewed value-gated
-  // selection can become a personalized offer in the revised presentation.
+  // selection can become an approved diagnostic priority. The separately typed
+  // implementation recommendation cannot turn that pending judgment into a fact.
   const selected = narrative?.commercial_selection.status === 'approved' ? narrative.commercial_selection.priority_ids.map((id, i) => { const g = inventory.find(g => g.id === id); return { ...g, display_title: g.title, refs: g.evidence_refs, role: i ? 'supporting' : 'primary' }; }) : [];
   return { narrative, addenda: narrative?.repair_addenda || [], choices, locale, preview, research, coverage: ctx.registry.coverage, copy: ctx.copy, ownerCopy: { ...report.presentation.owner_copy, check500: locale === "en-US" ? check500USCopy() : report.presentation.owner_copy.check500 }, release: ctx.release, queries, sources: registry.sources, observations: registry.observations, selected, selectedIds: selected.map(g => g.id), inventory, metrics, approvedMetrics, score, report, sourceVersion: report.verifiedFactSetVersion, inputDigest: digest(ctx.release.inputs) };
 }

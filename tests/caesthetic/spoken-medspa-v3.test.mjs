@@ -307,3 +307,29 @@ test('paid selection requires current per-priority value review and a content-bo
  f.context.inventory.find(g=>g.id===selection.priority_ids[0]).delivery_value.ru+=' changed';
  assert.throws(()=>validateChoiceQuestions(f.packet,f.context),/commercial priority/);
 });
+
+test('RU owner decision remains a source-backed proposal with concise answers and an early plan',()=>{
+ const report=buildV3('ru'), html=renderGrowthReport(report), ctx=report.presentation.v3;
+ assert.equal(ctx.copy.owner_decision.kind,'implementation_recommendation');
+ assert.equal(ctx.choices.commercial_selection.status,'not_supported');
+ assert.equal(count(html,/data-proposed-work=/g),3);
+ assert.equal(count(html,/<details class="v3-choice-criteria">/g),4);
+ assert.ok(html.indexOf('data-v3-plan-link')<html.indexOf('id="report-intro"'));
+ assert.doesNotMatch(html,/href="\.\.\/v2\/"/);
+ assert.match(html,/6–7 сентября 2026/);
+ assert.match(html,/href="\/sprint\/\?offer=spoken-four-surface-sprint-v1"/);
+ const refs=ctx.copy.owner_decision.plan.flatMap(w=>w.evidence_refs);
+ for(const id of refs) assert.ok(ctx.registry.observations.some(o=>o.id===id&&o.verification_state==='source_observed'));
+ assert.equal(ctx.release.stage,'review_preview');
+});
+for(const [label,mutate] of [
+ ['fabricated approval',d=>{d.kind='approved_constraint';}],
+ ['unknown evidence',d=>{d.plan[0].evidence_refs=['invented'];}],
+ ['out-of-catalog work',d=>{d.plan[1].modules=['B01'];}],
+ ['missing handover',d=>{d.plan[2].acceptance='';}],
+ ['duplicate work',d=>{d.plan[2].id=d.plan[0].id;}],
+ ['empty summary',d=>{d.summary='';}],
+]) test(`owner proposal rejects ${label}`,()=>{
+ const report=buildV3('ru');mutate(report.presentation.v3.copy.owner_decision);
+ assert.throws(()=>renderGrowthReport(report),/V3_INVALID/);
+});

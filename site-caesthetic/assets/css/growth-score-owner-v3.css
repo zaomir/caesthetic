@@ -173,3 +173,12 @@ ol.v3-list { list-style: decimal; }
 @media (max-width: 767px) {
   .v3-connect4-intro .v3-surface-list { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Scoped RU owner decision: summary first; supporting criteria on demand. */
+[data-owner-decision-contract] .v3-owner-decision { margin-block: var(--cae-space-8); padding-top: var(--cae-space-6); border-top: 2px solid var(--cae-signal); }
+[data-owner-decision-contract] .v3-choice-criteria { margin-top: var(--cae-space-6); border-block: 1px solid var(--v3-line); padding-block: var(--cae-space-4); }
+[data-owner-decision-contract] .v3-choice-criteria summary { cursor: pointer; font-weight: 600; }
+[data-owner-decision-contract] .v3-choice-criteria[open] > div { margin-top: var(--cae-space-5); }
+[data-owner-decision-contract] .v3-proposed-work { margin-top: var(--cae-space-8); padding-top: var(--cae-space-6); border-top: 1px solid var(--v3-line); max-width: 70ch; }
+[data-owner-decision-contract] .v3-choice { padding-block: var(--cae-space-8); }
+[data-owner-decision-contract] .v3-section { padding-block: var(--cae-space-12); }

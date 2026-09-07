@@ -1,0 +1,15 @@
+/* Case offer spacing uses the existing CAESTHETIC type, colour and spacing tokens. */
+#spoken-offer .cae-h2 { margin-block: var(--cae-space-10) var(--cae-space-4); }
+#spoken-offer .cae-actions { margin-block: var(--cae-space-6); }
+#spoken-offer p + p { margin-top: var(--cae-space-4); }
+#spoken-offer [data-spoken-deliverables], #order-offer-details ul {
+  list-style: disc;
+  padding-left: var(--cae-space-6);
+  margin-block: var(--cae-space-4);
+}
+#spoken-offer [data-spoken-deliverables] li + li, #order-offer-details li + li { margin-top: var(--cae-space-4); }
+#order-offer-details > p, #order-offer-details details p { margin-block: var(--cae-space-4); }
+#order-offer-details details { border-top: 1px solid var(--cae-border); margin-block: var(--cae-space-6); }
+#order-offer-details summary { padding-block: var(--cae-space-4); cursor: pointer; font-weight: 600; }
+#order-offer-details a { text-decoration: underline; text-underline-offset: .2em; }
+#checkout-panel:has(#order-offer-details:not([hidden])) .cae-form { margin-top: var(--cae-space-8); }

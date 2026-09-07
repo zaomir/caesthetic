@@ -5,6 +5,8 @@
   var query = new URLSearchParams(window.location.search);
   var productCode = query.get("product") || "";
   var token = query.get("token") || "";
+  var offerId = query.get("offer") || "";
+  var offerModule, selectedOffer;
   var thankYouMode = query.get("thankyou") === "1";
   var pollTimer = null;
 
@@ -61,6 +63,26 @@
     $("order-scope").textContent = spec.scope;
   }
 
+  function applyOffer(offer) {
+    selectedOffer = offer;
+    var box = $('order-offer-details');
+    box.replaceChildren(); box.hidden = !offer;
+    if (!offer) return;
+    $('payment-title').textContent = 'Your Spoken Med Spa Sprint.';
+    $('payment-status').textContent = 'Four connected surfaces, a finite first-visit project and an included Lead-to-Revenue Check. $2,500 USD.';
+    $('order-scope').textContent = offer.scope;
+    var ul = document.createElement('ul');
+    offer.deliverables.forEach(function (text) { var li = document.createElement('li'); li.textContent = text; ul.appendChild(li); });
+    box.appendChild(ul);
+    var included = document.createElement('p'); included.textContent = offer.included_check; box.appendChild(included);
+    var details = document.createElement('details'), summary = document.createElement('summary');
+    summary.textContent = 'Delivery, Check credit and continuation terms'; details.appendChild(summary);
+    ['acceptance','credit','continuation','boundary'].forEach(function (key) { var p = document.createElement('p'); p.textContent = offer[key]; details.appendChild(p); });
+    box.appendChild(details);
+    var link = document.createElement('a'); link.href = '/sprint/?offer=' + encodeURIComponent(offer.id); link.textContent = 'Already paid for a Check? Verify your credit before ordering.'; box.appendChild(link);
+    var input = document.querySelector('[name=practice_name]'); if (!input.value) input.value = offer.practice;
+  }
+
   function renderPaymentReady(status) {
     show("payment-ready-panel");
     var spec = products[status.product_code] || products[productCode];
@@ -69,6 +91,8 @@
       $("ready-amount").textContent = money(status.amount_minor || Math.round(spec.amount * 100), status.currency || "USD");
     }
     $("ready-order").textContent = status.order_number || "—";
+    $('ready-offer-scope').hidden = !status.offer_id;
+    $('ready-offer-scope').textContent = status.offer_scope || '';
     $("payment-waiting").textContent = status.wise_ready === false
       ? "Wise payment for this product is not configured yet. Your order is recorded, but no payment has been taken."
       : "Open Wise in the payment tab. Keep this CAESTHETIC page available; it will show Payment received only after the funds are credited and reconciled.";
@@ -101,6 +125,10 @@
     if (!token || !api()) return null;
     var result = await jsonFetch(api() + "?token=" + encodeURIComponent(token), { headers: { Accept: "application/json" } });
     if (!result.response.ok) throw new Error(result.data.error || "payment_status_unavailable");
+    if (result.data.offer_id) {
+      offerModule = offerModule || await import('/assets/js/spoken-offer-data.js');
+      applyOffer(offerModule.resolveSpokenOffer(result.data.offer_id, result.data.product_code));
+    } else if (selectedOffer) { applyProduct(products[result.data.product_code]); applyOffer(null); }
     if (result.data.paid === true) renderThankYou(result.data);
     else if (thankYouMode) renderConfirming(result.data);
     else renderPaymentReady(result.data);
@@ -131,6 +159,7 @@
         body: JSON.stringify({
           action: "create_order",
           product_code: productCode,
+          offer_id: selectedOffer ? selectedOffer.id : undefined,
           practice_name: String(fd.get("practice_name") || "").trim(),
           signer_name: String(fd.get("signer_name") || "").trim(),
           signer_email: String(fd.get("signer_email") || "").trim(),
@@ -236,7 +265,7 @@
     } finally { button.disabled = false; }
   }
 
-  function boot() {
+  async function boot() {
     $("product-order-form").addEventListener("submit", createOrder);
     $("wise-open").addEventListener("click", openWise);
     $("check-payment").addEventListener("click", function () { loadStatus().catch(function () { error("We could not confirm payment yet. Please try again shortly."); }); });
@@ -244,6 +273,10 @@
 
     if (productCode && products[productCode]) {
       applyProduct(products[productCode]);
+      if (offerId && !token) {
+        try { offerModule = await import('/assets/js/spoken-offer-data.js'); applyOffer(offerModule.resolveSpokenOffer(offerId, productCode)); }
+        catch (_) { return error('This practice-specific offer is unavailable. Return to your report or contact info@caesthetic.com before ordering.'); }
+      }
       if (token) {
         loadStatus().then(function (status) { if (status && !status.paid) startPolling(); }).catch(function () { error("We could not load this order. Please contact info@caesthetic.com."); });
       } else show("checkout-panel");

@@ -6,7 +6,7 @@ window.CAESTHETIC_API = {
   supabaseFunctions: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1",
   submitScore: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/submit-caesthetic-growth-score",
   payment: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/caesthetic-payment",
-  productOrder: "https://evo.do/api/v1/caesthetic-product-order",
+  productOrder: "/api/v1/caesthetic-product-order",
   request: "https://lwyumrgygbuowndwcsvc.supabase.co/functions/v1/submit-caesthetic-growth-score",
 };
 
