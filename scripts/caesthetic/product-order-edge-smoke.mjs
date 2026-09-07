@@ -59,11 +59,14 @@ async function smokeProduct(product_code, expectedMinor, offer = null) {
     assert.equal(status.currency, 'USD');
     assert.equal(status.paid, false);
     if(offer){assert.equal(status.offer_id,offer.id);assert.equal(status.sow_id,offer.sow_id);assert.equal(status.offer_scope,offer.scope);}
-    return {
-      order_created:true, wise_ready:true, status:status.status,
-      amount_minor:status.amount_minor, currency:status.currency, paid:status.paid,
-      provider_url_sha256:createHash('sha256').update(u.origin + u.pathname).digest('hex'),
-    };
+    const provider = await fetch(wise.data.redirect_url);
+    assert.equal(provider.status, 200, 'Wise request page must be available');
+    const providerHtml = await provider.text();
+    assert.ok(providerHtml.includes('Rovlex International Ltd is requesting ' + (expectedMinor / 100) + ' USD'), 'Wise page must confirm the approved payee and exact product amount');
+    return { order_created:true, order_id:orderId, payment_request_id:create.data.payment_request_id,
+      wise_ready:true, wise_host:u.hostname, wise_http:provider.status, provider_amount_verified:true,
+      amount_minor:status.amount_minor, currency:status.currency, status:status.status, paid:status.paid,
+      provider_url_sha256:createHash('sha256').update(u.origin + u.pathname).digest('hex') };
   } finally {
     if (orderId) {
       const cleanup = await post({ action:'qa_cleanup', order_id:orderId });
