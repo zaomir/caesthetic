@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import { SPOKEN_OFFER } from '../../supabase/functions/caesthetic-product-order/spoken-offer.mjs';
 
 const PROJECT_REF = 'lwyumrgygbuowndwcsvc';
@@ -55,9 +56,14 @@ async function smokeProduct(product_code, expectedMinor, offer = null) {
     const status = await statusResponse.json();
     assert.equal(statusResponse.status, 200);
     assert.equal(status.amount_minor, expectedMinor);
+    assert.equal(status.currency, 'USD');
     assert.equal(status.paid, false);
     if(offer){assert.equal(status.offer_id,offer.id);assert.equal(status.sow_id,offer.sow_id);assert.equal(status.offer_scope,offer.scope);}
-    return { order_created:true, wise_ready:true, status:status.status };
+    return {
+      order_created:true, wise_ready:true, status:status.status,
+      amount_minor:status.amount_minor, currency:status.currency, paid:status.paid,
+      provider_url_sha256:createHash('sha256').update(u.origin + u.pathname).digest('hex'),
+    };
   } finally {
     if (orderId) {
       const cleanup = await post({ action:'qa_cleanup', order_id:orderId });
