@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "contractId": "raim-smile-smilecare12-v2",
   "status": "OWNER_APPROVED_PUBLIC_NAMING_CURRENT_BINDING_EXPANDED_V2_GATED",
-  "asOf": "2026-08-29",
+  "asOf": "2026-09-07",
   "authorities": {
     "productStandard": "docs/ssot/RAIM_SMILE_SMILECARE_12_PRODUCT_STANDARD.md",
     "currentPublicProduct": "docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md",
@@ -43,14 +43,14 @@
         "displayName": "RAIM SMILE · Год заботы Adult",
         "priceKgs": 9900,
         "migrationCandidate": "essential",
-        "benefitsChangeApproved": false
+        "benefitsChangeApproved": true
       },
       {
         "id": "care12-family-addon",
         "displayName": "RAIM SMILE · Год заботы Additional Adult",
         "priceKgs": 7900,
         "migrationCandidate": "legacy_additional_adult",
-        "benefitsChangeApproved": false
+        "benefitsChangeApproved": true
       },
       {
         "id": "care12-kids",
@@ -59,7 +59,88 @@
         "migrationCandidate": "kids_teens",
         "benefitsChangeApproved": false
       }
-    ]
+    ],
+    "adultCheckupBinding": {
+      "revision": "2026-09-07",
+      "appliesToSkus": [
+        "care12-adult",
+        "care12-family-addon"
+      ],
+      "checkupsPer12Months": 2,
+      "components": [
+        {
+          "id": "doctor_exam",
+          "label": "Осмотр врача"
+        },
+        {
+          "id": "light_medium_hygiene",
+          "label": "Профгигиена лёгкой или средней степени"
+        },
+        {
+          "id": "gums_mucosa_exam",
+          "label": "Осмотр дёсен и слизистой"
+        },
+        {
+          "id": "caries_home_hygiene_risk",
+          "label": "Оценка кариес-риска и домашней гигиены"
+        },
+        {
+          "id": "photo_explanation",
+          "label": "Фотопротокол и объяснение на экране"
+        },
+        {
+          "id": "personal_home_care",
+          "label": "Персональные рекомендации по уходу"
+        },
+        {
+          "id": "smile_passport_update",
+          "label": "Обновление Smile Passport (Паспорта улыбки)"
+        },
+        {
+          "id": "indicated_fluoride",
+          "label": "Фторпрофилактика по показаниям, без доплаты"
+        }
+      ],
+      "separateExtraHygieneEntitlement": false,
+      "schedule": "individualized_by_licensed_operator",
+      "scanningIncluded": false,
+      "fluoride": {
+        "onlyIfClinicallyIndicated": true,
+        "surchargeKgs": 0,
+        "maximumApplicationsPer12Months": 2,
+        "withinIncludedCheckupsOnly": true,
+        "protocolMaterialCostStatus": "CLINIC_CONFIRMATION_REQUIRED_BEFORE_ECONOMICS_FINAL",
+        "publicWording": "Фторпрофилактика по показаниям, без доплаты"
+      },
+      "heavyHygieneSurchargeKgs": 2200,
+      "thirdHygiene": "ala_carte_full_price",
+      "excluded": [
+        "imaging",
+        "ct",
+        "treatment",
+        "surgery",
+        "prosthodontics",
+        "implantation",
+        "orthodontics",
+        "scanning"
+      ],
+      "problemFocusedExam": {
+        "status": "CANDIDATE",
+        "visitsPer12Months": 1,
+        "workingHoursOnly": true,
+        "treatmentIncluded": false,
+        "imagingIncluded": false,
+        "blocker": "Clinical scope remains unconfirmed: PILOT_GATE_CHECKLIST.md Clinical protocol / Problem-focused visit scope approved or removed is unchecked; existing duty-slot priority does not grant an additional included exam.",
+        "activationEvidenceRequired": [
+          "clinic_confirmed_exam_scope",
+          "capacity",
+          "contract_terms",
+          "individual_entitlement_tracking"
+        ]
+      },
+      "kidsBenefitsUnchanged": true
+    },
+    "benefitDecision": "Owner instruction 2026-09-07: two comprehensive adult checkups; conditional fluoride without surcharge; preserve current naming/IDs/prices; problem-focused exam stays candidate pending clinical scope."
   },
   "targetNetworkBinding": {
     "displayName": "RAIM SMILE · Год заботы",
@@ -90,7 +171,10 @@
       "baseline": {
         "preventiveExamsPerYear": 2,
         "hygieneVisitsPerYear": 2,
-        "coveredHygieneDegrees": ["light", "medium"],
+        "coveredHygieneDegrees": [
+          "light",
+          "medium"
+        ],
         "annualPeriodontalScreening": true,
         "annualRiskReview": true,
         "annualPassportUpdate": true
@@ -116,7 +200,11 @@
       "baseline": {
         "maintenanceVisitsPerYearMin": 3,
         "maintenanceVisitsPerYearMax": 4,
-        "supportedIntervalsMonths": [3, 4, 6],
+        "supportedIntervalsMonths": [
+          3,
+          4,
+          6
+        ],
         "doctorExamsPerYear": 2,
         "periodontalChartingAtEntry": true,
         "annualPeriodontalReassessment": true,
@@ -149,7 +237,10 @@
         "sealants",
         "additional_preventive_visits"
       ],
-      "exclusions": ["imaging", "treatment"]
+      "exclusions": [
+        "imaging",
+        "treatment"
+      ]
     }
   ],
   "familyAccount": {
@@ -172,7 +263,19 @@
     "targetRetailValueToPriceRatio": 1.25,
     "formula": "(max_use_clinical_cost + administration_and_payments + coordinator_cost + partner_servicing_cost + no_show_and_refund_reserve) / (1 - target_contribution_margin)",
     "newPlanPricesApproved": false,
-    "monthlyPaymentModel": "12_month_commitment_subject_to_legal_and_fiscal_approval"
+    "monthlyPaymentModel": "12_month_commitment_subject_to_legal_and_fiscal_approval",
+    "currentAdultCheckups": {
+      "status": "NOT_FINAL",
+      "note": "Фторпрофилактика требует clinic-confirmed protocol/material/cost before economics is final.",
+      "requiredInputs": [
+        "fluoride_protocol",
+        "fluoride_material",
+        "fluoride_cost",
+        "checkup_chair_time",
+        "max_use_capacity_and_cost"
+      ],
+      "pricesUnchanged": true
+    }
   },
   "partnerActivation": {
     "optInRequired": true,
@@ -236,12 +339,36 @@
       "state": "CLOSED",
       "evidence": "owner instruction 2026-08-29"
     },
-    {"id": "G1", "name": "clinical_protocol", "state": "OPEN"},
-    {"id": "G2", "name": "unit_economics_and_capacity", "state": "OPEN"},
-    {"id": "G3", "name": "legal_fiscal_and_contracts", "state": "OPEN"},
-    {"id": "G4", "name": "ledger_billing_and_operations", "state": "OPEN"},
-    {"id": "G5", "name": "expert_dental_clinic_pilot", "state": "OPEN"},
-    {"id": "G6", "name": "partner_cohort", "state": "OPEN"},
+    {
+      "id": "G1",
+      "name": "clinical_protocol",
+      "state": "OPEN"
+    },
+    {
+      "id": "G2",
+      "name": "unit_economics_and_capacity",
+      "state": "OPEN"
+    },
+    {
+      "id": "G3",
+      "name": "legal_fiscal_and_contracts",
+      "state": "OPEN"
+    },
+    {
+      "id": "G4",
+      "name": "ledger_billing_and_operations",
+      "state": "OPEN"
+    },
+    {
+      "id": "G5",
+      "name": "expert_dental_clinic_pilot",
+      "state": "OPEN"
+    },
+    {
+      "id": "G6",
+      "name": "partner_cohort",
+      "state": "OPEN"
+    },
     {
       "id": "G7",
       "name": "naming_and_runtime_migration",
@@ -293,7 +420,11 @@
     "clinicCohortMaximum": 60,
     "clinicalQualificationRequired": true,
     "prebookIncludedVisitsRequired": true,
-    "reviewsDays": [30, 60, 90],
+    "reviewsDays": [
+      30,
+      60,
+      90
+    ],
     "partnerPilotBeforeClinicAcceptanceForbidden": true
   },
   "metrics": [

@@ -4,7 +4,7 @@
   "operator": "Expert Dental Studio",
   "source": "docs/raimov/operations/expert-dental/pricing/PRICE_CATALOG.json",
   "catalogRevision": "2026-08-29",
-  "catalogSha256": "4fd269ca0d40ee4639b3f4d0b93a606124adb86b56e110d33c6c5400b858a8b9",
+  "catalogSha256": "6b908ce194da77ebea939affab94ae63d1e59f4a8e1b48b657d0cc244410d956",
   "counts": {
     "catalogRows": 96,
     "publishedAmounts": 93,
@@ -1574,7 +1574,7 @@
     },
     {
       "path": "docs/raimov/operations/expert-dental/membership/smilecare12-product.contract.json",
-      "sha256": "687485d1f3fed4b389824e2ba48a3024afae9855bd2d93c8c468f3538c547b4e"
+      "sha256": "f318e98f4ca0d4d89ab889bf493891a5a5c7673f3ecd9c8c2fee9dffacfd4050"
     },
     {
       "path": "docs/raimov/operations/expert-dental/pricing/MARKETING_FAQ_PRICE_WORKBOOK.json",
@@ -1586,11 +1586,11 @@
     },
     {
       "path": "docs/raimov/operations/expert-dental/pricing/PRICE_CATALOG.json",
-      "sha256": "4fd269ca0d40ee4639b3f4d0b93a606124adb86b56e110d33c6c5400b858a8b9"
+      "sha256": "6b908ce194da77ebea939affab94ae63d1e59f4a8e1b48b657d0cc244410d956"
     },
     {
       "path": "docs/raimov/operations/expert-dental/pricing/PRICE_TABLE.md",
-      "sha256": "ab15f37808fe5324f5d2eb5e7ea32da73da412a09576acdc9d684409e8fa8af3"
+      "sha256": "a85371b7c9b4f7b4072b118c0412b26a9819dbcd11a00761e3f25879015a78ae"
     },
     {
       "path": "docs/raimov/operations/expert-dental/pricing/QUESTIONS_FOR_ATABEK_ASSISTANT_2026-08-05.md",
@@ -1618,7 +1618,7 @@
     },
     {
       "path": "scripts/raimov/build-raim-smile-prices.mjs",
-      "sha256": "9f3315b89415ad547913628987d5de968e8ebf83941081d201e5f1615efe0bb3"
+      "sha256": "8564df45c7bfe6595e094b3888ba4a65f94f18ae126b1452db2a2d6e313f0708"
     },
     {
       "path": "scripts/raimov/install-pricing-hook.mjs",
@@ -1646,7 +1646,7 @@
     },
     {
       "path": "site-raimovdental/raim-smile/assets/prices-public.json",
-      "sha256": "9b61adb9fe1fbce240b7fbdd7547dbfaeae3d49a0c499b6f6b8bf122f1a6e43e"
+      "sha256": "d7b9a02d9a8b7ec462105f34d1d015f1e7db47215f8e7464c901c747816bb3e1"
     },
     {
       "path": "site-raimovdental/raim-smile/faq/index.html",
@@ -1654,7 +1654,7 @@
     },
     {
       "path": "site-raimovdental/raim-smile/prices/index.html",
-      "sha256": "855c4d1cce9db4696643a561a3a81fd85e8f8ce200ced5a762e7319eeef23cf5"
+      "sha256": "f67eb41efa2b887fd129afe9b54606929f3408764084e19a6164bb5013188019"
     },
     {
       "path": "site-raimovdental/raim-smile/second-opinion/index.html",
@@ -1678,7 +1678,7 @@
     },
     {
       "path": "tests/raimovdental/smilecare12-product-contract.test.mjs",
-      "sha256": "bc56cccbc3c03981e8b99e2ee84e6b3ec708e7fc54f7dd90ad564e01dd5d691b"
+      "sha256": "8f7052e624fb9ffa284d8f4959b2c95cf12973fd750bf6beccee9aa666764e58"
     }
   ]
 }

@@ -11,6 +11,16 @@ cohort, and therefore does not imply that G1-G6 are complete.
 
 A checkbox may be marked only with a dated evidence link, named owner and reviewer. Intent, discussion or an unpublished spreadsheet is not evidence.
 
+## Current Adult checkup revision — 2026-09-07
+
+The owner-approved current Adult / Additional Adult composition is now two comprehensive checkups, with indicated fluoride at no surcharge. Current naming, IDs, prices and Kids stay unchanged. This does not close expanded-v2 activation gates.
+
+- [ ] Chief clinician confirms fluoride protocol, indications/contraindications and material.
+- [ ] Clinic management records material cost, chair time and revised max-use economics/capacity.
+- [ ] Problem-focused extra exam remains candidate until its clinical scope, capacity, terms and individual entitlement tracking are confirmed.
+
+Authority: `RAIM_SMILE_SMILECARE_12_PRODUCT_STANDARD.md` §1.1 and `smilecare12-product.contract.json.currentPublicBinding.adultCheckupBinding`.
+
 ## G1 — clinical protocol
 
 - [ ] Essential inclusion/exclusion approved by chief clinician.
