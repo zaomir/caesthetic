@@ -276,7 +276,7 @@
     "docs/raimov/patient-funnel/RAIM_SMILE_MULTI_OPERATOR_ROUTING_CONTRACT.md": "915b8e3e7cec0d761f712dbe704ab79421e062a8c31c14263d8a3fe2ff796b25",
     "docs/raimov/patient-funnel/RAIM_SMILE_SECOND_OPINION_PRODUCT.md": "c1838394df56d7b71d29e511f145d74b54906757e7b93f836e74f10c74c62028",
     "docs/raimov/patient-funnel/RAIM_SMILE_SMILE_PREVIEW_PRODUCT.md": "0c0adb91b1d68a9230a53dbc35f0c83984a9ef4da9aec3fe372b97430218c02d",
-    "docs/raimov/patient-funnel/RAIM_SMILE_SMILE_PREVIEW_RELEASE_2026-09-07.md": "664c3f5d224811aa41af598b32a177c8ee4ca65d4dbaf3904884eaeebe8cd378",
+    "docs/raimov/patient-funnel/RAIM_SMILE_SMILE_PREVIEW_RELEASE_2026-09-07.md": "8c25cbb3ebefe1a6ce409201e39d773d42b408a78638285e11fe96d3ff0a07a8",
     "docs/raimov/patient-funnel/README.md": "bfbeb56c4fb53d72d3049c90f8fa5cf8f1d057e56312e3bb5623990f5922979a",
     "docs/raimov/patient-routing/README.md": "5f24870ea08cf2744e5464b992f4588a800e4efe8afcc0b64b4758edcc801937",
     "docs/raimov/personal-brand/RAIMOV_HUMAN_LOOP_HOME_MESSAGE.md": "5d2640911bd51f3c15c67b99135553c82c3c4f76ab7584f256fc3a3c08b3df5e",
@@ -324,7 +324,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "e59192099885bebc7d86bea38b57389e23ee2d9b",
+  "source_sha": "2a340dbde46b9d838dc643ead5c64288c4d921c6",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",
