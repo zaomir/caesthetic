@@ -1,0 +1,135 @@
+{
+  "case_id": "ent-urgent-care-network-2026",
+  "revision": "v6",
+  "prepared_at": "2026-09-08",
+  "status": "manager_review_draft",
+  "focus_location_candidate": "Alexander City, AL",
+  "sources": [
+    {
+      "id": "E-WEB-ENT-ALEX-01",
+      "surface": "website",
+      "subject": "ENT Urgent Care — Alexander City",
+      "url": "https://enturgent.com/location/alexander-city/",
+      "observed": [
+        "Alexander City page publishes call-to-schedule 256-536-9300",
+        "Alexander City page publishes 1963 Memorial Pkwy SW, Suite 5A, Huntsville, AL 35801",
+        "page also shows a generic hours block and a second local hours block"
+      ],
+      "evidence_class": "Observed",
+      "reviewer_status": "pending"
+    },
+    {
+      "id": "E-WEB-SHNS-ALEX-01",
+      "surface": "website",
+      "subject": "Southern Head & Neck Surgery — Alexander City",
+      "url": "https://www.southernheadandnecksurgery.net/team",
+      "observed": [
+        "Alex City Office: 3368 Highway 280, Suite G-15, Alexander City, AL 35010",
+        "phone 256-329-1114",
+        "hours Mon-Thu 7:45am-5pm with lunch break, Fri 7:45am-1pm",
+        "Alexander City office publicly lists office procedures including balloon sinuplasty plus endoscopy, audiologic and allergy capabilities"
+      ],
+      "evidence_class": "Observed",
+      "reviewer_status": "pending"
+    },
+    {
+      "id": "E-REP-WEBMD-MCLEOD-01",
+      "surface": "reputation",
+      "subject": "Dr. Fred McLeod",
+      "url": "https://doctor.webmd.com/doctor/fred-mcleod-421dbd05-2024-4229-bd26-64fb068e610a-overview",
+      "observed": [
+        "4.5 rating from 34 ratings",
+        "four written reviews visible in reviewed source"
+      ],
+      "limitations": "Provider-level WebMD evidence is not a substitute for branch-level Google Business Profile review velocity or rating benchmark.",
+      "evidence_class": "Observed",
+      "reviewer_status": "pending"
+    },
+    {
+      "id": "E-COMP-RUSSELL-01",
+      "surface": "website",
+      "subject": "Russell Medical Urgent Care",
+      "url": "https://www.russellcares.com/patients-visitors/urgent-care",
+      "observed": [
+        "Alexander City location",
+        "walk-in urgent care",
+        "sinus and ear infections explicitly listed among treated conditions"
+      ],
+      "evidence_class": "Observed",
+      "reviewer_status": "pending"
+    },
+    {
+      "id": "E-COMP-MAINSTREET-01",
+      "surface": "website",
+      "subject": "MainStreet Family Care — Alexander City",
+      "url": "https://www.mainstreetfamilycare.com/locations/alexander-city/",
+      "observed": [
+        "Alexander City location",
+        "open seven days with extended weekday hours",
+        "online registration and walk-ins"
+      ],
+      "evidence_class": "Observed",
+      "reviewer_status": "pending"
+    }
+  ],
+  "platform_coverage": {
+    "google_maps_gbp": {
+      "status": "insufficient_evidence",
+      "reason": "Canonical Alexander City branch entity plus comparable 5x5 map-visibility grid and 90-day review sample were not reproducibly established in this pass."
+    },
+    "instagram": {
+      "status": "not_found_after_discovery",
+      "reason": "No sufficiently verifiable owned Alexander City / Southern Head & Neck Surgery profile resolved from public search in this pass."
+    },
+    "facebook": {
+      "status": "not_found_after_discovery",
+      "reason": "No sufficiently verifiable owned Alexander City / Southern Head & Neck Surgery profile resolved from public search in this pass."
+    },
+    "youtube": {
+      "status": "not_found_after_discovery",
+      "reason": "No sufficiently verifiable owned Alexander City / Southern Head & Neck Surgery channel resolved from public search in this pass."
+    },
+    "tiktok": {
+      "status": "inaccessible",
+      "reason": "Public web reading was blocked by robots in the available research path; this is not evidence of absence."
+    }
+  },
+  "query_set": [
+    {"id":"K01","phrase":"same day ENT appointment Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K02","phrase":"ENT urgent care Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K03","phrase":"sinus infection doctor Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K04","phrase":"ENT doctor for sinus infection Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K05","phrase":"sinus specialist Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K06","phrase":"chronic sinusitis treatment Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K07","phrase":"sinus CT scan Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K08","phrase":"balloon sinuplasty Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K09","phrase":"ear infection ENT Alexander City AL","status":"candidate_query","frequency":null},
+    {"id":"K10","phrase":"hearing test Alexander City AL","status":"candidate_query","frequency":null}
+  ],
+  "candidate_focus_selection": {
+    "primary": {
+      "title": "Local patient-choice continuity across partner-network assets",
+      "confidence": "Probable",
+      "human_approved": false
+    },
+    "supporting_1": {
+      "title": "Availability promise consistency",
+      "confidence": "Probable",
+      "human_approved": false
+    },
+    "supporting_2": {
+      "title": "Local Connect4 demand-language/proof continuity",
+      "confidence": "Needs More Evidence",
+      "human_approved": false
+    }
+  },
+  "do_not_fund_candidate": {
+    "title": "Do not increase paid demand into the pilot location until local public-path continuity is verified",
+    "human_approved": false,
+    "limitations": "No claim is made about current ad efficiency, CAC, conversion or profitability."
+  },
+  "production_eligibility": {
+    "status": "blocked",
+    "reason": "Current CAESTHETIC production vertical enum does not include ENT/medical practice."
+  }
+}

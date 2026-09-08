@@ -40,14 +40,14 @@ test('authentic events persist a single queue row; duplicate and old deliveries 
 });
 test('flat meeting end is not proof of attendance, and no-show updates work without organizer fields',async()=>{
   const db=database();await serveAmyCal(request(payload()),env(db));
-  const ended={...payload().payload,triggerEvent:'MEETING_ENDED',createdAt:new Date(now+1000).toISOString()};
+  const ended={...payload().payload,triggerEvent:'MEETING_ENDED',createdAt:new Date(now-30*86400000).toISOString(),endTime:new Date(now+1000).toISOString()};
   assert.equal((await serveAmyCal(request(ended),env(db))).status,200);
   let row=db.sql.prepare('SELECT * FROM amy_review_queue').get();assert.equal(row.ended,1);assert.equal(row.state,'awaiting_visit');
   await serveAmyCal(request({triggerEvent:'BOOKING_NO_SHOW_UPDATED',createdAt:new Date(now+2000).toISOString(),payload:{bookingUid:'test-booking',attendees:[{noShow:true}]}}),env(db));
   row=db.sql.prepare('SELECT * FROM amy_review_queue').get();assert.equal(row.state,'no_show');assert.equal(row.no_show,1);
 });
 test('unknown partial event retries instead of silently dropping it',async()=>{
-  const db=database();const p={...payload().payload,triggerEvent:'MEETING_ENDED',createdAt:new Date(now).toISOString()};
+  const db=database();const p={...payload().payload,triggerEvent:'MEETING_ENDED',createdAt:new Date(now).toISOString(),endTime:new Date(now).toISOString()};
   assert.equal((await serveAmyCal(request(p),env(db))).status,503);
 });
 test('out-of-order reschedule tombstones original UID',async()=>{
