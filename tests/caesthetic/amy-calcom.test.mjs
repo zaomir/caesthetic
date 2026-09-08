@@ -34,6 +34,7 @@ test('authentic events persist a single queue row; duplicate and old deliveries 
   let row=db.sql.prepare('SELECT * FROM amy_review_queue').get();
   assert.equal(row.phone,'+33600000000');assert.equal(row.consent,1);assert.equal(row.state,'awaiting_visit');
   assert.ok(!JSON.stringify(row).includes('PRIVATE_DO_NOT_STORE'));
+  assert.ok(row.expires_at >= row.end_at + 60*86400000);
   await serveAmyCal(request(payload('BOOKING_CANCELLED','test-booking',now+1000)),env(db));
   await serveAmyCal(request(p),env(db));row=db.sql.prepare('SELECT * FROM amy_review_queue').get();
   assert.equal(row.state,'cancelled');assert.equal(row.phone,null);
