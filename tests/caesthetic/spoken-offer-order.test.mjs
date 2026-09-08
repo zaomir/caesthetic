@@ -26,7 +26,7 @@ function harness() {
   const post = body => handler(new Request('https://evo.do/api/v1/caesthetic-product-order',{method:'POST',headers:{'content-type':'application/json',authorization:'Bearer TEST-ONLY-SERVICE'},body:JSON.stringify(body)}));
   return { tables, handler, post };
 }
-const body = () => ({ action:'create_order', qa_test:true, terms_accepted:true, product_code:'growth_sprint', offer_id:SPOKEN_OFFER.id, practice_name:'Spoken Med Spa, LLC', signer_name:'Synthetic QA', signer_email:'qa@example.com' });
+const body = () => ({ action:'create_order', qa_test:true, terms_accepted:true, product_code:'growth_sprint', offer_id:SPOKEN_OFFER.id, practice_name:'Private Aesthetic Practice', signer_name:'Synthetic QA', signer_email:'qa@example.com' });
 
 test('Spoken order persists the server-owned offer and restores it from the stored order', async()=>{
   const h=harness();
