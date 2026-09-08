@@ -13,7 +13,7 @@
   },
   "disclosure": "Demonstration only. Fictional practice, synthetic data, no client relationship, and no reported client outcome.",
   "practice": {
-    "name": "Fictional Lumen Injector Practice",
+    "name": "Synthetic Injector Practice",
     "location": "Fictional Southeast market",
     "preparedAt": "2026-08-11",
     "preparedFor": "Growth Score demonstration"
@@ -1056,11 +1056,11 @@
         }
       ],
       "comparison_matrix": {
-        "subject_name": "Fictional Lumen Injector Practice",
+        "subject_name": "Synthetic Injector Practice",
         "rows": [
           {
             "entity_ref": "subject",
-            "entity_name": "Fictional Lumen Injector Practice",
+            "entity_name": "Synthetic Injector Practice",
             "entity_type": "subject",
             "search": "Synthetic subject baseline for local discovery.",
             "website": "Synthetic subject website and booking-path baseline.",
