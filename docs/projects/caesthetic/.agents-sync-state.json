@@ -289,6 +289,7 @@
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/assets/amy-portrait-front.jpg": "9cba0bb0dcf7768b966eab2ddf19afec067a0f049aef17b7307c0a3db376c3e3",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/assets/amy-portrait-side.jpg": "d03eae6fc5a5a97b5e061e29c0375d2960b72b4a68b1dfb491f6473d31ecf600",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/assets/amy-treatment-room.jpg": "9ecc51e5095b752c6d2286ec491990a86442f07a8841f30dcc79af5fec4cc023",
+    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/calcom-webhook.ru.md": "066f791f9baae4ea56f484938c7f8a2f08c8ef3fcab498e19137e5c8734425c7",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/instagram-site-media.json": "403611691738c43ff91bacc1cb64c1a67e85405b452635209e4202f6a527a4da",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/location-and-review-variants.ru.md": "27760af1a1b498483f6f0e505f067b2369910e4d1578c98bb5b234465f22bde6",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/media-manifest.json": "9dc9c5642a7219f74a6b64b86888eb070d12a2a8305f8d5b36ec3da749eabd7d",
@@ -1090,6 +1091,8 @@
     "site-caesthetic/templates/partner-tech-fieldset.html": "7ff740a769d1b981ffb53263c899e46e9e431cd2e73e7ae92ef6eb38d4171696",
     "site-caesthetic/terms/index.html": "9bccac28c54ee3fdb95f0a9329bf00b8d9f0b6ede345901bb9da0e7ed470fdd0",
     "tests/caesthetic/agents_sync_bidirectional_test.py": "f0663f2c640d4c6ea0ea3b00d1d46decc1d11e790b70f0dfab6a9342c873d3a3",
+    "tests/caesthetic/amy-cal-db.test.py": "c3bae3c00696040e2bbe398f232d13b7b136f5e896bcb37c875912ead3f5a9a4",
+    "tests/caesthetic/amy-calcom.test.mjs": "3f64e5694048161b3964ec36876b3f18cef46f855e9780e596fffd7450117fe5",
     "tests/caesthetic/amy-domain.test.py": "3d47b267cad470c18051f09892f39a2742a060be164a9cbd63bf03e2f429d46e",
     "tests/caesthetic/amy-host.test.mjs": "85d1113061a52ffcf3257f982609eb1a386617709e594146b42ecd4f4b8370ca",
     "tests/caesthetic/attributed-sales-compensation-canon.test.mjs": "73e91d664df9bffeaa1fe3f1adeb0546fa898bd1c58a2b8f99e8919611273569",
@@ -1184,6 +1187,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-08T18:32:08Z",
+  "updated_at_utc": "2026-09-08T19:35:10Z",
   "version": 1
 }
