@@ -1,0 +1,19 @@
+{
+  "source_sha": "fa7b0060e4e19c7a4030197db57e558f3085b953",
+  "workflow": "https://github.com/zaomir/grainee-v2/actions/runs/34271473495",
+  "component": "caesthetic webhook Worker and AmyCalQueue",
+  "component_status": "pass",
+  "worker_version": "27368c10-8050-4439-9dca-4adf67252823",
+  "worker_step": {
+    "completedAt": "2026-09-08T20:05:33Z",
+    "conclusion": "success",
+    "name": "Deploy canonical Cloudflare Worker with PIN-only gates",
+    "number": 15,
+    "startedAt": "2026-09-08T20:05:23Z",
+    "status": "completed"
+  },
+  "design_gate": "pass",
+  "overall_workflow": "failure",
+  "unrelated_blocker": "Amy subdomain DNS provisioning permission; main-domain webhook deployment succeeded",
+  "customer_messages_sent": 0
+}

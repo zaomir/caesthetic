@@ -1,0 +1,30 @@
+{
+  "session_id": "2026-09-08-amy-calcom",
+  "source_sha": "fa7b0060e4e19c7a4030197db57e558f3085b953",
+  "source_url": "https://github.com/zaomir/grainee-v2/commit/fa7b0060e4e19c7a4030197db57e558f3085b953",
+  "main_verified": true,
+  "deployed_sha": "fa7b0060e4e19c7a4030197db57e558f3085b953",
+  "live_url": "https://caesthetic.com/api/amy/calcom",
+  "deployment": {
+    "status": "pass",
+    "evidence": {
+      "path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/calcom-deployment.json",
+      "sha256": "a019cc20eb0d47ce75e8b7c09383b15bd0aef2dcf67dd1c932f57fc8d12f1e07"
+    }
+  },
+  "smoke": {
+    "status": "pass",
+    "evidence": {
+      "path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/calcom-production-smoke.json",
+      "sha256": "82418cd358bf4e81ba830e71597be3d9c3240ca6e891e5ff52479b6c0c3ce6f8"
+    }
+  },
+  "critical_path": {
+    "status": "pass",
+    "evidence": {
+      "path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/calcom-production-smoke.json",
+      "sha256": "82418cd358bf4e81ba830e71597be3d9c3240ca6e891e5ff52479b6c0c3ce6f8"
+    }
+  },
+  "scope": "Prepared intake and send-disabled persistent queue only; not a live WhatsApp campaign."
+}
