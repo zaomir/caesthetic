@@ -16,7 +16,24 @@ export const GROWTH_SCORE_AUDIT_SYNONYMS = Object.freeze([
   "Growth Score",
   "Multi-Location Growth Score",
   "аудит",
+  "отчёт", "отчет", "score", "audit", "audit report", "report",
+  "диагностика бизнеса", "diagnostic", "проверка бизнеса", "поиск утечек",
+  "Top 3 gaps", "binding constraint",
 ]);
+
+export const GROWTH_SCORE_AUTHORING_WORKFLOW = Object.freeze({
+  contract: "growth-score-authoring-route/3.0.0",
+  authority: "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route",
+  internal_pilot_locale: "ru",
+  single_location_layout: "growth-score-client/v6.0.0",
+  full_research_gate: "resolved_subject_and_public_scope",
+  first_work_review: "complete_russian_audit",
+  intermediate_work_approval_required: false,
+  translation_gate: "approved_russian_pilot_and_frozen_decisions",
+  translation_qa: "named_human_ru_delivery_parity",
+  frozen_decisions: Object.freeze(["facts", "evidence_refs", "scores", "binding_constraint", "ordered_top_3", "do_not_fund_yet", "repair_plans"]),
+  stages: Object.freeze(["manager_interview", "research_scope_recorded", "public_research", "russian_pilot", "russian_approval", "fact_freeze", "translation", "translation_qa", "publication_qa", "delivery"]),
+});
 
 export const GROWTH_SCORE_MANAGER_QUESTIONS_RU = Object.freeze([
   Object.freeze({
@@ -92,10 +109,14 @@ const normalize = (value) => String(value ?? "")
 
 export function mentionsGrowthScoreAudit(value) {
   const text = ` ${normalize(value)} `;
+  const explicit = /growth score|caesthetic|connect4|spoken/u.test(text);
+  // Generic reports/scores in other domains do not create a clinic audit.
+  if (!explicit && /\b(?:credit|football|soccer|financial|security|code|test|coverage)\b|кредитн|футбол|финансов|бухгалтер|безопасност|аудит кода|отч[её]т о тест/u.test(text)) return false;
   if (text.includes(" growth score ")) return true;
   if (text.includes(" multi location growth score ")) return true;
   if (/(?:^|\s)audits?(?:\s|$)/u.test(text.trim())) return true;
-  return /(?:^|\s)аудит(?:а|у|ом|е|ы|ов|ам|ами|ах)?(?:\s|$)/u.test(text.trim());
+  if (/(?:^|\s)аудит(?:а|у|ом|е|ы|ов|ам|ами|ах)?(?:\s|$)/u.test(text.trim())) return true;
+  return /(?:^|\s)(?:отч[её]т(?:а|у|ом|е|ы|ов|ам|ами|ах)?|reports?|scores?|diagnostics?|диагностик[ауи]|проверка бизнеса|поиск утечек|top 3 gaps|binding constraint)(?:\s|$)/u.test(text.trim());
 }
 
 const normalizeAuditFormat = (value) => normalize(value).replaceAll(" ", "_");
@@ -121,8 +142,10 @@ export function resolveGrowthScoreAuditTemplateRoute({ audit_format, package_rol
       audit_format: "single_location",
       package_role: "single_location",
       template_module: "scripts/caesthetic/growth-score-report-template.mjs",
-      template_factory: "createGrowthScoreReportTemplate",
-      template_arguments: null,
+      template_factory: "createGrowthScoreV6ReportTemplate",
+      template_arguments: Object.freeze({ locale: "ru" }),
+      layout_contract: GROWTH_SCORE_AUTHORING_WORKFLOW.single_location_layout,
+      workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
       check500: check500(true),
     });
   }
@@ -137,7 +160,9 @@ export function resolveGrowthScoreAuditTemplateRoute({ audit_format, package_rol
       package_role: packageRole,
       template_module: "scripts/caesthetic/growth-score-report-template.mjs",
       template_factory: "createMultiLocationGrowthScoreReportTemplate",
-      template_arguments: Object.freeze({ packageRole }),
+      template_arguments: Object.freeze({ packageRole, locale: "ru" }),
+      internal_pilot_locale: "ru",
+      workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
       check500: check500(packageRole === "network_parent"),
     });
   }
@@ -149,9 +174,32 @@ export function routeGrowthScoreAuditIntent(value, {
   active_intent = null,
   audit_format = null,
   package_role = null,
+  active_stage = "manager_interview",
+  existing_audit = false,
+  task_kind = null,
 } = {}) {
-  if (!mentionsGrowthScoreAudit(value)) {
+  if (!mentionsGrowthScoreAudit(value) && active_intent !== GROWTH_SCORE_AUDIT_INTENT) {
     return Object.freeze({ matched: false, canonical_intent: null, action: null });
+  }
+
+  const wording = normalize(value);
+  const governance = task_kind === "governance" || /напомни|как проводить/u.test(wording)
+    || /(?:настро\p{L}*|обнов\p{L}*|измен\p{L}*|закреп\p{L}*|исправ\p{L}*|maintain|update|configure)\s+(?:(?:единый|новый|этот|the|audit|report)\s+)*(?:канон|роутинг|routing|шаблон|template|методик)/u.test(wording);
+  if (governance) return Object.freeze({
+    matched: true, canonical_intent: GROWTH_SCORE_AUDIT_INTENT,
+    action: "maintain_audit_canon", opening: null,
+    workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
+  });
+
+  if (existing_audit || (active_intent === GROWTH_SCORE_AUDIT_INTENT && active_stage !== "manager_interview")) {
+    return Object.freeze({
+      matched: true, canonical_intent: GROWTH_SCORE_AUDIT_INTENT,
+      action: "resume_existing_audit", opening: null,
+      active_stage, workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
+      source_policy: "public_open_sources_only",
+      preserve_approved_facts: true,
+      template_route: null, // Resolve the stored case profile; never reset a frozen report.
+    });
   }
 
   if (active_intent === GROWTH_SCORE_AUDIT_INTENT) {
@@ -162,6 +210,7 @@ export function routeGrowthScoreAuditIntent(value, {
       opening: null,
       repository_context: "any_supported_repository",
       source_policy: "public_open_sources_only",
+      workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
       questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
       template_route: audit_format
         ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role })
@@ -177,7 +226,8 @@ export function routeGrowthScoreAuditIntent(value, {
     opening: GROWTH_SCORE_AUDIT_OPENING_RU,
     repository_context: "any_supported_repository",
     source_policy: "public_open_sources_only",
-    full_research_gate: "named_manager_research_alignment_approval",
+    workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
+    full_research_gate: "resolved_subject_and_public_scope",
     questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
     template_route: audit_format
       ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role })

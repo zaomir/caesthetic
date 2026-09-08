@@ -1,0 +1,464 @@
+{
+  "audit_id": "acl-amy-lannion-2026",
+  "collected_at": "2026-09-08T16:06:08.481446+00:00",
+  "records": [
+    {
+      "id": "E17",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S12"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Authenticated Chrome; expanded bio + screenshot; public profile. 46 posts, 228 followers, 136 following. Exact visible bio: Praticienne laseriste DE; Éducatrice nationale; Formations laser certifiante; PRISE DE RDV : 06.98.13.29.27; 20 place du Marchallac’h LANNION. Heading: 20 place du Marchallac’h, Lannion 22300. No external bio-link displayed in inspected desktop UI.",
+      "limitation": "Current source wording only; credentials not verified; mobile app may differ; no absence of website inferred.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E18",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S13"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "July 27, 2026; caption: Skin details; 7 likes; No comments yet. Rechecked authenticated.",
+      "limitation": "One public post; zero displayed comments/replies, not complete platform population.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E19",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S14"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "July 27, 2026; caption: Aesthetic marathon ! Let’s go !; 14 likes; 2 reposts; No comments yet. Audio label: Giulio Cercato — Let’s Go. Thumbnail shows treatment setting and protective eyewear.",
+      "limitation": "Caption and thumbnail observed, no full audio transcription or verified procedure/clinical outcome.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E20",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S15"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "First displayed Reel is DbTveNfIfwi (619 views), followed by DY9QnvvIixP and DY9PG-ZIt-r. Their dates in related-post UI are May 30, 2026, outside the approved window.",
+      "limitation": "Visible grid, not exhaustive archival export; 12 grid links inspected; cap 20 does not require padding with out-of-window posts.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E21",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S16"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Three visually read Tarifs cards; all labelled 41w. Electrolysis face: 30mn 90€, 45mn 130€, 60mn 160€, additional quarter-hour after one hour 30€. First short-duration row not confidently transcribed. Other two cards headed Tarifs Epilations Hommes; include face/body/intimate-zone tariffs. Examples: inter-sourcils 25€, oreilles 30€, barbe intégrale 120€, visage complet 180€ on one card; aisselles 100€, jambes complètes 300€ on another.",
+      "limitation": "Historical source age; current Lannion applicability not established. No complete or corrected tariff table claimed. Prices are source observations, not advice or booking terms.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E22",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S17"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Laser first two frame states labelled 138w; video frame shows a handpiece near skin; music labels Tropical Fantasia / Salsa Con Coco and Alex Guesta / My Addiction.",
+      "limitation": "Partial visual sample, no transcript, no current-location inference.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E23",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S18"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "First card labelled 155w; headings SKINCARE FACE, BY NURSE AMY, PEELING AU CARBON, CARBON THERAPIE.",
+      "limitation": "Small body text not reliably transcribed; historical positioning, not clinical validation.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E24",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S19"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "First Détatouage las. frame labelled 135w; player loading at capture.",
+      "limitation": "Video content/transcript not read; label alone does not establish current service.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E25",
+      "subject": "discovery",
+      "surface": "social",
+      "sources": [
+        "S20"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Authenticated public Pages search; 13 displayed result cards, none identifiable as Amy/Lannion. Examples excluded: Hind Enterprises, Village Veterinary Hospital, Aclara Láser, AC LASER.",
+      "limitation": "One exact-name discovery query; not proof no owned page exists.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E26",
+      "subject": "discovery",
+      "surface": "social",
+      "sources": [
+        "S21"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Readable logged-out Users search; ten displayed results. Examples: amyconcept (headwears), concept.laser.cor, 2c_conceptlaser, acl.concept. No attributable Amy/Lannion account resolved.",
+      "limitation": "No login wall blocked this search; no owned content sample; no absence claim.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E27",
+      "subject": "discovery",
+      "surface": "social",
+      "sources": [
+        "S22"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Readable public search in Chrome with session; irrelevant results including Acme Laser, artistic laser productions, Amy McFarland, AMADA AMERICA. No attributable channel resolved.",
+      "limitation": "Search-result sample only; no owned videos or transcripts collected; no absence claim.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E28",
+      "subject": "discovery",
+      "surface": "search",
+      "sources": [
+        "S23"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "End of list shown after four results: Lazeo Lannion (19 Pl. du Général Leclerc, 5.0/173); Clinique du Corps (19 Av. Ernest Renan, 4.9/41); Laser Conseil (5 Rue Fulgence Bienvenue); Dr Charles Botter (19 Av. Ernest Renan, 4.9/220). All excluded as Amy.",
+      "limitation": "One branded Maps search from Chrome; not geogrid/rank measurement; no Amy absence, rating or review count inferred; review bodies not read.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E29",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S24"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "May 30, 2026 related-post caption advertises épilation laser and ends Prenez rendez-vous via le lien en bio !",
+      "limitation": "Out-of-window context, excluded from 90-day sample; source claim not verified clinical safety.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E30",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S25"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "May 30, 2026 related-post caption advertises skin analysis and personalized laser protocols; Infos & RDV : 06-98-13-29-27 (ou via Linktree en bio).",
+      "limitation": "Out-of-window context; Linktree address itself not displayed. No guessed destination visited.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E31",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S26"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Expanded bio rechecked in Chrome with requested viewport 390x844: full address and appointment phone visible; no external practice link displayed. Viewport reset afterwards.",
+      "limitation": "Narrow desktop-browser viewport is not the native Instagram mobile app. Final destination unresolved; no website absence or conversion loss inferred.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E32",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S27"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Rendered video element reports duration 5.266666 seconds and no track elements. Audio attribution remains Giulio Cercato — Let’s Go.",
+      "limitation": "No published subtitle track found in inspected element; this does not prove absence of speech. No verified full transcript produced.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E33",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S28"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Public Témoignages Highlight opened; first observed card marked 66w, visible heading Témoignage cliente / Merci beaucoup !! over treatment-room video.",
+      "limitation": "Practice-curated historical testimonial; not independent platform review, not dated to Lannion, no speech transcription or patient identifiers retained. Partial Highlight only.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E34",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S29"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Public candy lips Highlight opened; observed 129w card shows practitioner working around lips with handheld instrument.",
+      "limitation": "Historical visual demonstration only; no current service availability, price, clinical outcome or full Highlight coverage inferred.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E35",
+      "subject": "subject",
+      "surface": "website",
+      "sources": [
+        "S30"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_search_read",
+      "observation": "Supplementary exact-name/handle/phone web discovery returned Treatwell at SALON ALICE NAILS, 16 Rue Jean Monnet, Bussy-Saint-Georges; no resolved Linktree endpoint in returned results.",
+      "limitation": "Bounded search results, not exhaustive link ownership verification. Treatwell menu/reviews remain excluded from current Lannion service confirmation.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    }
+  ],
+  "sources": {
+    "S12": {
+      "url": "https://www.instagram.com/acl_amy/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Authenticated Chrome; expanded bio + screenshot; public profile. 46 posts, 228 followers, 136 following. Exact visible bio: Praticienne laseriste DE; Éducatrice nationale; Formations laser certifiante; PRISE DE RDV : 06.98.13.29.27; 20 place du Marchallac’h LANNION. Heading: 20 place du Marchallac’h, Lannion 22300. No external bio-link displayed in inspected desktop UI.",
+      "limitation": "Current source wording only; credentials not verified; mobile app may differ; no absence of website inferred.",
+      "reviewer_status": "pending"
+    },
+    "S13": {
+      "url": "https://www.instagram.com/acl_amy/p/DbTv3vsoFfH/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "July 27, 2026; caption: Skin details; 7 likes; No comments yet. Rechecked authenticated.",
+      "limitation": "One public post; zero displayed comments/replies, not complete platform population.",
+      "reviewer_status": "pending"
+    },
+    "S14": {
+      "url": "https://www.instagram.com/acl_amy/reel/DbTveNfIfwi/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "July 27, 2026; caption: Aesthetic marathon ! Let’s go !; 14 likes; 2 reposts; No comments yet. Audio label: Giulio Cercato — Let’s Go. Thumbnail shows treatment setting and protective eyewear.",
+      "limitation": "Caption and thumbnail observed, no full audio transcription or verified procedure/clinical outcome.",
+      "reviewer_status": "pending"
+    },
+    "S15": {
+      "url": "https://www.instagram.com/acl_amy/reels/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "First displayed Reel is DbTveNfIfwi (619 views), followed by DY9QnvvIixP and DY9PG-ZIt-r. Their dates in related-post UI are May 30, 2026, outside the approved window.",
+      "limitation": "Visible grid, not exhaustive archival export; 12 grid links inspected; cap 20 does not require padding with out-of-window posts.",
+      "reviewer_status": "pending"
+    },
+    "S16": {
+      "url": "https://www.instagram.com/stories/highlights/17863870953519146/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Three visually read Tarifs cards; all labelled 41w. Electrolysis face: 30mn 90€, 45mn 130€, 60mn 160€, additional quarter-hour after one hour 30€. First short-duration row not confidently transcribed. Other two cards headed Tarifs Epilations Hommes; include face/body/intimate-zone tariffs. Examples: inter-sourcils 25€, oreilles 30€, barbe intégrale 120€, visage complet 180€ on one card; aisselles 100€, jambes complètes 300€ on another.",
+      "limitation": "Historical source age; current Lannion applicability not established. No complete or corrected tariff table claimed. Prices are source observations, not advice or booking terms.",
+      "reviewer_status": "pending"
+    },
+    "S17": {
+      "url": "https://www.instagram.com/stories/highlights/18000695204151764/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Laser first two frame states labelled 138w; video frame shows a handpiece near skin; music labels Tropical Fantasia / Salsa Con Coco and Alex Guesta / My Addiction.",
+      "limitation": "Partial visual sample, no transcript, no current-location inference.",
+      "reviewer_status": "pending"
+    },
+    "S18": {
+      "url": "https://www.instagram.com/stories/highlights/18025062280720480/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "First card labelled 155w; headings SKINCARE FACE, BY NURSE AMY, PEELING AU CARBON, CARBON THERAPIE.",
+      "limitation": "Small body text not reliably transcribed; historical positioning, not clinical validation.",
+      "reviewer_status": "pending"
+    },
+    "S19": {
+      "url": "https://www.instagram.com/stories/highlights/18091745623403891/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "First Détatouage las. frame labelled 135w; player loading at capture.",
+      "limitation": "Video content/transcript not read; label alone does not establish current service.",
+      "reviewer_status": "pending"
+    },
+    "S20": {
+      "url": "https://www.facebook.com/search/pages/?q=ACL%20Amy%20Concept%20Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Authenticated public Pages search; 13 displayed result cards, none identifiable as Amy/Lannion. Examples excluded: Hind Enterprises, Village Veterinary Hospital, Aclara Láser, AC LASER.",
+      "limitation": "One exact-name discovery query; not proof no owned page exists.",
+      "reviewer_status": "pending"
+    },
+    "S21": {
+      "url": "https://www.tiktok.com/search/user?q=ACL%20Amy%20Concept%20Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Readable logged-out Users search; ten displayed results. Examples: amyconcept (headwears), concept.laser.cor, 2c_conceptlaser, acl.concept. No attributable Amy/Lannion account resolved.",
+      "limitation": "No login wall blocked this search; no owned content sample; no absence claim.",
+      "reviewer_status": "pending"
+    },
+    "S22": {
+      "url": "https://www.youtube.com/results?search_query=ACL+Amy+Concept+Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Readable public search in Chrome with session; irrelevant results including Acme Laser, artistic laser productions, Amy McFarland, AMADA AMERICA. No attributable channel resolved.",
+      "limitation": "Search-result sample only; no owned videos or transcripts collected; no absence claim.",
+      "reviewer_status": "pending"
+    },
+    "S23": {
+      "url": "https://www.google.com/maps/search/ACL+Amy+Concept+Laser+Lannion/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "End of list shown after four results: Lazeo Lannion (19 Pl. du Général Leclerc, 5.0/173); Clinique du Corps (19 Av. Ernest Renan, 4.9/41); Laser Conseil (5 Rue Fulgence Bienvenue); Dr Charles Botter (19 Av. Ernest Renan, 4.9/220). All excluded as Amy.",
+      "limitation": "One branded Maps search from Chrome; not geogrid/rank measurement; no Amy absence, rating or review count inferred; review bodies not read.",
+      "reviewer_status": "pending"
+    },
+    "S24": {
+      "url": "https://www.instagram.com/acl_amy/reel/DY9QnvvIixP/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "May 30, 2026 related-post caption advertises épilation laser and ends Prenez rendez-vous via le lien en bio !",
+      "limitation": "Out-of-window context, excluded from 90-day sample; source claim not verified clinical safety.",
+      "reviewer_status": "pending"
+    },
+    "S25": {
+      "url": "https://www.instagram.com/acl_amy/reel/DY9PG-ZIt-r/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "May 30, 2026 related-post caption advertises skin analysis and personalized laser protocols; Infos & RDV : 06-98-13-29-27 (ou via Linktree en bio).",
+      "limitation": "Out-of-window context; Linktree address itself not displayed. No guessed destination visited.",
+      "reviewer_status": "pending"
+    },
+    "S26": {
+      "url": "https://www.instagram.com/acl_amy/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Expanded bio rechecked in Chrome with requested viewport 390x844: full address and appointment phone visible; no external practice link displayed. Viewport reset afterwards.",
+      "limitation": "Narrow desktop-browser viewport is not the native Instagram mobile app. Final destination unresolved; no website absence or conversion loss inferred.",
+      "reviewer_status": "pending"
+    },
+    "S27": {
+      "url": "https://www.instagram.com/acl_amy/reel/DbTveNfIfwi/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Rendered video element reports duration 5.266666 seconds and no track elements. Audio attribution remains Giulio Cercato — Let’s Go.",
+      "limitation": "No published subtitle track found in inspected element; this does not prove absence of speech. No verified full transcript produced.",
+      "reviewer_status": "pending"
+    },
+    "S28": {
+      "url": "https://www.instagram.com/stories/highlights/17955118301952519/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Public Témoignages Highlight opened; first observed card marked 66w, visible heading Témoignage cliente / Merci beaucoup !! over treatment-room video.",
+      "limitation": "Practice-curated historical testimonial; not independent platform review, not dated to Lannion, no speech transcription or patient identifiers retained. Partial Highlight only.",
+      "reviewer_status": "pending"
+    },
+    "S29": {
+      "url": "https://www.instagram.com/stories/highlights/18023953046303158/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Public candy lips Highlight opened; observed 129w card shows practitioner working around lips with handheld instrument.",
+      "limitation": "Historical visual demonstration only; no current service availability, price, clinical outcome or full Highlight coverage inferred.",
+      "reviewer_status": "pending"
+    },
+    "S30": {
+      "url": "https://www.treatwell.fr/salon/acl-amy-concept-laser/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "web search result reading",
+      "observation": "Supplementary exact-name/handle/phone web discovery returned Treatwell at SALON ALICE NAILS, 16 Rue Jean Monnet, Bussy-Saint-Georges; no resolved Linktree endpoint in returned results.",
+      "limitation": "Bounded search results, not exhaustive link ownership verification. Treatwell menu/reviews remain excluded from current Lannion service confirmation.",
+      "reviewer_status": "pending"
+    }
+  }
+}

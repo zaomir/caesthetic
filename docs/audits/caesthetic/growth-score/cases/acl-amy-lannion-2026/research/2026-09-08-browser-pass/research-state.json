@@ -1,0 +1,1894 @@
+{
+  "record_type": "draft",
+  "artifact_role": "internal_research_checkpoint_not_publishable_report",
+  "audit_id": "acl-amy-lannion-2026",
+  "version": "0.4",
+  "prepared_at": "2026-09-08T15:24:18.439399Z",
+  "authority_ref": "b8e74c2e10712de115ebca1b608ea0be062a3c57",
+  "narrative_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08-browser-pass/audit.ru.md",
+  "research_alignment": {
+    "card_id": "ACL-AMY-LANNION-RA-1",
+    "version": "1.0",
+    "status": "approved",
+    "approved_by": "Valerie",
+    "approved_at": "2026-09-08T14:58:27Z",
+    "review_event_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/review-events/2026-09-08T145827Z-research-alignment-v1.json"
+  },
+  "scope": {
+    "format": "single_location",
+    "subject": "ACL Amy Concept Laser",
+    "location": "Lannion, France",
+    "surfaces": [
+      "search",
+      "website",
+      "social",
+      "reputation"
+    ],
+    "source_policy": "public_sources_only",
+    "education": "positioning_context_only",
+    "window_start": "2026-06-11",
+    "window_end": "2026-09-08",
+    "internal_locale": "ru",
+    "intended_delivery_locale": "fr"
+  },
+  "state": "evidence_incomplete",
+  "client_delivery_eligible": false,
+  "presentation": {
+    "required_contract": "growth-score-client/v6.0.0",
+    "compiled": false,
+    "french_adapter": "not_supported_in_read_authority; reviewed adapter required before French delivery",
+    "status": "russian_five_block_audit_text_ready_evidence_limited_not_compiled",
+    "russian_text_ready": true,
+    "final_client_report_ready": false
+  },
+  "source_registry": {
+    "S01": {
+      "url": "https://www.instagram.com/acl_amy/",
+      "type": "supplied_public_desktop_profile_snapshot",
+      "capture_at": null,
+      "supplied_at": "2026-09-07T18:30:06Z",
+      "sha256": "1e7a0e5ff131fae373dd77424179fad2e55c599fc5afe6c6b8c756481de14916",
+      "limitation": "Header only, not live posts or verified credentials."
+    },
+    "S02": {
+      "url": "https://www.treatwell.fr/salon/acl-amy-concept-laser/",
+      "type": "unresolved_related_listing",
+      "limitation": "Bussy-Saint-Georges; do not transfer services, prices, reviews or rating to Lannion."
+    },
+    "S03": {
+      "url": "https://sarcellesgo.fr/categorie-pro/epilation-laser/",
+      "type": "third_party_directory",
+      "limitation": "Sarcelles entry with matching public phone; current ownership and location status unresolved. Not medical authority."
+    },
+    "S04": {
+      "url": "https://www.lazeo.com/centres/lazeo-lannion/",
+      "type": "official_competitor_location_page",
+      "limitation": "Local block only; network navigation and 2024 testimonials excluded from current local treatment/review inference."
+    },
+    "S05": {
+      "url": "https://www.clinique-du-corps.fr/medecine-esthetique/epilation-laser/",
+      "type": "official_competitor_service_page"
+    },
+    "S06": {
+      "url": "https://www.clinique-du-corps.fr/contact/",
+      "type": "official_competitor_contact_page",
+      "limitation": "No form submission."
+    },
+    "S07": {
+      "url": "https://www.doctolib.fr/chirurgien-plastique/lannion/charles-botter-lannion",
+      "type": "linked_competitor_booking_profile",
+      "limitation": "One readable transition; no slot selection or appointment."
+    },
+    "S08": {
+      "url": "https://www.planity.com/lotus-forme-institut-de-beaute-centre-technologie-22300-lannion",
+      "type": "competitor_public_booking_review_page",
+      "limitation": "First accessible page only; 10 entries, 7 texts, not a full 90-day corpus. No booking controls exercised."
+    },
+    "S09": {
+      "url": "https://www.lazeo.com/nos-avis/",
+      "type": "competitor_network_review_page",
+      "limitation": "Not a Lannion-only review source."
+    },
+    "S10": {
+      "url": "https://www.instagram.com/acl_amy/",
+      "type": "supplied_public_mobile_profile_snapshot",
+      "capture_at": null,
+      "supplied_at": "2026-09-07T01:04:22Z",
+      "sha256": "1abc528d205f36d386022cc92ea357202111e38518ede8fcbdc24d25beb09e0b",
+      "limitation": "Highlights titles and truncated bio link only, not contents or destination."
+    },
+    "S11": {
+      "path": "docs/agent-api/results/maps-amy-lannion-20260908-v1.json",
+      "url": "https://github.com/zaomir/grainee-v2/blob/main/docs/agent-api/results/maps-amy-lannion-20260908-v1.json",
+      "blob_sha": "0b06d06b98189dbfd6e5224120677ea0674c1204",
+      "provider": "google_places_ef_proxy",
+      "generated_at": "2026-09-08T15:13:37.327Z",
+      "limitation": "Five summary lookups; no review bodies, services, photos or geogrid. Wrong Amy matches excluded."
+    },
+    "S12": {
+      "url": "https://www.instagram.com/acl_amy/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Authenticated Chrome; expanded bio + screenshot; public profile. 46 posts, 228 followers, 136 following. Exact visible bio: Praticienne laseriste DE; Éducatrice nationale; Formations laser certifiante; PRISE DE RDV : 06.98.13.29.27; 20 place du Marchallac’h LANNION. Heading: 20 place du Marchallac’h, Lannion 22300. No external bio-link displayed in inspected desktop UI.",
+      "limitation": "Current source wording only; credentials not verified; mobile app may differ; no absence of website inferred.",
+      "reviewer_status": "pending"
+    },
+    "S13": {
+      "url": "https://www.instagram.com/acl_amy/p/DbTv3vsoFfH/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "July 27, 2026; caption: Skin details; 7 likes; No comments yet. Rechecked authenticated.",
+      "limitation": "One public post; zero displayed comments/replies, not complete platform population.",
+      "reviewer_status": "pending"
+    },
+    "S14": {
+      "url": "https://www.instagram.com/acl_amy/reel/DbTveNfIfwi/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "July 27, 2026; caption: Aesthetic marathon ! Let’s go !; 14 likes; 2 reposts; No comments yet. Audio label: Giulio Cercato — Let’s Go. Thumbnail shows treatment setting and protective eyewear.",
+      "limitation": "Caption and thumbnail observed, no full audio transcription or verified procedure/clinical outcome.",
+      "reviewer_status": "pending"
+    },
+    "S15": {
+      "url": "https://www.instagram.com/acl_amy/reels/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "First displayed Reel is DbTveNfIfwi (619 views), followed by DY9QnvvIixP and DY9PG-ZIt-r. Their dates in related-post UI are May 30, 2026, outside the approved window.",
+      "limitation": "Visible grid, not exhaustive archival export; 12 grid links inspected; cap 20 does not require padding with out-of-window posts.",
+      "reviewer_status": "pending"
+    },
+    "S16": {
+      "url": "https://www.instagram.com/stories/highlights/17863870953519146/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Three visually read Tarifs cards; all labelled 41w. Electrolysis face: 30mn 90€, 45mn 130€, 60mn 160€, additional quarter-hour after one hour 30€. First short-duration row not confidently transcribed. Other two cards headed Tarifs Epilations Hommes; include face/body/intimate-zone tariffs. Examples: inter-sourcils 25€, oreilles 30€, barbe intégrale 120€, visage complet 180€ on one card; aisselles 100€, jambes complètes 300€ on another.",
+      "limitation": "Historical source age; current Lannion applicability not established. No complete or corrected tariff table claimed. Prices are source observations, not advice or booking terms.",
+      "reviewer_status": "pending"
+    },
+    "S17": {
+      "url": "https://www.instagram.com/stories/highlights/18000695204151764/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Laser first two frame states labelled 138w; video frame shows a handpiece near skin; music labels Tropical Fantasia / Salsa Con Coco and Alex Guesta / My Addiction.",
+      "limitation": "Partial visual sample, no transcript, no current-location inference.",
+      "reviewer_status": "pending"
+    },
+    "S18": {
+      "url": "https://www.instagram.com/stories/highlights/18025062280720480/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "First card labelled 155w; headings SKINCARE FACE, BY NURSE AMY, PEELING AU CARBON, CARBON THERAPIE.",
+      "limitation": "Small body text not reliably transcribed; historical positioning, not clinical validation.",
+      "reviewer_status": "pending"
+    },
+    "S19": {
+      "url": "https://www.instagram.com/stories/highlights/18091745623403891/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "First Détatouage las. frame labelled 135w; player loading at capture.",
+      "limitation": "Video content/transcript not read; label alone does not establish current service.",
+      "reviewer_status": "pending"
+    },
+    "S20": {
+      "url": "https://www.facebook.com/search/pages/?q=ACL%20Amy%20Concept%20Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Authenticated public Pages search; 13 displayed result cards, none identifiable as Amy/Lannion. Examples excluded: Hind Enterprises, Village Veterinary Hospital, Aclara Láser, AC LASER.",
+      "limitation": "One exact-name discovery query; not proof no owned page exists.",
+      "reviewer_status": "pending"
+    },
+    "S21": {
+      "url": "https://www.tiktok.com/search/user?q=ACL%20Amy%20Concept%20Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Readable logged-out Users search; ten displayed results. Examples: amyconcept (headwears), concept.laser.cor, 2c_conceptlaser, acl.concept. No attributable Amy/Lannion account resolved.",
+      "limitation": "No login wall blocked this search; no owned content sample; no absence claim.",
+      "reviewer_status": "pending"
+    },
+    "S22": {
+      "url": "https://www.youtube.com/results?search_query=ACL+Amy+Concept+Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "Readable public search in Chrome with session; irrelevant results including Acme Laser, artistic laser productions, Amy McFarland, AMADA AMERICA. No attributable channel resolved.",
+      "limitation": "Search-result sample only; no owned videos or transcripts collected; no absence claim.",
+      "reviewer_status": "pending"
+    },
+    "S23": {
+      "url": "https://www.google.com/maps/search/ACL+Amy+Concept+Laser+Lannion/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "End of list shown after four results: Lazeo Lannion (19 Pl. du Général Leclerc, 5.0/173); Clinique du Corps (19 Av. Ernest Renan, 4.9/41); Laser Conseil (5 Rue Fulgence Bienvenue); Dr Charles Botter (19 Av. Ernest Renan, 4.9/220). All excluded as Amy.",
+      "limitation": "One branded Maps search from Chrome; not geogrid/rank measurement; no Amy absence, rating or review count inferred; review bodies not read.",
+      "reviewer_status": "pending"
+    },
+    "S24": {
+      "url": "https://www.instagram.com/acl_amy/reel/DY9QnvvIixP/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "May 30, 2026 related-post caption advertises épilation laser and ends Prenez rendez-vous via le lien en bio !",
+      "limitation": "Out-of-window context, excluded from 90-day sample; source claim not verified clinical safety.",
+      "reviewer_status": "pending"
+    },
+    "S25": {
+      "url": "https://www.instagram.com/acl_amy/reel/DY9PG-ZIt-r/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "collection_window": "2026-09-08 browser pass; see date labels per observation",
+      "method": "Chrome UI accessibility tree and screenshots via cua_repl; manual minimal transcription",
+      "observation": "May 30, 2026 related-post caption advertises skin analysis and personalized laser protocols; Infos & RDV : 06-98-13-29-27 (ou via Linktree en bio).",
+      "limitation": "Out-of-window context; Linktree address itself not displayed. No guessed destination visited.",
+      "reviewer_status": "pending"
+    },
+    "S26": {
+      "url": "https://www.instagram.com/acl_amy/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Expanded bio rechecked in Chrome with requested viewport 390x844: full address and appointment phone visible; no external practice link displayed. Viewport reset afterwards.",
+      "limitation": "Narrow desktop-browser viewport is not the native Instagram mobile app. Final destination unresolved; no website absence or conversion loss inferred.",
+      "reviewer_status": "pending"
+    },
+    "S27": {
+      "url": "https://www.instagram.com/acl_amy/reel/DbTveNfIfwi/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Rendered video element reports duration 5.266666 seconds and no track elements. Audio attribution remains Giulio Cercato — Let’s Go.",
+      "limitation": "No published subtitle track found in inspected element; this does not prove absence of speech. No verified full transcript produced.",
+      "reviewer_status": "pending"
+    },
+    "S28": {
+      "url": "https://www.instagram.com/stories/highlights/17955118301952519/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Public Témoignages Highlight opened; first observed card marked 66w, visible heading Témoignage cliente / Merci beaucoup !! over treatment-room video.",
+      "limitation": "Practice-curated historical testimonial; not independent platform review, not dated to Lannion, no speech transcription or patient identifiers retained. Partial Highlight only.",
+      "reviewer_status": "pending"
+    },
+    "S29": {
+      "url": "https://www.instagram.com/stories/highlights/18023953046303158/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "Chrome CUA public UI and rendered DOM inspection",
+      "observation": "Public candy lips Highlight opened; observed 129w card shows practitioner working around lips with handheld instrument.",
+      "limitation": "Historical visual demonstration only; no current service availability, price, clinical outcome or full Highlight coverage inferred.",
+      "reviewer_status": "pending"
+    },
+    "S30": {
+      "url": "https://www.treatwell.fr/salon/acl-amy-concept-laser/",
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "collection_window": "2026-09-08 follow-up; historical age labels as observed",
+      "method": "web search result reading",
+      "observation": "Supplementary exact-name/handle/phone web discovery returned Treatwell at SALON ALICE NAILS, 16 Rue Jean Monnet, Bussy-Saint-Georges; no resolved Linktree endpoint in returned results.",
+      "limitation": "Bounded search results, not exhaustive link ownership verification. Treatwell menu/reviews remain excluded from current Lannion service confirmation.",
+      "reviewer_status": "pending"
+    }
+  },
+  "evidence_common": {
+    "collected_on": "2026-09-08",
+    "reviewer_status": "pending",
+    "approved_by": null,
+    "supersedes": null,
+    "public_facts_are_observations_of_source_content_not_causality": true
+  },
+  "candidate_evidence": [
+    {
+      "id": "E01",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S01"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "supplied_public_header_read",
+      "observation": "Name, Lannion, 20 place du Marchallac’h and booking phone 06.98.13.29.27 visible.",
+      "limitation": "Not a fresh platform or credential verification."
+    },
+    {
+      "id": "E02",
+      "subject": "unresolved_related_entity",
+      "surface": "search",
+      "sources": [
+        "S02"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_listing_read",
+      "observation": "Same-name listing at 16 Rue Jean Monnet, Bussy-Saint-Georges; older review addresses Mme Bernis.",
+      "limitation": "Association is a candidate, not approved identity or active branch."
+    },
+    {
+      "id": "E03",
+      "subject": "unresolved_related_entity",
+      "surface": "search",
+      "sources": [
+        "S03"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "directory_read_and_phone_normalization",
+      "observation": "nurse amy skin laser center, 12 Av. du 8 Mai 1945, Sarcelles, +33698132927.",
+      "limitation": "Matching phone does not establish current operation or ownership."
+    },
+    {
+      "id": "E04",
+      "subject": "lazeo-lannion",
+      "surface": "website",
+      "sources": [
+        "S04"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "official_location_page_read",
+      "observation": "Local laser/Hydrafacial presentation and online-booking entry; numbers 19 and 21 appear in the address context.",
+      "limitation": "Destination tool error is not a broken booking path."
+    },
+    {
+      "id": "E05",
+      "subject": "clinique-du-corps-lannion",
+      "surface": "website",
+      "sources": [
+        "S05"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "official_service_page_read",
+      "observation": "2026/2027 tariff section and Doctolib link.",
+      "limitation": "No clinical efficacy or conversion inference."
+    },
+    {
+      "id": "E06",
+      "subject": "clinique-du-corps-lannion",
+      "surface": "website",
+      "sources": [
+        "S06",
+        "S07"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_link_follow_and_address_comparison",
+      "observation": "Contact and readable Doctolib destination agree on 19 Avenue Ernest Renan, Lannion.",
+      "limitation": "One transition, not complete booking or mobile QA."
+    },
+    {
+      "id": "E07",
+      "subject": "lotus-forme-lannion",
+      "surface": "website",
+      "sources": [
+        "S08"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_booking_page_read",
+      "observation": "Free 30-minute initial laser assessment; some individual procedures unavailable for direct online booking.",
+      "limitation": "Assessment prerequisite is not automatically a defect; controls not exercised."
+    },
+    {
+      "id": "E08",
+      "subject": "lotus-forme-lannion",
+      "surface": "reputation",
+      "sources": [
+        "S08"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "first_page_review_enumeration",
+      "observation": "Ten dated entries, seven with text, 22 July to 3 September 2026.",
+      "limitation": "Incomplete population; themes separately coded in E16."
+    },
+    {
+      "id": "E09",
+      "subject": "lazeo-lannion",
+      "surface": "reputation",
+      "sources": [
+        "S04",
+        "S09"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "review_date_and_destination_read",
+      "observation": "Five embedded testimonials dated November–December 2024; all-reviews link opens network page.",
+      "limitation": "Excluded from current local 90-day themes and velocity."
+    },
+    {
+      "id": "E10",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S10"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "supplied_public_navigation_snapshot_read",
+      "observation": "Prices, testimonials and laser-topic highlight titles visible; WhatsApp URL truncated.",
+      "limitation": "No claim of absent pricing, unread highlights or malformed destination."
+    },
+    {
+      "id": "E11",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S01"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "supplied_bio_role_read",
+      "observation": "Practitioner and professional-education roles share the bio.",
+      "limitation": "Neither verified qualifications nor proven confusion."
+    },
+    {
+      "id": "E12",
+      "subject": "subject",
+      "surface": "search",
+      "sources": [
+        "S11"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "live_api_match_review",
+      "observation": "Two Amy lookups returned Laser Conseil at 5 Rue Fulgence Bienvenue with weak_name_match; excluded.",
+      "limitation": "No Amy rating, count or absence inferred from another business."
+    },
+    {
+      "id": "E13",
+      "subject": "lazeo-lannion",
+      "surface": "reputation",
+      "sources": [
+        "S11"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "live_places_summary",
+      "observation": "19 Place du Général Leclerc; rating 5, reviews 173; fetched 15:13:33.673Z.",
+      "limitation": "Human review pending; no review text or velocity."
+    },
+    {
+      "id": "E14",
+      "subject": "clinique-du-corps-lannion",
+      "surface": "reputation",
+      "sources": [
+        "S11",
+        "S06",
+        "S07"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "live_places_summary_and_address_comparison",
+      "observation": "19 Avenue Ernest Renan; rating 4.9, reviews 41; fetched 15:13:34.865Z.",
+      "limitation": "API low confidence/partial_name_match; official address agrees, final entity approval pending."
+    },
+    {
+      "id": "E15",
+      "subject": "lotus-forme-lannion",
+      "surface": "reputation",
+      "sources": [
+        "S11"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "live_places_summary",
+      "observation": "13c Rue Thomas Edison; rating 4.7, reviews 57; fetched 15:13:36.157Z.",
+      "limitation": "Google summary separate from Planity sample."
+    },
+    {
+      "id": "E16",
+      "subject": "lotus-forme-lannion",
+      "surface": "reputation",
+      "sources": [
+        "S08"
+      ],
+      "class": "B_candidate_inference",
+      "method": "manual_semantic_coding",
+      "observation": "Six of seven visible texts praise staff or welcome.",
+      "assumptions": "General team praise counts as staff/welcome; denominator seven texts, not ten entries or profile total.",
+      "limitation": "Not laser-specific or representative of all customers; requires human semantic review."
+    },
+    {
+      "id": "E17",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S12"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Authenticated Chrome; expanded bio + screenshot; public profile. 46 posts, 228 followers, 136 following. Exact visible bio: Praticienne laseriste DE; Éducatrice nationale; Formations laser certifiante; PRISE DE RDV : 06.98.13.29.27; 20 place du Marchallac’h LANNION. Heading: 20 place du Marchallac’h, Lannion 22300. No external bio-link displayed in inspected desktop UI.",
+      "limitation": "Current source wording only; credentials not verified; mobile app may differ; no absence of website inferred.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E18",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S13"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "July 27, 2026; caption: Skin details; 7 likes; No comments yet. Rechecked authenticated.",
+      "limitation": "One public post; zero displayed comments/replies, not complete platform population.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E19",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S14"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "July 27, 2026; caption: Aesthetic marathon ! Let’s go !; 14 likes; 2 reposts; No comments yet. Audio label: Giulio Cercato — Let’s Go. Thumbnail shows treatment setting and protective eyewear.",
+      "limitation": "Caption and thumbnail observed, no full audio transcription or verified procedure/clinical outcome.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E20",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S15"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "First displayed Reel is DbTveNfIfwi (619 views), followed by DY9QnvvIixP and DY9PG-ZIt-r. Their dates in related-post UI are May 30, 2026, outside the approved window.",
+      "limitation": "Visible grid, not exhaustive archival export; 12 grid links inspected; cap 20 does not require padding with out-of-window posts.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E21",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S16"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Three visually read Tarifs cards; all labelled 41w. Electrolysis face: 30mn 90€, 45mn 130€, 60mn 160€, additional quarter-hour after one hour 30€. First short-duration row not confidently transcribed. Other two cards headed Tarifs Epilations Hommes; include face/body/intimate-zone tariffs. Examples: inter-sourcils 25€, oreilles 30€, barbe intégrale 120€, visage complet 180€ on one card; aisselles 100€, jambes complètes 300€ on another.",
+      "limitation": "Historical source age; current Lannion applicability not established. No complete or corrected tariff table claimed. Prices are source observations, not advice or booking terms.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E22",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S17"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Laser first two frame states labelled 138w; video frame shows a handpiece near skin; music labels Tropical Fantasia / Salsa Con Coco and Alex Guesta / My Addiction.",
+      "limitation": "Partial visual sample, no transcript, no current-location inference.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E23",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S18"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "First card labelled 155w; headings SKINCARE FACE, BY NURSE AMY, PEELING AU CARBON, CARBON THERAPIE.",
+      "limitation": "Small body text not reliably transcribed; historical positioning, not clinical validation.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E24",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S19"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "First Détatouage las. frame labelled 135w; player loading at capture.",
+      "limitation": "Video content/transcript not read; label alone does not establish current service.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E25",
+      "subject": "discovery",
+      "surface": "social",
+      "sources": [
+        "S20"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Authenticated public Pages search; 13 displayed result cards, none identifiable as Amy/Lannion. Examples excluded: Hind Enterprises, Village Veterinary Hospital, Aclara Láser, AC LASER.",
+      "limitation": "One exact-name discovery query; not proof no owned page exists.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E26",
+      "subject": "discovery",
+      "surface": "social",
+      "sources": [
+        "S21"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Readable logged-out Users search; ten displayed results. Examples: amyconcept (headwears), concept.laser.cor, 2c_conceptlaser, acl.concept. No attributable Amy/Lannion account resolved.",
+      "limitation": "No login wall blocked this search; no owned content sample; no absence claim.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E27",
+      "subject": "discovery",
+      "surface": "social",
+      "sources": [
+        "S22"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Readable public search in Chrome with session; irrelevant results including Acme Laser, artistic laser productions, Amy McFarland, AMADA AMERICA. No attributable channel resolved.",
+      "limitation": "Search-result sample only; no owned videos or transcripts collected; no absence claim.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E28",
+      "subject": "discovery",
+      "surface": "search",
+      "sources": [
+        "S23"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "End of list shown after four results: Lazeo Lannion (19 Pl. du Général Leclerc, 5.0/173); Clinique du Corps (19 Av. Ernest Renan, 4.9/41); Laser Conseil (5 Rue Fulgence Bienvenue); Dr Charles Botter (19 Av. Ernest Renan, 4.9/220). All excluded as Amy.",
+      "limitation": "One branded Maps search from Chrome; not geogrid/rank measurement; no Amy absence, rating or review count inferred; review bodies not read.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E29",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S24"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "May 30, 2026 related-post caption advertises épilation laser and ends Prenez rendez-vous via le lien en bio !",
+      "limitation": "Out-of-window context, excluded from 90-day sample; source claim not verified clinical safety.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E30",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S25"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "May 30, 2026 related-post caption advertises skin analysis and personalized laser protocols; Infos & RDV : 06-98-13-29-27 (ou via Linktree en bio).",
+      "limitation": "Out-of-window context; Linktree address itself not displayed. No guessed destination visited.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:06:08.481446+00:00"
+    },
+    {
+      "id": "E31",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S26"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Expanded bio rechecked in Chrome with requested viewport 390x844: full address and appointment phone visible; no external practice link displayed. Viewport reset afterwards.",
+      "limitation": "Narrow desktop-browser viewport is not the native Instagram mobile app. Final destination unresolved; no website absence or conversion loss inferred.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E32",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S27"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Rendered video element reports duration 5.266666 seconds and no track elements. Audio attribution remains Giulio Cercato — Let’s Go.",
+      "limitation": "No published subtitle track found in inspected element; this does not prove absence of speech. No verified full transcript produced.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E33",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S28"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Public Témoignages Highlight opened; first observed card marked 66w, visible heading Témoignage cliente / Merci beaucoup !! over treatment-room video.",
+      "limitation": "Practice-curated historical testimonial; not independent platform review, not dated to Lannion, no speech transcription or patient identifiers retained. Partial Highlight only.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E34",
+      "subject": "subject",
+      "surface": "social",
+      "sources": [
+        "S29"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_browser_read",
+      "observation": "Public candy lips Highlight opened; observed 129w card shows practitioner working around lips with handheld instrument.",
+      "limitation": "Historical visual demonstration only; no current service availability, price, clinical outcome or full Highlight coverage inferred.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    },
+    {
+      "id": "E35",
+      "subject": "subject",
+      "surface": "website",
+      "sources": [
+        "S30"
+      ],
+      "class": "A_candidate_observation_only",
+      "method": "public_search_read",
+      "observation": "Supplementary exact-name/handle/phone web discovery returned Treatwell at SALON ALICE NAILS, 16 Rue Jean Monnet, Bussy-Saint-Georges; no resolved Linktree endpoint in returned results.",
+      "limitation": "Bounded search results, not exhaustive link ownership verification. Treatwell menu/reviews remain excluded from current Lannion service confirmation.",
+      "reviewer_status": "pending",
+      "approved_by": null,
+      "collected_at": "2026-09-08T16:15:47.767457+00:00"
+    }
+  ],
+  "query_set": {
+    "status": "working_proposal_not_frozen",
+    "version": "0.1",
+    "frequency": null,
+    "frequency_source": null,
+    "priority_treatment_validated": false,
+    "freeze_at": null,
+    "reason": "Public Tarifs read but all three cards labelled 41w; Lannion applicability unresolved. Current bio has location/contact but no external URL in desktop sample. Preserve working phrases, do not freeze service-specific set.",
+    "source_refs": [
+      "S01",
+      "S12",
+      "S13",
+      "S14",
+      "S16"
+    ],
+    "language": "fr",
+    "geography": "Lannion",
+    "matrix_columns": [
+      "search",
+      "website",
+      "social",
+      "reputation"
+    ],
+    "cell_codes": {
+      "IE": "insufficient_evidence",
+      "SM": "semantic_match_in_bio_only"
+    },
+    "all_cells_review": "pending",
+    "rows": [
+      {
+        "id": "K01",
+        "phrase": "cabinet de soins laser à Lannion",
+        "cells": [
+          "IE",
+          "IE",
+          "IE",
+          "IE"
+        ]
+      },
+      {
+        "id": "K02",
+        "phrase": "praticienne laser à Lannion rendez-vous",
+        "cells": [
+          "IE",
+          "IE",
+          "SM",
+          "IE"
+        ]
+      },
+      {
+        "id": "K03",
+        "phrase": "soins laser à Lannion tarifs",
+        "cells": [
+          "IE",
+          "IE",
+          "IE",
+          "IE"
+        ]
+      },
+      {
+        "id": "K04",
+        "phrase": "premier rendez-vous laser à Lannion",
+        "cells": [
+          "IE",
+          "IE",
+          "IE",
+          "IE"
+        ]
+      },
+      {
+        "id": "K05",
+        "phrase": "praticienne laser Lannion avis",
+        "cells": [
+          "IE",
+          "IE",
+          "IE",
+          "IE"
+        ]
+      },
+      {
+        "id": "K06",
+        "phrase": "ACL Amy Concept Laser Lannion rendez-vous",
+        "cells": [
+          "IE",
+          "IE",
+          "SM",
+          "IE"
+        ]
+      },
+      {
+        "id": "K07",
+        "phrase": "ACL Amy Concept Laser Lannion tarifs",
+        "cells": [
+          "IE",
+          "IE",
+          "IE",
+          "IE"
+        ]
+      },
+      {
+        "id": "K08",
+        "phrase": "ACL Amy Concept Laser Lannion avis",
+        "cells": [
+          "IE",
+          "IE",
+          "IE",
+          "IE"
+        ]
+      },
+      {
+        "id": "K09",
+        "phrase": "ACL Amy Concept Laser Lannion adresse",
+        "cells": [
+          "IE",
+          "IE",
+          "SM",
+          "IE"
+        ]
+      },
+      {
+        "id": "K10",
+        "phrase": "ACL Amy Concept Laser Lannion contact",
+        "cells": [
+          "IE",
+          "IE",
+          "SM",
+          "IE"
+        ]
+      }
+    ],
+    "semantic_match_evidence": [
+      "E01",
+      "E17"
+    ],
+    "unsupported_cells_are_not_business_gaps": true,
+    "coverage_version": "0.3",
+    "drilldown": [
+      {
+        "query_id": "K01",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K01",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K01",
+        "surface": "social",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K01",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K02",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K02",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K02",
+        "surface": "social",
+        "status": "semantic_match",
+        "evidence_refs": [
+          "E17",
+          "E31"
+        ],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K02",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K03",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K03",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K03",
+        "surface": "social",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K03",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K04",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K04",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K04",
+        "surface": "social",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K04",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K05",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K05",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K05",
+        "surface": "social",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K05",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K06",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K06",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K06",
+        "surface": "social",
+        "status": "semantic_match",
+        "evidence_refs": [
+          "E17",
+          "E31"
+        ],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K06",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K07",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K07",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K07",
+        "surface": "social",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K07",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K08",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K08",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K08",
+        "surface": "social",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K08",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K09",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K09",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K09",
+        "surface": "social",
+        "status": "semantic_match",
+        "evidence_refs": [
+          "E17",
+          "E31"
+        ],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K09",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K10",
+        "surface": "search",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K10",
+        "surface": "website",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K10",
+        "surface": "social",
+        "status": "semantic_match",
+        "evidence_refs": [
+          "E17",
+          "E31"
+        ],
+        "caption_subsample": {
+          "status": "not_found_in_sample",
+          "sources": [
+            "S13",
+            "S14"
+          ],
+          "method": "case/space normalized phrase check in two short captions only; no inference about video speech"
+        },
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      },
+      {
+        "query_id": "K10",
+        "surface": "reputation",
+        "status": "insufficient_evidence",
+        "evidence_refs": [],
+        "caption_subsample": null,
+        "limitation": "Working non-frozen phrases; platform/service coverage incomplete."
+      }
+    ]
+  },
+  "platform_coverage": [
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/acl_amy/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "method": "Chrome UI",
+      "access_mode": "initial_login_wall_then_authenticated_public_read",
+      "posts": 2,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "complete": false,
+      "source_refs": [
+        "S12"
+      ],
+      "result": "partial_public_content_read",
+      "next_step": "Resolve current Lannion services and further source ownership; do not infer absence."
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/search/pages/?q=ACL%20Amy%20Concept%20Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "method": "Chrome UI",
+      "access_mode": "authenticated_public_search",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "complete": false,
+      "source_refs": [
+        "S20"
+      ],
+      "result": "no_owned_entity_resolved_in_search_sample",
+      "next_step": "Resolve current Lannion services and further source ownership; do not infer absence."
+    },
+    {
+      "platform": "TikTok",
+      "url": "https://www.tiktok.com/search/user?q=ACL%20Amy%20Concept%20Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "method": "Chrome UI",
+      "access_mode": "logged_out_public_search",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "complete": false,
+      "source_refs": [
+        "S21"
+      ],
+      "result": "no_owned_entity_resolved_in_search_sample",
+      "next_step": "Resolve current Lannion services and further source ownership; do not infer absence."
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/results?search_query=ACL+Amy+Concept+Laser",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "method": "Chrome UI",
+      "access_mode": "public_search_with_session",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "complete": false,
+      "source_refs": [
+        "S22"
+      ],
+      "result": "no_owned_entity_resolved_in_search_sample",
+      "next_step": "Resolve current Lannion services and further source ownership; do not infer absence."
+    },
+    {
+      "platform": "Google Maps / GBP",
+      "url": "https://www.google.com/maps/search/ACL+Amy+Concept+Laser+Lannion/",
+      "collected_at": "2026-09-08T16:06:08.481446+00:00",
+      "method": "Chrome UI",
+      "access_mode": "public_search_no_login_required",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "complete": false,
+      "source_refs": [
+        "S23"
+      ],
+      "result": "no_owned_entity_resolved_in_search_sample",
+      "next_step": "Resolve current Lannion services and further source ownership; do not infer absence."
+    }
+  ],
+  "review_sample": {
+    "source": "S08",
+    "window_start": "2026-06-11",
+    "window_end": "2026-09-08",
+    "sampling": "all ten entries on accessible first Planity page; pagination not read",
+    "entries": [
+      {
+        "id": "LF01",
+        "date": "2026-09-03",
+        "has_text": true,
+        "staff_welcome": true
+      },
+      {
+        "id": "LF02",
+        "date": "2026-09-03",
+        "has_text": true,
+        "staff_welcome": true
+      },
+      {
+        "id": "LF03",
+        "date": "2026-09-01",
+        "has_text": true,
+        "staff_welcome": true
+      },
+      {
+        "id": "LF04",
+        "date": "2026-08-25",
+        "has_text": true,
+        "staff_welcome": true
+      },
+      {
+        "id": "LF05",
+        "date": "2026-08-07",
+        "has_text": false,
+        "staff_welcome": false
+      },
+      {
+        "id": "LF06",
+        "date": "2026-08-05",
+        "has_text": false,
+        "staff_welcome": false
+      },
+      {
+        "id": "LF07",
+        "date": "2026-08-04",
+        "has_text": false,
+        "staff_welcome": false
+      },
+      {
+        "id": "LF08",
+        "date": "2026-07-26",
+        "has_text": true,
+        "staff_welcome": false
+      },
+      {
+        "id": "LF09",
+        "date": "2026-07-24",
+        "has_text": true,
+        "staff_welcome": true
+      },
+      {
+        "id": "LF10",
+        "date": "2026-07-22",
+        "has_text": true,
+        "staff_welcome": true
+      }
+    ],
+    "all_visible_ratings": 5,
+    "text_count": 7,
+    "staff_welcome_count": 6,
+    "negative_themes_in_sample": 0,
+    "review_velocity_90d": null,
+    "complete_population": false,
+    "thematic_coding_review": "pending"
+  },
+  "inventory_common": {
+    "reviewer_status": "pending",
+    "selected_focus": false,
+    "business_severity_not_established": true,
+    "accountable_role": "researcher; Valerie approves material evidence/selection",
+    "permission": "research_only; no platform edits",
+    "baseline": "dated public checkpoint, not revenue or operational baseline",
+    "implementation_horizon": "not_committed; evaluate dependencies and SOW after evidence"
+  },
+  "gap_inventory": [
+    {
+      "id": "G01",
+      "state": "identity_ambiguous",
+      "evidence": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "modules": [
+        "A01",
+        "A08"
+      ],
+      "action": "Resolve ownership and location history before correction.",
+      "acceptance": "Dated public identity mapping; only confirmed inaccurate links proposed for repair.",
+      "kill": "Keep valid historical/other-entity records; no forced closure claim."
+    },
+    {
+      "id": "G02",
+      "state": "insufficient_evidence",
+      "evidence": [
+        "E12",
+        "E28"
+      ],
+      "modules": [
+        "A01",
+        "A05"
+      ],
+      "action": "Resolve current subject GBP, excluding Laser Conseil.",
+      "acceptance": "Attributable public identifier or properly bounded not-found record.",
+      "kill": "No absence or zero score from weak API match."
+    },
+    {
+      "id": "G03",
+      "state": "current_location_applicability_unresolved",
+      "evidence": [
+        "E10",
+        "E11",
+        "E21"
+      ],
+      "modules": [
+        "A06",
+        "A09"
+      ],
+      "action": "Confirm whether the 41w tariff cards apply to Lannion; do not label prices absent.",
+      "acceptance": "Current service, location, conditions and next step are evidenced.",
+      "kill": "Do not label unread information absent."
+    },
+    {
+      "id": "G04",
+      "state": "candidate_route_discontinuity",
+      "evidence": [
+        "E01",
+        "E10",
+        "E17",
+        "E29",
+        "E30",
+        "E31"
+      ],
+      "modules": [
+        "A03"
+      ],
+      "action": "Review historical link/Linktree CTA against expanded Chrome bio in desktop and narrow viewport; no external endpoint displayed in either. Native app untested; business materiality unestablished.",
+      "acceptance": "Observed destination and next action with location/service continuity.",
+      "kill": "Truncation or tool error does not mean broken link."
+    },
+    {
+      "id": "G05",
+      "state": "insufficient_evidence",
+      "evidence": [
+        "E33"
+      ],
+      "modules": [
+        "A07"
+      ],
+      "action": "Historical practice-curated video testimonial observed; independent current-location reputation source remains unresolved.",
+      "acceptance": "Reviews assigned to correct location/platform/window.",
+      "kill": "No old-city review transfer or automatic review-launch sale."
+    },
+    {
+      "id": "G06",
+      "state": "insufficient_evidence",
+      "evidence": [
+        "E01"
+      ],
+      "modules": [
+        "A05",
+        "A08"
+      ],
+      "action": "Freeze service-grounded queries and complete four-surface comparison.",
+      "acceptance": "One query version, source-level cells and explicit coverage.",
+      "kill": "Missing research is not a consistency failure."
+    },
+    {
+      "id": "G07",
+      "state": "partial_sample_read",
+      "evidence": [
+        "E10",
+        "E18",
+        "E19",
+        "E20",
+        "E32"
+      ],
+      "modules": [
+        "A06"
+      ],
+      "action": "Two eligible captions and comment states read; Reel duration and absent subtitle tracks checked. Full speech transcript remains unverified.",
+      "acceptance": "Dated public samples and actual material-type counts.",
+      "kill": "No inactivity or weak-content diagnosis from unavailable sources."
+    },
+    {
+      "id": "G08",
+      "state": "not_assessed_excluded",
+      "evidence": [],
+      "modules": [],
+      "action": "Keep internal conversion outside this public-only research.",
+      "acceptance": "No unsupported CRM/reception/follow-up assertion.",
+      "kill": "No automatic paid Check recommendation."
+    },
+    {
+      "id": "G09",
+      "state": "insufficient_evidence",
+      "evidence": [
+        "E11"
+      ],
+      "modules": [
+        "A09"
+      ],
+      "action": "Verify published credential wording with appropriate primary evidence.",
+      "acceptance": "Correct sourced professional representation for verified service.",
+      "kill": "Unverified is not unlawful or unqualified."
+    },
+    {
+      "id": "G10",
+      "state": "monitor",
+      "evidence": [
+        "E11"
+      ],
+      "modules": [
+        "A06",
+        "A09"
+      ],
+      "action": "Inspect client/training route separation.",
+      "acceptance": "Local client understands service and next step without training-route confusion.",
+      "kill": "Protect clear mixed-role positioning if no material ambiguity exists."
+    }
+  ],
+  "paths": [
+    {
+      "id": "P01",
+      "subject": "subject",
+      "from": "Instagram bio",
+      "to": "printed booking phone",
+      "state": "not_assessed",
+      "evidence": [
+        "E01"
+      ],
+      "limitation": "Text visible, endpoint not tested."
+    },
+    {
+      "id": "P02",
+      "subject": "subject",
+      "from": "Instagram bio",
+      "to": "WhatsApp destination",
+      "state": "not_displayed_in_current_desktop_sample",
+      "evidence": [
+        "E10",
+        "E17",
+        "E29",
+        "E30"
+      ],
+      "limitation": "Old screenshot suggests WhatsApp; current desktop bio contains no external link. Final destination unresolved; no guessed URL or message opened."
+    },
+    {
+      "id": "P03",
+      "subject": "clinique-du-corps-lannion",
+      "from": "service page",
+      "to": "Doctolib profile",
+      "state": "observed_readable_transition",
+      "evidence": [
+        "E05",
+        "E06"
+      ],
+      "limitation": "Not a complete appointment path or mobile test."
+    },
+    {
+      "id": "P04",
+      "subject": "lazeo-lannion",
+      "from": "local page",
+      "to": "my.lazeo.com",
+      "state": "not_assessed",
+      "evidence": [
+        "E04"
+      ],
+      "limitation": "Destination tool error, no defect claim."
+    },
+    {
+      "id": "P05",
+      "subject": "lotus-forme-lannion",
+      "from": "Planity menu",
+      "to": "assessment selection",
+      "state": "not_assessed",
+      "evidence": [
+        "E07"
+      ],
+      "limitation": "Control text read; not exercised."
+    }
+  ],
+  "objective_strength_candidate": {
+    "evidence": [
+      "E17"
+    ],
+    "statement": "Fresh public bio identifies Lannion, street address and booking phone.",
+    "approved": false
+  },
+  "subject_google_data": {
+    "place_id": null,
+    "rating": null,
+    "reviews_total": null,
+    "reason": "Wrong-entity API returns excluded."
+  },
+  "scores": {
+    "search": null,
+    "website": null,
+    "social": null,
+    "reputation": null,
+    "overall": null,
+    "cross_surface": null
+  },
+  "binding_constraint": null,
+  "focus_selection": null,
+  "verified_fact_set": null,
+  "report_approval": null,
+  "translation_approval": null,
+  "do_not_fund_yet_candidate": {
+    "statement": "Do not scale paid traffic until current service/location/booking destination is verified.",
+    "classification": "conditional recommendation, not observed ad waste",
+    "approved": false,
+    "revisit": "Verified public destination and separately authorized capacity/economics evidence."
+  },
+  "commercial": {
+    "sprint_offer_ready": false,
+    "lead_to_revenue_check_recommended": false,
+    "new_website": "B12 separate scoped add-on, not automatically standard Sprint"
+  },
+  "maps_bridge": {
+    "request_id": "maps-amy-lannion-20260908-v1",
+    "status": "success_result_read",
+    "workflow_run_url": "https://github.com/zaomir/grainee-v2/actions/runs/34243271793",
+    "result_path": "docs/agent-api/results/maps-amy-lannion-20260908-v1.json",
+    "rows_returned": 5,
+    "subject_rows_accepted": 0,
+    "competitor_rows": 3
+  },
+  "access_limitations": {
+    "authorized_browser": "Chrome public-source session available after initial login reminder; previous no-browser limitation superseded.",
+    "minimum_next_material": "Public current Lannion service/tariff confirmation; external bio destination if actually displayed in another public viewport; complete eligible video transcript.",
+    "cloud_browser": "Not exposed in this desktop task; Chrome used as disclosed fallback."
+  },
+  "index_discovery_queries": [
+    "acl_amy",
+    "ACL Amy Concept Laser Lannion",
+    "Amy Bernis Lannion laser",
+    "06 98 13 29 27 laser",
+    "Amy Marchallac",
+    "0698132927",
+    "acl_amy site:instagram.com",
+    "Amy Bernis site:facebook.com",
+    "Amy Concept Laser site:facebook.com",
+    "nurse amy skin laser center",
+    "acl_amy site:tiktok.com",
+    "Amy Concept Laser site:youtube.com",
+    "Amy Bernis site:youtube.com",
+    "Amy Bernis 22300",
+    "0698132927 Lannion"
+  ],
+  "query_log_note": "Representative terms from the recorded broader index discovery, not Google rank measurements.",
+  "safety": {
+    "outreach_sent": false,
+    "forms_submitted": false,
+    "calls_made": false,
+    "appointments_created": false,
+    "private_conversation_copied": false,
+    "clinical_or_impact_claims_approved": false,
+    "published": false,
+    "stories_viewed": true,
+    "story_view_notice": "Instagram states the account owner can see the viewer; only public reading performed."
+  },
+  "expanded_downloadable_artifact": {
+    "filename": "research-ru-0.1.json",
+    "sha256": "29db7c1ce49e704d6d7371410482b7554fb324dcecae135f445885fede583d19",
+    "bytes": 76152,
+    "role": "Expanded locally generated dossier delivered to manager; this repository projection and narrative preserve the actionable research state."
+  },
+  "updated_at": "2026-09-08T16:27:12.674229+00:00",
+  "browser_pass": {
+    "started_from_ref": "03f25a523a2a8437103e57d64292299e453d1aff",
+    "write_base_ref": "31d85ee2c15b88e0d6a79a7db313238be09274d0",
+    "browser": "Chrome extension",
+    "cloud_browser_available": false,
+    "login_initially_blocked": true,
+    "login_reminder_delivered": true,
+    "public_access_restored": true,
+    "research_window": [
+      "2026-06-11",
+      "2026-09-08"
+    ],
+    "eligible_posts_read": 2,
+    "captions_read": 2,
+    "video_thumbnails_described": 1,
+    "full_video_transcripts": 0,
+    "public_comments_displayed": 0,
+    "practice_replies_displayed": 0,
+    "comment_scope": "both eligible posts rechecked authenticated; both say No comments yet",
+    "sampling_complete": false,
+    "sampling_limitation": "Visible Posts and Reels grids crossed May 30 boundary; deleted/hidden/reordered and further pagination not exhaustively checked.",
+    "raw_capture_policy": "Minimal transcriptions of tool observations; no raw screenshot files, cookies, unrelated account UI or patient identities retained.",
+    "followup": {
+      "collected_at": "2026-09-08T16:15:47.767457+00:00",
+      "evidence_ids": [
+        "E31",
+        "E32",
+        "E33",
+        "E34",
+        "E35"
+      ],
+      "bio_viewports": [
+        "desktop",
+        "390x844 narrow browser; not native app"
+      ],
+      "external_bio_endpoint": null,
+      "full_video_transcripts": 0,
+      "research_readout_ready": true,
+      "final_report_ready": false
+    }
+  },
+  "platform_coverage_previous": [
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/acl_amy/",
+      "method": "direct_open_and_retry; supplied_snapshots",
+      "result": "internal_error",
+      "read": "supplied_bio_and_highlight_titles_only",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "login_prompt_observed": false,
+      "complete": false
+    },
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/search/pages/?q=ACL%20Amy%20Concept%20Laser",
+      "method": "indexed_identity_search_and_direct_search_page",
+      "result": "no_owned_profile_resolved; cache_miss",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "login_prompt_observed": false,
+      "complete": false
+    },
+    {
+      "platform": "TikTok",
+      "url": "https://www.tiktok.com/search/user?q=ACL%20Amy%20Concept%20Laser",
+      "method": "indexed_identity_search_and_direct_search_page",
+      "result": "robots_restriction; no_bypass",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "login_prompt_observed": false,
+      "complete": false
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/results?search_query=ACL+Amy+Concept+Laser",
+      "method": "indexed_identity_search_and_direct_search_page",
+      "result": "no_owned_channel_resolved; cache_miss",
+      "posts": 0,
+      "transcripts": 0,
+      "comments": 0,
+      "replies": 0,
+      "login_prompt_observed": false,
+      "complete": false
+    },
+    {
+      "platform": "Google Maps / GBP",
+      "method": "canonical_live_api_plus_failed_direct_web_open",
+      "result": "five_api_rows; two_wrong_subject_matches_excluded",
+      "source_refs": [
+        "S11"
+      ],
+      "subject_listing_resolved": false,
+      "review_bodies_read": 0,
+      "complete": false
+    }
+  ],
+  "review_handoff": {
+    "state": "superseded_by_russian_audit",
+    "path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08-browser-pass/audit.ru.md",
+    "intermediate_review_required": false,
+    "first_review_artifact": "complete_russian_audit",
+    "final_report_approval": null
+  },
+  "supplementary_discovery_queries": [
+    "\"acl_amy\" Linktree",
+    "\"Amy Concept Laser\" Lannion tarifs",
+    "\"06 98 13 29 27\" Lannion"
+  ],
+  "supplementary_discovery_note": "Discovery queries are not the ten French demand phrases and do not freeze the query set."
+}

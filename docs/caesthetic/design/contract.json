@@ -1242,6 +1242,122 @@
         "/assets/css/growth-score-v6.css"
       ],
       "generator": "scripts/caesthetic/build-spoken-medspa-v6.mjs"
+    },
+    {
+      "source": "site-caesthetic/amy/index.html",
+      "route": "/amy/",
+      "profile": "redirect",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": []
+    },
+    {
+      "source": "site-caesthetic/amy/fr/index.html",
+      "route": "/amy/fr/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/tarifs/index.html",
+      "route": "/amy/fr/tarifs/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/avis/index.html",
+      "route": "/amy/fr/avis/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/en/index.html",
+      "route": "/amy/en/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/en/prices/index.html",
+      "route": "/amy/en/prices/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/en/reviews/index.html",
+      "route": "/amy/en/reviews/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
     }
   ],
   "tokens": {

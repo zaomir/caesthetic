@@ -1,0 +1,42 @@
+{
+  "audit_id":"acl-amy-lannion-2026",
+  "artifact":"internal_research_package_validation",
+  "validated_at":"2026-09-08T15:27:29.254930Z",
+  "result":"PASS",
+  "count":24,
+  "validated_subject":"Expanded local research-ru-0.1.json and companion artifacts, before repository projection",
+  "scope":"Local data integrity and publication-boundary checks only; not human fact approval, full audit acceptance or production QA",
+  "checks_passed":[
+    "four_surfaces_exact",
+    "five_platform_records",
+    "approval_exact_version_name_timestamp",
+    "ten_unique_working_queries",
+    "queries_unfrozen_unknown_frequency",
+    "forty_unique_matrix_cells",
+    "matrix_no_false_missing_content_claim",
+    "four_partial_bio_matches_only",
+    "evidence_sources_resolve",
+    "matrix_evidence_resolves",
+    "gap_evidence_resolves",
+    "ten_inventory_entries_not_forced_focus",
+    "human_approval_not_invented",
+    "all_final_scores_and_focus_null",
+    "no_report_release_approval",
+    "sample_size_ten_seven_texts_six_theme",
+    "ninety_day_inclusive_window",
+    "sample_dates_within_window",
+    "no_velocity_from_partial_sample",
+    "map_success_not_wrong_entity_acceptance",
+    "public_reads_no_submission_or_publication",
+    "no_unapproved_sprint_or_check_sale",
+    "non_publishable_presentation_state",
+    "forbidden_secret_keys_absent"
+  ],
+  "not_tested":["human fact validation","current service/menu verification","complete social/review coverage","live mobile/desktop browser UX","Lighthouse performance","production rendering/access","clinical/legal conclusions"],
+  "files":{
+    "draft.ru.md":{"bytes":26171,"sha256":"9d650ec5ebd99b25be913dfcb4901019a30157697a311e066a041454e3d8550d"},
+    "research-ru-0.1.json":{"bytes":76152,"sha256":"29db7c1ce49e704d6d7371410482b7554fb324dcecae135f445885fede583d19"},
+    "matrix-working-0.1.md":{"bytes":2513,"sha256":"02d4ec943360e4f9f58b9ae13d391721e7e3fbcf1201306d2b5e187128d92c3a"},
+    "maps-result-extract.json":{"bytes":3783,"sha256":"2cd249714eadfcae7765f4f53ebce0c25ec4d2f4cb4c0b988dae00a3ffb228b0"}
+  }
+}

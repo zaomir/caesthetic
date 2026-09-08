@@ -4,7 +4,7 @@ The owner supplied **Страница отчёта по аудиту.zip** on 20
 
 ## Use for the next report
 
-For a new single-location report in Russian or English, use the v6 authoring route:
+For every new single-location audit/report/score in Russian or English, v6 is mandatory under `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Start with the complete Russian pilot, obtain the existing named-manager approval, freeze decisions, then translate and verify parity. The no-argument CLI now emits a blank Russian v6 draft. Explicit English generation is draft authoring, not release authorization. Use the v6 authoring route:
 
 ```bash
 node scripts/caesthetic/growth-score-report-template.mjs --presentation v6 --locale ru

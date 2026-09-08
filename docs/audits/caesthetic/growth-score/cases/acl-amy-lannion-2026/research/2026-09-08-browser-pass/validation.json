@@ -1,0 +1,29 @@
+{
+  "validated_at": "2026-09-08T16:27:12.674229+00:00",
+  "scope": "Data integrity only; no human evidence approval or completeness acceptance",
+  "checks": {
+    "35_unique_evidence": true,
+    "sources_resolve": true,
+    "gap_refs_resolve": true,
+    "40_unique_cells": true,
+    "10_working_rows": true,
+    "unfrozen": true,
+    "scores_null": true,
+    "human_approvals_null": true,
+    "not_compiled": true,
+    "two_eligible_captions": true,
+    "no_transcript_claim": true,
+    "review_sheet_russian_words_only": true,
+    "russian_audit_ready": true,
+    "no_intermediate_review": true
+  },
+  "result": "PASS",
+  "files": {
+    "matrix-working-0.2.md": "8395010d12ed7968e063ff81d7a3b47389b9159b6b6130b16fd6deef10502303",
+    "research-state.json": "1bd2e52ce1ff723ec6c2e83469bc580190e831736f368d2167ed4882132c9ae1",
+    "evidence-register.json": "048b7b824f457c00225d9c7fa2d2a2fecc9259b75b48e4e314566f8b9a14571c",
+    "audit.ru.md": "c2de8c095e60cf74a87369060c615f8ef5b5e2eeb30df42b87a38a7fd3cffcb1",
+    "review-decision.ru.md": "f98249186b13b9aaf6fbbea73a64a708f93fc45c3d91e18be2bb0514835f1dbc",
+    "pilot.ru.md": "739d78d88ad0e46b4201a4235b39a0313d1d3bb8581b3091ddae748c8d23a555"
+  }
+}

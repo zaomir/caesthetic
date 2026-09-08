@@ -4,7 +4,7 @@
   "files": {
     ".github/workflows/deploy-expert-esign-test.yml": "dfc916e5418de77dc264147806db7cdde263a9ed3017d0fca9fb91e967767f25",
     ".github/workflows/record-expert-esign-deploy.yml": "4a12436e1da435c5f14f7b5992e32a363f4f542c5728a9cfce5a89161fefa107",
-    "AGENTS.md": "61a06762c0458385483c0ccf320a5699a521d78e8d943d4a5db31536198fcf28",
+    "AGENTS.md": "633e58427ac180cdebbee549d17b8bbda496cd31c74f6e601bf343a86e815d67",
     "START.md": "8583deed4e7051bd183b95e1fc48061239aa45ca7abb0faba2478ddd780cc020",
     "agents/manifests/healthcare-ecosystem.yaml": "d8c4afe70acd3b463aded8f73b345cff02855d1456bb527d878f89046a7597c5",
     "agents/manifests/raimovdental.yaml": "f3029af5e9ca2435fdad016c4517bc1fc674caa45463dd12214fa6237555c788",
@@ -334,7 +334,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "c1689390a605a5d5542e4a8d00c5e0a2ebff323e",
+  "source_sha": "348656b9371bf50040935b3a5661891d2bd93671",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

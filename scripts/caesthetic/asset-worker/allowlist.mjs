@@ -59,21 +59,40 @@ export const ALLOWED_ASSET_ROLES = Object.freeze([
 
 export const ALLOWED_SOURCES = Object.freeze(["Dropbox", "dropbox", "rclone"]);
 
-/** Logical folder id → rclone path under CAESTHETIC/CAESTHETIC MEDIA */
+/** Live Dropbox tree (moved under Projects/; old root is a read alias only). */
+export const DROPBOX_MEDIA_ROOT = "Projects/CAESTHETIC/CAESTHETIC MEDIA";
+export const DROPBOX_MEDIA_ROOT_LEGACY = "CAESTHETIC/CAESTHETIC MEDIA";
+
+export function mediaPath(...parts) {
+  return [DROPBOX_MEDIA_ROOT, ...parts.filter(Boolean)].join("/");
+}
+
+export function isMediaPath(rel) {
+  const s = String(rel || "");
+  return s.startsWith(`${DROPBOX_MEDIA_ROOT}/`) || s.startsWith(`${DROPBOX_MEDIA_ROOT_LEGACY}/`);
+}
+
+/** Logical folder id → rclone path under Projects/CAESTHETIC/CAESTHETIC MEDIA */
 export const SOURCE_FOLDERS = Object.freeze({
   "Valerie-avatar-plates": [
-    "CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/01-pose-library",
-    "CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/02-clean-plates",
+    mediaPath("Valerie-avatar-plates", "01-pose-library"),
+    mediaPath("Valerie-avatar-plates", "02-clean-plates"),
   ],
-  "pose-library": ["CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/01-pose-library"],
-  "clean-plates": ["CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/02-clean-plates"],
+  "pose-library": [mediaPath("Valerie-avatar-plates", "01-pose-library")],
+  "clean-plates": [mediaPath("Valerie-avatar-plates", "02-clean-plates")],
 });
 
 export const DEST_FOLDERS = Object.freeze({
-  stories: "CAESTHETIC/CAESTHETIC MEDIA/Huck/stories",
-  reels: "CAESTHETIC/CAESTHETIC MEDIA/Huck/reels",
-  thumbnails: "CAESTHETIC/CAESTHETIC MEDIA/Huck/thumbnails",
-  archive: "CAESTHETIC/CAESTHETIC MEDIA/Huck/archive",
+  stories: mediaPath("Huck", "stories"),
+  reels: mediaPath("Huck", "reels"),
+  thumbnails: mediaPath("Huck", "thumbnails"),
+  archive: mediaPath("Huck", "archive"),
+});
+
+export const HEALTHCHECK_FOLDERS = Object.freeze({
+  pose_library: SOURCE_FOLDERS["pose-library"][0],
+  clean_plates: SOURCE_FOLDERS["clean-plates"][0],
+  huck: mediaPath("Huck"),
 });
 
 export const MAX_CARDS = 20;

@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "audit_id": "acl-amy-lannion-2026",
+  "product": "growth_score",
+  "title": "ACL Amy Concept Laser — Lannion",
+  "subject_type": "aesthetic_practice",
+  "audit_format": "single_location",
+  "status": "draft",
+  "evidence_policy": "public_sources_only",
+  "repository_access": [
+    "zaomir/grainee-v2",
+    "zaomir/caesthetic"
+  ],
+  "authoring_source_paths": [
+    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/case.json"
+  ],
+  "report_paths": [],
+  "production_report_paths": [],
+  "created_at": "2026-09-08T14:48:18.013050Z",
+  "updated_at": "2026-09-08T16:06:08.481446+00:00",
+  "authority_ref": "bac48368cf21c9410ae07a75679bcc35662813bb",
+  "research_authority_ref": "31d85ee2c15b88e0d6a79a7db313238be09274d0",
+  "manager": "Valerie",
+  "phase": "evidence_incomplete",
+  "catalog_visibility": "private",
+  "report_context": {
+    "vertical_context": "aesthetic_practice",
+    "vertical_source": "referral_context",
+    "report_locale": "fr",
+    "locale_source": "human_resolved",
+    "internal_review_locale": "ru",
+    "required_presentation": "growth-score-client/v6.0.0",
+    "authoring_route": "growth-score-authoring-route/2.0.0",
+    "french_adapter_status": "not_supported_in_read_authority; reviewed adapter and translation QA required before delivery"
+  },
+  "manager_intake": {
+    "status": "complete_for_alignment",
+    "answered_at": "2026-09-08T14:40:57Z",
+    "named_manager": "Valerie",
+    "business_name": "ACL Amy Concept Laser",
+    "recipient": "Amy Bernis",
+    "public_identifier": "https://www.instagram.com/acl_amy/",
+    "location": {
+      "city": "Lannion",
+      "country": "France",
+      "address_from_supplied_public_profile": "20 place du Marchallac’h, 22300 Lannion",
+      "exact_address_live_verification": "pending"
+    },
+    "priority_services": null,
+    "priority_services_status": "unknown_to_manager",
+    "known_competitors": [],
+    "manager_exclusions": [],
+    "reason": "Accepted an introductory free public-presence review; no specific growth complaint established.",
+    "context_only": [
+      {
+        "item": "Lannion practice established January 2026",
+        "classification": "self_reported",
+        "counts_as_evidence": false
+      },
+      {
+        "item": "No website or Google presence reported",
+        "classification": "self_reported",
+        "counts_as_evidence": false
+      }
+    ],
+    "proposed_scope": "Local client choice and public route to booking for the Lannion practice; professional training remains positioning context, not a second acquisition audit.",
+    "scope_confirmation": "Research Alignment v1 approved by Valerie at 2026-09-08T14:58:27Z"
+  },
+  "research_alignment": {
+    "version": "1.0",
+    "card_id": "ACL-AMY-LANNION-RA-1",
+    "status": "approved",
+    "prepared_on": "2026-09-08",
+    "approving_manager": "Valerie",
+    "approved_by": "Valerie",
+    "approved_at": "2026-09-08T14:58:27Z",
+    "approval_event_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/review-events/2026-09-08T145827Z-research-alignment-v1.json",
+    "business_understanding": "Independent laser/aesthetic practice presented through @acl_amy; target market proposed as local clients in Lannion. Current service menu, priority service and clinician credentials are not yet independently verified.",
+    "format": "single_location",
+    "geography": {
+      "subject_location": "Lannion, France",
+      "comparison_market": "Lannion",
+      "query_locale": "fr-FR",
+      "multi_location": false
+    },
+    "deliverables": [
+      "Internal Russian research draft with evidence, full Gap Inventory, candidate constraint, candidate Primary plus two Supporting gaps, Repair Plans and candidate Do Not Fund Yet.",
+      "French client page only after named-human evidence/focus/report approval, Russian-first approval, translation QA and protected-delivery QA."
+    ],
+    "surfaces": [
+      "search",
+      "website",
+      "social",
+      "reputation"
+    ],
+    "cross_cutting_layers": [
+      "cross_surface_consistency",
+      "competitive_decision_analysis"
+    ],
+    "competitors": [
+      {
+        "id": "lazeo-lannion",
+        "name": "Lazeo Lannion",
+        "url": "https://www.lazeo.com/centres/lazeo-lannion/",
+        "city": "Lannion",
+        "type": "local_network_branch",
+        "reason": "Local laser/aesthetic alternative and network presentation reference; compare only overlapping verified services.",
+        "limitation": "Official page shows both 19 and 21 Place du Général Leclerc; exact address unresolved; no clinical equivalence or business performance inferred."
+      },
+      {
+        "id": "clinique-du-corps-lannion",
+        "name": "Clinique du Corps",
+        "url": "https://www.clinique-du-corps.fr/medecine-esthetique/epilation-laser/",
+        "identity_url": "https://www.clinique-du-corps.fr/contact/",
+        "city": "Lannion",
+        "type": "local_medical_alternative",
+        "reason": "Local laser service with treatment explanation and booking entry; useful for trust/choice comparison.",
+        "limitation": "Compare shared non-surgical client-choice tasks only; do not equate qualifications or compare surgery with Amy."
+      },
+      {
+        "id": "lotus-forme-lannion",
+        "name": "Lotus Forme — Institut de Beauté & Centre Technologie",
+        "url": "https://www.planity.com/lotus-forme-institut-de-beaute-centre-technologie-22300-lannion",
+        "city": "Lannion",
+        "type": "local_beauty_technology_alternative",
+        "reason": "Local institute lists diode laser hair removal and a service-selection booking entry; a non-network alternative.",
+        "limitation": "Public platform listing; same treatment relevance must be verified for Amy before final comparison."
+      }
+    ],
+    "comparison_rule": "Three same-city alternatives selected by visible laser/service overlap, not by ratings or size. Amy laser hair removal is a research hypothesis, not an approved priority. Confirm current Lannion services before freezing queries. Material changes to treatment market or competitor set require a revised alignment.",
+    "method": {
+      "queries": {
+        "count": 10,
+        "ids": "K01-K10",
+        "selection": "Use publicly confirmed current Lannion services, location and client booking intent; include procedure/area and price/consultation/booking modifiers only where relevant. No service transferred from an unresolved old listing.",
+        "language": "French",
+        "geography": "Lannion",
+        "freeze_timing": "First full-research block after alignment approval",
+        "same_set_on_all_four_surfaces": true,
+        "frequency_provenance": "Record source, geography, period and method for any volume claim. Without reproducible permitted data use candidate_query with frequency null; autocomplete or model wording is not measured frequency."
+      },
+      "social": {
+        "platforms": [
+          "Instagram",
+          "Facebook",
+          "TikTok",
+          "YouTube"
+        ],
+        "window_start": "2026-06-11",
+        "window_end": "2026-09-08",
+        "sample": "Up to 20 most recent eligible posts per verified account in the common window; profile and pinned content separately dated. Read available captions, video descriptions/transcripts, user comments and practice replies with actual per-type counts and access limits.",
+        "ownership": "Official cross-link or matching public identifiers; similar name alone insufficient."
+      },
+      "reviews": {
+        "window_start": "2026-06-11",
+        "window_end": "2026-09-08",
+        "qualitative_sample": "Up to 30 most recent dated reviews in the window per business/platform, plus visible owner responses; disclose actual counts.",
+        "velocity": "Only when the dated 90-day source is complete; otherwise insufficient_evidence.",
+        "comparability": "Do not pool platforms or locations; historical/out-of-window material is labelled context; repeated themes require at least two independent eligible observations."
+      },
+      "search_maps": "Branded identity and approved local treatment query family, matching geography/time/method; no geo-grid rank inference from ordinary web search.",
+      "public_paths": "Same service-choice task, mobile-first plus desktop cross-check, entry to visible enquiry/booking boundary; follow up to 2-3 public transitions where available. No form submission, call, DM or appointment.",
+      "evidence": "Source URL, subject/location, date, method/window, classification, limitations and reviewer status retained; no scores from missing access."
+    },
+    "unknowns": [
+      "Current priority procedures and patient/client mix.",
+      "Live ownership/status of any website or Google listing; owner statement is context only.",
+      "Whether the same-name Treatwell Bussy-Saint-Georges listing belongs to Amy and represents a past location, another location or another entity.",
+      "Current Instagram posts, transcripts, comments, replies and exact bio-link destination.",
+      "Ownership/existence of Facebook, TikTok and YouTube profiles.",
+      "Credentials and applicable clinical/regulatory boundaries; no clinical promotion conclusions at this stage."
+    ],
+    "exclusions": [
+      "Private data, patient records, CRM, analytics/ad credentials and operational transcripts.",
+      "Internal conversion diagnosis, mystery shopping, outreach, bookings, platform edits and purchases.",
+      "Professional training lead-generation funnel, surgical-service comparison and medical treatment recommendations.",
+      "Revenue/patient/ROI forecasts and guaranteed rankings; no actual loss quantified from structural observations."
+    ],
+    "next_decision": "Research approved. Complete missing public service, destination and identity evidence; named-human fact/focus/report approval remains pending."
+  },
+  "quick_reconnaissance": {
+    "stage": "non_scored_identity_and_competitor_discovery",
+    "observed_on": "2026-09-08",
+    "historical_snapshot": true,
+    "current_coverage_in": "research/2026-09-08/research-state.json",
+    "public_brand_queries": [
+      "\"ACL Amy Concept Laser\" Lannion",
+      "\"ACL Amy Concept Laser\"",
+      "\"Amy Bernis\" \"Lannion\"",
+      "\"acl_amy\"",
+      "\"Amy Concept\" \"Lannion\""
+    ],
+    "competitor_queries": [
+      "\"épilation laser\" \"Lannion\"",
+      "\"détatouage\" \"Lannion\" centre",
+      "\"épilation\" \"Lannion\" \"laser\" excluding already found domains"
+    ],
+    "observations": [
+      {
+        "source_url": "https://www.treatwell.fr/salon/acl-amy-concept-laser/",
+        "observation": "Same-name listing presents SALON ALICE NAILS, 16 Rue Jean Monnet, 77600 Bussy-Saint-Georges.",
+        "state": "identity_ambiguous",
+        "restriction": "Not a verified Amy/Lannion asset; do not transfer its services, prices, reviews, rating or experience claims."
+      },
+      {
+        "source_url": "https://www.instagram.com/acl_amy/",
+        "observation": "Direct web-tool open returned Internal Error; supplied public-profile screenshot remains context, not a fresh inspection of posts.",
+        "state": "access_limited",
+        "restriction": "No login prompt verified; no assertion of absent content or poor Social performance."
+      }
+    ],
+    "platform_coverage": [
+      {
+        "platform": "Instagram",
+        "state": "supplied_profile_direct_open_failed",
+        "url": "https://www.instagram.com/acl_amy/",
+        "read_material": "User-supplied public profile screenshot only; live posts and comments not read."
+      },
+      {
+        "platform": "Facebook",
+        "state": "not_started_alignment_pending"
+      },
+      {
+        "platform": "TikTok",
+        "state": "not_started_alignment_pending"
+      },
+      {
+        "platform": "YouTube",
+        "state": "not_started_alignment_pending"
+      },
+      {
+        "platform": "Google Maps / GBP",
+        "state": "direct_platform_pass_not_started_alignment_pending"
+      }
+    ]
+  },
+  "research_started": true,
+  "research": {
+    "version": "research-ru/0.1",
+    "state": "evidence_incomplete",
+    "narrative_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08/draft.ru.md",
+    "data_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08/research-state.json",
+    "matrix_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08/matrix-working-0.1.md",
+    "validation_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08/validation.json",
+    "candidate_evidence_items": 16,
+    "platform_records": 5,
+    "inventory_items": 10,
+    "query_set_status": "working_proposal_not_frozen; current services unverified",
+    "matrix_cells": 40,
+    "matrix_semantic_matches_in_supplied_bio_only": 4,
+    "matrix_insufficient_evidence_cells": 36,
+    "maps_result_path": "docs/agent-api/results/maps-amy-lannion-20260908-v1.json",
+    "maps_result_status": "success_result_read",
+    "amy_maps_rows_accepted": 0,
+    "wrong_entity_excluded": "Laser Conseil at 5 Rue Fulgence Bienvenue",
+    "additional_identity_question": "Sarcelles directory phone matches public Amy profile; relationship/current status unresolved.",
+    "client_delivery_eligible": false,
+    "next_required_evidence": "Readable public Tarifs/Laser/current posts and complete bio-link destination; current Lannion identity/GBP/review resolution.",
+    "no_private_credentials_or_patient_records_requested": true
+  },
+  "scores": null,
+  "focus_selection": null,
+  "verified_fact_set": null,
+  "report_approval": null,
+  "delivery": null,
+  "current_research_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08-browser-pass/research-state.json",
+  "current_russian_pilot_path": "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08-browser-pass/audit.ru.md",
+  "continuation_status": "russian_audit_v0.4_ready_no_intermediate_review"
+}

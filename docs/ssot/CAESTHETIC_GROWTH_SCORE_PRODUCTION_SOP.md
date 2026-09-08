@@ -1,9 +1,9 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.5
+version: 3.7
 created: 2026-08-30
-updated: 2026-09-06
+updated: 2026-09-08
 scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
 project_master: docs/ssot/CAESTHETIC.md
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
@@ -23,16 +23,51 @@ runtime_contracts:
 
 # CAESTHETIC — Growth Score Audit Factory SSOT
 
-> One controlled production method for **Growth Score v5**, **Multi-Location Growth Score** and **аудит**. These names resolve to one audit intent: manager assignment → mandatory manager interview → quick public reconnaissance → manager-approved research alignment → full public research → internal AI report → named-human Focus Selection → catalogued protected client pages on `caesthetic.com` → delivery.
+> One controlled production method for **Growth Score v5**, **Multi-Location Growth Score** and **аудит**. These names resolve to one audit intent: manager assignment → mandatory manager interview → quick public reconnaissance → autonomously recorded research scope → full public research → internal AI report → named-human Focus Selection → catalogued protected client pages on `caesthetic.com` → delivery.
 
 This file is the sole operating SSOT for creating both audit formats. It owns sequence, roles, gates, inputs, outputs and fail-closed behaviour. It does not redefine Four-Surface metrics, weights, evidence classes, the current schema-v5 location report, the Valerie walkthrough or Sprint pricing. CAESTHETIC production eligibility is limited to `aesthetic_practice`, `dental_practice` and `beauty_salon`; a generic audit wrapper cannot add a fourth vertical or a second product contract.
+
+<a id="canonical-authoring-route"></a>
+## Canonical authoring route — v6 and Russian-first (2026-09-08)
+
+Contract: **`growth-score-authoring-route/3.0.0`**. Owner instruction: route audit/report/score assignments and synonyms through the agreed process and the new v6, like Spoken. This section supersedes older blanket “any mention starts an interview” wording and older default single-location presentation instructions in this SOP and entrypoint adapters. Diagnostic schema v5, evidence and product eligibility remain unchanged.
+
+Apply `growth-score-authoring-route/3.0.0` before repo/project selection: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Audit deliverable requests using `аудит`, `отчёт`/`отчет`, `Growth Score`, `Multi-Location Growth Score`, `score`, `audit report`, `report`, `diagnostic`, `проверка бизнеса`, `поиск утечек`, `Top 3 gaps` or `binding constraint` resolve to CAESTHETIC. For a new audit start exactly: **Вы создаёте новый аудит? Ответьте на вопросы.** Reuse supplied facts; ask only missing intake fields. Existing reports resume their recorded stage; canon/routing/template maintenance reads or updates the canon without starting a client interview. Unrelated financial, security, code or sports reports/scores retain their domain.
+
+New single-location RU/EN reports use `createGrowthScoreV6ReportTemplate({locale: "ru"})` and `growth-score-client/v6.0.0`, like Spoken's approved design, with empty client fields. Workflow: minimum intake → autonomous research scope → public research → complete Russian v6 pilot → named-manager corrections/APPROVE → frozen facts/decisions → translation → named-human translation QA → publication/access QA → delivery. No new diagnosis during translation; changed decisions return to Russian review. Multi-Location keeps its network parent/focus child and paired Russian approval. Historical routes and client-specific Spoken terms are not template defaults. Executable router: `scripts/caesthetic/growth-score-intent-router.mjs`. These are existing product/evidence decisions, not routine execution permission gates.
+
+After the minimum subject/location context is resolved, AI prepares the research scope and performs public research autonomously. No manager approval of alignment, sources, service scope, query set, evidence or candidate priorities may block creation of the complete Russian audit. The first request to review AI work is the complete Russian audit; uncertainties remain explicit and unsupported scores/priorities remain unset. Final named-human evidence/focus/report approval, translation and publication gates apply after that Russian artifact exists.
+
+
+### Select the task, not merely the keyword
+
+- New client audit/report/score: resolve minimum business identity and format, reuse existing inputs, record scope and conduct public research without an intermediate approval request.
+- Active interview: reuse answers even when the reply contains no audit keyword. Never restart because the user says “Valerie”, a city or a URL.
+- Existing report correction, continuation or translation: resolve the case and recorded stage, preserve approval history, and perform the requested change. Do not repeat completed interviews or silently migrate frozen routes. A newly requested report version uses v6 for a single location.
+- Canon, routing, methodology or template maintenance; “напомни канон”: knowledge/implementation work, no client interview. “Создай отчёт по шаблону v6” remains a new report request, not template maintenance.
+- Financial reports, code/security audits and sports/credit scores are unrelated domains unless the user explicitly identifies the CAESTHETIC Growth Score task.
+
+### Required authoring and release outputs
+
+1. Versioned available intake and AI-recorded research scope, including competitors, assumptions and limitations. Historical Research Alignment approvals are preserved but no new approval is required before the Russian audit.
+2. Public evidence register, platform coverage and limitations, 10 × 4 consistency matrix, complete Gap Inventory and repair plans. Apply the existing catalog/value gate; no copied Spoken observations or invented missing evidence.
+3. Complete Russian pilot: all five v6 reading blocks, four independent question accordions, Connect4 synthesis, candidate Primary + two Supporting priorities where supported (explicitly unfilled otherwise), deliverables/dependencies/acceptance, Do Not Fund Yet, Sprint and two Check placements. The evidence remains available beneath the compact presentation.
+4. Named manager review/corrections and explicit approval of the exact Russian version. Freeze facts, evidence references, scores, binding constraint, ordered Top 3, Do Not Fund Yet and Repair Plans. Design approval is not diagnostic approval.
+5. Translate only after that approval. For US delivery use American English (`en-US` delivery context; the v6 presentation model uses `en`). Preserve original source-language evidence. Record named-human translation QA against the approved Russian pilot. A diagnosis/priority/scope correction returns to Russian review and a new freeze.
+6. Validate renderer, links, mobile/desktop, privacy/access, approved version and live publication under `caesthetic.com/score/`; record deployment and delivery separately. A template card, local preview, PR or successful translation is not a published client report.
+
+The default command `node scripts/caesthetic/growth-score-report-template.mjs` now emits a **blank Russian v6 draft**. The legacy schema-v5 base factory remains an explicit compatibility building block for existing integrations and Multi-Location; it is not the new single-location authoring route. `--presentation legacy` is explicit compatibility use. Selecting `--locale en` creates an English draft only and never supplies Russian approval or translation-release authorization. v6 currently supports RU/EN; other delivery languages require a reviewed adapter, not a silent fallback to an old presentation.
+
+Reference: `docs/caesthetic/design/report-v6/README.md`. Reuse the layout, logo, reading sequence and CTA meanings, never Spoken's facts, evidence IDs or special offer terms. The Check stays optional; included Check, credit and lower recurring price are scoped to the named Spoken offer. Do not remove network topology or shared decisions to force Multi-Location into the single-location view.
+
+These rules are enforced at task routing and draft selection; runtime metadata is not itself proof that human review or publication occurred. Existing workflow/release validators remain the release authority.
 
 ## 0. Non-negotiable decisions
 
 1. Both audit formats use **public/open sources only**.
 2. The robot starts every manager-assigned audit by interviewing the manager. It must not wait for the manager to remember what to provide.
-3. Before full research, the robot performs only quick public reconnaissance and presents a Research Alignment Card.
-4. Full research is blocked until the manager confirms or corrects the robot's understanding of the business, locations, scope and competitor set.
+3. The robot records its research scope after quick public reconnaissance; this is internal planning, not a manager checkpoint.
+4. With minimum subject/location context resolved, full public research and the complete Russian audit proceed without intermediate manager approval. Assumptions and limitations are disclosed in the audit.
 5. The robot finds the complete Gap Inventory and proposes a risk order and candidate Focus Selection. That proposal is internal and non-publishable.
 6. A named manager manually selects the final one Primary Gap plus exactly two Supporting Gaps.
 7. The selected Top 3 gaps appear first on the client page as the most dangerous approved gaps. All other verified, monitor and insufficient-evidence items remain lower in the Full Gap Inventory.
@@ -41,7 +76,7 @@ This file is the sole operating SSOT for creating both audit formats. It owns se
 10. Multi-Location Growth Score adds a parent network profile and links to one full current schema-v5 report for the manager-selected focus location.
 11. A Multi-Location package has one shared final Focus Selection of exactly three gaps total, not a second network or location priority set.
 12. Every real client page requires a simple package password validated server-side, plus an unguessable route and noindex controls. Nohy V Ruky follows this same protected contract.
-13. `Multi-Location Growth Score`, `Growth Score` and `аудит` are synonyms for the canonical `growth_score_audit` intent. Mentioning any synonym starts the same manager interview.
+13. `Multi-Location Growth Score`, `Growth Score` and `аудит` are synonyms for the canonical `growth_score_audit` intent. A new assignment starts the same manager interview; existing-case and governance intents follow `#canonical-authoring-route`.
 14. Every approved audit is registered automatically in the internal project catalog. Public listing is separate and requires a synthetic report or explicit client permission.
 15. Every client audit page lives under `https://caesthetic.com/score/`; no satellite or third-party host is canonical.
 16. Audit-intent detection runs before repository/project routing. The connected repository cannot suppress the mandatory opening or redirect the audit into its own product context.
@@ -96,8 +131,8 @@ Do not call a location the network's best or worst business performer. Public ev
 
 | Role | Must do | Must not do |
 |---|---|---|
-| Manager | assign the audit, answer the robot's intake, approve the Research Alignment Card, review evidence, select the focus location for Multi-Location, choose the final Top 3 Focus Gaps, approve the report and deliver it | rely on the robot's draft as final judgment; silently introduce unsupported facts |
-| Robot / AI | interview the manager, run quick reconnaissance, propose competitors and scope, collect public evidence, build the complete inventory, propose risk order and repair paths, compile approved pages | start full research before alignment approval; use closed data; make final Focus Selection; publish or deliver without human approval |
+| Manager | assign the audit, answer the robot's intake, review the complete Russian audit and its evidence, select the focus location for Multi-Location, choose the final Top 3 Focus Gaps, approve the report and deliver it | rely on the robot's draft as final judgment; silently introduce unsupported facts |
+| Robot / AI | interview the manager, run quick reconnaissance, propose competitors and scope, collect public evidence, build the complete inventory, propose risk order and repair paths, compile approved pages | use closed data; claim unreviewed findings are approved; make final Focus Selection; publish or deliver without human approval |
 | Method owner | approve global changes to rubrics, prompts, templates and learning releases | promote one client correction into global canon automatically |
 
 The manager's information is `self_reported` context until independently verified through public evidence. It may guide entity resolution and research questions, but it cannot increase score coverage or become Class A evidence by itself.
@@ -109,9 +144,9 @@ The existing machine states remain authoritative. The following mandatory gates 
 ```text
 score_case created
 → Manager Interview complete
-→ Research Alignment approved
+→ research scope recorded by AI
 → researching
-→ Internal AI Report ready
+→ complete Russian audit ready (first manager review artifact)
 → named-human evidence review
 → named-human Focus Selection
 → verified fact set frozen
@@ -124,7 +159,7 @@ score_case created
 
 No later gate may compensate for a missing earlier gate. In particular:
 
-- no full research before `research_alignment.status=approved`;
+- no intermediate manager approval before the complete Russian audit; research requires resolved subject/public scope, not `research_alignment.status=approved`;
 - no final compilation before named-human Focus Selection;
 - no render publication before approved report;
 - no delivery before password/access QA.
@@ -133,7 +168,7 @@ An approved report authored in `zaomir/caesthetic` enters production only throug
 
 ## 5. Gate 1 — mandatory Manager Interview
 
-Immediately after the manager assigns an audit, or whenever a user mentions `Multi-Location Growth Score`, `Growth Score` or `аудит`, the robot opens with the exact sentence: **`Вы создаёте новый аудит? Ответьте на вопросы.`** It then shows the structured interview. It must reuse facts already present in the assignment and ask only for missing information. It must continue with targeted follow-ups until the mandatory card is complete or explicitly blocked.
+For a new audit assignment classified under `#canonical-authoring-route`, the robot opens with the exact sentence: **`Вы создаёте новый аудит? Ответьте на вопросы.`** It then shows the structured interview. It must reuse facts already present in the assignment and ask only for missing information. It must continue with targeted follow-ups until the mandatory card is complete or explicitly blocked.
 
 ### 5.1 Questions for both formats
 
@@ -194,7 +229,7 @@ The gate passes only when the business can be resolved to at least one unambiguo
 
 The context-resolution order remains: **resolve practice identity → resolve `vertical_context` → resolve `report_locale` → freeze research brief**. For Multi-Location, freeze also the approved branch scope and shared/local asset topology.
 
-## 6. Gate 2 — quick reconnaissance and Research Alignment Card
+## 6. Research preparation — quick reconnaissance and internal scope
 
 After the interview, the robot performs a **quick**, non-scored public check. This is not the full audit.
 
@@ -208,7 +243,7 @@ The quick check may inspect:
 - candidate local competitors;
 - obvious ambiguity, duplicate or stale entities.
 
-The robot then sends the manager one Research Alignment Card containing:
+The robot records an internal research scope containing:
 
 1. **Business understanding** — a plain-language statement of what the business is, what it sells, to whom and in which market.
 2. **Resolved entities** — business, target location or proposed network registry and public URLs.
@@ -232,18 +267,13 @@ For Multi-Location:
 - preserve comparable geography, query, review window and customer task;
 - public ads show visible strategy, not effectiveness.
 
-### 6.2 Manager confirmation
+### 6.2 No intermediate work-review request
 
-The robot asks for one explicit decision:
-
-- `APPROVE` — the business understanding, location scope, competitor proposal and research plan are correct; or
-- `CLARIFY` — the manager supplies corrections.
-
-Each clarification creates a new alignment version. The robot repeats the corrected card. Full research starts only after a named manager approves a specific version with timestamp.
+The research scope is not sent for APPROVE/CLARIFY before the Russian audit. AI resolves routine research choices itself, records changes and continues. If sources cannot confirm a service or ownership, disclose the uncertainty in the audit; do not ask the manager to review research fragments. Ask only for an indispensable identifier or user-controlled login when it is genuinely necessary for access, never for approval of AI work. Preserve existing alignment approvals without replaying them.
 
 ## 7. Gate 3 — full public research
 
-After alignment approval, collect dated, reproducible evidence across exactly:
+After recording scope, collect dated, reproducible evidence across exactly:
 
 1. Search / Google Business Profile;
 2. Website;
@@ -346,7 +376,7 @@ The Top 3 candidate gaps are visually separated in the internal report as `Robot
 
 ## 9. Gate 5 — named-human review and final Focus Selection
 
-The named manager reviews the internal report and must:
+Only after the complete Russian audit exists, the named manager reviews that document and must:
 
 1. verify entity and branch scope;
 2. approve or reject source lineage, dates and collection method;
@@ -513,11 +543,11 @@ The case becomes `delivered` only after the attempt is recorded. Historical appr
 |---|---|
 | Manager has not completed the interview | keep case blocked; ask the missing targeted questions |
 | Business or branch identity is ambiguous | request one public identifier; do not merge entities |
-| Manager has not approved Research Alignment | do not start full research |
-| Competitor set is disputed | issue a corrected Alignment Card version |
+| Research scope has not been approved | no approval is required; AI records the scope and proceeds to the Russian audit |
+| Competitor set is disputed | record the correction and comparison limits; continue preparing the Russian audit |
 | Public evidence is missing | show `Insufficient evidence`; do not guess or use internal data |
-| Fewer than three verified eligible gaps | keep `evidence_incomplete`; do not invent Focus Gaps |
-| No named-human Focus Selection | no fact freeze, render approval or delivery |
+| Fewer than three verified eligible gaps | deliver the complete Russian audit with explicit unfilled priorities and `evidence_incomplete`; do not invent Focus Gaps or stop before the document |
+| No named-human Focus Selection | internal Russian authoring is allowed; no final fact freeze, approved client rendering or delivery |
 | Multi-Location coverage is partial | disclose `N of M reviewed`; prohibit network-wide claims |
 | No approved focus location | block Multi-Location publication |
 | Password/access QA fails | block delivery |
@@ -608,7 +638,7 @@ The router normalizes case, Unicode dashes and spacing, then resolves all of the
 - Russian `аудит` and ordinary grammatical forms;
 - English `audit` may be accepted as a convenience alias, but does not create a second intent.
 
-The only allowed initial action is `start_manager_interview`. The router returns the exact Russian opening, the complete questionnaire, `public_open_sources_only` and the `named_manager_research_alignment_approval` gate. It does not start research, select competitors or create a draft report from a bare mention.
+The only allowed initial action is `start_manager_interview`. The router returns the exact Russian opening, the complete questionnaire, `public_open_sources_only` and the `resolved_subject_and_public_scope` prerequisite (no human approval). It does not start research, select competitors or create a draft report from a bare mention.
 
 After `audit_format` is answered, `scripts/caesthetic/growth-score-intent-router.mjs` is the fail-closed template router. `single_location` resolves only to `createGrowthScoreReportTemplate()`. `multi_location` resolves only to `createMultiLocationGrowthScoreReportTemplate({ packageRole: "network_parent" })` for the package parent and the same factory with `packageRole: "focus_location"` for the location child. Every resolved route carries `check500-section/en-US/1.0.0`, `check500-two-placement/1.0.0`, `check500-style/1.0.0` and the locked reference hash. The single-location report and network parent own `mid_report` plus `final_alternative`; the focus child owns neither. Unknown formats, mixed roles or missing Multi-Location roles outside the parent default fail closed instead of falling through to a generic template.
 

@@ -16,7 +16,7 @@ authority: DEC-834
 
 ```
 Dropbox
-  CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/{01-pose-library,02-clean-plates}
+  Projects/CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/{01-pose-library,02-clean-plates}
   (pose library = 8 canonical situations; clean plates = 31 scene warehouse;
    full inventory: docs/ssot/CAESTHETIC_VALERIE_AVATAR_LIBRARY.md)
         │ read (rclone)
@@ -25,7 +25,7 @@ VPS2402  /opt/caesthetic-assets/{input,processing,output,generated}
         │ VALERIE_EDITORIAL_STORY_CARD_V2
         ▼
 Dropbox
-  CAESTHETIC/CAESTHETIC MEDIA/Huck/{stories,reels,thumbnails,archive}/<request_id>/
+  Projects/CAESTHETIC/CAESTHETIC MEDIA/Huck/{stories,reels,thumbnails,archive}/<request_id>/
 ```
 
 `Huck/reels` is the renderer output, not the Hooppy pickup location. After
@@ -78,6 +78,7 @@ Template: `docs/agent-api/templates/TEMPLATE.caesthetic_assets_render.json`
 | Channel | Role |
 |---------|------|
 | VPS2402 cron `*/2` | Polls `type=caesthetic_assets` requests, runs worker, commits result. Refuses to run on `.121`. |
+| Any agent (ChatGPT / Codex / Cursor / Eva / Cowork) | Same typed request on `main`. No SSH, no Dropbox tokens, no arbitrary shell. |
 | Cursor on VPS2402 | `node scripts/caesthetic/asset-worker/worker.mjs …` directly |
 | `target=caesthetic` deploy | Installs `/etc/cron.d/grainee-caesthetic-assets` on VPS2402 |
 | Agent API Bridge GHA | Skips this type on GitHub-hosted runners (no rclone there) |

@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "status": "design_spec_not_live_configuration",
+  "practice": {
+    "name": "ACL Amy Concept Laser",
+    "person": "Amy Bernis",
+    "address": "20 place du Marchallac’h, 22300 Lannion, France",
+    "phone_display": "06 98 13 29 27"
+  },
+  "entry": {
+    "label_ru": "Оставить отзыв",
+    "destination": "/avis/",
+    "direct_maps_link": false
+  },
+  "recovery": {
+    "scores": [
+      1,
+      2,
+      3
+    ],
+    "portrait": "assets/amy-feedback-portrait.jpg",
+    "portrait_alt": "Amy Bernis",
+    "video": null,
+    "audio": null,
+    "person": "Amy Bernis",
+    "screen_spec": "review-recovery.ru.md"
+  },
+  "high_rating_request": {
+    "scores": [
+      4,
+      5
+    ],
+    "requested_destination": "https://maps.app.goo.gl/XmWJ4xw78mhmk2M47",
+    "observed_business": "Bebo Salon",
+    "observed_address": "135 Bd Haussmann, 75008 Paris, France",
+    "purpose": "demo_only",
+    "automatic_redirect": false,
+    "production_enabled": false,
+    "reason_ru": "Карточка другого бизнеса. Реальный сбор отзывов клиентов Amy на Bebo не реализован."
+  },
+  "public_review_destination": null,
+  "runtime_files_changed": false
+}

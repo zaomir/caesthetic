@@ -34,7 +34,7 @@ test("Growth Score, Multi-Location Growth Score and аудит route to one mand
     assert.equal(route.action, "start_manager_interview");
     assert.equal(route.opening, GROWTH_SCORE_AUDIT_OPENING_RU);
     assert.equal(route.source_policy, "public_open_sources_only");
-    assert.equal(route.full_research_gate, "named_manager_research_alignment_approval");
+    assert.equal(route.full_research_gate, "resolved_subject_and_public_scope");
     assert.ok(route.questions.filter((question) => question.required).length >= 8);
   }
   assert.equal(mentionsGrowthScoreAudit("Нужно обновить pricing"), false);
@@ -43,7 +43,8 @@ test("Growth Score, Multi-Location Growth Score and аудит route to one mand
 
 test("approved audit formats route fail-closed to Check500-bound report templates", () => {
   const single = resolveGrowthScoreAuditTemplateRoute({ audit_format: "single-location" });
-  assert.equal(single.template_factory, "createGrowthScoreReportTemplate");
+  assert.equal(single.template_factory, "createGrowthScoreV6ReportTemplate");
+  assert.deepEqual(single.template_arguments, { locale: "ru" });
   assert.equal(single.package_role, "single_location");
   assert.deepEqual(single.check500.placements, ["mid_report", "final_alternative"]);
 
@@ -53,7 +54,7 @@ test("approved audit formats route fail-closed to Check500-bound report template
     package_role: "network_parent",
   }).template_route;
   assert.equal(parent.template_factory, "createMultiLocationGrowthScoreReportTemplate");
-  assert.deepEqual(parent.template_arguments, { packageRole: "network_parent" });
+  assert.deepEqual(parent.template_arguments, { packageRole: "network_parent", locale: "ru" });
   assert.deepEqual(parent.check500.placements, ["mid_report", "final_alternative"]);
 
   const child = resolveGrowthScoreAuditTemplateRoute({
@@ -205,4 +206,18 @@ test("generated catalog, site aliases and SSOT routing stay in sync", () => {
     assert.match(html, /canonical" href="https:\/\/caesthetic\.com\/growth-score\/"/);
     assert.match(html, /noindex,nofollow,noarchive,nosnippet/);
   }
+});
+
+
+test("Russian audit precedes every review of AI work while translation stays gated", () => {
+  for (const options of [{}, { existing_audit: true, active_stage: "researching" }]) {
+    const route = routeGrowthScoreAuditIntent("дай мне аудит", options);
+    assert.equal(route.workflow.intermediate_work_approval_required, false);
+    assert.equal(route.workflow.first_work_review, "complete_russian_audit");
+    assert.equal(route.workflow.full_research_gate, "resolved_subject_and_public_scope");
+    assert.equal(route.workflow.translation_gate, "approved_russian_pilot_and_frozen_decisions");
+    assert.deepEqual(route.workflow.stages.slice(0, 5), ["manager_interview", "research_scope_recorded", "public_research", "russian_pilot", "russian_approval"]);
+  }
+  const enforcement = read("docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md");
+  assert.doesNotMatch(enforcement, /No compilation before human Focus Selection/);
 });

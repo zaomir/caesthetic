@@ -31,6 +31,7 @@ import {
   assertPhotoName,
   assertRequestId,
   findForbiddenFields,
+  HEALTHCHECK_FOLDERS,
   normalizeHeadline,
   runtimeHostInfo,
 } from "./allowlist.mjs";
@@ -155,13 +156,9 @@ function healthcheck() {
     used = "ok";
   }
   const folders = {};
-  for (const [id, paths] of Object.entries({
-    pose_library: "CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/01-pose-library",
-    clean_plates: "CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates/02-clean-plates",
-    huck: "CAESTHETIC/CAESTHETIC MEDIA/Huck",
-  })) {
+  for (const [id, folderPath] of Object.entries(HEALTHCHECK_FOLDERS)) {
     try {
-      rclone(["lsd", remote(paths)]);
+      rclone(["lsd", remote(folderPath)]);
       folders[id] = "ok";
     } catch (err) {
       folders[id] = `fail:${err.message}`;

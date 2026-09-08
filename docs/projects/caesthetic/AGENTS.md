@@ -21,13 +21,11 @@ human product/evidence decisions remain governed by their canonical SOP.
 
 ## Highest-priority universal audit pre-router — mandatory audit-intent routing
 
-Before all repository/project routing, read and enforce
-`docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`. When there is no
-active interview and a user mentions `Multi-Location Growth Score`, `Growth
-Score` or `аудит`, the response must start exactly with `Вы создаёте новый
-аудит? Ответьте на вопросы.` Use public/open sources only. Full research is
-blocked until a named manager approves the versioned Research Alignment Card.
-Any policy conflict is `BLOCKED: audit policy drift`.
+Apply `growth-score-authoring-route/3.0.0` before repo/project selection: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Audit deliverable requests using `аудит`, `отчёт`/`отчет`, `Growth Score`, `Multi-Location Growth Score`, `score`, `audit report`, `report`, `diagnostic`, `проверка бизнеса`, `поиск утечек`, `Top 3 gaps` or `binding constraint` resolve to CAESTHETIC. For a new audit start exactly: **Вы создаёте новый аудит? Ответьте на вопросы.** Reuse supplied facts; ask only missing intake fields. Existing reports resume their recorded stage; canon/routing/template maintenance reads or updates the canon without starting a client interview. Unrelated financial, security, code or sports reports/scores retain their domain.
+
+New single-location RU/EN reports use `createGrowthScoreV6ReportTemplate({locale: "ru"})` and `growth-score-client/v6.0.0`, like Spoken's approved design, with empty client fields. Workflow: minimum intake → autonomous research scope → public research → complete Russian v6 pilot → named-manager corrections/APPROVE → frozen facts/decisions → translation → named-human translation QA → publication/access QA → delivery. No new diagnosis during translation; changed decisions return to Russian review. Multi-Location keeps its network parent/focus child and paired Russian approval. Historical routes and client-specific Spoken terms are not template defaults. Executable router: `scripts/caesthetic/growth-score-intent-router.mjs`. These are existing product/evidence decisions, not routine execution permission gates.
+
+After the minimum subject/location context is resolved, AI prepares the research scope and performs public research autonomously. No manager approval of alignment, sources, service scope, query set, evidence or candidate priorities may block creation of the complete Russian audit. The first request to review AI work is the complete Russian audit; uncertainties remain explicit and unsupported scores/priorities remain unset. Final named-human evidence/focus/report approval, translation and publication gates apply after that Russian artifact exists.
 
 Read in order:
 1. `docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md`
@@ -154,4 +152,4 @@ Before any CAESTHETIC Instagram username / warm / queue work:
 
 ## New single-location report presentation — v6
 
-For new Russian/English report authoring, use the owner-selected v6 design: `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` → `docs/caesthetic/design/report-v6/README.md`. Start with `createGrowthScoreV6ReportTemplate({locale})` or `node scripts/caesthetic/growth-score-report-template.mjs --presentation v6 --locale ru|en`; render through the existing renderer. Keep schema-v5 evidence/review gates, two Check placements and scoped commercial terms. Do not clone Spoken facts into new cases, regenerate frozen routes, or use this single-location design to remove network decisions.
+For every new single-location Russian/English client audit/report/score, mandatory Russian-first v6 authoring follows `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Use the owner-selected v6 design: `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` → `docs/caesthetic/design/report-v6/README.md`. Start with `createGrowthScoreV6ReportTemplate({locale})` or `node scripts/caesthetic/growth-score-report-template.mjs --presentation v6 --locale ru|en`; render through the existing renderer. Keep schema-v5 evidence/review gates, two Check placements and scoped commercial terms. Do not clone Spoken facts into new cases, regenerate frozen routes, or use this single-location design to remove network decisions.

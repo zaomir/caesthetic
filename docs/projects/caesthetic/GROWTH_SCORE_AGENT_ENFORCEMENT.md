@@ -1,12 +1,12 @@
 ---
 owner: CAESTHETIC
 status: mandatory_agent_adapter
-version: 2.6
+version: 2.8
 canonical_ssot: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 canonical_repo: zaomir/grainee-v2
 consistency_standard: docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md
 canonical_ref: zaomir/grainee-v2 origin/main resolved at run start
-updated: 2026-09-06
+updated: 2026-09-08
 ---
 
 # Growth Score audit — mandatory AI-agent enforcement
@@ -18,32 +18,12 @@ drift`, and use the canonical SSOT only after the conflict is resolved.
 
 ## 1. Universal pre-router
 
-Apply this before repository, project, task, skill or tool routing.
+Apply `growth-score-authoring-route/3.0.0` before repo/project selection: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Audit deliverable requests using `аудит`, `отчёт`/`отчет`, `Growth Score`, `Multi-Location Growth Score`, `score`, `audit report`, `report`, `diagnostic`, `проверка бизнеса`, `поиск утечек`, `Top 3 gaps` or `binding constraint` resolve to CAESTHETIC. For a new audit start exactly: **Вы создаёте новый аудит? Ответьте на вопросы.** Reuse supplied facts; ask only missing intake fields. Existing reports resume their recorded stage; canon/routing/template maintenance reads or updates the canon without starting a client interview. Unrelated financial, security, code or sports reports/scores retain their domain.
 
-This pre-router triggers on any mention or semantic equivalent of:
+New single-location RU/EN reports use `createGrowthScoreV6ReportTemplate({locale: "ru"})` and `growth-score-client/v6.0.0`, like Spoken's approved design, with empty client fields. Workflow: minimum intake → autonomous research scope → public research → complete Russian v6 pilot → named-manager corrections/APPROVE → frozen facts/decisions → translation → named-human translation QA → publication/access QA → delivery. No new diagnosis during translation; changed decisions return to Russian review. Multi-Location keeps its network parent/focus child and paired Russian approval. Historical routes and client-specific Spoken terms are not template defaults. Executable router: `scripts/caesthetic/growth-score-intent-router.mjs`. These are existing product/evidence decisions, not routine execution permission gates.
 
-- `аудит`;
-- `Growth Score`;
-- `Multi-Location Growth Score`;
-- `score`;
-- `diagnostic`;
-- `audit report`;
-- `проверка бизнеса`;
-- `поиск утечек`;
-- `Top 3 gaps`;
-- `binding constraint`.
+After the minimum subject/location context is resolved, AI prepares the research scope and performs public research autonomously. No manager approval of alignment, sources, service scope, query set, evidence or candidate priorities may block creation of the complete Russian audit. The first request to review AI work is the complete Russian audit; uncertainties remain explicit and unsupported scores/priorities remain unset. Final named-human evidence/focus/report approval, translation and publication gates apply after that Russian artifact exists.
 
-If there is no active `growth_score_audit` interview, the first sentence of
-the response must be exactly:
-
-`Вы создаёте новый аудит? Ответьте на вопросы.`
-
-The same response must begin the Manager Interview. If an interview is already
-active, continue with the missing questions and do not repeat the opening.
-
-For a request as simple as `сделай аудит X`, the first operational action is
-the authority preflight in §2 and launch of this canonical audit workflow, not
-research into X.
 
 ## 2. Mandatory current-main authority preflight
 
@@ -57,6 +37,7 @@ and read these authorities from that same current ref, in order:
 5. `docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md`
 6. `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`
 7. `docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md`
+   For single-location authoring also read `docs/caesthetic/design/report-v6/README.md`; use the v6 factory with Russian pilot locale.
 8. for competitor work: `docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md`
 9. for evidence or impact work: `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`
 10. for publication work: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`
@@ -127,10 +108,10 @@ Never request or use as audit evidence:
 Public booking/enquiry paths may be inspected only up to non-submission. Never
 send a form, message or test enquiry, make a call or create an appointment.
 
-## 5. Research Alignment gate
+## 5. Internal research scope (no approval gate)
 
 After the interview, perform only quick, non-scored public reconnaissance.
-Return a versioned Research Alignment Card containing:
+Record a versioned internal research scope containing:
 
 - business understanding and resolved public entities;
 - exact format, locations and deliverables;
@@ -145,17 +126,11 @@ Return a versioned Research Alignment Card containing:
 - unknowns, exclusions and `Insufficient evidence` items;
 - planned research and the decisions reserved for the manager.
 
-Ask for an explicit decision from the named manager:
-
-- `APPROVE` — approve that exact alignment version; or
-- `CLARIFY` — correct it, issue a new version and request approval again.
-
-Full research, scoring and conclusions are blocked until a named manager
-approves a specific Research Alignment version with a timestamp.
+Record the scope internally and continue public research. Do not request APPROVE/CLARIFY or review of research fragments before creating the complete Russian audit. Existing alignment approvals remain history. Unresolved evidence is disclosed in the audit, not converted into a request for the manager to finish the research.
 
 ## 6. Full research and evidence
 
-After approval, research exactly Search/GBP, Website, Social and
+After recording scope, research exactly Search/GBP, Website, Social and
 Reputation/Reviews. Treat Cross-Surface Consistency as an unweighted layer and
 Competitive Decision Analysis as a cross-cutting, unscored layer.
 
@@ -181,7 +156,7 @@ secondary branch governed by `check500-two-placement/1.0.0`.
 
 Apply `caesthetic-4444-consistency-first/1.0.0` from
 `docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md` before the other full-research
-blocks, after named-manager Research Alignment approval.
+blocks, after recording the research scope.
 
 Freeze exactly 10 relevant long-tail query phrases with source, market, date,
 intent and verified/candidate frequency status. Use the same set across Search,
@@ -224,7 +199,7 @@ plus exactly two Supporting Gaps. The lowest surface score never automatically
 becomes the Primary Gap. For Multi-Location there is one shared final Top 3
 selection total and one named focus location.
 
-No compilation before human Focus Selection; no publication before report
+Create the complete internal Russian audit before requesting human review, including explicit unknowns and unsupported priority slots. No final client compilation before human Focus Selection; no publication before report
 approval; no delivery before server-side password/access QA. Real reports live
 only under `https://caesthetic.com/score/` with an unguessable route and
 `noindex`. Catalog registration is automatic; public listing requires a
@@ -234,8 +209,7 @@ synthetic report or explicit client permission.
 
 If an agent cannot satisfy a gate, access the canonical rules, establish public
 provenance, identify the approving manager or preserve the required evidence,
-it must stop the affected stage and report `BLOCKED` with the exact missing
-requirement. It must not improvise, weaken a gate or treat a draft as approved.
+it must stop only the affected finalization/release stage and report the exact missing requirement inside the Russian audit; public-source limitations do not block writing that audit. It must not improvise, weaken a gate or treat a draft as approved.
 
 
 ## 2026-09-06 — Publication eligibility and commercial materiality

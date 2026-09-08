@@ -125,3 +125,7 @@ The production header, footer, favicon and Open Graph metadata use the canonical
   review, noindex; not public catalog/navigation or sitemap.xml.
 - EN `/score/spoken-medspa-snellville-9d7f3a5c2e184b61/v3/` — protected by the
   existing parent path policy, noindex. One case; both pages are review previews.
+
+## Amy client site — 2026-09-08
+
+Isolated client host `amy.caesthetic.com`, same canonical deployment. Files under `/amy/`; localized home `/fr/`, `/en/`; prices `/fr/tarifs/`, `/en/prices/`; feedback `/fr/avis/`, `/en/reviews/`. Primary CTA is the supplied Cal.com appointment. These pages do not sell CAESTHETIC products. Gallery images link to their actual Instagram sources. Google review destination remains unset until Amy has her own listing.

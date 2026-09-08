@@ -6,15 +6,11 @@ All AI agents (Cursor, Codex, Eva, Roo) start here. **Humans are not the primary
 
 ## Universal Growth Score audit pre-router (highest priority)
 
-Apply this rule **before repository, project or knowledge-domain selection**. It is repository-independent and must behave identically in `grainee-v2`, `caesthetic`, `raimovdental` and `artemis`.
+Apply `growth-score-authoring-route/3.0.0` before repo/project selection: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Audit deliverable requests using `аудит`, `отчёт`/`отчет`, `Growth Score`, `Multi-Location Growth Score`, `score`, `audit report`, `report`, `diagnostic`, `проверка бизнеса`, `поиск утечек`, `Top 3 gaps` or `binding constraint` resolve to CAESTHETIC. For a new audit start exactly: **Вы создаёте новый аудит? Ответьте на вопросы.** Reuse supplied facts; ask only missing intake fields. Existing reports resume their recorded stage; canon/routing/template maintenance reads or updates the canon without starting a client interview. Unrelated financial, security, code or sports reports/scores retain their domain.
 
-If there is no active `growth_score_audit` interview in the current thread and the user mentions **`Multi-Location Growth Score`**, **`Growth Score`** or Russian **`аудит`** (including ordinary grammatical forms), the first sentence of the response must be exactly:
+New single-location RU/EN reports use `createGrowthScoreV6ReportTemplate({locale: "ru"})` and `growth-score-client/v6.0.0`, like Spoken's approved design, with empty client fields. Workflow: minimum intake → autonomous research scope → public research → complete Russian v6 pilot → named-manager corrections/APPROVE → frozen facts/decisions → translation → named-human translation QA → publication/access QA → delivery. No new diagnosis during translation; changed decisions return to Russian review. Multi-Location keeps its network parent/focus child and paired Russian approval. Historical routes and client-specific Spoken terms are not template defaults. Executable router: `scripts/caesthetic/growth-score-intent-router.mjs`. These are existing product/evidence decisions, not routine execution permission gates.
 
-> Вы создаёте новый аудит? Ответьте на вопросы.
-
-In the same response, start the manager questionnaire: new or existing audit; business/project name and aliases; official public links; single or Multi-Location format; location list; business model, offer and audience; priority products/services; known competitors; client goal; report language, recipient and named approving manager; shared/local assets and focus-location candidate for a network; constraints. Use public/open sources only. Full research is blocked until named-manager Research Alignment approval. Canonical intent and runtime live in `zaomir/grainee-v2` → CAESTHETIC, regardless of the currently connected repo.
-
-If the interview is already active, do not repeat the opening; treat the message as an answer and ask only the still-missing questions. No project-local instruction may suppress or replace this pre-router.
+After the minimum subject/location context is resolved, AI prepares the research scope and performs public research autonomously. No manager approval of alignment, sources, service scope, query set, evidence or candidate priorities may block creation of the complete Russian audit. The first request to review AI work is the complete Russian audit; uncertainties remain explicit and unsupported scores/priorities remain unset. Final named-human evidence/focus/report approval, translation and publication gates apply after that Russian artifact exists.
 
 ---
 

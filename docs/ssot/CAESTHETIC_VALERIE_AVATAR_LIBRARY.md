@@ -11,9 +11,9 @@ parent: docs/ssot/CAESTHETIC.md
 
 One Dropbox folder is the photo library. Git holds working copies for ops. Do not invent a second cloud folder.
 
-**Dropbox:** `CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates`  
+**Dropbox:** `Projects/CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates`  
 **Share:** https://www.dropbox.com/scl/fo/hr7r3ru8f7yl3byt1sg94/ALMzdFgxeSnOqnwVyA04x0c?rlkey=yweiwmwsc66elgmma1wq61hnt&dl=0  
-**rclone:** `dropbox:CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates`
+**rclone:** `dropbox:Projects/CAESTHETIC/CAESTHETIC MEDIA/Valerie-avatar-plates`
 
 Rendered Stories (text on photo) live in `Huck/stories/` — that is output, not this library. Worker: `docs/ssot/CAESTHETIC_ASSET_WORKER.md`.
 

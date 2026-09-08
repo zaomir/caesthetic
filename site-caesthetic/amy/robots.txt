@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://amy.caesthetic.com/sitemap.xml

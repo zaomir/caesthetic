@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.12
-updated: 2026-09-07
+version: 2.13
+updated: 2026-09-08
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/CAESTHETIC.md
@@ -977,3 +977,11 @@ This explicit presentation selection supersedes the nine-section visual order on
 Preserve the supplied cool-paper 720px editorial design, dark final offer, native inline disclosures, visible short answers, primary Sprint action and two secondary Check placements. Prices resolve from the existing pricing config. The top plan button targets `#next-step`. Sticky CTA is initially hidden and restores correctly in both scroll directions; share success must be truthful; print reveals details. RU/EN use the same structural and commercial rules. The selected logo's original bytes are registered in the source manifest. Portability fixes may improve contrast, keyboard/touch behavior, reading sizes and print without changing case facts.
 
 Included Check, direct-entry credit and a recurring tariff below the Sprint price are scoped to the named Spoken offer; they are not template-wide commercial promises. The imported mockup is a design reference, not authority to approve diagnostic claims or bypass client-publication controls. This tooling import does not publish v6 at a client URL or alter existing v3 reports.
+
+## Mandatory v6 authoring route (2026-09-08)
+
+Follow `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route` for audit/report/score assignments and synonyms. New single-location RU/EN reports must use v6, not merely prefer it. The default draft is Russian. The complete Russian pilot is reviewed and approved before translation; freeze decisions and record translation QA. The v6 presentation exception supersedes the older nine-section visual order and locked legacy artwork requirements for this profile only. Diagnostic schema/evidence and Multi-Location package rules remain intact. Existing report edits resume their version; canon questions do not launch an intake.
+
+## 2026-09-08 — Русский аудит до проверки работы агента
+
+По прямому поручению владельца действует маршрут 3.0.0: никаких промежуточных запросов проверки плана, источников, услуг, поисковых фраз, наблюдений или приоритетов до создания полного русского аудита. Сначала агент готовит все пять смысловых блоков с фактами, кандидатами выводов, планом и явными ограничениями. Если данных недостаточно для трёх существенных проблем, это прямо говорится в аудите; выдумывать проблемы или задерживать весь документ нельзя. Первый запрос проверки касается готовой русской версии. Окончательное утверждение фактов и приоритетов, перевод и публикация остаются последующими отдельными этапами. Внутренний русский текст не является утверждённой клиентской страницей.

@@ -14,14 +14,17 @@ import {
   RCLONE_REMOTE,
   assertCanonicalAgentHost,
   assertRequestId,
+  DEST_FOLDERS,
+  DROPBOX_MEDIA_ROOT,
+  DROPBOX_MEDIA_ROOT_LEGACY,
   runtimeHostInfo,
 } from "./allowlist.mjs";
 import { buildBridgeResult } from "./worker.mjs";
 
 const RESULTS_DIR = path.join(REPO_ROOT, "docs/agent-api/results");
 const VIDEO_OPS = new Set(["assemble_episode", "video_qa"]);
-const HUCK_STORIES = "CAESTHETIC/CAESTHETIC MEDIA/Huck/stories";
-const HUCK_REELS = "CAESTHETIC/CAESTHETIC MEDIA/Huck/reels";
+const HUCK_STORIES = DEST_FOLDERS.stories;
+const HUCK_REELS = DEST_FOLDERS.reels;
 const CREAM = "E6EDF0"; // ASS BGR for #F0EDE6
 const BURGUNDY = "4B247B"; // ASS BGR for #7B244B
 
@@ -231,11 +234,18 @@ function validateAudioMasterContract(raw) {
   }
   const masterRef = String(audio.master_ref || "");
   const timestampsRef = String(audio.timestamps_ref || "");
-  const prefix = "CAESTHETIC/CAESTHETIC MEDIA/Production/reels/";
-  if (!masterRef.startsWith(prefix) || !/\.(wav|mp3|m4a)$/i.test(masterRef)) {
+  const livePrefix = `${DROPBOX_MEDIA_ROOT}/Production/reels/`;
+  const legacyPrefix = `${DROPBOX_MEDIA_ROOT_LEGACY}/Production/reels/`;
+  if (
+    !(masterRef.startsWith(livePrefix) || masterRef.startsWith(legacyPrefix))
+    || !/\.(wav|mp3|m4a)$/i.test(masterRef)
+  ) {
     throw Object.assign(new Error("invalid_audio_master_ref"), { code: "invalid_audio_master_ref" });
   }
-  if (!timestampsRef.startsWith(prefix) || !timestampsRef.endsWith(".json")) {
+  if (
+    !(timestampsRef.startsWith(livePrefix) || timestampsRef.startsWith(legacyPrefix))
+    || !timestampsRef.endsWith(".json")
+  ) {
     throw Object.assign(new Error("invalid_audio_timestamps_ref"), { code: "invalid_audio_timestamps_ref" });
   }
   const segments = Array.isArray(audio.segments) ? audio.segments : [];

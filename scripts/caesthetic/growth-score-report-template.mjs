@@ -432,7 +432,7 @@ export function createGrowthScoreReportTemplate() {
 
 
 /** Owner-selected v6 presentation; schema-v5 evidence and review gates stay intact. */
-export function createGrowthScoreV6ReportTemplate({ locale = "en" } = {}) {
+export function createGrowthScoreV6ReportTemplate({ locale = "ru" } = {}) {
   const report = createGrowthScoreReportTemplate();
   report.reportContext.report_locale = locale;
   report.presentation = { ...report.presentation, layout_contract: CLIENT_V6, v6: createV6Content(locale) };
@@ -466,12 +466,13 @@ function networkGapSlot(gap) {
  * The network parent carries topology/coverage. The focus child remains a
  * complete location report and shares package identity, Top 3 and constraint.
  */
-export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "network_parent" } = {}) {
+export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "network_parent", locale = "en" } = {}) {
   if (!["network_parent", "focus_location"].includes(packageRole)) {
     throw new TypeError("packageRole must be network_parent or focus_location");
   }
   const report = createGrowthScoreReportTemplate();
   report.presentation = createCheck500PresentationContract({ ownsPlacements: packageRole === "network_parent" });
+  report.reportContext.report_locale = locale;
   report.audit = {
     format: "multi_location",
     profile_version: MULTI_LOCATION_GROWTH_SCORE_PROFILE_VERSION,
@@ -591,8 +592,8 @@ export function createMultiLocationGrowthScoreReportTemplate({ packageRole = "ne
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const args = process.argv.slice(2);
-  const presentation = args[args.indexOf("--presentation") + 1];
-  const locale = args.includes("--locale") ? args[args.indexOf("--locale") + 1] : "en";
+  const presentation = args.includes("--presentation") ? args[args.indexOf("--presentation") + 1] : "v6";
+  const locale = args.includes("--locale") ? args[args.indexOf("--locale") + 1] : "ru";
   if (args.includes("--presentation") && !["v6", "legacy"].includes(presentation)) throw new TypeError("Unknown presentation profile");
   const report = presentation === "v6" ? createGrowthScoreV6ReportTemplate({ locale }) : createGrowthScoreReportTemplate();
   process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
