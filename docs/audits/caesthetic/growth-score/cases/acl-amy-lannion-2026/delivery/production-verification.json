@@ -1,0 +1,47 @@
+{
+  "status": "PARTIAL_SUBDOMAIN_BLOCKED",
+  "checked_at": "2026-09-08T18:30:18.526Z",
+  "deployed_commit": "024fa5cf45da21fe6eb0fe502bd26ecf2a665fdd",
+  "workflow": "https://github.com/zaomir/grainee-v2/actions/runs/34261834927",
+  "origin_deploy": "success",
+  "worker_deploy": "success",
+  "canonical_full_workflow": "failure at Amy DNS provisioning",
+  "live_base": "https://caesthetic.com/amy",
+  "public_browser_checks": 18,
+  "public_browser_result": "PASS",
+  "byte_checks": [
+    {
+      "url": "https://caesthetic.com/amy/fr/",
+      "http": 200,
+      "sha256": "1dc88902616d19e76a8a0388c94ccf3a5de4b7450060187123134cd2f90591be",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/amy/en/",
+      "http": 200,
+      "sha256": "7d629bafedfecdda709f448bece8a0e060da4ed70374c483883f9a9e1eb923b8",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/amy/assets/site.js",
+      "http": 200,
+      "sha256": "9cb078521565eea35c1311071dffc9f393bea73648c4a61185d5601442ec8945",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/amy/assets/amy-feedback-portrait.jpg",
+      "http": 200,
+      "sha256": "4052d1091aa5740b54155a8385f1669b7858f12e805e92fc5fd49814bc78d0f3",
+      "matches_source": true
+    }
+  ],
+  "guide_demo_browser": "local PASS; login, ratings 1–5, zero form submissions, logout",
+  "subdomain_blocker": "Configured Cloudflare credentials cannot create DNS record; browser admin policy verification unavailable",
+  "required_dns": {
+    "type": "CNAME",
+    "name": "amy",
+    "target": "caesthetic.com",
+    "proxied": true
+  },
+  "next_step": "Create DNS in authorized Cloudflare account, rerun failed canonical deployment job, then verify subdomain and protected guide publicly."
+}

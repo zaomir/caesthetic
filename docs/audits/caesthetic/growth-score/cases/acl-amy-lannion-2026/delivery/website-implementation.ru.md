@@ -1,6 +1,6 @@
 # Сайт ACL Amy — реализация
 
-Дата: 2026-09-08. Статус: реализация готова к канонической публикации; production пока не подтверждён.
+Дата: 2026-09-08. Статус: частичная публикация. FR/EN сайт доступен на https://caesthetic.com/amy/fr/ и https://caesthetic.com/amy/en/; поддомен и публичный доступ к закрытому справочнику заблокированы настройкой DNS.
 
 ## Результат
 
@@ -41,3 +41,14 @@
 ## Исправление общего release gate
 
 Общая проверка до публикации обнаружила два несоответствия, уже присутствовавших после перехода маршрута аудита на 3.0.0 (1fd971e0): тест ждал 2.0.0, а Spoken v3 закреплял полный CAESTHETIC.md до изменения двух абзацев порядка аудита. Сравнение c4197334..HEAD подтвердило: раздел коммерческого предложения не менялся. Обновлены ожидание версии и технический digest authority; зависимый digest v6 и два presentation.json пересобраны. HTML обоих отчётов, оценки, одобрения и цены остались побайтно прежними. Полный локальный блок Contract and rejection tests прошёл. Browser-тест закрытого Amy-демо проверяет вход, пять оценок, отсутствие отправок и выход; обнаруженная ошибка Referrer-Policy исправлена до публикации.
+
+
+## Подтверждённая публикация и точный блокер
+
+- Размещённый SHA: `024fa5cf45da21fe6eb0fe502bd26ecf2a665fdd`.
+- Workflow: https://github.com/zaomir/grainee-v2/actions/runs/34261834927. Origin, Worker и sender-domain cleanup выполнены успешно. Полный workflow завершился ошибкой на создании Amy DNS; последующие общие production smoke не запускались.
+- https://caesthetic.com/amy/fr/ и https://caesthetic.com/amy/en/ — доступны. 18 production browser checks PASS. Байты двух главных страниц, JavaScript и портрета совпадают с размещённым исходником. Подробности: production-verification.json.
+- Cal.com https://cal.com/amybernis.lannion/rdv — HTTP 200, заголовок «Rendez-vous ACL Amy Concept Laser | Amy Bernis | Cal.com». Запись не создавалась.
+- Закрытые /guide/ и /guide/demo/ проверены локально в браузере, включая пять оценок, отсутствие отправки и выход. Серверный код размещён, но публичный адрес на amy.caesthetic.com пока недоступен. Нельзя считать закрытый раздел принятым в production.
+- Блокер: `No configured credential could provision Amy DNS`. Доступ браузера к Cloudflare также отклонён: невозможно проверить административную политику безопасности. Обход не выполнялся.
+- Следующий шаг владельца Cloudflare: создать proxied CNAME `amy` → `caesthetic.com` (TTL Auto). После этого повторить failed job канонического workflow: он подключит маршрут `amy.caesthetic.com/*` к `grainee-caesthetic-public`, затем выполнить полные production smoke и browser QA справочника на реальном поддомене. Пароли/ключи в чат не нужны.

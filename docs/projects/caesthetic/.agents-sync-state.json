@@ -294,13 +294,14 @@
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/media-manifest.json": "9dc9c5642a7219f74a6b64b86888eb070d12a2a8305f8d5b36ec3da749eabd7d",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/prices.source.json": "d4508e9510de2e9c8baeb85b76ef91ddfad21c3937ab36282cbb20557445764a",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/prices.source.ru.md": "dfb1d38086e08f42193ab3595c451645291c7554247cc1ea06b9e9e09dfe39a7",
+    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/production-verification.json": "bbf8ccec07321e5357bfafb814e6dcb5456519b891eaf546443c45582f86a550",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/review-page-spec.json": "1a17389599946e77276069e6d3949e478cee85b65fd2e7247080589aa8e5727b",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/review-recovery.ru.md": "54643b66fb364ea47a5163dcd249b973a1fbe91f5da2774d790f505d34528714",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/sources/tarifs-01.png": "691d4091450fd0348a10c823e8acf2df25508c2a5c10931e6c4436ec6d1d8044",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/sources/tarifs-02.png": "bf640446690722dad35b4ac56c0af1f1d63c8b2e8cdcf709fa6a42b42dc4706e",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/sources/tarifs-electrolyse.png": "05673db042b8125356ac08311554b1d9b2c650b96b452d6d58ab416349977dd7",
-    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/website-and-reviews.ru.md": "c285e0316785147275e6a5f9d54c24a9afd0b59976ebcb98cb95be95a267bd20",
-    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/website-implementation.ru.md": "0a7ce97482f110198a9325fa4fbb777247eb742dd3caed13b63bc7adac8a2be9",
+    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/website-and-reviews.ru.md": "76715f32574c47350a980d3552f5064b06dcd6ef1ad8ea03d5b3c42b69522369",
+    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/website-implementation.ru.md": "8e5554be8d50783c0316360219503f61aedecc1ee1ed11a9d33d921b4a90eab3",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08-browser-pass/audit.ru.md": "c2de8c095e60cf74a87369060c615f8ef5b5e2eeb30df42b87a38a7fd3cffcb1",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08-browser-pass/evidence-register.json": "048b7b824f457c00225d9c7fa2d2a2fecc9259b75b48e4e314566f8b9a14571c",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/research/2026-09-08-browser-pass/matrix-working-0.2.md": "8395010d12ed7968e063ff81d7a3b47389b9159b6b6130b16fd6deef10502303",
@@ -413,7 +414,7 @@
     "docs/caesthetic/tz_website_caesthetic.md": "636f7fe508bb33fee9ebfe38dd186b047451bba6b35e4093a861c0669efc67fa",
     "docs/projects/caesthetic/AGENTS.md": "8ace7cb5e63b2450d5c625c4fd355c93499ecec8db70663b67753a0057c88700",
     "docs/projects/caesthetic/AGENTS_SATELLITE.md": "e4f3b74f687d5859a24a3a1ab7cc399a161913aa7f58913af1dde28386d46ac6",
-    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "1bcf4a349b7029724359081b24bb35150d543219e93e8a3e0e0e42db63a231ad",
+    "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md": "43c3ca6cfa85346ad52a293b1cd88d0334732ef23a3e207b289fdae612268ce9",
     "docs/projects/caesthetic/CURSOR_AGENTS_SETUP.md": "daf6e76980585e058af05fcd7a6bbdc03956a36fe0d4eef3930ddf1f91f271fa",
     "docs/projects/caesthetic/EXPERT_DENTAL_MIRROR.yml": "58a63370c637ac937a5393331c40363b63b1b901130efcab9bf9cacbc556c2d3",
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "e2d5441392bf5333d2bbaea0bd52f0e6ea43e02eb65034d2a91bb031851fc81a",
@@ -1183,6 +1184,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-08T18:26:04Z",
+  "updated_at_utc": "2026-09-08T18:32:08Z",
   "version": 1
 }
