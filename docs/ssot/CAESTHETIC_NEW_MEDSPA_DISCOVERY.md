@@ -4,6 +4,22 @@ Status: active
 Owner: CAESTHETIC
 Source authority: docs/ssot/CAESTHETIC.md and icp-collector/config/cities.json
 
+## Standing downstream policy (2026-09-08)
+
+Founder decision in issue #1580; permanent for CAESTHETIC discovery-sourced outreach, not a one-wave waiver.
+
+- Offer to receive a **Free Growth Score**. Do not issue a Private Growth Preview or claim a Preview/Score already exists before work is performed.
+- A live VDS master/suppression/conflict lookup is no longer a mandatory pre-send gate for this motion, including its LinkedIn outreach. Missing VDS access or master IDs alone must not block execution. This supersedes conflicting master-lookup requirements in the factory and historical decision.
+- Preserve source identity and provenance; keep unknown master fields null and record the lookup as `not_required_by_policy`, never as a successful clearance. Do not manufacture master IDs or clearance receipts.
+- Honor known refusals, unsubscribes, complaints and do-not-contact flags, including those known from another brand/channel. Keep channel blocklists, recipient identity checks, cohort/channel deduplication and stop-on-any-reply. No unblocking or erasing refusal history.
+- Email verification, truthful sender identity, legal footer, rendered-message QA and canary controls still apply. The founder's separate catch-all exception covers only the six recipients recorded in #1580; it does not authorize invalid addresses or unrelated cohorts.
+- Discovery remains read-only; sending is a separately authorized downstream action. No cold Instagram DMs.
+- Fresh-event claims require evidence for the exact business. A generic Free Growth Score invitation does not assert a new opening; retain unknown age rather than fabricate an event.
+- Existing Preview infrastructure and its validator remain unchanged for other workflows. Do not route this invitation through `growth-preview-wave.mjs` or require Preview issuance, tokens, endpoint checks or Preview-validator acceptance.
+- Positive interest routes into the existing Free Growth Score intake/review process, not a Preview page. Do not promise a delivery date without confirmed capacity.
+
+Operating details: [downstream-growth-score-handoff.md](../ops/caesthetic-new-medspa-discovery/downstream-growth-score-handoff.md).
+
 ## Goal
 Regularly find newly added aesthetic-practice / med-spa business records in CAESTHETIC target markets for review. This is lead discovery only. Do not start outreach from this workflow.
 

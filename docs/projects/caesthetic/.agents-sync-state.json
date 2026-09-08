@@ -598,7 +598,7 @@
     "docs/ssot/CAESTHETIC_IG_VOC_CONTENT_APIFY.md": "9b0d0395b727e05557a80657c28a96938dcd55919f16389c6907d91537e59ea5",
     "docs/ssot/CAESTHETIC_LAUNCH_PRIORITIES.md": "e4b02e938645b5ded80ca23eb18dbc415fcfa89fe8e54f6a5df3b3cb5f0a73ed",
     "docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md": "92da21456f22e8fd59832a0b28b286d4ddfc09d6ab0f966269afebdd5b00d875",
-    "docs/ssot/CAESTHETIC_NEW_MEDSPA_DISCOVERY.md": "2ecdc7d1e64389301949ad28379779173c7df0019de109f4e8e02c8636c32819",
+    "docs/ssot/CAESTHETIC_NEW_MEDSPA_DISCOVERY.md": "ac496b0793f28105b97370f67c54d83c0f32ba1dc8b03e03ace969c5831d804a",
     "docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md": "39fc43924d6b5eff988062a46ab1a99e0128630608062d7cb3bca255960d156e",
     "docs/ssot/CAESTHETIC_OWNER_MARKETING_QUESTIONS.md": "50cfd0fa1176722959a3a50e42bbfef3897788da6e97ec0501a0d1b7bf02359c",
     "docs/ssot/CAESTHETIC_PIPELINE_MONITOR_V1.md": "78ba7f12bc3d8a5a1a7ec327860b4d2ed53c00c67ba5f7eccb783e748796071a",
@@ -1109,6 +1109,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-07T23:45:22Z",
+  "updated_at_utc": "2026-09-08T00:35:28Z",
   "version": 1
 }
