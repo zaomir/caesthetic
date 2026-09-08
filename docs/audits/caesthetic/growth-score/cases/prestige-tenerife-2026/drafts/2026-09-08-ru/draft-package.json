@@ -1,0 +1,54 @@
+{
+  "record_type": "draft",
+  "project_id": "prestige-tenerife-2026",
+  "draft_version": "prestige-multi-location/ru/2026-09-08.1",
+  "prepared_at": "2026-09-08",
+  "research_source_ref": "0b58a029e3261d5376886a1748fbd0631249c4eb",
+  "audit_format": "multi_location",
+  "vertical_context": "beauty_salon",
+  "report_locale": "ru",
+  "evidence_policy": "public_sources_only",
+  "artifact_kind": "editorial_markdown_draft_not_renderable_approved_report",
+  "target_contract": {
+    "schema_version": 5,
+    "template_version": "growth-score-report-template/5.2.0",
+    "multi_location_profile": "multi-location-growth-score/1.2.0",
+    "production_sop_version": "3.5"
+  },
+  "human_reviewed": false,
+  "publication_performed": false,
+  "automatic_score_change": false,
+  "automatic_focus_selection": false,
+  "coverage": {
+    "declared_locations": 2,
+    "reviewed_locations": 2,
+    "complete_surface_coverage": false,
+    "full_social_corpus": false,
+    "comparative_review_velocity_90d": false,
+    "geo_grid": false
+  },
+  "locations": [
+    {"id":"las-americas","name":"Prestige Las Americas","state":"reviewed","role":"focus_location","google_rating_observed":4.9,"google_review_count_observed":58,"booksy_rating_observed":5.0,"booksy_review_count_observed":4,"sources":["E01","E02"],"journey_ref":"J-LA-01/J-LA-02","journey_status":"calendar_reached_without_submission"},
+    {"id":"san-isidro","name":"Prestige San Isidro","state":"reviewed","role":"network_location","google_rating_observed":4.7,"google_review_count_observed":237,"booksy_rating_observed":5.0,"booksy_review_count_observed":50,"sources":["E03","E04"],"journey_ref":"J-SI-01/J-SI-02","journey_status":"calendar_reached_without_submission"}
+  ],
+  "academy": {"kind":"education_direction_not_third_location","public_offer_observed":true,"sources":["E03","E08"],"full_course_terms":"not_assessed","business_and_lead_generation_collaboration":"hypothesis_not_existing_verified_product"},
+  "surfaces": ["search","website","social","reputation"],
+  "scores": {"search":null,"website":null,"social":null,"reputation":null,"cross_surface":null,"overall":null},
+  "candidate_order": ["P1","P2","P3"],
+  "selection_status": "proposed_partial_not_three_verified_focus_gaps",
+  "candidates": [
+    {"id":"P1","slot":"primary_candidate","status":"observed_issue","scope":"focus_location","affected_locations":["las-americas"],"evidence_refs":["E01","J-LA-02"],"module_ids":["A02","A09","A05","A08"],"standalone_sprint_value":"not_established"},
+    {"id":"P2","slot":"supporting_candidate","status":"improvement_hypothesis","scope":"shared_asset","affected_locations":["las-americas","san-isidro"],"evidence_refs":["E02","E04","E07","E08"],"module_ids":["A03","A05","A06","A08"],"absence_or_failure_claim":false},
+    {"id":"P3","slot":"supporting_candidate","status":"improvement_hypothesis","scope":"focus_location","affected_locations":["las-americas"],"evidence_refs":["E01","E02"],"module_ids":["A02","A07","A09"],"reputation_failure_claim":false}
+  ],
+  "focus_location_reason": ["public_journey_risk","evidence_confidence","thirty_day_feasibility","network_learning_value"],
+  "not_business_performance_ranking": true,
+  "do_not_fund_yet": "Do not start a new broad colouring promotion to the currently ambiguous Las Americas service cards before clarifying them; no blanket ad-stop recommendation.",
+  "query_register": "query-register.json",
+  "artifacts": {
+    "network_parent":"prestige-network-audit-ru.md",
+    "focus_location":"prestige-las-americas-audit-ru.md",
+    "sources":"prestige-sources-ru.md"
+  },
+  "supersession_note": "New public research revises prior assumptions; both locations have Booksy calendar access, network social highlights exist, and Las Americas Google has salon-related evidence. Historical report remains unchanged."
+}

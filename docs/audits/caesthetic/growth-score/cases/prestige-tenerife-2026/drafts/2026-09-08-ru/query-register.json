@@ -1,0 +1,20 @@
+{
+  "version": "prestige-query-set/2026-09-08.1",
+  "scope": "Prestige Tenerife: Las Americas + San Isidro + Academy",
+  "selection_basis": "Observed Booksy services, branch geography and publicly stated barber training. Fixed before phrase comparison; initial entity and service reconnaissance preceded selection.",
+  "status": "candidate_query",
+  "volume": null,
+  "volume_note": "Частотность и поисковый спрос не измерены. Это не 10 подтверждённых низкочастотных запросов.",
+  "queries": [
+    {"id":"K01","phrase":"haircut and beard Las Americas","language":"en","location":"las-americas","service":"haircut-beard","intent":"booking"},
+    {"id":"K02","phrase":"corte de pelo hombre Playa de las Americas","language":"es","location":"las-americas","service":"mens-haircut","intent":"booking"},
+    {"id":"K03","phrase":"women haircut Las Americas Tenerife","language":"en","location":"las-americas","service":"womens-haircut","intent":"booking"},
+    {"id":"K04","phrase":"balayage Playa de las Americas","language":"es","location":"las-americas","service":"balayage","intent":"selection-booking"},
+    {"id":"K05","phrase":"keratin treatment Las Americas Tenerife","language":"en","location":"las-americas","service":"keratin","intent":"selection-booking"},
+    {"id":"K06","phrase":"blow dry Las Americas Tenerife","language":"en","location":"las-americas","service":"blow-dry","intent":"booking"},
+    {"id":"K07","phrase":"corte moderno San Isidro Tenerife","language":"es","location":"san-isidro","service":"modern-haircut","intent":"booking"},
+    {"id":"K08","phrase":"corte y barba San Isidro Tenerife","language":"es","location":"san-isidro","service":"haircut-beard","intent":"booking"},
+    {"id":"K09","phrase":"corte niño San Isidro Tenerife","language":"es","location":"san-isidro","service":"child-haircut","intent":"booking"},
+    {"id":"K10","phrase":"curso barbería San Isidro Tenerife","language":"es","location":"san-isidro","service":"academy-barbering","intent":"course-information"}
+  ]
+}
