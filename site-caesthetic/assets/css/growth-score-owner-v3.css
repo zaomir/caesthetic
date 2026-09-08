@@ -184,7 +184,7 @@ ol.v3-list { list-style: decimal; }
 [data-owner-decision-contract] .v3-section { padding-block: var(--cae-space-12); }
 
 
-/* Owner-selected Spoken report edits, 2026-09-07. */
+/* Owner-selected private report edits, 2026-09-07. */
 [data-owner-decision-contract] .v3-wordmark { gap: var(--cae-space-3); }
 [data-owner-decision-contract] .v3-brand-icon { display: block; width: var(--cae-space-12); height: var(--cae-space-12); object-fit: contain; }
 [data-owner-decision-contract] #section-title-1 { font-weight: 600; }

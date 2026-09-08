@@ -13,7 +13,7 @@
   },
   "disclosure": "Demonstration only. Fictional practice, synthetic data, no client relationship, and no reported client outcome.",
   "practice": {
-    "name": "Fictional Meridian Med Spa",
+    "name": "Synthetic Aesthetic Practice",
     "location": "Fictional Southwest market",
     "preparedAt": "2026-08-11",
     "preparedFor": "Growth Score demonstration"
@@ -562,7 +562,7 @@
         },
         {
           "id": "juniper-med-spa",
-          "name": "Fictional Juniper Med Spa",
+          "name": "Synthetic Comparator Practice",
           "competitor_type": "category_leader",
           "selection_reason": "Fictional category leader shaping patient expectations in the same market.",
           "branch_scope": "Single fictional practice market; no branch split required.",
@@ -742,11 +742,11 @@
         }
       ],
       "comparison_matrix": {
-        "subject_name": "Fictional Meridian Med Spa",
+        "subject_name": "Synthetic Aesthetic Practice",
         "rows": [
           {
             "entity_ref": "subject",
-            "entity_name": "Fictional Meridian Med Spa",
+            "entity_name": "Synthetic Aesthetic Practice",
             "entity_type": "subject",
             "search": "Synthetic subject baseline for local discovery.",
             "website": "Synthetic subject website and booking-path baseline.",
@@ -776,7 +776,7 @@
           },
           {
             "entity_ref": "juniper-med-spa",
-            "entity_name": "Fictional Juniper Med Spa",
+            "entity_name": "Synthetic Comparator Practice",
             "entity_type": "competitor",
             "search": "The fictional peer presents a more complete priority-treatment category set in local discovery.",
             "website": "Synthetic comparison captured the website decision path under the same disclosed method.",

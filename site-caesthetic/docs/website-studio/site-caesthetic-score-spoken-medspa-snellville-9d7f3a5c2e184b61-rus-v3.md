@@ -4,7 +4,7 @@ status: review_preview_in_implementation
 project: caesthetic
 updated: 2026-09-05
 ---
-# Spoken v3 — route QA manifest
+# клиника v3 — route QA manifest
 
 WEBSITE_STUDIO_STANDARD and IMPECCABLE_WEBSITE_AGENT_STANDARD apply. SURFACE MODE:
 read/operate. DESIGN DISCOVERY: owner-approved v3 plan, exact supplied images,

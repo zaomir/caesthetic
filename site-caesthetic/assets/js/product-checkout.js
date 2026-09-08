@@ -68,7 +68,7 @@
     var box = $('order-offer-details');
     box.replaceChildren(); box.hidden = !offer;
     if (!offer) return;
-    $('payment-title').textContent = 'Your Spoken Med Spa Sprint.';
+    $('payment-title').textContent = 'Your practice Sprint.';
     $('payment-status').textContent = 'Four connected surfaces, a finite first-visit project and an included Lead-to-Revenue Check. $2,500 USD.';
     $('order-scope').textContent = offer.scope;
     var ul = document.createElement('ul');

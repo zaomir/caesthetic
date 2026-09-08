@@ -4,15 +4,15 @@ status: production_verified
 project: caesthetic
 updated: 2026-09-05
 ---
-# Spoken Growth Score presentation v2 — QA manifest
+# клиника Growth Score presentation v2 — QA manifest
 
 WEBSITE QUALITY CANON READ: START.md, AGENTS.md, docs/ROUTER.md; WEBSITE_STUDIO_STANDARD; IMPECCABLE_WEBSITE_AGENT_STANDARD; PROJECT_ARCHITECTURE_STANDARD; PROJECT_DOMAIN_REGISTRY; MARKETING_SYSTEM_STANDARD; BEHAVIORAL_COMMUNICATION_SYSTEM; CAESTHETIC.md; GROWTH_SCORE_AGENT_ENFORCEMENT; PROJECT_STATUS; client report standard, production SOP, 4444 consistency standard, active journey/mobile specifications; site-caesthetic/DESIGN.md and production tokens; CHATGPT_SERVER_OPS.
 
-SURFACE MODE: read. Audience: Spoken owner deciding priority and implementation ownership. JTBD: understand the constraint, inspect its sources and choose a next step. Primary conversion: one $2,500 Sprint inquiry; conditional $500 Check. Proof: existing approved public observations only. Design thesis: clinical editorial report, decision first, supporting detail on demand. Anti-attributes: score dashboard, invented proof, decorative cards, extra surface, compulsory paid diagnostic.
+SURFACE MODE: read. Audience: клиника owner deciding priority and implementation ownership. JTBD: understand the constraint, inspect its sources and choose a next step. Primary conversion: one $2,500 Sprint inquiry; conditional $500 Check. Proof: existing approved public observations only. Design thesis: clinical editorial report, decision first, supporting detail on demand. Anti-attributes: score dashboard, invented proof, decorative cards, extra surface, compulsory paid diagnostic.
 
 DESIGN DISCOVERY: User explicitly requested preserving the current RU URL as v1 and creating v2 with review corrections. Assumptions recorded: retain approved facts and human-selected priorities; no new research or internal operational diagnosis. Apply every presentation change to EN too. Version the assets so v1 retains its bytes. v2 is a view of the existing audit, not a new audit or translated fact-set revision.
 
-REPRESENTATIVE SURFACE: /score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/v2/; paired EN sibling /score/spoken-medspa-snellville-9d7f3a5c2e184b61/v2/. Parent pages remain v1. Child paths inherit the existing RU direct-link and EN protected prefixes. Both remain noindex and outside public listing.
+REPRESENTATIVE SURFACE: /score/private-aesthetic-practice-report-rus/v2/; paired EN sibling /score/private-aesthetic-practice-report/v2/. Parent pages remain v1. Child paths inherit the existing RU direct-link and EN protected prefixes. Both remain noindex and outside public listing.
 
 Implementation: canonical renderGrowthReport validation/scoring delegates the explicit owner-decision-report/2.0.0 view to growth-score-owner-v2.mjs. Builder reads the existing parent report.json; child presentation.json points back to it. No duplicate approved report.json or new catalog case is created. Other reports retain the existing renderer.
 

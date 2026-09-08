@@ -653,7 +653,7 @@
         },
         {
           "id": "commonwell-med-spa",
-          "name": "Fictional Commonwell Med Spa",
+          "name": "Synthetic Reputation Practice",
           "competitor_type": "positioning_reference",
           "selection_reason": "Fictional positioning reference with a distinct decision narrative.",
           "branch_scope": "Single fictional practice market; no branch split required.",
@@ -794,7 +794,7 @@
           },
           {
             "entity_ref": "commonwell-med-spa",
-            "entity_name": "Fictional Commonwell Med Spa",
+            "entity_name": "Synthetic Reputation Practice",
             "entity_type": "competitor",
             "search": "Synthetic comparison captured the search decision path under the same disclosed method.",
             "website": "Synthetic comparison captured the website decision path under the same disclosed method.",
