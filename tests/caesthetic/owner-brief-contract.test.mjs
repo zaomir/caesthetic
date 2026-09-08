@@ -51,6 +51,6 @@ test("owner brief v2.1 publishes only approved HTTP(S) research links", () => {
   assert.throws(() => validateOwnerBriefPresentation(credentialLink), /must not contain credentials/);
 
   const duplicateSource = clone(report);
-  duplicateSource.presentation.owner_copy.research_scope.links.push(["Другая страница сайта", "https://www.spokenmedspa.com/blog"]);
+  duplicateSource.presentation.owner_copy.research_scope.links.push(["Другая страница сайта", "https://www.private-source.example/blog"]);
   assert.throws(() => validateOwnerBriefPresentation(duplicateSource), /contains duplicate pages from one source/);
 });

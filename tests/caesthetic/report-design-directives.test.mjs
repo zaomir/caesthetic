@@ -65,7 +65,7 @@ function inspectPng(buffer) {
   return header;
 }
 
-test("Spoken report uses the approved Lead-to-Revenue image instead of Cross-Surface overview", () => {
+test("private report uses the approved Lead-to-Revenue image instead of Cross-Surface overview", () => {
   assert.equal(existsSync(image), true);
   assert.match(report, /lead-to-revenue-map\.png/);
   assert.doesNotMatch(report, /Cross-Surface Connections Overview/i);
@@ -100,7 +100,7 @@ test("report support cards are equal-height and Check500 is visible", () => {
   assert.match(report, /Lead-to-Revenue Check[\s\S]*\$500/);
 });
 
-test("Spoken report starts an ongoing content, GBP and reputation program", () => {
+test("private report starts an ongoing content, GBP and reputation program", () => {
   assert.match(report, /Start in 30 days[\s\S]*Filler trust continuity trails Botox/);
   assert.doesNotMatch(report, /No long initiative was started\./);
   assert.match(report, /provider-led blog cadence/);

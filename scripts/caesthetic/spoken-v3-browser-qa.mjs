@@ -95,7 +95,7 @@ try {
    assert.match(await offer.locator('[data-offer-part="included-check"]').innerText(),/без дополнительной оплаты/);
    assert.match(await offer.locator('[data-offer-check-alternative]').innerText(),/доплатить \$2,000/);
    assert.match(await offer.locator('[data-offer-continuation]').innerText(),/ниже \$2,500/);
-   assert.doesNotMatch(await offer.innerText(),/Для Spoken три существенных приоритета|Что входит в согласуемый объём|Что нужно от клиники|Что проверим на 30-й день|Ответственность за внедрение/);
+   assert.doesNotMatch(await offer.innerText(),/Для клиника три существенных приоритета|Что входит в согласуемый объём|Что нужно от клиники|Что проверим на 30-й день|Ответственность за внедрение/);
   }else assert.equal(await page.locator('[data-sprint-offer-contract]').count(),0);
   const reject=page.getByRole('button',{name:locale==='ru'?'Отказаться':'Reject analytics',exact:true});if(await reject.isVisible())await reject.click();
   for(const width of [320,375,390,430,768,1024,1440]){

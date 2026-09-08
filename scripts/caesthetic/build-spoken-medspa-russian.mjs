@@ -62,11 +62,11 @@ const EXACT_TRANSLATIONS = new Map(Object.entries({
   "Rebrand, audience routing and proof are not fully synchronized.": "Переход на новый бренд, маршруты аудиторий и доказательства синхронизированы не полностью.",
   "Fix identity, then audiences, then filler proof.": "Сначала исправить идентичность, затем разделить аудитории и после этого усилить доказательства по филлерам.",
   "Identity uncertainty appears before booking.": "Неопределённость идентичности возникает до записи.",
-  "One current Spoken identity.": "Единая актуальная идентичность Spoken.",
+  "One current клиника identity.": "Единая актуальная идентичность клиника.",
   "Freeze current facts; inventory and update controlled endpoints; retain before/after evidence.": "Зафиксировать актуальные данные, составить перечень управляемых точек контакта, обновить их и сохранить доказательства состояния до и после.",
   "Confirmed current facts": "Подтверждённые актуальные данные",
   "Web/GBP/social owner": "Ответственный за сайт, профиль компании в Google и социальные сети",
-  "Controlled surfaces match current Spoken facts.": "Все управляемые поверхности соответствуют актуальным данным Spoken.",
+  "Controlled surfaces match current клиника facts.": "Все управляемые поверхности соответствуют актуальным данным клиника.",
   "Patient and Academy journeys are mixed": "Маршруты пациентов и Академии смешаны",
   "Different audiences share one action path.": "Разные аудитории используют один маршрут действий.",
   "Patient-first path + separate professional lane.": "Маршрут прежде всего для пациента и отдельное направление для профессионалов.",
@@ -113,7 +113,7 @@ const EXACT_TRANSLATIONS = new Map(Object.entries({
   "Four approved local comparators.": "Четыре утверждённые локальные альтернативы.",
   "Website evidence only; other comparable surfaces insufficient.": "Есть доказательства только по сайтам; для остальных сопоставимых поверхностей доказательств недостаточно.",
   "No review-theme conclusion without a direct comparable sample.": "Нельзя делать выводы по темам отзывов без прямой сопоставимой выборки.",
-  "Spoken Med Spa, Snellville, GA": "Spoken Med Spa, Снеллвилл, Джорджия",
+  "частная эстетическая клиника, Snellville, GA": "частная эстетическая клиника, Снеллвилл, Джорджия",
   "Approved local comparator.": "Утверждённая локальная альтернатива.",
   "Snellville, GA": "Снеллвилл, Джорджия",
   "Relevant local alternative.": "Релевантная локальная альтернатива.",
@@ -200,10 +200,10 @@ function translateStrings(value) {
 }
 
 function applyPlainOwnerCopy(report) {
-  report.reportVersion = "spoken-medspa-snellville-public-evidence/ru/1.6.2";
-  report.verifiedFactSetVersion = "spoken-medspa-snellville-2026-09-04/4444-v1";
+  report.reportVersion = "private-aesthetic-practice-public-evidence/ru/1.6.2";
+  report.verifiedFactSetVersion = "private-aesthetic-practice-2026-09-04/4444-v1";
   report.disclosure = "Отчёт составлен по открытым источникам. Мы не проверяли внутренние процессы, данные пациентов, выручку и результаты лечения.";
-  report.executiveSummary = "У Spoken уже есть сильная страница Botox, активный блог и высокий рейтинг в Google. Главная задача — связать точные запросы пациентов, регулярные материалы и работу с отзывами в одну систему.";
+  report.executiveSummary = "У клиники уже есть сильная страница Botox, активный блог и высокий рейтинг в Google. Главная задача — связать точные запросы пациентов, регулярные материалы и работу с отзывами в одну систему.";
   report.crossSurface.summary = "Сайт, блог, Google, социальные сети и отзывы должны повторять один язык спроса: одинаковые услуги, специалисты, местоположение и точные запросы пациентов.";
 
   const findMetric = (surfaceId, metricId) => report.surfaces
@@ -229,7 +229,7 @@ function applyPlainOwnerCopy(report) {
     raw_value: "Botox, филлеры и тематические статьи",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog",
+    source: "https://www.private-source.example/neurotoxins-snellville-ga; https://www.private-source.example/dermal-fillers-snellville-ga; https://www.private-source.example/blog",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
     finding: "Страницы услуг и активный блог отвечают на вопросы пациентов, но в открытых материалах не видна единая карта точных запросов и их распределения.",
@@ -238,7 +238,7 @@ function applyPlainOwnerCopy(report) {
     raw_value: "материалы не связаны одной картой запросов",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog; https://www.spokenmedspa.com/clients; https://msha.ke/spokenmedspa/",
+    source: "https://www.private-source.example/neurotoxins-snellville-ga; https://www.private-source.example/dermal-fillers-snellville-ga; https://www.private-source.example/blog; https://www.private-source.example/clients; https://msha.ke/spokenmedspa/",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
     finding: "Полезные материалы существуют, но их связь с одинаковыми точными запросами на сайте, в Google и социальных сетях не показана как единая система.",
@@ -247,16 +247,16 @@ function applyPlainOwnerCopy(report) {
     raw_value: "4,9 и около 250 отзывов",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    source: "https://www.google.com/maps/search/?api=1&query=Private+Aesthetic+Practice+Snellville",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
-    finding: "У Spoken высокий рейтинг 4,9 и около 250 отзывов. Это сильная основа, которую нужно регулярно поддерживать.",
+    finding: "У клиники высокий рейтинг 4,9 и около 250 отзывов. Это сильная основа, которую нужно регулярно поддерживать.",
   });
   Object.assign(findMetric("reputation", "negative_review_handling"), {
     raw_value: "повторяется тема общения по телефону и на стойке регистрации",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    source: "https://www.google.com/maps/search/?api=1&query=Private+Aesthetic+Practice+Snellville",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
     finding: "В нескольких низких оценках повторяется тема общения по телефону и на стойке регистрации. Ответы владельца есть, но часть из них общая, а один видимый ответ не соответствует жалобе.",
@@ -282,7 +282,7 @@ function applyPlainOwnerCopy(report) {
   });
 
   const diagnosis = report.humanDiagnosis;
-  diagnosis.objective_strength.title = "У Spoken есть сильная страница Botox, активный блог и рейтинг 4,9 в Google.";
+  diagnosis.objective_strength.title = "У клиники есть сильная страница Botox, активный блог и рейтинг 4,9 в Google.";
   diagnosis.binding_constraint.title = "Нет единой системы запросов, контента и отзывов";
   diagnosis.binding_constraint.statement = "Точные запросы пациентов ещё не собраны в одну карту, блог не связан с постоянным планом для четырёх каналов, а рост отзывов и ответы владельца не оформлены как регулярная система.";
   diagnosis.binding_constraint.evidence_refs = [
@@ -346,7 +346,7 @@ function applyPlainOwnerCopy(report) {
       title: "Регулярно собирать честные отзывы и улучшить ответы",
       surfaces: ["reputation", "search", "cross_surface"],
       evidence_refs: ["reputation.rating", "reputation.negative_review_handling"],
-      why_it_matters: "Рейтинг 4,9 и около 250 отзывов — сильная основа. При этом About Face Skin Care имеет 5,0 и 726 отзывов, а в нескольких низких оценках Spoken повторяется тема общения по телефону и на стойке регистрации. Часть ответов владельца слишком общая.",
+      why_it_matters: "Рейтинг 4,9 и около 250 отзывов — сильная основа. При этом About Face Skin Care имеет 5,0 и 726 отзывов, а в нескольких низких оценках клиника повторяется тема общения по телефону и на стойке регистрации. Часть ответов владельца слишком общая.",
       outcome: "Все подходящие пациенты получают одинаковую честную просьбу об отзыве, а каждый ответ владельца учитывает содержание отзыва и сохраняет конфиденциальность.",
       diy_steps: [
         "Просить честный отзыв у всех подходящих пациентов по одному правилу — без отбора, оплаты и готового текста.",
@@ -355,7 +355,7 @@ function applyPlainOwnerCopy(report) {
         "Сверять слова пациентов и ответы владельца с общей картой услуг, специалистов и местоположения без навязывания ключевых фраз.",
       ],
       dependencies: ["Единое правило просьбы об отзыве, ответственный сотрудник и правила конфиденциальности."],
-      owner_role: "Один сотрудник Spoken, который следит за просьбами об отзыве, ответами и повторяющимися темами.",
+      owner_role: "Один сотрудник клиника, который следит за просьбами об отзыве, ответами и повторяющимися темами.",
       day_30_outcome: "Система честного сбора отзывов запущена. На новые отзывы даны содержательные ответы. Повторяющиеся темы переданы в план контента.",
       beyond_day_30: "Продолжать честный сбор отзывов, отвечать по существу и ежемесячно сверять повторяющиеся темы с четырьмя каналами.",
       done_when: [
@@ -421,21 +421,21 @@ function applyPlainOwnerCopy(report) {
     competitor.constraint_effect = "Помогает сравнить ясность предложения, объём отзывов и качество публичного доверия.";
     competitor.priority_effect = "Поддерживает работу с запросами, контентом и отзывами.";
   }
-  diagnosis.competitors.sample_limitations = "Сайты проверены у четырёх локальных альтернатив. Рейтинг и число отзывов в Google сохранены для Spoken, dermani MEDSPA® Snellville, About Face Skin Care и A Defined Image Medical Wellness Centre; социальные сети сопоставлены не полностью.";
+  diagnosis.competitors.sample_limitations = "Сайты проверены у четырёх локальных альтернатив. Рейтинг и число отзывов в Google сохранены для клиника, dermani MEDSPA® Snellville, About Face Skin Care и A Defined Image Medical Wellness Centre; социальные сети сопоставлены не полностью.";
   diagnosis.competitors.review_sample_rule = "Сравниваем только видимые рейтинг, число отзывов, повторяющиеся темы и ответы владельца. Не делаем выводов о внутренних причинах.";
   diagnosis.competitors.comparison_window = { start: "2026-09-03", end: "2026-09-04" };
 
   const reputationBenchmarks = {
     "dermani-medspa-snellville": {
-      finding: "Рейтинг 4,8 и 196 отзывов. Spoken выше по рейтингу и числу отзывов.",
+      finding: "Рейтинг 4,8 и 196 отзывов. клиника выше по рейтингу и числу отзывов.",
       source: "https://www.google.com/maps/search/?api=1&query=dermani+MEDSPA+Snellville",
     },
     "about-face-snellville": {
-      finding: "Рейтинг 5,0 и 726 отзывов. Это заметно больше отзывов, чем у Spoken.",
+      finding: "Рейтинг 5,0 и 726 отзывов. Это заметно больше отзывов, чем у клиника.",
       source: "https://www.google.com/maps/search/?api=1&query=About+Face+Skin+Care+Snellville",
     },
     "a-defined-image": {
-      finding: "Рейтинг 5,0 и 78 отзывов. Spoken заметно сильнее по числу отзывов.",
+      finding: "Рейтинг 5,0 и 78 отзывов. клиника заметно сильнее по числу отзывов.",
       source: "https://www.google.com/maps/search/?api=1&query=A+Defined+Image+Medical+Wellness+Centre+Snellville",
     },
   };
@@ -475,9 +475,9 @@ function applyPlainOwnerCopy(report) {
     }
   }
   diagnosis.competitors.decision_summary.defend[0].title = "Сохранить сильную сторону: опыт Ivy Cleveland";
-  diagnosis.competitors.decision_summary.defend[0].rationale = "Опыт Ivy Cleveland уже помогает доверять Spoken.";
+  diagnosis.competitors.decision_summary.defend[0].rationale = "Опыт Ivy Cleveland уже помогает доверять клиника.";
   diagnosis.competitors.decision_summary.close[0].title = "Наращивать объём отзывов и улучшать ответы";
-  diagnosis.competitors.decision_summary.close[0].rationale = "У Spoken сильный рейтинг, но About Face Skin Care имеет почти втрое больше отзывов. Регулярный честный сбор и содержательные ответы помогут защищать доверие.";
+  diagnosis.competitors.decision_summary.close[0].rationale = "У клиники сильный рейтинг, но About Face Skin Care имеет почти втрое больше отзывов. Регулярный честный сбор и содержательные ответы помогут защищать доверие.";
   diagnosis.competitors.decision_summary.close[0].evidence_refs = ["reputation.rating", "reputation.negative_review_handling"];
   diagnosis.competitors.decision_summary.differentiate[0].title = "Показывать опыт Ivy Cleveland как преподавателя";
   diagnosis.competitors.decision_summary.differentiate[0].rationale = "Этот факт подтверждает её опыт без громких обещаний.";
@@ -494,15 +494,15 @@ function applyPlainOwnerCopy(report) {
     evidence_advantage: "Факты и порядок работ уже собраны.",
     coordination_advantage: "CAESTHETIC согласует Google, сайт, социальные сети, отзывы и ответы владельца.",
     sprint_boundary: "За 30 дней внедряем один согласованный приоритет. Список работ утверждаем письменно. Стоимость — $2,500.",
-    ownership: "Отчёт и инструкции остаются у Spoken. Ими можно пользоваться без CAESTHETIC.",
+    ownership: "Отчёт и инструкции остаются у клиника. Ими можно пользоваться без CAESTHETIC.",
   };
 }
 
 function applyPlainOwnerCopyEnglish(report) {
-  report.reportVersion = "spoken-medspa-snellville-public-evidence/en/1.6.2";
-  report.verifiedFactSetVersion = "spoken-medspa-snellville-2026-09-04/4444-v1";
+  report.reportVersion = "private-aesthetic-practice-public-evidence/en/1.6.2";
+  report.verifiedFactSetVersion = "private-aesthetic-practice-2026-09-04/4444-v1";
   report.disclosure = "This report uses public sources only. We did not assess internal operations, patient data, revenue, or treatment outcomes.";
-  report.executiveSummary = "Spoken already has a strong Botox page, an active blog, and a high Google rating. The main task is to connect specific patient queries, consistent content, and reputation work into one system.";
+  report.executiveSummary = "клиника already has a strong Botox page, an active blog, and a high Google rating. The main task is to connect specific patient queries, consistent content, and reputation work into one system.";
   report.crossSurface.summary = "The website, blog, Google presence, social media, reviews, and owner responses should use one demand language: consistent services, providers, location, and specific patient queries.";
 
   const findMetric = (surfaceId, metricId) => report.surfaces
@@ -528,7 +528,7 @@ function applyPlainOwnerCopyEnglish(report) {
     raw_value: "Botox, fillers, and related articles",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog",
+    source: "https://www.private-source.example/neurotoxins-snellville-ga; https://www.private-source.example/dermal-fillers-snellville-ga; https://www.private-source.example/blog",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
     finding: "Service pages and the active blog answer patient questions, but the public materials do not show one map of specific queries and where each query should be used.",
@@ -537,7 +537,7 @@ function applyPlainOwnerCopyEnglish(report) {
     raw_value: "content is not connected through one query map",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.spokenmedspa.com/neurotoxins-snellville-ga; https://www.spokenmedspa.com/dermal-fillers-snellville-ga; https://www.spokenmedspa.com/blog; https://www.spokenmedspa.com/clients; https://msha.ke/spokenmedspa/",
+    source: "https://www.private-source.example/neurotoxins-snellville-ga; https://www.private-source.example/dermal-fillers-snellville-ga; https://www.private-source.example/blog; https://www.private-source.example/clients; https://msha.ke/spokenmedspa/",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
     finding: "Useful content exists, but its connection to the same specific queries across the website, Google, and social media is not presented as one system.",
@@ -546,16 +546,16 @@ function applyPlainOwnerCopyEnglish(report) {
     raw_value: "4.9 with about 250 reviews",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    source: "https://www.google.com/maps/search/?api=1&query=Private+Aesthetic+Practice+Snellville",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
-    finding: "Spoken has a strong 4.9 rating with about 250 reviews. This is a strong foundation that should be maintained consistently.",
+    finding: "клиника has a strong 4.9 rating with about 250 reviews. This is a strong foundation that should be maintained consistently.",
   });
   Object.assign(findMetric("reputation", "negative_review_handling"), {
     raw_value: "phone and front-desk communication appears repeatedly",
     normalized_score: null,
     evidence_class: "A",
-    source: "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville",
+    source: "https://www.google.com/maps/search/?api=1&query=Private+Aesthetic+Practice+Snellville",
     collected_at: "2026-09-04",
     reviewer_status: "approved",
     finding: "Several lower-rated reviews repeat concerns about phone and front-desk communication. Owner responses are present, but some are generic and one visible response does not address the complaint.",
@@ -570,7 +570,7 @@ function applyPlainOwnerCopyEnglish(report) {
     priority: "HIGH",
   });
   Object.assign(websiteCard, {
-    strength: "Spoken has a strong Botox page and an active blog.",
+    strength: "клиника has a strong Botox page and an active blog.",
     problem: "Service pages and articles are not connected through one map of specific queries.",
     priority: "HIGH",
   });
@@ -581,7 +581,7 @@ function applyPlainOwnerCopyEnglish(report) {
   });
 
   const diagnosis = report.humanDiagnosis;
-  diagnosis.objective_strength.title = "Spoken has a strong Botox page, an active blog, and a 4.9 Google rating.";
+  diagnosis.objective_strength.title = "клиника has a strong Botox page, an active blog, and a 4.9 Google rating.";
   diagnosis.binding_constraint.title = "Queries, content, and reviews are not yet one system";
   diagnosis.binding_constraint.statement = "Specific patient queries have not yet been organized into one map, the blog is not connected to an ongoing four-surface content plan, and review growth and owner responses are not managed as a consistent system.";
   diagnosis.binding_constraint.evidence_refs = [
@@ -596,7 +596,7 @@ function applyPlainOwnerCopyEnglish(report) {
     "An active blog, a 4.9 rating, and about 250 reviews provide a strong trust foundation.",
   ];
   diagnosis.current_state.constraint_label = "Queries, content, and reviews do not yet work as one system";
-  diagnosis.current_state.constraint_detail = "Spoken already has the necessary parts. The next step is to connect them: choose specific patient queries, allocate them across the four surfaces, and preserve one meaning in content, reviews, and owner responses.";
+  diagnosis.current_state.constraint_detail = "клиника already has the necessary parts. The next step is to connect them: choose specific patient queries, allocate them across the four surfaces, and preserve one meaning in content, reviews, and owner responses.";
   diagnosis.current_state.priority_line = "First build the query map. Then connect it to a regular blog plan and an ongoing system for honest reviews and substantive owner responses.";
   diagnosis.focus_selection.rationale = "Closing these three gaps will help patients find the right service, feel confident in their choice, and move toward booking.";
 
@@ -645,7 +645,7 @@ function applyPlainOwnerCopyEnglish(report) {
       title: "Collect honest reviews consistently and improve owner responses",
       surfaces: ["reputation", "search", "cross_surface"],
       evidence_refs: ["reputation.rating", "reputation.negative_review_handling"],
-      why_it_matters: "A 4.9 rating with about 250 reviews is a strong foundation. About Face Skin Care has a 5.0 rating and 726 reviews, while several lower-rated Spoken reviews repeat concerns about phone and front-desk communication. Some owner responses are too generic.",
+      why_it_matters: "A 4.9 rating with about 250 reviews is a strong foundation. About Face Skin Care has a 5.0 rating and 726 reviews, while several lower-rated клиника reviews repeat concerns about phone and front-desk communication. Some owner responses are too generic.",
       outcome: "Every eligible patient receives the same honest review request, and every owner response addresses the review while protecting privacy.",
       diy_steps: [
         "Ask every eligible patient for an honest review under one consistent rule—without filtering, payment, incentives, or prewritten text.",
@@ -654,7 +654,7 @@ function applyPlainOwnerCopyEnglish(report) {
         "Compare patient language and owner responses with the shared map of services, providers, and location without forcing keywords into patient speech.",
       ],
       dependencies: ["One review-request rule, an accountable owner, and privacy-safe response guidance."],
-      owner_role: "One Spoken team member who owns review requests, responses, and recurring-theme review.",
+      owner_role: "One клиника team member who owns review requests, responses, and recurring-theme review.",
       day_30_outcome: "The honest review-request system is live. New reviews receive substantive responses, and recurring themes are included in the content plan.",
       beyond_day_30: "Continue requesting honest reviews, respond substantively, and compare recurring themes with the four-surface plan each month.",
       done_when: [
@@ -720,21 +720,21 @@ function applyPlainOwnerCopyEnglish(report) {
     competitor.constraint_effect = "Helps compare offer clarity, review volume, and the quality of public trust.";
     competitor.priority_effect = "Supports the work on queries, content, and reviews.";
   }
-  diagnosis.competitors.sample_limitations = "Websites were reviewed for four local alternatives. Google rating and review count were retained for Spoken, dermani MEDSPA® Snellville, About Face Skin Care, and A Defined Image Medical Wellness Centre; social media was not compared comprehensively.";
+  diagnosis.competitors.sample_limitations = "Websites were reviewed for four local alternatives. Google rating and review count were retained for клиника, dermani MEDSPA® Snellville, About Face Skin Care, and A Defined Image Medical Wellness Centre; social media was not compared comprehensively.";
   diagnosis.competitors.review_sample_rule = "We compare only visible ratings, review counts, recurring themes, and owner responses. We do not infer internal causes.";
   diagnosis.competitors.comparison_window = { start: "2026-09-03", end: "2026-09-04" };
 
   const reputationBenchmarks = {
     "dermani-medspa-snellville": {
-      finding: "4.8 rating with 196 reviews. Spoken has a higher rating and more reviews.",
+      finding: "4.8 rating with 196 reviews. клиника has a higher rating and more reviews.",
       source: "https://www.google.com/maps/search/?api=1&query=dermani+MEDSPA+Snellville",
     },
     "about-face-snellville": {
-      finding: "5.0 rating with 726 reviews. This is substantially more review volume than Spoken.",
+      finding: "5.0 rating with 726 reviews. This is substantially more review volume than клиника.",
       source: "https://www.google.com/maps/search/?api=1&query=About+Face+Skin+Care+Snellville",
     },
     "a-defined-image": {
-      finding: "5.0 rating with 78 reviews. Spoken has substantially more review volume.",
+      finding: "5.0 rating with 78 reviews. клиника has substantially more review volume.",
       source: "https://www.google.com/maps/search/?api=1&query=A+Defined+Image+Medical+Wellness+Centre+Snellville",
     },
   };
@@ -761,7 +761,7 @@ function applyPlainOwnerCopyEnglish(report) {
   for (const row of diagnosis.competitors.comparison_matrix.rows) {
     if (row.entity_ref === "subject") {
       row.search = "The Google listing has a 4.9 rating with about 250 reviews. A map of specific service queries is not shown.";
-      row.website = "Spoken has a strong Botox page and an active blog. They should be connected through one query map and a consistent content plan.";
+      row.website = "клиника has a strong Botox page and an active blog. They should be connected through one query map and a consistent content plan.";
       row.social = "Social content should repeat the approved queries and themes from the website and blog.";
       row.reputation = "Strong rating; consistent honest review collection and more substantive owner responses are needed.";
       row.evidence_refs = ["website.treatment_clarity", "reputation.rating", "reputation.negative_review_handling"];
@@ -774,9 +774,9 @@ function applyPlainOwnerCopyEnglish(report) {
     }
   }
   diagnosis.competitors.decision_summary.defend[0].title = "Protect Ivy Cleveland's experience as a strength";
-  diagnosis.competitors.decision_summary.defend[0].rationale = "Ivy Cleveland's experience already supports trust in Spoken.";
+  diagnosis.competitors.decision_summary.defend[0].rationale = "Ivy Cleveland's experience already supports trust in клиника.";
   diagnosis.competitors.decision_summary.close[0].title = "Grow review volume and improve owner responses";
-  diagnosis.competitors.decision_summary.close[0].rationale = "Spoken has a strong rating, but About Face Skin Care has nearly three times as many reviews. Consistent honest review requests and substantive responses will help protect trust.";
+  diagnosis.competitors.decision_summary.close[0].rationale = "клиника has a strong rating, but About Face Skin Care has nearly three times as many reviews. Consistent honest review requests and substantive responses will help protect trust.";
   diagnosis.competitors.decision_summary.close[0].evidence_refs = ["reputation.rating", "reputation.negative_review_handling"];
   diagnosis.competitors.decision_summary.differentiate[0].title = "Show Ivy Cleveland's experience as an educator";
   diagnosis.competitors.decision_summary.differentiate[0].rationale = "This verified fact supports experience without an inflated claim.";
@@ -784,7 +784,7 @@ function applyPlainOwnerCopyEnglish(report) {
   diagnosis.competitors.decision_summary.do_not_copy[0].rationale = "Discounts and broad claims do not prove quality or return on investment.";
 
   report.implementation_paths = {
-    diy: "Implement the complete plan with the Spoken team.",
+    diy: "Implement the complete plan with the клиника team.",
     other_provider: "Assign individual workstreams to your existing specialists.",
     caesthetic: "Ask CAESTHETIC to run a $2,500 30-Day Growth Sprint that aligns all four surfaces around the primary priority.",
     defer: "Keep the report and revisit it later.",
@@ -793,7 +793,7 @@ function applyPlainOwnerCopyEnglish(report) {
     evidence_advantage: "The facts and dependency order are already assembled.",
     coordination_advantage: "CAESTHETIC aligns Google, the website, social media, reviews, and owner responses.",
     sprint_boundary: "We implement one agreed priority in 30 days. The exact scope is confirmed in writing. Price: $2,500.",
-    ownership: "Spoken keeps the report and instructions and may use them without CAESTHETIC.",
+    ownership: "клиника keeps the report and instructions and may use them without CAESTHETIC.",
   };
 }
 
@@ -852,7 +852,7 @@ export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceRep
         revisit_label: "When to revisit paid media",
         paths_coordination_label: "How to coordinate",
         paths_risk_label: "Risk",
-        sprint_client_input_label: "What we need from Spoken",
+        sprint_client_input_label: "What we need from клиника",
         sprint_acceptance_label: "What we verify on Day 30",
         conclusion_title: "What to do first",
         strength_label: "What is already working",
@@ -870,15 +870,15 @@ export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceRep
       greeting: {
         kicker: "A note from Valerie",
         title: "Hello, Ivy.",
-        body: "We reviewed your patient's journey: how they find Spoken, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
+        body: "We reviewed your patient's journey: how they find клиника, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
         signature: "Valerie Petra · CAESTHETIC",
       },
       research_scope: {
         kicker: "What we reviewed",
         title: "Sources reviewed",
         links: [
-          ["Website", "https://www.spokenmedspa.com/"],
-          ["Google Maps", "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"],
+          ["Website", "https://www.private-source.example/"],
+          ["Google Maps", "https://www.google.com/maps/search/?api=1&query=Private+Aesthetic+Practice+Snellville"],
           ["Social media", "https://msha.ke/spokenmedspa/"],
         ],
       },
@@ -953,7 +953,7 @@ export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceRep
       competitor: {
         kicker: "Competitor comparison",
         title: "Why a patient may choose another practice",
-        intro: "We reviewed the websites of four local practices. Below is only what matters to Spoken's decision.",
+        intro: "We reviewed the websites of four local practices. Below is only what matters to клиника's decision.",
         decision_labels: ["Defend", "Close", "Differentiate", "Do not copy"],
       },
       evidence: {
@@ -966,13 +966,13 @@ export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceRep
       implementation_options: [
         {
           title: "Implement in-house",
-          body: "Assign one accountable owner and complete the plan with the Spoken team.",
+          body: "Assign one accountable owner and complete the plan with the клиника team.",
           coordination: "One person approves the names, sequence, and acceptance criteria across all four surfaces.",
           risk: "Without shared oversight, Google, the website, social media, reviews, and owner responses may drift apart again.",
         },
         {
           title: "Use your existing specialists",
-          body: "Assign workstreams to your specialists while keeping overall coordination inside Spoken.",
+          body: "Assign workstreams to your specialists while keeping overall coordination inside клиника.",
           coordination: "One coordinator gives every specialist the same names, phrases, and acceptance criteria.",
           risk: "Each specialist may improve an individual channel without improving the complete patient journey.",
         },
@@ -980,7 +980,7 @@ export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceRep
           title: "Ask CAESTHETIC to implement",
           body: "Give CAESTHETIC the primary Connect4 priority: align all four surfaces.",
           coordination: "We preserve one meaning and one set of names across Google, the website, social media, reviews, and owner responses.",
-          risk: "Spoken must provide timely medical review, the required access, and one accountable decision-maker.",
+          risk: "клиника must provide timely medical review, the required access, and one accountable decision-maker.",
         },
       ],
       sprint_offer: {
@@ -1020,12 +1020,12 @@ export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceRep
     official_names: [
       "CAESTHETIC",
       "Connect4",
-      "Spoken Med Spa",
-      "Spoken",
+      "частная эстетическая клиника",
+      "клиника",
       "Ivy",
       "Ivy Cleveland",
       "Botox",
-      "Spoken Aesthetic Academy",
+      "клиника Aesthetic Academy",
       "Academy",
       "Google",
       "Instagram",
@@ -1108,7 +1108,7 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         revisit_label: "Когда вернуться к рекламе",
         paths_coordination_label: "Как организовать работу",
         paths_risk_label: "Риск",
-        sprint_client_input_label: "Что нужно от Spoken",
+        sprint_client_input_label: "Что нужно от клиника",
         sprint_acceptance_label: "Что проверим на 30-й день",
         conclusion_title: "Что делать сначала",
         strength_label: "Что уже хорошо",
@@ -1126,15 +1126,15 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
       greeting: {
         kicker: "Приветствие от Валерии",
         title: "Здравствуйте, Ivy.",
-        body: "Мы проверили путь вашего пациента: как он находит Spoken, сравнивает клиники и выбирает, куда записаться. Ниже — три главные помехи и простой план действий.",
+        body: "Мы проверили путь вашего пациента: как он находит клиника, сравнивает клиники и выбирает, куда записаться. Ниже — три главные помехи и простой план действий.",
         signature: "Валерия Петра · CAESTHETIC",
       },
       research_scope: {
         kicker: "Что мы изучили",
         title: "Изученные ссылки",
         links: [
-          ["Сайт", "https://www.spokenmedspa.com/"],
-          ["Карты Google", "https://www.google.com/maps/search/?api=1&query=Spoken+Med+Spa+Snellville"],
+          ["Сайт", "https://www.private-source.example/"],
+          ["Карты Google", "https://www.google.com/maps/search/?api=1&query=Private+Aesthetic+Practice+Snellville"],
           ["Социальные сети", "https://msha.ke/spokenmedspa/"],
         ],
       },
@@ -1209,7 +1209,7 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
       competitor: {
         kicker: "Сравнение с конкурентами",
         title: "Почему пациент может выбрать другую клинику",
-        intro: "Мы посмотрели сайты четырёх местных клиник. Ниже — только то, что важно для решения Spoken.",
+        intro: "Мы посмотрели сайты четырёх местных клиник. Ниже — только то, что важно для решения клиника.",
         decision_labels: ["Сохранить", "Исправить", "Выделить", "Не копировать"],
       },
       evidence: {
@@ -1222,13 +1222,13 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
       implementation_options: [
         {
           title: "Сделать внутри команды",
-          body: "Назначить одного ответственного и выполнить план силами Spoken.",
+          body: "Назначить одного ответственного и выполнить план силами клиника.",
           coordination: "Один человек утверждает названия, порядок работ и результат во всех четырёх каналах.",
           risk: "Без общего контроля Google, сайт, социальные сети, отзывы и ответы владельца снова начнут говорить по-разному.",
         },
         {
           title: "Поручить своим специалистам",
-          body: "Раздать задачи подрядчикам, но оставить общее управление внутри Spoken.",
+          body: "Раздать задачи подрядчикам, но оставить общее управление внутри клиника.",
           coordination: "Один координатор даёт всем одинаковые названия, фразы и критерии готовности.",
           risk: "Каждый подрядчик может улучшить свой канал, но не общий путь пациента.",
         },
@@ -1236,7 +1236,7 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
           title: "Поручить внедрение CAESTHETIC",
           body: "Передать CAESTHETIC главный приоритет 4444: согласовать четыре канала.",
           coordination: "Мы сохраняем один смысл и одни названия в Google, на сайте, в социальных сетях, отзывах и ответах владельца.",
-          risk: "Spoken должна вовремя подтвердить медицинский текст, дать доступы и согласовать результат.",
+          risk: "клиника должна вовремя подтвердить медицинский текст, дать доступы и согласовать результат.",
         },
       ],
       sprint_offer: {
@@ -1275,12 +1275,12 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
     },
     official_names: [
       "CAESTHETIC",
-      "Spoken Med Spa",
-      "Spoken",
+      "частная эстетическая клиника",
+      "клиника",
       "Ivy",
       "Ivy Cleveland",
       "Botox",
-      "Spoken Aesthetic Academy",
+      "клиника Aesthetic Academy",
       "Academy",
       "Google",
       "Instagram",

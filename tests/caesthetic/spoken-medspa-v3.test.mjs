@@ -39,7 +39,16 @@ for(const locale of Object.keys(V3_PARENTS)) {
  });
  test(`${locale}: deterministic output and complete semantic narrative`,()=>{
   const html=renderGrowthReport(buildV3(locale));
-  assert.equal(html,read(`site-caesthetic/score/${V3_PARENTS[locale]}/v3/index.html`));
+  const expectedPath=`site-caesthetic/score/${V3_PARENTS[locale]}/v3/index.html`;
+  const expectedHtml=read(expectedPath);
+  if (html !== expectedHtml && process.env.RUNNER_TEMP) {
+    const driftDir=path.join(process.env.RUNNER_TEMP,`spoken-v3-drift-${locale}`);
+    fs.mkdirSync(driftDir,{recursive:true});
+    fs.writeFileSync(path.join(driftDir,'actual.html'),html);
+    fs.writeFileSync(path.join(driftDir,'expected.html'),expectedHtml);
+    fs.writeFileSync(path.join(driftDir,'path.txt'),expectedPath+'\n');
+  }
+  assert.equal(html,expectedHtml);
   assert.deepEqual([...html.matchAll(/<section[^>]* id="([^"]+)" data-cockpit-order="(\d)"/g)].map(x=>x[1]),V3_SECTION_IDS);
   assert.equal(count(html,/data-gap-role="primary"/g),0);assert.equal(count(html,/data-gap-role="supporting"/g),0);
   assert.equal(count(html,/data-inventory-gap=/g),0);assert.equal(count(html,/data-surface=/g),4);
@@ -160,7 +169,7 @@ test('changed pinned package input fails before touching either output',()=>{
 test('repeat builds produce identical bytes and do not inject execution time',()=>{
  assert.deepEqual([...generateV3()],[...generateV3()]);assert.doesNotThrow(()=>writeV3({check:true}));
 });
-test('another case or unsupported locale cannot render as Spoken v3',()=>{
+test('another case or unsupported locale cannot render as клиника v3',()=>{
  const r=buildV3('ru');r.audit.project_id='other-case';assert.throws(()=>renderGrowthReport(r),/V3_INVALID/);
  assert.throws(()=>buildV3('fr'),/unsupported locale/);
 });
@@ -295,7 +304,7 @@ test('choice copy is frozen and does not inherit engineering approval',()=>{
 test('paid selection requires current per-priority value review and a content-bound selection review',()=>{
  const f=choiceFixture(), selection=f.packet.commercial_selection;
  selection.status='approved'; selection.priority_ids=['SMS-26-01','SMS-26-02','SMS-26-03'];
- // Synthetic value evidence is only for exercising the gate, never a Spoken finding.
+ // Synthetic value evidence is only for exercising the gate, never a клиника finding.
  f.context.inventory=structuredClone(f.context.inventory);
  for(const id of selection.priority_ids){
   const g=f.context.inventory.find(g=>g.id===id);

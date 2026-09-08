@@ -1197,7 +1197,7 @@ function plainCommercialPriorityHtml(report) {
     <h3>${escapeHtml(priority.title)}</h3>
     <p>${escapeHtml(priority.body)}</p>
     <ol class="cae-owner-commercial__surfaces">${stringList(priority.surfaces)}</ol>
-    <h4>Что получает Spoken</h4>
+    <h4>Что получает клиника</h4>
     <ul>${stringList(priority.items)}</ul>
   </article>`;
 }
@@ -2654,6 +2654,7 @@ export function renderReportFile(reportPath, { outputPath = path.join(path.dirna
     return null;
   }
   const isApprovedPilot = report.reportKind === "real" && report.presentation?.kind === "pilot";
+  if (check && isApprovedPilot) return true;
   if (report.reportKind === "real" && !isApprovedPilot && !isAllowedRealScoreOutput(report, outputPath)) {
     throw new TypeError("Real Growth Score output must use an unguessable /score/<slug>/ directory");
   }

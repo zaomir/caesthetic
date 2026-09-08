@@ -56,7 +56,7 @@ const metricFingerprint = (value, excluded = new Set()) => ({
   })),
 });
 
-test("Russian Spoken report is a separate public direct-link route with deterministic output", () => {
+test("Russian клиника report is a separate public direct-link route with deterministic output", () => {
   assert.equal(slug, "spoken-medspa-snellville-9d7f3a5c2e184b61-rus");
   assert.equal(report.reportContext.report_locale, "ru");
   assert.equal(report.presentation.kind, "localized_client");
@@ -68,7 +68,7 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.equal(report.presentation.check500_style_contract, "check500-style/1.0.0");
   assert.equal(
     report.presentation.owner_copy.greeting.body,
-    "Мы проверили путь вашего пациента: как он находит Spoken, сравнивает клиники и выбирает, куда записаться. Ниже — три главные помехи и простой план действий.",
+    "Мы проверили путь вашего пациента: как он находит клиника, сравнивает клиники и выбирает, куда записаться. Ниже — три главные помехи и простой план действий.",
   );
   assert.equal(report.audit.public_direct_link, true);
   assert.equal(report.audit.access_group_id, null);
@@ -82,8 +82,8 @@ test("Russian Spoken report is a separate public direct-link route with determin
   assert.doesNotMatch(storedHtml, /Введите пароль|Пароль|Log in|Login|PIN/i);
 });
 
-test("Russian Spoken report preserves unchanged evidence and aligns the Top 3 to sellable 4444 work", () => {
-  assert.equal(report.verifiedFactSetVersion, "spoken-medspa-snellville-2026-09-04/4444-v1");
+test("Russian клиника report preserves unchanged evidence and aligns the Top 3 to sellable 4444 work", () => {
+  assert.equal(report.verifiedFactSetVersion, "private-aesthetic-practice-2026-09-04/4444-v1");
   const intentionallyUpdated = new Set([
     "search.entity_integrity",
     "website.treatment_clarity",
@@ -149,7 +149,7 @@ test("Russian Spoken report preserves unchanged evidence and aligns the Top 3 to
   assert.match(source.executiveSummary, /specific patient queries/i);
 });
 
-test("Russian Spoken client text contains no English terms outside approved proper names", () => {
+test("Russian клиника client text contains no English terms outside approved proper names", () => {
   let visible = storedHtml
     .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
     .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
@@ -193,7 +193,7 @@ test("Russian Spoken client text contains no English terms outside approved prop
   );
 });
 
-test("Russian Spoken report presents the approved owner-first sequence without empty or duplicate blocks", () => {
+test("Russian клиника report presents the approved owner-first sequence without empty or duplicate blocks", () => {
   assert.equal(report.presentation.layout_contract, "owner-brief/2.1.0");
   assert.equal(report.presentation.vertical_profile, "med_spa");
   assert.match(storedHtml, /Приветствие от Валерии/);
@@ -250,7 +250,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.equal(report.presentation.owner_copy.research_scope.links.length, 3);
   assert.deepEqual(report.presentation.owner_copy.research_scope.links.map(([label]) => label), ["Сайт", "Карты Google", "Социальные сети"]);
   assert.equal(new Set(report.presentation.owner_copy.research_scope.links.map(([, sourceUrl]) => new URL(sourceUrl).hostname.replace(/^www\./, ""))).size, 3);
-  assert.doesNotMatch(storedHtml, /Главная страница Spoken|Страница филлеров|Блог Spoken|О клинике|Страница для новых пациентов|Академия Spoken/);
+  assert.doesNotMatch(storedHtml, /Главная страница клиника|Страница филлеров|Блог клиника|О клинике|Страница для новых пациентов|Академия клиника/);
   assert.equal((storedHtml.match(/data-cae-report-share="(?:start|end)"/g) || []).length, 2);
   assert.equal((storedHtml.match(/>Поделиться отчётом</g) || []).length, 2);
   assert.match(storedHtml, /class="cae-report-note cae-owner-thirty-day-note">Это рекомендуемый порядок самостоятельной работы/);
@@ -329,7 +329,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(storedHtml, /\$500 войдут в его стоимость \$2,500/);
   assert.match(storedHtml, /\$2,500 · 30 дней/);
   assert.match(storedHtml, /Согласовать четыре канала за 30 дней/);
-  assert.match(storedHtml, /Что нужно от <span data-brand>Spoken<\/span>/);
+  assert.match(storedHtml, /Что нужно от <span data-brand>клиника<\/span>/);
   assert.match(storedHtml, /Что проверим на 30-й день/);
   assert.match(storedHtml, /не обещаем конкретные позиции в поиске, число пациентов, выручку или окупаемость/);
   assert.doesNotMatch(storedHtml, /боится|сомневается/i);
@@ -362,7 +362,7 @@ test("Russian Spoken report presents the approved owner-first sequence without e
   assert.match(reportCss, /\.cae-score-report \.cae-check500-section \.cae-btn,\s*\n\.cae-score-report \.cae-owner-check500 \.cae-btn\s*\{[^}]*background:\s*#7B244B;[^}]*color:\s*#FFFFFF;/s);
 });
 
-test("English Spoken report carries the complete approved Russian decision state in US English", () => {
+test("English клиника report carries the complete approved Russian decision state in US English", () => {
   assert.equal(englishReport.reportContext.report_locale, "en");
   assert.equal(englishReport.presentation.kind, "localized_client");
   assert.equal(englishReport.presentation.strict_locale, "en");
@@ -406,7 +406,7 @@ test("English Spoken report carries the complete approved Russian decision state
   );
   assert.equal(
     englishReport.presentation.owner_copy.greeting.body,
-    "We reviewed your patient's journey: how they find Spoken, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
+    "We reviewed your patient's journey: how they find клиника, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
   );
 
   const introIndex = storedEnglishHtml.indexOf('id="report-intro"');

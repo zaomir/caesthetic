@@ -196,8 +196,8 @@ test("spec makes schema v5 authoritative and keeps v4 as historical read-only co
   assert.match(spec, /growth-score-report-template\/5\.2\.0/i);
   assert.match(spec, /historical(?:,|\/|-)?\s*read-only/i);
   assert.match(spec, /must not emit `top_priorities`, `problem_inventory`, `remediation_tasks` or stored `selected_for_repair`/i);
-  assert.match(spec, /Nohy V Ruky report is the current production-approved schema-v5 example/i);
-  assert.match(spec, /Nohy V Ruky[\s\S]{0,400}(?:server-side password|access_group_id|protected)/i);
+  assert.match(spec, /Private Beauty Salon Network report is the current production-approved schema-v5 example/i);
+  assert.match(spec, /Private Beauty Salon Network[\s\S]{0,400}(?:server-side password|access_group_id|protected)/i);
   assert.match(spec, /Neither example supplies reusable facts, scores, sources, findings, Focus Selection, approval metadata or commercial language/i);
   assert.match(spec, /There is no other metric catalogue, scoring authority or renderer authority/i);
 });

@@ -91,6 +91,6 @@ test("version-specific copy cannot silently render a different case", () => {
   report.audit.project_id = "other-practice";
   assert.throws(
     () => renderGrowthReport(report),
-    /limited to the approved Spoken case/,
+    /limited to the approved клиника case/,
   );
 });

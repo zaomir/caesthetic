@@ -87,6 +87,6 @@ export function writeV3({ check = false, outputRoot = ROOT, ...options } = {}) {
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   try {
     writeV3({ check: process.argv.includes("--check"), clientRelease: process.argv.includes("--client-release") });
-    console.log(`Spoken v3 ${process.argv.includes("--check") ? "deterministic check" : "paired build"}: PASS (release stage is recorded in presentation.json)`);
+    console.log(`клиника v3 ${process.argv.includes("--check") ? "deterministic check" : "paired build"}: PASS (release stage is recorded in presentation.json)`);
   } catch (e) { console.error(e.message); process.exitCode = 1; }
 }

@@ -21,4 +21,13 @@ class DomainTest(unittest.TestCase):
   self.assertEqual(self.run_case([{'type':'CNAME','content':'caesthetic.com','proxied':True}],[{'pattern':m.HOST+'/*','script':m.WORKER}]),[])
  def test_conflict(self):
   with self.assertRaisesRegex(RuntimeError,'Conflicting'):self.run_case([{'type':'A','content':'127.0.0.1','proxied':True}],[])
+ def test_no_dns_write_permission_is_non_blocking(self):
+  writes=[]
+  def get(c,path):
+   if path.startswith('/zones?'):result=[{'name':'caesthetic.com','id':'zone'}]
+   elif '/dns_records?' in path:result=[]
+   else:result=[]
+   return 200,{'success':True,'result':result}
+  with patch.object(m.helper,'credentials',return_value=['test']),patch.object(m.helper,'api_get',side_effect=get),patch.object(m,'write',side_effect=lambda c,p,b:writes.append((p,b)) or False):m.main()
+  self.assertEqual(len(writes),1)
 if __name__=='__main__':unittest.main()

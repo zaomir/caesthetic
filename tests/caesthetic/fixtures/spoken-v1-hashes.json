@@ -1,10 +1,10 @@
 {
-  "source_sha": "1c60e6381bba7b15c09b670918cf9ce8b801652e",
+  "source_sha": "faf2340d11c7b068b04727c3fddb072388b2449c",
   "files": {
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "291f0f2f41d2aaeea5eaf74b9a31ede1133341b1b4c76459b172eb584044ae57",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "d80be9dc0cc33563964ae3c7a02a83ae30d9921686e1d902c89a9a3477281dcf",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "7d670b67622fa37423a6d254ce4360495e3430986442bfd7e4994541d63e5e3f",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "c784b000bb52d17d471cbd66cd1dc5e43d945b61a30af99ce7e4c506d482e882",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "b2e7edcd8e33dea763cb3082d9ea311c39e62d071f42a5a803dc1e9db3fe31aa",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "8687f9a256584633c6c0f4744d519ea91cb500f3475787877547f9c0de87c3da",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "d53a9d8e80cdfc34a0338b8c6c37ee28aa6fa7a871425416c32092f5e371d752",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "867e12dbfc5518d76284089b8e8387e76001a8127bdc52fff6153c7e206b8122",
     "site-caesthetic/assets/css/tokens.css": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543",
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
@@ -43,5 +43,9 @@
       "failed_job": "101790214265",
       "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-07-offer-integration/design-gate-101790214265.json"
     }
-  ]
+  ],
+  "privacy_update": {
+    "date": "2026-09-08",
+    "reason": "Parent report bytes changed intentionally to remove client/practice names from CAESTHETIC public site surfaces while preserving legacy route slugs."
+  }
 }

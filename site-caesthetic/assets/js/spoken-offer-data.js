@@ -23,6 +23,6 @@ export const SPOKEN_OFFER = Object.freeze({
 export function resolveSpokenOffer(id, code, practice) {
   if (id == null || id === '') return null;
   if (id !== SPOKEN_OFFER.id || code !== SPOKEN_OFFER.product_code) throw new Error('unsupported_offer');
-  if (practice != null && !/^spokenmedspa(?:llc)?$/.test(String(practice).toLowerCase().replace(/[^a-z]/g, ''))) throw new Error('offer_practice_mismatch');
+  if (practice != null && !/^privateaestheticpractice(?:llc)?$/.test(String(practice).toLowerCase().replace(/[^a-z]/g, ''))) throw new Error('offer_practice_mismatch');
   return SPOKEN_OFFER;
 }

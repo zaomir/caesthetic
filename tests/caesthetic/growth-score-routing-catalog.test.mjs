@@ -94,8 +94,8 @@ test("current approved reports auto-register while private client data stays out
   const publicSurface = `${JSON.stringify(publicCatalog)}\n${publicIndex}`;
   assert.doesNotMatch(publicSurface, /Aesthetemed Beauty & Wellness Clinic/i);
   assert.doesNotMatch(publicSurface, /aesthetemed-public-evidence-7c3e91b4a8f26d50/i);
-  assert.doesNotMatch(publicSurface, /Nohy V Ruky|nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/i);
-  assert.doesNotMatch(publicSurface, /Prestige|prestige-ru-pilot-520-20260901-c6d8e2/i);
+  assert.doesNotMatch(publicSurface, /закрытая сеть салонов|nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/i);
+  assert.doesNotMatch(publicSurface, /закрытый барбершоп|prestige-ru-pilot-520-20260901-c6d8e2/i);
   assert.match(publicIndex, /noindex,nofollow,noarchive,nosnippet/);
   assert.match(publicIndex, /Private client audits are registered internally and never exposed/i);
 });
