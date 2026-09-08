@@ -735,7 +735,7 @@
     "scripts/caesthetic/growth-score-ops.mjs": "ddf8bf0d2dfdc014aeb0fe2fe79b942542489cff0d95fb8b316ed321d0256385",
     "scripts/caesthetic/growth-score-owner-v2.mjs": "c75dc9d098712bd91fedba6c3727d1c874661882daf1fceea07fa504d9e11593",
     "scripts/caesthetic/growth-score-owner-v3-model.mjs": "d163c8ef8f08f28e1158127c966e04c32016e66ed1f4942aaec87e529ceb079d",
-    "scripts/caesthetic/growth-score-owner-v3.mjs": "fb977189a889a247e99f647e8772c923ee1e2529a1d654e987c04a90e00ad398",
+    "scripts/caesthetic/growth-score-owner-v3.mjs": "6d133198251fa67011da5a997b665e30f92ce9721e9365d297cc7efee9c2c37d",
     "scripts/caesthetic/growth-score-project-catalog.mjs": "c354517d6c8c9ebea3015b3d1a3ac4622d231b5ba89dedfe1c869ff16ebe5f17",
     "scripts/caesthetic/growth-score-qa-lead.mjs": "edf13119fa9f5c12b83e51cc9d42001f90dcf20168f77cacde4310e07fca6a3f",
     "scripts/caesthetic/growth-score-report-template.mjs": "142800ada13da7924f38dc3395b6fb53345a759e65bded6f336d8cc9e5eb41e7",
@@ -1191,6 +1191,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-08T23:37:08Z",
+  "updated_at_utc": "2026-09-08T23:41:22Z",
   "version": 1
 }
