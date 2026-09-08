@@ -289,6 +289,7 @@
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/assets/amy-portrait-front.jpg": "9cba0bb0dcf7768b966eab2ddf19afec067a0f049aef17b7307c0a3db376c3e3",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/assets/amy-portrait-side.jpg": "d03eae6fc5a5a97b5e061e29c0375d2960b72b4a68b1dfb491f6473d31ecf600",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/assets/amy-treatment-room.jpg": "9ecc51e5095b752c6d2286ec491990a86442f07a8841f30dcc79af5fec4cc023",
+    "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/calcom-production-smoke.json": "82418cd358bf4e81ba830e71597be3d9c3240ca6e891e5ff52479b6c0c3ce6f8",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/calcom-webhook.ru.md": "8fd9635e92586f4aba9a1307374e4e969b736b0a6d54e539b8eedf209f7640a5",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/instagram-site-media.json": "403611691738c43ff91bacc1cb64c1a67e85405b452635209e4202f6a527a4da",
     "docs/audits/caesthetic/growth-score/cases/acl-amy-lannion-2026/delivery/location-and-review-variants.ru.md": "27760af1a1b498483f6f0e505f067b2369910e4d1578c98bb5b234465f22bde6",
@@ -1188,6 +1189,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-08T23:13:37Z",
+  "updated_at_utc": "2026-09-08T23:16:52Z",
   "version": 1
 }

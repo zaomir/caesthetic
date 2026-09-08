@@ -1,0 +1,64 @@
+{
+  "url": "https://caesthetic.com/api/amy/calcom",
+  "checked_at": "2026-09-08T20:06:50.618187+00:00",
+  "synthetic_only": true,
+  "customer_messages_sent": 0,
+  "checks": [
+    {
+      "name": "GET rejected",
+      "http": 405,
+      "response": {
+        "error": "method_not_allowed"
+      },
+      "pass": true
+    },
+    {
+      "name": "invalid signature",
+      "http": 401,
+      "response": {
+        "error": "invalid_signature"
+      },
+      "pass": true
+    },
+    {
+      "name": "signed creation",
+      "http": 200,
+      "response": {
+        "status": "received",
+        "sending_enabled": false
+      },
+      "pass": true
+    },
+    {
+      "name": "duplicate creation",
+      "http": 200,
+      "response": {
+        "status": "received",
+        "sending_enabled": false
+      },
+      "pass": true
+    },
+    {
+      "name": "flat meeting end",
+      "http": 200,
+      "response": {
+        "status": "received",
+        "sending_enabled": false
+      },
+      "pass": true
+    },
+    {
+      "name": "cancellation",
+      "http": 200,
+      "response": {
+        "status": "received",
+        "sending_enabled": false
+      },
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "user_agent": "CAESTHETIC-Webhook-Smoke/1.0",
+  "initial_python_urllib_agent": "403 Cloudflare 1010 before handler; no WAF settings changed",
+  "calcom_end_to_end": "pending user webhook configuration and real Cal.com event"
+}
