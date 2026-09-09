@@ -33,9 +33,9 @@ test('new reports have no inherited client facts and incomplete content fails',(
   assert.throws(()=>createV6Content('fr'),/ru and en/);
 });
 
-test('Spoken commercial conditions cannot leak into another client',()=>{
+test('scoped commercial conditions cannot leak into another client',()=>{
   const m=model('en');m.business_name='Another Practice';
-  assert.throws(()=>clientV6Document(m),/another business/);
+  assert.throws(()=>clientV6Document(m),/another practice/);
   m.commercial.offer_id=null;
   assert.throws(()=>clientV6Document(m),/scoped offer/);
   m.commercial={offer_id:null,included_check:false,continuation:'separate',credit:false};

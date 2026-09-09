@@ -93,7 +93,7 @@ export function validateV6Content(m) {
   const c=m.commercial;
   if (!c || ![null,'spoken-four-surface-sprint-v1'].includes(c.offer_id)) throw new TypeError('Unknown commercial offer');
   if (typeof c.included_check!=='boolean' || typeof c.credit!=='boolean' || !['separate','scoped-below-sprint'].includes(c.continuation)) throw new TypeError('Invalid commercial options');
-  if (c.offer_id==='spoken-four-surface-sprint-v1' && m.business_name!=='Spoken Med Spa') throw new TypeError('Spoken offer cannot be reused for another business');
+  if (c.offer_id==='spoken-four-surface-sprint-v1' && !['Private Aesthetic Practice','частная эстетическая клиника'].includes(m.business_name)) throw new TypeError('Scoped offer cannot be reused for another practice');
   if ((c.included_check || c.credit || c.continuation==='scoped-below-sprint') && c.offer_id!=='spoken-four-surface-sprint-v1') throw new TypeError('Custom commercial terms require their scoped offer');
   return m;
 }

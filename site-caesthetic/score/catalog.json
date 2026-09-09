@@ -5,7 +5,7 @@
   "projects": [
     {
       "project_id": "demo-aesthetics-clinic-reputation-gap",
-      "display_name": "Fictional Sable Aesthetics Clinic",
+      "display_name": "Synthetic Reputation Practice",
       "location": "Fictional Sun Belt market",
       "audit_format": "single_location",
       "report_kind": "demo",
@@ -15,7 +15,7 @@
     },
     {
       "project_id": "demo-injector-practice-booking-friction",
-      "display_name": "Fictional Lumen Injector Practice",
+      "display_name": "Synthetic Injector Practice",
       "location": "Fictional Southeast market",
       "audit_format": "single_location",
       "report_kind": "demo",

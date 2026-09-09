@@ -1,0 +1,40 @@
+{
+  "case_id": "ent-urgent-care-network-2026",
+  "revision": "v6",
+  "artifact_kind": "internal_review_source_acceptance",
+  "status": "PASS",
+  "source_sha": "3aac39718b06026f50224945d002fd4480b3e0c8",
+  "workflow_url": "https://github.com/zaomir/grainee-v2/actions/runs/34377331068",
+  "artifact_id": 10114820498,
+  "artifact_sha256": "ca46faf1dd58712c359177f187455119cb361ae65334d35203d6b6c20c4990c2",
+  "checked_at": "2026-09-09T16:42:40Z",
+  "source_route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+  "viewports": [320, 390, 1440],
+  "engines": [
+    {"name": "chromium", "observations": 213, "new_violations": 0, "review_viewports_pass": true},
+    {"name": "firefox", "observations": 42, "new_violations": 0, "review_viewports_pass": true},
+    {"name": "webkit", "observations": 42, "new_violations": 0, "review_viewports_pass": true}
+  ],
+  "review_critical_path": {
+    "four_independent_disclosures": "PASS",
+    "keyboard_toggle": "PASS",
+    "two_check_placements": "PASS",
+    "implementation_anchor": "PASS",
+    "no_horizontal_clipping": "PASS",
+    "images": "PASS",
+    "axe_at_390": "PASS",
+    "mobile_screenshots_visually_reviewed": true
+  },
+  "other_required_gates": {
+    "contract_and_rejection_tests": "PASS",
+    "historical_v3_provenance_and_requests": "PASS",
+    "case_library": "PASS",
+    "navigation_and_paid_product_tests": "PASS",
+    "design_receipt": "PASS"
+  },
+  "production": {"verified": false, "reason": "Source acceptance only; publication and live PIN/content verification are recorded separately."},
+  "diagnostic_approval": false,
+  "third_priority": "insufficient_evidence",
+  "ent_final_client_eligibility": "not_approved",
+  "plaintext_pin_in_git": false
+}

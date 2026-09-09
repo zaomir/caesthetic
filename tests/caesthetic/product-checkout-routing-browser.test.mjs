@@ -83,7 +83,7 @@ test('Spoken report retains its offer through product, order and a mocked order 
     await page.waitForURL(base+'/pay/?product=growth_sprint&offer=spoken-four-surface-sprint-v1');
     await page.locator('#order-offer-details').waitFor({state:'visible'});
     assert.match(await page.locator('#order-offer-details').innerText(),/enquiry, response, booking, visit, consultation and payment/);
-    assert.equal(await page.locator('[name=practice_name]').inputValue(),'Spoken Med Spa');
+    assert.equal(await page.locator('[name=practice_name]').inputValue(),'Private Aesthetic Practice');
     assert.equal(await page.locator('#order-price').textContent(),'$2,500 USD');
     await checkOfferLayout(page,'spoken-order');
     await page.locator('#order-offer-details summary').click();assert.match(await page.locator('#order-offer-details details').innerText(),/does not automatically apply a credit/);await page.locator('#order-offer-details summary').click();

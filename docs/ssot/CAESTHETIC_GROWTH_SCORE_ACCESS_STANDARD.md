@@ -1,10 +1,10 @@
 ---
 owner: CAESTHETIC / Platform
 status: active
-version: 1.0
+version: 1.1
 created: 2026-09-03
-updated: 2026-09-03
-scope: client access policy for real CAESTHETIC Growth Score reports
+updated: 2026-09-09
+scope: client access policy and hosted Russian manager-review delivery for CAESTHETIC Growth Score reports
 supersedes_access_rules_in:
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
   - docs/ssot/CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md
@@ -60,3 +60,13 @@ An unguessable route is no longer an authentication requirement. Existing opaque
 Legacy real reports must move to this PIN-only contract when touched or republished. New real reports use this standard immediately.
 
 When this file conflicts with older access-group, unguessable-route or manual-provisioning language in the Production SOP or Publish Control Plane, **this file wins for access policy**.
+
+## Russian manager-review publication
+
+Owner instruction, 2026-09-09T15:08:36Z: **русскую версию для проверки всегда размещать как страницу и давать ссылку**. A GitHub Markdown link, chat document, file export or planned URL is not the requested review page.
+
+Before asking the named manager to review a Russian audit, deploy its actual rendered Russian version under `https://caesthetic.com/score/`, provide its working URL and four-digit PIN, and retain source revision, deployed SHA, page/access smoke and viewport evidence. Reuse the v6 presentation for a single location; preserve network/focus context and shared decisions for Multi-Location. A page is ready only after its exact content opens through the access path. Never return a future or unchecked URL as completed delivery.
+
+This is an **internal review publication**, not approval or client delivery. The page must visibly retain `manager_review`, unverified facts, unfilled priority slots and eligibility limitations. Hosting the Russian draft must not require or fabricate the diagnostic approval that the page exists to obtain. Unsupported verticals, such as the existing ENT pilot, may be reviewed internally with those limitations; they do not thereby enter the approved vertical enum, frozen fact set, completed catalog or final client publication pipeline. Final evidence, focus, translation and client-release gates remain unchanged.
+
+Use server-side PIN protection, noindex/no-store, no public catalog/sitemap listing and the existing canonical deploy workflow. `docs/caesthetic/design/review-pages.json` is a registration extension of the same design contract, not another design system or an exception list. Every registered review page is subject to the normal token, spacing, asset and browser checks; its bytes are included in release identity. Never solve publication failure by disabling the design or access gates.

@@ -45,6 +45,10 @@ test("CAESTHETIC score access is fail-closed except for explicitly allowlisted d
         prefix: "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
         accessGroupId: "spoken-medspa-snellville-2026-09-03",
       },
+      {
+        prefix: "/score/ent-urgent-care-network-6f2c9a4e81d7/",
+        accessGroupId: "ent-network-ru-review-20260909",
+      },
     ],
   );
   for (const entry of manifest.scoreProtectedPaths) {
@@ -70,6 +74,8 @@ test("CAESTHETIC score access is fail-closed except for explicitly allowlisted d
     assert.match(syncManifest, /site-caesthetic\/score\/prestige-ru-pilot-520-20260901-c6d8e2\/\*\*/);
   }
   assert.doesNotMatch(sitemap, /prestige-ru-pilot-520-20260901-c6d8e2/);
+  assert.doesNotMatch(sitemap, /ent-urgent-care-network-6f2c9a4e81d7/);
+  assert.doesNotMatch(read("site-caesthetic/score/catalog.json"), /ent-urgent-care-network-6f2c9a4e81d7/);
   assert.match(cutover, /SCORE_PROTECTED_PATHS/);
   assert.match(cutover, /SCORE_PUBLIC_PATHS/);
   assert.match(cutover, /select_cloudflare_auth/);

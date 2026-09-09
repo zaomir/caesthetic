@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { mergeReviewPages, REVIEW_REGISTRY } from "./review-pages.mjs";
 export const ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "../..",
@@ -107,9 +108,9 @@ export function issues(root = ROOT) {
   return [...counts.values()];
 }
 export function validate(root = ROOT) {
-  const contract = JSON.parse(
+  const contract = mergeReviewPages(root, JSON.parse(
     fs.readFileSync(path.join(root, CONTRACT), "utf8"),
-  );
+  ));
   const errors = [];
   const canon = fs.readFileSync(path.join(root, contract.ssot), "utf8");
   if (!canon.includes(`version: ${contract.version}`))
@@ -205,6 +206,8 @@ export function identity() {
   const runtime = files(path.join(ROOT, "site-caesthetic"))
     .filter((p) => !p.includes("/docs/") && !p.includes("/_handoff/"))
     .map((p) => [relative(p), sha(fs.readFileSync(p))]);
+  const registry = path.join(ROOT, REVIEW_REGISTRY);
+  const contractBytes = fs.readFileSync(path.join(ROOT, CONTRACT));
   return {
     sha: execFileSync("git", ["rev-parse", "HEAD"], {
       cwd: ROOT,
@@ -212,6 +215,6 @@ export function identity() {
     }).trim(),
     runtimeHash: sha(JSON.stringify(runtime)),
     ssotHash: sha(fs.readFileSync(path.join(ROOT, contract.ssot))),
-    contractHash: sha(fs.readFileSync(path.join(ROOT, CONTRACT))),
+    contractHash: sha(fs.existsSync(registry) ? Buffer.concat([contractBytes, Buffer.from('\n' + REVIEW_REGISTRY + '\n'), fs.readFileSync(registry)]) : contractBytes),
   };
 }

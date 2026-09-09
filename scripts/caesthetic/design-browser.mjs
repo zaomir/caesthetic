@@ -1,10 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import http from "node:http";
+import { execFileSync } from "node:child_process";
 import { chromium, firefox, webkit } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
-import { ROOT, CONTRACT, sha, identity } from "./design-contract.mjs";
-const contract = JSON.parse(fs.readFileSync(path.join(ROOT, CONTRACT)));
+import { ROOT, sha, identity, validate } from "./design-contract.mjs";
+const validation = validate();
+if (validation.errors.length) throw new Error(validation.errors.join('\n'));
+const contract = validation.contract;
 const out = process.env.CAE_DESIGN_OUTPUT || "/tmp/caesthetic-design-browser";
 fs.mkdirSync(out, { recursive: true });
 const types = {
@@ -66,6 +69,29 @@ const errors = [];
 const testedIdentity = identity();
 const engine = process.env.CAE_DESIGN_ENGINE || "chromium";
 const browserVersion = browser.version();
+async function verifyReviewAccess(context, entry) {
+  if (!process.env.CAE_DESIGN_BASE || entry.stage !== 'manager_review') return null;
+  if (new URL(base).origin !== 'https://caesthetic.com') throw new Error('Review access smoke is restricted to canonical production');
+  const url = base + entry.route;
+  const gate = await context.request.get(url);
+  const gateBody = await gate.text();
+  if (gate.status() !== 200 || !gateBody.includes('name="password"') || gateBody.includes('data-review-state="manager_review"')) throw new Error('Review unauthenticated gate failed');
+  if (!gate.headers()['cache-control']?.includes('no-store') || !gate.headers()['x-robots-tag']?.includes('noindex')) throw new Error('Review gate privacy headers failed');
+  const wrong = await context.request.post(url, {form:{password:'invalid-review-smoke'},maxRedirects:0});
+  if (wrong.status() !== 401) throw new Error('Review wrong PIN was not rejected');
+  await new Promise(resolve=>setTimeout(resolve,2100));
+  const passwords = JSON.parse(execFileSync(process.execPath,[path.join(ROOT,'scripts/caesthetic/score-pin-runtime.mjs'),'smoke-passwords'],{cwd:ROOT,encoding:'utf8'}));
+  const pin = passwords[entry.accessGroupId];
+  if (!/^\d{4}$/.test(pin || '')) throw new Error('Review PIN runtime unavailable');
+  const login = await context.request.post(url,{form:{password:pin},maxRedirects:0});
+  if (login.status() !== 303) throw new Error('Review correct PIN session failed');
+  const authenticated = await context.request.get(url);
+  const bytes = await authenticated.body();
+  const expectedHash = sha(fs.readFileSync(path.join(ROOT,entry.source)));
+  if (authenticated.status() !== 200 || sha(bytes) !== expectedHash) throw new Error('Review authenticated page differs from exact release');
+  if (!authenticated.headers()['cache-control']?.includes('no-store') || !authenticated.headers()['x-robots-tag']?.includes('noindex')) throw new Error('Review authenticated privacy headers failed');
+  return {gate:200,wrongPin:401,correctPin:303,authenticated:200,contentSha256:expectedHash,sourceSha:testedIdentity.sha};
+}
 try {
   const queue = [
     ...contract.pages.filter((p) => p.profile !== "fragment"),
@@ -73,6 +99,7 @@ try {
   ].filter(
     (p) =>
       !process.env.CAE_DESIGN_FAMILIES_ONLY ||
+      p.stage === 'manager_review' || p.stage === 'redirect' ||
       [
         "/",
         "/pricing/",
@@ -101,6 +128,7 @@ try {
           return route.abort();
         return route.continue();
       });
+      const reviewAccess = await verifyReviewAccess(context,entry);
       const page = await context.newPage();
       for (const width of entry.viewports) {
         await page.setViewportSize({ width, height: 900 });
@@ -119,6 +147,27 @@ try {
           ]),
         );
         await page.waitForTimeout(200);
+        const criticalPathFailures = [];
+        if (entry.stage === 'manager_review') {
+          const summaries = page.locator('.v6-question > summary');
+          if (await summaries.count() !== 4) criticalPathFailures.push('four questions missing');
+          else {
+            for(let i=0;i<4;i++) await summaries.nth(i).click();
+            if(await page.locator('.v6-question[open]').count() !== 4) criticalPathFailures.push('independent disclosures');
+            await summaries.first().focus(); await summaries.first().press('Enter');
+            if(await page.locator('.v6-question[open]').count() !== 3) criticalPathFailures.push('keyboard disclosure');
+            await summaries.first().press('Enter');
+          }
+          if(await page.locator('[data-check500-placement]').count() !== 2) criticalPathFailures.push('two Check placements');
+          await page.locator('#proposal a[href="#next-step"]').click();
+          const anchor = await page.locator('#next-step').evaluate(e=>e.getBoundingClientRect().top);
+          if(anchor < -2 || anchor > 80) criticalPathFailures.push('implementation anchor');
+          await page.evaluate(()=>window.scrollTo(0,0));
+          if(!process.env.CAE_DESIGN_BASE && width===390){
+            const artifactDir=path.join(ROOT,'design-artifacts');fs.mkdirSync(artifactDir,{recursive:true});
+            await page.screenshot({path:path.join(artifactDir,`ru-review-${engine}.png`),fullPage:true});
+          }
+        }
         const result = await page.evaluate(() => {
           const visible = (e) => {
             const r = e.getBoundingClientRect(),
@@ -191,6 +240,7 @@ try {
           profile: entry.profile,
           width,
           ...result,
+          ...(entry.stage==='manager_review'?{criticalPathFailures,reviewAccess}:{}),
         });
         if (
           [
@@ -224,7 +274,7 @@ const baseline = fs.existsSync(baselinePath)
   ? JSON.parse(fs.readFileSync(baselinePath))
   : [];
 for (const r of results) {
-  for (const kind of ["clipped", "smallActions", "missingImages", "axe"])
+  for (const kind of ["clipped", "smallActions", "missingImages", "axe", "criticalPathFailures"])
     for (const v of r[kind] || []) {
       const issue = { route: r.route, width: r.width, kind, value: v };
       const known = baseline.find(
