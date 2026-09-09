@@ -405,7 +405,7 @@
     "docs/caesthetic/design/report-v6/source-manifest.json": "c008bbb0026f16265a7fe066d4fef15be1077a8e462736747f6915a4050d0445",
     "docs/caesthetic/design/report-v6/spoken-reference.en.json": "cc67494d6c7cb62d86d6ebe46de1203aad231c143087bd9a2053f230449cb913",
     "docs/caesthetic/design/report-v6/spoken-reference.ru.json": "cb1b950e2f79a0568765661a8ecdbda9dc7d6a99a88d0e7058697ff708d6fde9",
-    "docs/caesthetic/design/review-pages.json": "0c8195cf885f949b52d4d52b7fdff72d24d7d9fc59c084b3c19f74db718aaa0f",
+    "docs/caesthetic/design/review-pages.json": "9980ea578ce6da5ce40f6330a159b3c54d7aa3048e6320d81fbde39ca4291bb7",
     "docs/caesthetic/growth-preview-v1.schema.json": "4832d79dbb9ec2d1b5b558798e681265085dcacd252f0d5af1930ed840e268c4",
     "docs/caesthetic/growth_score_spec.md": "0e864e97335f93aa7ae38867cdae2bd0a4d22968fbfbbb8a3bd47ebe358c2372",
     "docs/caesthetic/growth_sprint_spec.md": "5c463ddd71f24fe333a18d6733d15ad46d09e8122972ffb40dfda45dbc4174df",
@@ -1198,6 +1198,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-09T19:18:22Z",
+  "updated_at_utc": "2026-09-09T19:19:38Z",
   "version": 1
 }
