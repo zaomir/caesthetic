@@ -2,7 +2,7 @@
   "status": "pass",
   "release": "local-qa",
   "base": "http://localhost:8789",
-  "checked_at": "2026-09-10T03:20:57.072Z",
+  "checked_at": "2026-09-10T03:43:14.329Z",
   "synthetic": true,
   "checks": [
     "real WebAuthn operator registration",
@@ -16,8 +16,10 @@
     "duplicate issuance is idempotent",
     "100-unit purchase, top-up and funding replay preserve balance",
     "HR cross-program isolation",
+    "CRM credential configuration rejects HR and unauthenticated callers",
     "passport disclosure restricted to HR with audit",
     "financial record retains source-event and payment-evidence references",
+    "operator finance detail renders payment evidence and supports older-record cursor",
     "client handoff/link, treatment fee, partial refund and non-overlap with bulk membership",
     "CRM export omits passports",
     "client expiry and stale activation do not revive an ended membership",
@@ -28,5 +30,5 @@
     "HR recovery invalidates old session and preserves participant identity",
     "one-time recovery invitation cannot be replayed"
   ],
-  "program_id": "1cedbc11-c9fc-426e-94c8-6683e4ad4fcb"
+  "program_id": "f225cd5b-56d3-46be-82e2-7ff22f9a0335"
 }

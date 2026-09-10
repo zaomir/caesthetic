@@ -1,6 +1,6 @@
 # CPRP — рабочая реализация v1.2
 
-2026-09-10. Source-пакет: LOCAL_VERIFIED / PRODUCTION_PENDING. Фактические production/CRM проверки фиксируются в release receipt; наличие кода не означает активный пилот.
+2026-09-10. Source-пакет: LOCAL_VERIFIED / PRODUCTION_PENDING. Первый полный design gate прошёл; запуск Worker и live Twenty acceptance ожидают следующего выпуска после отделения старта registry от CRM credential. Фактические production/CRM проверки фиксируются в release receipt; наличие кода не означает активный пилот.
 
 ## Рабочие страницы
 
@@ -42,7 +42,7 @@ WebAuthn: resident credential + обязательная user verification; се
 
 Штатный deploy-caesthetic: exact main SHA → design gate → VPS origin → Worker → production browser/HR/inventory/Twenty acceptance. Admin handler развёртывает штатный Supabase admin-api workflow; EVO static — production deploy target. Секреты не попадают в git, chat или artifacts.
 
-VPS helper сохраняет identity/provisioning keys и Twenty credential в `/var/lib/caesthetic-partner-revenue/` с 0700/0600. CI получает временный приватный файл, загружает Cloudflare secrets и удаляет файл. Identity key нельзя менять при обычном deploy. Provisioning credential предназначен инфраструктуре; обычный admin вход проверяется существующим EVO admin-session endpoint. HMAC-секрет EVO не копируется в CPRP. SQLite migration добавлена после Amy migration.
+VPS helper сохраняет identity/provisioning keys и Twenty credential в `/var/lib/caesthetic-partner-revenue/` с 0700/0600. CI получает временный приватный файл, загружает Cloudflare secrets и удаляет файл. Identity key нельзя менять при обычном deploy. Отсутствие Twenty credential не блокирует запуск registry; обязательная live CRM acceptance остаётся отдельным условием завершения. Provisioning credential предназначен инфраструктуре; обычный admin вход проверяется существующим EVO admin-session endpoint. HMAC-секрет EVO не копируется в CPRP. API-ключ Twenty можно безопасно добавить через `https://evo.do/admin/cprp/`: существующая admin-session проверяется сервером, ключ проверяется на фиксированном Twenty endpoint и хранится AES-GCM-зашифрованным в registry; наружу возвращается только результат настройки. Ключ не передаётся в URL, журналы или Git. Сохранённый в кабинете ключ имеет приоритет над резервным deployment credential. SQLite migration добавлена после Amy migration.
 
 ## Граница выпуска
 

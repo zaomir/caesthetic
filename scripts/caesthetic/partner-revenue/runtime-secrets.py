@@ -19,7 +19,9 @@ for filename in ['/etc/evo/secrets.env','/etc/evo/deploy.env','/etc/grainee/edge
   if name in known and not values.get(name):values[name]=value.strip().strip('\"').strip("'")
 keyfile=Path('/root/.twenty_api_key')
 if (not values.get('TWENTY_API_KEY') or values['TWENTY_API_KEY'].startswith('your_')) and keyfile.is_file():values['TWENTY_API_KEY']=keyfile.read_text().strip()
-if not values.get('TWENTY_API_KEY') or values['TWENTY_API_KEY'].startswith('your_'):raise SystemExit('CPRP setup blocked: Twenty API credential unavailable on VPS2402')
+if not values.get('TWENTY_API_KEY') or values['TWENTY_API_KEY'].startswith('your_'):
+ values.pop('TWENTY_API_KEY',None)
+ print('Twenty credential not present on VPS; registry will start independently; live CRM acceptance still required')
 values.setdefault('CPRP_IDENTITY_KEY',secrets.token_urlsafe(32))
 values.setdefault('CPRP_PROVISIONING_KEY',secrets.token_urlsafe(48))
 values={k:v for k,v in values.items() if k in ('CPRP_IDENTITY_KEY','CPRP_PROVISIONING_KEY','TWENTY_API_KEY')}
