@@ -1,6 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 export const REVIEW_REGISTRY = 'docs/caesthetic/design/review-pages.json';
+export function reviewCheckPlacementCount(entry) {
+  return entry.packageRole === 'focus_location' ? 0 : 2;
+}
 export function mergeReviewPages(root, contract) {
   const registryPath = path.join(root, REVIEW_REGISTRY);
   if (!fs.existsSync(registryPath)) return contract;
@@ -15,6 +18,8 @@ export function mergeReviewPages(root, contract) {
     if (!['manager_review', 'redirect'].includes(p.stage)) throw new Error('Invalid review stage');
     if (p.stage === 'manager_review' && (!p.route.startsWith('/score/') || p.locale !== 'ru' || p.profile !== 'growth-score-client/v6.0.0' || !p.accessGroupId)) throw new Error('Review must use protected Russian v6');
     if (p.stage === 'redirect' && p.profile !== 'redirect') throw new Error('Invalid review redirect');
+    if (p.packageRole && !['network_parent','focus_location'].includes(p.packageRole)) throw new Error('Invalid review package role');
+    if (p.packageRole === 'focus_location' && !registry.pages.some(parent => parent.route === p.parentRoute && parent.packageRole === 'network_parent' && parent.accessGroupId === p.accessGroupId && parent.case_id === p.case_id)) throw new Error('Focus review requires a parent in the same protected package');
     if (!Array.isArray(p.viewports) || ![320,390,1440].every(w=>p.viewports.includes(w))) throw new Error('Review must cover three viewports');
     seenSources.add(p.source); seenRoutes.add(p.route); return {...p};
   });

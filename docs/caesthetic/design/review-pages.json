@@ -9,9 +9,16 @@
       "stage": "manager_review",
       "locale": "ru",
       "accessGroupId": "ent-network-ru-review-20260909",
-      "states": ["default"],
-      "viewports": [320,390,1440],
-      "case_id": "ent-urgent-care-network-2026"
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "case_id": "ent-urgent-care-network-2026",
+      "packageRole": "network_parent"
     },
     {
       "source": "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/index.html",
@@ -20,17 +27,50 @@
       "stage": "manager_review",
       "locale": "ru",
       "accessGroupId": "ent-network-ru-review-20260909",
-      "states": ["default"],
-      "viewports": [320,390,1440],
-      "case_id": "ent-urgent-care-network-2026"
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "case_id": "ent-urgent-care-network-2026",
+      "packageRole": "focus_location",
+      "parentRoute": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/"
+    },
+    {
+      "source": "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/index.html",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+      "profile": "growth-score-client/v6.0.0",
+      "stage": "manager_review",
+      "locale": "ru",
+      "accessGroupId": "ent-network-ru-review-20260909",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "case_id": "ent-urgent-care-network-2026",
+      "packageRole": "focus_location",
+      "parentRoute": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/"
     },
     {
       "source": "site-caesthetic/private/ent-urgent-care-review-6f2c9a4e81d7/index.html",
       "route": "/private/ent-urgent-care-review-6f2c9a4e81d7/",
       "profile": "redirect",
       "stage": "redirect",
-      "states": ["default"],
-      "viewports": [320,390,1440]
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
     }
   ]
 }

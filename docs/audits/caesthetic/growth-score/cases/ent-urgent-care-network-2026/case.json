@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "audit_id": "ent-urgent-care-network-2026",
+  "product": "growth_score",
+  "title": "ENT Urgent Care — network and focus candidates",
+  "subject_type": "public_business",
+  "audit_format": "multi_location",
+  "status": "manager_review",
+  "evidence_policy": "public_sources_only",
+  "repository_access": [
+    "zaomir/grainee-v2",
+    "zaomir/caesthetic"
+  ],
+  "authoring_source_paths": [
+    "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/research-2026-09-10.json",
+    "scripts/caesthetic/build-ent-review-v6.mjs"
+  ],
+  "report_paths": [
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/index.html",
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/index.html",
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/index.html"
+  ],
+  "production_report_paths": [
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/index.html",
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/index.html",
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/index.html"
+  ],
+  "selected_focus_location": null,
+  "named_reviewer": "Валерия",
+  "client_publication_approved": false,
+  "notes": "Internal Russian v6 review projection. No schema-v5 medical report validation, numerical score, focus approval or English publication is claimed."
+}

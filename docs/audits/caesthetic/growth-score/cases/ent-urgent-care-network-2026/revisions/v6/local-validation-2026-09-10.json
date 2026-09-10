@@ -1,0 +1,26 @@
+{
+  "observed_at": "2026-09-10",
+  "status": "pass",
+  "commands": [
+    {
+      "command": "node --test tests/caesthetic/design-contract.test.mjs",
+      "passed": 19,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/caesthetic/build-ent-review-v6.mjs --check",
+      "generated_pages": 3,
+      "status": "pass"
+    }
+  ],
+  "scope": "Targeted local contract tests and deterministic generation only; full design, browser and production checks pending canonical workflow.",
+  "pages": [
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/index.html",
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/index.html",
+    "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/index.html"
+  ],
+  "limitations": [
+    "Google Maps measurement unavailable from authorized provider.",
+    "Browser environment cannot reach local preview (ERR_BLOCKED_BY_CLIENT); canonical browser acceptance remains required."
+  ]
+}

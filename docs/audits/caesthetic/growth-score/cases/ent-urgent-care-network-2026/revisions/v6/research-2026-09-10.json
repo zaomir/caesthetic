@@ -1,0 +1,2461 @@
+{
+  "case_id": "ent-urgent-care-network-2026",
+  "revision": "v6",
+  "observed_at": "2026-09-10",
+  "stage": "manager_review_draft",
+  "source_policy": "public_only",
+  "scope": {
+    "declared_locations": 47,
+    "current_directory_cards": 42,
+    "readable_location_pages": 44,
+    "route_fetch_404": 3,
+    "hours_comparable": 44,
+    "hours_differ": 40,
+    "local_book_link_not_observed": 12
+  },
+  "focus": {
+    "selected_location_id": null,
+    "approver": "Валерия",
+    "candidate_ids": [
+      "alexander-city-al",
+      "monroe-nc"
+    ]
+  },
+  "network_score": null,
+  "locations": [
+    {
+      "id": "alexander-city-al",
+      "name": "Alexander City",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/alexander-city/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "1963 Memorial Pkwy SW, Suite 5A Huntsville, AL 35801"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 7:45 AM - 5:00 PM Tuesday 7:45 AM - 5:00 PM Wednesday 7:45 AM - 5:00 PM Thursday 7:45 AM - 5:00 PM Friday 7:45 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 72,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Alexander City",
+        "partner": "Southern Head & Neck Surgery",
+        "partnerDomain": "www.southernheadandnecksurgery.net",
+        "phones": [
+          "256-536-9300"
+        ],
+        "providerHeading": "Alexander City",
+        "source_url": "https://enturgent.com/location/alexander-city/"
+      },
+      "directory": {
+        "address": "3368 Highway 280 Suite G-15A Alexander City, AL 35010",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=32.9302446,-85.9689425",
+        "label": "Alexander CityAlabama",
+        "phone": "2563291114",
+        "route": "/location/alexander-city/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "birmingham-al",
+      "name": "Birmingham",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/birmingham/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "2161 Valleydale Rd, Suite A Birmingham, AL 35244"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 12:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 73,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Birmingham",
+        "partner": "ExcelENT ",
+        "partnerDomain": "www.excelental.com",
+        "phones": [
+          "205-386-6453"
+        ],
+        "providerHeading": "Birmingham",
+        "source_url": "https://enturgent.com/location/birmingham/"
+      },
+      "directory": {
+        "address": "2161 Valleydale Rd, Suite A Birmingham, AL 35244",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.3596009,-86.7701347",
+        "label": "BirminghamAlabama",
+        "phone": "2053866453",
+        "route": "/location/birmingham/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "birmingham-south-al",
+      "name": "Birmingham South",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/birmingham-south/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "509 Brookwood Blvd Suite 100A Birmingham, AL 35209"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 74,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Birmingham South",
+        "partner": "ExcelENT ",
+        "partnerDomain": "www.excelental.com",
+        "phones": [
+          "205-386-6453"
+        ],
+        "providerHeading": "Birmingham South",
+        "source_url": "https://enturgent.com/location/birmingham-south/"
+      },
+      "directory": {
+        "address": "509 Brookwood Blvd Suite 100A Birmingham, AL 35209",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.4666171,-86.776788",
+        "label": "Birmingham SouthAlabama",
+        "phone": "2053866453",
+        "route": "/location/birmingham-south/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "fairhope-al",
+      "name": "Fairhope",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/fairhope/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "8096 Twin Beech Road, Suite 102A Fairhope, AL 36532"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 4:00 PM Tuesday 8:00 AM - 4:00 PM Wednesday 8:00 AM - 4:00 PM Thursday 8:00 AM - 4:00 PM Friday 8:00 AM - 4:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 75,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Fairhope",
+        "partner": "Eastern Shore Ear, Nose & Throat Clinic",
+        "partnerDomain": "esentc.com",
+        "phones": [
+          "251-928-0300"
+        ],
+        "providerHeading": "Fairhope",
+        "source_url": "https://enturgent.com/location/fairhope/"
+      },
+      "directory": {
+        "address": "8096 Twin Beech Road, Suite 102A Fairhope, AL 36532",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.2347886,-87.5393962",
+        "label": "FairhopeAlabama",
+        "phone": "2519280300",
+        "route": "/location/fairhope/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "homewood-al",
+      "name": "Homewood",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/homewood/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "3055 Independence Dr. Suite A Homewood, AL 35209"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 76,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Homewood",
+        "partner": "McCool & Bhuta ENT",
+        "partnerDomain": "entbirmingham.com",
+        "phones": [
+          "205-414-1368"
+        ],
+        "providerHeading": "Homewood",
+        "source_url": "https://enturgent.com/location/homewood/"
+      },
+      "directory": {
+        "address": "3055 Independence Dr. Suite A Homewood, AL 35209",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.4758908,-86.7869946",
+        "label": "HomewoodAlabama",
+        "phone": "2054141368",
+        "route": "/location/homewood/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "hunstville-al",
+      "name": "Huntsville",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/hunstville/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "201 Whitesport Drive Southwest, Suite A Huntsville, AL 35801"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 3:30 PM Saturday & Sunday Closed"
+        ],
+        "id": 77,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Hunstville",
+        "partner": "ENT, Head & Neck Surgery of Huntsville ",
+        "partnerDomain": "www.entofhuntsville.com",
+        "phones": [
+          "256-881-5353"
+        ],
+        "providerHeading": "Hunstville",
+        "source_url": "https://enturgent.com/location/hunstville/"
+      },
+      "directory": {
+        "address": "201 Whitesport Drive Southwest, Suite A Huntsville, AL 35801",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=354462",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.6944875,-86.570865",
+        "label": "HunstvilleAlabama",
+        "phone": "2568815353",
+        "route": "/location/hunstville/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "huntsville-medical-district-al",
+      "name": "Huntsville Medical District",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/huntsville-medical-district/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "1963 Memorial Pkwy SW, Suite 5A Huntsville, AL 35801"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 4:30 PM Tuesday 8:00 AM - 4:30 PM Wednesday 8:00 AM - 4:30 PM Thursday 8:00 AM - 4:30 PM Friday 8:00 AM - 4:30 PM Saturday & Sunday Closed"
+        ],
+        "id": 78,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Huntsville Medical District",
+        "partner": "North Alabama ENT Associates",
+        "partnerDomain": "nalent.com",
+        "phones": [
+          "256-536-9300"
+        ],
+        "providerHeading": "Huntsville Medical District",
+        "source_url": "https://enturgent.com/location/huntsville-medical-district/"
+      },
+      "directory": {
+        "address": "1963 Memorial Pkwy SW, Suite 5A Huntsville, AL 35801",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.7211584,-86.59219639999999",
+        "label": "Huntsville Medical DistrictAlabama",
+        "phone": "2565369300",
+        "route": "/location/huntsville-medical-district/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "madison-al",
+      "name": "Madison",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/madison/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "8337 Hwy 72 W, Suite 301A Madison, AL 35758"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 4:30 PM Tuesday 8:00 AM - 4:30 PM Wednesday 8:00 AM - 4:30 PM Thursday 8:00 AM - 4:30 PM Friday 8:00 AM - 4:30 PM Saturday & Sunday Closed"
+        ],
+        "id": 79,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Madison",
+        "partner": "North Alabama ENT Associates",
+        "partnerDomain": "nalent.com",
+        "phones": [
+          "256-536-9300"
+        ],
+        "providerHeading": "Madison",
+        "source_url": "https://enturgent.com/location/madison/"
+      },
+      "directory": {
+        "address": "8337 Hwy 72 W, Suite 301A Madison, AL 35758",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.7490742,-86.7627716",
+        "label": "MadisonAlabama",
+        "phone": "2565369300",
+        "route": "/location/madison/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "opelika-al",
+      "name": "Opelika",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/opelika/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "1965 First Avenue Suite A Opelika, AL 36801"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 4:00 PM Tuesday 8:00 AM - 4:00 PM Wednesday 8:00 AM - 4:00 PM Thursday 8:00 AM - 4:00 PM Friday 8:00 AM - 4:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 80,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Opelika",
+        "partner": "East Alabama Ear, Nose & Throat P.C",
+        "partnerDomain": "www.eaent.com",
+        "phones": [
+          "334-705-0012"
+        ],
+        "providerHeading": "Opelika",
+        "source_url": "https://enturgent.com/location/opelika/"
+      },
+      "directory": {
+        "address": "1965 First Avenue Suite A Opelika, AL 36801",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=354620",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.2347886,-87.5393962",
+        "label": "OpelikaAlabama",
+        "phone": "3347050012",
+        "route": "/location/opelika/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "tuscaloosa-al",
+      "name": "Tuscaloosa",
+      "state": "AL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/tuscaloosa/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "302 Merchants Walk #100A Tuscaloosa, AL 35406"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 4:00 PM Tuesday 8:00 AM - 4:00 PM Wednesday 8:00 AM - 4:00 PM Thursday 8:00 AM - 4:00 PM Friday 8:00 AM - 4:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 81,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Tuscaloosa",
+        "partner": "Alabama Ear Nose & Throat Specialists",
+        "partnerDomain": "www.alabamaentspecialists.com",
+        "phones": [
+          "205-722-6822"
+        ],
+        "providerHeading": "Tuscaloosa",
+        "source_url": "https://enturgent.com/location/tuscaloosa/"
+      },
+      "directory": {
+        "address": "302 Merchants Walk #100A Tuscaloosa, AL 35406",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.2347886,-87.5393962",
+        "label": "TuscaloosaAlabama",
+        "phone": "2057226822",
+        "route": "/location/tuscaloosa/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "phoenix-az",
+      "name": "Phoenix",
+      "state": "AZ",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/phoenix/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "1010 E McDowell Rd #200A Phoenix, AZ 85006"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 82,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Phoenix",
+        "partner": "Biltmore ENT",
+        "partnerDomain": "biltmoreent.com",
+        "phones": [
+          "602-956-1250"
+        ],
+        "providerHeading": "Phoenix",
+        "source_url": "https://enturgent.com/location/phoenix/"
+      },
+      "directory": {
+        "address": "1010 E McDowell Rd #200A, Phoenix, AZ 85006",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.46609979999999,-112.0599499",
+        "label": "PhoenixArizona",
+        "phone": "6029561250",
+        "route": "/location/phoenix/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "tarzana-ca",
+      "name": "Tarzana",
+      "state": "CA",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/tarzana/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "5525 Etiwanda Avenue, Suite 211A Tarzana, CA 91356"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 7:30 AM - 6:30 PM Tuesday 7:30 AM - 6:30 PM Wednesday 7:30 AM - 6:30 PM Thursday 7:30 AM - 6:30 PM Friday 7:30 AM - 6:30 PM Saturday & Sunday Closed"
+        ],
+        "id": 83,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Tarzana",
+        "partner": "ENT Group of Los Angeles ",
+        "partnerDomain": "entgroupla.com",
+        "phones": [
+          "844-436-8362"
+        ],
+        "providerHeading": "Tarzana",
+        "source_url": "https://enturgent.com/location/tarzana/"
+      },
+      "directory": {
+        "address": "5525 Etiwanda Avenue, Suite 211A, Tarzana, CA 91356",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=315590",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.1705421,-118.531104",
+        "label": "TarzanaCalifornia",
+        "phone": "8444368362",
+        "route": "/location/tarzana/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "alamosa-co",
+      "name": "Alamosa",
+      "state": "CO",
+      "in_live_directory": false,
+      "website_url": "https://enturgent.com/location/alamosa/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "2115 Stuart Ave. Alamosa, CO 81101"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 12:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 200,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Alamosa",
+        "partnerDomain": "pikespeakentallergyasthma.com",
+        "phones": [
+          "719-589-2511"
+        ],
+        "providerHeading": "Alamosa",
+        "source_url": "https://enturgent.com/location/alamosa/"
+      },
+      "directory": null,
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "burlington-co",
+      "name": "Burlington",
+      "state": "CO",
+      "in_live_directory": false,
+      "website_url": "https://enturgent.com/location/burlington/",
+      "website_status": "source_fetch_404",
+      "detail": {
+        "addresses": [],
+        "error": "source_fetch_404",
+        "hours": [],
+        "id": 201,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Internal Error ()",
+        "phones": []
+      },
+      "directory": null,
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "colorado-springs-briargate-co",
+      "name": "Colorado Springs — Briargate",
+      "state": "CO",
+      "in_live_directory": false,
+      "website_url": "https://enturgent.com/location/colorado-springs-briargate/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "2060 Briargate Pkwy #120A Colorado Springs, CO 80920"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 12:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 202,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Colorado Springs (Briargate)",
+        "partnerDomain": "pikespeakentallergyasthma.com",
+        "phones": [
+          "719-301-3800"
+        ],
+        "providerHeading": "Colorado Springs (Briargate)",
+        "source_url": "https://enturgent.com/location/colorado-springs-briargate/"
+      },
+      "directory": null,
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "colorado-springs-medical-center-co",
+      "name": "Colorado Springs — Medical Center",
+      "state": "CO",
+      "in_live_directory": false,
+      "website_url": "https://enturgent.com/location/colorado-springs-medical-center/",
+      "website_status": "source_fetch_404",
+      "detail": {
+        "addresses": [],
+        "error": "source_fetch_404",
+        "hours": [],
+        "id": 203,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Internal Error ()",
+        "phones": []
+      },
+      "directory": null,
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "farmington-ct",
+      "name": "Farmington",
+      "state": "CT",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/farmington/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "599 Farmington Avenue #102A Farmington, CT 06032"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 84,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Farmington",
+        "partner": "Ear, Nose & Throat Institute of Connecticut",
+        "partnerDomain": "enticmd.com",
+        "phones": [
+          "860-284-4950"
+        ],
+        "providerHeading": "Farmington",
+        "source_url": "https://enturgent.com/location/farmington/"
+      },
+      "directory": {
+        "address": "599 Farmington Avenue #102A, Farmington, CT 06032",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=334448",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=41.724428,-72.8071332",
+        "label": "FarmingtonConnecticut",
+        "phone": "8602844950",
+        "route": "/location/farmington/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "glastonbury-ct",
+      "name": "Glastonbury",
+      "state": "CT",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/glastonbury/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "622 Hebron Ave Suite 201A Glastonbury, CT 06033"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 85,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Glastonbury",
+        "partner": "Ear, Nose & Throat Institute of Connecticut",
+        "partnerDomain": "enticmd.com",
+        "phones": [
+          "860-284-4950"
+        ],
+        "providerHeading": "Glastonbury",
+        "source_url": "https://enturgent.com/location/glastonbury/"
+      },
+      "directory": {
+        "address": "622 Hebron Ave Suite 201A, Glastonbury, CT 06033",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=334455",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=41.7138147,-72.58952099999999",
+        "label": "GlastonburyConnecticut",
+        "phone": "8602844950",
+        "route": "/location/glastonbury/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "lewes-de",
+      "name": "Lewes",
+      "state": "DE",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/lewes/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "17005 Old Orchard Rd Lewes, DE 19958"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 4:30 PM Tuesday 8:00 AM - 4:30 PM Wednesday 8:00 AM - 4:30 PM Thursday 8:00 AM - 4:30 PM Friday 8:00 AM - 4:30 PM Saturday & Sunday Closed"
+        ],
+        "id": 86,
+        "localBookLabel": true,
+        "localBookLink": false,
+        "name": "Lewes",
+        "partnerDomain": "enticmd.com",
+        "phones": [
+          "302-703-4025"
+        ],
+        "providerHeading": "Lewes",
+        "source_url": "https://enturgent.com/location/lewes/"
+      },
+      "directory": {
+        "address": "17005 Old Orchard Rd, Lewes, DE 19958",
+        "booking": "https://app.nexhealth.com/appts/ent-urgent-care",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=38.7527813,-75.16532450000001",
+        "label": "LewesDelaware",
+        "phone": "3027034025",
+        "route": "/location/lewes/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "barrington-il",
+      "name": "Barrington",
+      "state": "IL",
+      "in_live_directory": false,
+      "website_url": "https://enturgent.com/location/barrington/",
+      "website_status": "source_fetch_404",
+      "detail": {
+        "addresses": [],
+        "error": "source_fetch_404",
+        "hours": [],
+        "id": 87,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Internal Error ()",
+        "phones": []
+      },
+      "directory": null,
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "buffalo-grove-il",
+      "name": "Buffalo Grove",
+      "state": "IL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/buffalo-grove/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "1450 Busch Pkwy, Suite 140A Buffalo Grove, IL 60089"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 7:30 AM - 5:00 PM Tuesday 7:30 AM - 5:00 PM Wednesday 7:30 AM - 5:00 PM Thursday 7:30 AM - 5:00 PM Friday 7:30 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 88,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Buffalo Grove",
+        "partner": "Ear, Nose, and Throat Center (ENT)",
+        "partnerDomain": "ent-center.com",
+        "phones": [
+          "847-685-1000"
+        ],
+        "providerHeading": "Buffalo Grove",
+        "source_url": "https://enturgent.com/location/buffalo-grove/"
+      },
+      "directory": {
+        "address": "1450 Busch Pkwy, Suite 140A, Buffalo Grove, IL 60089",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=353010",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=42.1728832,-87.9259871",
+        "label": "Buffalo GroveIllinois",
+        "phone": "8476851000",
+        "route": "/location/buffalo-grove/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "oak-lawn-il",
+      "name": "Oak Lawn",
+      "state": "IL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/oak-lawn/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "4700 95th St Suite 104A Oak Lawn, IL 60453"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 7:30 AM - 5:00 PM Tuesday 7:30 AM - 5:00 PM Wednesday 7:30 AM - 5:00 PM Thursday 7:30 AM - 5:00 PM Friday 7:30 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 89,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Oak Lawn",
+        "partner": "Century ENT",
+        "partnerDomain": "centuryent.net",
+        "phones": [
+          "708-460-0007"
+        ],
+        "providerHeading": "Oak Lawn",
+        "source_url": "https://enturgent.com/location/oak-lawn/"
+      },
+      "directory": {
+        "address": "4700 95th St Suite 104A , Oak Lawn, IL 60453",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=354470",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=41.7204124,-87.7381221",
+        "label": "Oak LawnIllinois",
+        "phone": "7084600007",
+        "route": "/location/oak-lawn/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "orland-park-il",
+      "name": "Orland Park",
+      "state": "IL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/orland-park/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "16001 108th Ave Suite A Orland Park, IL 60467"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:30 AM - 4:30 PM Tuesday 8:30 AM - 4:30 PM Wednesday 8:30 AM - 5:30 PM Thursday 8:30 AM - 4:30 PM Friday 8:30 AM - 1:00 PM Saturday 8:30 AM - 12:00 PM Sunday Closed"
+        ],
+        "id": 90,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Orland Park",
+        "partner": "Century ENT",
+        "partnerDomain": "centuryent.net",
+        "phones": [
+          "708-460-0007"
+        ],
+        "providerHeading": "Orland Park",
+        "source_url": "https://enturgent.com/location/orland-park/"
+      },
+      "directory": {
+        "address": "16001 108th Ave Suite A , Orland Park, IL 60467",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=354469",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=41.59848150000001,-87.8808267",
+        "label": "Orland ParkIllinois",
+        "phone": "7084600007",
+        "route": "/location/orland-park/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "park-ridge-il",
+      "name": "Park Ridge",
+      "state": "IL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/park-ridge/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "8766 W. Dempster Street Suite A Niles, IL 60714"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 7:30 AM - 5:00 PM Tuesday 7:30 AM - 5:00 PM Wednesday 7:30 AM - 5:00 PM Thursday 7:30 AM - 5:00 PM Friday 7:30 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 91,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Park Ridge",
+        "partner": "Primary ENT",
+        "partnerDomain": "ent-center.com",
+        "phones": [
+          "847-685-1000"
+        ],
+        "providerHeading": "Park Ridge",
+        "source_url": "https://enturgent.com/location/park-ridge/"
+      },
+      "directory": {
+        "address": "8766 W. Dempster Street Suite A, Niles, IL 60714",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=353011",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=42.0408548,-87.84452420000001",
+        "label": "Park RidgeIllinois",
+        "phone": "8476851000",
+        "route": "/location/park-ridge/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "rolling-meadows-il",
+      "name": "Rolling Meadows",
+      "state": "IL",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/rolling-meadows/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "5999 New Wilke Road Building 1 Suite A Rolling Meadows, IL 60008"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 7:30 AM - 5:00 PM Tuesday 7:30 AM - 5:00 PM Wednesday 7:30 AM - 5:00 PM Thursday 7:30 AM - 5:00 PM Friday 7:30 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 92,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Rolling Meadows",
+        "partner": "Suburban Ear, Nose & Throat Associates",
+        "partnerDomain": "subent.com",
+        "phones": [
+          "847-259-2530"
+        ],
+        "providerHeading": "Rolling Meadows",
+        "source_url": "https://enturgent.com/location/rolling-meadows/"
+      },
+      "directory": {
+        "address": "5999 New Wilke Road Building 1 Suite A, Rolling Meadows, IL 60008",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=353742",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=42.0532729,-88.0035453",
+        "label": "Rolling MeadowsIllinois",
+        "phone": "8472592530",
+        "route": "/location/rolling-meadows/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "edina-mn",
+      "name": "Edina",
+      "state": "MN",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/edina/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "7300 France Avenue South Suite 100A Edina, MN 55435"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday Text or call for availability Tuesday Text or call for availability Wednesday 9:00 AM - 2:00 PM Thursday Text or call for availability Friday Text or call for availability Saturday & Sunday Closed"
+        ],
+        "id": 93,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Edina",
+        "partner": "Primary ENT",
+        "partnerDomain": "www.primaryent.com",
+        "phones": [
+          "952-395-2500"
+        ],
+        "providerHeading": "Edina",
+        "source_url": "https://enturgent.com/location/edina/"
+      },
+      "directory": {
+        "address": "7300 France Avenue South, Suite 100A, Edina, MN 55435",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=335043",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=44.8704,-93.3295617",
+        "label": "EdinaMinnesota",
+        "phone": "9523952500",
+        "route": "/location/edina/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "mankato-mn",
+      "name": "Mankato",
+      "state": "MN",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/mankato/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "201 N Victory Dr, Ste 211A Mankato, MN 56001"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 9:00 AM - 4:00 PM Tuesday Text or call for availability Wednesday 2:00 PM - 4:30 PM Thursday Text or call for availability Friday Text or call for availability Saturday & Sunday Closed"
+        ],
+        "id": 94,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Mankato",
+        "partnerDomain": "www.primaryent.com",
+        "phones": [
+          "952-395-2500"
+        ],
+        "providerHeading": "Mankato",
+        "source_url": "https://enturgent.com/location/mankato/"
+      },
+      "directory": {
+        "address": "201 N Victory Dr, Ste 211A, Mankato, MN 56001",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=335038",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=44.1647478,-93.9705216",
+        "label": "MankatoMinnesota",
+        "phone": "9523952500",
+        "route": "/location/mankato/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "roseville-mn",
+      "name": "Roseville",
+      "state": "MN",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/roseville/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "7300 France Avenue South Suite 100A Edina, MN 55435"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday Text or call for availability Tuesday Text or call for availability Wednesday 9:00 AM - 2:00 PM Thursday Text or call for availability Friday Text or call for availability Saturday & Sunday Closed"
+        ],
+        "id": 95,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Roseville",
+        "partnerDomain": "www.primaryent.com",
+        "phones": [
+          "952-395-2500"
+        ],
+        "providerHeading": "Roseville",
+        "source_url": "https://enturgent.com/location/roseville/"
+      },
+      "directory": {
+        "address": "2780 E Selling Set Dr # 201A, Roseville, MN 55113",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=335043",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=44.8704,-93.3295617",
+        "label": "RosevilleMinnesota",
+        "phone": "9523952500",
+        "route": "/location/roseville/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "savage-mn",
+      "name": "Savage",
+      "state": "MN",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/savage/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "14020 State Highway 13 Suite 350A Savage, MN 55378"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 3:00 PM Wednesday 8:00 AM - 4:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 3:00 PM Saturday Text or call for availability Sunday Closed"
+        ],
+        "id": 96,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Savage",
+        "partnerDomain": "www.primaryent.com",
+        "phones": [
+          "952-395-2500"
+        ],
+        "providerHeading": "Savage",
+        "source_url": "https://enturgent.com/location/savage/"
+      },
+      "directory": {
+        "address": "14020 State Highway 13Suite 350A Savage, MN 55378",
+        "booking": "https://book.enturgent.com/location/savage/time",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=44.74901630000001,-93.3824333",
+        "label": "SavageMinnesota",
+        "phone": "9523952500",
+        "route": "/location/savage/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "corinth-ms",
+      "name": "Corinth",
+      "state": "MS",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/corinth/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "2907 Hwy 72 West Corinth, MS 38834"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday Call for availability Wednesday Call for availability Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 97,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Corinth",
+        "partner": "ENT Physicians",
+        "partnerDomain": "www.entnorthmississippi.com",
+        "phones": [
+          "888-327-3631"
+        ],
+        "providerHeading": "Corinth",
+        "source_url": "https://enturgent.com/location/corinth/"
+      },
+      "directory": {
+        "address": "2907 Hwy 72 West, Corinth, MS 38834",
+        "booking": "https://myconnection.org/mychart/openscheduling/standalone?dept=870052620&vt=5426",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.9304833,-88.5540408",
+        "label": "CorinthMississippi",
+        "phone": "8883273631",
+        "route": "/location/corinth/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "new-albany-ms",
+      "name": "New Albany",
+      "state": "MS",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/new-albany/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "228 Starlyn Avenue New Albany, MS 38652"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 98,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "New Albany",
+        "partner": "Physicians ENT",
+        "partnerDomain": "www.entnorthmississippi.com",
+        "phones": [
+          "888-327-3631"
+        ],
+        "providerHeading": "New Albany",
+        "source_url": "https://enturgent.com/location/new-albany/"
+      },
+      "directory": {
+        "address": "228 Starlyn Avenue, New Albany, MS 38652",
+        "booking": "https://myconnection.org/mychart/openscheduling/standalone?dept=870032620&vt=5426",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.497316,-89.03594819999999",
+        "label": "New AlbanyMississippi",
+        "phone": "6626663681",
+        "route": "/location/new-albany/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "starkville-ms",
+      "name": "Starkville",
+      "state": "MS",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/starkville/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "300 Hospital Rd Starkville, MS 39759"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday Call for availability Tuesday Call for availability Wednesday 9:00 AM - 3:00 PM Thursday Call for availability Friday Call for availability Saturday & Sunday Closed"
+        ],
+        "id": 99,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Starkville",
+        "partnerDomain": "www.entnorthmississippi.com",
+        "phones": [
+          "888-327-3631"
+        ],
+        "providerHeading": "Starkville",
+        "source_url": "https://enturgent.com/location/starkville/"
+      },
+      "directory": {
+        "address": "300 Hospital Rd, Starkville, MS 39759",
+        "booking": "https://myconnection.org/mychart/openscheduling/standalone?dept=870022620&vt=5426",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=33.4755557,-88.8177058",
+        "label": "StarkvilleMississippi",
+        "phone": "6628919368",
+        "route": "/location/starkville/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "tupelo-ms",
+      "name": "Tupelo",
+      "state": "MS",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/tupelo/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "618 Pegram Drive Tupelo, MS 38801"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 100,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Tupelo",
+        "partner": "Primary ENT",
+        "partnerDomain": "www.entnorthmississippi.com",
+        "phones": [
+          "888-327-3631"
+        ],
+        "providerHeading": "Tupelo",
+        "source_url": "https://enturgent.com/location/tupelo/"
+      },
+      "directory": {
+        "address": "618 Pegram Drive, Tupelo, MS 38801",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.2412568,-88.7139",
+        "label": "TupeloMississippi",
+        "phone": "6628919368",
+        "route": "/location/tupelo/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "tupelo-crosstown-ms",
+      "name": "Tupelo Crosstown",
+      "state": "MS",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/tupelo-crosstown/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "323 N. Gloster St. Tupelo, MS 38804"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 101,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Tupelo Crosstown",
+        "partner": "Primary ENT",
+        "partnerDomain": "www.entnorthmississippi.com",
+        "phones": [
+          "888-327-3631"
+        ],
+        "providerHeading": "Tupelo Crosstown",
+        "source_url": "https://enturgent.com/location/tupelo-crosstown/"
+      },
+      "directory": {
+        "address": "323 N. Gloster St., Tupelo, MS 38804",
+        "booking": "https://myconnection.org/mychart/openscheduling/standalone?dept=870042620&vt=5426",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=34.259862,-88.7164483",
+        "label": "Tupelo CrosstownMississippi",
+        "phone": "6628919368",
+        "route": "/location/tupelo-crosstown/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "sunset-hills-mo",
+      "name": "Sunset Hills",
+      "state": "MO",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/sunset-hills/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "9701 Landmark Parkway Dr, Ste 201A St. Louis, MO 63127"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:30 AM - 4:00 PM Tuesday 8:30 AM - 4:00 PM Wednesday 8:30 AM - 4:00 PM Thursday 8:30 AM - 4:00 PM Friday 8:30 AM - 4:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 102,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Sunset Hills",
+        "partnerDomain": "gatewaydrs.com",
+        "phones": [
+          "314-843-3828"
+        ],
+        "providerHeading": "St. Louis",
+        "source_url": "https://enturgent.com/location/sunset-hills/"
+      },
+      "directory": {
+        "address": "9701 Landmark Parkway Dr, Ste 201A St. Louis, MO 63127",
+        "booking": "https://app.nexhealth.com/appts/ent-urgent-care/appt-slot?lid=341733",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=38.5279003,-90.400983",
+        "label": "Sunset HillsMissouri",
+        "phone": "3148433828",
+        "route": "/location/sunset-hills/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "paramus-nj",
+      "name": "Paramus",
+      "state": "NJ",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/paramus/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "10 Forest Ave #100A Paramus, NJ 07652"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 7:30 AM - 6:00 PM Wednesday 8:00 AM - 4:30 PM Thursday 7:30 AM - 6:00 PM Friday 8:00 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 103,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Paramus",
+        "partner": "ENT, Sinus & Hearing Care Center",
+        "partnerDomain": "www.entsinushearingcarecenter.com",
+        "phones": [
+          "201-996-1505"
+        ],
+        "providerHeading": "Paramus",
+        "source_url": "https://enturgent.com/location/paramus/"
+      },
+      "directory": {
+        "address": "10 Forest Ave #100A, Paramus, NJ 07652",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=343872",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=40.9179289,-74.0527106",
+        "label": "ParamusNew Jersey",
+        "phone": "2019961505",
+        "route": "/location/paramus/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "new-york-city-ny",
+      "name": "New York City",
+      "state": "NY",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/new-york-city/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "200 W. 57th Street Suite 508A New York, NY 10019"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 9:00 AM - 5:00 PM Tuesday 9:00 AM - 5:00 PM Wednesday 9:00 AM - 5:00 PM Thursday 9:00 AM - 5:00 PM Friday 9:00 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 104,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "New York City",
+        "partner": "Open Sinus",
+        "partnerDomain": "www.sinusitistreatmentnyc.com",
+        "phones": [
+          "212-784-6643"
+        ],
+        "providerHeading": "New York City",
+        "source_url": "https://enturgent.com/location/new-york-city/"
+      },
+      "directory": {
+        "address": "200 W. 57th Street Suite 508A, New York, NY 10019",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=349565",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=40.7656021,-73.98038520000001",
+        "label": "New York CityNew York",
+        "phone": "2127846643",
+        "route": "/location/new-york-city/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "charlotte-nc",
+      "name": "Charlotte",
+      "state": "NC",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/charlotte/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "8924 Blakeney Professional Dr. Charlotte, NC 28277"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 105,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Charlotte",
+        "partner": "Queen City Ear, Nose, and Throat PLLC",
+        "partnerDomain": "www.queencity-ent.com",
+        "phones": [
+          "704-703-1080"
+        ],
+        "providerHeading": "Charlotte",
+        "source_url": "https://enturgent.com/location/charlotte/"
+      },
+      "directory": {
+        "address": "8924 Blakeney Professional Dr., Charlotte, NC 28277",
+        "booking": "https://app.nexhealth.com/appts/ent-urgent-care/appt-slot?lid=343699",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=35.0331733,-80.8088118",
+        "label": "CharlotteNorth Carolina",
+        "phone": "7047031080",
+        "route": "/location/charlotte/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "monroe-nc",
+      "name": "Monroe",
+      "state": "NC",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/monroe/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "1994 Wellness Blvd, Suite 210A Monroe, NC 28110"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 5:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 106,
+        "localBookLabel": false,
+        "localBookLink": false,
+        "name": "Monroe",
+        "partnerDomain": "www.queencity-ent.com",
+        "phones": [
+          "704-703-1080"
+        ],
+        "providerHeading": "Monroe",
+        "source_url": "https://enturgent.com/location/monroe/"
+      },
+      "directory": {
+        "address": "1994 Wellness Blvd, Suite 210A, Monroe, NC 28110",
+        "booking": null,
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=35.0243732,-80.5773473",
+        "label": "MonroeNorth Carolina",
+        "phone": "7047031080",
+        "route": "/location/monroe/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "sioux-falls-sd",
+      "name": "Sioux Falls",
+      "state": "SD",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/sioux-falls/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "2315 W 57th St, Suite 100 Sioux Falls, SD 57108"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 3:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 107,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Sioux Falls",
+        "partner": "Queen City Ear, Nose, and Throat PLLC",
+        "partnerDomain": "www.queencity-ent.com",
+        "phones": [
+          "605-336-3503"
+        ],
+        "providerHeading": "Sioux Falls",
+        "source_url": "https://enturgent.com/location/sioux-falls/"
+      },
+      "directory": {
+        "address": "2315 W 57th St, Suite 100, Sioux Falls, SD 57108",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=340361",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=43.4991673,-96.754334",
+        "label": "Sioux FallsSouth Dakota",
+        "phone": "6053363503",
+        "route": "/location/sioux-falls/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "chattanooga-tn",
+      "name": "Chattanooga",
+      "state": "TN",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/chattanooga/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "901 Riverfront Pkwy, suite 300A Chattanooga, TN 37402"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:30 AM - 5:00 PM Tuesday 8:30 AM - 5:00 PM Wednesday 8:30 AM - 5:00 PM Thursday 8:30 AM - 5:00 PM Friday 8:30 AM - 2:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 108,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Chattanooga",
+        "partnerDomain": "www.chattanoogasinusrelief.com",
+        "phones": [
+          "423-698-8981"
+        ],
+        "providerHeading": "Chattanooga",
+        "source_url": "https://enturgent.com/location/chattanooga/"
+      },
+      "directory": {
+        "address": "901 Riverfront Pkwy, suite 300A, Chattanooga, TN 37402",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=353956",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=35.0499155,-85.3219562",
+        "label": "ChattanoogaTennessee",
+        "phone": "4236988981",
+        "route": "/location/chattanooga/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "east-brainerd-tn",
+      "name": "East Brainerd",
+      "state": "TN",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/east-brainerd/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "7480 Ziegler Road, Suite 130A Chattanooga, TN 37421"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:30 AM - 5:00 PM Tuesday 8:30 AM - 5:00 PM Wednesday 8:30 AM - 5:00 PM Thursday 8:30 AM - 5:00 PM Friday 8:30 AM - 2:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 109,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "East Brainerd",
+        "partner": "Chattanooga Ear, Nose and Throat",
+        "partnerDomain": "www.chattanoogasinusrelief.com",
+        "phones": [
+          "423-698-8981"
+        ],
+        "providerHeading": "Charlotte",
+        "source_url": "https://enturgent.com/location/east-brainerd/"
+      },
+      "directory": {
+        "address": "7480 Ziegler Road, Suite 130A, Chattanooga, TN 37421",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=353957",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=35.0192398,-85.15974870000001",
+        "label": "East BrainerdTennessee",
+        "phone": "4236988981",
+        "route": "/location/east-brainerd/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "nashville-tn",
+      "name": "Nashville",
+      "state": "TN",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/nashville/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "410 42nd Ave. N. Suite 200A Nashville, TN 37209"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 4:00 PM Tuesday 8:00 AM - 4:00 PM Wednesday 8:00 AM - 4:00 PM Thursday 8:00 AM - 4:00 PM Friday 8:00 AM - 4:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 110,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Nashville",
+        "partner": "Capital ENT & Sinus Center",
+        "partnerDomain": "www.oatenn.com",
+        "phones": [
+          "615-340-4000"
+        ],
+        "providerHeading": "Nashville",
+        "source_url": "https://enturgent.com/location/nashville/"
+      },
+      "directory": {
+        "address": "410 42nd Ave. N. Suite 200A , Nashville, TN 37209",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=352988",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=40.7656021,-73.98038520000001",
+        "label": "NashvilleTennessee",
+        "phone": "6153404000",
+        "route": "/location/nashville/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "austin-tx",
+      "name": "Austin",
+      "state": "TX",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/austin/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "12309 N Mopac Expy STE 100A Austin, TX 78758"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 4:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 111,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Austin",
+        "partner": "Capital ENT & Sinus Center",
+        "partnerDomain": "capitalent.com",
+        "phones": [
+          "512-596-1420"
+        ],
+        "providerHeading": "Austin",
+        "source_url": "https://enturgent.com/location/austin/"
+      },
+      "directory": {
+        "address": "12309 N Mopac Expy STE 100A, Austin, TX 78758",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=315868",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=30.4152026,-97.7045892",
+        "label": "AustinTexas",
+        "phone": "5125961420",
+        "route": "/location/austin/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "dripping-springs-tx",
+      "name": "Dripping Springs",
+      "state": "TX",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/dripping-springs/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "800 U.S. 290 Bldg. A Suite 200A Dripping Springs, TX 78620"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 3:00 PM Tuesday Call for availability Wednesday Call for availability Thursday Call for availability Friday 8:00 AM - 3:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 112,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Dripping Springs",
+        "partner": "Capital ENT & Sinus Center",
+        "partnerDomain": "www.capitalent.com",
+        "phones": [
+          "830-992-2830"
+        ],
+        "providerHeading": "Dripping Springs",
+        "source_url": "https://enturgent.com/location/dripping-springs/"
+      },
+      "directory": {
+        "address": "800 U.S. 290 Bldg. A, Suite 200A, Dripping Springs, TX 78620",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=339785",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=30.1937222,-98.09915699999999",
+        "label": "Dripping SpringsTexas",
+        "phone": "8309922830",
+        "route": "/location/dripping-springs/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "lakeway-tx",
+      "name": "Lakeway",
+      "state": "TX",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/lakeway/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "4 Lakeway Centre Ct. Unit B1 Lakeway, TX 78734"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 8:00 AM - 4:00 PM Saturday & Sunday Closed"
+        ],
+        "id": 113,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Lakeway",
+        "partner": "Capital ENT & Sinus Center",
+        "partnerDomain": "www.capitalent.com",
+        "phones": [
+          "512-605-1564"
+        ],
+        "providerHeading": "Lakeway",
+        "source_url": "https://enturgent.com/location/lakeway/"
+      },
+      "directory": {
+        "address": "4 Lakeway Centre Ct. Unit B1, Lakeway, TX 78734",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=315883",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=30.3465782,-97.96259320000001",
+        "label": "LakewayTexas",
+        "phone": "5126051564",
+        "route": "/location/lakeway/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    },
+    {
+      "id": "marble-falls-tx",
+      "name": "Marble Falls",
+      "state": "TX",
+      "in_live_directory": true,
+      "website_url": "https://enturgent.com/location/marble-falls/",
+      "website_status": "reviewed",
+      "detail": {
+        "addresses": [
+          "801 Steve Hawkins Pkwy Suite 100 Marble Falls, TX 78654"
+        ],
+        "error": null,
+        "hours": [
+          "Monday 8:00 AM - 5:00 PM Tuesday 8:00 AM - 5:00 PM Wednesday 8:00 AM - 5:00 PM Thursday 8:00 AM - 5:00 PM Friday 7:30 AM - 1:00 PM Saturday & Sunday Closed",
+          "Monday Call for availability Tuesday 8:00 AM - 3:00 PM Wednesday Call for availability Thursday 8:00 AM - 3:00 PM Friday Call for availability Saturday & Sunday Closed"
+        ],
+        "id": 114,
+        "localBookLabel": true,
+        "localBookLink": true,
+        "name": "Marble Falls",
+        "partner": "Otolaryngology Associates of Tennessee",
+        "partnerDomain": "www.capitalent.com",
+        "phones": [
+          "830-992-2830"
+        ],
+        "providerHeading": "Marble Falls",
+        "source_url": "https://enturgent.com/location/marble-falls/"
+      },
+      "directory": {
+        "address": "801 Steve Hawkins Pkwy, Suite 100, Marble Falls, TX 78654",
+        "booking": "https://app.nexhealth.com/appt/ent-urgent-care?lid=339769",
+        "directions": "https://www.google.com/maps/dir/?api=1&destination=30.5589923,-98.2736968",
+        "label": "Marble FallsTexas",
+        "phone": "8309922830",
+        "route": "/location/marble-falls/"
+      },
+      "search": {
+        "status": "not_assessed",
+        "lookup": "live API returned not_found; not proof of GBP absence",
+        "grid": "not_assessed"
+      },
+      "social": {
+        "status": "not_assessed",
+        "network_profiles_linked": true,
+        "local_content": "not_assessed"
+      },
+      "reputation": {
+        "status": "not_assessed",
+        "rating": null,
+        "count": null,
+        "velocity_90d": null
+      }
+    }
+  ],
+  "maps_result_paths": [
+    "docs/agent-api/results/ent-network-maps-20260910-1b.json",
+    "docs/agent-api/results/ent-network-maps-20260910-2b.json",
+    "docs/agent-api/results/ent-network-maps-20260910-3.json",
+    "docs/agent-api/results/ent-partner-comparison-maps-20260910.json"
+  ],
+  "notes": [
+    "42 directory cards captured in live browser. Page facts obtained from web extraction with variable crawl dates; the four Colorado routes were revisited through the service-page menu.",
+    "Map lookup not_found is a provider outcome, not an absence assertion. No map rank, numeric score or 90-day review velocity inferred.",
+    "No forms, messages, appointments or clinical/financial data submitted or collected.",
+    "Earlier Park Ridge/Buffalo Grove Orland Park headings are superseded by current correct headings; Roseville Tue/Thu hours superseded by captured Edina data.",
+    "Final English report and final focus selection await Valeria; unsupported ENT vertical does not prevent internal RU review hosting under Access Standard."
+  ],
+  "maps_followup": {
+    "queries": 13,
+    "matched": 0,
+    "provider": "google_places_ef_proxy",
+    "status": "not_found",
+    "evidence": "docs/agent-api/results/ent-partner-comparison-maps-20260910.json",
+    "interpretation": "Provider lookup did not resolve the entities; not proof that a GBP is absent."
+  }
+}

@@ -158,14 +158,36 @@ try {
             if(await page.locator('.v6-question[open]').count() !== 3) criticalPathFailures.push('keyboard disclosure');
             await summaries.first().press('Enter');
           }
-          if(await page.locator('[data-check500-placement]').count() !== 2) criticalPathFailures.push('two Check placements');
+          const expectedCheckCount = entry.packageRole === 'focus_location' ? 0 : 2;
+          if(await page.locator('[data-check500-placement]').count() !== expectedCheckCount) criticalPathFailures.push('Check placements must respect parent/focus role');
+          if(entry.packageRole && await page.locator('html').getAttribute('data-package-role') !== entry.packageRole) criticalPathFailures.push('review package role mismatch');
+          if(entry.packageRole === 'focus_location' && await page.locator(`a[href="../#next-step"]`).count() !== 1) criticalPathFailures.push('focus must return to parent implementation decision');
           await page.locator('#proposal a[href="#next-step"]').click();
-          const anchor = await page.locator('#next-step').evaluate(e=>e.getBoundingClientRect().top);
-          if(anchor < -2 || anchor > 80) criticalPathFailures.push('implementation anchor');
+          const anchor = await page.locator('#next-step').evaluate(e=>{
+            const box=e.getBoundingClientRect();
+            return {top:box.top,bottom:box.bottom,viewport:innerHeight,atEnd:scrollY+innerHeight>=document.documentElement.scrollHeight-2,hash:location.hash};
+          });
+          // A short final section cannot align to the top at the document boundary.
+          // It must either align near the top or be completely visible at the bottom.
+          const visibleAtEnd=anchor.atEnd && anchor.top>=0 && anchor.bottom<=anchor.viewport+2;
+          if(anchor.hash!=='#next-step' || anchor.top < -2 || (anchor.top > 80 && !visibleAtEnd)) criticalPathFailures.push('implementation anchor');
           await page.evaluate(()=>window.scrollTo(0,0));
           if(!process.env.CAE_DESIGN_BASE && width===390){
             const artifactDir=path.join(ROOT,'design-artifacts');fs.mkdirSync(artifactDir,{recursive:true});
-            await page.screenshot({path:path.join(artifactDir,`ru-review-${engine}.png`),fullPage:true});
+            const screenshotStem=`ru-review-${sha(entry.route).slice(0,10)}-${engine}`;
+            const pageHeight=await page.evaluate(()=>document.documentElement.scrollHeight);
+            if(pageHeight<=30000){
+              await page.screenshot({path:path.join(artifactDir,`${screenshotStem}.png`),fullPage:true});
+            } else {
+              // WebKit has a 32767-pixel bitmap limit; retain section views for long networks.
+              await page.screenshot({path:path.join(artifactDir,`${screenshotStem}-top.png`)});
+              const sectionIds=await page.locator('[data-diagnostic-section]').evaluateAll(es=>es.map(e=>e.id));
+              for(const id of sectionIds){
+                await page.locator(`#${id}`).evaluate(e=>e.scrollIntoView({block:'start'}));
+                await page.screenshot({path:path.join(artifactDir,`${screenshotStem}-${id}.png`)});
+              }
+              await page.evaluate(()=>window.scrollTo(0,0));
+            }
           }
         }
         const result = await page.evaluate(() => {
