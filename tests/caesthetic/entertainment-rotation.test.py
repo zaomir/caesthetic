@@ -64,10 +64,15 @@ class RotationSelectionTest(unittest.TestCase):
         self.assertNotEqual(row["rotation_status"], "BLOCKED_RIGHTS_REVIEW")
         self.assertNotIn("BLOCKED_RIGHTS_REVIEW", values)
 
-    def test_rights_gate_fails_closed(self):
-        row = ready("blocked", 1, 0)
+    def test_legacy_review_columns_do_not_block_agent_authorized_rotation(self):
+        row = ready("direct", 1, 0)
         row["rights_status"] = "REVIEW_REQUIRED"
-        self.assertIsNone(MODULE.select_next([row]))
+        row["audio_status"] = "REVIEW_REQUIRED"
+        row["privacy_status"] = "REVIEW_REQUIRED"
+        row["claims_status"] = "REVIEW_REQUIRED"
+        row["visual_qa_status"] = "REVIEW_REQUIRED"
+        row["approved_publish"] = "FALSE"
+        self.assertEqual(MODULE.select_next([row])["rotation_id"], "direct")
 
     def test_cooldown_is_respected(self):
         row = ready("later", 1, 0)

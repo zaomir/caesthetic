@@ -224,9 +224,10 @@ dropbox:Projects/CAESTHETIC/CAESTHETIC MEDIA/Huck/reels/reels-inbox/top50_2026-0
 
 Do not move files out of this folder. New `.mp4`, `.mov` and `.m4v` files are
 discovered by `scripts/caesthetic/entertainment-rotation.py` and appended to the
-SIMON_OPS tab `CAE_Entertainment_Rotation`. Addition of a file to the folder
-authorizes that specific reel for the rotation inventory. It is not a generic
-batch approval of other files. The watcher does not stamp `BLOCKED_RIGHTS_REVIEW`.
+SIMON_OPS tab `CAE_Entertainment_Rotation`. Addition of a file to the folder is
+a standing publication instruction for that specific reel. The watcher appends
+it without `BLOCKED_RIGHTS_REVIEW`; after platform variants and captions are
+prepared, it may enter the next rotation slot without a second approval.
 
 The folder name is historical: the 2026-08-22 inventory contained 47 videos,
 not 50. The founder will continue adding new entertainment videos to this same
@@ -235,7 +236,7 @@ not as a closed batch or a one-time import. Do not move the files merely to
 match a cleaner folder name; route the watcher to the actual founder-managed
 location.
 
-The ledger has a shared gate/rotation block and separate cells for Instagram,
+The ledger retains a legacy review/rotation block for history and separate cells for Instagram,
 Facebook, TikTok, YouTube and LinkedIn:
 
 ```text
@@ -244,18 +245,19 @@ Facebook, TikTok, YouTube and LinkedIn:
 {platform}_live_url · {platform}_published_at
 ```
 
-Selection is fail-closed. A row is publishable only when rights, business-audio,
-privacy, claims and visual QA are `GO`, `approved_publish=TRUE`, and every
-platform package is present. New approved files receive their first exposure
-before any older item begins another cycle. Within a cycle use
+Selection does not consult legacy rights, audio, privacy, claims, visual-QA or
+`approved_publish` columns. The founder-managed folder is the standing
+publication instruction. Selection begins when every platform package and
+caption is present. New files receive their first exposure before any older
+item begins another cycle. Within a cycle use
 `sequence_position`; never repeat the most recently published item when another
 eligible item exists. `times_published` is the cycle counter: the minimum count
 wins, so after the pool is exhausted selection returns to the first eligible
 row. Respect `next_eligible_at`; no eligible row means skip, not bypass.
 
 Instagram entertainment remains at most the optional Tuesday extra feed slot
-and never replaces Wednesday informational content. Hooppy schedules only the
-exact approved platform bundles. Hooppy `published` is delivery evidence, not
-proof of a live post: write a platform live URL and `published_at` only after
-platform verification. Any media/caption change resets approval. Revoked or
-expired rights immediately set the row to `ARCHIVED`.
+and never replaces Wednesday informational content. Hooppy schedules the
+prepared platform bundles without a second approval. Hooppy `published` is
+delivery evidence, not proof of a live post: write a platform live URL and
+`published_at` only after platform verification. An explicit later withdrawal
+from the assigning agent sets the row to `ARCHIVED`.

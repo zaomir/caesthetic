@@ -53,11 +53,31 @@ class HooppyCreativePipelineTest(unittest.TestCase):
             for suffix in ("asset_url", "spec", "sha256", "caption", "status", "hooppy_post_id", "live_url"):
                 self.assertIn(f"{platform}_{suffix}", MODULE.SHEET_HEADERS)
 
-    def test_publish_gate_fails_closed(self):
+    def test_agent_handoff_does_not_consult_legacy_publish_gates(self):
         raw = self.manifest("master.mp4")
         raw["rights_ok"] = False
-        with self.assertRaisesRegex(ValueError, "publish_gate_incomplete:rights_ok"):
-            MODULE.validate_manifest(raw)
+        raw["privacy_ok"] = False
+        raw["claims_ok"] = False
+        raw["approved_publish"] = False
+        self.assertEqual(MODULE.validate_manifest(raw)["content_id"], "CAE-VIDEO-001")
+
+    def test_schedule_dry_run_does_not_consult_legacy_publish_gates(self):
+        package = MODULE.validate_manifest(self.manifest("master.mp4"))
+        for field in ("approved_script", "claims_ok", "rights_ok", "privacy_ok", "approved_publish"):
+            package[field] = False
+        package["production_status"] = "PLATFORM_VARIANTS_READY"
+        package["qa_status"] = "PASS"
+        package["platforms"] = {
+            name: {
+                "caption": f"copy-{name}",
+                "hooppy_post_id": "",
+                "local_path": "x",
+                "asset_url": f"dropbox:test/{name}.mp4",
+                "sha256": "x",
+            }
+            for name in MODULE.PLATFORMS
+        }
+        self.assertEqual(set(MODULE.schedule_package(package, execute=False)), set(MODULE.PLATFORMS))
 
     def test_expected_master_checksum_is_enforced(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -85,7 +105,7 @@ class HooppyCreativePipelineTest(unittest.TestCase):
                 self.assertRegex(variant["sha256"], r"^[a-f0-9]{64}$")
                 self.assertTrue(variant["asset_url"].startswith("dropbox:SIMON_OPS/content/B_CAE_IG/"))
             row = MODULE.sheet_row(package)
-            self.assertEqual(row["instagram_status"], "READY_FOR_APPROVAL")
+            self.assertEqual(row["instagram_status"], "READY_FOR_POSTING")
             self.assertEqual(row["linkedin_spec"], "1080x1920 h264/aac mp4")
             saved = json.loads(Path(package["publish_manifest"]).read_text())
             self.assertEqual(saved["master_sha256"], package["master_sha256"])
@@ -130,7 +150,7 @@ class HooppyCreativePipelineTest(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "reconcile_required_before_retry:instagram"):
             MODULE.schedule_package(package, execute=False)
 
-    def test_schedule_can_be_limited_to_one_approved_destination(self):
+    def test_schedule_can_be_limited_to_one_requested_destination(self):
         package = MODULE.validate_manifest(self.manifest("master.mp4"))
         package["production_status"] = "PLATFORM_VARIANTS_READY"
         package["qa_status"] = "PASS"

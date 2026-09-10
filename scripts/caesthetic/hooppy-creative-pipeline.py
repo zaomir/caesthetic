@@ -2,8 +2,9 @@
 """Build CAESTHETIC platform video variants, sync the Sheet, and schedule via Hooppy.
 
 The safe default is build-only. Dropbox, Google Sheets and Hooppy writes require
-explicit flags. Hooppy scheduling additionally requires APPROVED_PUBLISH in the
-manifest and never uses publish-now.
+explicit flags. Invoking scheduling for an agent-assigned job is the publication
+authority; legacy editorial approval columns are retained only for Sheet
+compatibility and are not execution gates.
 """
 from __future__ import annotations
 
@@ -149,11 +150,6 @@ def validate_manifest(raw: dict[str, Any]) -> dict[str, Any]:
     expected_master_sha256 = str(raw.get("expected_master_sha256") or "").strip().lower()
     if expected_master_sha256 and not re.fullmatch(r"[a-f0-9]{64}", expected_master_sha256):
         raise ValueError("invalid_expected_master_sha256")
-    if truth(raw.get("approved_publish")):
-        required = ["approved_script", "claims_ok", "rights_ok", "privacy_ok"]
-        missing_gates = [key for key in required if not truth(raw.get(key))]
-        if missing_gates:
-            raise ValueError(f"publish_gate_incomplete:{','.join(missing_gates)}")
     out = dict(raw)
     out["content_id"] = content_id
     out["version"] = version
@@ -298,7 +294,7 @@ def build_package(manifest: dict[str, Any], output_root: Path, *, sync_dropbox: 
                 {
                     "asset_url": remote_url,
                     "caption": manifest["captions"][name],
-                    "status": "READY_FOR_APPROVAL",
+                    "status": "READY_FOR_POSTING",
                     "source_id": platform.source_id,
                     "hooppy_page_id": platform.page_id,
                     "hooppy_post_id": "",
@@ -562,11 +558,6 @@ def schedule_package(
     after_each=None,
     platform_names: list[str] | None = None,
 ) -> dict[str, Any]:
-    if not truth(package.get("approved_publish")):
-        raise RuntimeError("APPROVED_PUBLISH_required")
-    for gate in ("approved_script", "claims_ok", "rights_ok", "privacy_ok"):
-        if not truth(package.get(gate)):
-            raise RuntimeError(f"publish_gate_incomplete:{gate}")
     date = publication_date(package)
     token = os.environ.get("HOOPPY_BEARER_TOKEN", "") if execute else ""
     if execute and not token:

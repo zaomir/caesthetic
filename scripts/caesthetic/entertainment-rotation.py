@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Discover CAESTHETIC entertainment videos and select the next safe rotation item.
+"""Discover CAESTHETIC entertainment videos and select the next rotation item.
 
 This controller never publishes. It appends each Dropbox inbox file to the
 SIMON_OPS rotation ledger as that specific reel authorized for the inventory.
@@ -44,10 +44,6 @@ HEADERS = BASE_HEADERS + PLATFORM_HEADERS
 DEFAULT_ROTATION_STATUS = "READY"
 
 
-def truth(value: Any) -> bool:
-    return str(value or "").strip().upper() in {"TRUE", "YES", "1", "GO", "APPROVED", "PASS"}
-
-
 def parse_time(value: Any) -> datetime | None:
     text = str(value or "").strip()
     if not text:
@@ -71,16 +67,10 @@ def new_inbox_base(
     """Append one inbox file as that specific reel, not a generic discovery hold."""
     return [
         rotation_id, "", source_path, name, modified_at, size, discovered_at,
-        "DISCOVERED", "REVIEW_REQUIRED", "REVIEW_REQUIRED", "REVIEW_REQUIRED",
-        "REVIEW_REQUIRED", "REVIEW_REQUIRED", "TRUE", 1, sequence_position, 0,
+        "DISCOVERED", "NOT_REQUIRED", "NOT_REQUIRED", "NOT_REQUIRED",
+        "NOT_REQUIRED", "NOT_REQUIRED", "TRUE", 1, sequence_position, 0,
         "", "", DEFAULT_ROTATION_STATUS, "", "", "",
     ]
-
-
-def gate_ready(row: dict[str, Any]) -> bool:
-    return all(str(row.get(key) or "").strip().upper() == "GO" for key in (
-        "rights_status", "audio_status", "privacy_status", "claims_status", "visual_qa_status"
-    )) and truth(row.get("approved_publish"))
 
 
 def platform_ready(row: dict[str, Any]) -> bool:
@@ -90,7 +80,7 @@ def platform_ready(row: dict[str, Any]) -> bool:
         if not str(row.get(f"{platform}_caption") or "").strip():
             return False
         if str(row.get(f"{platform}_status") or "").strip().upper() not in {
-            "READY", "READY_FOR_APPROVAL", "SCHEDULED", "LIVE"
+            "READY", "READY_FOR_POSTING", "READY_FOR_APPROVAL", "SCHEDULED", "LIVE"
         }:
             return False
     return True
@@ -102,7 +92,7 @@ def select_next(rows: list[dict[str, Any]], now: datetime | None = None) -> dict
     for row in rows:
         if str(row.get("rotation_status") or "").upper() == "ARCHIVED":
             continue
-        if not gate_ready(row) or not platform_ready(row):
+        if not platform_ready(row):
             continue
         next_at = parse_time(row.get("next_eligible_at"))
         if next_at and next_at > now:

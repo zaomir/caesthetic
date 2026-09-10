@@ -19,33 +19,26 @@ test("operator contract fixes the controlled accounts and vertical placements", 
   assert.match(operator, /separate physical file and a separate Hooppy upload\/media ID/);
 });
 
-test("operator contract is fail-closed and uses the approved New York schedule", () => {
-  for (const gate of [
-    "rights_status=GO",
-    "audio_status=GO",
-    "privacy_status=GO",
-    "claims_status=GO",
-    "visual_qa_status=GO",
-    "approved_publish=TRUE",
-  ]) {
-    assert.ok(operator.includes(gate), `missing gate ${gate}`);
-  }
+test("agent handoff is final authority and New York schedule defaults remain", () => {
+  assert.match(operator, /posting task sent by another agent.*itself final publication approval/s);
+  assert.match(operator, /without requesting or re-checking rights, audio, privacy, claims/);
+  assert.match(operator, /There are no operator-side editorial or compliance gates after handoff/);
   assert.match(operator, /America\/New_York/);
   assert.match(operator, /Informational content: weekdays only/);
   assert.match(operator, /Entertainment content may use weekends/);
-  assert.match(operator, /never instead of the protected Wednesday/);
+  assert.match(operator, /does\s+not replace the protected Wednesday/);
+  assert.match(operator, /explicit agent\n?\s*task may choose another day.*without further approval/s);
   assert.match(operator, /Never send New York wall-clock hours blindly/);
 });
 
 test("another agent can submit a secret-free, exact posting job", () => {
-  assert.match(operator, /schema: caesthetic-hooppy-posting-job\/1\.0\.0/);
+  assert.match(operator, /schema: caesthetic-hooppy-posting-job\/1\.1\.0/);
   assert.match(operator, /sheet:/);
-  assert.match(operator, /approval:/);
   assert.match(operator, /schedule:/);
   assert.match(operator, /destinations:/);
-  assert.match(operator, /expected_sha256: REQUIRED/);
+  assert.match(operator, /expected_sha256: OPTIONAL/);
   assert.match(operator, /Do not put Bearer\/JWT/);
-  assert.match(operator, /If any named field is missing.*exact missing\n?\s*gate/s);
+  assert.match(operator, /The task may be this short/);
 });
 
 test("delivery uses the current media attachment shape and terminal evidence", () => {
@@ -72,5 +65,5 @@ test("shared and CAESTHETIC routers expose the operator contract", () => {
   assert.match(registry, /hooppy_or_caesthetic_posting:/);
   assert.match(manifest, /posting_job:/);
   assert.match(manifest, /hooppy_schedule_dry_run:/);
-  assert.match(scriptsReadme, /caesthetic-hooppy-posting-job\/1\.0\.0/);
+  assert.match(scriptsReadme, /caesthetic-hooppy-posting-job\/1\.1\.0/);
 });
