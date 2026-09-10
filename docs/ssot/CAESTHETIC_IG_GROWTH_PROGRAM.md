@@ -226,11 +226,12 @@ Growth Score submissions, qualified conversations and revenue, not Hooppy
 delivery counts alone.
 
 Entertainment files added to the permanent Dropbox inbox are routed through
-`CAE_Entertainment_Rotation`, not directly to Hooppy. Upload is discovery only.
-The recurring selector may reuse an unchanged exact platform package only while
-the row remains fully green for rights, business-account audio, privacy, claims,
-visual QA and founder publish approval. New approved items are served before a
-new cycle of older items. Full rules and folder routing are canonical in
+`CAE_Entertainment_Rotation`, not directly to Hooppy. Adding a file to the
+inbox authorizes that specific reel for the rotation ledger. The recurring
+selector may reuse an unchanged exact platform package only while the row
+remains fully green for rights, business-account audio, privacy, claims and
+visual QA. New authorized items are served before a new cycle of older items.
+Full rules and folder routing are canonical in
 `docs/projects/caesthetic/operations/ig-growth/11-ENTERTAINMENT_REELS_ROTATION_PLAN.md` §13.
 
 ## 5. Regular cadence

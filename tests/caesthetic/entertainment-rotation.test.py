@@ -47,6 +47,23 @@ class RotationSelectionTest(unittest.TestCase):
         rows = [ready("first", 1, 1), ready("second", 2, 1)]
         self.assertEqual(MODULE.select_next(rows)["rotation_id"], "first")
 
+    def test_inbox_row_is_not_rights_blocked(self):
+        values = MODULE.new_inbox_base(
+            rotation_id="CAE-ENT-ROT-001",
+            source_path="dropbox:inbox/a.mp4",
+            name="a.mp4",
+            modified_at="2026-09-01T00:00:00Z",
+            size=10,
+            discovered_at="2026-09-01T00:00:00Z",
+            sequence_position=1,
+        )
+        row = {header: values[index] for index, header in enumerate(MODULE.BASE_HEADERS)}
+        self.assertEqual(row["rotation_status"], "READY")
+        self.assertEqual(row["approved_publish"], "TRUE")
+        self.assertEqual(row["error_note"], "")
+        self.assertNotEqual(row["rotation_status"], "BLOCKED_RIGHTS_REVIEW")
+        self.assertNotIn("BLOCKED_RIGHTS_REVIEW", values)
+
     def test_rights_gate_fails_closed(self):
         row = ready("blocked", 1, 0)
         row["rights_status"] = "REVIEW_REQUIRED"

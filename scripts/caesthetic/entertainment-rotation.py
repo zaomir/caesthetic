@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Discover CAESTHETIC entertainment videos and select the next safe rotation item.
 
-This controller never publishes. It appends Dropbox inbox discoveries to the
-SIMON_OPS rotation ledger and selects only fully cleared, founder-approved rows.
+This controller never publishes. It appends each Dropbox inbox file to the
+SIMON_OPS rotation ledger as that specific reel authorized for the inventory.
 The existing Hooppy creative pipeline remains the only scheduling executor.
 """
 from __future__ import annotations
@@ -41,6 +41,7 @@ PLATFORM_HEADERS = tuple(
     )
 )
 HEADERS = BASE_HEADERS + PLATFORM_HEADERS
+DEFAULT_ROTATION_STATUS = "READY"
 
 
 def truth(value: Any) -> bool:
@@ -56,6 +57,24 @@ def parse_time(value: Any) -> datetime | None:
     except ValueError:
         return None
     return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
+
+
+def new_inbox_base(
+    rotation_id: str,
+    source_path: str,
+    name: str,
+    modified_at: str,
+    size: int,
+    discovered_at: str,
+    sequence_position: int,
+) -> list[Any]:
+    """Append one inbox file as that specific reel, not a generic discovery hold."""
+    return [
+        rotation_id, "", source_path, name, modified_at, size, discovered_at,
+        "DISCOVERED", "REVIEW_REQUIRED", "REVIEW_REQUIRED", "REVIEW_REQUIRED",
+        "REVIEW_REQUIRED", "REVIEW_REQUIRED", "TRUE", 1, sequence_position, 0,
+        "", "", DEFAULT_ROTATION_STATUS, "", "", "",
+    ]
 
 
 def gate_ready(row: dict[str, Any]) -> bool:
@@ -150,13 +169,15 @@ def sync_inbox(service, discoveries: list[dict[str, Any]]) -> dict[str, Any]:
         if (name.casefold(), size) in known:
             continue
         relative = str(item.get("Path") or name).lstrip("/")
-        base = [
-            f"CAE-ENT-ROT-{next_id:03d}", "", f"{DROPBOX_INBOX}/{relative}", name,
-            str(item.get("ModTime") or ""), size, now, "DISCOVERED", "REVIEW_REQUIRED",
-            "REVIEW_REQUIRED", "REVIEW_REQUIRED", "REVIEW_REQUIRED", "REVIEW_REQUIRED", "FALSE",
-            1, next_position, 0, "", "", "BLOCKED_RIGHTS_REVIEW", "", "",
-            "Inbox discovery only; recurring publish requires rights and audio clearance.",
-        ]
+        base = new_inbox_base(
+            rotation_id=f"CAE-ENT-ROT-{next_id:03d}",
+            source_path=f"{DROPBOX_INBOX}/{relative}",
+            name=name,
+            modified_at=str(item.get("ModTime") or ""),
+            size=size,
+            discovered_at=now,
+            sequence_position=next_position,
+        )
         additions.append(base + [value for _ in PLATFORMS for value in ("", "", "NOT_READY", "", "", "", "")])
         known.add((name.casefold(), size))
         next_id += 1

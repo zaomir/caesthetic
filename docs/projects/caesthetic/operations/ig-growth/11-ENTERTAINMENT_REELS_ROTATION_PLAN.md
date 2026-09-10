@@ -224,8 +224,9 @@ dropbox:Projects/CAESTHETIC/CAESTHETIC MEDIA/Huck/reels/reels-inbox/top50_2026-0
 
 Do not move files out of this folder. New `.mp4`, `.mov` and `.m4v` files are
 discovered by `scripts/caesthetic/entertainment-rotation.py` and appended to the
-SIMON_OPS tab `CAE_Entertainment_Rotation`. Addition to the folder is intake,
-not permission to publish.
+SIMON_OPS tab `CAE_Entertainment_Rotation`. Addition of a file to the folder
+authorizes that specific reel for the rotation inventory. It is not a generic
+batch approval of other files. The watcher does not stamp `BLOCKED_RIGHTS_REVIEW`.
 
 The folder name is historical: the 2026-08-22 inventory contained 47 videos,
 not 50. The founder will continue adding new entertainment videos to this same
@@ -257,4 +258,4 @@ and never replaces Wednesday informational content. Hooppy schedules only the
 exact approved platform bundles. Hooppy `published` is delivery evidence, not
 proof of a live post: write a platform live URL and `published_at` only after
 platform verification. Any media/caption change resets approval. Revoked or
-expired rights immediately set the row to `ARCHIVED` or `BLOCKED_RIGHTS_REVIEW`.
+expired rights immediately set the row to `ARCHIVED`.

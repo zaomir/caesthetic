@@ -67,9 +67,9 @@ Entertainment inbox discovery and rotation selection:
 python3 scripts/caesthetic/entertainment-rotation.py --sync-inbox --select-next
 ```
 
-Inbox discovery is not approval. The selector fails closed until rights, audio,
-privacy, claims, visual QA and `approved_publish` are all green and every
-platform-specific asset/caption is present. Scheduling still goes through
-`hooppy-creative-pipeline.py`.
+A file in the inbox authorizes that specific reel for the ledger. The selector
+fails closed until rights, audio, privacy, claims, visual QA and
+`approved_publish` are all green and every platform-specific asset/caption is
+present. Scheduling still goes through `hooppy-creative-pipeline.py`.
 
 Phase-1 IG canon: `docs/ssot/CAESTHETIC_IG_GROWTH_PROGRAM.md` §12.1. Student/VOC publish path is fail-closed by default.
