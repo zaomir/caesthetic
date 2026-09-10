@@ -1,11 +1,11 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "updated_at": "2026-09-10",
   "id": "caesthetic-partner-revenue-platform",
   "owner": "CAESTHETIC",
   "business_status": "OWNER_DEFINED",
   "architecture_status": "DEFINED",
-  "runtime_status": "NOT_IMPLEMENTED_BY_THIS_RELEASE",
+  "runtime_status": "CORE_DEPLOYED_TWENTY_SETUP_BLOCKED",
   "authority_repository": "zaomir/grainee-v2",
   "authority_branch": "main",
   "runtime_parent": "caesthetic",
@@ -14,6 +14,8 @@
   "topic_files": [
     "docs/caesthetic/partner-revenue/ARCHITECTURE.md",
     "docs/caesthetic/partner-revenue/ATTRIBUTION_AND_LEDGER.md",
+    "docs/caesthetic/partner-revenue/CLIENT_CRM_API.md",
+    "docs/caesthetic/partner-revenue/COORDINATOR_GUIDE.md",
     "docs/caesthetic/partner-revenue/DATA_MODEL.md",
     "docs/caesthetic/partner-revenue/DECISIONS.md",
     "docs/caesthetic/partner-revenue/ECONOMICS.md",
@@ -27,6 +29,7 @@
     "docs/caesthetic/partner-revenue/PROGRAM_EXPERIENCE.md",
     "docs/caesthetic/partner-revenue/README.md",
     "docs/caesthetic/partner-revenue/RESEARCH.md",
+    "docs/caesthetic/partner-revenue/RUNTIME_IMPLEMENTATION.md",
     "docs/caesthetic/partner-revenue/TWENTY_SYNC_CONTRACT.md",
     "docs/caesthetic/partner-revenue/templates/COMMERCIAL_SCHEDULE.md",
     "docs/caesthetic/partner-revenue/templates/EVENT_BRIEF.md",
@@ -85,5 +88,16 @@
       "scope": "project router references canonical main",
       "verification": "REMOTE_MIRROR_NOT_CHECKED"
     }
+  },
+  "implementation": {
+    "scope": "employee_hr_v1",
+    "source_sha": "81faa1d68edee059d07338dbbd3780273f4ccd0d",
+    "guide": "https://caesthetic.com/program/guide/",
+    "staff": "https://caesthetic.com/program/staff/",
+    "admin_setup": "https://evo.do/admin/cprp/",
+    "production_browser_checks_passed": 24,
+    "twenty": "CREDENTIAL_REQUIRED_SCHEMA_AND_SYNC_UNVERIFIED",
+    "delivery": "INCOMPLETE_REQUIRED_ACCEPTANCE_FAILED",
+    "evidence": "docs/audits/caesthetic/partner-runtime-2026-09-10/deployment-progress.json"
   }
 }

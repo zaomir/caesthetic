@@ -1,0 +1,30 @@
+{
+  "status": "fail",
+  "checks": [
+    "real WebAuthn operator registration",
+    "four-field registration and WebAuthn session",
+    "shared family phone does not merge people",
+    "logout invalidation and passkey re-login",
+    "participant cannot read HR inventory",
+    "HR approves eligibility at zero stock",
+    "truthful participant waiting state without partner balance; mobile overflow",
+    "concurrent last-unit allocation cannot oversell",
+    "duplicate issuance is idempotent",
+    "100-unit purchase, top-up and funding replay preserve balance",
+    "HR cross-program isolation",
+    "CRM credential configuration rejects HR and unauthenticated callers",
+    "passport disclosure restricted to HR with audit",
+    "financial record retains source-event and payment-evidence references",
+    "operator finance detail renders payment evidence and supports older-record cursor",
+    "client handoff/link, treatment fee, partial refund and non-overlap with bulk membership",
+    "CRM export omits passports",
+    "client expiry and stale activation do not revive an ended membership",
+    "clinical fields rejected at integration boundary",
+    "cross-origin mutation rejected",
+    "duplicate passport cannot create a second entitlement",
+    "HR desktop and mobile render",
+    "HR recovery invalidates old session and preserves participant identity",
+    "one-time recovery invitation cannot be replayed"
+  ],
+  "error": "{\"status\":503,\"body\":{\"error\":\"twenty_not_configured\"}}\n\n503 !== 200\n"
+}

@@ -363,7 +363,10 @@
     "docs/audits/caesthetic/historical/expert-dental/README.md": "2c01bdf63553f34d011ccf1b3920121255ecddc307cfe6372969ab33cd478ac9",
     "docs/audits/caesthetic/historical/expert-dental/competitive-baseline-2026-08-03.json": "6e931dd3983acb9c7e488d4deb3478a10cb90f39c84447879f386ff4881f66e9",
     "docs/audits/caesthetic/partner-runtime-2026-09-10/dependency-repair.json": "46503a47c08be0cc039a1955d88ca58abb4b5f6c760d421afae983ccf84e4d3e",
+    "docs/audits/caesthetic/partner-runtime-2026-09-10/deployment-progress.json": "3b40ef10ebd71db1444d8e9dc411ed0df9b785c162fa1979b96ee0f9a63774d1",
+    "docs/audits/caesthetic/partner-runtime-2026-09-10/live-readback.json": "54d29429e7f8166260e3c36ff4dd3de8ff5d163831d66fd808b09ed126082ab6",
     "docs/audits/caesthetic/partner-runtime-2026-09-10/local-browser.json": "989d505ff9dde98a36361b21ae4c5b9839b0f33a8fcc13c45209d69f998eaf32",
+    "docs/audits/caesthetic/partner-runtime-2026-09-10/production-browser.json": "7bbbff2d7673cda44c53dddd1ddebea8979681d631c7d45d1623a1ab6a752748",
     "docs/audits/caesthetic/public-site-qa-20260905.md": "8a626c1e40755dc970bb2ad0072aeb28bbc3d69601fdd6a5d76a9e0ffa0be105",
     "docs/audits/caesthetic/public-site-qa-20260905/catalog-after.png": "7e2dcf80520b7626efbf77e248d19744b4ce385291dd7511634485dc46c6e11f",
     "docs/audits/caesthetic/public-site-qa-20260905/catalog-before.png": "06d0a345e51d05e9d0f7b4968fd4224dd8f89017f3f01cca16db936621cc9e37",
@@ -429,9 +432,9 @@
     "docs/caesthetic/partner-revenue/PROGRAM_EXPERIENCE.md": "453a3fda8f5ee5eb03386b18102d3d3f839d6e7d3c959d14d5095513016c4964",
     "docs/caesthetic/partner-revenue/README.md": "ef60a33d6f37e85dfe0467d8e95ad58b367cdb6001fc41c5f5ca67bb34d44d4b",
     "docs/caesthetic/partner-revenue/RESEARCH.md": "1db72f0237be02d19438d85b1f831ef97461979f9a130966d1966ecd73c54c2a",
-    "docs/caesthetic/partner-revenue/RUNTIME_IMPLEMENTATION.md": "609b64e2dc3cb30d233c974c50612e3429b7119af82d89c7dd4fcbcd0b4fdfba",
+    "docs/caesthetic/partner-revenue/RUNTIME_IMPLEMENTATION.md": "c10ab3574aabe312ce16062348306fa79cd85c4d542813ac8078f33a7ac1ec2a",
     "docs/caesthetic/partner-revenue/TWENTY_SYNC_CONTRACT.md": "f11636ab7f054106905a3cd9b75227e84439279cccf5fd63c85a483c30f2603f",
-    "docs/caesthetic/partner-revenue/registry.json": "7f32db2859e543158e0ec0727854f8c9cccf9102de025c7ed707c882b3f7a944",
+    "docs/caesthetic/partner-revenue/registry.json": "c8d980fbd019bd961b7d51d14c408e991dfcf83224d03ae18c6327341e1471a5",
     "docs/caesthetic/partner-revenue/templates/COMMERCIAL_SCHEDULE.md": "cf8e3b717b5659df0239c483c048814a114a703a0d7e2e2314574dccd840862b",
     "docs/caesthetic/partner-revenue/templates/EVENT_BRIEF.md": "813b64e90ad31b0d6d54f870015f4f4d1d0a7f0d30dca12e8ee4d90715818fe8",
     "docs/caesthetic/partner-revenue/templates/PARTNER_PROGRAM_BRIEF.md": "17682df4cdf4a5c86b03ce99a507c03154a4f72a15369f05bb5d9ea03bc54824",
@@ -1238,6 +1241,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-10T14:54:24Z",
+  "updated_at_utc": "2026-09-10T18:17:52Z",
   "version": 1
 }

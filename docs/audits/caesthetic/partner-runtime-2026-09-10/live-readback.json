@@ -1,0 +1,48 @@
+{
+  "checked_at": "2026-09-10T18:15:59.177792+00:00",
+  "health": {
+    "ok": true,
+    "release": "81faa1d68edee059d07338dbbd3780273f4ccd0d",
+    "service": "cprp"
+  },
+  "source_sha": "81faa1d68edee059d07338dbbd3780273f4ccd0d",
+  "method": "curl HTTPS GET / byte comparison",
+  "pages": [
+    {
+      "url": "https://caesthetic.com/program/",
+      "curl_exit": 0,
+      "sha256": "63fccb2459e60c3b5405056b86ab58782245ae81b091c56f92c6ca6a95cd7c65",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/program/join/",
+      "curl_exit": 0,
+      "sha256": "62f0d3d8bec39de49c9596ebfb3fe526be585c255dd120cbb8e4c70a56d65b18",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/program/member/",
+      "curl_exit": 0,
+      "sha256": "e1cfbe952115d20aff8942d808f21ed58680c17711a30b0b0bcb183fcbc9e5f5",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/program/access/",
+      "curl_exit": 0,
+      "sha256": "e1fb65ac04c799d8d05d233a849a004db51819090ff1fe0dbd3cfa5d8a6266d3",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/program/staff/",
+      "curl_exit": 0,
+      "sha256": "b5a44c32dff0ad008c67f8bc10f16f883f980f623f2d0b009bc12c4ab9d0d4ac",
+      "matches_source": true
+    },
+    {
+      "url": "https://caesthetic.com/program/guide/",
+      "curl_exit": 0,
+      "sha256": "31f030e637fd66c977db830fb92bec7deab54834bf68079a4bcd7b4a8e91e3a6",
+      "matches_source": true
+    }
+  ]
+}

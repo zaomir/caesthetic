@@ -1,6 +1,11 @@
 # CPRP — рабочая реализация v1.2
 
-2026-09-10. Source-пакет: LOCAL_VERIFIED / PRODUCTION_PENDING. Первый полный design gate прошёл; запуск Worker и live Twenty acceptance ожидают следующего выпуска после отделения старта registry от CRM credential. Фактические production/CRM проверки фиксируются в release receipt; наличие кода не означает активный пилот.
+2026-09-10. **CORE_DEPLOYED / TWENTY_SETUP_BLOCKED**. Реестр, страницы, регистрация/авторизация, HR-квоты и ledger опубликованы из main SHA `81faa1d68edee059d07338dbbd3780273f4ccd0d`. На рабочем домене прошли 24 браузерные проверки на синтетических участниках. Обязательная настройка Twenty вернула `503 twenty_not_configured`; весь deployment workflow остаётся failed, задача не завершена. Последующие общие post-deploy проверки сайта не запускались после этого сбоя.
+
+[Production evidence](../../audits/caesthetic/partner-runtime-2026-09-10/deployment-progress.json) · [24 пройденных проверки и точная ошибка](../../audits/caesthetic/partner-runtime-2026-09-10/production-browser.json) · [Workflow](https://github.com/zaomir/grainee-v2/actions/runs/34434491541).
+
+Для завершения: через существующий административный вход открыть `https://evo.do/admin/cprp/`, подключить ключ Twenty с правами на настройку объектов и записи программ, дождаться проверки схемы; затем повторить failed deployment job для того же source SHA и получить live Twenty readback и остальные обязательные проверки. Ключ вводится в защищённой форме, не в переписке. Запрошенный безопасный вход в Twenty не был завершён; автоматические повторные запросы входа не выполнялись.
+
 
 ## Рабочие страницы
 
