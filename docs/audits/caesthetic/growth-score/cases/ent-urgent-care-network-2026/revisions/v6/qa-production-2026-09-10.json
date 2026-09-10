@@ -1,0 +1,562 @@
+{
+  "status": "pass",
+  "scope": "ENT protected review routes: exact source bytes, PIN/privacy and rendered critical paths. This is not an overall deployment PASS.",
+  "identity": {
+    "sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+    "runtimeHash": "320077bd72baa8c921b417aa561b9da47963af94e5fb66973706f49d7c6838f7",
+    "ssotHash": "c16ae807beb2cd8dae386972521cb966b90701993ff4b01ecdb1e8ba5dfadb88",
+    "contractHash": "943604305ec98d76d661f2e0599a9b18161cedf75d733217e43b7ae79ea13341"
+  },
+  "checked_at": "2026-09-10T19:52:45.044Z",
+  "engine": "chromium",
+  "global_observations": 234,
+  "global_errors": [],
+  "ent_observations": [
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "11fdd900675f145d42127dd6f511d294024b12c028ac44d59ec80cc56f306247",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "e2d3c377822b1062080aea705a38710c4b641607668848bb8a0cf80f7881665f",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 320,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "6f9a65f010bfd00a70bf2c4d0dcea1ebaa1c9b061180db351aab38a6e2f092ec",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": [],
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "e2d3c377822b1062080aea705a38710c4b641607668848bb8a0cf80f7881665f",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": [],
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "11fdd900675f145d42127dd6f511d294024b12c028ac44d59ec80cc56f306247",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 390,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "axe": [],
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "6f9a65f010bfd00a70bf2c4d0dcea1ebaa1c9b061180db351aab38a6e2f092ec",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "e2d3c377822b1062080aea705a38710c4b641607668848bb8a0cf80f7881665f",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "11fdd900675f145d42127dd6f511d294024b12c028ac44d59ec80cc56f306247",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    },
+    {
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+      "profile": "growth-score-client/v6.0.0",
+      "width": 1440,
+      "clipped": [],
+      "smallActions": [],
+      "missingImages": [],
+      "access": false,
+      "criticalPathFailures": [],
+      "reviewAccess": {
+        "gate": 200,
+        "wrongPin": 401,
+        "correctPin": 303,
+        "authenticated": 200,
+        "contentSha256": "6f9a65f010bfd00a70bf2c4d0dcea1ebaa1c9b061180db351aab38a6e2f092ec",
+        "sourceSha": "ce1310246a76146d1954b02fb01bb5daa517cbdc"
+      }
+    }
+  ],
+  "workflow_run_id": 34521445185,
+  "workflow_url": "https://github.com/zaomir/grainee-v2/actions/runs/34521445185",
+  "artifact_id": 10170411416,
+  "artifact_sha256": "ccf98e054de8d557c6f3a6cf779f53b75c224143c227df878da4879a40f032a8",
+  "workflow_conclusion": "failure",
+  "unrelated_failure": {
+    "step": "CPRP registration, authorization, inventory and Twenty production acceptance",
+    "http_status": 503,
+    "error": "twenty_not_configured"
+  },
+  "jobs": [
+    {
+      "conclusion": "success",
+      "id": 103019674661,
+      "logs_url": null,
+      "name": "design / caesthetic-design-gate",
+      "run_id": 34521445185,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Resolve affected scope",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm ci --ignore-scripts",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps chromium firefox webkit",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Contract and rejection tests",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "CPRP real registration, authorization and quota boundaries",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "the practice v3 source provenance and request flows",
+          "number": 9,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Case library navigation and responsive regression",
+          "number": 10,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Shared navigation and paid-product funnel regression",
+          "number": 11,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Every registered page",
+          "number": 12,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Representative Firefox surfaces",
+          "number": 13,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Representative WebKit surfaces",
+          "number": 14,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Acceptance receipt",
+          "number": 15,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Collect acceptance artifacts",
+          "number": 16,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 17,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 18,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 19,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 37,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 38,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 39,
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "conclusion": "failure",
+      "id": 103023025359,
+      "logs_url": null,
+      "name": "Deploy caesthetic.com + sender-domain route cleanup",
+      "run_id": 34521445185,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Checkout requested SHA",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/download-artifact@v4",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Verify accepted artifact",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Resolve trigger mode",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate requested SHA",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate outbound portfolio contract",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate deploy secrets",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup SSH key",
+          "number": 9,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Transfer design acceptance",
+          "number": 10,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Deploy exact SHA to VPS2402 origin",
+          "number": 11,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Transfer protected CPRP runtime configuration",
+          "number": 12,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Node.js for Cloudflare Worker",
+          "number": 13,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install Cloudflare deployment dependencies",
+          "number": 14,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Build PIN-only Growth Score access config",
+          "number": 15,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Deploy canonical Cloudflare Worker with PIN-only gates",
+          "number": 16,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Deploy sender-domain route cleanup",
+          "number": 17,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Provision Amy client subdomain",
+          "number": 18,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Wait for edge propagation",
+          "number": 19,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Canonical production smoke",
+          "number": 20,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Protected client Growth Score smoke",
+          "number": 21,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install rendered production checks",
+          "number": 22,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "CPRP operator entry and existing authentication boundary",
+          "number": 23,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Production design conformance",
+          "number": 24,
+          "status": "completed"
+        },
+        {
+          "conclusion": "failure",
+          "name": "CPRP registration, authorization, inventory and Twenty production acceptance",
+          "number": 25,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 26,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Remove temporary CPRP credentials",
+          "number": 27,
+          "status": "completed"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "the practice v6 production critical path",
+          "number": 28,
+          "status": "completed"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "private report production critical path",
+          "number": 29,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 30,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 31,
+          "status": "completed"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Record successful production smoke",
+          "number": 32,
+          "status": "completed"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Summary",
+          "number": 33,
+          "status": "completed"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Post Setup Node.js for Cloudflare Worker",
+          "number": 65,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Checkout requested SHA",
+          "number": 66,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 67,
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "provided_pin_matches_existing_manifest": true
+}

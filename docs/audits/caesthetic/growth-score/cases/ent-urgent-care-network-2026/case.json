@@ -28,5 +28,6 @@
   "selected_focus_location": null,
   "named_reviewer": "Валерия",
   "client_publication_approved": false,
-  "notes": "Internal Russian v6 review projection. No schema-v5 medical report validation, numerical score, focus approval or English publication is claimed."
+  "notes": "Internal Russian v6 review projection. No schema-v5 medical report validation, numerical score, focus approval or English publication is claimed.",
+  "review_delivery_path": "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/review-delivery-2026-09-10.json"
 }

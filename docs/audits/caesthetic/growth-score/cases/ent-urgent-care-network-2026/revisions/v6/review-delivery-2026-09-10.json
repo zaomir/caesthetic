@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "case_id": "ent-urgent-care-network-2026",
+  "stage": "manager_review",
+  "locale": "ru",
+  "reviewer": "Валерия",
+  "focus_location_selected": null,
+  "client_approved": false,
+  "review_pages_status": "published_and_verified",
+  "source_sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+  "source_url": "https://github.com/zaomir/grainee-v2/commit/ce1310246a76146d1954b02fb01bb5daa517cbdc",
+  "main_ancestry_verified_by_canonical_deploy": true,
+  "deployed_sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+  "urls": {
+    "network": "https://caesthetic.com/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+    "alexander-city": "https://caesthetic.com/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+    "monroe": "https://caesthetic.com/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/"
+  },
+  "design": {
+    "path": "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/qa-design-2026-09-10.json",
+    "sha256": "99ffaa4be16b40301a2d0a926c198807e485706f1da04346285af15874dae97a"
+  },
+  "production": {
+    "path": "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/qa-production-2026-09-10.json",
+    "sha256": "1b73116bb0e7fc3643a7953752116f5986f16981a6095e6d4f9bce174ce9b78c"
+  },
+  "design_observations": 27,
+  "production_observations": 9,
+  "pin_access": "Existing package PIN retained; anonymous gate, wrong PIN rejection, successful login, no-store/noindex and exact HTML bytes passed. No credential retained in this record.",
+  "canonical_workflow": {
+    "run_id": 34521445185,
+    "url": "https://github.com/zaomir/grainee-v2/actions/runs/34521445185",
+    "conclusion": "failure",
+    "failed_step": "CPRP registration, authorization, inventory and Twenty production acceptance",
+    "error": "503 twenty_not_configured",
+    "report_production_conformance": "pass",
+    "origin_and_worker_deploy": "pass",
+    "canonical_production_smoke": "pass"
+  },
+  "limitations": [
+    "Authorized Maps provider did not resolve 47 brand and 13 partner/comparator queries; no grid, rating/count or 90-day velocity.",
+    "Social content and Alexander City independent-comparator coverage remain incomplete.",
+    "Medical schema adapter and scored English final are not frozen or published."
+  ],
+  "next": "Валерия reviews the complete Russian structure with explicit measurement gaps and selects one focus location; CRM owner resolves the separately recorded Twenty dependency before global release closeout."
+}

@@ -1,0 +1,371 @@
+{
+  "status": "pass",
+  "source_sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+  "workflow_run_id": 34521445185,
+  "workflow_url": "https://github.com/zaomir/grainee-v2/actions/runs/34521445185",
+  "design_job_id": 103019674661,
+  "artifact_id": 10170186535,
+  "artifact_sha256": "9919ff0538d39e6a0c91bb0067e6e0c3652c77adc49a04a5cda85580452422c9",
+  "review_observations": 27,
+  "engines": {
+    "chromium": {
+      "identity": {
+        "sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+        "runtimeHash": "320077bd72baa8c921b417aa561b9da47963af94e5fb66973706f49d7c6838f7",
+        "ssotHash": "c16ae807beb2cd8dae386972521cb966b90701993ff4b01ecdb1e8ba5dfadb88",
+        "contractHash": "943604305ec98d76d661f2e0599a9b18161cedf75d733217e43b7ae79ea13341"
+      },
+      "checked_at": "2026-09-10T19:45:34.845Z",
+      "global_observations": 237,
+      "global_errors": [],
+      "ent_results": [
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        }
+      ]
+    },
+    "firefox": {
+      "identity": {
+        "sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+        "runtimeHash": "320077bd72baa8c921b417aa561b9da47963af94e5fb66973706f49d7c6838f7",
+        "ssotHash": "c16ae807beb2cd8dae386972521cb966b90701993ff4b01ecdb1e8ba5dfadb88",
+        "contractHash": "943604305ec98d76d661f2e0599a9b18161cedf75d733217e43b7ae79ea13341"
+      },
+      "checked_at": "2026-09-10T19:46:21.558Z",
+      "global_observations": 48,
+      "global_errors": [],
+      "ent_results": [
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        }
+      ]
+    },
+    "webkit": {
+      "identity": {
+        "sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+        "runtimeHash": "320077bd72baa8c921b417aa561b9da47963af94e5fb66973706f49d7c6838f7",
+        "ssotHash": "c16ae807beb2cd8dae386972521cb966b90701993ff4b01ecdb1e8ba5dfadb88",
+        "contractHash": "943604305ec98d76d661f2e0599a9b18161cedf75d733217e43b7ae79ea13341"
+      },
+      "checked_at": "2026-09-10T19:47:02.557Z",
+      "global_observations": 48,
+      "global_errors": [],
+      "ent_results": [
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 320,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 390,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "axe": [],
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        },
+        {
+          "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/",
+          "profile": "growth-score-client/v6.0.0",
+          "width": 1440,
+          "clipped": [],
+          "smallActions": [],
+          "missingImages": [],
+          "access": false,
+          "criticalPathFailures": [],
+          "reviewAccess": null
+        }
+      ]
+    }
+  },
+  "manual_review": {
+    "status": "pass",
+    "scope": "390px screenshots of network, Alexander City and Monroe; body, heading hierarchy, contained table scrolling, navigation and short final section reviewed.",
+    "full_table_policy": "Wide exact-data tables intentionally scroll inside labelled keyboard-focusable regions."
+  },
+  "receipt": {
+    "sha": "ce1310246a76146d1954b02fb01bb5daa517cbdc",
+    "runtimeHash": "320077bd72baa8c921b417aa561b9da47963af94e5fb66973706f49d7c6838f7",
+    "ssotHash": "c16ae807beb2cd8dae386972521cb966b90701993ff4b01ecdb1e8ba5dfadb88",
+    "contractHash": "943604305ec98d76d661f2e0599a9b18161cedf75d733217e43b7ae79ea13341",
+    "status": "PASS",
+    "runId": "34521445185",
+    "createdAt": "2026-09-10T19:47:02.844Z"
+  }
+}
