@@ -1,6 +1,6 @@
 {
   "files": {
-    "agents/manifests/caesthetic.yaml": "bbadec326095c335280a5c3dda228fa4ad023f924279e568897c6231b0531ae7",
+    "agents/manifests/caesthetic.yaml": "9aa9c3427bf8467827ae3287307364d0ca32d181b78edb343ccc96f510b095e5",
     "deploy/systemd/caesthetic-repo-sync.service": "9a361c4f58086bc9722ce792962c4d70d840855074b02e11117e9f01e7aecf96",
     "deploy/systemd/caesthetic-repo-sync.timer": "5ca1ea0cb327a4f9e016172500cfe40b8c8be7aa2b1483972b5d5aafe83f90a7",
     "docs/audits/caesthetic/.growth-badge-trigger": "028bb6e894280a43a9ff3d166edfc3a1baab83431d6a8362fde0ebfe2ceb151a",
@@ -462,7 +462,7 @@
     "docs/projects/caesthetic/GROWTH_SCORE_AGENT_ENFORCEMENT.md": "e2d5441392bf5333d2bbaea0bd52f0e6ea43e02eb65034d2a91bb031851fc81a",
     "docs/projects/caesthetic/PROJECT_STATUS.md": "a29cfbb88d36b0598c28fb30d6139dc3b114e730ca5c4b8c62cf15646a24daf1",
     "docs/projects/caesthetic/README.md": "1caa5390f61dd41de955a74363414850b76a3dfc11ae6a6d426f1818772635d0",
-    "docs/projects/caesthetic/ROUTER.md": "c96ccbf57d550c1ef37b29b51b1281a930d4d6d2c9a172ac15aee989032257ec",
+    "docs/projects/caesthetic/ROUTER.md": "51cb6c497e66757da373ce0519250197589fbb90326f125dff18a3f429785882",
     "docs/projects/caesthetic/SYNC_MANIFEST.yml": "8f12aaaab292c905bdea9af25f0af0c1e0cb938694fc3dec9ddd4900aa180dbc",
     "docs/projects/caesthetic/SYNC_RUNTIME_EVIDENCE.md": "972973d038de5b7a4578669916621d46b0aa00c6b0b3e02c8637e941862f833e",
     "docs/projects/caesthetic/archive/README.md": "78a68573d0f4c28919feb58795d4840278aba7ad03185266fcacb2cb73aafae8",
@@ -663,6 +663,7 @@
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md": "dd4bdb509046edf37e415566415f8581e71e87e06fa1dab8c8a05e55d49e9ff4",
     "docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md": "4f14e3683eb925c74ade2e76fcc9c052de34b7cabdccdd39bc66d744af1a3162",
     "docs/ssot/CAESTHETIC_HEYGEN_PRODUCTION_SYSTEM.md": "37e980ac5986a6d49d259574f8401c03ad8c53e8b849f473773d79706cccb33c",
+    "docs/ssot/CAESTHETIC_HOOPPY_POSTING_OPERATOR.md": "1a80a7fa31ebed738abb8c153f21d8e76f1ba095da15331ef17ae88a799f8e58",
     "docs/ssot/CAESTHETIC_IG_COMMENT_INBOUND_ROUTING.md": "64295a235517d54c77fd5bf4e185078e66134ce1c7f159b1fccd57fba77999fc",
     "docs/ssot/CAESTHETIC_IG_CONTENT_PLACEMENT.md": "a177e290ad2de4a09ae7b0007c292b9116080b9311af90bdcfbf76a66d4302b8",
     "docs/ssot/CAESTHETIC_IG_DAILY_GROWTH_NOTE.md": "d26bfedc1661c7079574df6b0f560316ba3bf5f8cf9d0936cf74a7cd9b9331c5",
@@ -698,7 +699,7 @@
     "docs/ssot/CAESTHETIC_VISUAL_ASSET_LIBRARY.md": "687db5ac92f036daa0ba5792d735a829ee06af876f023e8c41fe06b03b5c5cf5",
     "docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md": "4e3e47930e456953142b9575cb8933103b5dfd56d398ac07cb05a71e52612cac",
     "docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md": "4fd5487ed875d52eb8fd084b7ad96d49e5412a6dcf059e1603f9957a27b4ea88",
-    "scripts/caesthetic/README.md": "c33c84018c215b29d44f33dbdbb77a9ddb88065a484a7a934cf635eaa7b81d11",
+    "scripts/caesthetic/README.md": "589d0ad15910cef2d86534718afddd64b5fd440b4272fa3ab1fac4e73eb515ce",
     "scripts/caesthetic/amy-browser-qa.mjs": "d884348f28fcf486c81eb5072b9c583f94940a4df2a9ea789db7cf78d60bb0be",
     "scripts/caesthetic/amy-guide-browser-qa.mjs": "f709bf6898ae9cd3b7f5766fe072a89e2249dedf182a6db39b7546c1dc3f426e",
     "scripts/caesthetic/asset-worker/allowlist.mjs": "1a789b70060908e9af99a20dc304efdf04963cef90f0041bc91e72b7719d646c",
@@ -1206,6 +1207,7 @@
     "tests/caesthetic/growth-score-workflow.test.mjs": "bdb98510921a213cea2489882c5f0cab521d459cbff297daaa9db6ee8e13ba4f",
     "tests/caesthetic/growth-system-operating-canon.test.mjs": "c8cfa3ee4c5804e1a923a4c89090a0890ba67bc74dca53ace4d40b8958d7f076",
     "tests/caesthetic/helpers/growth-score-v5-fixture.mjs": "20cc516bfff57a7e2e6964720b177b7d3e99a90d73a6ecf24d6d8097bc5aae07",
+    "tests/caesthetic/hooppy-posting-operator-canon.test.mjs": "ad30c78816880fd7b787496a417907027e02854bffd74222345551dfcfb1d5c5",
     "tests/caesthetic/hooppy_creative_pipeline_test.py": "03d6294079e1bdaf0930442c524ccef27dc582a546939e30c634c7937c564a9e",
     "tests/caesthetic/instagram-lookup.test.mjs": "df90b052049f8a1cdb8d5d78a73af0b9c7800ec9d2b39d4ea96f222e87e26e84",
     "tests/caesthetic/instagram_lookup_adapter_test.py": "1dae77d335b1474a114785eca366e892b8877af896c53e6a3df1932d12f2bfe4",
@@ -1247,6 +1249,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-10T19:52:08Z",
+  "updated_at_utc": "2026-09-10T19:54:09Z",
   "version": 1
 }

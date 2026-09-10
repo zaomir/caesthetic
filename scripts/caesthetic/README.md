@@ -1,5 +1,11 @@
 # CAESTHETIC scripts
 
+Canonical operator contract: `docs/ssot/CAESTHETIC_HOOPPY_POSTING_OPERATOR.md`.
+Other agents must hand off an exact approved Sheet row using its
+`caesthetic-hooppy-posting-job/1.0.0` packet. Hooppy API details remain in
+`docs/ssot/HOOPPY_API.md`; neither the script nor Hooppy grants publication
+approval.
+
 | Script | Job |
 |--------|-----|
 | `install-continuous-sync.sh` | Installs the free VPS2402 systemd timer for bidirectional `grainee-v2` ↔ `caesthetic` reconciliation every 15 seconds. |
@@ -60,6 +66,17 @@ master file. A checksum mismatch stops before rendering, Sheet writes or upload.
 `HOOPPY_BEARER_TOKEN` and the Google service-account JSON exist only on the
 runtime host. `--schedule-dry-run` validates routing and payloads without an API
 write.
+
+Minimal handoff from another agent:
+
+```text
+Поставь через Hooppy CAESTHETIC CONTENT_ID VERSION из точной строки Sheet.
+Платформы: instagram, facebook, tiktok, youtube, linkedin. Передано
+approved_publish=TRUE, approver, пять GO-гейтов, timezone-qualified
+scheduled_at и точные asset/caption/SHA-256. Не используй publish-now. Верни
+platform status, Hooppy post ID, scheduled_at, notification result, live URL и
+published_at; LIVE только после проверки публичного поста.
+```
 
 Entertainment inbox discovery and rotation selection:
 

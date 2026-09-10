@@ -33,6 +33,7 @@ allowed_paths:
   - docs/external/grainee-v2/expert-dental/**
   - docs/caesthetic/**
   - docs/ssot/CAESTHETIC*.md
+  - docs/ssot/HOOPPY_API.md
   - docs/ssot/COMPETITIVE_DECISION_ANALYSIS_STANDARD.md
   - docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
   - docs/founder-notes/DEC-829.md
@@ -95,6 +96,10 @@ topics:
   short_form_reference_system: docs/ssot/CAESTHETIC_SHORT_FORM_VIRAL_REFERENCE_SYSTEM.md
   reel_format_b_topic_bank: docs/ssot/CAESTHETIC_REEL_FORMAT_B_TOPIC_BANK.md
   reel_automation: docs/ssot/CAESTHETIC_REEL_AUTOMATION.md
+  hooppy_posting: docs/ssot/CAESTHETIC_HOOPPY_POSTING_OPERATOR.md
+  posting_job: docs/ssot/CAESTHETIC_HOOPPY_POSTING_OPERATOR.md
+  social_publishing: docs/ssot/CAESTHETIC_HOOPPY_POSTING_OPERATOR.md
+  hooppy_api: docs/ssot/HOOPPY_API.md
   project_status: docs/projects/caesthetic/PROJECT_STATUS.md
   routing: docs/projects/caesthetic/ROUTER.md
   expert_dental_reference: docs/external/grainee-v2/expert-dental/.mirror-manifest.json
@@ -112,6 +117,9 @@ commands:
   consistency_policy_check: node --test tests/caesthetic/growth-score-4444-consistency-canon.test.mjs
   agent_policy_check: node --test tests/global-growth-score-audit-routing.test.mjs
   render_check: node scripts/caesthetic/render-growth-score.mjs --check
+  hooppy_build: python3 scripts/caesthetic/hooppy-creative-pipeline.py manifest.json --sync-dropbox --sync-sheet
+  hooppy_schedule_dry_run: python3 scripts/caesthetic/hooppy-creative-pipeline.py --from-sheet CONTENT_ID VERSION --schedule-dry-run
+  entertainment_select: python3 scripts/caesthetic/entertainment-rotation.py --sync-inbox --select-next
 
 deploy_target: caesthetic
 agents_satellite_repo: zaomir/caesthetic

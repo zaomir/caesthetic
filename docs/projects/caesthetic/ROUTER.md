@@ -77,7 +77,7 @@ After the minimum subject/location context is resolved, AI prepares the research
 - Growth Score canonical v5 contract → `docs/caesthetic/growth_score_spec.md`, then `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md` and `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 - Growth Score vertical vocabulary and report/walkthrough locale context → `docs/caesthetic/growth_score_spec.md` §0.1. Approved production verticals remain only `aesthetic_practice`, `dental_practice` and `beauty_salon`; sender-domain campaign roles do not add verticals or alter scoring.
 - If an older CAESTHETIC working document requires a prospect-specific mini-audit, `1-Minute Leak`, diagnostic fact or full Growth Score before outreach, DEC-845 supersedes it. Private Growth Preview may project only approved stored pre-Score facts; deep diagnosis begins after an explicit `Continue to My Free Growth Score`.
-- Hooppy / entertainment videos / reels inbox / recurring social rotation / cycle restart / publication tracking → `docs/projects/caesthetic/operations/ig-growth/11-ENTERTAINMENT_REELS_ROTATION_PLAN.md` §13, `docs/ssot/HOOPPY_API.md` and SIMON_OPS `CAE_Entertainment_Rotation`.
+- Hooppy / posting job / agent handoff / entertainment videos / reels inbox / recurring social rotation / cycle restart / publication tracking → first read `docs/ssot/CAESTHETIC_HOOPPY_POSTING_OPERATOR.md` for the assignment packet, defaults, gates and evidence; then `docs/projects/caesthetic/operations/ig-growth/11-ENTERTAINMENT_REELS_ROTATION_PLAN.md` §13, `docs/ssot/HOOPPY_API.md` and SIMON_OPS `CAE_Entertainment_Rotation`.
 - RAIM SMILE / SmileCare 12 partnership economics → `docs/founder-notes/DEC-862_raim-smile-caesthetic-partnership-economics-and-vip-access.md`, `docs/founder-notes/DEC-866_caesthetic-attributed-sales-performance-fee.md`, and `docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md`.
 
 Key product routes:
@@ -113,7 +113,7 @@ All CAESTHETIC design-system, typography, color, component and responsive work r
 
 ## Social case packages / Истории кейса
 
-«Соцкейсы», «истории кейса», «карусели кейсов», Case Notes and case-to-blog/social production → `docs/ssot/CAESTHETIC_SOCIAL_CASES.md`. One source-backed case produces the article, eight-slide carousel, short post and derived MP4. Artifact provenance and the CN-001 pilot are indexed in `docs/caesthetic/social-cases/ARTIFACTS.md`; current design and service catalog retain their authorities. Hooppy transport remains in `docs/ssot/HOOPPY_API.md`. A generated pack is not a scheduled or published post.
+«Соцкейсы», «истории кейса», «карусели кейсов», Case Notes and case-to-blog/social production → `docs/ssot/CAESTHETIC_SOCIAL_CASES.md`. One source-backed case produces the article, eight-slide carousel, short post and derived MP4. Artifact provenance and the CN-001 pilot are indexed in `docs/caesthetic/social-cases/ARTIFACTS.md`; current design and service catalog retain their authorities. A posting assignment routes through `docs/ssot/CAESTHETIC_HOOPPY_POSTING_OPERATOR.md`; vendor transport remains in `docs/ssot/HOOPPY_API.md`. A generated pack is not a scheduled or published post.
 
 
 ## New single-location report presentation — v6
