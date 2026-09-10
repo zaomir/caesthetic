@@ -23,22 +23,45 @@ const server = http.createServer((req,res)=>{
  try{if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end('Not found');}
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const accessManifest=JSON.parse(fs.readFileSync(path.join(ROOT,'infra/cloudflare/brands/caesthetic.manifest.json'),'utf8'));
+const accessByLocale=Object.fromEntries(['ru','en-US'].map(locale=>{
+ const reportPath=`/score/${V3_PARENTS[locale]}/v3/`;
+ const entry=(accessManifest.scoreProtectedPaths||[]).find(entry=>reportPath.startsWith(entry.prefix));
+ if(entry)assert.ok(entry.protectionInstruction?.trim(),'PIN protection needs a recorded direct owner instruction');
+ return [locale,entry?'pin':'direct'];
+}));
 const base=production?'https://caesthetic.com':`http://127.0.0.1:${server.address().port}`;
 const browser = await {chromium,firefox,webkit}[engine].launch({headless:true});
 const result={status:'RUNNING',engine,browser:browser.version(),base,mode:production?'production-read-only':'local-build',qa_source_sha256:digest(fs.readFileSync(import.meta.filename)),checked_at:new Date().toISOString(),viewports:[],actions:[],errors:[],byte_checks:[]};
 try {
  if(production){
   assert.match(process.env.CAE_EXPECTED_SHA||'',/^[a-f0-9]{40}$/);result.expected_sha=process.env.CAE_EXPECTED_SHA;
+  const healthResponse=await fetch(base+'/api/cprp/health');assert.equal(healthResponse.status,200);
+  const health=await healthResponse.json();assert.equal(health.ok,true);assert.equal(health.release,result.expected_sha);result.serving_release=health.release;
   for(const rel of [`score/${V3_PARENTS.ru}/v3/index.html`,`score/${V3_PARENTS.ru}/v3/presentation.json`,'assets/css/growth-score-owner-v3.css','assets/brand/caesthetic-logo-owner--sha256-fe3efc26cd0d3143.png','assets/js/growth-score-owner-v3.js','assets/js/caesthetic-config.js','assets/js/caesthetic.js','assets/js/product-routing.js','assets/css/spoken-offer.css','assets/js/spoken-offer-data.js','assets/js/spoken-offer-page.js','assets/js/product-checkout.js','sprint/index.html','pay/index.html']){
+   if(rel.startsWith(`score/${V3_PARENTS.ru}/`)&&accessByLocale.ru==='pin')continue;
    const r=await fetch(base+'/'+rel);assert.equal(r.status,200,rel);const data=Buffer.from(await r.arrayBuffer());assert.equal(digest(data),digest(fs.readFileSync(path.join(ROOT,'site-caesthetic',rel))),rel);result.byte_checks.push(rel);
   }
-  for(const suffix of ['v3/','v3/index.html','v3/presentation.json']){
-   const r=await fetch(`${base}/score/${V3_PARENTS['en-US']}/${suffix}`);const body=await r.text();
-   assert.match(body,/score-password|password|access/i);assert.doesNotMatch(body,/data-layout-contract="owner-decision-report\/3/);assert.doesNotMatch(body,/source_input_digest/);
+  result.report_access=[];
+  for(const locale of ['ru','en-US']){
+   for(const suffix of ['v3/','v3/index.html','v3/presentation.json']){
+    const rel=`score/${V3_PARENTS[locale]}/${suffix}`;
+    const r=await fetch(base+'/'+rel);assert.equal(r.status,200,rel);
+    const data=Buffer.from(await r.arrayBuffer()),body=data.toString('utf8');
+    if(accessByLocale[locale]==='pin'){
+     assert.match(body,/score-password|password|access/i);assert.doesNotMatch(body,/data-layout-contract="owner-decision-report\/3/);assert.doesNotMatch(body,/source_input_digest/);
+    }else{
+     assert.doesNotMatch(body,/<input\b[^>]*type=["']password["']|<body\b[^>]*class=["'](?:audit|is)-locked["']/i);
+     const source=path.join(ROOT,'site-caesthetic',rel.endsWith('/')?rel+'index.html':rel);
+     assert.equal(digest(data),digest(fs.readFileSync(source)),rel);result.byte_checks.push(rel);
+     if(suffix.endsWith('.json'))JSON.parse(body);else assert.match(body,/data-layout-contract="owner-decision-report\/3/);
+    }
+   }
+   result.report_access.push({locale,mode:accessByLocale[locale],anonymous:true,source_bytes_verified:accessByLocale[locale]==='direct'});
   }
-  result.english_access='protected shell verified; unlocked client content not asserted';
+  result.english_access=accessByLocale['en-US']==='direct'?'anonymous report and source bytes verified':'explicitly protected shell verified';
  }
- for(const locale of production?['ru']:['ru','en-US']){
+ for(const locale of ['ru','en-US'].filter(locale=>!production||accessByLocale[locale]==='direct')){
   const context=await browser.newContext({reducedMotion:'reduce'});let mockFailure=false,posts=[];
   await context.route('**/*',async route=>{
    const req=route.request();
@@ -237,4 +260,5 @@ try {
  }catch{}
 }
 finally{fs.writeFileSync(path.join(out,'result.json'),JSON.stringify(result,null,2)+'\n');await browser.close();await new Promise(r=>server.close(r));}
-console.log(JSON.stringify({status:result.status,engine,viewports:result.viewports.length,actions:result.actions.length,out,failure:result.failure||null}));
+console.log(JSON.stringify({status:result.status,engine,viewports:result.viewports.length,actions:result.actions.length,out,expected_sha:result.expected_sha,serving_release:result.serving_release,byte_checks:result.byte_checks.length,access:result.report_access,failure:result.failure||null}));
+

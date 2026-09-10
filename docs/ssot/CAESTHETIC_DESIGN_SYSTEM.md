@@ -10,7 +10,16 @@ supersedes: site-caesthetic/DESIGN.md visual rules v2.1
 baseline_ref: 5dad5f00ed2a1105a0542ff42841bdd612ec4374
 ---
 
+## Report access — owner decision 2026-09-10
+
+Cases, reports and manager-review pages open by direct link without a password by default. Set a password only on a direct instruction for the named page/package, recorded with its source. Preserve noindex, catalog rules and diagnostic review status. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`. Earlier mandatory PIN/password language is superseded; private catalog visibility is not authentication.
+
+
 # CAESTHETIC Design System
+
+## Scoped owner instruction — Russian Expert report variants, 2026-09-10
+
+The owner explicitly requested exact Expert Dental design for `growth-score-client/v6.1.0` and `growth-score-client/v6.2.0`. Only these two single-location profiles may use the pinned dark/pink Expert palette, original type scale, gradients, radii, shadows and sticky pill navigation. This is an additive profile exception, not a shared-site redesign. Authority, CSS provenance and functional corrections: [CAESTHETIC_REPORT_PRESENTATIONS.md](CAESTHETIC_REPORT_PRESENTATIONS.md). Existing v6 and other visual profiles retain their contracts.
 
 ## 1. Authority and release state
 
@@ -368,3 +377,4 @@ Five responsive figures now render; all eight original PNGs are preserved.
 This explicitly supersedes the earlier omission of the engagement picture, not
 the removal of its old continuation disclosure. Verify the image's DOM and visual
 order, art direction, both locales and all 320–1440px widths.
+

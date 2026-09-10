@@ -26,6 +26,8 @@ export const GROWTH_SCORE_AUTHORING_WORKFLOW = Object.freeze({
   authority: "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route",
   internal_pilot_locale: "ru",
   single_location_layout: "growth-score-client/v6.0.0",
+  presentation_variants_ssot: "docs/ssot/CAESTHETIC_REPORT_PRESENTATIONS.md",
+  single_location_presentations: Object.freeze(["v6", "v6.1", "v6.2"]),
   full_research_gate: "resolved_subject_and_public_scope",
   first_work_review: "complete_russian_audit",
   intermediate_work_approval_required: false,
@@ -121,7 +123,8 @@ export function mentionsGrowthScoreAudit(value) {
 
 const normalizeAuditFormat = (value) => normalize(value).replaceAll(" ", "_");
 
-export function resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role = null } = {}) {
+export function resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role = null, presentation = "v6" } = {}) {
+  if (!["v6", "v6.1", "v6.2"].includes(presentation)) throw new TypeError("Unknown presentation profile");
   const format = normalizeAuditFormat(audit_format);
   const role = normalizeAuditFormat(package_role);
   const check500 = (ownsPlacements) => Object.freeze({
@@ -142,15 +145,16 @@ export function resolveGrowthScoreAuditTemplateRoute({ audit_format, package_rol
       audit_format: "single_location",
       package_role: "single_location",
       template_module: "scripts/caesthetic/growth-score-report-template.mjs",
-      template_factory: "createGrowthScoreV6ReportTemplate",
-      template_arguments: Object.freeze({ locale: "ru" }),
-      layout_contract: GROWTH_SCORE_AUTHORING_WORKFLOW.single_location_layout,
+      template_factory: presentation === "v6" ? "createGrowthScoreV6ReportTemplate" : "createGrowthScorePresentationTemplate",
+      template_arguments: Object.freeze(presentation === "v6" ? { locale: "ru" } : { version: presentation, locale: "ru" }),
+      layout_contract: {"v6":"growth-score-client/v6.0.0","v6.1":"growth-score-client/v6.1.0","v6.2":"growth-score-client/v6.2.0"}[presentation],
       workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
       check500: check500(true),
     });
   }
 
   if (["multi", "multi_location", "network"].includes(format)) {
+    if (presentation !== "v6") throw new TypeError("Expert single-location presentations cannot replace the network package");
     const packageRole = role || "network_parent";
     if (!["network_parent", "focus_location"].includes(packageRole)) {
       throw new TypeError("Multi-Location package_role must be network_parent or focus_location");
@@ -174,6 +178,7 @@ export function routeGrowthScoreAuditIntent(value, {
   active_intent = null,
   audit_format = null,
   package_role = null,
+  presentation = "v6",
   active_stage = "manager_interview",
   existing_audit = false,
   task_kind = null,
@@ -213,7 +218,7 @@ export function routeGrowthScoreAuditIntent(value, {
       workflow: GROWTH_SCORE_AUTHORING_WORKFLOW,
       questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
       template_route: audit_format
-        ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role })
+        ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role, presentation })
         : null,
     });
   }
@@ -230,7 +235,7 @@ export function routeGrowthScoreAuditIntent(value, {
     full_research_gate: "resolved_subject_and_public_scope",
     questions: GROWTH_SCORE_MANAGER_QUESTIONS_RU,
     template_route: audit_format
-      ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role })
+      ? resolveGrowthScoreAuditTemplateRoute({ audit_format, package_role, presentation })
       : null,
   });
 }

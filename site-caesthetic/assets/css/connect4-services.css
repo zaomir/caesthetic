@@ -1,0 +1,60 @@
+/* Connect4 implementation pages: existing CAESTHETIC tokens and editorial roles. */
+.c4-service { font-family:var(--cae-font); font-size:var(--cae-text-lg); line-height:1.65; background:var(--cae-bg); color:var(--cae-text); }
+.c4-service * { box-sizing:border-box; }
+.c4-service a { color:var(--cae-accent); text-underline-offset:4px; }
+.c4-service a:focus-visible,.c4-service summary:focus-visible { outline:3px solid var(--cae-signal); outline-offset:4px; }
+.cs-wrap { width:min(1120px,calc(100% - 48px)); margin-inline:auto; }
+.cs-header { border-bottom:1px solid var(--cae-border); }
+.cs-header .cs-wrap,.cs-footer .cs-wrap { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-block:20px; }
+.cs-brand { display:inline-flex; align-items:center; gap:12px; font-weight:600; letter-spacing:.08em; text-decoration:none; font-size:var(--cae-text-base); }
+.cs-brand img { width:38px; height:38px; }
+.cs-header nav { display:flex; flex-wrap:wrap; gap:8px 24px; font-size:var(--cae-text-base); }
+.cs-header nav a { padding-block:8px; }
+.cs-hero { padding:64px 0 48px; }
+.cs-kicker { font-size:var(--cae-text-sm); text-transform:uppercase; letter-spacing:.08em; color:var(--cae-signal); font-weight:600; margin:0 0 20px; }
+.c4-service h1,.c4-service h2 { font-family:var(--cae-font-display); font-weight:400; letter-spacing:-.03em; color:var(--cae-accent); text-wrap:balance; }
+.c4-service h1 { font-size:clamp(2.5rem,5.5vw,4.6rem); line-height:1.08; max-width:21ch; margin:0 0 32px; }
+.c4-service h2 { font-size:clamp(2rem,3vw,3rem); line-height:1.17; margin:0 0 24px; }
+.c4-service h3 { font-size:var(--cae-text-xl); line-height:1.4; font-weight:600; margin:0 0 12px; }
+.c4-service p { margin:0 0 20px; }
+.c4-service :is(h1,h2,h3,p,li,a,dt,dd,summary) { overflow-wrap:anywhere; }
+.cs-intro { max-width:68ch; font-size:var(--cae-text-xl); }
+.cs-actions { display:flex; align-items:center; flex-wrap:wrap; gap:16px 28px; margin-top:28px; }
+.cs-button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 24px; font-size:var(--cae-text-base); font-weight:600; background:var(--cae-accent); color:var(--cae-bg)!important; text-decoration:none; border:1px solid var(--cae-accent); border-radius:var(--cae-radius); }
+.cs-button:hover { background:var(--cae-accent-2); }
+.cs-section { padding:64px 0; border-top:1px solid var(--cae-border); scroll-margin-top:24px; }
+.cs-soft { background:var(--cae-bg-2); }
+.cs-heading { display:grid; grid-template-columns:180px minmax(0,1fr); gap:24px; margin-bottom:28px; }
+.cs-heading .cs-kicker { padding-top:8px; }
+.cs-heading h2 { margin-bottom:0; }
+.cs-copy { max-width:74ch; }
+.cs-ledger { margin:32px 0 0; border-top:1px solid var(--cae-border-strong); }
+.cs-ledger>div { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.25fr); gap:40px; padding:24px 0; border-bottom:1px solid var(--cae-border); }
+.cs-ledger dt { font-weight:600; }
+.cs-ledger dd { margin:0; }
+.cs-ledger dd p:last-child { margin-bottom:0; }
+.cs-number { display:block; color:var(--cae-signal); font-family:var(--cae-font-mono); font-size:var(--cae-text-sm); margin-bottom:8px; }
+.cs-compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; margin-top:28px; }
+.cs-compare article { border-top:2px solid var(--cae-border-accent); padding-top:24px; }
+.cs-compare ul,.cs-list { padding-left:24px; margin:16px 0 0; }
+.cs-compare li,.cs-list li { margin-bottom:12px; }
+.cs-note { color:var(--cae-muted); font-size:var(--cae-text-base); max-width:80ch; margin-top:24px!important; }
+.cs-faq details { border-bottom:1px solid var(--cae-border); padding:20px 0; }
+.cs-faq summary { font-weight:600; cursor:pointer; }
+.cs-faq details p { max-width:74ch; margin:16px 0 0; }
+.cs-footer { border-top:1px solid var(--cae-border); color:var(--cae-muted); font-size:var(--cae-text-base); }
+.cs-signature { font-family:var(--cae-font-display); font-style:italic; }
+.cs-skip { position:absolute; top:8px; left:24px; padding:12px; background:var(--cae-bg); transform:translateY(-180%); z-index:5; }
+.cs-skip:focus { transform:none; }
+@media(max-width:767px) {
+ .cs-wrap { width:calc(100% - 40px); }
+ .cs-hero { padding:40px 0; }
+ .cs-section { padding:40px 0; }
+ .cs-heading,.cs-ledger>div,.cs-compare { grid-template-columns:1fr; gap:16px; }
+ .cs-heading .cs-kicker { padding-top:0; margin-bottom:0; }
+ .cs-compare { gap:28px; }
+ .cs-header .cs-wrap { align-items:flex-start; }
+ .cs-header nav { gap:8px 16px; }
+ .cs-button { width:100%; }
+}
+@media print { .cs-header nav,.cs-actions,.cs-skip { display:none; } .cs-section { padding:24px 0; } .cs-wrap { width:100%; } .cs-ledger>div,article { break-inside:avoid; } }

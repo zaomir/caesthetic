@@ -247,3 +247,13 @@ Day-30 email: **Done / materially resolved → Started & continuing → Not star
 | 1.2.0 | 2026-09-06 | Curated public examples on existing Sprint/Growth System pages; no line-item prices, new products or blanket inclusion; evidence/access and delivery horizons remain visible. |
 
 | 1.2.1 | 2026-09-07 | Scoped Spoken RU offer: included Check, four-surface finite scope and optional lower-cost support; master §5.1 owns the exception. |
+
+
+
+## Connect4 implementation explanations — 2026-09-10
+
+Existing First Sprint interventions now have paired public EN/RU explanations: `/connect4/location-alignment/` (`ru/`) for correcting verified cross-surface inconsistencies and `/connect4/review-system/` (`ru/`) for adapting our own review/feedback collection system. Generator: `scripts/caesthetic/build-connect4-services.mjs`. Reports link to the relevant explanation from evidence-backed repair plans; mention of feedback collection does not diagnose an unseen internal workflow. Public explanations disclose outcomes, ownership and boundaries without internal routing mechanics.
+
+Reuse the Expert feedback-hub development only under master section 9: equal public-review access regardless of sentiment; no copied 4–5/public, 1–3/private routing; no click-as-publication claim; no promised rating. Setup, consent/access, channel/hosting terms and staff adoption must be verified for the client. These pages do not claim an ENT system has already launched.
+
+ENT-only proposed commercial schedule and bounded included launch: `docs/projects/caesthetic/clients/ent-urgent-care/IMPLEMENTATION_PROPOSAL_2026-09-10.md`. First five $500 each, sixth onwards $300, per user instruction. This does not change the global Sprint price or the separate Lead-to-Revenue Check.

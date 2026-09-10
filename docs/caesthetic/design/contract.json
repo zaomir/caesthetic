@@ -1454,6 +1454,82 @@
       "stylesheets": [
         "/program/program.css"
       ]
+    },
+    {
+      "source": "site-caesthetic/connect4/location-alignment/index.html",
+      "route": "/connect4/location-alignment/",
+      "profile": "marketing",
+      "states": [
+        "default",
+        "faq-open"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/connect4-services.css"
+      ],
+      "generator": "scripts/caesthetic/build-connect4-services.mjs"
+    },
+    {
+      "source": "site-caesthetic/connect4/location-alignment/ru/index.html",
+      "route": "/connect4/location-alignment/ru/",
+      "profile": "marketing",
+      "states": [
+        "default",
+        "faq-open"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/connect4-services.css"
+      ],
+      "generator": "scripts/caesthetic/build-connect4-services.mjs"
+    },
+    {
+      "source": "site-caesthetic/connect4/review-system/index.html",
+      "route": "/connect4/review-system/",
+      "profile": "marketing",
+      "states": [
+        "default",
+        "faq-open"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/connect4-services.css"
+      ],
+      "generator": "scripts/caesthetic/build-connect4-services.mjs"
+    },
+    {
+      "source": "site-caesthetic/connect4/review-system/ru/index.html",
+      "route": "/connect4/review-system/ru/",
+      "profile": "marketing",
+      "states": [
+        "default",
+        "faq-open"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/connect4-services.css"
+      ],
+      "generator": "scripts/caesthetic/build-connect4-services.mjs"
     }
   ],
   "tokens": {

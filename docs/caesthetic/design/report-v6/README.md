@@ -1,5 +1,7 @@
 # Report v6 — Claude Design handoff
 
+For the owner-requested Russian Expert variants **v6.1/v6.2** and generation of all three views, read [`CAESTHETIC_REPORT_PRESENTATIONS.md`](../../../ssot/CAESTHETIC_REPORT_PRESENTATIONS.md). This original v6 design remains the default. Variant examples live in `../report-presentations/`.
+
 The owner supplied **Страница отчёта по аудиту.zip** on 2026-09-07 and selected it as the reusable design for future reports. Visual authority remains `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` and `CAESTHETIC_DESIGN_SYSTEM.md`. This folder is an implementation/reference package, not a separate product canon.
 
 ## Use for the next report

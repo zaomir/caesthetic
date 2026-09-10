@@ -1,0 +1,1060 @@
+{
+  "schemaVersion": 5,
+  "reportState": "draft",
+  "reportVersion": "__REPORT_VERSION__",
+  "verifiedFactSetVersion": "__VERIFIED_FACT_SET_VERSION__",
+  "reportKind": "real",
+  "templateVersion": "growth-score-report-template/5.2.0",
+  "reportContext": {
+    "vertical_context": "unresolved",
+    "report_locale": "ru",
+    "vertical_source": null,
+    "locale_source": null
+  },
+  "disclosure": "__TRUTHFUL_PRIVACY_OR_TEST_DISCLOSURE__",
+  "practice": {
+    "name": "__PRACTICE_NAME__",
+    "location": "__CITY_STATE_COUNTRY__",
+    "preparedAt": "__YYYY_MM_DD__",
+    "preparedFor": "__PREPARED_FOR__"
+  },
+  "executiveSummary": "__HUMAN_APPROVED_EXECUTIVE_SUMMARY__",
+  "surfaces": [
+    {
+      "id": "search",
+      "summary": "Insufficient evidence — replace with the approved Search summary.",
+      "owner_card": {
+        "strength": "Insufficient evidence — add one approved Search strength.",
+        "problem": "Insufficient evidence — add one approved Search problem or monitoring statement.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "map_visibility",
+          "label": "Map Visibility",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "gbp_treatment_category_completeness",
+          "label": "Gbp Treatment Category Completeness",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "entity_integrity",
+          "label": "Entity Integrity",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "gbp_conversion_readiness",
+          "label": "Gbp Conversion Readiness",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "freshness",
+          "label": "Freshness",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "branded_search_control",
+          "label": "Branded Search Control",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        }
+      ]
+    },
+    {
+      "id": "website",
+      "summary": "Insufficient evidence — replace with the approved Website summary.",
+      "owner_card": {
+        "strength": "Insufficient evidence — add one approved Website strength.",
+        "problem": "Insufficient evidence — add one approved Website problem or monitoring statement.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "booking_friction",
+          "label": "Booking Friction",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "treatment_clarity",
+          "label": "Treatment Clarity",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "mobile_performance",
+          "label": "Mobile Performance",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "above_fold_conversion",
+          "label": "Above Fold Conversion",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "clinician_trust_proof",
+          "label": "Clinician Trust Proof",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "mystery_shopper",
+          "label": "Mystery Shopper",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "technical_booking_integrity",
+          "label": "Technical Booking Integrity",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "summary": "Insufficient evidence — replace with the approved Social summary.",
+      "owner_card": {
+        "strength": "Insufficient evidence — add one approved Social strength.",
+        "problem": "Insufficient evidence — add one approved Social problem or monitoring statement.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "priority_treatment_presence",
+          "label": "Priority Treatment Presence",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "clinician_expertise",
+          "label": "Clinician Expertise",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "proof_quality",
+          "label": "Proof Quality",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "recency",
+          "label": "Recency",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "profile_to_booking",
+          "label": "Profile To Booking",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "local_offer_clarity",
+          "label": "Local Offer Clarity",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        }
+      ]
+    },
+    {
+      "id": "reputation",
+      "summary": "Insufficient evidence — replace with the approved Reputation summary.",
+      "owner_card": {
+        "strength": "Insufficient evidence — add one approved Reputation strength.",
+        "problem": "Insufficient evidence — add one approved Reputation problem or monitoring statement.",
+        "priority": "MEDIUM"
+      },
+      "metrics": [
+        {
+          "metric_id": "review_velocity_90d",
+          "label": "Review Velocity 90d",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "rating",
+          "label": "Rating",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "review_depth",
+          "label": "Review Depth",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "recency",
+          "label": "Recency",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "response_coverage",
+          "label": "Response Coverage",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "response_speed",
+          "label": "Response Speed",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "negative_review_handling",
+          "label": "Negative Review Handling",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        },
+        {
+          "metric_id": "treatment_clinician_proof",
+          "label": "Treatment Clinician Proof",
+          "raw_value": null,
+          "normalized_score": null,
+          "evidence_class": "A",
+          "source": null,
+          "collected_at": null,
+          "reviewer_status": "pending",
+          "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+        }
+      ]
+    }
+  ],
+  "crossSurface": {
+    "summary": "Insufficient evidence — replace with the approved Cross-Surface summary.",
+    "metrics": [
+      {
+        "metric_id": "treatment_presence",
+        "label": "Treatment Presence",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+      },
+      {
+        "metric_id": "positioning_coherence",
+        "label": "Positioning Coherence",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+      },
+      {
+        "metric_id": "proof_continuity",
+        "label": "Proof Continuity",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+      },
+      {
+        "metric_id": "conversion_continuity",
+        "label": "Conversion Continuity",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+      },
+      {
+        "metric_id": "identity_coherence",
+        "label": "Identity Coherence",
+        "raw_value": null,
+        "normalized_score": null,
+        "evidence_class": "A",
+        "source": null,
+        "collected_at": null,
+        "reviewer_status": "pending",
+        "unavailable_reason": "Insufficient evidence — replace only after source capture and named-human approval."
+      }
+    ]
+  },
+  "humanDiagnosis": {
+    "reviewer_status": "pending",
+    "reviewer": {
+      "name": null,
+      "approved_at": null
+    },
+    "objective_strength": {
+      "title": "__OBJECTIVE_STRENGTH__",
+      "evidence_refs": [
+        "__SURFACE.METRIC_ID__"
+      ]
+    },
+    "strongest_surface": "__SEARCH_WEBSITE_SOCIAL_OR_REPUTATION__",
+    "binding_constraint": {
+      "title": "__BINDING_CONSTRAINT__",
+      "statement": "__PUBLIC_EVIDENCE_DIAGNOSIS_WITHOUT_INTERNAL_CAUSAL_CLAIM__",
+      "demand_stage": "__DISCOVERY_TRUST_ENQUIRY_BOOKING_OR_TREATMENT__",
+      "evidence_refs": [
+        "__SURFACE.METRIC_ID__"
+      ],
+      "gap_ref": "__PRIMARY_GAP_ID__"
+    },
+    "current_state": {
+      "strengths": [
+        "__APPROVED_STRENGTH__"
+      ],
+      "constraint_label": "__CONSTRAINT_LABEL__",
+      "constraint_detail": "__CONSTRAINT_DETAIL__",
+      "priority_line": "__FIRST_PRIORITY_LINE__"
+    },
+    "do_not_do": {
+      "title": "__ONE_DO_NOT_FUND_YET__",
+      "rationale": "__EVIDENCE_BACKED_RATIONALE__",
+      "evidence_refs": [
+        "__SURFACE.METRIC_ID__"
+      ],
+      "revisit_after": [
+        "__REVISIT_CONDITION__"
+      ]
+    },
+    "competitors": {
+      "status": "applicable",
+      "selection_method": "__NAMED_PATIENT_CHOICE_SET_SELECTION_METHOD__",
+      "sample_limitations": "__COMPARABLE_SAMPLE_LIMITATIONS__",
+      "comparison_window": {
+        "start": "__YYYY_MM_DD__",
+        "end": "__YYYY_MM_DD__"
+      },
+      "review_sample_rule": "__DISCLOSED_WINDOW_SAMPLE_AND_RECURRENCE_RULE__",
+      "branch_scope": "__SUBJECT_BRANCH_SCOPE__",
+      "entries": [
+        {
+          "id": "__COMPETITOR_1_ID__",
+          "name": "__COMPETITOR_1_NAME__",
+          "competitor_type": "local",
+          "selection_reason": "__PATIENT_CHOICE_SELECTION_REASON__",
+          "branch_scope": "__BRANCH_SCOPE__",
+          "patient_choice_reason": "__PATIENT_CHOICE_REASON__",
+          "observable_advantage": "__OBSERVABLE_ADVANTAGE_OR_INSUFFICIENT_EVIDENCE__",
+          "observable_gap": "__OBSERVABLE_GAP_OR_INSUFFICIENT_EVIDENCE__",
+          "repeat": "__DEFENSIBLE_PATTERN_TO_REPEAT__",
+          "improve": "__HOW_TO_IMPROVE_WITHOUT_COPYING__",
+          "do_not_copy": "__PATTERN_NOT_TO_COPY__",
+          "strategic_implication": "__STRATEGIC_IMPLICATION__",
+          "constraint_effect": "__EFFECT_ON_BINDING_CONSTRAINT__",
+          "priority_effect": "__EFFECT_ON_TOP_3__",
+          "modernization_implication": "__KEEP_EVALUATE_PILOT_REPLACE_OR_DO_NOT_ADOPT_CONTEXT__",
+          "strengths": [
+            "__OBSERVABLE_STRENGTH__"
+          ],
+          "weaknesses_or_risks": [
+            "__OBSERVABLE_RISK_OR_LIMITATION__"
+          ],
+          "limitations": "Insufficient evidence until the named sources, window and comparable sample are inserted.",
+          "sources": [],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Search evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "website": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Website evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Social evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Reputation evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": []
+        },
+        {
+          "id": "__COMPETITOR_2_ID__",
+          "name": "__COMPETITOR_2_NAME__",
+          "competitor_type": "local",
+          "selection_reason": "__PATIENT_CHOICE_SELECTION_REASON__",
+          "branch_scope": "__BRANCH_SCOPE__",
+          "patient_choice_reason": "__PATIENT_CHOICE_REASON__",
+          "observable_advantage": "__OBSERVABLE_ADVANTAGE_OR_INSUFFICIENT_EVIDENCE__",
+          "observable_gap": "__OBSERVABLE_GAP_OR_INSUFFICIENT_EVIDENCE__",
+          "repeat": "__DEFENSIBLE_PATTERN_TO_REPEAT__",
+          "improve": "__HOW_TO_IMPROVE_WITHOUT_COPYING__",
+          "do_not_copy": "__PATTERN_NOT_TO_COPY__",
+          "strategic_implication": "__STRATEGIC_IMPLICATION__",
+          "constraint_effect": "__EFFECT_ON_BINDING_CONSTRAINT__",
+          "priority_effect": "__EFFECT_ON_TOP_3__",
+          "modernization_implication": "__KEEP_EVALUATE_PILOT_REPLACE_OR_DO_NOT_ADOPT_CONTEXT__",
+          "strengths": [
+            "__OBSERVABLE_STRENGTH__"
+          ],
+          "weaknesses_or_risks": [
+            "__OBSERVABLE_RISK_OR_LIMITATION__"
+          ],
+          "limitations": "Insufficient evidence until the named sources, window and comparable sample are inserted.",
+          "sources": [],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Search evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "website": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Website evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Social evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Reputation evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": []
+        },
+        {
+          "id": "__COMPETITOR_3_ID__",
+          "name": "__COMPETITOR_3_NAME__",
+          "competitor_type": "local",
+          "selection_reason": "__PATIENT_CHOICE_SELECTION_REASON__",
+          "branch_scope": "__BRANCH_SCOPE__",
+          "patient_choice_reason": "__PATIENT_CHOICE_REASON__",
+          "observable_advantage": "__OBSERVABLE_ADVANTAGE_OR_INSUFFICIENT_EVIDENCE__",
+          "observable_gap": "__OBSERVABLE_GAP_OR_INSUFFICIENT_EVIDENCE__",
+          "repeat": "__DEFENSIBLE_PATTERN_TO_REPEAT__",
+          "improve": "__HOW_TO_IMPROVE_WITHOUT_COPYING__",
+          "do_not_copy": "__PATTERN_NOT_TO_COPY__",
+          "strategic_implication": "__STRATEGIC_IMPLICATION__",
+          "constraint_effect": "__EFFECT_ON_BINDING_CONSTRAINT__",
+          "priority_effect": "__EFFECT_ON_TOP_3__",
+          "modernization_implication": "__KEEP_EVALUATE_PILOT_REPLACE_OR_DO_NOT_ADOPT_CONTEXT__",
+          "strengths": [
+            "__OBSERVABLE_STRENGTH__"
+          ],
+          "weaknesses_or_risks": [
+            "__OBSERVABLE_RISK_OR_LIMITATION__"
+          ],
+          "limitations": "Insufficient evidence until the named sources, window and comparable sample are inserted.",
+          "sources": [],
+          "surface_evidence": {
+            "search": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Search evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "website": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Website evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "social": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Social evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            },
+            "reputation": {
+              "status": "insufficient_evidence",
+              "finding": "Insufficient evidence — collect comparable Reputation evidence.",
+              "evidence_refs": [],
+              "limitation": "No approved comparable evidence has been inserted into this template slot."
+            }
+          },
+          "repeated_positive_themes": [],
+          "repeated_negative_themes": [],
+          "evidence_refs": []
+        }
+      ],
+      "comparison_matrix": {
+        "subject_name": "__PRACTICE_NAME__",
+        "rows": [
+          {
+            "entity_ref": "subject",
+            "entity_name": "__PRACTICE_NAME__",
+            "entity_type": "subject",
+            "search": "Insufficient evidence",
+            "website": "Insufficient evidence",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": []
+          },
+          {
+            "entity_ref": "__COMPETITOR_1_ID__",
+            "entity_name": "__COMPETITOR_1_NAME__",
+            "entity_type": "competitor",
+            "search": "Insufficient evidence",
+            "website": "Insufficient evidence",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": []
+          },
+          {
+            "entity_ref": "__COMPETITOR_2_ID__",
+            "entity_name": "__COMPETITOR_2_NAME__",
+            "entity_type": "competitor",
+            "search": "Insufficient evidence",
+            "website": "Insufficient evidence",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": []
+          },
+          {
+            "entity_ref": "__COMPETITOR_3_ID__",
+            "entity_name": "__COMPETITOR_3_NAME__",
+            "entity_type": "competitor",
+            "search": "Insufficient evidence",
+            "website": "Insufficient evidence",
+            "social": "Insufficient evidence",
+            "reputation": "Insufficient evidence",
+            "evidence_refs": []
+          }
+        ]
+      },
+      "decision_summary": {
+        "defend": [],
+        "close": [],
+        "differentiate": [],
+        "do_not_copy": []
+      },
+      "market_practice_gap": {
+        "status": "insufficient_evidence",
+        "reason": "No approved Market Practice Gap evidence has been inserted.",
+        "recommendations": []
+      }
+    },
+    "walkthrough": {
+      "status": "pending",
+      "url": null,
+      "placeholder": "Valerie Petra walkthrough pending. No recording is implied until an approved human video exists."
+    },
+    "coordination_burden": {
+      "diagnosed_issues": null,
+      "high_priority_fixes": null,
+      "systems_involved": null,
+      "dependencies": null,
+      "specialist_roles": null
+    },
+    "gap_inventory": [
+      {
+        "id": "G1",
+        "title": "__GAP_1_TITLE__",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "__SEARCH_WEBSITE_SOCIAL_REPUTATION_OR_CROSS_SURFACE__"
+        ],
+        "journey_stage": "__DISCOVERY_TRUST_ENQUIRY_BOOKING_OR_TREATMENT__",
+        "evidence_refs": [],
+        "why_it_matters": "Insufficient evidence — replace only after the relevant public evidence is approved.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "__GAP_1_OBSERVABLE_OUTCOME__",
+          "diy_steps": [
+            "__DIY_STEP_1__",
+            "__DIY_STEP_2__"
+          ],
+          "dependencies": [],
+          "owner_role": "__OWNER_ROLE__",
+          "done_when": [
+            "__ACCEPTANCE_EVIDENCE__"
+          ]
+        }
+      },
+      {
+        "id": "G2",
+        "title": "__GAP_2_TITLE__",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "__SEARCH_WEBSITE_SOCIAL_REPUTATION_OR_CROSS_SURFACE__"
+        ],
+        "journey_stage": "__DISCOVERY_TRUST_ENQUIRY_BOOKING_OR_TREATMENT__",
+        "evidence_refs": [],
+        "why_it_matters": "Insufficient evidence — replace only after the relevant public evidence is approved.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "__GAP_2_OBSERVABLE_OUTCOME__",
+          "diy_steps": [
+            "__DIY_STEP_1__",
+            "__DIY_STEP_2__"
+          ],
+          "dependencies": [],
+          "owner_role": "__OWNER_ROLE__",
+          "done_when": [
+            "__ACCEPTANCE_EVIDENCE__"
+          ]
+        }
+      },
+      {
+        "id": "G3",
+        "title": "__GAP_3_TITLE__",
+        "diagnosis_state": "insufficient_evidence",
+        "surfaces": [
+          "__SEARCH_WEBSITE_SOCIAL_REPUTATION_OR_CROSS_SURFACE__"
+        ],
+        "journey_stage": "__DISCOVERY_TRUST_ENQUIRY_BOOKING_OR_TREATMENT__",
+        "evidence_refs": [],
+        "why_it_matters": "Insufficient evidence — replace only after the relevant public evidence is approved.",
+        "sprint_fit": {
+          "mode": "backlog"
+        },
+        "repair_plan": {
+          "outcome": "__GAP_3_OBSERVABLE_OUTCOME__",
+          "diy_steps": [
+            "__DIY_STEP_1__",
+            "__DIY_STEP_2__"
+          ],
+          "dependencies": [],
+          "owner_role": "__OWNER_ROLE__",
+          "done_when": [
+            "__ACCEPTANCE_EVIDENCE__"
+          ]
+        }
+      }
+    ],
+    "focus_selection": {
+      "primary_gap_id": null,
+      "supporting_gap_ids": [],
+      "selected_by": null,
+      "selected_at": null,
+      "rationale": "Pending named-human Focus Selection after the complete Gap Inventory is reviewed."
+    }
+  },
+  "implementation_paths": {
+    "diy": "Use the evidence and complete task plan in-house.",
+    "other_provider": "Give the evidence and complete task plan to another qualified provider.",
+    "defer": "Defer implementation while preserving evidence, limitations and revisit conditions.",
+    "caesthetic": "Ask CAESTHETIC to scope selected work separately after the report."
+  },
+  "why_caesthetic": {
+    "evidence_advantage": "__EVIDENCE_ASSEMBLY_ADVANTAGE__",
+    "coordination_advantage": "__DEPENDENCY_AND_COORDINATION_ADVANTAGE__",
+    "sprint_boundary": "No task is automatically included; written Sprint scope is confirmed separately.",
+    "ownership": "The report, evidence and task plan may be used without CAESTHETIC."
+  },
+  "methodology": {
+    "sources": [],
+    "collectedAt": "__YYYY_MM_DD__",
+    "competitorSelection": "__COMPETITOR_SELECTION_METHOD__",
+    "limitations": "__UNAVAILABLE_EVIDENCE_AND_METHOD_LIMITATIONS__"
+  },
+  "estimates": [],
+  "journeyGraph": {
+    "artifact_version": "cross-surface-journey-graph/1.0.0",
+    "artifact_id": "__CASE_ID__-journey-graph-v1",
+    "assessment_status": "not_assessed",
+    "max_hops": 3,
+    "automatic_score_change": false,
+    "evidence": [],
+    "nodes": [],
+    "edges": [],
+    "entry_node_ids": [],
+    "lead_intake_node_id": null,
+    "metric_links": [],
+    "representative_journeys": [],
+    "review": {
+      "status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "entity_resolution_approved": false,
+      "expectation_policy_approved": false,
+      "semantic_integrity_approved": false,
+      "severity_approved": false
+    }
+  },
+  "decisionViews": {
+    "artifact_version": "growth-score-decision-views/1.0.0",
+    "assessment_status": "not_assessed",
+    "source_policy": "existing_growth_score_evidence_only",
+    "automatic_score_change": false,
+    "automatic_binding_constraint_selection": false,
+    "automatic_focus_selection": false,
+    "automatic_promotion_decision": false,
+    "treatments": [],
+    "providers": [],
+    "trust_chains": [],
+    "friction_paths": [],
+    "promotion_holds": [],
+    "review": {
+      "status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "treatment_mapping_approved": false,
+      "provider_resolution_approved": false,
+      "trust_inferences_approved": false,
+      "friction_classification_approved": false,
+      "promotion_holds_approved": false
+    }
+  },
+  "leadToRevenueCheck": {
+    "recommendation": "not_recommended",
+    "reason": "No case-specific Lead-to-Revenue Check recommendation has been approved.",
+    "evidence_refs": []
+  },
+  "presentation": {
+    "check500_copy_contract": "check500-section/en-US/1.0.0",
+    "check500_placement_contract": "check500-two-placement/1.0.0",
+    "check500_style_contract": "check500-style/1.0.0",
+    "check500_style_reference": "docs/ssot/assets/caesthetic/check500-section-style-v1.png",
+    "check500_style_reference_sha256": "1d8d9d0732176f0f459e8ddd76fbd50ed2425baea3e7bda3c83559836a22a375",
+    "check500_placements": [
+      "mid_report",
+      "final_alternative"
+    ],
+    "check500_placement_owner": "this_report",
+    "layout_contract": "growth-score-client/v6.2.0",
+    "v6": {
+      "locale": "ru",
+      "business_name": null,
+      "address": null,
+      "research_date": null,
+      "greeting": null,
+      "summary": null,
+      "proposal_title": null,
+      "proposal_summary": null,
+      "questions_intro": null,
+      "synthesis_title": null,
+      "plan_intro": null,
+      "defer": null,
+      "intake_title": null,
+      "intake_details": null,
+      "offer_title": null,
+      "offer_body": null,
+      "coordination": null,
+      "questions": [
+        {
+          "id": "offer",
+          "title": null,
+          "summary": null,
+          "observation": null,
+          "why": null,
+          "change": null,
+          "verification": null,
+          "criterion": null,
+          "departure": null,
+          "evidence_refs": []
+        },
+        {
+          "id": "provider",
+          "title": null,
+          "summary": null,
+          "observation": null,
+          "why": null,
+          "change": null,
+          "verification": null,
+          "criterion": null,
+          "departure": null,
+          "evidence_refs": []
+        },
+        {
+          "id": "reviews",
+          "title": null,
+          "summary": null,
+          "observation": null,
+          "why": null,
+          "change": null,
+          "verification": null,
+          "criterion": null,
+          "departure": null,
+          "evidence_refs": []
+        },
+        {
+          "id": "competitors",
+          "title": null,
+          "summary": null,
+          "observation": null,
+          "why": null,
+          "change": null,
+          "verification": null,
+          "criterion": null,
+          "departure": null,
+          "evidence_refs": []
+        }
+      ],
+      "synthesis_body": [],
+      "plan": [
+        {
+          "id": null,
+          "title": null,
+          "result": null,
+          "done_when": null,
+          "materials": null,
+          "evidence_refs": []
+        },
+        {
+          "id": null,
+          "title": null,
+          "result": null,
+          "done_when": null,
+          "materials": null,
+          "evidence_refs": []
+        },
+        {
+          "id": null,
+          "title": null,
+          "result": null,
+          "done_when": null,
+          "materials": null,
+          "evidence_refs": []
+        }
+      ],
+      "intake_body": [],
+      "surfaces": [],
+      "limitations": [],
+      "commercial": {
+        "offer_id": null,
+        "included_check": false,
+        "continuation": "separate",
+        "credit": false
+      }
+    },
+    "expert": {
+      "diagnosis_title": null,
+      "diagnosis": null,
+      "platforms": [
+        {
+          "surface_id": "search",
+          "title": null,
+          "headline": null,
+          "observation": null,
+          "implication": null,
+          "action": null,
+          "evidence_refs": [],
+          "screenshot": null
+        },
+        {
+          "surface_id": "website",
+          "title": null,
+          "headline": null,
+          "observation": null,
+          "implication": null,
+          "action": null,
+          "evidence_refs": [],
+          "screenshot": null
+        },
+        {
+          "surface_id": "social",
+          "title": null,
+          "headline": null,
+          "observation": null,
+          "implication": null,
+          "action": null,
+          "evidence_refs": [],
+          "screenshot": null
+        },
+        {
+          "surface_id": "reputation",
+          "title": null,
+          "headline": null,
+          "observation": null,
+          "implication": null,
+          "action": null,
+          "evidence_refs": [],
+          "screenshot": null
+        }
+      ],
+      "services": null,
+      "pricing": null,
+      "education": null,
+      "review_response": null,
+      "risks": [],
+      "before_after": [
+        {
+          "gap_id": null,
+          "before": null,
+          "after": null,
+          "verification": null,
+          "evidence_refs": []
+        },
+        {
+          "gap_id": null,
+          "before": null,
+          "after": null,
+          "verification": null,
+          "evidence_refs": []
+        },
+        {
+          "gap_id": null,
+          "before": null,
+          "after": null,
+          "verification": null,
+          "evidence_refs": []
+        }
+      ],
+      "sources": []
+    }
+  }
+}

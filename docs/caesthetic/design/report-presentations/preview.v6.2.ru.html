@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="ru" data-page="growth-score-report" data-layout-contract="growth-score-client/v6.2.0"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Демонстрационная клиника · v6.2 · CAESTHETIC</title><style>
+    :root {
+      --bg: #07060b;
+      --panel: #0f0d16;
+      --panel2: #15111f;
+      --text: #f6f1ff;
+      --muted: #a79eaf;
+      --line: rgba(255,255,255,.12);
+      --accent: #f07bf2;
+      --accent2: #e8c0ff;
+      --green: #5bffad;
+      --warning: #f7b66d;
+      --danger: #ff6c8c;
+      --paper: #fbf7ef;
+      --ink: #111016;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(240,123,242,.18), transparent 34rem),
+        radial-gradient(circle at 90% 10%, rgba(91,255,173,.10), transparent 28rem),
+        linear-gradient(180deg, #07060b 0%, #0b0812 42%, #07060b 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 36px 22px 80px; }
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-content: center;
+      gap: 34px;
+      padding: 28px 0 56px;
+      border-bottom: 1px solid var(--line);
+    }
+    .pill {
+      width: fit-content;
+      border: 1px solid rgba(240,123,242,.35);
+      color: var(--accent2);
+      border-radius: 999px;
+      padding: 10px 18px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 13px;
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 0 30px rgba(240,123,242,.12);
+    }
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(42px, 7vw, 92px);
+      line-height: .96;
+      letter-spacing: -.065em;
+      margin: 0;
+      max-width: 980px;
+    }
+    .lead {
+      color: var(--muted);
+      max-width: 840px;
+      font-size: clamp(20px, 2.7vw, 31px);
+      line-height: 1.48;
+      margin: 0;
+    }
+    .forbox {
+      margin-top: 28px;
+      max-width: 850px;
+      padding: 24px 26px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255,255,255,.035);
+      backdrop-filter: blur(12px);
+    }
+    .forbox h3 { margin: 0 0 10px; font-size: 28px; }
+    .forbox p { margin: 0; color: var(--muted); font-size: 18px; }
+    .meta-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin-top: 20px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+    }
+    .metric strong { display:block; font-size: 30px; line-height:1; color: var(--accent2); }
+    .metric span { display:block; margin-top: 8px; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing:.14em; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 0 -22px 42px;
+      padding: 14px 22px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+      background: rgba(7,6,11,.82);
+      backdrop-filter: blur(16px);
+    }
+    .nav a {
+      flex: none;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 999px;
+      padding: 10px 13px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .section {
+      margin: 36px 0;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      box-shadow: 0 30px 90px rgba(0,0,0,.25);
+      page-break-inside: avoid;
+    }
+    .section-kicker {
+      display:inline-grid;
+      place-items:center;
+      width: 36px; height:36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #9d6bff);
+      color: white;
+      font-weight: 900;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 30px rgba(240,123,242,.25);
+    }
+    h2 {
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      margin: 0 0 22px;
+    }
+    p {
+      color: #ded6e8;
+      font-size: 19px;
+      margin: 0 0 18px;
+      max-width: 980px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.04);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      color: #e6deef;
+      font-size: 16px;
+    }
+    th {
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      background: rgba(240,123,242,.08);
+    }
+    tr:last-child td { border-bottom: 0; }
+
+    .maps-visual {
+      margin: 34px 0;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 0 30px 90px rgba(0,0,0,.25);
+    }
+    .maps-visual * { box-sizing: border-box; }
+    .maps-titleline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: #2b2630;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .maps-num {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: #d77745;
+      color: #fff;
+      font-weight: 900;
+    }
+    .maps-visual h2 {
+      color: #211b26;
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -.03em;
+      font-size: clamp(30px, 4.5vw, 48px);
+      margin: 0 0 18px;
+    }
+    .maps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .map-v-card {
+      border: 1px solid #eadfce;
+      border-radius: 18px;
+      background: #fffaf3;
+      padding: 16px;
+      box-shadow: 0 12px 35px rgba(25,22,33,.06);
+    }
+    .map-v-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: #2b2630;
+      margin-bottom: 12px;
+    }
+    .map-v-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .map-v-logo.y { background: #e8483e; }
+    .map-v-logo.g { background: #2ca965; }
+    .map-v-logo.d { background: #26a86f; }
+    .map-v-mini {
+      height: 95px;
+      border-radius: 12px;
+      border: 1px solid #e7dac8;
+      background:
+        linear-gradient(90deg, transparent 49%, rgba(203,187,166,.42) 50%, transparent 51%) 0 0/28px 28px,
+        linear-gradient(0deg, transparent 49%, rgba(203,187,166,.42) 50%, transparent 51%) 0 0/28px 28px,
+        radial-gradient(circle at 62% 45%, rgba(215,119,69,.18), transparent 35%),
+        #f7efe4;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .map-v-mini::after {
+      content: "";
+      position: absolute;
+      left: 62%;
+      top: 42%;
+      width: 15px;
+      height: 15px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: #ef4a4a;
+      box-shadow: 0 0 0 4px rgba(239,74,74,.14);
+    }
+    .map-v-rating {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .map-v-rating strong {
+      font-size: 36px;
+      line-height: 1;
+      color: #201b26;
+    }
+    .map-v-stars {
+      color: #f2a820;
+      letter-spacing: 1px;
+      font-size: 17px;
+    }
+    .map-v-count {
+      color: #746d7a;
+      font-size: 14px;
+    }
+    .map-v-tag {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .map-v-tag.red { background: #fde9e7; color: #b75351; }
+    .map-v-tag.amber { background: #fff0d4; color: #9b6700; }
+    .map-v-tag.green { background: #e3f3e9; color: #2f7b57; }
+    .map-v-sub {
+      color: #3a3340;
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .map-v-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #574f5d;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .map-v-card li { margin: 4px 0; }
+    .maps-gap {
+      margin-top: 14px;
+      border: 1px solid #eadfce;
+      border-radius: 16px;
+      background: #fffaf3;
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+    .maps-gap strong {
+      color: #2b2630;
+    }
+    .maps-gap-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      color: #2b2630;
+    }
+    .maps-gap-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid #2b2630;
+      display: grid;
+      place-items: center;
+    }
+    .maps-gap p {
+      margin: 0;
+      color: #5e5763;
+      font-size: 16px;
+      max-width: none;
+    }
+    @media (max-width: 900px) {
+      .maps-grid { grid-template-columns: 1fr; }
+      .maps-gap { grid-template-columns: 1fr; }
+    }
+
+
+    .card-breakdown {
+      margin: 36px 0;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(240,123,242,.10), transparent 28rem),
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      box-shadow: 0 30px 90px rgba(0,0,0,.25);
+    }
+    .card-breakdown .section-kicker {
+      margin-bottom: 18px;
+    }
+    .card-breakdown > h2 {
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -.05em;
+      margin: 0 0 16px;
+    }
+    .card-breakdown .intro {
+      max-width: 980px;
+      color: var(--muted);
+      font-size: 20px;
+      margin: 0 0 26px;
+    }
+    .platform-panel {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(8, 8, 14, .32);
+      margin-top: 22px;
+      box-shadow: 0 12px 34px rgba(0,0,0,.18);
+    }
+    .platform-panel:first-of-type { margin-top: 0; }
+    .platform-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 18px;
+      background: linear-gradient(135deg, var(--accent), #9d6bff);
+      color: #fff;
+    }
+    .platform-bar .left strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    .platform-bar .left span {
+      display: block;
+      font-size: 13px;
+      margin-top: 4px;
+      opacity: .94;
+    }
+    .platform-bar .right {
+      font-size: 17px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .platform-body {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      padding: 20px;
+      align-items: start;
+    }
+    .platform-copy { min-width: 0; }
+    .platform-rating {
+      float: right;
+      margin-left: 16px;
+      background: linear-gradient(135deg, var(--accent), #9d6bff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      font-size: 58px;
+      line-height: .95;
+      font-weight: 900;
+      letter-spacing: -.04em;
+    }
+    .platform-copy h3 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+    .platform-note {
+      margin: 14px 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .platform-copy ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+    .platform-copy li {
+      margin: 9px 0;
+      color: #ddd6e9;
+      font-size: 18px;
+    }
+    .platform-copy li strong {
+      background: linear-gradient(135deg, var(--accent), #9d6bff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .platform-summary {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 4px solid transparent;
+      border-image: linear-gradient(135deg, var(--accent), #9d6bff) 1;
+      border-radius: 0 16px 16px 0;
+      background: rgba(255,255,255,.06);
+      color: #f2ebff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .platform-shot {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: #000;
+      box-shadow: 0 10px 26px rgba(0,0,0,.20);
+    }
+    .platform-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    @media (max-width: 980px) {
+      .platform-body {
+        grid-template-columns: 1fr;
+      }
+      .platform-bar {
+        grid-template-columns: 1fr;
+      }
+      .platform-rating {
+        float: none;
+        display: block;
+        margin: 0 0 10px;
+      }
+    }
+
+    .highlight {
+      margin: 44px 0;
+      padding: 30px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(240,123,242,.20), rgba(91,255,173,.08));
+      border: 1px solid rgba(240,123,242,.30);
+    }
+    .highlight h2 { margin-bottom: 12px; }
+    .footer {
+      margin-top: 54px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+    .print-btn {
+      position: fixed;
+      right: 20px; bottom: 20px;
+      border: 1px solid rgba(240,123,242,.35);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #9d6bff);
+      color: #fff;
+      padding: 13px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    @media (max-width: 760px) {
+      .wrap { padding: 22px 16px 64px; }
+      .hero { min-height: auto; padding-top: 44px; }
+      .meta-grid { grid-template-columns: 1fr 1fr; }
+      .section { padding: 24px 20px; border-radius: 24px; }
+      p { font-size: 17px; }
+      .print-btn { display:none; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      .wrap { max-width: none; padding: 0; }
+      .hero, .section { background: #fff; color:#111; box-shadow:none; border-color:#ddd; }
+      .nav, .print-btn { display:none; }
+      p, td { color: #222; }
+      h1, h2, th { color: #111; }
+      .pill, .section-kicker { background:#111; color:#fff; box-shadow:none; }
+      @page { size: A4; margin: 14mm; }
+    }
+
+
+    .audit-gate-screen { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at 20% 0%, rgba(240,123,242,.18), transparent 34rem), linear-gradient(180deg, #07060b 0%, #0b0812 100%); }
+    .audit-gate-card { width: min(100%, 440px); padding: 32px; border: 1px solid var(--line); border-radius: 28px; background: rgba(255,255,255,.055); box-shadow: 0 30px 90px rgba(0,0,0,.35); text-align: center; }
+    .audit-gate-card h1 { font-size: 28px; line-height: 1.08; letter-spacing: -.03em; margin: 0 0 12px; }
+    .audit-gate-card p { font-size: 16px; color: var(--muted); margin: 0 0 18px; }
+    .audit-gate-card label { display: block; text-align: left; font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--accent2); margin: 18px 0 8px; font-weight: 800; }
+    .audit-gate-card input { width: 100%; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.06); color: var(--text); padding: 14px 16px; font-size: 18px; outline: none; }
+    .audit-gate-card button { width: 100%; margin-top: 14px; border: 0; border-radius: 999px; background: linear-gradient(135deg, var(--accent), #9d6bff); color: #fff; padding: 14px 18px; font-weight: 900; cursor: pointer; font-size: 16px; }
+    .audit-gate-error { display: none; margin-top: 12px !important; color: var(--danger) !important; font-size: 14px !important; }
+    .audit-gate-error.is-visible { display: block; }
+    body.audit-locked .audit-content { display: none; }
+    body.audit-unlocked .audit-gate-screen { display: none; }
+  </style><style>/* Functional additions; the source Expert stylesheet is preserved separately. */
+a{color:var(--accent2)}
+.expert-skip{position:absolute;left:16px;top:-100px;padding:14px;background:var(--panel);z-index:100}
+.expert-skip:focus{top:16px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.section,.card-breakdown{scroll-margin-top:100px}
+.platform-body>*{min-width:0}
+.platform-body.without-shot{grid-template-columns:1fr}
+.platform-shot{margin:0}
+.platform-shot figcaption{padding:16px;font-size:14px;color:var(--muted)}
+.evidence-slot{min-height:260px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center}
+.evidence-slot p{color:var(--accent2);font-weight:700}
+.evidence-slot span{font-size:14px;color:var(--muted)}
+.evidence-links{font-size:14px;line-height:1.55;margin-top:14px;overflow-wrap:anywhere}
+.expert-caption{color:var(--muted);font-size:16px}
+.expert-plan{padding:20px 0;border-bottom:1px solid var(--line)}
+.expert-plan h3,.expert-check h3{font-size:26px;line-height:1.25;margin:0 0 16px}
+.expert-details{margin:20px 0}
+.expert-details summary,.expert-question summary{cursor:pointer;min-height:44px;padding:12px 0;color:var(--accent2)}
+.expert-details summary{font-size:17px}
+.expert-details p:first-of-type{margin-top:16px}
+.expert-question{border-bottom:1px solid var(--line);padding:12px 0}
+.expert-question summary h3{display:inline;font-size:23px;line-height:1.3}
+.expert-question summary span{display:block;color:var(--muted);font-size:17px;line-height:1.5;margin:12px 0}
+.expert-question>div{padding:12px 0}
+.expert-check{padding:24px;margin:28px 0;border:1px solid var(--line);border-radius:20px}
+.expert-button{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:14px 22px;border:1px solid var(--accent);border-radius:999px;background:linear-gradient(135deg,var(--accent),#9d6bff);color:var(--ink);text-decoration:none;font-size:18px;font-weight:800;text-align:center;max-width:100%;overflow-wrap:anywhere}
+.expert-button.secondary{background:transparent;color:var(--accent2);font-weight:600}
+.expert-price{font-size:38px;font-weight:800;color:var(--accent2);margin:22px 0}
+cite{display:block;margin-top:18px;color:var(--accent2)}
+.print-btn{z-index:15;color:var(--ink)}
+@media(max-width:760px){.card-breakdown{padding:24px 20px}.platform-bar,.platform-body{padding:16px}.nav a{min-height:44px}.expert-button{width:100%}.expert-check{padding:18px}.expert-question summary h3{font-size:21px}.wrap{overflow-wrap:anywhere}.section,.card-breakdown{scroll-margin-top:96px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:760px){.nav{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}}
+@media print{details::details-content{display:block!important;content-visibility:visible!important}.expert-button,.expert-skip{display:none}.platform-panel,.card-breakdown,.highlight,.forbox,.expert-check,.expert-plan{background:white;color:#111;box-shadow:none;border-color:#ddd}.platform-bar{background:#eee;color:#111}.platform-copy h3,.platform-copy li,.platform-summary,.evidence-links,.expert-price,cite,a,.expert-caption{color:#111!important;background:none}.platform-copy li strong{background:none;-webkit-text-fill-color:#111}.table-wrap{overflow:visible}table{min-width:0}h1,h2{letter-spacing:normal}.section{page-break-inside:auto}.expert-plan,tr{break-inside:avoid}}
+</style></head>
+<body><a class="expert-skip" href="#report">Перейти к отчёту</a><button class="print-btn" type="button" data-expert-print>Печать / PDF</button><main class="wrap" id="report">
+<header class="hero"><div class="pill">Шаблон · пример заполнения</div><div><div class="eyebrow">CAESTHETIC · v6.2</div><h1>Демонстрационная клиника</h1></div><p class="lead">У клиники есть услуги, специалисты и отзывы. Чтобы человеку было проще обратиться, условия первого визита и основания доверия нужно показать рядом с записью.</p><div class="forbox"><h3>Для владельца клиники</h3><p>Пример одной локации · город и адрес заполняются для клиента</p><p>10 сентября 2026</p><p>Учебные данные для сравнения представлений. Не аудит действующей клиники.</p><cite>Валерия Петра · CAESTHETIC</cite></div></header>
+<nav class="nav" aria-label="Разделы отчёта"><a href="#four-questions">Четыре вопроса при выборе клиники</a><a href="#platforms">На чём основаны выводы</a><a href="#before-after">До / После</a><a href="#plan">Что сделаем за 30 дней</a><a href="#next-step">Кто выполнит изменения</a></nav><div class="highlight"><h2>Клиент собирает условия визита по частям</h2><p>В этом примере главная задача состоит в том, чтобы соединить предложение услуги, специалиста и условия записи. После изменений основные ответы будут доступны до обращения.</p></div>
+<section class="section" id="four-questions"><div class="section-kicker">01</div><h2>Четыре вопроса при выборе клиники</h2><p>Что человек должен понять до обращения и какие ответы уже даёт клиника.</p><div class="expert-questions"><details class="expert-question"><summary><h3>Что человек покупает и понятны ли условия?</h3><span>Описание услуги есть; условия первого визита находятся отдельно.</span></summary><div><p>В учебном примере страница рассказывает об услуге, а длительность, состав консультации и порядок оплаты раскрываются только при записи.</p><p>Человеку приходится искать ответы перед тем, как сделать следующий шаг.</p><p>Разместить короткую карточку первого визита рядом с записью.</p><div class="evidence-links"><a href="https://example.org/service" target="_blank" rel="noopener noreferrer">Пример источника: страница услуги</a><span> · 2026-09-10</span></div><details class="expert-details"><summary>Обоснование и проверка</summary><p>Условия визита понятны до перехода к записи.</p><p>Объяснение распределено между двумя страницами; техническая неисправность не заявляется.</p><p>С телефона и компьютера проверить, что услуга, условия и выбранная точка сохраняются до обращения.</p></details></div></details><details class="expert-question"><summary><h3>Почему можно доверять специалисту?</h3><span>Профиль специалиста есть, но не связан со страницей услуги.</span></summary><div><p>В учебном примере специалист представлен в разделе команды. Рядом с услугой не указано, кто проводит консультацию.</p><p>Перед обращением человек хочет понимать, кто его примет и какие вопросы можно обсудить.</p><p>Добавить подтверждённое представление специалиста и ссылку на профиль.</p><div class="evidence-links"><a href="https://example.org/service" target="_blank" rel="noopener noreferrer">Пример источника: страница услуги</a><span> · 2026-09-10</span></div><details class="expert-details"><summary>Обоснование и проверка</summary><p>Услуга и ответственный специалист связаны в одном маршруте.</p><p>Это пробел в объяснении, а не оценка квалификации.</p><p>Сверить имя, роль и услугу с подтверждёнными сведениями клиники.</p></details></div></details><details class="expert-question"><summary><h3>Что помогает выбрать клинику в отзывах?</h3><span>Отзывы объясняют сильные стороны, но эти темы не раскрыты до визита.</span></summary><div><p>Учебный пример показывает, как конкретную тему из подтверждённых отзывов можно связать с описанием консультации.</p><p>Человеку полезно понимать, как будет устроен визит и что он сможет уточнить.</p><p>Использовать подтверждённые темы в объяснениях клиники; отвечать на содержание каждого отзыва.</p><div class="evidence-links"><a href="https://example.org/reviews" target="_blank" rel="noopener noreferrer">Пример источника: отзывы</a><span> · 2026-09-10</span></div><details class="expert-details"><summary>Обоснование и проверка</summary><p>Причины выбора выводятся из исследованных отзывов.</p><p>Учебный текст не устанавливает частоту реальных жалоб или преимущество клиники.</p><p>Каждый вывод связан с конкретными источниками и указанной выборкой.</p></details></div></details><details class="expert-question"><summary><h3>Что альтернативы объясняют понятнее?</h3><span>Сравниваем условия визита и следующий шаг по одной услуге.</span></summary><div><p>В учебном сравнении альтернатива показывает состав первого визита рядом с действием.</p><p>Расположение информации помогает сравнить предложения без поиска по разным разделам.</p><p>Показать собственные условия рядом с записью, сохранив подход клиники.</p><div class="evidence-links"><a href="https://example.org/alternative" target="_blank" rel="noopener noreferrer">Пример источника: сопоставимая альтернатива</a><span> · 2026-09-10</span></div><details class="expert-details"><summary>Обоснование и проверка</summary><p>Сравнивается один этап выбора и сопоставимая услуга.</p><p>Удобство объяснения не доказывает качество лечения или объём продаж.</p><p>Проверить, что до обращения можно найти специалиста, условия и способ записи.</p></details></div></details></div></section>
+<section class="card-breakdown" id="platforms"><div class="section-kicker">02</div><h2>На чём основаны выводы</h2><article class="platform-panel"><div class="platform-bar"><div class="left"><strong>Поиск и карты</strong><span>Карточка должна вести к выбранной услуге</span></div></div><div class="platform-body"><div class="platform-copy"><h3>Карточка должна вести к выбранной услуге</h3><div class="platform-note"><div class="evidence-links"><a href="https://example.org/maps" target="_blank" rel="noopener noreferrer">Пример источника: карточка на карте</a><span> · 2026-09-10</span></div></div><ul><li><strong>Что увидели:</strong> В учебном примере ссылка ведёт на общую страницу.</li><li><strong>Почему важно:</strong> Человеку нужно снова искать услугу и условия обращения.</li></ul><div class="platform-summary">Связать карточку с подходящим локальным входом и проверить переход.</div></div><div class="platform-shot evidence-slot"><p>Скриншот источника</p><span>В готовом отчёте здесь размещается подтверждение наблюдения.</span></div></div></article><article class="platform-panel"><div class="platform-bar"><div class="left"><strong>Сайт</strong><span>Условия первого визита нужны рядом с записью</span></div></div><div class="platform-body"><div class="platform-copy"><h3>Условия первого визита нужны рядом с записью</h3><div class="platform-note"><div class="evidence-links"><a href="https://example.org/service" target="_blank" rel="noopener noreferrer">Пример источника: страница услуги</a><span> · 2026-09-10</span></div></div><ul><li><strong>Что увидели:</strong> Описание услуги и условия консультации находятся на разных страницах.</li><li><strong>Почему важно:</strong> Основные вопросы остаются открытыми до начала записи.</li></ul><div class="platform-summary">Добавить согласованную карточку первого визита на страницу услуги.</div></div><div class="platform-shot evidence-slot"><p>Скриншот источника</p><span>В готовом отчёте здесь размещается подтверждение наблюдения.</span></div></div></article><article class="platform-panel"><div class="platform-bar"><div class="left"><strong>Социальные сети</strong><span>Публикация должна продолжаться понятным шагом</span></div></div><div class="platform-body"><div class="platform-copy"><h3>Публикация должна продолжаться понятным шагом</h3><div class="platform-note"><div class="evidence-links"><a href="https://example.org/social" target="_blank" rel="noopener noreferrer">Пример источника: социальный профиль</a><span> · 2026-09-10</span></div></div><ul><li><strong>Что увидели:</strong> В учебном примере профиль направляет на общий сайт без пояснения первого визита.</li><li><strong>Почему важно:</strong> После знакомства с услугой человеку приходится начинать поиск заново.</li></ul><div class="platform-summary">Согласовать описание, закреплённый материал и путь к обращению.</div></div><div class="platform-shot evidence-slot"><p>Скриншот источника</p><span>В готовом отчёте здесь размещается подтверждение наблюдения.</span></div></div></article><article class="platform-panel"><div class="platform-bar"><div class="left"><strong>Отзывы и репутация</strong><span>Отзывы помогают объяснить опыт первого визита</span></div></div><div class="platform-body"><div class="platform-copy"><h3>Отзывы помогают объяснить опыт первого визита</h3><div class="platform-note"><div class="evidence-links"><a href="https://example.org/reviews" target="_blank" rel="noopener noreferrer">Пример источника: отзывы</a><span> · 2026-09-10</span></div></div><ul><li><strong>Что увидели:</strong> В шаблоне предусмотрен разбор конкретных тем и ответов клиники.</li><li><strong>Почему важно:</strong> Подтверждённые темы могут помочь человеку подготовиться к консультации.</li></ul><div class="platform-summary">Добавить конкретные источники и содержательные ответы без медицинских подробностей.</div></div><div class="platform-shot evidence-slot"><p>Скриншот источника</p><span>В готовом отчёте здесь размещается подтверждение наблюдения.</span></div></div></article></section>
+<section class="section" id="before-after"><div class="section-kicker">03</div><h2>До / После</h2><p class="expert-caption">«После» показывает согласованный результат работы. Это план, пока исправление не проверено.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Сейчас и после изменений"><table><thead><tr><th scope="col">Сейчас</th><th scope="col">После изменений</th><th scope="col">Как проверим</th></tr></thead><tbody><tr><td>Услуга и условия первого визита описаны в разных местах.<div class="evidence-links"><a href="https://example.org/service" target="_blank" rel="noopener noreferrer">Пример источника: страница услуги</a><span> · 2026-09-10</span></div></td><td>Состав, условия и следующий шаг собраны рядом с записью.</td><td>Проверка страницы и пути записи с телефона и компьютера.</td></tr><tr><td>Разные площадки ведут к общим страницам.<div class="evidence-links"><a href="https://example.org/maps" target="_blank" rel="noopener noreferrer">Пример источника: карточка на карте</a><span> · 2026-09-10</span><br><a href="https://example.org/social" target="_blank" rel="noopener noreferrer">Пример источника: социальный профиль</a><span> · 2026-09-10</span></div></td><td>Согласованные входы ведут к нужной услуге и локации.</td><td>Каждая ссылка сверена по реестру переходов.</td></tr><tr><td>Сведения о специалисте и ответы на вопросы разрознены.<div class="evidence-links"><a href="https://example.org/service" target="_blank" rel="noopener noreferrer">Пример источника: страница услуги</a><span> · 2026-09-10</span><br><a href="https://example.org/reviews" target="_blank" rel="noopener noreferrer">Пример источника: отзывы</a><span> · 2026-09-10</span></div></td><td>До обращения понятно, кто принимает и как устроен визит.</td><td>Имена, роли и условия подтверждены; материалы связаны с услугой.</td></tr></tbody></table></div></section>
+<section class="section" id="plan"><div class="section-kicker">04</div><h2>Что сделаем за 30 дней</h2><p>Три согласованных результата. Условия и медицинские сведения подтверждает клиника.</p><div class="expert-plan"><h3>1. Понятный первый визит</h3><p><strong>Результат:</strong> Карточка консультации с составом, условиями и следующим шагом.</p><p><strong>Готово, когда:</strong> На странице услуги можно найти основные условия и перейти к нужной записи.</p><details class="expert-details"><summary>Состав работ</summary><p>Страница услуги и короткий материал с ответами перед визитом.</p><div class="evidence-links"><a href="https://example.org/service" target="_blank" rel="noopener noreferrer">Пример источника: страница услуги</a><span> · 2026-09-10</span></div></details></div><div class="expert-plan"><h3>2. Переходы между площадками</h3><p><strong>Результат:</strong> Согласованные ссылки и информация в поиске, на сайте и в социальных профилях.</p><p><strong>Готово, когда:</strong> Каждый согласованный вход сохраняет услугу и выбранную локацию до обращения.</p><details class="expert-details"><summary>Состав работ</summary><p>Реестр переходов и проверка с телефона и компьютера.</p><div class="evidence-links"><a href="https://example.org/maps" target="_blank" rel="noopener noreferrer">Пример источника: карточка на карте</a><span> · 2026-09-10</span><br><a href="https://example.org/social" target="_blank" rel="noopener noreferrer">Пример источника: социальный профиль</a><span> · 2026-09-10</span></div></details></div><div class="expert-plan"><h3>3. Доверие до обращения</h3><p><strong>Результат:</strong> Представление специалиста и материалы, отвечающие на вопросы о визите.</p><p><strong>Готово, когда:</strong> Сведения подтверждены клиникой, а ответы связаны с вопросами и отзывами.</p><details class="expert-details"><summary>Состав работ</summary><p>Карточка специалиста, материал о консультации и согласованные ответы клиники.</p><div class="evidence-links"><a href="https://example.org/service" target="_blank" rel="noopener noreferrer">Пример источника: страница услуги</a><span> · 2026-09-10</span><br><a href="https://example.org/reviews" target="_blank" rel="noopener noreferrer">Пример источника: отзывы</a><span> · 2026-09-10</span></div></details></div><details class="expert-details"><summary>Какие расходы пока отложить</summary><p>Сначала проверить выбранный путь обращения. Увеличение рекламного бюджета обсуждается после исправлений и при наличии данных об использовании этого пути.</p></details></section>
+<section class="section" id="after-enquiry"><div class="section-kicker">05</div><h2>Что происходит после обращения</h2><p>Публичный аудит показывает путь до обращения. Скорость ответа, повторную связь, запись и оплату можно оценить отдельно с доступом к данным.</p><p>В этом учебном примере внутренние процессы не исследовались.</p><details class="expert-details"><summary>Что потребуется для проверки</summary><p>До проверки согласуем объём доступа и перечень неклинических данных. Не делаем выводов о потерях внутри клиники по виду сайта.</p></details><aside class="expert-check" data-check500-placement="mid_report"><h3>Проверка пути от обращения до оплаты · $500</h3><p>Отдельный необязательный шаг при согласованном доступе к данным.</p><a class="expert-button secondary" href="https://caesthetic.com/lead-to-revenue-check/">Начать с проверки →</a></aside></section>
+<section class="section" id="next-step"><div class="section-kicker">06</div><h2>Кто выполнит изменения</h2><p>Подготовим материалы первого визита, свяжем их с записью и согласуем информацию между четырьмя площадками. Клиника получает обновлённые материалы и проверенный путь обращения.</p><div class="expert-price">$2,500 · 30 дней</div><p>Валерия Петра координирует работу со стороны CAESTHETIC. Клиника подтверждает условия, сведения о специалистах и материалы перед размещением.</p><p>$2,500 за Sprint на 30 дней. Точный объём и дату старта фиксируем до начала работы. Дальнейшее сопровождение необязательно; его объём и условия согласуются отдельно.</p><a class="expert-button" data-expert-sprint href="https://caesthetic.com/sprint/">Перейти к реализации плана →</a><aside class="expert-check" data-check500-placement="final_alternative"><h3>Проверка пути от обращения до оплаты · $500</h3><p>Отдельный необязательный шаг при согласованном доступе к данным.</p><a class="expert-button secondary" href="https://caesthetic.com/lead-to-revenue-check/">Начать с проверки →</a></aside><details class="expert-details"><summary>Что произойдёт дальше</summary><p>После оформления согласуем по email объём, дату старта, доступы и порядок приёмки. Прогресс показываем по согласованным задачам.</p></details></section>
+<footer class="footer"><span>Валерия Петра · CAESTHETIC</span><span>v6.2 · 10 сентября 2026</span><a href="mailto:info@caesthetic.com">Задать вопрос</a></footer></main><script type="module">let previousOpen = [];
+window.addEventListener('beforeprint', () => {
+  previousOpen = [...document.querySelectorAll('details')].map(el => [el, el.open]);
+  previousOpen.forEach(([el]) => { el.open = true; });
+});
+window.addEventListener('afterprint', () => {
+  previousOpen.forEach(([el, open]) => { el.open = open; });
+});
+document.querySelector('[data-expert-print]')?.addEventListener('click', () => window.print());
+</script></body></html>
