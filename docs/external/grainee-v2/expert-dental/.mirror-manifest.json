@@ -4,7 +4,7 @@
   "files": {
     ".github/workflows/deploy-expert-esign-test.yml": "dfc916e5418de77dc264147806db7cdde263a9ed3017d0fca9fb91e967767f25",
     ".github/workflows/record-expert-esign-deploy.yml": "4a12436e1da435c5f14f7b5992e32a363f4f542c5728a9cfce5a89161fefa107",
-    "AGENTS.md": "fcdeea7cc024b22cac1b77812f7e73718ae8cc48d81d0334ab135e5c8eb800c7",
+    "AGENTS.md": "61ab58e6143bc68cea58bcf2e3aad601fc1dfc9f764417c7f49c9adf6e3267d7",
     "START.md": "8583deed4e7051bd183b95e1fc48061239aa45ca7abb0faba2478ddd780cc020",
     "agents/manifests/healthcare-ecosystem.yaml": "caa0ce20e6ea5e28458cbfae2546badfdc4a2436d4eecb5e7195d3a732a6c666",
     "agents/manifests/raimovdental.yaml": "ea66ddbd38d8ae60b9699cb8373c062bf32b8ea1f5deae84bed206900ea56f6f",
@@ -328,7 +328,7 @@
     "docs/ssot/ELITE_DENTAL_STRATEGY.md": "8aff0d09a108d8a5f1acd045ecdabf670a7a6b310d45dda1531fb2a6b310d759",
     "docs/ssot/EXPERT_DENTAL_COMMERCIAL_SCHEDULE.md": "f931dae2fde889b3a32d9d2f72e0ecd806538dfb60b71def23a2b4aa551897c9",
     "docs/ssot/EXPERT_DENTAL_DOCUMENT_FLOW_WAVE_1.md": "7dab2203cf9ede595aaa84ea5182fc07110ab409c2e3f042d7cd0155cc6cf307",
-    "docs/ssot/EXPERT_DENTAL_GROWTH_OFFER.md": "3d80f5e28b3caee3080f71ef685aa0065c3e014eeafb28415a92ac5b8a6032c7",
+    "docs/ssot/EXPERT_DENTAL_GROWTH_OFFER.md": "5fe3ab4a6db6059b80241e3cf298eabfe84fdaa61d91e2c444210139a2a52490",
     "docs/ssot/EXPERT_DENTAL_INFRASTRUCTURE.md": "2a7dfd950e5404e864642bf0d8396dc31f112f7e091bbd5b0a49619f805e7994",
     "docs/ssot/EXPERT_DENTAL_LICENSE_COMPLIANCE.md": "5aaa49674130eacada2be53dc7781f5850af32cad7cee881ce99d856db2c4807",
     "docs/ssot/EXPERT_DENTAL_MARKETING_FAQ.md": "7c78e903e9cdff651bc13280fe2e98fbfed4ddff4d19cbe8f8a8b0545a105ca7",
@@ -360,7 +360,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "761fb5218c9657820220d6483a516d2df19f2d14",
+  "source_sha": "fa5d936563519493b1e1a776efedc9b8cd8ca470",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

@@ -10,7 +10,7 @@ export const STORAGE_PATH = process.env.STORAGE_PATH || "/opt/caesthetic-assets"
 export const RCLONE_REMOTE = process.env.CAESTHETIC_RCLONE_REMOTE || "dropbox:";
 export const AUDIT_LOG = "/var/log/grainee/caesthetic-assets-audit.jsonl";
 
-/** Agent/worker runtime is VPS2402 only (DEC-836). `.121` / vdska is forbidden. */
+/** Agent/worker runtime is vds2402 / VPS2402 only (DEC-836 / DEC-882). Retired donor IP stays in forbidden_*. */
 export const CANONICAL_AGENT_HOST = Object.freeze({
   hostname: "vps2402",
   ip: "185.216.214.28",

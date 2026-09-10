@@ -1,0 +1,45 @@
+{
+  "kind": "internal_network_focus_presentation_comparison",
+  "content_revision": "2026-09-10-public-four-surfaces-materiality-v2",
+  "audit": {
+    "format": "multi_location",
+    "package_role": "focus_location",
+    "selected_focus_location": null
+  },
+  "review": {
+    "status": "manager_review",
+    "named_reviewer": "Валерия",
+    "client_publication_approved": false
+  },
+  "commercial_gate": {
+    "sprint_2500_justified": false,
+    "status": "conditional_pilot_core_found",
+    "next_steps_are_purchased_deliverables": false
+  },
+  "facts_sha256": "f14a71ca39eb3c071a97ba5cd0d4554e8ce6a5a43ae64c9a23977a81077d585b",
+  "historical_source_commit": "0409536fcbaf8e06a31fd7fb6473e2e11fe8734e",
+  "historical_source_html_sha256": "9244c603555c5c9764854da04fc01c2ae5698849d57f7a104b70aaff5c35a1d5",
+  "presentation_ssot_blob": "f34a8b47cf5bab7ef57e5f5571db73d5ec7e4b41",
+  "expert_css_sha256": "aa3e7e743b21510a4c74fd3bccbf4c46c43aa45658e574855fe3e49ed00b13e4",
+  "versions": [
+    {
+      "version": "v6",
+      "file": "Monroe-v6.html",
+      "facts_sha256": "f14a71ca39eb3c071a97ba5cd0d4554e8ce6a5a43ae64c9a23977a81077d585b",
+      "html_sha256": "fc20b6cacc1f35d4317a5fda90a622bf2dfc710b7213238e4fb87b96b2383cb2"
+    },
+    {
+      "version": "v6.1",
+      "file": "Monroe-v6.1.html",
+      "facts_sha256": "f14a71ca39eb3c071a97ba5cd0d4554e8ce6a5a43ae64c9a23977a81077d585b",
+      "html_sha256": "ef24ba84d4b8549c1719d92e0a6d113dd03c031373fb8d865cbacea56ca310d3"
+    },
+    {
+      "version": "v6.2",
+      "file": "Monroe-v6.2.html",
+      "facts_sha256": "f14a71ca39eb3c071a97ba5cd0d4554e8ce6a5a43ae64c9a23977a81077d585b",
+      "html_sha256": "91a8d9ac1ea4b1db7e6fceb25a82bc7056db6536be373d973e70b324c4d4a4d5"
+    }
+  ],
+  "publication": "Standalone review files; new versions not deployed to caesthetic.com."
+}

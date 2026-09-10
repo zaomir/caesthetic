@@ -1,0 +1,15 @@
+{
+  "observed_date": "2026-09-10",
+  "status": "pass",
+  "scope": "Evidence packaging and interpretation boundaries; browser source observations reside in evidence files",
+  "checks": [
+    "Four public surfaces present with explicit coverage and unmeasured fields",
+    "Separate network/partner Google entities; zero review count does not create a zero rating",
+    "CEENTA 404 full-card count retained with mixed-service limitation",
+    "No numeric score, approved focus or approved Top 3 assigned",
+    "Offer readiness false; substantial execution scope and access still need definition",
+    "Lead Intake, conversion, patient understanding and revenue not assessed",
+    "Later interpretation linked from case and review handoff",
+    "Every packaged evidence JSON parses and each evidence file is SHA-256 bound"
+  ]
+}

@@ -1,5 +1,9 @@
 # CAESTHETIC — Thin Router
 
+## Три представления отчёта
+
+`v6.1`, `v6.2`, «как Expert», «три версии отчёта» → [CAESTHETIC_REPORT_PRESENTATIONS.md](../../ssot/CAESTHETIC_REPORT_PRESENTATIONS.md). Русские шаблоны и HTML: `docs/caesthetic/design/report-presentations/`. v6 остаётся стандартным выбором; варианты не меняют факты, согласование и сетевой контракт.
+
 
 ## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
 

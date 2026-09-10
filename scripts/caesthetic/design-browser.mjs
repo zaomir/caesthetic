@@ -73,6 +73,14 @@ async function verifyReviewAccess(context, entry) {
   if (!process.env.CAE_DESIGN_BASE || entry.stage !== 'manager_review') return null;
   if (new URL(base).origin !== 'https://caesthetic.com') throw new Error('Review access smoke is restricted to canonical production');
   const url = base + entry.route;
+  if (entry.accessMode !== 'pin') {
+    const response = await context.request.get(url);
+    const bytes = await response.body();
+    const expectedHash = sha(fs.readFileSync(path.join(ROOT,entry.source)));
+    if (response.status() !== 200 || sha(bytes) !== expectedHash || bytes.toString().includes('name="password"')) throw new Error('Direct-link review differs from exact release or still requires a password');
+    if (!response.headers()['cache-control']?.includes('no-store') || !response.headers()['x-robots-tag']?.includes('noindex')) throw new Error('Review no-store/noindex headers missing');
+    return {mode:'none',anonymous:200,contentSha256:expectedHash,sourceSha:testedIdentity.sha};
+  }
   const gate = await context.request.get(url);
   const gateBody = await gate.text();
   if (gate.status() !== 200 || !gateBody.includes('name="password"') || gateBody.includes('data-review-state="manager_review"')) throw new Error('Review unauthenticated gate failed');
@@ -325,7 +333,9 @@ console.log(
   JSON.stringify({
     observations: results.length,
     newViolations: errors.length,
+    violations: errors,
     evidence: out,
   }),
 );
 if (errors.length) process.exitCode = 1;
+

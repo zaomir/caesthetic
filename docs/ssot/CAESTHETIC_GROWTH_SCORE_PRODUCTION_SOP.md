@@ -1,10 +1,10 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 3.7
+version: 3.7.1
 created: 2026-08-30
-updated: 2026-09-08
-scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from mandatory manager interview to catalogued password-protected delivery on caesthetic.com
+updated: 2026-09-10
+scope: unified manager-assigned audit platform for approved CAESTHETIC verticals, from intake to direct-link delivery on caesthetic.com; password protection only on direct instruction
 project_master: docs/ssot/CAESTHETIC.md
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 related:
@@ -21,14 +21,21 @@ runtime_contracts:
   - scripts/caesthetic/multi-location-decision-view-model.mjs
 ---
 
+## Report access — owner decision 2026-09-10
+
+Cases, reports and manager-review pages open by direct link without a password by default. Set a password only on a direct instruction for the named page/package, recorded with its source. Preserve noindex, catalog rules and diagnostic review status. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`. Earlier mandatory PIN/password language is superseded; private catalog visibility is not authentication.
+
+
 # CAESTHETIC — Growth Score Audit Factory SSOT
 
-> One controlled production method for **Growth Score v5**, **Multi-Location Growth Score** and **аудит**. These names resolve to one audit intent: manager assignment → mandatory manager interview → quick public reconnaissance → autonomously recorded research scope → full public research → internal AI report → named-human Focus Selection → catalogued protected client pages on `caesthetic.com` → delivery.
+> One controlled production method for **Growth Score v5**, **Multi-Location Growth Score** and **аудит**. These names resolve to one audit intent: manager assignment → mandatory manager interview → quick public reconnaissance → autonomously recorded research scope → full public research → internal AI report → named-human Focus Selection → catalogued direct-link client pages on `caesthetic.com` → delivery.
 
 This file is the sole operating SSOT for creating both audit formats. It owns sequence, roles, gates, inputs, outputs and fail-closed behaviour. It does not redefine Four-Surface metrics, weights, evidence classes, the current schema-v5 location report, the Valerie walkthrough or Sprint pricing. CAESTHETIC production eligibility is limited to `aesthetic_practice`, `dental_practice` and `beauty_salon`; a generic audit wrapper cannot add a fourth vertical or a second product contract.
 
 <a id="canonical-authoring-route"></a>
 ## Canonical authoring route — v6 and Russian-first (2026-09-08)
+
+**2026-09-10 presentation addition:** for Russian `v6.1` (Expert structure/design), `v6.2` (v6 logic plus evidence and Before/After in Expert design), or three views of one report, read [CAESTHETIC_REPORT_PRESENTATIONS.md](CAESTHETIC_REPORT_PRESENTATIONS.md). Explicit selection uses `createGrowthScorePresentationTemplate({version, locale:"ru"})`; default v6, schema-v5 evidence/review gates and Multi-Location packages remain intact. This scoped addition supersedes “v6 only” presentation wording solely for these two single-location profiles.
 
 Contract: **`growth-score-authoring-route/3.0.0`**. Owner instruction: route audit/report/score assignments and synonyms through the agreed process and the new v6, like Spoken. This section supersedes older blanket “any mention starts an interview” wording and older default single-location presentation instructions in this SOP and entrypoint adapters. Diagnostic schema v5, evidence and product eligibility remain unchanged.
 
@@ -75,7 +82,7 @@ These rules are enforced at task routing and draft selection; runtime metadata i
 9. The current schema-v5 visual profile remains the canonical detailed report for one location; “v5” never means an older frozen visual presentation.
 10. Multi-Location Growth Score adds a parent network profile and links to one full current schema-v5 report for the manager-selected focus location.
 11. A Multi-Location package has one shared final Focus Selection of exactly three gaps total, not a second network or location priority set.
-12. Every real client page requires a simple package password validated server-side, plus an unguessable route and noindex controls. Nohy V Ruky follows this same protected contract.
+12. Every real client page opens directly without a password by default, with an unguessable route and noindex controls. Add server-side password protection only on a direct owner instruction for the named page or package. Nohy V Ruky follows this same contract.
 13. `Multi-Location Growth Score`, `Growth Score` and `аудит` are synonyms for the canonical `growth_score_audit` intent. A new assignment starts the same manager interview; existing-case and governance intents follow `#canonical-authoring-route`.
 14. Every approved audit is registered automatically in the internal project catalog. Public listing is separate and requires a synthetic report or explicit client permission.
 15. Every client audit page lives under `https://caesthetic.com/score/`; no satellite or third-party host is canonical.
@@ -103,16 +110,16 @@ The Royal Petrol/CARD_NETWORK materials are reference prior art only. CAESTHETIC
 
 The platform unit is an `audit_project`, not a clinic, but the approved CAESTHETIC production vertical remains mandatory. A project may enter production only when `vertical_context` resolves to `aesthetic_practice`, `dental_practice` or `beauty_salon` and its customer-choice journey has meaningful, publicly observable Search, Website, Social and Reputation surfaces. The Research Alignment Card must return `not_applicable` instead of inventing scores when those surfaces or a meaningful public decision journey do not exist.
 
-The generic audit wrapper remains an internal platform capability only and is **not approved for CAESTHETIC production without explicit vertical approval**. An unsupported `subject_type` cannot bypass the `vertical_context` enum, freeze a research brief, create an approved report, enter the completed catalog or reach protected delivery. Adding a vertical requires a versioned product decision plus coordinated schema, rubric, template, renderer and test release; it is not achieved by mapping an arbitrary subject into the `practice` object.
+The generic audit wrapper remains an internal platform capability only and is **not approved for CAESTHETIC production without explicit vertical approval**. An unsupported `subject_type` cannot bypass the `vertical_context` enum, freeze a research brief, create an approved report, enter the completed catalog or reach client delivery. Adding a vertical requires a versioned product decision plus coordinated schema, rubric, template, renderer and test release; it is not achieved by mapping an arbitrary subject into the `practice` object.
 
 | Format | Internal research unit | Client deliverable |
 |---|---|---|
-| `single_location` | One resolved public business location | One protected Growth Score v5 page |
-| `multi_location` | One declared network, its reviewed locations, shared assets and local assets | One protected network-analysis page plus one linked protected Growth Score v5 page for the focus location |
+| `single_location` | One resolved public business location | One direct-link Growth Score v5 page |
+| `multi_location` | One declared network, its reviewed locations, shared assets and local assets | One direct-link network-analysis page plus one linked direct-link Growth Score v5 page for the focus location |
 
 For Multi-Location:
 
-- the deliverable is one parent network-analysis page plus one linked protected Growth Score v5 page;
+- the deliverable is one parent network-analysis page plus one linked direct-link Growth Score v5 page;
 
 - the network page is the delivery entry point;
 - its hero says how many locations were declared and how many were actually reviewed;
@@ -152,7 +159,7 @@ score_case created
 → verified fact set frozen
 → report review
 → approved report
-→ protected route QA
+→ direct-link access QA
 → delivered
 → closed
 ```
@@ -162,7 +169,7 @@ No later gate may compensate for a missing earlier gate. In particular:
 - no intermediate manager approval before the complete Russian audit; research requires resolved subject/public scope, not `research_alignment.status=approved`;
 - no final compilation before named-human Focus Selection;
 - no render publication before approved report;
-- no delivery before password/access QA.
+- no delivery before configured-access QA.
 
 An approved report authored in `zaomir/caesthetic` enters production only through the exact-SHA, allowlisted control plane in `CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`. Ordinary DEC-829 mirror sync is not publication. Both single-location and the atomic Multi-Location parent/focus-child package use the same gate.
 
@@ -497,22 +504,22 @@ The parent renders its exact approved Top 3 once in section 2 as compact decisio
 
 A selected gap must affect the focus location directly or through a shared asset used by it. Other branch-only gaps remain below in the Full Network Gap Inventory. The package parent has exactly two always-visible `check500-two-placement/1.0.0` sections and may have at most one separate evidence-backed implementation CTA: the first Check follows the post-enquiry explanation or map, and the second follows the primary Sprint offer. The child has navigation back to the parent implementation decision and no commercial section or CTA.
 
-## 12. Password, privacy and access group
+## 12. Direct-link access, privacy and optional protection
 
-Every real audit package is delivered through:
+Every real audit package opens directly without a password by default. Retain:
 
 - unguessable route slugs;
 - `noindex,nofollow,noarchive,nosnippet`;
 - exclusion from every sitemap;
-- a simple package password validated at the server/edge;
-- rate limiting or cooldown for repeated failures;
-- an `HttpOnly`, `Secure`, `SameSite` access cookie after success.
+- existing private/unlisted catalogue state and no-store controls.
 
-The Nohy V Ruky route `/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/` is a real client report and therefore uses the same server-side password/access control as every other real report. Its unguessable slug, full noindex directives, sitemap exclusion and private catalogue state remain mandatory.
+This default also applies to Nohy V Ruky and to both the Multi-Location parent and focus child. A shared `access_group_id` may retain package identity; it does not itself enable authentication.
 
-Never embed the password, password hash or comparison secret in HTML, client JavaScript, report JSON or the repository. Store only a salted password hash in the protected runtime. Do not use the business name alone as the password.
+Add password protection only after a direct owner instruction naming the page or package. Record the instruction source and affected routes under the access standard. For that explicitly requested mode, use server/edge validation, rate limiting or cooldown for repeated failures and an `HttpOnly`, `Secure`, `SameSite` cookie after success. Parent and child then share the requested session.
 
-For Multi-Location, the parent and child share one `access_group_id`; the client enters the password once. Demo/synthetic reports may remain public when clearly labelled synthetic and excluded from real-client routing.
+Never embed a password, password hash or comparison secret in HTML, client JavaScript, report JSON or the repository. Any explicitly requested protection stores its salted hash only in protected runtime configuration.
+
+Demo/synthetic reports remain clearly labelled synthetic and excluded from real-client routing. Removing a password does not approve a diagnostic conclusion, public catalogue listing or client publication.
 
 ## 13. Walkthrough
 
@@ -525,15 +532,15 @@ The walkthrough is compiled only from the approved report and frozen fact set un
 
 ## 14. Delivery
 
-After render, route, password, mobile, link, evidence and walkthrough QA:
+After render, direct-link access (or explicitly requested protection), mobile, link, evidence and walkthrough QA:
 
 1. record case/report/fact-set/focus-selection versions;
-2. record private route and access group;
+2. record unlisted route, package identity and access mode; record the instruction source only if protection was directly requested;
 3. record intended recipient and manager/operator;
 4. record delivery channel and timestamp;
 5. record walkthrough status and any delivery failure;
-6. for single-location, send the location page link plus password;
-7. for Multi-Location, send only the parent network page link plus password; the focus-location link is inside it.
+6. for single-location, send the location page link;
+7. for Multi-Location, send only the parent network page link; the focus-location link is inside it. Supply a password only when directly requested for that package.
 
 The case becomes `delivered` only after the attempt is recorded. Historical approved reports remain immutable. A Sprint, Day-30 review or later review is a new business state and artifact.
 
@@ -550,7 +557,7 @@ The case becomes `delivered` only after the attempt is recorded. Historical appr
 | No named-human Focus Selection | internal Russian authoring is allowed; no final fact freeze, approved client rendering or delivery |
 | Multi-Location coverage is partial | disclose `N of M reviewed`; prohibit network-wide claims |
 | No approved focus location | block Multi-Location publication |
-| Password/access QA fails | block delivery |
+| Direct-link access or explicitly requested protection QA fails | block delivery until the configured mode works |
 | Post-approval correction | supersede through a new draft/fact-set/report version and reapprove |
 
 ## 16. Record mapping
@@ -621,7 +628,7 @@ Every approved project resolves to this minimum platform record:
 
 Single-location projects have one standalone v5 report reference. Multi-Location projects have one parent network reference and one child v5 focus-location reference. The parent and child share the same project/package identity and access group.
 
-Projects outside the three approved verticals may be retained only as internal research candidates with `production_eligibility=not_approved`. They stop before Research Alignment approval and cannot receive a current template version, protected route or catalog entry until explicit vertical approval is released.
+Projects outside the three approved verticals may be retained only as internal research candidates with `production_eligibility=not_approved`. They stop before Research Alignment approval and cannot receive a current template version, client route or catalog entry until explicit vertical approval is released.
 
 ## 18. Canonical intent routing
 
@@ -649,8 +656,8 @@ After `audit_format` is answered, `scripts/caesthetic/growth-score-intent-router
 | `/growth-score/` | Canonical product explainer and external request intake | public |
 | `/audit/`, `/audits/`, `/multi-location-growth-score/` | Synonym aliases to `/growth-score/` | noindex redirect |
 | `/score/` | Safe catalog of synthetic demos and explicitly approved public cases | noindex |
-| `/score/<unguessable-slug>/` | Real standalone report or Multi-Location parent | private/protected |
-| `/score/<unguessable-parent>/<unguessable-child>/` | Optional Multi-Location focus-location v5 child | private/protected |
+| `/score/<unguessable-slug>/` | Real standalone report or Multi-Location parent | unlisted/direct-link |
+| `/score/<unguessable-parent>/<unguessable-child>/` | Optional Multi-Location focus-location v5 child | unlisted/direct-link |
 | `docs/audits/caesthetic/growth-score-projects.generated.json` | Complete internal catalog of approved audits | repository/internal only |
 | `site-caesthetic/score/catalog.json` | Sanitized public listing data | synthetic or consented only |
 
@@ -696,7 +703,7 @@ An audit is deliverable only when all are true:
 - the package exposes exactly two always-visible `check500-two-placement/1.0.0` sections derived from `check500-section/en-US/1.0.0` and at most one evidence-backed implementation CTA on the parent, with navigation-only return on the child;
 - the parent explains `caesthetic-4444-commercial-core/1.0.0`, links the primary `$2,500` Sprint action to the approved 4444 priority and does not center the sale on an isolated naming or technical repair;
 - no aggregate Network Score, average location score, revenue inference or best/worst-business label is shown;
-- protected routes, common password session and robots controls pass QA;
+- anonymous direct-link access and robots controls pass QA; only directly requested protection requires shared-session/password checks;
 - walkthrough uses only approved content;
 - manager delivery is recorded.
 
@@ -711,7 +718,7 @@ Manager Assignment
 → AI Candidate Risk Order
 → Human Focus Selection
 → Approved Client Pages
-→ Protected Delivery
+→ Direct-link Delivery
 ```
 
 
@@ -736,3 +743,5 @@ material priority set is not yet supported, research further rather than fill
 it with minor errors. Preserve the human selection gate and the existing
 Primary + two Supporting schema. Longer/recurring eligible work is shown later.
 The optional $500 Check remains the separately authorized post-enquiry branch.
+
+

@@ -18,7 +18,8 @@
         1440
       ],
       "case_id": "ent-urgent-care-network-2026",
-      "packageRole": "network_parent"
+      "packageRole": "network_parent",
+      "accessMode": "none"
     },
     {
       "source": "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/alexander-city/index.html",
@@ -37,7 +38,8 @@
       ],
       "case_id": "ent-urgent-care-network-2026",
       "packageRole": "focus_location",
-      "parentRoute": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/"
+      "parentRoute": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+      "accessMode": "none"
     },
     {
       "source": "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/monroe/index.html",
@@ -56,7 +58,8 @@
       ],
       "case_id": "ent-urgent-care-network-2026",
       "packageRole": "focus_location",
-      "parentRoute": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/"
+      "parentRoute": "/score/ent-urgent-care-network-6f2c9a4e81d7/ru/v6/",
+      "accessMode": "none"
     },
     {
       "source": "site-caesthetic/private/ent-urgent-care-review-6f2c9a4e81d7/index.html",

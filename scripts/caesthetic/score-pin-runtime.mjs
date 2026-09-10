@@ -31,6 +31,7 @@ function protectedEntries() {
   const manifest = readJson(manifestPath);
   return (manifest.scoreProtectedPaths || []).map((entry) => {
     if (!entry?.prefix || !entry?.accessGroupId) throw new Error("protected route requires prefix and internal accessGroupId");
+    if (!entry.protectionInstruction?.trim()) throw new Error("protected route requires a direct owner instruction");
     if (!entry?.pinSalt || !entry?.pinHash) return { ...entry, legacy: true };
     const pin = recoverPin(entry.pinSalt, entry.pinHash);
     if (!PIN_RE.test(pin)) throw new Error(`invalid 4-digit PIN for ${entry.prefix}`);
@@ -77,9 +78,11 @@ function buildAccessConfig() {
 }
 
 function buildSmokePasswords() {
-  const passwords = { ...existingSmokePasswords() };
+  const passwords = {};
+  const legacyPasswords = existingSmokePasswords();
   for (const entry of protectedEntries()) {
     if (!entry.legacy) passwords[entry.accessGroupId] = entry.pin;
+    else if (legacyPasswords[entry.accessGroupId]) passwords[entry.accessGroupId] = legacyPasswords[entry.accessGroupId];
   }
   return passwords;
 }
@@ -97,7 +100,8 @@ function buildPendingPublicationRuntime(satelliteRoot) {
     const packageFile = path.join(satelliteRoot, request.package_manifest_path || "");
     if (!fs.existsSync(packageFile)) continue;
     const pkg = readJson(packageFile);
-    if (pkg.visibility !== "private") continue;
+    if (pkg.visibility !== "private" || pkg.access?.mode !== "pin") continue;
+    if (!pkg.access?.instruction?.trim()) throw new Error("PIN requires a direct owner instruction");
     const groupId = pkg.access_group_id;
     const pinSalt = pkg.pin_salt;
     const pinHash = pkg.pin_hash;
@@ -142,3 +146,4 @@ try { main(); } catch (error) {
   process.stderr.write(`${error.message}\n`);
   process.exit(1);
 }
+

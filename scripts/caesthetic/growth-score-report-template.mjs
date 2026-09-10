@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { fileURLToPath } from "node:url";
 import { CLIENT_V6, createV6Content } from "./growth-score-client-v6.mjs";
+import { CLIENT_V61, CLIENT_V62, createExpertContent } from "./growth-score-expert-presentations.mjs";
 import {
   CANONICAL_METRICS,
   DECISION_VIEWS_ARTIFACT_VERSION,
@@ -439,6 +440,18 @@ export function createGrowthScoreV6ReportTemplate({ locale = "ru" } = {}) {
   return report;
 }
 
+/** Three views of the same diagnostic schema, with v6 remaining the default. */
+export function createGrowthScorePresentationTemplate({ version = "v6", locale = "ru" } = {}) {
+  if (!["v6", "v6.1", "v6.2"].includes(version)) throw new TypeError("Unknown presentation profile");
+  if (version !== "v6" && locale !== "ru") throw new TypeError("Expert presentations currently support Russian only");
+  const report = createGrowthScoreV6ReportTemplate({ locale });
+  if (version !== "v6") {
+    report.presentation.layout_contract = version === "v6.1" ? CLIENT_V61 : CLIENT_V62;
+    report.presentation.expert = createExpertContent();
+  }
+  return report;
+}
+
 
 function networkGapSlot(gap) {
   return {
@@ -594,7 +607,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const args = process.argv.slice(2);
   const presentation = args.includes("--presentation") ? args[args.indexOf("--presentation") + 1] : "v6";
   const locale = args.includes("--locale") ? args[args.indexOf("--locale") + 1] : "ru";
-  if (args.includes("--presentation") && !["v6", "legacy"].includes(presentation)) throw new TypeError("Unknown presentation profile");
-  const report = presentation === "v6" ? createGrowthScoreV6ReportTemplate({ locale }) : createGrowthScoreReportTemplate();
+  if (args.includes("--presentation") && !["v6", "v6.1", "v6.2", "legacy"].includes(presentation)) throw new TypeError("Unknown presentation profile");
+  const report = presentation === "legacy" ? createGrowthScoreReportTemplate() : createGrowthScorePresentationTemplate({ version: presentation, locale });
   process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
 }

@@ -203,14 +203,14 @@ try {
   });
   await check('API errors have a readable retry state on both routes', async () => {
     await page.route('**/case-studies/intake/api/public-cases**', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"temporary"}' }));
-    await page.goto(base + '/case-studies/', { waitUntil: 'networkidle' }); await page.locator('[data-load-error]').waitFor({ state: 'visible' });
+    await page.goto(base + '/case-studies/', { waitUntil: 'domcontentloaded' }); await page.locator('[data-load-error]').waitFor({ state: 'visible' });
     assert.ok(await page.locator('[data-library-content]').isHidden());
     await page.unroute('**/case-studies/intake/api/public-cases**');
     await page.locator('[data-retry-cases]').click();
     await page.locator('.cae-case-row').first().waitFor();
     assert.ok(await page.locator('[data-load-error]').isHidden());
     await page.route('**/case-studies/intake/api/public-cases**', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"temporary"}' }));
-    await page.goto(base + '/case-studies/case/?id=qa-situation-1', { waitUntil: 'networkidle' }); await page.locator('[data-case-error]').waitFor({ state: 'visible' });
+    await page.goto(base + '/case-studies/case/?id=qa-situation-1', { waitUntil: 'domcontentloaded' }); await page.locator('[data-case-error]').waitFor({ state: 'visible' });
     assert.match(await page.locator('[data-error-title]').textContent(), /couldn’t load/);
   });
   await ctx.close();

@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 2.13
-updated: 2026-09-08
+version: 2.13.1
+updated: 2026-09-10
 scope: client-facing Growth Score report presentation, single-location and Multi-Location visual profiles, final visual narrative, approval/translation, competitive decision layer, Cross-Surface Journey Graph and five derived decision views, Lead-to-Revenue visual branch, walkthrough separation, commercial choice framing, privacy and production acceptance
 commercial_contract: caesthetic-4444-commercial-core/1.0.0
 parent: docs/ssot/CAESTHETIC.md
@@ -22,7 +22,14 @@ supersedes_scope:
   - client-visible Demand Journey requirements in older presentation profiles
 ---
 
+## Report access — owner decision 2026-09-10
+
+Cases, reports and manager-review pages open by direct link without a password by default. Set a password only on a direct instruction for the named page/package, recorded with its source. Preserve noindex, catalog rules and diagnostic review status. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`. Earlier mandatory PIN/password language is superseded; private catalog visibility is not authentication.
+
+
 # CAESTHETIC Growth Score — Client Report Standard
+
+**Russian presentation variants (2026-09-10):** explicit requests for v6.1 / Expert, v6.2 / mixed or all three single-location views follow [CAESTHETIC_REPORT_PRESENTATIONS.md](CAESTHETIC_REPORT_PRESENTATIONS.md). This scoped owner instruction adds the original Expert design for v6.1/v6.2 and supersedes v6-only presentation routing for those explicit requests. v6 remains the default. Evidence, approved priorities, pricing, privacy and network parent/focus contracts retain their existing authority.
 
 This is the active SSOT for the **client-facing Growth Score report**. It consolidates the approved report, mobile UX, competitive-analysis, Cross-Surface Journey Graph, final visual narrative and delivery decisions without changing the CAESTHETIC product model.
 
@@ -560,10 +567,10 @@ Every Growth Score route remains `noindex` and outside the sitemap.
 
 Publication from `zaomir/caesthetic` uses only the pinned, allowlisted contract in `CAESTHETIC_GROWTH_SCORE_PUBLISH_CONTROL_PLANE.md`. A single-location report is one approved artifact; Multi-Location is one atomic approved parent/focus-child package. Satellite authoring never changes production source authority or bypasses the production acceptance gates below.
 
-Real client reports use the applicable protected-delivery contract:
+Real client reports use the direct-link delivery contract:
 
 - unguessable/private route;
-- server-side access protection where required;
+- anonymous access without a password by default; server-side protection only on a direct instruction for the named page/package;
 - no password, password hash, session secret or access configuration embedded in client HTML, JavaScript, report JSON or repository artifacts;
 - no client report added to a public case catalogue without explicit permission/redaction under the master rules.
 
@@ -596,7 +603,7 @@ Acceptance requires:
 17. deployed SHA;
 18. successful exact production smoke.
 
-For protected reports, acceptance also includes unauthenticated gate, wrong-password rejection, valid session issuance and authenticated report/JSON checks.
+Default acceptance verifies anonymous HTTP 200 and the actual report content with no password screen. Only for protection directly requested for the named report/package, acceptance instead includes an unauthenticated gate, wrong-password rejection, valid session issuance and authenticated report/JSON checks.
 
 ## 12. Anti-patterns
 
@@ -985,3 +992,5 @@ Follow `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-
 ## 2026-09-08 — Русский аудит до проверки работы агента
 
 По прямому поручению владельца действует маршрут 3.0.0: никаких промежуточных запросов проверки плана, источников, услуг, поисковых фраз, наблюдений или приоритетов до создания полного русского аудита. Сначала агент готовит все пять смысловых блоков с фактами, кандидатами выводов, планом и явными ограничениями. Если данных недостаточно для трёх существенных проблем, это прямо говорится в аудите; выдумывать проблемы или задерживать весь документ нельзя. Первый запрос проверки касается готовой русской версии. Окончательное утверждение фактов и приоритетов, перевод и публикация остаются последующими отдельными этапами. Внутренний русский текст не является утверждённой клиентской страницей.
+
+

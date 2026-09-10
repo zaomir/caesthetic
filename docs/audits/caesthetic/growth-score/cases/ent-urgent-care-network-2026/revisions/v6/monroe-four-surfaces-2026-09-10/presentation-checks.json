@@ -1,0 +1,334 @@
+{
+  "structural_checks": [
+    {
+      "check": "source model matches manifest",
+      "status": "pass"
+    },
+    {
+      "check": "focus unselected",
+      "status": "pass"
+    },
+    {
+      "check": "commercial scope is not approved",
+      "status": "pass"
+    },
+    {
+      "check": "fresh evidence for all four public surfaces",
+      "status": "pass"
+    },
+    {
+      "check": "v6: one shared fact hash",
+      "status": "pass"
+    },
+    {
+      "check": "v6: manifest html checksum",
+      "status": "pass"
+    },
+    {
+      "check": "v6: network role retained",
+      "status": "pass"
+    },
+    {
+      "check": "v6: conditional commercial state explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6: one parent decision",
+      "status": "pass"
+    },
+    {
+      "check": "v6: no child commercial offers",
+      "status": "pass"
+    },
+    {
+      "check": "v6: no password or locked body",
+      "status": "pass"
+    },
+    {
+      "check": "v6: unique IDs",
+      "status": "pass"
+    },
+    {
+      "check": "v6: local anchors resolve",
+      "status": "pass"
+    },
+    {
+      "check": "v6: embedded required assets",
+      "status": "pass"
+    },
+    {
+      "check": "v6: four canonical questions",
+      "status": "pass"
+    },
+    {
+      "check": "v6: same research next-step order",
+      "status": "pass"
+    },
+    {
+      "check": "v6: no example data",
+      "status": "pass"
+    },
+    {
+      "check": "v6: fresh appendix replaces historical sections",
+      "status": "pass"
+    },
+    {
+      "check": "v6: no obsolete diagnoses or purchased research plan",
+      "status": "pass"
+    },
+    {
+      "check": "v6: same current diagnosis",
+      "status": "pass"
+    },
+    {
+      "check": "v6: same four evidence statements",
+      "status": "pass"
+    },
+    {
+      "check": "v6: network priorities explicitly provisional",
+      "status": "pass"
+    },
+    {
+      "check": "v6: review and rating distinction explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6: local CT difference explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6: JavaScript 1 syntax",
+      "status": "pass"
+    },
+    {
+      "check": "v6: JavaScript 2 syntax",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: one shared fact hash",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: manifest html checksum",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: network role retained",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: conditional commercial state explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: one parent decision",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: no child commercial offers",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: no password or locked body",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: unique IDs",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: local anchors resolve",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: embedded required assets",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: four canonical questions",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: same research next-step order",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: no example data",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: fresh appendix replaces historical sections",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: no obsolete diagnoses or purchased research plan",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: same current diagnosis",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: same four evidence statements",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: network priorities explicitly provisional",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: review and rating distinction explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: local CT difference explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: exact Expert CSS",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: canonical section count",
+      "status": "pass"
+    },
+    {
+      "check": "v6.1: JavaScript 1 syntax",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: one shared fact hash",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: manifest html checksum",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: network role retained",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: conditional commercial state explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: one parent decision",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: no child commercial offers",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: no password or locked body",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: unique IDs",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: local anchors resolve",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: embedded required assets",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: four canonical questions",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: same research next-step order",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: no example data",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: fresh appendix replaces historical sections",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: no obsolete diagnoses or purchased research plan",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: same current diagnosis",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: same four evidence statements",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: network priorities explicitly provisional",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: review and rating distinction explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: local CT difference explicit",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: exact Expert CSS",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: canonical section count",
+      "status": "pass"
+    },
+    {
+      "check": "v6.2: JavaScript 1 syntax",
+      "status": "pass"
+    }
+  ],
+  "javascript_checks": [
+    {
+      "file": "Monroe-v6.html",
+      "script": 1,
+      "status": "pass"
+    },
+    {
+      "file": "Monroe-v6.html",
+      "script": 2,
+      "status": "pass"
+    },
+    {
+      "file": "Monroe-v6.1.html",
+      "script": 1,
+      "status": "pass"
+    },
+    {
+      "file": "Monroe-v6.2.html",
+      "script": 1,
+      "status": "pass"
+    }
+  ],
+  "browser_qa": {
+    "status": "not_run",
+    "reason": "Cloud browser URL policy blocks local HTML. No bypass or alternate browser automation used. Structural and syntax checks do not establish rendered layout or interactions."
+  },
+  "production_publication": "not_performed",
+  "facts_sha256": "f14a71ca39eb3c071a97ba5cd0d4554e8ce6a5a43ae64c9a23977a81077d585b",
+  "comparison_checks": [
+    {
+      "check": "all three exact current HTML documents embedded",
+      "status": "pass"
+    },
+    {
+      "check": "three standalone file links",
+      "status": "pass"
+    },
+    {
+      "check": "JavaScript syntax",
+      "status": "pass"
+    }
+  ]
+}

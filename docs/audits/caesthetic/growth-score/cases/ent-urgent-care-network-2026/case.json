@@ -12,6 +12,8 @@
     "zaomir/caesthetic"
   ],
   "authoring_source_paths": [
+    "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/monroe-four-surfaces-2026-09-10/synthesis.json",
+    "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/monroe-four-surfaces-2026-09-10/Monroe-four-surfaces-decision.md",
     "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/research-2026-09-10.json",
     "scripts/caesthetic/build-ent-review-v6.mjs"
   ],
@@ -28,6 +30,6 @@
   "selected_focus_location": null,
   "named_reviewer": "Валерия",
   "client_publication_approved": false,
-  "notes": "Internal Russian v6 review projection. No schema-v5 medical report validation, numerical score, focus approval or English publication is claimed.",
+  "notes": "Internal Russian review, no focus approval, numeric score or English release. Latest Monroe interpretation: revisions/v6/monroe-four-surfaces-2026-09-10/synthesis.json. Two Google entities and current local ratings are now verified. The older production report remains a prior release; use the new research when revising it. $2,500 scope remains conditional.",
   "review_delivery_path": "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/review-delivery-2026-09-10.json"
 }

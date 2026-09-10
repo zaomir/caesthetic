@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # VPS2402 cron wrapper — flock so overlapping ticks skip.
-# DEC-836: refuse to run on legacy .121 / vdska.
+# DEC-836 / DEC-882: refuse to run unless hostname/ip is vps2402.
 set -euo pipefail
 install -d -m 755 /var/log/grainee
 host="$(hostname -s 2>/dev/null || hostname || true)"

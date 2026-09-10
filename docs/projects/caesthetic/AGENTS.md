@@ -1,5 +1,8 @@
 # CAESTHETIC — Agent Read-First
 
+**Report access, owner instruction 2026-09-10:** all cases and reports open by direct link without passwords by default. Add a password only on a direct instruction for the named page/package. Read `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`; mandatory PIN defaults in older material are superseded. This does not change CRM/admin authentication.
+
+
 
 ## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
 
@@ -160,3 +163,4 @@ Before any CAESTHETIC Instagram username / warm / queue work:
 ## New single-location report presentation — v6
 
 For every new single-location Russian/English client audit/report/score, mandatory Russian-first v6 authoring follows `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Use the owner-selected v6 design: `docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md` → `docs/caesthetic/design/report-v6/README.md`. Start with `createGrowthScoreV6ReportTemplate({locale})` or `node scripts/caesthetic/growth-score-report-template.mjs --presentation v6 --locale ru|en`; render through the existing renderer. Keep schema-v5 evidence/review gates, two Check placements and scoped commercial terms. Do not clone Spoken facts into new cases, regenerate frozen routes, or use this single-location design to remove network decisions.
+

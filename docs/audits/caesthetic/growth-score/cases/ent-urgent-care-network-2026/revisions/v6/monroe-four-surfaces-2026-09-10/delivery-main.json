@@ -1,0 +1,11 @@
+{
+  "session_id": "2026-09-10-monroe-four-surfaces",
+  "source_sha": "792a173fce3e10292e402c2b39bdd5e757ad6041",
+  "source_url": "https://github.com/zaomir/grainee-v2/commit/792a173fce3e10292e402c2b39bdd5e757ad6041",
+  "main_verified": true,
+  "verified_at": "2026-09-10",
+  "delivery_kind": "docs",
+  "evidence": "Research evidence, interpretation and standalone presentation delivery metadata verified on main. Six user-facing files saved. 75 scoped presentation checks passed.",
+  "runtime_publication": "Not part of this docs-only update; prior public ENT report is unchanged.",
+  "browser_qa": "Not run for refreshed standalone files; source website/Maps/Instagram observations were directly inspected separately."
+}

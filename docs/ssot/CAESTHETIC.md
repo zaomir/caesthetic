@@ -31,6 +31,11 @@ related:
 supersedes: docs/caesthetic/CAESTHETIC_SSOT.md
 ---
 
+## Report access — owner decision 2026-09-10
+
+Cases, reports and manager-review pages open by direct link without a password by default. Set a password only on a direct instruction for the named page/package, recorded with its source. Preserve noindex, catalog rules and diagnostic review status. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`. Earlier mandatory PIN/password language is superseded; private catalog visibility is not authentication.
+
+
 # CAESTHETIC — Master SSOT
 
 
@@ -344,16 +349,16 @@ For an applicable market, competitor coverage is fail-closed. The report must di
 
 ### Two Growth Score delivery formats
 
-- **Growth Score:** one protected schema-v5 cockpit for one resolved location.
-- **Multi-Location Growth Score:** one protected parent network-analysis page plus one linked full schema-v5 Growth Score for the manager-selected focus location. The package has one shared final Top 3 Focus Selection total, one access group and no aggregate Network Score.
+- **Growth Score:** one direct-link schema-v5 cockpit for one resolved location.
+- **Multi-Location Growth Score:** one direct-link parent network-analysis page plus one linked full schema-v5 Growth Score for the manager-selected focus location. The package has one shared final Top 3 Focus Selection total, one access group and no aggregate Network Score.
 
 The cockpit must be self-contained enough for the owner to implement the plan internally or with another provider. Do not hide instructions to create sales dependency. The client owns the delivered report, evidence pack, task plan and completed outputs; there is no lock-in.
 
 The honest `Why CAESTHETIC / Why the 30-Day Sprint` block explains convenience, not exclusivity: CAESTHETIC has already assembled the evidence and diagnosis, knows the dependency order and can implement, coordinate and accept the selected changes inside a separately confirmed written 30-day scope. It must show real workload, specialist needs, dependencies, coordination cost and implementation risks without implying that every Score task is included. After the Sprint the client may continue in-house, use another provider, choose an optional CAESTHETIC path or stop.
 
-Delivery: a password-protected, private/noindex `/score/<unguessable-slug>/` owner cockpit plus a **3–8 minute Valerie Petra recorded walkthrough**. The route stays outside the sitemap; the simple package password is validated server-side and never embedded in client HTML, JavaScript, report JSON or the repository. Walkthrough content and production authority remain exclusively in `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; the detailed report spec may reference but not override it.
+Delivery: a direct-link, unlisted/noindex `/score/<unguessable-slug>/` owner cockpit plus a **3–8 minute Valerie Petra recorded walkthrough**. The route stays outside the sitemap; a password is added only on direct instruction and is then validated server-side. Walkthrough content and production authority remain exclusively in `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; the detailed report spec may reference but not override it.
 
-The approved Nohy V Ruky report at `/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/` follows the standard real-report contract: server-side password protection, `noindex,nofollow,noarchive,nosnippet`, an unguessable route, sitemap exclusion and no public case-catalogue listing.
+The approved Nohy V Ruky report at `/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/` follows the standard real-report contract: direct-link access (password only on direct instruction), `noindex,nofollow,noarchive,nosnippet`, an unguessable route, sitemap exclusion and no public case-catalogue listing.
 
 A successful form is not a finished Score. Every accepted request must have a `score_case_id`, a named owner, a next action, same-day triage SLA and a durable notification outbox. Status changes only through the allowlisted transition contract in `docs/ssot/CAESTHETIC_GROWTH_SCORE_OPS_CONTRACT.md` (DEC-848). Safe weekly capacity is 2–3 Scores until measured; backlog extends delivery SLA and does not reject a valid owner request.
 
@@ -635,3 +640,4 @@ The reusable owner-facing point-of-contact component uses the founder-provided `
 ## Visual-system authority
 
 `docs/ssot/CAESTHETIC_DESIGN_SYSTEM.md` is the single shared visual canon for website, reports and derived brand materials. It preserves the exact asset, copy and product contracts in this master and its specialist adapters. The 2026-09-05 v3 consolidation is documentation only; runtime adoption is tracked in `docs/audits/caesthetic/design-system-2026-09-05/README.md`.
+

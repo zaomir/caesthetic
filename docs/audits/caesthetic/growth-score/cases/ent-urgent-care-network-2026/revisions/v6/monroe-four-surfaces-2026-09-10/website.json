@@ -1,0 +1,534 @@
+{
+  "title": "Monroe Website competitive evidence",
+  "checked_at": "2026-09-10",
+  "language": "ru",
+  "method": "Primary public pages and observed public redirect destinations; no forms submitted, appointments booked, calls made, authenticated systems accessed, or user behaviour inferred.",
+  "source_register": [
+    {
+      "id": "ent",
+      "url": "https://enturgent.com/location/monroe/",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "qc_home",
+      "url": "https://www.queencity-ent.com/",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "qc_contact",
+      "url": "https://www.queencity-ent.com/about/practice/contact",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "qc_booking",
+      "url": "https://www.queencity-ent.com/about/practice/request-appointment",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "qc_ct",
+      "url": "https://www.queencity-ent.com/services/sinus-nasal/sinus-imaging",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "qc_balloon",
+      "url": "https://www.queencity-ent.com/services/sinus-nasal/balloon-sinuplasty",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "qc_sinusitis",
+      "url": "https://www.queencity-ent.com/services/sinus-nasal/sinusitis",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "qc_phreesia",
+      "url": "https://phreesia.me/QCENTSchedulingLink",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "ceenta_local",
+      "url": "https://www.ceenta.com/locations/monroe",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "ceenta_booking",
+      "url": "https://www.ceenta.com/schedule-an-appointment",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "ceenta_insurance",
+      "url": "https://www.ceenta.com/patient-education--resources/category/insurance-information",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "ceenta_balloon",
+      "url": "https://www.ceenta.com/conditions-and-treatments/balloon-sinuplasty",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "cs_home",
+      "url": "https://cornerstoneent.com/",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "cs_sinus",
+      "url": "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/sinus-services",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "cs_ct",
+      "url": "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/on-site-ct-imaging-for-sinus-disorders/",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "cs_balloon",
+      "url": "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/in-office-balloon-sinuplasty",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "cs_providers",
+      "url": "https://cornerstoneent.com/our-providers",
+      "checked_at": "2026-09-10"
+    },
+    {
+      "id": "cs_klara",
+      "url": "https://l.klara.com/zr8KHc6QYyw4GJXN",
+      "checked_at": "2026-09-10"
+    }
+  ],
+  "observations": [
+    {
+      "entity": "ENT Urgent Care Monroe",
+      "criterion": "same_day",
+      "observation": "В локальном тексте — prompt evaluation; same-day/no referral/walk-ins стоят в общих блоках. Политики приёма явно переданы Queen City.",
+      "source_urls": [
+        "https://enturgent.com/location/monroe/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "same_day",
+      "observation": "На проверенных главной, contact и booking страницах отдельное обещание same-day для Monroe не найдено.",
+      "source_urls": [
+        "https://www.queencity-ent.com/",
+        "https://www.queencity-ent.com/about/practice/contact",
+        "https://www.queencity-ent.com/about/practice/request-appointment"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "medium",
+      "scope": "reviewed_pages_only"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "same_day",
+      "observation": "Локальная страница прямо заявляет same-day ENT appointments в Monroe.",
+      "source_urls": [
+        "https://www.ceenta.com/locations/monroe"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "same_day",
+      "observation": "Главная прямо привязывает same/next-day ENT appointments к Charlotte и Monroe.",
+      "source_urls": [
+        "https://cornerstoneent.com/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "ENT Urgent Care Monroe",
+      "criterion": "sinus_ct",
+      "observation": "Sinus infection в локальном вводном тексте; CT находится в общей навигации, локальное оборудование не подтверждено.",
+      "source_urls": [
+        "https://enturgent.com/location/monroe/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "sinus_ct",
+      "observation": "Отдельная страница описывает MiniCAT и содержит фотографии. Доступность сканера именно в Monroe не уточнена.",
+      "source_urls": [
+        "https://www.queencity-ent.com/services/sinus-nasal/sinus-imaging"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "practicewide_claim_locality_unconfirmed"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "sinus_ct",
+      "observation": "В локальном перечне услуг CT не указан; это не доказательство отсутствия оборудования.",
+      "source_urls": [
+        "https://www.ceenta.com/locations/monroe"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "medium",
+      "scope": "reviewed_pages_only"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "sinus_ct",
+      "observation": "Sinus-services прямо указывает CT в Monroe и Charlotte. Отдельная CT-страница заявляет аккредитацию IAC и разбор независимым радиологом; заявления клиники не проверены у третьей стороны.",
+      "source_urls": [
+        "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/sinus-services",
+        "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/on-site-ct-imaging-for-sinus-disorders/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "ENT Urgent Care Monroe",
+      "criterion": "balloon",
+      "observation": "Balloon Sinuplasty присутствует в общей навигации; Monroe-specific доступность не установлена.",
+      "source_urls": [
+        "https://enturgent.com/location/monroe/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "practicewide_claim_locality_unconfirmed"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "balloon",
+      "observation": "Подробная страница процедуры: отбор после лечения лекарствами, проведение в офисе, объяснение процедуры и видео. Текст ориентирован на Charlotte; Monroe отдельно не подтверждён.",
+      "source_urls": [
+        "https://www.queencity-ent.com/services/sinus-nasal/balloon-sinuplasty"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "practicewide_claim_locality_unconfirmed"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "balloon",
+      "observation": "Практика публикует подробную страницу balloon и список врачей, включая Ross Udoff, также указанного в Monroe. Это не подтверждает проведение процедуры именно в Monroe.",
+      "source_urls": [
+        "https://www.ceenta.com/conditions-and-treatments/balloon-sinuplasty",
+        "https://www.ceenta.com/locations/monroe"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "provider_link_not_procedure_site_confirmation"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "balloon",
+      "observation": "Практика описывает офисную процедуру и местную либо общую анестезию; точное место выполнения для Monroe не установлено.",
+      "source_urls": [
+        "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/in-office-balloon-sinuplasty"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "practicewide_claim_locality_unconfirmed"
+    },
+    {
+      "entity": "ENT Urgent Care Monroe",
+      "criterion": "providers",
+      "observation": "Локально перечислены Smith, Gillespie, Lukacs, Gantous и аудиологи; биографии в просмотренном блоке не раскрыты.",
+      "source_urls": [
+        "https://enturgent.com/location/monroe/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "providers",
+      "observation": "На главной есть имена, фотографии, обучение и ссылки на биографии. Общий перечень не устанавливает график каждого врача в Monroe.",
+      "source_urls": [
+        "https://www.queencity-ent.com/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "providers",
+      "observation": "В локальном ENT-блоке — Lindsey Trefz и Ross Udoff со ссылками на карточки; отдельно перечислены аудиологи.",
+      "source_urls": [
+        "https://www.ceenta.com/locations/monroe"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "providers",
+      "observation": "Страница команды показывает McClelland, Gillihan, Janz, Greene и аудиологов со ссылками на биографии. Распределение по офисам здесь не установлено.",
+      "source_urls": [
+        "https://cornerstoneent.com/our-providers"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "proof",
+      "observation": "На главной уже опубликованы отзывы о sinus surgery и balloon у Dr. Smith; это отобранные сайтом свидетельства без подтверждённой привязки к Monroe.",
+      "source_urls": [
+        "https://www.queencity-ent.com/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "owned_testimonials_not_branch_review_metrics"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "proof",
+      "observation": "Есть локальные карточки врачей; подробная balloon-страница объясняет отбор и ограничения. Это публичное содержание, не проверка качества лечения.",
+      "source_urls": [
+        "https://www.ceenta.com/locations/monroe",
+        "https://www.ceenta.com/conditions-and-treatments/balloon-sinuplasty"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "proof",
+      "observation": "На CT-странице конкретизированы аккредитация, чтение снимков радиологом, возможность разбора в тот же визит. Нельзя переносить заявления о цене и излучении в наш отчёт как независимые медицинские факты.",
+      "source_urls": [
+        "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/on-site-ct-imaging-for-sinus-disorders/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "ENT Urgent Care Monroe",
+      "criterion": "conditions",
+      "observation": "Локальных планов страхования нет; примечание передаёт их и walk-in policies партнёру.",
+      "source_urls": [
+        "https://enturgent.com/location/monroe/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "conditions",
+      "observation": "На booking-странице есть инструкция новым/переводящимся пациентам и безопасный канал передачи записей. В просмотренной выборке нет перечня страховок или Monroe-specific условий направления.",
+      "source_urls": [
+        "https://www.queencity-ent.com/about/practice/request-appointment"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "medium",
+      "scope": "reviewed_pages_only"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "conditions",
+      "observation": "Есть отдельный перечень страховщиков, оговорка о конкретном продукте и возможном направлении. Страница записи публикует self-pay deposit $275; это депозит, не цена визита.",
+      "source_urls": [
+        "https://www.ceenta.com/patient-education--resources/category/insurance-information",
+        "https://www.ceenta.com/schedule-an-appointment"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "conditions",
+      "observation": "Главная заявляет участие в большинстве крупных планов и предлагает проверку покрытия; sinus-страница объясняет проверку benefits и обсуждение расходов. Индивидуальное покрытие не подтверждено.",
+      "source_urls": [
+        "https://cornerstoneent.com/",
+        "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/sinus-services"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "ENT Urgent Care Monroe",
+      "criterion": "hours",
+      "observation": "Два расписания: пятница 7:30–13:00 и 8:00–17:00. На обоих понедельник–четверг 8:00–17:00.",
+      "source_urls": [
+        "https://enturgent.com/location/monroe/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "hours",
+      "observation": "Monroe на contact и booking: пн/вт/чт 8:00–16:30, ср 8:00–17:00, пт 8:00–16:00.",
+      "source_urls": [
+        "https://www.queencity-ent.com/about/practice/contact",
+        "https://www.queencity-ent.com/about/practice/request-appointment"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "hours",
+      "observation": "Пн/ср/чт 8:00–17:00, вт 7:00–17:00, пт 7:30–17:00. Allergy hours выделены отдельно.",
+      "source_urls": [
+        "https://www.ceenta.com/locations/monroe"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "hours",
+      "observation": "Часы Monroe не установлены на просмотренных главной, sinus и providers страницах. Отдельная local-detail страница в ограниченном поиске не обнаружена.",
+      "source_urls": [
+        "https://cornerstoneent.com/",
+        "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/sinus-services",
+        "https://cornerstoneent.com/our-providers"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "medium",
+      "scope": "reviewed_pages_only"
+    },
+    {
+      "entity": "ENT Urgent Care Monroe",
+      "criterion": "public_destination",
+      "observation": "Локальный Visit Website ведёт на Queen City. Общая Schedule Now — NexHealth. Доступность Monroe в NexHealth не проверена.",
+      "source_urls": [
+        "https://enturgent.com/location/monroe/"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "published_statement"
+    },
+    {
+      "entity": "Queen City",
+      "criterion": "public_destination",
+      "observation": "Appointments ведёт на собственную booking-страницу: Schedule Online → Phreesia (наблюдён redirect на z2-rpw.phreesia.net/selfscheduling.app/); альтернативная форма и телефон также опубликованы. Завершение записи не проверялось.",
+      "source_urls": [
+        "https://www.queencity-ent.com/about/practice/request-appointment",
+        "https://phreesia.me/QCENTSchedulingLink"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "public_link_redirect_only"
+    },
+    {
+      "entity": "CEENTA Monroe",
+      "criterion": "public_destination",
+      "observation": "Schedule an Appointment ведёт на общую страницу. Там выделены urgent calls и Greater Charlotte phone, а вводная онлайн-записи называет пять других городов. Monroe-specific доступные слоты не проверены.",
+      "source_urls": [
+        "https://www.ceenta.com/locations/monroe",
+        "https://www.ceenta.com/schedule-an-appointment"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "public_page_only"
+    },
+    {
+      "entity": "CornerStone Monroe",
+      "criterion": "public_destination",
+      "observation": "Schedule an Appointment → l.klara.com → patient.klara.com. На sinus-странице также есть форма Liine. Ни сообщение, ни форма не отправлялись.",
+      "source_urls": [
+        "https://cornerstoneent.com/",
+        "https://cornerstoneent.com/charlotte-sinus-and-allergy-center/sinus-services",
+        "https://l.klara.com/zr8KHc6QYyw4GJXN"
+      ],
+      "checked_at": "2026-09-10",
+      "confidence": "high",
+      "scope": "public_link_redirect_only"
+    }
+  ],
+  "retrieval_limits": [
+    "Queen City sinusitis endpoint returned a redirect/interstitial in text extraction; do not count it as absent content or a broken patient experience.",
+    "Direct Dr. Smith biography retrieval produced an internal tool error; the published homepage biography summary and link remain observable.",
+    "Bounded search did not produce a usable CornerStone Monroe detail page or Queen City insurance page; neither absence is claimed sitewide.",
+    "No visual/mobile performance or Lighthouse measurements were run in this pass.",
+    "No comparative search ranking, traffic, conversion, inquiry handling, actual capacity, payer economics, or clinical quality assessment."
+  ],
+  "findings": [
+    {
+      "id": "W1",
+      "priority": "potential_material",
+      "claim": "CornerStone подтверждает наличие CT именно в Monroe; Queen City публикует CT и balloon на уровне практики без такой привязки в проверенных страницах.",
+      "evidence_ids": [
+        "qc_ct",
+        "qc_balloon",
+        "cs_sinus"
+      ],
+      "business_interpretation": "Локальное содержание может сильнее раскрыть уже существующую услугу Queen City; это гипотеза ценности, а не доказательство потери пациентов.",
+      "dependency": "Подтвердить реальные услуги и места выполнения в Monroe. Если CT доступна лишь в Charlotte, честно описать маршрут между офисами."
+    },
+    {
+      "id": "W2",
+      "priority": "supporting",
+      "claim": "CEENTA и CornerStone публикуют более конкретные условия same-day и/или insurance; в ENT Urgent Care Monroe общие обещания соседствуют с делегированием правил партнёру.",
+      "evidence_ids": [
+        "ent",
+        "qc_booking",
+        "ceenta_local",
+        "ceenta_insurance",
+        "cs_home",
+        "cs_sinus"
+      ],
+      "business_interpretation": "Можно согласовать публичное описание доступности и условий обращения; нельзя обещать свободные слоты или отсутствие referral без подтверждения практики.",
+      "dependency": "Одобрение Queen City фактических правил и прав на редактирование."
+    },
+    {
+      "id": "W3",
+      "priority": "small_fix",
+      "claim": "Три версии расписания между сетевой и партнёрской страницами.",
+      "evidence_ids": [
+        "ent",
+        "qc_contact"
+      ],
+      "business_interpretation": "Реальная информационная несогласованность. Её исправление отдельно не доказывает ценность Sprint за $2500.",
+      "dependency": "Партнёр подтверждает правильный источник и порядок обновления."
+    },
+    {
+      "id": "W4",
+      "priority": "counterevidence",
+      "claim": "Queen City уже имеет содержательные sinus страницы, фотографии оборудования, врачей, выбранные testimonials и Schedule Online.",
+      "evidence_ids": [
+        "qc_home",
+        "qc_ct",
+        "qc_balloon",
+        "qc_booking"
+      ],
+      "business_interpretation": "Нельзя продавать создание всех этих элементов с нуля или заявлять отсутствие записи/доверия.",
+      "dependency": null
+    }
+  ],
+  "sprint_materiality": {
+    "verdict": "conditional_potential_not_price_proven",
+    "website_alone_justifies_2500": false,
+    "rationale": "Подтверждён содержательный локальный разрыв относительно CornerStone, но объём необходимых изменений и ценность для Monroe ещё зависят от фактических мест выполнения процедур, приоритетов клиента и результатов остальных трёх плоскостей. Текущие данные не оправдывают продажу на страхе.",
+    "credible_scope_if_confirmed": [
+      "Согласовать Monroe-specific таблицу услуг, врачей, условий и публичных подтверждений.",
+      "Обновить существующую сетевую страницу Monroe и согласованные service/location блоки партнёра с точной привязкой диагностики и процедур.",
+      "Связать утверждённый локальный контент с уже существующим публичным способом записи, согласовать часы и роли брендов.",
+      "Проверить опубликованные сведения и маршруты по принятой матрице before/after."
+    ],
+    "acceptance": "Публикация согласованного содержания и отсутствие проверенных информационных противоречий; не рост заявок или выручки без измерений.",
+    "do_not_sell": [
+      "Новая запись с нуля при существующей Phreesia",
+      "Утверждение, что конкуренты перехватывают пациентов",
+      "Одинаковые работы на всех четырёх плоскостях без доказательств",
+      "CT/balloon в Monroe без подтверждения",
+      "Обработка заявок, CRM, call scripts"
+    ]
+  }
+}

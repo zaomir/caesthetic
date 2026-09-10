@@ -1,5 +1,8 @@
 # AGENTS.md — root agent entry (Phase 1 slim + DEC-757 token budget)
 
+**Report access, owner instruction 2026-09-10:** all cases and reports open by direct link without passwords by default. Add a password only on a direct instruction for the named page/package. Read `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`; mandatory PIN defaults in older material are superseded. This does not change CRM/admin authentication.
+
+
 
 ## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
 
@@ -12,6 +15,8 @@ All AI agents (Cursor, Codex, Eva, Roo) start here. **Humans are not the primary
 ---
 
 ## Universal Growth Score audit pre-router (highest priority)
+
+**Russian presentation variants:** explicit requests for `v6.1`, `v6.2`, Expert-style or three report views read [`docs/ssot/CAESTHETIC_REPORT_PRESENTATIONS.md`](docs/ssot/CAESTHETIC_REPORT_PRESENTATIONS.md). v6 remains the default; v6.1/v6.2 reuse the exact Expert design on the same single-location facts. Template maintenance does not start client intake. Network packages keep their existing contract.
 
 Apply `growth-score-authoring-route/3.0.0` before repo/project selection: `docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md#canonical-authoring-route`. Audit deliverable requests using `аудит`, `отчёт`/`отчет`, `Growth Score`, `Multi-Location Growth Score`, `score`, `audit report`, `report`, `diagnostic`, `проверка бизнеса`, `поиск утечек`, `Top 3 gaps` or `binding constraint` resolve to CAESTHETIC. For a new audit start exactly: **Вы создаёте новый аудит? Ответьте на вопросы.** Reuse supplied facts; ask only missing intake fields. Existing reports resume their recorded stage; canon/routing/template maintenance reads or updates the canon without starting a client interview. Unrelated financial, security, code or sports reports/scores retain their domain.
 
@@ -241,3 +246,4 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 | Archive policy | `docs/global/ARCHIVE_POLICY.md` |
 
 *Phase 1 control plane — full legacy AGENTS preserved in git history pre-slim merge.*
+

@@ -55,9 +55,9 @@ test("Free Score route, separate walkthrough and Mystery Shopper boundaries rema
   const spec = read("docs/caesthetic/growth_score_spec.md");
   const walkthrough = read("docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md");
 
-  assert.match(master, /password-protected, private\/noindex `\/score\/<unguessable-slug>\/` owner cockpit/is);
+  assert.match(master, /direct-link, unlisted\/noindex `\/score\/<unguessable-slug>\/` owner cockpit/is);
   assert.match(master, /every `\/score\/` route remains `noindex` and outside the sitemap/i);
-  assert.match(spec, /server-side password\/access enforcement/i);
+  assert.match(spec, /direct-link access \(password only on direct instruction\)/i);
   assert.match(spec, /separately delivered Valerie Petra walkthrough/);
   assert.match(spec, /reviewer\/selector identity and the separate Valerie Petra walkthrough remain outside client-report HTML/);
   assert.match(spec, /metric\/evidence capability/);
@@ -196,8 +196,8 @@ test("spec makes schema v5 authoritative and keeps v4 as historical read-only co
   assert.match(spec, /growth-score-report-template\/5\.2\.0/i);
   assert.match(spec, /historical(?:,|\/|-)?\s*read-only/i);
   assert.match(spec, /must not emit `top_priorities`, `problem_inventory`, `remediation_tasks` or stored `selected_for_repair`/i);
-  assert.match(spec, /Private Beauty Salon Network report is the current production-approved schema-v5 example/i);
-  assert.match(spec, /Private Beauty Salon Network[\s\S]{0,400}(?:server-side password|access_group_id|protected)/i);
+  assert.match(spec, /Nohy V Ruky report is the current production-approved schema-v5 example/i);
+  assert.match(spec, /Nohy V Ruky[\s\S]{0,400}(?:direct-link|access_group_id|noindex)/i);
   assert.match(spec, /Neither example supplies reusable facts, scores, sources, findings, Focus Selection, approval metadata or commercial language/i);
   assert.match(spec, /There is no other metric catalogue, scoring authority or renderer authority/i);
 });

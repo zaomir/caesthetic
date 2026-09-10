@@ -1,3 +1,8 @@
+
+## Report access — owner decision 2026-09-10
+
+Cases, reports and manager-review pages open by direct link without a password by default. Set a password only on a direct instruction for the named page/package, recorded with its source. Preserve noindex, catalog rules and diagnostic review status. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`. Earlier mandatory PIN/password language is superseded; private catalog visibility is not authentication.
+
 # EXPERT_DENTAL_GROWTH_OFFER.md
 
 > **Authority boundary — client-specific / legacy.** This document preserves the history and client-specific commercial arrangement prepared for Expert Dental Studio / Raimov. It is authoritative only for that closed page and its client context. It is **not** the reusable CAESTHETIC dental canon and **not** global marketing-canon default pricing. Global commercial-model selection: `docs/ssot/MARKETING_SYSTEM_STANDARD.md`. For reusable CAESTHETIC pricing, Total Growth Allocation, AGV/AGC, attribution and performance-compensation policy, `docs/ssot/CAESTHETIC.md` and `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md` control. Historical commercial terms below are superseded context for this client; do not rewrite them as current global or CAESTHETIC-wide rates.
@@ -10,7 +15,7 @@ Client-specific / legacy SSOT по истории, решениям и теку�
 Репозиторий: `zaomir/grainee-v2`, branch `main`.  
 Страница: `site-caesthetic/private/expert-dental/offer/index.html`.  
 URL: `https://caesthetic.com/private/expert-dental/offer/`.  
-Доступ: простой password gate, `noindex,nofollow`, не в sitemap/nav.
+Доступ: напрямую по ссылке, без пароля; `noindex,nofollow`, не в sitemap/nav.
 
 ---
 
@@ -392,7 +397,7 @@ Runtime-файл:
 `site-caesthetic/private/expert-dental/offer/index.html`
 
 Требования:
-- password gate;
+- прямое открытие без пароля;
 - `noindex,nofollow`;
 - не добавлять в sitemap/nav;
 - стиль CAESTHETIC;
@@ -410,7 +415,7 @@ Footer:
 
 `Prepared confidentially for Expert Dental Studio · CAESTHETIC / ROVLEX`
 
-Пароль хранить как операционный параметр страницы, не дублировать в SSOT и не распространять в публичных материалах.
+Пароль добавлять только по прямому указанию владельца для этой страницы.
 
 ---
 
@@ -442,7 +447,7 @@ Footer:
 1. `index.html` валиден.
 2. Секция публичности содержит inline portrait.
 3. Hero не сломан.
-4. Password gate работает.
+4. Страница открывается без пароля.
 5. CTA один.
 6. `noindex,nofollow` сохранён.
 7. `sitemap/nav` не тронуты.
@@ -489,7 +494,6 @@ Footer:
 Мы подготовили для вас закрытую страницу с нашим взглядом на системный рост Expert Dental: карты, сайт, отзывы, публичность врача, WhatsApp/CRM, реклама и модель развития по дорогим услугам.
 
 Ссылка: https://caesthetic.com/private/expert-dental/offer/
-Пароль: [персональный пароль]
 
 Это не общий маркетинговый текст, а предложение именно под Expert Dental. Будет удобно после просмотра спокойно обсудить 20 минут?
 ```
@@ -504,7 +508,6 @@ Footer:
 Подготовили для вас закрытую страницу: карты, сайт, отзывы, публичность врача, WhatsApp/CRM, реклама и модель развития по high-ticket услугам.
 
 Ссылка: https://caesthetic.com/private/expert-dental/offer/
-Пароль: [персональный пароль]
 
 Если после просмотра почувствуете, что мы действительно поняли потенциал Expert Dental, предлагаю спокойно обсудить 20 минут.
 ```
@@ -564,10 +567,11 @@ Footer:
 
 1. Проверить текущий `index.html` после последней правки с фото.
 2. Если inline portrait не добавлен в секцию публичности — добавить.
-3. Проверить password gate.
+3. Проверить открытие кейса по прямой ссылке без пароля.
 4. Проверить mobile view.
 5. Передеплоить `bash scripts/deploy-caesthetic.sh`.
 6. Отправить Атабеку Саидовичу сообщение.
 7. Провести 20-минутную встречу.
 8. Заполнить capture-протокол.
 9. Не менять client-specific гипотезу Expert Dental до накопления данных по 10 клиникам; reusable CAESTHETIC canon ведётся отдельно в master/economics SSOT.
+

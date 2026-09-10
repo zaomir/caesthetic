@@ -1,5 +1,10 @@
 # ENT Urgent Care — Russian review handoff, 10 September 2026
 
+## Later Monroe four-surface research — 10 September 2026
+
+Read [the later decision and evidence](monroe-four-surfaces-2026-09-10/Monroe-four-surfaces-decision.md) first for Monroe. Both Google entities are now directly verified: ENT network no reviews, Queen City Monroe 4.8/104; CornerStone 4.8/370 and CEENTA 4.6/404 (mixed Eye/ENT). The shared Review Us link resolves to Charlotte; Queen City Instagram bio names Charlotte; the network website links to an unpopulated Instagram destination whose ownership is unverified. CornerStone explicitly locates CT in Monroe. These findings support a conditional public-representation pilot, not low-rating remediation or a proven $2,500 ROI. No geogrid, full 90-day velocity, patient-comprehension, Lead Intake or revenue measurement is claimed. No focus/Top 3 approval or production refresh is implied. The earlier report below records its historical evidence and release.
+
+
 Status: complete Russian review structure with explicit measurement gaps; not client-approved and not a frozen schema-v5 medical report.
 
 - Declared scope: 47 historical locations. Live directory: 42 cards. Readable detail pages: 44. Three checked routes returned 404; five historical locations are absent from the live directory. These counts do not prove closure.

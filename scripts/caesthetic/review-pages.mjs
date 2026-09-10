@@ -16,7 +16,9 @@ export function mergeReviewPages(root, contract) {
     if (seenSources.has(p.source) || seenRoutes.has(p.route)) throw new Error('Duplicate review registration');
     if (!contract.profiles.includes(p.profile)) throw new Error('Unknown review profile');
     if (!['manager_review', 'redirect'].includes(p.stage)) throw new Error('Invalid review stage');
-    if (p.stage === 'manager_review' && (!p.route.startsWith('/score/') || p.locale !== 'ru' || p.profile !== 'growth-score-client/v6.0.0' || !p.accessGroupId)) throw new Error('Review must use protected Russian v6');
+    if (p.stage === 'manager_review' && (!p.route.startsWith('/score/') || p.locale !== 'ru' || p.profile !== 'growth-score-client/v6.0.0')) throw new Error('Review must use Russian v6');
+    if (p.stage === 'manager_review' && ![undefined,'none','pin'].includes(p.accessMode)) throw new Error('Invalid review access mode');
+    if (p.accessMode === 'pin' && (!p.accessGroupId || !p.protectionInstruction)) throw new Error('Review PIN requires direct owner instruction');
     if (p.stage === 'redirect' && p.profile !== 'redirect') throw new Error('Invalid review redirect');
     if (p.packageRole && !['network_parent','focus_location'].includes(p.packageRole)) throw new Error('Invalid review package role');
     if (p.packageRole === 'focus_location' && !registry.pages.some(parent => parent.route === p.parentRoute && parent.packageRole === 'network_parent' && parent.accessGroupId === p.accessGroupId && parent.case_id === p.case_id)) throw new Error('Focus review requires a parent in the same protected package');
@@ -25,3 +27,4 @@ export function mergeReviewPages(root, contract) {
   });
   return {...contract, pages: [...contract.pages, ...pages]};
 }
+

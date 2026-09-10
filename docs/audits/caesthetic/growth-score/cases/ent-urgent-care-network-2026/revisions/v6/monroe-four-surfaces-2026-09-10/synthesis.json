@@ -1,0 +1,113 @@
+{
+  "kind": "public_research_update",
+  "audit_id": "ent-urgent-care-network-2026",
+  "checked_at": "2026-09-10",
+  "locale": "ru",
+  "status": "manager_review",
+  "focus_location": "Monroe",
+  "selected_focus_location": null,
+  "client_publication_approved": false,
+  "numeric_score": null,
+  "approved_top_3": null,
+  "offer_ready": false,
+  "commercial_assessment": "Substantive cross-surface public representation pilot identified; $2,500 scope conditional on local service relevance, asset roles, editing rights and meaningful implementation scope. Small link/hour/bio repairs alone do not justify the fee.",
+  "primary_finding": "The network and partner publish distinct public representations of the same Monroe location, while the partner already has strong reviews and booking. Several shared website/social paths name Charlotte. Local sinus service availability remains to be confirmed.",
+  "surface_coverage": {
+    "search_maps": {
+      "observed": "Two subject identities, matched contact/hours/links, two same-city comparators and two single-session query-presence observations",
+      "not_measured": [
+        "5x5 geogrid",
+        "stable local rank",
+        "search share"
+      ]
+    },
+    "website": {
+      "observed": "31 observations across 18 primary URLs; local CT disclosure, providers, services, booking destinations and public conditions",
+      "not_measured": [
+        "patient comprehension",
+        "mobile visual QA",
+        "completed booking",
+        "local procedure inventory"
+      ]
+    },
+    "social": {
+      "observed": "Official social destinations, four Instagram profiles and three fully read dated posts; matched Queen City and CornerStone bios",
+      "not_measured": [
+        "full 90-day census",
+        "private reach",
+        "full Facebook/YouTube/LinkedIn content",
+        "leads"
+      ]
+    },
+    "reputation": {
+      "observed": "Current full-card ratings/counts; first ten newest review entries for each of three practice profiles; public review-link destination",
+      "not_measured": [
+        "exact original 90-day new-review velocity",
+        "review collection operations",
+        "clinical quality"
+      ]
+    }
+  },
+  "confirmed_current_values": {
+    "queen_city_monroe": {
+      "rating": 4.8,
+      "reviews": 104
+    },
+    "cornerstone_monroe": {
+      "rating": 4.8,
+      "reviews": 370
+    },
+    "ceenta_monroe": {
+      "rating": 4.6,
+      "reviews": 404,
+      "scope": "Eye and ENT, not ENT-only"
+    },
+    "ent_urgent_care_monroe": {
+      "rating": null,
+      "reviews": 0
+    }
+  },
+  "important_limits": [
+    "Two Google entities are not automatically prohibited duplicates; do not merge/delete without verification.",
+    "No claim of lost patients, revenue, user understanding or post-inquiry handling.",
+    "Service availability and actual profitability are not inferred from practice-wide marketing.",
+    "Same-city comparators are not a 3-km radius or a controlled 5-mile grid; CEENTA is slightly beyond 5 miles.",
+    "This update does not re-screen all 47 historical locations."
+  ],
+  "supersession": "For Monroe interpretation use this later evidence. Earlier no-data Maps/reputation statements and the Book-button-led diagnosis are superseded; historical raw research and original production release remain preserved.",
+  "evidence_files": [
+    {
+      "path": "website.json",
+      "sha256": "c21ba6acc00551e996b074690a548609d7c3345e16a5974220ae94537f3b51e5"
+    },
+    {
+      "path": "website.md",
+      "sha256": "50114b913176193af5b1682a4d8218f07ab3fb57a249ae10e765706985471890"
+    },
+    {
+      "path": "search-reputation.json",
+      "sha256": "ebd414574bef4aee2c197f9df0693ca89cbbef926b27e8751282ec3509d65804"
+    },
+    {
+      "path": "search-reputation.md",
+      "sha256": "a90bf54802f5d5e17337071c20eddf09a24c90a1a6608b86cc9c69009a49a8c8"
+    },
+    {
+      "path": "search-reputation-urls.json",
+      "sha256": "2e45912c18cceb13a1bc39c2f95041c3428db3dade7dadf4689cbef571465ccf"
+    },
+    {
+      "path": "social.json",
+      "sha256": "bfa2bb6167425889bb93e610ac62ba77e4dc3e173d32396c52eab3123f079872"
+    },
+    {
+      "path": "social.md",
+      "sha256": "dc6a9542ef3d8cdd41c366812817d0ad1dbedd0a007bd934a10cc8a45e6c41c0"
+    },
+    {
+      "path": "Monroe-four-surfaces-decision.md",
+      "sha256": "cc96f04bbae8fe27af2e45664d7d6eb0ce71345e463162002a6dd4ce4bfeae7b"
+    }
+  ],
+  "presentation_state": "Three standalone Russian comparison files updated from one model; production ENT pages are a prior release unless a later deployment receipt explicitly says otherwise."
+}

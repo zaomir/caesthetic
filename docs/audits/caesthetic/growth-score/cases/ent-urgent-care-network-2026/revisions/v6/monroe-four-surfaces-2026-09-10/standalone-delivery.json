@@ -1,0 +1,48 @@
+{
+  "kind": "standalone_review_delivery",
+  "checked_at": "2026-09-10",
+  "files": [
+    {
+      "name": "Monroe-compare.html",
+      "library_file_id": "libfile_8ce378ff38388191b13f7a76abfb6914",
+      "sha256": "31ec517fbedbe81d1c4479a6c1a1583c520ed22823f1060e0c4e70f6d8ce797b",
+      "bytes": 2532046,
+      "saved": true
+    },
+    {
+      "name": "Monroe-v6.html",
+      "library_file_id": "libfile_735d098b458c8191b93473ab150a90a5",
+      "sha256": "fc20b6cacc1f35d4317a5fda90a622bf2dfc710b7213238e4fb87b96b2383cb2",
+      "bytes": 851408,
+      "saved": true
+    },
+    {
+      "name": "Monroe-v6.1.html",
+      "library_file_id": "libfile_bf09a7d4e3e48191bd8d1b5873b89eae",
+      "sha256": "ef24ba84d4b8549c1719d92e0a6d113dd03c031373fb8d865cbacea56ca310d3",
+      "bytes": 821804,
+      "saved": true
+    },
+    {
+      "name": "Monroe-v6.2.html",
+      "library_file_id": "libfile_99690f0b15948191ad801a3e3f7761ff",
+      "sha256": "91a8d9ac1ea4b1db7e6fceb25a82bc7056db6536be373d973e70b324c4d4a4d5",
+      "bytes": 819274,
+      "saved": true
+    },
+    {
+      "name": "Monroe-three-presentations.zip",
+      "library_file_id": "libfile_30eb8a3480fc8191a579d9c5e8cc01a0",
+      "sha256": "9df3208606f47722e0528888a8c94891951d503b740a9c6308f2f5c8e391d3c0",
+      "bytes": 3271728,
+      "saved": true
+    }
+  ],
+  "facts_sha256": "f14a71ca39eb3c071a97ba5cd0d4554e8ce6a5a43ae64c9a23977a81077d585b",
+  "structural_factual_checks_passed": 68,
+  "javascript_checks_passed": 4,
+  "compare_checks_passed": 3,
+  "browser_qa": "not_run",
+  "production_publication": "not_performed",
+  "note": "These standalone comparison files supersede previous local Monroe presentations; existing production ENT pages remain their earlier release. Full source model and research are in the archive."
+}

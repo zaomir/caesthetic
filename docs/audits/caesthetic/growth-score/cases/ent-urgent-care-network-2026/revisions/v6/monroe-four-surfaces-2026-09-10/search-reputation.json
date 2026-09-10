@@ -1,0 +1,352 @@
+{
+  "observed_date": "2026-09-10",
+  "captured_at_utc": "2026-09-10T22:41:53.468Z",
+  "provenance": "Live Google Maps public UI in Cloud Browser; signed out, Russian UI, Spanish regional context; optional cookies rejected. Official sites read with web tool and browser. No user location granted; no geogrid; query order is not a local ranking measurement.",
+  "scope": [
+    "Search & Maps",
+    "Reviews & Reputation"
+  ],
+  "status": "Public profile identity, current rating/count and ten-item newest-review samples verified; geographic visibility and full 90-day velocity not measured.",
+  "entities": [
+    {
+      "id": "ent",
+      "name": "ENT Urgent Care Monroe",
+      "address": "1994 Wellness Blvd suite 210A, Monroe, NC 28110",
+      "phone": "+1 888-327-3631",
+      "google_rating": null,
+      "google_review_count": 0,
+      "rating_count_provenance": "Full Google Maps place card verified against name/address/phone, not a search snippet. ENT no-reviews label verified in branded result and lack of rating/reviews tab in detail card.",
+      "category_ui_ru": "Пункт неотложной помощи",
+      "website_url": "https://www.enturgent.com/",
+      "booking_url": null,
+      "maps_url": "https://www.google.com/maps/place/ENT+Urgent+Care+Monroe/@35.0245898,-80.6134396,14z/data=!4m10!1m2!2m1!1sENT+Urgent+Care+Monroe+NC!3m6!1s0x88543b62789a9c57:0xa5a3c2f5ed75555f!8m2!3d35.0245898!4d-80.5773907!15sChlFTlQgVXJnZW50IENhcmUgTW9ucm9lIE5DWhsiGWVudCB1cmdlbnQgY2FyZSBtb25yb2UgbmOSARJ1cmdlbnRfY2FyZV9jZW50ZXLgAQA!16s%2Fg%2F11yq26wv5w?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "google_place_id": "ChIJV5yaeGI7VIgRX1V17fXCo6U",
+      "google_cid_hex": "0xa5a3c2f5ed75555f",
+      "screenshot": "ent-monroe-google.jpg",
+      "observed_date": "2026-09-10"
+    },
+    {
+      "id": "monroe",
+      "name": "Queen City Ear Nose and Throat - Monroe",
+      "address": "1994 Wellness Blvd Ste 210, Monroe, NC 28110",
+      "phone": "+1 704-703-1080",
+      "google_rating": 4.8,
+      "google_review_count": 104,
+      "rating_count_provenance": "Full Google Maps place card verified against name/address/phone, not a search snippet. ENT no-reviews label verified in branded result and lack of rating/reviews tab in detail card.",
+      "category_ui_ru": "Клиника оториноларингологии",
+      "website_url": "https://queencity-ent.com/",
+      "booking_url": "https://queencity-ent.com/about/practice/request-appointment",
+      "maps_url": "https://www.google.com/maps/place/Queen+City+Ear+Nose+and+Throat+-+Monroe/@35.0245898,-80.579971,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x88542981bdb70b2b:0x217a9b5fe27c3eee!2sQueen+City+Ear+Nose+and+Throat!8m2!3d35.0331268!4d-80.8087387!16s%2Fg%2F11h5mcpzc1!3m5!1s0x88543bec108e6801:0x48bacf214c9c55cd!8m2!3d35.0245898!4d-80.5773907!16s%2Fg%2F11h8k49mjh?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "google_place_id": "ChIJAWiOEOw7VIgRzVWcTCHPukg",
+      "google_cid_hex": "0x48bacf214c9c55cd",
+      "screenshot": "queen-city-monroe-google.jpg",
+      "observed_date": "2026-09-10"
+    },
+    {
+      "id": "ceenta",
+      "name": "CEENTA (Charlotte Eye Ear Nose & Throat Associates, P.A.) - Monroe",
+      "address": "1632 E Roosevelt Blvd, Monroe, NC 28112",
+      "phone": "+1 704-295-3725",
+      "google_rating": 4.6,
+      "google_review_count": 404,
+      "rating_count_provenance": "Full Google Maps place card verified against name/address/phone, not a search snippet. ENT no-reviews label verified in branded result and lack of rating/reviews tab in detail card.",
+      "category_ui_ru": "Отоларинголог",
+      "website_url": "https://www.ceenta.com/locations/monroe?utm_source=google&utm_medium=organic&utm_campaign=googlebusinessprofile",
+      "booking_url": "https://www.ceenta.com/appointments?utm_source=google&utm_medium=organic&utm_campaign=googlebusinessprofile",
+      "maps_url": "https://www.google.com/maps/place/CEENTA+(Charlotte+Eye+Ear+Nose+%26+Throat+Associates,+P.A.)+-+Monroe/@34.9728827,-80.5145647,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x88542981bdb70b2b:0x217a9b5fe27c3eee!2sQueen+City+Ear+Nose+and+Throat!8m2!3d35.0331268!4d-80.8087387!16s%2Fg%2F11h5mcpzc1!3m5!1s0x885437027f4f7fb9:0x739f31ed61156deb!8m2!3d34.9728827!4d-80.5119844!16s%2Fg%2F1tnplq75?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "google_place_id": "ChIJuX9PfwI3VIgR620VYe0xn3M",
+      "google_cid_hex": "0x739f31ed61156deb",
+      "screenshot": "ceenta-monroe-google.jpg",
+      "observed_date": "2026-09-10",
+      "comparability_limit": "This location combines Eye, ENT and audiology. Its 404 reviews are not an ENT-only review total. Related-place tiles still show 402; full-card 404 takes precedence.",
+      "approx_straight_line_distance_from_subject": {
+        "km": 8.28,
+        "miles": 5.14,
+        "method": "Haversine using coordinates in observed Google place URLs; not driving distance."
+      }
+    },
+    {
+      "id": "cornerstone",
+      "name": "CornerStone Ear, Nose & Throat - Monroe",
+      "address": "1107 Reynolds St, Monroe, NC 28112",
+      "phone": "+1 704-752-7575",
+      "google_rating": 4.8,
+      "google_review_count": 370,
+      "rating_count_provenance": "Full Google Maps place card verified against name/address/phone, not a search snippet. ENT no-reviews label verified in branded result and lack of rating/reviews tab in detail card.",
+      "category_ui_ru": "Клиника оториноларингологии",
+      "website_url": "https://cornerstoneent.com/monroe-ear-nose-and-throat-office?utm_source=gmb&utm_medium=organic&utm_campaign=monroe&utm_content=main-link",
+      "booking_url": "https://cornerstoneent.com/self-scheduling",
+      "maps_url": "https://www.google.com/maps/place/CornerStone+Ear,+Nose+%26+Throat+-+Monroe/@34.9689869,-80.5292173,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x88542981bdb70b2b:0x217a9b5fe27c3eee!2sQueen+City+Ear+Nose+and+Throat!8m2!3d35.0331268!4d-80.8087387!16s%2Fg%2F11h5mcpzc1!3m5!1s0x885436dc72329fef:0x49fe47108813f7a1!8m2!3d34.9689869!4d-80.526637!16s%2Fg%2F12hz8k12g?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "google_place_id": "ChIJ758yctw2VIgRofcTiBBH_kk",
+      "google_cid_hex": "0x49fe47108813f7a1",
+      "screenshot": "cornerstone-monroe-google.jpg",
+      "observed_date": "2026-09-10",
+      "additional_booking_surface": "Google displays a Book Online button linked to Zocdoc, plus the practice self-scheduling link. Neither flow was submitted. Session-bound tracking URL deliberately omitted.",
+      "approx_straight_line_distance_from_subject": {
+        "km": 7.72,
+        "miles": 4.8,
+        "method": "Haversine using coordinates in observed Google place URLs; not driving distance."
+      }
+    },
+    {
+      "id": "charlotte",
+      "name": "Queen City Ear Nose and Throat",
+      "address": "8924 Blakeney Professional Dr, Charlotte, NC 28277",
+      "phone": "+1 704-703-1080",
+      "google_rating": 4.5,
+      "google_review_count": 261,
+      "rating_count_provenance": "Full Google Maps place card verified against name/address/phone, not a search snippet. ENT no-reviews label verified in branded result and lack of rating/reviews tab in detail card.",
+      "category_ui_ru": "Клиника оториноларингологии",
+      "website_url": "https://www.queencity-ent.com/",
+      "booking_url": "https://queencity-ent.com/about/practice/request-appointment",
+      "maps_url": "https://www.google.com/maps/place/Queen+City+Ear+Nose+and+Throat/@35.0331268,-80.8087387,17z/data=!3m1!4b1!4m6!3m5!1s0x88542981bdb70b2b:0x217a9b5fe27c3eee!8m2!3d35.0331268!4d-80.8087387!16s%2Fg%2F11h5mcpzc1?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "google_place_id": "ChIJKwu3vYEpVIgR7j584l-beiE",
+      "google_cid_hex": "0x217a9b5fe27c3eee",
+      "screenshot": "queen-city-charlotte-review-destination.jpg",
+      "observed_date": "2026-09-10"
+    }
+  ],
+  "hours": {
+    "ent": {
+      "mon": "08:00–17:00",
+      "tue": "08:00–17:00",
+      "wed": "08:00–17:00",
+      "thu": "08:00–17:00",
+      "fri": "08:00–17:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "monroe": {
+      "mon": "08:00–16:30",
+      "tue": "08:00–16:30",
+      "wed": "08:00–17:00",
+      "thu": "08:00–16:30",
+      "fri": "08:00–16:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "observed": "Expanded hours tables on both Google Maps cards. Queen City Maps hours match official partner contact page. ENT Google hours match lower local schedule on network page, not the generic upper schedule."
+  },
+  "review_request_link": {
+    "source_url": "https://www.queencity-ent.com/",
+    "label": "Review Us!",
+    "target_url": "https://search.google.com/local/writereview?placeid=ChIJKwu3vYEpVIgR7j584l-beiE",
+    "maps_place_id": "ChIJKwu3vYEpVIgR7j584l-beiE",
+    "resolved_entity": "charlotte",
+    "verification": "Read link in official homepage DOM; resolve same place ID in public Google Maps; full card confirms Charlotte address. The write-review URL itself asked to sign in, so no review was written.",
+    "fact": "Shared two-location homepage directs its generic review request to Charlotte. No location choice on that link.",
+    "interpretation": "Monroe-specific public review request routing can be made explicit. This does not prove Monroe visitors used that link or explain the review-count gap.",
+    "scope": "Small existing-site repair; does not independently justify a $2,500 Sprint."
+  },
+  "review_samples": [
+    {
+      "entity_id": "monroe",
+      "maps_url": "https://www.google.com/maps/place/Queen+City+Ear+Nose+and+Throat+-+Monroe/@35.0245898,-80.579971,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x88542981bdb70b2b:0x217a9b5fe27c3eee!2sQueen+City+Ear+Nose+and+Throat!8m2!3d35.0331268!4d-80.8087387!16s%2Fg%2F11h5mcpzc1!3m5!1s0x88543bec108e6801:0x48bacf214c9c55cd!8m2!3d35.0245898!4d-80.5773907!16s%2Fg%2F11h8k49mjh?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "sort": "Newest first (Сначала новые)",
+      "n": 10,
+      "coverage": "First ten rendered Google review entries after selecting Newest first; no further scrolling; all ten displayed five stars. Not a random sample or full history.",
+      "displayed_age_sequence": [
+        "2 months",
+        "4 months",
+        "5 months",
+        "5 months",
+        "5 months",
+        "5 months",
+        "6 months",
+        "6 months",
+        "6 months",
+        "edited 6 months"
+      ],
+      "edited_entry_indices_1based": [
+        10
+      ],
+      "owner_replies_visible_in_sample": 10,
+      "themes_paraphrased": [
+        "Positive staff/provider attention and explanations",
+        "Positive comfort and audiology care",
+        "Several rating-only entries"
+      ],
+      "ninety_day_new_review_count": null,
+      "full_velocity_measured": false,
+      "limitation": "Relative age labels and edited reviews do not provide exact original publication dates. Do not turn this sample into full 90-day new-review velocity or a clinical-quality judgment."
+    },
+    {
+      "entity_id": "ceenta",
+      "maps_url": "https://www.google.com/maps/place/CEENTA+(Charlotte+Eye+Ear+Nose+%26+Throat+Associates,+P.A.)+-+Monroe/@34.9728827,-80.5145647,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x88542981bdb70b2b:0x217a9b5fe27c3eee!2sQueen+City+Ear+Nose+and+Throat!8m2!3d35.0331268!4d-80.8087387!16s%2Fg%2F11h5mcpzc1!3m5!1s0x885437027f4f7fb9:0x739f31ed61156deb!8m2!3d34.9728827!4d-80.5119844!16s%2Fg%2F1tnplq75?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "sort": "Newest first (Сначала новые)",
+      "n": 10,
+      "coverage": "First ten rendered Google review entries after selecting Newest first; no further scrolling; all ten displayed five stars. Not a random sample or full history.",
+      "displayed_age_sequence": [
+        "23 hours",
+        "yesterday",
+        "edited yesterday",
+        "yesterday",
+        "yesterday",
+        "edited yesterday",
+        "yesterday",
+        "yesterday",
+        "edited 5 days",
+        "5 days"
+      ],
+      "edited_entry_indices_1based": [
+        3,
+        6,
+        9
+      ],
+      "owner_replies_visible_in_sample": 0,
+      "themes_paraphrased": [
+        "Positive attentive explanations by ENT provider",
+        "Positive general experience",
+        "Eye-care provider also appears, confirming mixed-service review sample",
+        "Several rating-only entries"
+      ],
+      "ninety_day_new_review_count": null,
+      "full_velocity_measured": false,
+      "limitation": "Relative age labels and edited reviews do not provide exact original publication dates. Do not turn this sample into full 90-day new-review velocity or a clinical-quality judgment."
+    },
+    {
+      "entity_id": "cornerstone",
+      "maps_url": "https://www.google.com/maps/place/CornerStone+Ear,+Nose+%26+Throat+-+Monroe/@34.9689869,-80.5292173,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x88542981bdb70b2b:0x217a9b5fe27c3eee!2sQueen+City+Ear+Nose+and+Throat!8m2!3d35.0331268!4d-80.8087387!16s%2Fg%2F11h5mcpzc1!3m5!1s0x885436dc72329fef:0x49fe47108813f7a1!8m2!3d34.9689869!4d-80.526637!16s%2Fg%2F12hz8k12g?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "sort": "Newest first (Сначала новые)",
+      "n": 10,
+      "coverage": "First ten rendered Google review entries after selecting Newest first; no further scrolling; all ten displayed five stars. Not a random sample or full history.",
+      "displayed_age_sequence": [
+        "1 month",
+        "edited 2 months",
+        "edited 2 months",
+        "2 months",
+        "2 months",
+        "edited 2 months",
+        "2 months",
+        "2 months",
+        "2 months",
+        "2 months"
+      ],
+      "edited_entry_indices_1based": [
+        2,
+        3,
+        6
+      ],
+      "owner_replies_visible_in_sample": 10,
+      "themes_paraphrased": [
+        "Positive listening and unhurried explanations",
+        "Positive patient-reported nasal-treatment experiences",
+        "Most entries in this sample are rating-only"
+      ],
+      "ninety_day_new_review_count": null,
+      "full_velocity_measured": false,
+      "limitation": "Relative age labels and edited reviews do not provide exact original publication dates. Do not turn this sample into full 90-day new-review velocity or a clinical-quality judgment."
+    }
+  ],
+  "query_checks": [
+    {
+      "query": "same day ENT Monroe NC",
+      "source": "Live Google Maps query UI",
+      "url": "https://www.google.com/maps/search/same+day+ENT+Monroe+NC/@35.0245601,-80.6754551,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "entities_observed": [
+        "cornerstone",
+        "monroe",
+        "ceenta",
+        "ent"
+      ],
+      "other_results": "One advertisement for hearing aids, individual physicians and Charlotte branches also appeared.",
+      "claim": "All four subject/comparator Monroe entities appeared in this one rendered query result.",
+      "geographic_rank": null,
+      "conditions": "No fixed user coordinates, no controlled 5×5 grid, Spanish regional context and Russian UI; map viewport auto-adjusted. Not a reproducible district-wide rank study."
+    },
+    {
+      "query": "sinus specialist Monroe NC",
+      "source": "Live Google Maps query UI",
+      "url": "https://www.google.com/maps/search/sinus+specialist+Monroe+NC/@34.9967866,-80.5653057,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDkwOC4wIKXMDSoASAFQAw%3D%3D",
+      "entities_observed": [
+        "cornerstone",
+        "monroe",
+        "ceenta"
+      ],
+      "entities_not_seen_in_rendered_result": [
+        "ent"
+      ],
+      "other_results": "Two CEENTA individual physicians; end-of-results marker visible.",
+      "claim": "Queen City Monroe appears in this observed result. Separate ENT Urgent Care Monroe card was not in this particular result.",
+      "geographic_rank": null,
+      "conditions": "Same limitations as above. Does not establish absence from sinus searches elsewhere or a ranking gap."
+    }
+  ],
+  "findings": [
+    {
+      "id": "SR1",
+      "fact": "Two public Google identities share the same physical pin: network urgent-care card has no reviews, national phone and network homepage; partner Monroe ENT card has 4.8/104, local phone and booking link.",
+      "interpretation": "A public identity and service-role clarification opportunity. The partner reputation is already strong.",
+      "cannot_claim": [
+        "Clinic has no reviews",
+        "No booking exists",
+        "Duplicate violates policy",
+        "Merge/delete will improve rank"
+      ],
+      "action": "Confirm actual business/department identities and authority before choosing profile or naming changes; align authorized location-specific links and approved hours."
+    },
+    {
+      "id": "SR2",
+      "fact": "Queen City Monroe has 104 reviews; CornerStone Monroe 370 at the same 4.8 rating. CEENTA Monroe has 404 at 4.6 but includes eye care.",
+      "interpretation": "Established positive reputation with a smaller accumulated review base than these two local comparators.",
+      "cannot_claim": [
+        "Low rating",
+        "Review collection failure causes lost patients",
+        "A two-comparator median is a market standard"
+      ],
+      "action": "Review public review-request routing and local proof presentation; diagnose internal request practices only after separate access."
+    },
+    {
+      "id": "SR3",
+      "fact": "First ten newest entries span 2–6 months at Queen City, 1–2 months at CornerStone, and 23 hours–5 days at CEENTA; some entries are edited.",
+      "interpretation": "Freshness deserves a measured follow-up; strongest visible recent activity is atCEENTA, with service-mix caveat.",
+      "cannot_claim": [
+        "Exact90dayvelocity",
+        "Absence of all recentreviews",
+        "Operationalcause"
+      ],
+      "action": "Collect original dated events for the same window and entity if a velocity comparison is required."
+    },
+    {
+      "id": "SR4",
+      "fact": "ENT Google hours differ from Queen City Google hours on Mon, Tue, Thu and Fri; Queen City Google matches the partner website.",
+      "interpretation": "Same-place public schedule inconsistency across brands.",
+      "action": "Approve a canonical location schedule and clarify any deliberate urgent-care versus practice-hours distinction before publishing corrections."
+    }
+  ],
+  "commercial_conclusion": {
+    "sprint_2500_gate": "Not established by Search/Reviews alone. Findings support coordinated public entity/service representation work, but simple hours and review-link fixes belong in a DIY list. Combine only with substantial verified website/social/service evidence and agreed execution rights.",
+    "lead_intake": "Not assessed. No calls, inquiry submission, actual appointment confirmation, conversion, losses or revenue impact measured.",
+    "priority": "Keep strong reputation visible, clarify the two identities and actual local service offer; do not sell low-rating remediation."
+  },
+  "official_sources": [
+    {
+      "title": "ENT Urgent Care Monroe",
+      "url": "https://enturgent.com/location/monroe/"
+    },
+    {
+      "title": "Queen City Contact & Locations",
+      "url": "https://www.queencity-ent.com/about/practice/contact"
+    },
+    {
+      "title": "Queen City homepage and Review Us link",
+      "url": "https://www.queencity-ent.com/"
+    },
+    {
+      "title": "CEENTA Monroe same-day ENT and mixed service scope",
+      "url": "https://www.ceenta.com/locations/monroe"
+    },
+    {
+      "title": "CornerStone Monroe location and same-/next-day offer",
+      "url": "https://cornerstoneent.com/"
+    }
+  ],
+  "research_access_log": {
+    "web_search_queries": 13,
+    "search_outcome": "Mostly empty or irrelevant results; excluded as evidence of absence. Official page opens succeeded.",
+    "browser_reason": "Needed live public Google profile identity and rendered review data beyond successful official-source lookup.",
+    "authentication": "Write-review endpoint required re-authentication; not entered. Public Maps read signed out.",
+    "data_minimization": "No reviewer names or patient medical narratives retained in deliverable; only aggregate themes and date-label samples. Screenshot files show business cards, not review narratives."
+  },
+  "comparability_note": "These are same-city local comparators, not clinics within 3 km. Approximate straight-line distances are 8.28 km to CEENTA and 7.72 km to CornerStone. CEENTA lies just beyond 5 miles from the subject point; no grid was sampled."
+}

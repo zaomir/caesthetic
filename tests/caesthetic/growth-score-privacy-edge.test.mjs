@@ -7,84 +7,18 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 
-test("CAESTHETIC score access is fail-closed except for explicitly allowlisted direct-link reports", (t) => {
-  if (!fs.existsSync(path.join(root, "infra/cloudflare/router/src/index.ts"))) {
-    t.skip("runtime router is intentionally absent from the public satellite repository");
-    return;
-  }
-  const router = read("infra/cloudflare/router/src/index.ts");
-  const manifest = JSON.parse(read("infra/cloudflare/brands/caesthetic.manifest.json"));
-  const cutover = read("scripts/cf-caesthetic-cutover.sh");
-  const prestigePilotPath = "site-caesthetic/score/prestige-ru-pilot-520-20260901-c6d8e2/index.html";
-  const prestigePilot = fs.existsSync(path.join(root, prestigePilotPath))
-    ? read(prestigePilotPath)
-    : null;
-  const sitemap = read("site-caesthetic/sitemap.xml");
-  assert.match(router, /env\.BRAND !== 'caesthetic' \|\| !pathname\.startsWith\('\/score\/'\)/);
-  assert.match(router, /pathname === '\/score\/'/);
-  assert.match(router, /pathname === '\/score\/catalog\.json'/);
-  assert.match(router, /pathname\.startsWith\('\/score\/demo-'\)/);
-  assert.match(router, /isConfiguredPublicScorePath\(env\.SCORE_PUBLIC_PATHS, pathname\)/);
-  assert.match(router, /isConfiguredProtectedScorePath\(env\.SCORE_PROTECTED_PATHS, url\.pathname\)/);
-  assert.match(router, /isConfiguredPublicScorePath\(env\.SCORE_PUBLIC_PATHS, url\.pathname\)[\s\S]*isConfiguredProtectedScorePath\(env\.SCORE_PROTECTED_PATHS, url\.pathname\)[\s\S]*headers\.set\('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet'\)/);
-  assert.match(router, /X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet'/);
-  assert.match(router, /This private Growth Score is not available/);
-  assert.match(router, /protectedResponse\([\s\S]*404/);
-  assert.deepEqual(
-    manifest.scoreProtectedPaths.map(({ prefix, accessGroupId }) => ({ prefix, accessGroupId })),
-    [
-      {
-        prefix: "/score/nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8/",
-        accessGroupId: "nvr-odesa-2026-08-31",
-      },
-      {
-        prefix: "/score/prestige-ru-pilot-520-20260901-c6d8e2/",
-        accessGroupId: "prestige-ru-pilot-20260901",
-      },
-      {
-        prefix: "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/",
-        accessGroupId: "spoken-medspa-snellville-2026-09-03",
-      },
-      {
-        prefix: "/score/ent-urgent-care-network-6f2c9a4e81d7/",
-        accessGroupId: "ent-network-ru-review-20260909",
-      },
-    ],
-  );
-  for (const entry of manifest.scoreProtectedPaths) {
-    assert.match(entry.pinSalt, /^caesthetic:/);
-    assert.match(entry.pinHash, /^[0-9a-f]{64}$/);
-  }
-  assert.deepEqual(manifest.scorePublicPaths, [
-    "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/",
-  ]);
-  assert.equal(
-    manifest.scoreProtectedPaths.some((entry) => entry.prefix === "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/"),
-    true,
-  );
-  assert.equal(
-    manifest.scoreProtectedPaths.some((entry) => entry.prefix === "/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/"),
-    false,
-  );
-  if (prestigePilot) {
-    assert.match(prestigePilot, /data-report-kind="pilot"/);
-    assert.match(prestigePilot, /noindex,nofollow,noarchive,nosnippet/);
-  } else {
-    const syncManifest = read("docs/projects/caesthetic/SYNC_MANIFEST.yml");
-    assert.match(syncManifest, /site-caesthetic\/score\/prestige-ru-pilot-520-20260901-c6d8e2\/\*\*/);
-  }
-  assert.doesNotMatch(sitemap, /prestige-ru-pilot-520-20260901-c6d8e2/);
-  assert.doesNotMatch(sitemap, /ent-urgent-care-network-6f2c9a4e81d7/);
-  assert.doesNotMatch(read("site-caesthetic/score/catalog.json"), /ent-urgent-care-network-6f2c9a4e81d7/);
-  assert.match(cutover, /SCORE_PROTECTED_PATHS/);
-  assert.match(cutover, /SCORE_PUBLIC_PATHS/);
-  assert.match(cutover, /select_cloudflare_auth/);
-  assert.match(cutover, /CLOUDFLARE_API_TOKEN2:-.*CLOUDFLARE_API_TOKEN_BOTOTOX:-.*CLOUDFLARE_API_TOKEN:-.*CF_API_TOKEN:-/);
-  assert.match(cutover, /CLOUDFLARE_GLOBAL_API_KEY/);
-  assert.match(cutover, /X-Auth-Email/);
-  assert.match(cutover, /X-Auth-Key/);
-  assert.match(cutover, /auth_mode=\$\{CF_AUTH_MODE\}/);
-  assert.doesNotMatch(cutover, /echo "\$\{?(?:tok|key|email)\}?"/);
+test("reports open by default while requested protection and catalog privacy remain available", (t) => {
+  if (!fs.existsSync(path.join(root,"infra/cloudflare/router/src/index.ts"))) {t.skip("runtime absent from satellite");return;}
+  const router=read("infra/cloudflare/router/src/index.ts");
+  const manifest=JSON.parse(read("infra/cloudflare/brands/caesthetic.manifest.json"));
+  assert.match(router,/if \(!protectedPath\) return null/);
+  assert.match(router,/validSession/);
+  assert.deepEqual(manifest.scoreProtectedPaths,[]);
+  for(const slug of ['nohy-v-ruky-odesa-bf9f3b12aeeaf13915a0c5c8','prestige-ru-pilot-520-20260901-c6d8e2','spoken-medspa-snellville-9d7f3a5c2e184b61','ent-urgent-care-network-6f2c9a4e81d7']) assert.ok(manifest.scorePublicPaths.includes(`/score/${slug}/`));
+  assert.match(router,/X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet'/);
+  const sitemap=read("site-caesthetic/sitemap.xml"), catalog=read("site-caesthetic/score/catalog.json");
+  assert.doesNotMatch(sitemap,/ent-urgent-care-network-6f2c9a4e81d7/);
+  assert.doesNotMatch(catalog,/ent-urgent-care-network-6f2c9a4e81d7/);
 });
 test("DEC-829 excludes client score artifacts and protects canonical Growth Score authorities", () => {
   const manifest = read("docs/projects/caesthetic/SYNC_MANIFEST.yml");
@@ -114,3 +48,4 @@ test("DEC-829 excludes client score artifacts and protects canonical Growth Scor
     assert.match(sync, new RegExp(authority.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
 });
+

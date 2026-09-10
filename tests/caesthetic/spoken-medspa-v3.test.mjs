@@ -259,7 +259,8 @@ test('private source/revision artifacts do not mirror to the public satellite',(
  assert.ok(exclude.includes('spoken-medspa-snellville-2026/v3-acceptance/'));
  const policy=JSON.parse(read('infra/cloudflare/brands/caesthetic.manifest.json'));
  assert.ok(policy.scorePublicPaths.includes(`/score/${V3_PARENTS.ru}/`));
- assert.ok(policy.scoreProtectedPaths.some(e=>e.prefix===`/score/${V3_PARENTS['en-US']}/`));
+ assert.ok(policy.scorePublicPaths.includes(`/score/${V3_PARENTS['en-US']}/`));
+ assert.ok(!policy.scoreProtectedPaths.some(e=>e.prefix===`/score/${V3_PARENTS['en-US']}/`));
  assert.doesNotMatch(read('site-caesthetic/sitemap.xml'),/spoken-medspa/);
 });
 

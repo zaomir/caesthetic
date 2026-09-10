@@ -35,6 +35,11 @@ const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const REAL_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*-[a-f0-9]{16,}$/;
 const ALLOWED_FORMATS = new Set(["single_location", "multi_location"]);
 const ALLOWED_VISIBILITY = new Set(["synthetic", "private"]);
+// Catalog privacy is independent of authentication; PIN requires a direct owner instruction.
+export function requiresReportPin(pkg) {
+  return pkg.access?.mode === "pin";
+}
+
 const FORBIDDEN_KEY = /(?:password|passwd|password_hash|session_secret|secret|credential|api[_-]?key|access[_-]?token|private[_-]?key)/i;
 const FORBIDDEN_HTML = [
   /Your Growth Review/i,
@@ -287,8 +292,13 @@ export function validatePinnedPackage({ request, requestFile, satellite, canonic
   assertNoSecrets(packageManifest);
   assertNoSensitiveKeys(packageManifest);
   assertNoCredentialUrls(packageManifest);
-  if (packageManifest.visibility === "private") nonEmpty(packageManifest.access_group_id, "package.access_group_id");
-  else invariant(packageManifest.access_group_id == null, "synthetic packages cannot declare access_group_id");
+  invariant([undefined, "none", "pin"].includes(packageManifest.access?.mode), "invalid report access mode");
+  if (requiresReportPin(packageManifest)) {
+    invariant(packageManifest.visibility === "private", "PIN applies only to real reports");
+    nonEmpty(packageManifest.access?.instruction, "package.access.instruction: direct owner request required");
+    nonEmpty(packageManifest.access_group_id, "package.access_group_id");
+  }
+  if (packageManifest.visibility === "synthetic") invariant(packageManifest.access_group_id == null, "synthetic packages cannot declare access_group_id");
 
   for (const rel of DRIFT_PATHS) {
     const sourceBytes = gitBlob(satellite, request.source_satellite_sha, rel);
@@ -317,9 +327,9 @@ export function validatePinnedPackage({ request, requestFile, satellite, canonic
     invariant(auditFormat === packageManifest.audit_format, "report audit format does not match package");
     const reportProject = report.audit?.project_id ?? packageManifest.project_id;
     invariant(reportProject === packageManifest.project_id, "report project_id does not match package");
-    if (packageManifest.visibility === "private") invariant(report.audit?.access_group_id === packageManifest.access_group_id, "report access_group_id does not match package");
+    if (requiresReportPin(packageManifest)) invariant(report.audit?.access_group_id === packageManifest.access_group_id, "report access_group_id does not match package");
   });
-  if (packageManifest.visibility === "private") {
+  if (requiresReportPin(packageManifest)) {
     let accessConfig = {};
     let smokePasswords = {};
     try { accessConfig = JSON.parse(process.env.CAESTHETIC_SCORE_ACCESS_CONFIG || "{}"); } catch { /* fail below */ }
@@ -376,13 +386,22 @@ function writeCanonicalArtifacts(canonical, validated) {
   if (validated.packageManifest.visibility === "private") {
     const manifestPath = path.join(canonical, "infra/cloudflare/brands/caesthetic.manifest.json");
     const manifest = readJsonFile(manifestPath);
-    const entries = Array.isArray(manifest.scoreProtectedPaths) ? manifest.scoreProtectedPaths : [];
+    let entries = Array.isArray(manifest.scoreProtectedPaths) ? manifest.scoreProtectedPaths : [];
+    const publicPaths = new Set(manifest.scorePublicPaths || []);
     for (const { route } of validated.reports) {
-      const existing = entries.find((item) => item.prefix === route);
-      invariant(!existing || existing.accessGroupId === validated.packageManifest.access_group_id, `protected route collision: ${route}`);
-      if (!existing) entries.push({ prefix: route, accessGroupId: validated.packageManifest.access_group_id });
+      if (requiresReportPin(validated.packageManifest)) {
+        const existing = entries.find((item) => item.prefix === route);
+        invariant(!existing || existing.accessGroupId === validated.packageManifest.access_group_id, `protected route collision: ${route}`);
+        if (!existing) entries.push({prefix: route, accessGroupId: validated.packageManifest.access_group_id, protectionInstruction: validated.packageManifest.access.instruction});
+        publicPaths.delete(route);
+      } else {
+        invariant(!entries.some(item => route.startsWith(item.prefix) && item.prefix !== route), `parent PIN applies to ${route}; change the whole package explicitly`);
+        entries = entries.filter(item => item.prefix !== route);
+        publicPaths.add(route);
+      }
     }
-    manifest.scoreProtectedPaths = entries.sort((a, b) => a.prefix.localeCompare(b.prefix));
+    manifest.scoreProtectedPaths = entries.sort((a,b)=>a.prefix.localeCompare(b.prefix));
+    manifest.scorePublicPaths = [...publicPaths].sort();
     fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
     written.push("infra/cloudflare/brands/caesthetic.manifest.json");
   }
@@ -511,6 +530,10 @@ function smokeLive(validated) {
     if (validated.packageManifest.visibility === "synthetic") {
       invariant(status === 200 && /SYNTHETIC DEMO/.test(raw) && /noindex,nofollow,noarchive,nosnippet/.test(raw), `synthetic live smoke failed: ${url}`, "smoke_failed");
       checks.push({ url, status, ok: true, mode: "synthetic_noindex" });
+    } else if (!requiresReportPin(validated.packageManifest)) {
+      invariant(status === 200 && /data-report-kind="real"/.test(raw) && !/name="password"/.test(raw), `direct-link report smoke failed: ${url}`, "smoke_failed");
+      invariant(/noindex/.test(raw), `report noindex missing: ${url}`, "smoke_failed");
+      checks.push({url, status, ok: true, mode: "direct_link_noindex"});
     } else {
       invariant(status === 200 && /Закрытый Growth Score/.test(raw), `private unauthenticated gate failed: ${url}`, "smoke_failed");
       const wrong = run("curl", ["-sS", "-o", "/dev/null", "-w", "%{http_code}", "--max-time", "30", "-X", "POST", "--data", "password=definitely-wrong-publication-smoke", url], { allowFailure: true });
@@ -715,3 +738,4 @@ if (isDirect) {
     process.exit(1);
   }
 }
+

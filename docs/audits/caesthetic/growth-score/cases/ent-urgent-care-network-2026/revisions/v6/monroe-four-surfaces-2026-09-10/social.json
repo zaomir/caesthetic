@@ -1,0 +1,104 @@
+{
+  "surface": "Social",
+  "subject": "ENT Urgent Care Monroe / Queen City Ear, Nose, and Throat",
+  "checked_at": "2026-09-10",
+  "status": "partial_direct_public_profile_and_content_audit",
+  "method": {
+    "search_queries": 18,
+    "official_website_links": "Queen City and CornerStone raw public HTML; CEENTA and ENT Urgent Care live public website DOM anchors",
+    "profile_inspection": "Public Instagram profiles viewed in the available browser session; no account changes, messages, follows, private analytics, or Lead Intake inspected.",
+    "content_window_requested": {"from":"2026-06-13","through":"2026-09-10"},
+    "sampling": "Purposive sample of visible profile header, highlights titles, first loaded grid, two fully read Queen City posts and one fully read CornerStone post. Not a complete 90-day census.",
+    "source_hierarchy": "Direct browser page state supersedes search snippets. Indexed posts not visible in the current feed are not counted as current activity."
+  },
+  "entities": [
+    {
+      "id":"ent_network",
+      "entity_scope":"ENT Urgent Care national network, not Monroe-only",
+      "official_website":"https://enturgent.com/",
+      "official_website_social_links":["https://www.facebook.com/enturgent","https://www.instagram.com/enturgent","https://www.linkedin.com/company/enturgent/"],
+      "profile_url":"https://www.instagram.com/enturgent",
+      "identity_basis":"Direct hyperlink from the official network homepage. Actual ownership/control of the destination account has not been verified.",
+      "observations":[
+        "The linked Instagram destination renders handle enturgent, 0 posts, 0 followers and 0 following, and the explicit No posts yet state.",
+        "No practice description, location, external website link or custom brand image was visible in the rendered profile header.",
+        "The claim concerns this exact website-linked destination; it does not establish that ENT Urgent Care has no other Instagram or social accounts."
+      ],
+      "screenshot":null,
+      "screenshot_status":"Captured and visually inspected, but the browser-produced file did not synchronize to the main workspace; do not provide a broken artifact link.",
+      "coverage":"One linked Instagram destination fully visible; Facebook and LinkedIn content not audited."
+    },
+    {
+      "id":"queen_city",
+      "entity_scope":"Shared Queen City practice account for a practice with Charlotte and Monroe offices; not a Monroe-only profile",
+      "official_website":"https://www.queencity-ent.com/",
+      "official_website_social_links":["https://www.facebook.com/QueenCityENT","https://www.instagram.com/queencity_ent","https://www.youtube.com/@QueenCityENT"],
+      "profile_url":"https://www.instagram.com/queencity_ent/",
+      "identity_basis":"Direct website hyperlink, matching practice name, named clinicians and website domain.",
+      "observations":[
+        "Expanded bio lists three ENT physicians, a practice administrator and three audiologists. It provides the Charlotte address 8924 Blakeney Professional Drive, Charlotte, North Carolina 28277.",
+        "Monroe and sinus services are not stated in the expanded bio. This is a bio-specific omission, not evidence that Monroe or sinus content is absent from the account.",
+        "The visible external link points to the Queen City homepage. Its presence is verified; no broken-link or absent-booking claim follows.",
+        "The profile shows existing doctor award posts pinned at the top and visible highlight labels Events, Audiology, Allergies, Ear Plugs, Top Doctors, Sleep Apnea, ReSound and Sponsor. The highlight content was not played, and no all-highlights absence claim is made.",
+        "Two posts directly inspected inside the target window cover seasonal allergy/sinus pressure and airplane ear. This contradicts a broad claim that the practice has no current service content.",
+        "Displayed 555 posts and 2,519 followers are profile metadata only and are not converted into engagement, local reach, leads or business performance."
+      ],
+      "screenshot":"/workspace/scratch/monroe-social-queen-city-profile-20260910.jpg",
+      "coverage":"Expanded Instagram bio; visible highlights titles; initial loaded grid and two full post captions/datetimes. Facebook direct web extraction failed; YouTube extraction exceeded tool limits. Neither is classified inactive."
+    },
+    {
+      "id":"cornerstone",
+      "entity_scope":"Shared CornerStone practice account covering Charlotte, Monroe and Indian Land",
+      "official_website":"https://cornerstoneent.com/",
+      "official_website_social_links":["https://www.facebook.com/CornerStoneENT/","https://www.instagram.com/cornerstoneent/","https://www.linkedin.com/company/cornerstone-ear-nose-%26-throat-pa","https://www.youtube.com/@CornerStoneENTVideo"],
+      "profile_url":"https://www.instagram.com/cornerstoneent/",
+      "identity_basis":"Direct website hyperlink, same brand and same practice domain; website confirms Monroe office at 1107 Reynolds St.",
+      "observations":[
+        "Expanded bio names sinus, allergy and hearing services and all three cities including Monroe, then mentions in-office sinus procedures, allergy drops and hearing care.",
+        "Address field is Charlotte, as on Queen City's account. The meaningful distinction is the three-city service statement in the bio, not the existence of one primary address field.",
+        "Visible highlight labels include Walkin Clinic and Sinus, alongside Audiology, Testimonials, Surgical, Surgery Center and Allergies; highlight contents were not evaluated.",
+        "A fully read July 14, 2026 post explicitly offers the possibility of same-day specialist care in Charlotte, Monroe and Indian Land and gives a phone number and self-scheduling URL. This is a public promise, not a verified appointment slot.",
+        "The initial grid includes dated Sep 10 and Sep 3, Aug 26 and Aug 10, and July posts with clinicians and location content. Grid titles/OCR alone are not used as confirmed clinical claims.",
+        "Displayed 507 posts and 147 followers are not comparable measures of local patient demand or sales."
+      ],
+      "screenshot":"/workspace/scratch/monroe-social-cornerstone-profile-20260910.jpg",
+      "coverage":"Expanded Instagram bio, visible highlight titles, initial loaded grid and one full same-day post with exact datetime. No complete 90-day content census."
+    },
+    {
+      "id":"ceenta",
+      "entity_scope":"Large multispecialty regional network account; not Monroe-only",
+      "official_website":"https://www.ceenta.com/",
+      "official_website_social_links":["https://www.facebook.com/ceenta1923","https://www.instagram.com/ceenta1923/","https://www.linkedin.com/company/charlotte-eye-ear-nose-&-throat-associates","https://www.youtube.com/user/WeJustMakeSense"],
+      "profile_url":"https://www.instagram.com/ceenta1923/",
+      "identity_basis":"Direct social anchor from official CEENTA homepage.",
+      "observations":[
+        "Expanded bio presents a broad network: 23 locations and 150 providers are the profile's own current claims, plus Eye Care, ENT, Facial Plastics, Allergy, Audiology and Voice & Swallowing.",
+        "The external link label is linkin.bio/ceenta1923. The linked hub was not tested.",
+        "Visible highlights include ENT and Allergy. The first loaded grid contains a clinician-led caption directing to a same-day ENT/allergy appointment in Rock Hill and another to a pediatric ENT visit in Blakeney.",
+        "These examples show a provider + named location + next-step content format. They do not establish CEENTA Monroe same-day availability or Monroe-specific content superiority."
+      ],
+      "coverage":"Expanded Instagram bio, visible highlight titles and initial grid caption excerpts. No complete post open or equal-window count for CEENTA; Facebook, LinkedIn and YouTube not content-audited."
+    }
+  ],
+  "posts_directly_read": [
+    {"entity":"queen_city","url":"https://www.instagram.com/p/DbdZvlYGGbO/","published_at":"2026-07-31T13:45:26.000Z","date_basis":"Rendered post time element datetime attribute","summary":"Seasonal allergens, ongoing congestion and sinus pressure; invites allergy testing and an individualized treatment discussion.","monroe_named":false,"same_day_promise":false,"service_content":true,"evidence_level":"observed_public_post"},
+    {"entity":"queen_city","url":"https://www.instagram.com/p/DbY15cxmaKa/","published_at":"2026-07-29T19:15:15.000Z","date_basis":"Rendered post time element datetime attribute","summary":"Airplane ear educational content and invitation to arrange a visit for lingering ear pressure.","monroe_named":false,"same_day_promise":false,"service_content":true,"evidence_level":"observed_public_post"},
+    {"entity":"cornerstone","url":"https://www.instagram.com/p/Dax4HlyicIX/","published_at":"2026-07-14T16:04:07.000Z","date_basis":"Rendered post time element datetime attribute","summary":"Says specialists can often see patients the same day in Charlotte, Monroe or Indian Land; gives phone and self-scheduling address.","monroe_named":true,"same_day_promise":true,"promise_not_slot_verification":true,"service_content":true,"evidence_level":"observed_public_post"}
+  ],
+  "indexed_only_material": [
+    {"url":"https://www.instagram.com/p/DWB135Okiqc/","summary":"Search excerpt names Queen City and a service list including balloon sinuplasty/sinus; opening was throttled and not confirmed in the directly inspected profile grid.","use":"Reconnaissance only; excluded from current post count and final quantitative comparisons."},
+    {"url":"https://www.instagram.com/reel/DYFb06IEepc/","summary":"Indexed CornerStone provider content with search-supplied May 8, 2026 date; outside the target 90-day window.","use":"Excluded from target-window analysis."}
+  ],
+  "findings": [
+    {"id":"SOC-01","title":"Network website links to an unpopulated Instagram destination","evidence":"ent_network official website anchor plus rendered linked profile; screenshot visually inspected but its artifact did not synchronize","interpretation":"The public social destination does not presently explain the network or connect a viewer to local offices.","materiality":"Confirmed repair task; economic effect unknown. A wrong href could be a small correction; an intentional new account could require bounded profile/content setup.","recommended_action":"Verify the intended owned account; correct the website destination or complete the authorized profile with confirmed network description and location-finder link.","acceptance":"Official site opens the authorized intended profile; agreed brand description and location navigation are published and checked.","standalone_2500_justified":false},
+    {"id":"SOC-02","title":"Queen City's shared bio presents Charlotte without naming Monroe or sinus","evidence":"Expanded Queen City bio versus expanded CornerStone bio and screenshots","interpretation":"A shared account can publicly explain both offices and the chosen service more explicitly, using the existing account's strengths.","materiality":"Bounded localization/content improvement. Bio editing alone is a small DIY task; not a sufficient standalone $2,500 value argument.","recommended_action":"After confirming local services and profile ownership, state both locations, link to an appropriate location/service route, and publish a bounded Monroe service/provider introduction if the larger priority merits it.","acceptance":"Approved bio and local service material name the correct office, authorized provider/service availability and public destination; consistency checked with website and other public surfaces.","standalone_2500_justified":false},
+    {"id":"SOC-03","title":"Competitor presents a local same-day promise in social content","evidence":"CornerStone July 14, 2026 post; Queen City two sampled posts do not make that promise","interpretation":"Useful example of explicit location/service/next-step communication; insufficient to assert Queen City never publishes similar content or lacks the operational service.","materiality":"Content-format comparison, not evidence of lost patients or an independent retainer requirement.","recommended_action":"Use only when the client confirms a comparable local service/policy and public social work is selected as a dependency of the priority.","standalone_2500_justified":false}
+  ],
+  "competitor_comparability": {
+    "primary":"Queen City and CornerStone both use shared multi-office Instagram accounts including Monroe, making header-level comparisons reasonably matched.",
+    "secondary":"CEENTA is a much larger mixed eye/ENT regional network; use as a qualitative content-format reference, not follower or publication-volume benchmark.",
+    "network_layer":"ENT Urgent Care's national account is a different layer from Queen City's existing practice account. Do not combine their audience counts or imply zero practice social presence.",
+    "prohibited_inferences":["No reach, patient understanding, intent, inquiry volume, booking completion, lost revenue, conversion or attributable ROI is established.","No comprehensive inactivity or 90-day post-frequency ranking is established.","No actual appointment inventory or local procedure availability is established from social promises."]
+  },
+  "decision":"Social now has verified public evidence and two concrete bounded repair/localization opportunities. It does not independently justify a $2,500 Sprint. Include selected work only within an evidenced cross-surface priority, with confirmed service availability and authority to edit network/partner assets."
+}

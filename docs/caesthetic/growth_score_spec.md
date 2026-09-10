@@ -17,6 +17,11 @@ related:
   - docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md
 ---
 
+## Report access — owner decision 2026-09-10
+
+Cases, reports and manager-review pages open by direct link without a password by default. Set a password only on a direct instruction for the named page/package, recorded with its source. Preserve noindex, catalog rules and diagnostic review status. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`. Earlier mandatory PIN/password language is superseded; private catalog visibility is not authentication.
+
+
 # CAESTHETIC Growth Score — detailed specification
 
 `docs/ssot/CAESTHETIC.md` is the master product and strategy authority. This document is its subordinate implementation specification. It defines the Four-Surface metric catalogue, evidence and review gates, scoring policy, and the content contract for real and synthetic reports. It must not create a competing product model.
@@ -553,7 +558,7 @@ The single production contract for every new approved report is **schema v5** wi
 
 Running the template module directly prints a draft schema-v5 JSON scaffold. It starts with `reportState=draft`; every metric has `raw_value=null`, `normalized_score=null` and `reviewer_status=pending`; named-human approval is absent; evidence references and case facts remain explicit placeholders. It cannot render or publish until case evidence, named-human Focus Selection, the applicable Competitive Decision Analysis and all evidence references pass the production gates and the report is promoted truthfully to `approved_report`.
 
-The Nohy V Ruky report is the current production-approved schema-v5 example and uses the canonical template version. It follows the standard real-report access contract: server-side password protection, full noindex directives, an unguessable route, sitemap exclusion and no public case-catalogue listing. Aesthetemed remains a historical schema-v4 read-only example whose retained pre-rendered output is not evidence of current renderer compatibility. Legacy v4 data may be migrated only through an explicit reviewed conversion to the full v5 contract; it may never be relabelled or passed through as v5. Neither example supplies reusable facts, scores, sources, findings, Focus Selection, approval metadata or commercial language.
+The Nohy V Ruky report is the current production-approved schema-v5 example and uses the canonical template version. It follows the standard real-report access contract: direct-link access (password only on direct instruction), full noindex directives, an unguessable route, sitemap exclusion and no public case-catalogue listing. Aesthetemed remains a historical schema-v4 read-only example whose retained pre-rendered output is not evidence of current renderer compatibility. Legacy v4 data may be migrated only through an explicit reviewed conversion to the full v5 contract; it may never be relabelled or passed through as v5. Neither example supplies reusable facts, scores, sources, findings, Focus Selection, approval metadata or commercial language.
 
 The canonical implementation chain is:
 
@@ -651,7 +656,7 @@ The owner owns the delivered report, evidence pack and task plan and may use the
 
 ### 6.2 Privacy and truthfulness
 
-- A real report is delivered only at `/score/<unguessable-slug>/`, must emit `noindex,nofollow,noarchive,nosnippet`, stay outside the sitemap, use a non-guessable slug and be protected by server-side password/access enforcement before delivery. Client secrets and passwords must never be committed to the repository or exposed in generated HTML.
+- A real report is delivered only at `/score/<unguessable-slug>/`, must emit `noindex,nofollow,noarchive,nosnippet`, stay outside the sitemap, use a non-guessable slug and open without a password unless protection was directly requested. Client secrets and passwords must never be committed to the repository or exposed in generated HTML.
 - A real report names or redacts the practice only according to truthful permission and handling rules.
 - Every demo is clearly marked **synthetic**, states that no client relationship is represented, and uses fictional practice/person data. Its score is calculated by the same production authority and exact metric catalogue as a real report.
 - No fake logos, testimonials, patient claims, rankings, revenue outcomes or `as seen in` proof.
@@ -683,8 +688,8 @@ Logical records are `score_case`, `candidate_evidence`, `verified_fact_set`, `dr
 5. A named human reviewer checks source lineage, dates, method and competitor selection; verifies every proposed Class A fact; approves/rejects metric scores and anchored judgments; corrects the inventory, Repair Plans and wording; selects exactly one Primary plus exactly two Supporting gaps; approves the binding constraint and exactly one Do Not Fund Yet; and clears privacy/compliance issues. Focus Selection records the reviewer's name, timestamp and rationale.
 6. Freeze the verified fact set and append-only Focus Selection. Final scores are calculated deterministically, and final narrative is compiled only from verified facts plus visibly labelled Class B items with method and assumptions.
 7. Validate `≥80%` Class A published findings, the surface coverage rules, Focus Selection composition and every evidence reference. Pre-review AI content, an unnamed selection or a binding constraint that does not reference the Primary gap is a hard publication failure.
-8. Render and visually verify the unnumbered Intro followed by all nine counted sections. A named human approves a versioned report with reviewer and timestamp before the protected private link is delivered.
-9. Configure server-side access, verify unauthenticated denial and authenticated success, and only then deliver the report. Valerie Petra records the 3–8 minute walkthrough under `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`. That SSOT alone owns the spoken sequence, presenter/screen mix, subtitles and production rules; this detailed report spec must not duplicate or override them. The walkthrough may explain why the 30-Day Sprint is convenient, but may not imply guaranteed or already-purchased scope.
+8. Render and visually verify the unnumbered Intro followed by all nine counted sections. A named human approves a versioned report with reviewer and timestamp before the direct report link is delivered.
+9. Verify anonymous direct-link access without a password and retained noindex directives, then deliver the report. Only when password protection was directly requested for this report, configure server-side access and verify unauthenticated denial, wrong-password rejection and authenticated success. Valerie Petra records the 3–8 minute walkthrough under `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`. That SSOT alone owns the spoken sequence, presenter/screen mix, subtitles and production rules; this detailed report spec must not duplicate or override them. The walkthrough may explain why the 30-Day Sprint is convenient, but may not imply guaranteed or already-purchased scope.
 
 ### 7.1 Controlled learning layer
 
@@ -748,7 +753,7 @@ Growth Score is not complete until production tests prove all of the following:
 - one `do_not_do`;
 - DIY/alternative-provider use, client ownership, no lock-in and honest `Why CAESTHETIC / Why Sprint` language;
 - real and demo rendering through the same authority;
-- real-report `noindex,nofollow,noarchive,nosnippet`, unguessable route, sitemap exclusion and server-side password/access contract, including Nohy V Ruky;
+- real-report `noindex,nofollow,noarchive,nosnippet`, unguessable route, sitemap exclusion and direct-link access contract, including Nohy V Ruky;
 - prominent synthetic/no-client-relationship demo disclosure;
 - correction events do not activate a global rule; promoted rules require version, approver, changelog, validation and rollback;
 - render-drift check against generated report artifacts.
@@ -778,3 +783,4 @@ Generic product information is not a personalized Sprint recommendation. A new
 client release requires a current named-human selection with separate patient
 materiality and delivery value, supported catalog modules, evidence and plans.
 No engineering signature satisfies this gate. See the scoped SSOT amendment.
+

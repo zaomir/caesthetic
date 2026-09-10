@@ -1,5 +1,7 @@
 # CAESTHETIC — Project Status
 
+**Report access, owner decision 2026-09-10:** cases and reports open without a password by default; password protection only on a direct instruction for the named page/package. Historical dated access observations below do not set current policy. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`.
+
 **Updated:** 2026-09-06
 **Phase:** Phase 1 — proof + outbound readiness
 
@@ -263,15 +265,15 @@ The founder-approved `5.2.0` contract corrects the 13-section presentation drift
 - Every new approved report is `schemaVersion=5` with canonical `templateVersion=growth-score-report-template/5.2.0`. The schema requires a complete `gap_inventory`, embedded `repair_plan` per gap and named-human exact Top 3 `focus_selection`; it rejects the former `top_priorities`, `problem_inventory`, `remediation_tasks` and stored `selected_for_repair` fields.
 - The renderer contract is one unnumbered shared Intro followed by exactly nine counted sections: Gap Map, Focus Gaps, Sprint Fit, Repair Paths, Do Not Fund Yet, Full Gap Inventory, Evidence and competitors, Scores and methodology, Next step. Score remains secondary, the full v5 diagnosis/remediation/implementation/methodology content is consolidated without loss, and there is one Sprint CTA.
 - Deterministic scoring still uses the canonical metric IDs/weights, Class A-only coverage, the inclusive 70% surface gate, all-four Overall and Cross-Surface exclusion; publication remains fail-closed below 80% Class A and without applicable Competitive Decision Analysis.
-- The three public synthetic demos and the protected, noindex Nohy V Ruky Beauty/RU example use schema v5 and the same renderer authority. Nohy V Ruky requires server-side password access and remains outside the sitemap and public catalogue. Aesthetemed is retained only as a historical schema-v4 pre-rendered artifact; the current renderer rejects raw v4 and does not let it masquerade as v5.
-- All real and demo reports emit noindex; real output requires an unguessable slug and server-side access protection unless a named release exception is recorded in the master SSOT. The 3–8 minute walkthrough follows `report_locale` without creating another video product.
+- The three public synthetic demos and the direct-link, noindex Nohy V Ruky Beauty/RU example use schema v5 and the same renderer authority. Nohy V Ruky opens without a password by default and remains outside the sitemap and public catalogue. Password protection requires a direct owner instruction for that report. Aesthetemed is retained only as a historical schema-v4 pre-rendered artifact; the current renderer rejects raw v4 and does not let it masquerade as v5.
+- All real and demo reports emit noindex; real output requires an unguessable slug and anonymous direct-link access by default. Enable server-side protection only on a direct owner instruction under the access standard. The 3–8 minute walkthrough follows `report_locale` without creating another video product.
 
 ## Reusable implementation asset
 Raimov feedback capture may be adapted as a Reputation module only as a neutral request to every eligible client, subject to US platform/legal/privacy review. Incentives, sentiment filtering, selective public/private routing and review gating are prohibited.
 
 ## «Ноги в Руки» Growth Score — current v5 example and historical decision trail
 
-Current repository artifact: the protected, noindex Beauty/RU report uses `schemaVersion=5`, `templateVersion=growth-score-report-template/5.2.0`, `vertical_context=beauty_salon`, `report_locale=ru`, the shared localized Intro, the complete Gap Inventory and named-human exact Top 3 Focus Selection. The entries below preserve the 2026-08-14 pre-v5 decision history; they are superseded as current contract/readiness statements.
+Current repository artifact: the direct-link, noindex Beauty/RU report uses `schemaVersion=5`, `templateVersion=growth-score-report-template/5.2.0`, `vertical_context=beauty_salon`, `report_locale=ru`, the shared localized Intro, the complete Gap Inventory and named-human exact Top 3 Focus Selection. The entries below preserve the 2026-08-14 pre-v5 decision history; they are superseded as current contract/readiness statements.
 
 As of 2026-08-14:
 
@@ -325,3 +327,4 @@ As of 2026-08-14:
   `tests/caesthetic/spoken-medspa-v3.test.mjs`; `spoken-v3-browser-qa.mjs`.
 - Next material dependency: approved research scope and real dated evidence for
   the fixed query set. Do not transfer the old fact-set approval to new rows.
+

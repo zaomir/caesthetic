@@ -441,10 +441,11 @@ test("English клиника report carries the complete approved Russian decisi
   assert.doesNotMatch(storedEnglishHtml, />4444</);
 });
 
-test("Both routes are noindex while English remains protected and Russian remains direct-link", () => {
+test("Both routes are noindex and open by direct link without passwords", () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(root, "infra/cloudflare/brands/caesthetic.manifest.json"), "utf8"));
   assert.ok(manifest.scorePublicPaths.includes(`/score/${slug}/`));
-  assert.ok(manifest.scoreProtectedPaths.some((entry) => entry.prefix === "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/"));
+  assert.ok(manifest.scorePublicPaths.includes("/score/spoken-medspa-snellville-9d7f3a5c2e184b61/"));
+  assert.ok(!manifest.scoreProtectedPaths.some((entry) => entry.prefix === "/score/spoken-medspa-snellville-9d7f3a5c2e184b61/"));
   assert.doesNotMatch(JSON.stringify(manifest.scoreProtectedPaths), new RegExp(`${slug}/`));
   assert.match(storedHtml, /noindex,nofollow,noarchive,nosnippet/);
   assert.match(storedEnglishHtml, /noindex,nofollow,noarchive,nosnippet/);

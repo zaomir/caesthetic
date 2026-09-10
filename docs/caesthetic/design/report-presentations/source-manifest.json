@@ -1,0 +1,16 @@
+{
+  "source": "site-caesthetic/private/expert-dental/index.html",
+  "source_url": "https://caesthetic.com/private/expert-dental/",
+  "source_blob_sha": "7680e492b8679a52feaf14621f6a7dcb35b468a3",
+  "css_path": "scripts/caesthetic/report-expert/expert.css",
+  "css_sha256": "aa3e7e743b21510a4c74fd3bccbf4c46c43aa45658e574855fe3e49ed00b13e4",
+  "profiles": [
+    "v6",
+    "v6.1",
+    "v6.2"
+  ],
+  "locale": "ru",
+  "default_profile": "v6",
+  "preview_data": "synthetic",
+  "stylesheet_policy": "Exact Expert source CSS. Functional/mobile/print additions are separate in interaction.css."
+}

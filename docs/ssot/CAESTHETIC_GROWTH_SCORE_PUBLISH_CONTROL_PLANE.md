@@ -8,6 +8,11 @@ parent: docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md
 decision: DEC-829
 ---
 
+## Report access — owner decision 2026-09-10
+
+Cases, reports and manager-review pages open by direct link without a password by default. Set a password only on a direct instruction for the named page/package, recorded with its source. Preserve noindex, catalog rules and diagnostic review status. Authority: `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`. Earlier mandatory PIN/password language is superseded; private catalog visibility is not authentication.
+
+
 # CAESTHETIC Growth Score Publish Control Plane
 
 ## Outcome
@@ -79,7 +84,7 @@ Common fields:
 
 Multi-Location uses `audit_format=multi_location` and exactly two entries. Their roles are `network_parent` and `focus_location`; routes must exactly match both reports' `audit.parent_route` / `audit.child_route`. The parent and child must share `project_id`, `access_group_id`, ordered Top 3, binding constraint and Do Not Fund Yet. The package is imported atomically.
 
-Synthetic publication requires `visibility=synthetic`, `reportKind=demo`, a `demo-` parent slug and an explicit fictional/no-client disclosure. Its package-level `access_group_id` is null; a Multi-Location report may retain its non-secret internal package grouping ID. Private publication requires `visibility=private`, `reportKind=real`, an unguessable parent slug ending in at least 16 hex characters, and a pre-provisioned `access_group_id` in the protected runtime. Passwords and hashes never enter Git.
+Synthetic publication requires `visibility=synthetic`, `reportKind=demo`, a `demo-` parent slug and an explicit fictional/no-client disclosure. Its package-level `access_group_id` is null; a Multi-Location report may retain its non-secret internal package grouping ID. Private publication requires `visibility=private`, `reportKind=real`, an unguessable parent slug ending in at least 16 hex characters, and direct-link access by default. An explicitly requested PIN additionally requires `access.mode=pin`, the instruction source and its runtime configuration.
 
 ## Security boundary
 
@@ -88,12 +93,13 @@ Synthetic publication requires `visibility=synthetic`, `reportKind=demo`, a `dem
 - Drafts, unnamed/invalid human approval, schema v4, unapproved Journey Graph, missing Top 3, demo-to-real conversion and public real-client spoofing are rejected.
 - Secret-like keys, known credential patterns and credential-bearing URLs are rejected before import.
 - The request cannot contain commands, scripts, shell, SSH or arbitrary destination paths.
-- Destination paths are computed only from validated slugs. The bridge writes report JSON/HTML, generated catalog files, the protected-path registry for private packages and its own audit record. It cannot copy arbitrary satellite files.
+- Destination paths are computed only from validated slugs. The bridge writes report JSON/HTML, generated catalog files, the direct-link registry (or explicitly requested PIN registry) for real packages and its own audit record. It cannot copy arbitrary satellite files.
 - DEC-829 treats the renderer, validation, bridge, deploy and timer files as grainee-authoritative: a satellite-only edit or deletion is overwritten from grainee and can never become production code through ordinary mirroring. The satellite's writable publication input is limited to the artifact/request namespace.
 - Client HTML is rendered only by the canonical renderer and is checked for noindex, review anchors, reviewer/selector names and walkthrough cards/URLs.
-- Real routes fail closed unless their server-side access group already exists. Production smoke requires unauthenticated gate, wrong-password rejection and authenticated session/report checks; the smoke password is supplied only from the root-owned VPS environment.
+- Real routes open by direct link by default. Production smoke verifies anonymous access to the exact report. Only explicitly requested PIN routes use gate, wrong-password and authenticated-session checks.
 - One systemd service lock serializes mirror/import/deploy. A request ID cannot be reused with different source SHA or digest.
 
 ## Durable result
 
 The result records source satellite SHA, package digest, canonical imported SHA, deployed SHA, exact live URLs, per-route smoke, validation status and any terminal error. `success` is never written before live smoke passes.
+
