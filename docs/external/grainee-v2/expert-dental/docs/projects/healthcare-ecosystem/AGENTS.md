@@ -1,5 +1,12 @@
 # Healthcare Ecosystem — domain AGENTS
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+CAESTHETIC partner acquisition routes to CPRP; Expert Dental consumes it as pilot. CPRP is a capability inside the existing caesthetic domain/runtime, not a new healthcare runtime root.
+
+[CPRP master](../../ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../../caesthetic/partner-revenue/README.md).
+
 **Knowledge domain:** `healthcare-ecosystem`
 
 ## Read first

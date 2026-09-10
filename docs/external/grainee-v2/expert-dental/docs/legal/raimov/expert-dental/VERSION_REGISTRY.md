@@ -10,6 +10,20 @@ last_updated: 2026-09-05
 
 Этот файл является единственным реестром редакций, разрешённых для новых подписаний.
 
+## Редакция оферты 09.09.2026 — ED-OFFER-1.1
+
+Текущая редакция после подтверждённой публикации: **ED-OFFER-1.1 от 09.09.2026**. Источник: `docs/legal/raimov/expert-dental/offer-release-2/offer.json`; перечень редакций: `OFFER_EDITIONS.json`. ED-OFFER-1.0 и её опубликованные файлы сохраняются неизменными; ранее заключённые договоры автоматически не изменяются.
+
+| Код | Текущий договорный бланк | Подписант |
+|---|---|---|
+| ED-CON-003 | ED-OFFER-1.1, публичная оферта RU/KY | Исполнитель утверждает редакцию |
+| ED-CON-004 | PAPER-0.3, `offer-release-2/ED-CON-004.md`, единый RU+KY акцепт | Совершеннолетний дееспособный пациент, одна подпись |
+| ED-CON-005 | PAPER-1.0, `offer-release-2/ED-CON-005.md`, единое RU+KY заявление о присоединении | Законный представитель несовершеннолетнего, одна подпись |
+
+ED-CON-005 регулирует только оказание и оплату услуг; это **не ИДС**. До приёма заявления проверяются личность, полномочия и подтверждающий документ; при неподтверждённых полномочиях применяется индивидуальный маршрут. Медицинское информирование и применимые согласия с надлежащим подписантом оформляются отдельно. ED-CON-002 сохраняет своё назначение соглашения об электронном подписании. Исторические PAPER-0.2 бланки не выдаются для новых акцептов ED-OFFER-1.1. Клинические формы этим изменением не переутверждаются.
+
+Authority: точное поручение владельца от 09.09.2026. Статус публикации и проверки: `offer-release-2/RELEASE_REGISTER.md`. Clinic adoption, медицинский маршрут несовершеннолетнего и независимая юридическая/языковая проверка не заявляются выполненными.
+
 ## Первая волна — бумага, решение от 05.09.2026
 
 Канон первого маршрута: [EXPERT_DENTAL_DOCUMENT_FLOW_WAVE_1.md](../../../ssot/EXPERT_DENTAL_DOCUMENT_FLOW_WAVE_1.md). Подготовленный Word-выпуск и контрольные суммы: [paper-wave-1/README.md](paper-wave-1/README.md) и [SOURCE_MANIFEST.json](paper-wave-1/SOURCE_MANIFEST.json).
@@ -112,3 +126,13 @@ Current tablet statuses:
 6. Emergency hotfix допускается только с owner, причиной, датой, reviewer и последующим полным review; тихая замена файла запрещена.
 7. CRM/DMS rejects an unknown, blocked, expired or non-effective electronic version ID and stores the final signed-artifact hash; paper records keep their own original and provenance.
 8. A treating doctor’s case approval does not replace medical approval of the template; both are recorded where applicable.
+
+
+
+## ED-IDS-011 — новая профильная бумажная редакция (10.09.2026)
+
+| ID | Version / language / format | Effective | Status | SHA-256 |
+|---|---|---|---|---|
+| ED-IDS-011 | PAPER-1.0 / RU+KY / paper DOCX | NOT EFFECTIVE | NOT_IN_USE / MEDICAL_REVIEW_REQUIRED / COUNSEL_REVIEW_REQUIRED / KY_LANGUAGE_REVIEW_REQUIRED | `87dbd60b95f554f5d197e4bff647c356e43f15b2f48e7ab5a237ab24e216942c` |
+
+[Точный артефакт и approval evidence](informed-consent/ED-IDS-011/PAPER-1.0/README.md), [полные обязательные поля версии](informed-consent/ED-IDS-011/PAPER-1.0/RELEASE.json). Supersedes: none. Owner: Expert Dental Studio / ИП Раимова Камилла Саидовна; medical reviewer: медицинский руководитель (подтверждение отсутствует); legal reviewer: местный юрист (подтверждение отсутствует). Одна подпись взрослого пациента + одна подпись врача; М-1. Проверка до первого применения и при существенных изменениях. В таблицу разрешённых IN_USE форм строка не добавлена. Электронное подписание и публичная публикация не активируются.

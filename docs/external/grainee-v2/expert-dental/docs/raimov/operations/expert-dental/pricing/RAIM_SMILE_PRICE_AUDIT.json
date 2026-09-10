@@ -1618,11 +1618,11 @@
     },
     {
       "path": "scripts/raimov/build-raim-smile-prices.mjs",
-      "sha256": "91df5848d03845e7d9ef7a5bf28c83aa96a60e1cadabc5c91a0c4ac83833bd2e"
+      "sha256": "9c7ef2b3bf936a1d22addc29a0b4d1b0272be4e3ebaadc6a0e2a25efc6aa9429"
     },
     {
       "path": "scripts/raimov/install-pricing-hook.mjs",
-      "sha256": "7b0715d47b7a21a4c9ed313a74be9ae54474d829a6db2b7de9ed1d4fc9935034"
+      "sha256": "abbc48c54945fedb82a47dbd5d3bbb5e6def2f2d80b492bea9a0666af430953d"
     },
     {
       "path": "scripts/raimov/raim-smile-prices-intro.mjs",
@@ -1646,19 +1646,19 @@
     },
     {
       "path": "site-raimovdental/raim-smile/assets/prices-public.json",
-      "sha256": "59f973b1ff79555cae8512632095e6f94d1d032f15d757a09b3ab97a629cdd57"
+      "sha256": "4b432283aeb1bf0268f9d2aa40d8963c28267863a653b3799c72277e88f90811"
     },
     {
       "path": "site-raimovdental/raim-smile/faq/index.html",
-      "sha256": "cc2e09f32eb8319eeac712f0ef6d7c4393fbfdd36d3d39fc0e9d14e86e9868b1"
+      "sha256": "c3fa4f89382aaf9b65bf93c6d2c08cfc6a2efba68d030af4b8ca7b0816560f58"
     },
     {
       "path": "site-raimovdental/raim-smile/prices/index.html",
-      "sha256": "18f0ba2bbb924312c763f8889b49fc5f3cd407dda889a01d0a89aef7f4cda095"
+      "sha256": "ddd21ccdd9c17b239fa7009a63d3fbe8f11fd87d797f218084aa5acd86da9a3f"
     },
     {
       "path": "site-raimovdental/raim-smile/second-opinion/index.html",
-      "sha256": "fec07d76acbea77c0e8ec4e261a680437fc11b2b211a0a2782828da2ca08abc4"
+      "sha256": "5d9a9548eeb65a820120780a36340065dfd9ecda2bd7cd0f0937dce9fd20d0ff"
     },
     {
       "path": "site-raimovdental/src/data/faq.en.json",

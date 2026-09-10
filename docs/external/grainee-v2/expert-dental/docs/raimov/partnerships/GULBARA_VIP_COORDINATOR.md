@@ -13,6 +13,13 @@ program_matrix: docs/raimov/partnerships/RAIM_SMILE_PARTNER_PROGRAM_MATRIX.md
 
 # RAIM SMILE — Gulbara Partner & VIP Coordinator
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+В CPRP Гульбара — первый сотрудник/представитель CAESTHETIC для пилота Expert Dental. Partner outreach и переговоры ведутся от CAESTHETIC дистанционно; очная встреча — обоснованное исключение. Twenty хранит историю, owner/backup и next action. B2B partner management, member concierge и event production — отдельные учитываемые функции.
+
+[CPRP master](../../ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../../caesthetic/partner-revenue/README.md).
+
 Partnership operator and employer/compensation owner: **CAESTHETIC**. The exact legal employing/payroll entity remains subject to local labour/tax documentation before activation.
 
 ## Identity and languages

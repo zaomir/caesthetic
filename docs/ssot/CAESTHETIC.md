@@ -33,6 +33,13 @@ supersedes: docs/caesthetic/CAESTHETIC_SSOT.md
 
 # CAESTHETIC — Master SSOT
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+CPRP — отдельный коммерческий слой CAESTHETIC для разных клиентов, партнёров и стран. Expert Dental — пилот. Все партнёрские взаимодействия ведёт CAESTHETIC в интересах конкретного клиента; основной путь согласования дистанционный. Twenty — CRM CAESTHETIC, клиентская CRM сохраняет service/clinical truth, CPRP — attribution/ledger. При подготовке оффера проверить релевантность и читать OFFER_REUSE; пилотные 30/10 не являются глобальным тарифом. Это knowledge/capability route, без нового runtime unit. Program setup, ongoing management and event production need separate scope. This creates neither a mandatory funnel SKU nor automatic Sprint inclusion.
+
+[CPRP master](CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../caesthetic/partner-revenue/README.md).
+
 **Market:** United States  
 **Legal entity:** OXFORD PROJECTS LTD  
 **Runtime project:** `caesthetic`  

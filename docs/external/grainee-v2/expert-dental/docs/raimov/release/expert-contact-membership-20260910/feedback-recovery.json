@@ -1,0 +1,19 @@
+{
+  "deployedSha": "718f1e110934aedee6bdf1c9d82402d7880b2a6d",
+  "workflow": "https://github.com/zaomir/grainee-v2/actions/runs/34419842648",
+  "status": "success",
+  "checks": [
+    {
+      "url": "https://clinic.raimovdental.com/feedback/health",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://clinic.raimovdental.com/feedback/demo",
+      "status": 200,
+      "ratingScale": true,
+      "teamIntro": true
+    }
+  ],
+  "feedbackSubmitted": false
+}

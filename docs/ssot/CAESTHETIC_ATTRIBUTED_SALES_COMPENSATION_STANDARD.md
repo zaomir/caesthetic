@@ -20,6 +20,13 @@ applies_to:
 
 # CAESTHETIC — Attributed Sales Compensation Standard
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+CPRP specializes this standard for multi-client/multi-country programs. Expert pilot uses owner-defined 30% membership and 10% eligible treatment collections; base/window/exclusions remain in signed Commercial Schedule. Referral lineage and ledger are specified in CPRP. No automatic bank/coordinator percentage or duplicate performance fee follows.
+
+[CPRP master](CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../caesthetic/partner-revenue/README.md).
+
 ## 0. Каноническое решение
 
 **CAESTHETIC может получать согласованный процент от продаж клиентам, которых CAESTHETIC привёл или документированно реактивировал.**

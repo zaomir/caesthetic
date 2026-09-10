@@ -14,6 +14,13 @@ global_evidence: docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md
 
 # CAESTHETIC Growth System Operating Model
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+CPRP is an independently scoped CAESTHETIC capability. Program setup, recurring partner management, integration and event production need explicit deliverables, budget and ownership. OFFER_REUSE governs mention in proposals; this is not automatic inclusion in every retainer.
+
+[CPRP master](CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../caesthetic/partner-revenue/README.md).
+
 This document is the canonical internal operating policy for running the CAESTHETIC Growth System. It defines how evidence becomes an approved client-facing result statement and how new client requests are classified. It does not replace the product, Sprint or recurring-scope authority in `docs/ssot/CAESTHETIC.md`, and it does not redefine the measurement or commercial formulas in `docs/ssot/CAESTHETIC_GROWTH_ECONOMICS_ENGINE.md`.
 
 CAESTHETIC is a **reference implementation** of `docs/ssot/PRODUCTIZATION_AND_GROWTH_CONTROL_STANDARD.md` and `docs/ssot/EVIDENCE_AND_IMPACT_STANDARD.md`. This file keeps aesthetic-practice funnel, Client Growth Statement, Growth Ledger, clinic-specific metrics, data sources and roles. It does not silently fork the global growth-control loop, cockpit canon, evidence classes or Impact Ledger contract.

@@ -17,6 +17,13 @@ issue: "#1520"
 
 # CAESTHETIC — Продукты и услуги
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+B16 partner acquisition routes to CPRP: independently scoped program setup, recurring partner operations, client CRM ↔ Twenty, attribution/ledger, paid/funded/complimentary memberships and bilateral/multiparty sponsored events. Horizon: limited setup by SOW, LONG validation, ONGOING management. All new/updated offers assess relevance through OFFER_REUSE; the whole platform is not included in a standard Sprint.
+
+[CPRP master](CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../caesthetic/partner-revenue/README.md).
+
 <a id="catalog-routing"></a>
 ## 0. Назначение и границы
 

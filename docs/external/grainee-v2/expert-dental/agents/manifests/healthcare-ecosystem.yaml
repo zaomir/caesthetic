@@ -19,5 +19,7 @@ forbidden_paths: []
 deploy_target: null
 
 topics:
+  caesthetic_partner_revenue_platform: docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md
+  partner_revenue_routing: docs/caesthetic/partner-revenue/README.md
   architecture: docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md
   domain_registry: docs/ssot/PROJECT_DOMAIN_REGISTRY.md

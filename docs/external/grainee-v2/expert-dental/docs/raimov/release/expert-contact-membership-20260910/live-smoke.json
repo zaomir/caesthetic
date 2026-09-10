@@ -1,0 +1,136 @@
+{
+  "checkedAt": "2026-09-10T00:03:38.116Z",
+  "deployedSha": "12e3945403441ecfca033bd1a22f31d9f333ef8f",
+  "clinicRelease": {
+    "sha": "12e3945403441ecfca033bd1a22f31d9f333ef8f",
+    "deployedAt": "20260910T000157Z",
+    "host": "clinic.raimovdental.com"
+  },
+  "raimSmileRelease": {
+    "sourceSha": "12e3945403441ecfca033bd1a22f31d9f333ef8f",
+    "catalogSha256": "6b908ce194da77ebea939affab94ae63d1e59f4a8e1b48b657d0cc244410d956"
+  },
+  "checks": [
+    {
+      "url": "https://clinic.raimovdental.com/release.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "url": "https://raimsmile.com/assets/prices-release.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "deployed SHA on both surfaces",
+      "pass": true
+    },
+    {
+      "url": "https://clinic.raimovdental.com/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/ no legacy name",
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/ contact adapter",
+      "pass": true
+    },
+    {
+      "url": "https://clinic.raimovdental.com/services/smilecare-12/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/services/smilecare-12/ no legacy name",
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/services/smilecare-12/ contact adapter",
+      "pass": true
+    },
+    {
+      "url": "https://clinic.raimovdental.com/blog/smilecare-12/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/blog/smilecare-12/ no legacy name",
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/blog/smilecare-12/ contact adapter",
+      "pass": true
+    },
+    {
+      "url": "https://clinic.raimovdental.com/contacts/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/contacts/ no legacy name",
+      "pass": true
+    },
+    {
+      "name": "https://clinic.raimovdental.com/contacts/ contact adapter",
+      "pass": true
+    },
+    {
+      "url": "https://raimsmile.com/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "https://raimsmile.com/ no legacy name",
+      "pass": true
+    },
+    {
+      "url": "https://raimsmile.com/god-zaboty/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "https://raimsmile.com/god-zaboty/ no legacy name",
+      "pass": true
+    },
+    {
+      "url": "https://raimsmile.com/prices/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "https://raimsmile.com/prices/ no legacy name",
+      "pass": true
+    },
+    {
+      "url": "https://raimsmile.com/assets/prices-public.json",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "commercial amounts preserved",
+      "pass": true
+    },
+    {
+      "url": "https://raimsmile.com/legal/public-offer/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "legal disclosure retained",
+      "pass": true
+    },
+    {
+      "url": "https://expertdental.kg/",
+      "status": 200,
+      "pass": true
+    },
+    {
+      "name": "no expertdental.kg cutover",
+      "pass": true
+    }
+  ],
+  "messagesSent": 0
+}

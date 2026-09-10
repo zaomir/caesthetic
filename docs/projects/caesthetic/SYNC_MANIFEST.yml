@@ -52,6 +52,7 @@ excludes:
   - docs/projects/caesthetic/operations/growth-score-board.jsonl
   - docs/projects/caesthetic/operations/ig-growth/editorial-story-card/_hex-mark-52.png
 protected_in_target:
+  - docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md
   - deploy/systemd/caesthetic-repo-sync.service
   - deploy/systemd/caesthetic-repo-sync.timer
   - site-caesthetic/**

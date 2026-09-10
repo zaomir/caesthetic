@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "current": "offer-release-2",
+  "releases": [
+    "offer-release-1",
+    "offer-release-2"
+  ],
+  "public_identity": {
+    "document_id": "ED-PUB-OFFER-001",
+    "version": "1.0",
+    "internal_document_id": "ED-CON-003",
+    "internal_edition": "ED-OFFER-1.1",
+    "release": "offer-release-2"
+  }
+}

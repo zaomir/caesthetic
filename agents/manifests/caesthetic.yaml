@@ -50,6 +50,10 @@ forbidden_paths:
 protected_paths: []
 
 topics:
+  caesthetic_partner_revenue_platform: docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md
+  partner_revenue_routing: docs/caesthetic/partner-revenue/README.md
+  partner_revenue_offers: docs/caesthetic/partner-revenue/OFFER_REUSE.md
+  partner_revenue_twenty_sync: docs/caesthetic/partner-revenue/TWENTY_SYNC_CONTRACT.md
   products_and_services: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
   продукты: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md
   услуги: docs/ssot/CAESTHETIC_PRODUCTS_AND_SERVICES.md

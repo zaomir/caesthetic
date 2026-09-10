@@ -1,5 +1,12 @@
 # raimovdental — runtime project router
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+CPRP — отдельный коммерческий слой CAESTHETIC для разных клиентов, партнёров и стран. Expert Dental — пилот. Все партнёрские взаимодействия ведёт CAESTHETIC в интересах конкретного клиента; основной путь согласования дистанционный. Twenty — CRM CAESTHETIC, клиентская CRM сохраняет service/clinical truth, CPRP — attribution/ledger. При подготовке оффера проверить релевантность и читать OFFER_REUSE; пилотные 30/10 не являются глобальным тарифом. Это knowledge/capability route, без нового runtime unit. Для партнёрского проекта: глобальный master → PILOT_EXPERT_DENTAL_KG → локальные RAIM SMILE продукт/оператор contracts.
+
+[CPRP master](../../ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../../caesthetic/partner-revenue/README.md).
+
 > Runtime excerpt for `site-raimovdental/`. Healthcare-domain strategy lives under `docs/ssot/RAIMOV*.md`, `docs/ssot/RAIM_SMILE*.md` and `docs/projects/healthcare-ecosystem/`.
 
 - **Domain:** raimovdental.com

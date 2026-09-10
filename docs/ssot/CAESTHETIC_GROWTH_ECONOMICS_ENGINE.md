@@ -12,6 +12,13 @@ global_commercial_parent: docs/ssot/MARKETING_SYSTEM_STANDARD.md
 
 # CAESTHETIC Growth Economics Engine
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+CPRP has a separate program/event subledger and contribution model. Client collections, CAESTHETIC earned fees and actual CAESTHETIC cash are distinct. Resolve Growth Budget/PF overlap by Schedule exclusion/offset/non-overlap. 30% membership + 10% treatment are Expert pilot terms only.
+
+[CPRP master](CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../caesthetic/partner-revenue/README.md).
+
 This document is the canonical reusable policy for CAESTHETIC commercial economics **when Growth Budget, or a Hybrid that uses these layers, is the selected commercial model**. It defines the meaning of Growth Budget, the boundary of the Fixed Management Fee, budget rollover, additional work and the reusable Performance Fee formula.
 
 It is a project adapter of `docs/ssot/MARKETING_SYSTEM_STANDARD.md`. It is not the global commercial-model authority and does not make Growth Budget the default or obligatory continuation after a Sprint. Fixed Retainer, Hybrid or another specifically approved model may be selected under the global canon. This engine then applies only if the signed schedule uses these layers.

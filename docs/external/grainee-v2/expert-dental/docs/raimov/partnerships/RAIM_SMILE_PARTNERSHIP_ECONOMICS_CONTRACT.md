@@ -16,6 +16,13 @@ attributed_sales_standard: docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_ST
 
 # RAIM SMILE — partnership economics contract
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+This is the Expert Dental KG economics adapter of CPRP. Pilot: 30% eligible collected membership + 10% eligible attributed treatment, payable to CAESTHETIC under signed Commercial Schedule. Complimentary issuance/internal budget allocation without an actual eligible customer/partner/sponsor receipt creates no membership revenue. Coordination Fee only if separately contracted; other markets use their own rates.
+
+[CPRP master](../../ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../../caesthetic/partner-revenue/README.md).
+
 ## 1. Party and responsibility boundary
 
 | Layer | Owner | Revenue / responsibility |
@@ -69,7 +76,7 @@ The gift must still be:
 
 ### 3.1. Permitted internal funding modes
 
-**A. Clinic-funded transfer price.** The clinic allocates acquisition budget and actually settles an approved amount for each activated membership into the membership accounting contour. The 30% rule may apply only to the amount actually settled and retained, after legal/fiscal approval. The partner remains a zero-price recipient of the benefit.
+**A. Funded inventory and internal acquisition budget (CPRP clarification, 2026-09-09).** A clinic budget allocation or transfer between its own accounting contours is not a new customer/partner/sponsor receipt and does not create collected membership revenue. Actual third-party funded membership procurement may enter the 30% base only under the signed Schedule, with payment/allocation evidence and no duplicate counting on issuance. If CAESTHETIC is paid directly from the clinic's acquisition budget for activation work, record a separate contracted service fee rather than manufacturing membership revenue. The recipient can still receive the benefit free of charge.
 
 **B. Pure complimentary inventory.** No membership cash or documented internal settlement exists. Therefore:
 

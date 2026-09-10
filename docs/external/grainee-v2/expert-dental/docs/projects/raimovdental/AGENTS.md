@@ -1,5 +1,12 @@
 # RAIMOV ecosystem — project AGENTS
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+For partner acquisition/commercial platform tasks, read CPRP master → Expert Dental KG pilot → RAIM SMILE local product/operator contracts. This specializes the RAIM read-first rule for this topic. Platform ownership, Twenty sync and remote partner operations are CAESTHETIC-owned; clinical/product truth remains local.
+
+[CPRP master](../../ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../../caesthetic/partner-revenue/README.md).
+
 **Purpose:** Expert Dental Studio growth system, RAIMOV DENTAL as Atabek Raimov's personal expert platform and master brand, evidence-aware RAIMOV WHOLE PERSON, RAIM SMILE SYSTEM, Whole-Person Study Club, Treatment Planning Intensive, future Raimov Academy, directly controlled clinic growth and future ELITE DENTAL readiness.
 
 **Knowledge domain:** `healthcare-ecosystem`.  

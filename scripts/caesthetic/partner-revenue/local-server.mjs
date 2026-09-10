@@ -1,0 +1,12 @@
+import {Miniflare} from '../../../infra/cloudflare/node_modules/miniflare/dist/src/index.js';
+import {build} from '../../../infra/cloudflare/node_modules/esbuild/lib/main.js';
+import http from 'node:http';import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'../../..');const origin='http://localhost:8789';
+await build({entryPoints:[root+'/infra/cloudflare/router/src/cprp.ts'],bundle:true,format:'esm',platform:'browser',outfile:'/tmp/cprp-module.mjs',external:['cloudflare:workers']});
+const source=fs.readFileSync('/tmp/cprp-module.mjs','utf8')+'\nexport default {fetch(request,env){return serveCPRP(request,{...env,CPRP:{jurisdiction:()=>env.CPRP}})}};';
+const secret=crypto.randomBytes(48).toString('base64url');
+const mf=new Miniflare({modules:true,script:source,compatibilityDate:'2025-09-01',compatibilityFlags:['nodejs_compat'],durableObjects:{CPRP:{className:'CaestheticPartnerRegistry',useSQLite:true}},bindings:{CPRP_ORIGIN:origin,CPRP_RELEASE:'local-qa',CPRP_IDENTITY_KEY:crypto.randomBytes(32).toString('base64url'),CPRP_PROVISIONING_KEY:secret}});
+fs.writeFileSync('/tmp/cprp-local-admin-secret',secret,{mode:0o600});
+const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,origin);if(url.pathname.startsWith('/api/cprp/')){const chunks=[];for await(const c of req)chunks.push(c);const response=await mf.dispatchFetch(url.href,{method:req.method,headers:req.headers,body:['GET','HEAD'].includes(req.method)?undefined:Buffer.concat(chunks)});res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));return;}let name=decodeURIComponent(url.pathname);if(name.endsWith('/'))name+='index.html';const file=path.resolve(root,'site-caesthetic','.'+name);if(!file.startsWith(root+'/site-caesthetic/')||!fs.existsSync(file)){res.writeHead(404);res.end('Not found');return;}res.setHeader('Content-Type',file.endsWith('.html')?'text/html; charset=utf-8':file.endsWith('.css')?'text/css':file.endsWith('.js')?'text/javascript':'application/octet-stream');res.end(fs.readFileSync(file));}catch{res.writeHead(500);res.end('Server error');}});
+server.listen(8789,'127.0.0.1',()=>console.log('CPRP local server ready '+origin));
+process.on('SIGTERM',async()=>{server.close();await mf.dispose();fs.rmSync('/tmp/cprp-local-admin-secret',{force:true});process.exit(0);});

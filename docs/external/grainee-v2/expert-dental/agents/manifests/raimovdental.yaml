@@ -38,6 +38,8 @@ protected_paths:
   - site-raimovdental/src/config/pricing.ts
 
 topics:
+  caesthetic_partner_revenue_platform: docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md
+  partner_revenue_routing: docs/caesthetic/partner-revenue/README.md
   master_index: docs/ssot/RAIMOV.md
   architecture: docs/ssot/RAIMOV_ECOSYSTEM_PROJECT_ARCHITECTURE.md
   whole_person_brand: docs/ssot/RAIMOV_WHOLE_PERSON_BRAND.md

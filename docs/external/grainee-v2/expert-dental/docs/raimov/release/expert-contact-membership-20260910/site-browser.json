@@ -1,0 +1,1198 @@
+{
+  "results": [
+    {
+      "name": "chromium/320/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 search alias",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 empty",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 reset",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 anchor",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 print all",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 print restore",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/320/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "chromium/390/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 search alias",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 empty",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 reset",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 anchor",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 print all",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 print restore",
+      "pass": true
+    },
+    {
+      "name": "chromium/services/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "chromium/390/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/contacts/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "chromium/390/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/services/smile-preview/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "chromium/390/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/services/smilecare-12/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "chromium/390/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/410.html axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "chromium/390/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/390/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/blog/viniry-komu-podhodyat/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "chromium/768/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 search alias",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 empty",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 reset",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 anchor",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 print all",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 print restore",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/768/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 search alias",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 empty",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 reset",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 anchor",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 print all",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 print restore",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "chromium service allowlist",
+      "pass": true
+    },
+    {
+      "name": "chromium required validation",
+      "pass": true
+    },
+    {
+      "name": "chromium explicit channel choice",
+      "pass": true
+    },
+    {
+      "name": "chromium intercepted handoff",
+      "pass": true
+    },
+    {
+      "name": "chromium service/name/phone preserved",
+      "pass": true
+    },
+    {
+      "name": "chromium recovery visible",
+      "pass": true
+    },
+    {
+      "name": "chromium retry target",
+      "pass": true
+    },
+    {
+      "name": "chromium draft retained",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 recovery no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 recovery no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium copy denied safe fallback",
+      "pass": true
+    },
+    {
+      "name": "chromium retry not stale",
+      "pass": true
+    },
+    {
+      "name": "chromium retry respects consent",
+      "pass": true
+    },
+    {
+      "name": "chromium no PII analytics",
+      "pass": true
+    },
+    {
+      "name": "chromium no storage",
+      "pass": true
+    },
+    {
+      "name": "chromium no false receipt",
+      "pass": true
+    },
+    {
+      "name": "chromium invalid service ignored",
+      "pass": true
+    },
+    {
+      "name": "chromium noJS rows",
+      "pass": true
+    },
+    {
+      "name": "chromium noJS accordion",
+      "pass": true
+    },
+    {
+      "name": "chromium noJS fallback",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 search alias",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 empty",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 reset",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 anchor",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 print all",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 print restore",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/320/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "webkit/390/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 search alias",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 empty",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 reset",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 anchor",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 print all",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 print restore",
+      "pass": true
+    },
+    {
+      "name": "webkit/services/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "webkit/390/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/contacts/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "webkit/390/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/services/smile-preview/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "webkit/390/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/services/smilecare-12/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "webkit/390/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/410.html axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "webkit/390/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/390/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/blog/viniry-komu-podhodyat/ axe AA",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "name": "webkit/768/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 search alias",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 empty",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 reset",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 anchor",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 print all",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 print restore",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/768/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 first price above fold",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 96 public rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 3 clarify rows",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 search alias",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 empty",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 reset",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 anchor",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 print all",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 print restore",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/contacts/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/contacts/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/contacts/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/smile-preview/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/smile-preview/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/smile-preview/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/smilecare-12/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/smilecare-12/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/services/smilecare-12/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/410.html no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/410.html one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/410.html JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/blog/viniry-komu-podhodyat/ no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/blog/viniry-komu-podhodyat/ one h1",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440/blog/viniry-komu-podhodyat/ JS",
+      "pass": true
+    },
+    {
+      "name": "webkit service allowlist",
+      "pass": true
+    },
+    {
+      "name": "webkit required validation",
+      "pass": true
+    },
+    {
+      "name": "webkit explicit channel choice",
+      "pass": true
+    },
+    {
+      "name": "webkit intercepted handoff",
+      "pass": true
+    },
+    {
+      "name": "webkit service/name/phone preserved",
+      "pass": true
+    },
+    {
+      "name": "webkit recovery visible",
+      "pass": true
+    },
+    {
+      "name": "webkit retry target",
+      "pass": true
+    },
+    {
+      "name": "webkit draft retained",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 recovery no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 recovery no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit copy denied safe fallback",
+      "pass": true
+    },
+    {
+      "name": "webkit retry not stale",
+      "pass": true
+    },
+    {
+      "name": "webkit retry respects consent",
+      "pass": true
+    },
+    {
+      "name": "webkit no PII analytics",
+      "pass": true
+    },
+    {
+      "name": "webkit no storage",
+      "pass": true
+    },
+    {
+      "name": "webkit no false receipt",
+      "pass": true
+    },
+    {
+      "name": "webkit invalid service ignored",
+      "pass": true
+    },
+    {
+      "name": "webkit noJS rows",
+      "pass": true
+    },
+    {
+      "name": "webkit noJS accordion",
+      "pass": true
+    },
+    {
+      "name": "webkit noJS fallback",
+      "pass": true
+    }
+  ],
+  "passed": 294,
+  "failed": 0,
+  "messagesSent": 0,
+  "crmWrites": 0
+}

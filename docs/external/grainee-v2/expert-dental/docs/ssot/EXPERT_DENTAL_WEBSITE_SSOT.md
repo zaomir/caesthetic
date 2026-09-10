@@ -1041,3 +1041,39 @@ Staging закрыт `noindex,nofollow` и `Disallow: /`. Production-профи�
 Деплой держит предыдущие релизы и переключает symlink, поэтому откат —
 это переключение symlink на прошлый релиз и `reload nginx`. DNS при откате не трогаем:
 пока домен не переключён, старый сайт остаётся первичным и рисков для трафика нет.
+
+## Подготовка cutover — 2026-09-09
+
+Owner request: использовать существующий Expert Dental patient-site, синхронизировать готовые модули RAIM SMILE и переносить только после проверки. RAIM SMILE не заменяет бренд клиники; нового runtime root нет.
+
+`/services/` остаётся каноническим справочником услуг и цен. Публичные суммы, единицы, уточнения и запреты берутся из общего проверенного `priceModel()` / `PRICE_CATALOG.json`. `/prices/` не становится вторым источником. Контекстный CTA обозначает консультацию, услугу или уточнение стоимости; `/contacts/` честно готовит сообщение в WhatsApp, а не заявляет запись/CRM write.
+
+Статус переноса: **NO_GO до release evidence**, независимо от успешной сборки preview. Полный отчёт и открытые условия: `docs/audits/raimov/expert-cutover-2026-09-09/README.md`. Согласования медицинского контента, URL-судьба прежних кейсов, сверка `/oferta`, получение обращения администратором и фактический target smoke не выводятся из наличия кода.
+
+
+## 2026-09-09 — article approval and legacy-route follow-up
+
+Owner confirmation `2026-09-09T21:35:11Z`: «статьи проверены и одобрены Атабеком».
+The exact current 12-article set is recorded by content hashes in
+`docs/audits/raimov/expert-cutover-2026-09-09/article-approval.json`.
+This is a named medical approval reported by the owner, not an AI clinical review.
+The original review date is unknown; UI labels the confirmation date and structured
+metadata does not invent `lastReviewed`. Edited/new articles do not inherit the record.
+No legal, service-copy or case-media approval is implied.
+
+The existing clinic patient-site stays canonical. `config/legacy-routes.json` owns
+scoped route exceptions: `/oferta` and `/oferta/` lead directly to the existing shared
+RU/KY offer; `/kaces` and `/kaces/` return a useful 410 page rather than the nonexistent
+`/#work` fragment or an unrelated home-page redirect. This does not delete the old
+Tilda page or change its domain before cutover. Errors are noindex and excluded from
+sitemap. Other 17-inventory routes retain their matching article/service/contact paths.
+
+The contact form is a manual WhatsApp composer to the canonical clinic number, not
+server acceptance or SQNS booking. Preparation/copy/click is never `lead_received`.
+Retry/copy fallback must preserve the selected public service and entered contact,
+require consent and never log form values or save them to browser storage. Do not
+activate an API intake that silently queues to an unconfigured CRM or notifies an
+unverified/general operations recipient. Reception proof requires the intended clinic
+inbox or SQNS acknowledgement and is reported separately from browser QA.
+
+Evidence: `docs/audits/raimov/expert-cutover-2026-09-09/routes-and-intake-followup.md`.

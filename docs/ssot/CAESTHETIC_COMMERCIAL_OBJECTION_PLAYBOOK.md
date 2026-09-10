@@ -11,6 +11,13 @@ global_negotiation: docs/ssot/MARKETING_NEGOTIATION_STRATEGY.md
 
 # CAESTHETIC Commercial Objection Playbook
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+При обсуждении партнёрского канала в оффере оценить релевантность CPRP и использовать OFFER_REUSE. Partner operations, funded memberships, client CRM ↔ Twenty и sponsored events имеют отдельный scope. Expert 30/10 — pilot-specific; пересечение с Growth Budget/PF разрешается явно.
+
+[CPRP master](CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../caesthetic/partner-revenue/README.md).
+
 Internal use only. This is not a contract and must use the actual client-specific Commercial Schedule. Never present a negotiation position or an unsigned/unverified Performance Fee as an approved fact.
 
 This playbook applies **when Growth Budget is the selected or offered commercial model**. Commercial model selection happens first under `docs/ssot/MARKETING_NEGOTIATION_STRATEGY.md`. Do not use these answers to force Growth Budget onto a client for whom Fixed Retainer, Hybrid or another approved model is the better fit. Client-specific rates in Expert Dental documents remain local and are not global defaults.

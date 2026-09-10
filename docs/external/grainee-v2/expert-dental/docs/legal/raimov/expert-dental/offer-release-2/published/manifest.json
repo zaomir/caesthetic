@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "edition": "ED-OFFER-1.1",
+  "document_id": "ED-CON-003",
+  "date": "2026-09-09",
+  "source_sha256": "02ed2504d8d324c48173a314e45489f1e807e0f1decde68169054bd1fd338778",
+  "files": [
+    {
+      "name": "index.html",
+      "sha256": "560c939c40cd644415d0e6c24812af5cc58aeb0d272bf2d803e0853547a373cb",
+      "bytes": 24461
+    },
+    {
+      "name": "ky/index.html",
+      "sha256": "eeb2ebbf838060c80bc1186e886f5b433b34261a6925cd9ae312e113f2686b30",
+      "bytes": 25576
+    },
+    {
+      "name": "offer-ru.pdf",
+      "sha256": "e50efcc15751fd0b4ecfd9f10b0c21edbfa53ccfe624cf176672bf57b18aa117",
+      "bytes": 40013
+    },
+    {
+      "name": "offer-ky.pdf",
+      "sha256": "7329e90892087c3ea0d44d63a857c605a840125b2ba3d754776967de557a8322",
+      "bytes": 40232
+    }
+  ]
+}

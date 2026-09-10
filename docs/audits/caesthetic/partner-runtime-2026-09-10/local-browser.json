@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "release": "local-qa",
+  "base": "http://localhost:8789",
+  "checked_at": "2026-09-10T03:20:57.072Z",
+  "synthetic": true,
+  "checks": [
+    "real WebAuthn operator registration",
+    "four-field registration and WebAuthn session",
+    "shared family phone does not merge people",
+    "logout invalidation and passkey re-login",
+    "participant cannot read HR inventory",
+    "HR approves eligibility at zero stock",
+    "truthful participant waiting state without partner balance; mobile overflow",
+    "concurrent last-unit allocation cannot oversell",
+    "duplicate issuance is idempotent",
+    "100-unit purchase, top-up and funding replay preserve balance",
+    "HR cross-program isolation",
+    "passport disclosure restricted to HR with audit",
+    "financial record retains source-event and payment-evidence references",
+    "client handoff/link, treatment fee, partial refund and non-overlap with bulk membership",
+    "CRM export omits passports",
+    "client expiry and stale activation do not revive an ended membership",
+    "clinical fields rejected at integration boundary",
+    "cross-origin mutation rejected",
+    "duplicate passport cannot create a second entitlement",
+    "HR desktop and mobile render",
+    "HR recovery invalidates old session and preserves participant identity",
+    "one-time recovery invitation cannot be replayed"
+  ],
+  "program_id": "1cedbc11-c9fc-426e-94c8-6683e4ad4fcb"
+}

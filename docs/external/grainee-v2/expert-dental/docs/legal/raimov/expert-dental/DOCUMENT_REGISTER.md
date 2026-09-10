@@ -13,6 +13,20 @@ applies_to: expert-dental, raimov
 
 Письменные тексты 27 документов P0-пакета одобрены местным юристом по сообщению владельца от 30.08.2026; границы решения зафиксированы в [`package/APPROVAL_RECORD_2026-08-30.md`](package/APPROVAL_RECORD_2026-08-30.md). Юридическое согласование не закрывает медицинское утверждение шаблона, лицензионный профиль услуги, допуск конкретного врача, tablet QA и per-form activation. Поэтому в реестре пока нет статуса `IN_USE`.
 
+## Редакция оферты 09.09.2026 — ED-OFFER-1.1
+
+Текущая редакция после подтверждённой публикации: **ED-OFFER-1.1 от 09.09.2026**. Источник: `docs/legal/raimov/expert-dental/offer-release-2/offer.json`; перечень редакций: `OFFER_EDITIONS.json`. ED-OFFER-1.0 и её опубликованные файлы сохраняются неизменными; ранее заключённые договоры автоматически не изменяются.
+
+| Код | Текущий договорный бланк | Подписант |
+|---|---|---|
+| ED-CON-003 | ED-OFFER-1.1, публичная оферта RU/KY | Исполнитель утверждает редакцию |
+| ED-CON-004 | PAPER-0.3, `offer-release-2/ED-CON-004.md`, единый RU+KY акцепт | Совершеннолетний дееспособный пациент, одна подпись |
+| ED-CON-005 | PAPER-1.0, `offer-release-2/ED-CON-005.md`, единое RU+KY заявление о присоединении | Законный представитель несовершеннолетнего, одна подпись |
+
+ED-CON-005 регулирует только оказание и оплату услуг; это **не ИДС**. До приёма заявления проверяются личность, полномочия и подтверждающий документ; при неподтверждённых полномочиях применяется индивидуальный маршрут. Медицинское информирование и применимые согласия с надлежащим подписантом оформляются отдельно. ED-CON-002 сохраняет своё назначение соглашения об электронном подписании. Исторические PAPER-0.2 бланки не выдаются для новых акцептов ED-OFFER-1.1. Клинические формы этим изменением не переутверждаются.
+
+Authority: точное поручение владельца от 09.09.2026. Статус публикации и проверки: `offer-release-2/RELEASE_REGISTER.md`. Clinic adoption, медицинский маршрут несовершеннолетнего и независимая юридическая/языковая проверка не заявляются выполненными.
+
 ## P0 — право лечить и доказать конкретный эпизод
 
 | ID | Папка | Документ | Когда нужен | Статус |
@@ -122,3 +136,17 @@ applies_to: expert-dental, raimov
 | ED-POL-006 | [`Admin signing SOP`](package/markdown/operational/ED-POL-006_admin-signing-sop.md) | управляемая signing ceremony и fail-closed exception path | COUNSEL_APPROVED / MEDICAL_REVIEW_REQUIRED / OPERATIONAL_ACTIVATION_PENDING |
 | ED-POL-007 | [`Doctor approval SOP`](package/markdown/operational/ED-POL-007_doctor-approval-sop.md) | template/case approval, named-doctor signature, no delegation | COUNSEL_APPROVED / MEDICAL_REVIEW_REQUIRED / OPERATIONAL_ACTIVATION_PENDING |
 | ED-POL-008 | [`Legal hold / evidence export SOP`](package/markdown/operational/ED-POL-008_legal-hold-evidence-export-sop.md) | preservation, manifest, hashes, redaction, delivery, release | COUNSEL_APPROVED / MEDICAL_REVIEW_REQUIRED / OPERATIONAL_ACTIVATION_PENDING |
+
+
+## Публичное обозначение оферты — 09.09.2026
+
+`ED-PUB-OFFER-001` — отдельный публичный document ID. Публичная версия `1.0` соответствует текущей внутренней редакции `ED-CON-003 / ED-OFFER-1.1` (`offer-release-2`); это нормализация UI, не изменение условий. Архивные IDs, документы акцепта ED-CON-004/005, ED-CON-002, PDF/HTML и ранее заключённые договоры сохраняются. Машинный mapping: `OFFER_EDITIONS.json.public_identity`; publishing contract: `docs/ssot/EXPERT_DENTAL_PATIENT_DOCUMENTS_SSOT.md`.
+
+
+## ED-IDS-011 — гнатологическое лечение, 10.09.2026
+
+| ID | Документ | Trigger | Статус |
+|---|---|---|---|
+| ED-IDS-011 | [Единый RU+KY ИДС на гнатологическое лечение](informed-consent/ED-IDS-011/PAPER-1.0/README.md), PAPER-1.0 | после диагностики и согласования плана, до конкретного вмешательства; дееспособный взрослый 18+ | NOT_IN_USE / MEDICAL_REVIEW_REQUIRED / COUNSEL_REVIEW_REQUIRED / KY_LANGUAGE_REVIEW_REQUIRED |
+
+Owner: Expert Dental Studio / ИП Раимова Камилла Саидовна. Required signers: одна заключительная подпись пациента + подпись информировавшего врача до вмешательства. Retention: М-1, полный оригинал по Patient ID/Episode ID. Legal basis, approval evidence, effective date, next review, hashes и границы: [RELEASE.json](informed-consent/ED-IDS-011/PAPER-1.0/RELEASE.json). Назначение кода и подготовка бланка не разрешают клиническое применение или публикацию. Старые редакции сохраняются.

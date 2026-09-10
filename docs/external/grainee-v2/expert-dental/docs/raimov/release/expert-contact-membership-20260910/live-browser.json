@@ -1,0 +1,549 @@
+{
+  "results": [
+    {
+      "name": "chromium/320 product title",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 names and prices",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 dialog",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 focus contained",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 focus returned",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 full form context",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 privacy",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "chromium/320 JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 product title",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 names and prices",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 dialog",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 focus contained",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 focus returned",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 full form context",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 privacy",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 product title",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 names and prices",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 dialog",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 focus contained",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 focus returned",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 full form context",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 privacy",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "chromium/768 JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 product title",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 names and prices",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 dialog",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 no overflow",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 focus contained",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 focus returned",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 full form context",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 privacy",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 JS",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 noJS fallback",
+      "pass": true
+    },
+    {
+      "name": "chromium/390 noJS desktop stays local",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 noJS fallback",
+      "pass": true
+    },
+    {
+      "name": "chromium/1440 noJS desktop stays local",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 product title",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 names and prices",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 dialog",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 focus contained",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 focus returned",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 full form context",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 privacy",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "webkit/320 JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 product title",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 names and prices",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 dialog",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 focus contained",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 focus returned",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 full form context",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 privacy",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 product title",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 names and prices",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 dialog",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 focus contained",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 focus returned",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 full form context",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 privacy",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "webkit/768 JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 product title",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 names and prices",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 no legacy display",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 dialog",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 no automatic external request",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 responsive choice",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 QR visibility",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 contextual draft",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 dialog AA",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 no overflow",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 focus contained",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 focus returned",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 full form context",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 privacy",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 retry fresh",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 JS",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 noJS fallback",
+      "pass": true
+    },
+    {
+      "name": "webkit/390 noJS desktop stays local",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 noJS fallback",
+      "pass": true
+    },
+    {
+      "name": "webkit/1440 noJS desktop stays local",
+      "pass": true
+    }
+  ],
+  "messagesSent": 0
+}

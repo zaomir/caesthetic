@@ -1,0 +1,60 @@
+{
+  "reason": "Full-site gate failed before CPRP tests on stale Spoken authority pins and incomplete registered ENT review controls.",
+  "source_pin_validation": "Previous SHA256 matched exactly; only newly inserted shared CPRP navigation differed (plus empty lines). Commercial/research/input/asset data unchanged.",
+  "old_catalog": "68a68b669f48ed8ed2b040c453be3b43d6efc7e117ba3c0339306685c8f51787",
+  "new_catalog": "8afa9c04d4a9c7985c479c4ae284a3af8430681650aeab370024e56144928f3c",
+  "old_master": "dc992db9e973e7e69655a45fc17673bc80ba495274509d942297ad6c6c849771",
+  "new_master": "2925f6e0b932139ec095fe89fe807d578d59c435b794cf522d6a7efcabc95352",
+  "review_controls": "Retained manager_review/noindex/PIN. Reused parent optional Check blocks, added links to existing next-step/parent proposal, aligned initial disclosures with existing keyboard gate. No new diagnosis, score or approval.",
+  "tests_changed": false,
+  "downstream_v6": "Propagated refreshed v3 metadata hash into the active v6 source manifest and both generated presentation digests. Report HTML, copy, findings, assets and approval state are unchanged.",
+  "review_styles": "Replaced undefined paper/ink/danger references with existing bg/text-strong/data-negative tokens, and normalized spacing to the published scale. No new exceptions.",
+  "ent_accessibility_repair": "Use existing secondary button style on dark surface; make overflowing comparison region keyboard focusable.",
+  "local_browser_review": {
+    "font_note": "Local typography fallback; full release gate verifies normal web-font rendering",
+    "results": [
+      {
+        "suffix": "",
+        "width": 320,
+        "anchor": 24.390625,
+        "clipped": false,
+        "violations": []
+      },
+      {
+        "suffix": "",
+        "width": 390,
+        "anchor": 24.015625,
+        "clipped": false,
+        "violations": []
+      },
+      {
+        "suffix": "",
+        "width": 1440,
+        "anchor": 24.09375,
+        "clipped": false,
+        "violations": []
+      },
+      {
+        "suffix": "alexander-city/",
+        "width": 320,
+        "anchor": 24.34375,
+        "clipped": false,
+        "violations": []
+      },
+      {
+        "suffix": "alexander-city/",
+        "width": 390,
+        "anchor": 24.140625,
+        "clipped": false,
+        "violations": []
+      },
+      {
+        "suffix": "alexander-city/",
+        "width": 1440,
+        "anchor": 24.21875,
+        "clipped": false,
+        "violations": []
+      }
+    ]
+  }
+}

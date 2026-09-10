@@ -1,0 +1,42 @@
+{
+  "document_id": "ED-IDS-011",
+  "version": "PAPER-1.0",
+  "date": "2026-09-10",
+  "title_ru": "ИДС на гнатологическое лечение",
+  "title_ky": "Гнатологиялык дарылоого маалымдалган ыктыярдуу макулдук",
+  "languages": [
+    "ru",
+    "ky"
+  ],
+  "format": "paper/docx",
+  "status": "NOT_IN_USE",
+  "effective_date": null,
+  "approved_at": null,
+  "owner": "Expert Dental Studio / ИП Раимова Камилла Саидовна",
+  "medical_reviewer": "Medical director — review not recorded",
+  "legal_reviewer": "Local counsel — review not recorded",
+  "language_review": "Independent Kyrgyz medical-language review not recorded",
+  "required_signers": [
+    "Competent adult patient 18+: one final signature for whole RU+KY document",
+    "Treating doctor: one signature after information and before intervention"
+  ],
+  "trigger": "After diagnosis and agreed plan, before specifically selected gnathological intervention",
+  "legal_basis": "Informed voluntary medical consent; current patient-document SSOT v2.4 / IDS-R2. Specific application under Kyrgyz law requires local legal review; no legal-compliance certification asserted.",
+  "retention_class": "M-1 medical original; full six-page original linked to Patient ID/Episode ID; duration per approved clinic retention policy, not invented here",
+  "supersedes": null,
+  "next_review": "Before first clinical use and upon material wording, risk, device, method or regulatory change",
+  "source_main_sha": "718f1e110934aedee6bdf1c9d82402d7880b2a6d",
+  "source_ssot_blob": "9587759754d76d72bb3898486fe7e8026a5b36da",
+  "artifact": "Expert_Dental_IDS_Gnathology_RU_KY.docx",
+  "artifact_sha256": "87dbd60b95f554f5d197e4bff647c356e43f15b2f48e7ab5a237ab24e216942c",
+  "pages": 6,
+  "approval_evidence": "README.md#approval-evidence",
+  "checks": {
+    "render": "PASS — bundled LibreOffice via render_docx.py; six page PNGs visually inspected",
+    "structure": "PASS — Patient ID, Episode ID, P-02-FIRST date; one patient and one doctor signature; Cyrillic Kyrgyz glyphs; no RAIM/price wording",
+    "independent_medical_review": false,
+    "independent_language_review": false,
+    "clinic_adoption_verified": false
+  },
+  "publication": "Not requested; no website/runtime/signing activation"
+}

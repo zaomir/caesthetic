@@ -1,5 +1,12 @@
 # CAESTHETIC — Agent Read-First
 
+
+## Caesthetic Partner Revenue Platform — shared route (2026-09-09)
+
+CPRP — отдельный коммерческий слой CAESTHETIC для разных клиентов, партнёров и стран. Expert Dental — пилот. Все партнёрские взаимодействия ведёт CAESTHETIC в интересах конкретного клиента; основной путь согласования дистанционный. Twenty — CRM CAESTHETIC, клиентская CRM сохраняет service/clinical truth, CPRP — attribution/ledger. При подготовке оффера проверить релевантность и читать OFFER_REUSE; пилотные 30/10 не являются глобальным тарифом. Это knowledge/capability route, без нового runtime unit. Read the master and selected topic contract for implementation; do not claim unverified CRM capabilities.
+
+[CPRP master](../../ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](../../caesthetic/partner-revenue/README.md).
+
 ## Session continuity, requirements and verified completion
 
 For every implementation task read the CAESTHETIC executable session contract
