@@ -19,7 +19,7 @@
     var path = currentPath();
     if (kind === "sprint") {
       var offer = (trigger && trigger.getAttribute('data-cae-offer')) || (path === SPRINT_PAGE ? params.get('offer') : '');
-      var target = path === SPRINT_PAGE ? "/pay/?product=growth_sprint" : SPRINT_PAGE;
+      var target = SPRINT_PAGE;
       if (offer === 'spoken-four-surface-sprint-v1') target += (target.indexOf('?') === -1 ? '?' : '&') + 'offer=' + offer;
       return target;
     }
@@ -46,11 +46,11 @@
     var path = currentPath();
     if (path === SPRINT_PAGE) {
       document.querySelectorAll("[data-cae-sprint-inquiry]").forEach(function (node) {
-        node.textContent = "Continue to order · $2,500";
+        node.textContent = "Request Sprint scope";
       });
-      setTextByNeedle("Both request flows ask only for Name and Email", "Continue to the secure order page with three fields: practice or business name, your name and work email. The fixed product and price are recorded before you open Wise.");
-      setTextByNeedle("The public request asks only for Name and Email", "The secure order page asks only for practice or business name, your name and work email. Your electronic order records the fixed $2,500 product before Wise opens.");
-      setTextByNeedle("The written Order states the practice-specific scope before payment", "Your electronic order confirms the fixed product and price before payment. The priority scope, access dependencies and Sprint Start Date are confirmed before implementation begins.");
+      setTextByNeedle("Both request flows ask only for Name and Email", "Continue to the secure order page with three fields: practice or business name, your name and work email. The written Sprint scope and exact price are confirmed before payment.");
+      setTextByNeedle("The public request asks only for Name and Email", "The secure order page asks only for practice or business name, your name and work email. Your electronic order records the scope-confirmed Sprint product before Wise opens.");
+      setTextByNeedle("The written Order states the practice-specific scope before payment", "Your written Sprint Order confirms the agreed scope and exact price before payment. The priority scope, access dependencies and Sprint Start Date are confirmed before implementation begins.");
     } else if (path === CHECK_PAGE) {
       document.querySelectorAll("[data-cae-check-inquiry]").forEach(function (node) {
         node.textContent = "Continue to order · $500";

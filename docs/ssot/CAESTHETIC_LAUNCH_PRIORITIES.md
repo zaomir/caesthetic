@@ -39,7 +39,7 @@ P1 Selective LinkedIn ABM + Instagram warming / trust (cold DM OFF)
 → private /score/ page
 → Valerie walkthrough
 → written Sprint scope
-→ $2,500 30-Day Growth Sprint
+→ price confirmed after scope review 30-Day Growth Sprint
 → Stripe
 ```
 
@@ -78,7 +78,7 @@ Wave получает `GO` только когда одновременно по
 - Growth Score intake, production, human approval и walkthrough delivery;
 - reply playbook, named reply owner, response SLA и capacity;
 - UTM/source tracking, lead status и минимальная attribution loop;
-- Stripe для Sprint $2,500;
+- Stripe для Sprint price confirmed after scope review;
 - ManyChat inbound routing для Instagram; cold outbound automation запрещена.
 
 ## 5. Что не блокирует запуск

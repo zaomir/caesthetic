@@ -449,7 +449,7 @@ Then render exactly nine counted sections in this order:
 8. Scores and methodology (`scores-and-methodology`);
 9. Next step (`next-step`).
 
-The nine sections preserve the full v5 decision package: diagnosis, executive context and the four derived treatment/provider/trust/friction views live in Gap Map; the unscored `Do Not Promote Yet by Treatment` view lives with the global decision in Do Not Fund Yet; complete remediation stays in Sprint Fit and Repair Paths; evidence, competitors, scores and limitations retain their dedicated combined sections. Sprint Fit translates the approved priority into applicable 4444 deliverables—priority-service demand language, booking-intent queries, shared service/provider/location vocabulary, query allocation, content cadence, honest-review/owner-response system and consistency verification—then contains the post-enquiry explanation or Lead-to-Revenue Map followed by the first contextual Check500 section. Next step carries all four implementation paths, honest `Why CAESTHETIC / Why the 30-Day Sprint`, client ownership/no lock-in, at most one evidence-backed `$2,500` Sprint CTA to implement the approved 4444 priority, and the second Check500 section immediately after that primary offer. Both Check sections derive from `check500-section/en-US/1.0.0`. The derived views add no source, surface, weight, score, automatic constraint/Top 3 selection or automatic promotion decision.
+The nine sections preserve the full v5 decision package: diagnosis, executive context and the four derived treatment/provider/trust/friction views live in Gap Map; the unscored `Do Not Promote Yet by Treatment` view lives with the global decision in Do Not Fund Yet; complete remediation stays in Sprint Fit and Repair Paths; evidence, competitors, scores and limitations retain their dedicated combined sections. Sprint Fit translates the approved priority into applicable 4444 deliverables—priority-service demand language, booking-intent queries, shared service/provider/location vocabulary, query allocation, content cadence, honest-review/owner-response system and consistency verification—then contains the post-enquiry explanation or Lead-to-Revenue Map followed by the first contextual Check500 section. Next step carries all four implementation paths, honest `Why CAESTHETIC / Why the 30-Day Sprint`, client ownership/no lock-in, at most one evidence-backed Sprint CTA with price confirmed after scope review to implement the approved 4444 priority, and the second Check500 section immediately after that primary offer. Both Check sections derive from `check500-section/en-US/1.0.0`. The derived views add no source, surface, weight, score, automatic constraint/Top 3 selection or automatic promotion decision.
 
 The page shows the exactly three human-approved highest-risk Focus Gaps first. Scores remain secondary, `/100` is absent from the hero, and there is at most one evidence-backed Sprint CTA plus exactly two always-visible `check500-two-placement/1.0.0` sections. Both Check sections use `check500-style/1.0.0`; the final instance remains visually secondary to the primary Sprint offer. Their standard visibility is product presentation, not proof of an internal leak or a case-specific recommendation. A name change, duplicate cleanup, redirect, schema repair or other isolated technical task may remain in the instructions, but must not replace 4444 as the primary commercial story.
 
@@ -701,7 +701,7 @@ An audit is deliverable only when all are true:
 - the Top 3 appears once as decision cards with complete detail available under native disclosure;
 - focus-child navigation clearly returns to the parent network analysis and the parent implementation decision;
 - the package exposes exactly two always-visible `check500-two-placement/1.0.0` sections derived from `check500-section/en-US/1.0.0` and at most one evidence-backed implementation CTA on the parent, with navigation-only return on the child;
-- the parent explains `caesthetic-4444-commercial-core/1.0.0`, links the primary `$2,500` Sprint action to the approved 4444 priority and does not center the sale on an isolated naming or technical repair;
+- the parent explains `caesthetic-4444-commercial-core/1.0.0`, links the primary `price confirmed after scope review` Sprint action to the approved 4444 priority and does not center the sale on an isolated naming or technical repair;
 - no aggregate Network Score, average location score, revenue inference or best/worst-business label is shown;
 - anonymous direct-link access and robots controls pass QA; only directly requested protection requires shared-session/password checks;
 - walkthrough uses only approved content;
@@ -732,7 +732,7 @@ a named CAESTHETIC manager discusses and explicitly decides its exact publicatio
 and scope. A general implementation request is not that case-specific decision.
 
 Separate patient-choice/enquiry materiality from the value of CAESTHETIC delivery.
-Do not justify a $2,500 Sprint with an isolated outdated name, typo or other easy
+Do not justify a Sprint with an isolated outdated name, typo or other easy
 DIY correction. Small observations belong in a compact final team-fixes section;
 they are not lost-client evidence or a Top 3 sales argument. A quick but genuinely
 urgent broken-path fix should be disclosed for immediate correction, without

@@ -20,7 +20,7 @@ For the two fixed-price public paid products, the canonical route is:
 
 `any approved product CTA → product page → three-field electronic Order → controlled Wise rail → confirmed funds → payment confirmation page`.
 
-This routing supersedes only the older public `CTA → Name/Email request modal → manual/private payment request` path for the `$500` Lead-to-Revenue Check and `$2,500` 30-Day Growth Sprint. It does not change the Four Surfaces, Growth Score diagnosis, Check evidence rules, Sprint outcome boundaries, Growth System, or evidence/impact standards.
+This routing supersedes only the older public `CTA → Name/Email request modal → manual/private payment request` path for the `$500` Lead-to-Revenue Check and `price confirmed after scope review` 30-Day Growth Sprint. It does not change the Four Surfaces, Growth Score diagnosis, Check evidence rules, Sprint outcome boundaries, Growth System, or evidence/impact standards.
 
 The customer-facing CAESTHETIC purchase path remains on `caesthetic.com` until the browser intentionally opens Wise. No CAESTHETIC product-order API on another public website is part of the customer route.
 
@@ -43,10 +43,10 @@ The public fixed-product order contains exactly three named text inputs:
 
 The product code, price, currency and standard scope identifier are server-owned and cannot be supplied by the browser. Clicking `Continue to payment` records the electronic standard Order and the purchaser's confirmation that they are authorized to purchase and pay for the named practice/business. The same screen links the Payment Terms and Terms of Use. No revenue, budget, patient, appointment, treatment or clinical data is requested.
 
-Canonical fixed prices remain:
+Canonical the Check price remains fixed; Sprint pricing is scope-based:
 
 - `lead_to_revenue_check` — `$500 USD`;
-- `growth_sprint` — `$2,500 USD`.
+- `growth_sprint` — exact price confirmed after scope review; no public fixed amount.
 
 ## Product boundaries after purchase
 
@@ -91,7 +91,7 @@ Server-side order runtime resolves the rail in this order:
 2. `CAESTHETIC_WISE_OPEN_LINK`, with server-generated amount/currency/description when it is an open Wise Business payment link;
 3. the existing approved fixed `CAESTHETIC_WISE_PAYMENT_LINK` only for the `$500` Check legacy fixed request.
 
-The known fixed `$500` request must never be reused for the `$2,500` Sprint. Sprint checkout fails closed when neither an approved Sprint-specific link nor an approved open Wise Business link is configured.
+The known fixed `$500` request must never be reused for the `Sprint. Sprint checkout fails closed when neither an approved Sprint-specific link nor an approved open Wise Business link is configured.
 
 ## Acceptance
 
@@ -102,7 +102,7 @@ Production acceptance requires:
 - product Order API is same-origin on `caesthetic.com`;
 - browser cannot change product price;
 - order exists before Wise opens;
-- `$500` and `$2,500` are enforced server-side;
+- `$500` Check pricing is enforced server-side; Sprint pricing is confirmed in the written Order;
 - provider URL is absent from public source/config;
 - Check Wise rail is live;
 - Sprint Wise rail is live or the runtime fails closed with an explicit infrastructure blocker;
@@ -128,12 +128,12 @@ additional internal implementation remains separate. The finite proposed materia
 set and all four editable surfaces are confirmed before implementation and the
 30-day clock. A proposal is not a newly approved binding diagnostic constraint.
 
-A qualifying prior Check receives one $500 credit, leaving $2,000. Eligibility and
+A qualifying prior Check receives one $500 credit, with any remaining amount stated in the written Order. Eligibility and
 credited funds must be verified by the operator in the existing commercial-order
-process before issuing the balance order. The public $2,500 checkout does not apply
+process before issuing the balance order. The public Sprint checkout does not apply
 an automatic credit, accept a coupon, or infer eligibility from a query parameter,
 email or practice name. Product and order pages explicitly direct prior Check
 buyers to credit verification before ordering. No new payment rail is introduced.
 
-Optional scoped monthly support below $2,500 retains the case-specific master
+Optional scoped monthly support separately scoped retains the case-specific master
 terms; no automatic renewal or universal Growth System price is introduced.

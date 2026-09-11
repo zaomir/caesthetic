@@ -46,7 +46,7 @@ decision: docs/founder-notes/DEC-737_website-studio-standard.md
 
 ## Truth, accessibility and reliability
 
-- [x] `$0` and `$2,500` are rendered from the generated artifact sourced from `src/config/pricing.ts`.
+- [x] `$0` and `price confirmed after scope review are rendered from the generated artifact sourced from `src/config/pricing.ts`.
 - [x] Synthetic browser override proves the two public labels replace HTML snapshots at runtime.
 - [x] Sprint Extension and all reusable recurring amounts, rates and caps are absent from the browser artifact.
 - [x] Growth Budget is described as client-specific, with Fixed Management Fee inside and unused variable funds rolling forward.

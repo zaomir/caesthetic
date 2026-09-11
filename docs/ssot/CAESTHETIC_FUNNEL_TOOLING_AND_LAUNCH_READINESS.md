@@ -57,7 +57,7 @@ QUALIFIED ACCOUNT / WARM INTRO / CONTENT VISITOR
                          ↓
                 WRITTEN SPRINT SCOPE
                          ↓
-                  $2,500 PAYMENT
+                  WRITTEN SCOPE + PRICE CONFIRMATION
                          ↓
                   30-DAY SPRINT
                          ↓
@@ -71,7 +71,7 @@ QUALIFIED ACCOUNT / WARM INTRO / CONTENT VISITOR
 
 > **Канал меняет источник и контекст входа, но не создаёт собственный продукт.**
 
-Для Wave 1 порядок входа зафиксирован как `P0 Signal-based Cold Email + Partner / Referral; P1 Selective LinkedIn ABM + Instagram warming / trust (cold DM OFF) → permission / interest`. Затем все lanes проходят один путь: `Free Growth Score request → AI research pack → human-approved diagnosis → private /score/ page → Valerie walkthrough → written Sprint scope → $2,500 Sprint → Stripe`.
+Для Wave 1 порядок входа зафиксирован как `P0 Signal-based Cold Email + Partner / Referral; P1 Selective LinkedIn ABM + Instagram warming / trust (cold DM OFF) → permission / interest`. Затем все lanes проходят один путь: `Free Growth Score request → AI research pack → human-approved diagnosis → private /score/ page → Valerie walkthrough → written Sprint scope → price confirmed after scope review Sprint → Stripe`.
 
 Cold Email, Instagram, LinkedIn, Partners, Referrals, Events, Search и Paid ведут прежде всего к `/growth-score/` либо к human-controlled Score conversation, которая заканчивается тем же intake. Формат и длительность walkthrough определяет только `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`.
 
@@ -261,7 +261,7 @@ What exists:
 - homepage with CAESTHETIC positioning;
 - `/growth-score/` page and three-stage intake;
 - three explicitly synthetic demo Scores;
-- `/sprint/` with published $2,500 scope/boundaries;
+- `/sprint/` with published price confirmed after scope review scope/boundaries;
 - `/growth-system/`, pricing, about and legal pages;
 - prior production smoke recorded HTTP 200 across main routes.
 
@@ -303,7 +303,7 @@ Gaps / improvements:
 **Status: MANUAL GATE / BLOCKED FOR SELF-SERVE PAYMENT**
 
 What exists:
-- clear $2,500 price;
+- clear scope-based Sprint pricing;
 - clear scope, exclusions and async model;
 - CTA requests scope/payment instructions by email.
 
@@ -767,4 +767,4 @@ P2. First real evidence/case and CITY CHECK
 
 # 11. One-sentence operating rule
 
-> **Каждый источник трафика ведёт к одному Free Growth Score; каждый Score должен попасть к именованному человеку, превратиться в проверенную диагностику и иметь готовый путь к письменному $2,500 Sprint — иначе канал ещё не готов, даже если аккаунт или сервис технически включён.**
+> **Каждый источник трафика ведёт к одному Free Growth Score; каждый Score должен попасть к именованному человеку, превратиться в проверенную диагностику и иметь готовый путь к письменному price confirmed after scope review Sprint — иначе канал ещё не готов, даже если аккаунт или сервис технически включён.**

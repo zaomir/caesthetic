@@ -12,18 +12,25 @@ const readNumber = (name) => {
   return Number(match[1]);
 };
 const usd = (value) => `$${new Intl.NumberFormat('en-US').format(value)}`;
+const readString = (name) => {
+  const match = source.match(new RegExp(`\\b${name}:\\s*"([^"]+)"`));
+  if (!match) throw new Error(`Missing pricing field: ${name}`);
+  return match[1];
+};
 const growthScoreUsd = readNumber('growthScoreUsd');
 const leadToRevenueCheckUsd = readNumber('leadToRevenueCheckUsd');
-const sprintPriceUsd = readNumber('growthSprintUsd');
+const sprintPricing = readString('growthSprintPricing');
+if (sprintPricing !== 'scoped_to_work_required') {
+  throw new Error('Unexpected sprint pricing mode');
+}
+const sprintPriceLabel = 'Scoped to the work required';
 const pricing = {
   growthScoreUsd,
   growthScoreLabel: usd(growthScoreUsd),
   leadToRevenueCheckUsd,
   leadToRevenueCheckLabel: usd(leadToRevenueCheckUsd),
-  sprintPriceUsd,
-  sprintPriceLabel: usd(sprintPriceUsd),
-  sprintAfterCheckBalanceUsd: sprintPriceUsd - leadToRevenueCheckUsd,
-  sprintAfterCheckBalanceLabel: usd(sprintPriceUsd - leadToRevenueCheckUsd),
+  sprintPricing,
+  sprintPricingLabel: sprintPriceLabel,
   recurringCommercialTerms: 'client_specific',
 };
 

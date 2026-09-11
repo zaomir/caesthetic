@@ -1,7 +1,7 @@
 {
   "contract": "connect4-explanation/1.0.0",
   "source": "docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md",
-  "source_sha256": "55e89ce143abd81aa235c4b7e81dea73d38a34ce0610421687954064d8fd9140",
+  "source_sha256": "3ec52f6d8aafb4185f30aa1f02d65327e710d9ef30572233eeb35c91836820b6",
   "engagement": {
     "contract": "connect4-engagement-path/1.0.0",
     "graphic_status": "approved-exact-owner-pair",
@@ -30,14 +30,14 @@
         {
           "id": "sprint",
           "title": "30-Day Growth Sprint",
-          "price": "$2,500",
+          "price": "Price scoped to the work",
           "optional": false,
           "description": "We implement the agreed priority over 30 days and report what is live, what the team uses, and what the evidence supports. The first Sprint carries no commitment to further work."
         },
         {
           "id": "extension",
           "title": "Further Sprint(s), only if needed",
-          "price": "$2,500 per additional 30 days",
+          "price": "separately scoped after Day 30",
           "optional": true,
           "description": "After Day 30, we review any remaining finite implementation work together. A further Sprint is separately scoped and agreed only when justified—not reserved in advance or automatically renewed."
         },
@@ -72,14 +72,14 @@
         {
           "id": "sprint",
           "title": "30-Day Growth Sprint",
-          "price": "$2,500",
+          "price": "Price scoped to the work",
           "optional": false,
           "description": "За 30 дней внедряем согласованный приоритет и показываем, что работает, что использует команда и что подтверждают данные. Первый спринт не обязывает покупать продолжение."
         },
         {
           "id": "extension",
           "title": "Дополнительный спринт или спринты — при необходимости",
-          "price": "$2,500 за каждые дополнительные 30 дней",
+          "price": "Цена определяется отдельно после 30-го дня",
           "optional": true,
           "description": "После Day 30 совместно рассматриваем оставшуюся конечную работу по внедрению. Следующий спринт согласуется отдельно и только при обоснованной необходимости — не резервируется заранее и не продлевается автоматически."
         },

@@ -35,7 +35,7 @@ Outreach usernames are resolved from `docs/ssot/OUTREACH_USERNAME_REGISTRY.md` �
 
 The public product ladder is:
 
-`Growth Score — free → 30-Day Growth Sprint — $2,500 → Growth System — optional later`
+`Growth Score — free → 30-Day Growth Sprint — price confirmed after scope review → Growth System — optional later`
 
 No required retainer to start. No contract beyond the 30-day Sprint. Do not use obsolete €10k+/month positioning.
 
@@ -76,7 +76,7 @@ Teach CAESTHETIC's operating model: Four Surfaces, Cross-Surface Consistency, Gr
 Public evidence, anonymized Growth Score excerpts, competitor comparisons and later verified client-system before/after evidence. Never invent clients, metrics, testimonials or attribution. A public practice analysis is not a client case unless CAESTHETIC actually performed the work and can substantiate the result.
 
 ### P5 — Product — 10%
-Explain Growth Score, recorded walkthrough, Sprint scope, $2,500 price, fixed 30 days, client ownership of delivered materials, and optional Growth System. Product content should remain a minority of the feed.
+Explain Growth Score, recorded walkthrough, Sprint scope, price confirmed after scope review price, fixed 30 days, client ownership of delivered materials, and optional Growth System. Product content should remain a minority of the feed.
 
 ## 4. Launch feed
 
@@ -85,7 +85,7 @@ The account launches with **9 feed units** so a new visitor can understand the c
 Pin these three (founder 2026-08-13: **three pins live** on `@caesthetic.growth`; old irrelevant feed archived/deleted 2026-08-11):
 1. **Your practice doesn't have four marketing problems** — Four-Surface model.
 2. **We score aesthetic practices before we pitch them** — Growth Score.
-3. **What happens after the Growth Score?** — $0 Score → $2,500 30-Day Sprint → optional Growth System.
+3. **What happens after the Growth Score?** — $0 Score → price confirmed after scope review 30-Day Sprint → optional Growth System.
 
 Other launch units:
 4. The Consistency Gap.

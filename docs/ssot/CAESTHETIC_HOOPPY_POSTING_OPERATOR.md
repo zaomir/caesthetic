@@ -132,7 +132,7 @@ CAESTHETIC.
 - Connect the observed scene to one real CAESTHETIC growth idea.
 - Preserve exactly four public surfaces: Search/GBP, Website, Social and
   Reputation/Reviews. Paid Ads is the Demand Layer, not a fifth surface.
-- Primary path: Free Growth Score -> 30-Day Growth Sprint (`$2,500`) -> optional
+- Primary path: Free Growth Score -> 30-Day Growth Sprint (`price confirmed after scope review`) -> optional
   Growth System.
 - No guaranteed rankings, patients, revenue or ROI; no invented cases, results,
   reviews or clinical claims; no consumer medical advice.

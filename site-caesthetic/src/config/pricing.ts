@@ -2,7 +2,7 @@
 export const CAESTHETIC_PRICING = Object.freeze({
   growthScoreUsd: 0,
   leadToRevenueCheckUsd: 500,
-  growthSprintUsd: 2500,
+  growthSprintPricing: "scoped_to_work_required",
 });
 
 export type CaestheticPricing = typeof CAESTHETIC_PRICING;

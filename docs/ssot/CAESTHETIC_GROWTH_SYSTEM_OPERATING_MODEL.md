@@ -29,7 +29,7 @@ This is an architecture and operating-policy decision only. It does **not** auth
 
 ## 1. Operating outcome and two reporting layers
 
-Growth System is the optional continuation of the 4444 product after the `$2,500` Sprint. The Connect4 engagement path describes separately selected ongoing work under a 12-month agreement, per master §7 and the owner decision of 2026-09-05T14:18:08Z. This is not automatic enrollment after a Sprint; pricing, billing and other terms remain individually agreed. Its recurring commercial center is maintaining one demand-language system across Search / Google Business Profile, Website, Social and Reputation / Reviews—not selling disconnected posts, technical chores or staff hours.
+Growth System is the optional continuation of the 4444 product after the `price confirmed after scope review` Sprint. The Connect4 engagement path describes separately selected ongoing work under a 12-month agreement, per master §7 and the owner decision of 2026-09-05T14:18:08Z. This is not automatic enrollment after a Sprint; pricing, billing and other terms remain individually agreed. Its recurring commercial center is maintaining one demand-language system across Search / Google Business Profile, Website, Social and Reputation / Reviews—not selling disconnected posts, technical chores or staff hours.
 
 The canonical continuing 4444 operating work is:
 

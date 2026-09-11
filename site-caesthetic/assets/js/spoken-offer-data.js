@@ -5,7 +5,7 @@ export const SPOKEN_OFFER = Object.freeze({
   sow_id: 'CAESTHETIC-SPOKEN-FOUR-SURFACE-2026-09-07-V1',
   practice: 'Private Aesthetic Practice',
   product_code: 'growth_sprint',
-  amount_minor: 250000,
+  amount_minor: null,
   currency: 'USD',
   title: 'One clear first visit. Four connected surfaces.',
   scope: 'A 30-day implementation project for Private Aesthetic Practice: align the agreed first-visit information and enquiry routes across Google, website and blog, social profiles and posts, and reputation pages and practice replies.',
@@ -16,8 +16,8 @@ export const SPOKEN_OFFER = Object.freeze({
   ],
   included_check: 'Lead-to-Revenue Check is included at no additional charge: enquiry, response, booking, visit, consultation and payment, using agreed authorized non-clinical access. You receive findings and a next-step plan; additional internal implementation is scoped separately.',
   acceptance: 'Before implementation, confirm the exact materials, editable platforms, clinical copy, required access and Sprint Start Date. At Day 30, receive published changes, recorded route checks, team instructions and the Check findings. The 30-day clock starts only after these prerequisites are confirmed.',
-  credit: 'You may start with the $500 Check. Its fee is credited once toward a qualifying directly following $2,500 Sprint: $2,000 remaining. CAESTHETIC verifies the paid Check and eligibility before issuing the balance order. This standard checkout charges $2,500 and does not automatically apply a credit.',
-  continuation: 'Optional monthly marketing support after this Sprint is priced below $2,500 for a separately agreed scope. It is not an automatic renewal or the separate fixed-scope Sprint Extension.',
+  credit: 'A prior Lead-to-Revenue Check may inform the Sprint scope. Any commercial treatment is stated in the written Sprint Order; no credit or balance is assumed from this page.',
+  continuation: 'Optional monthly marketing support after this Sprint is scoped separately. It is not an automatic renewal or the separate fixed-scope Sprint Extension.',
   boundary: 'Materials and settings remain with the practice. Search rankings, patient numbers, revenue and permanent organic visibility are not guaranteed; patient reviews remain independently authored.'
 });
 export function resolveSpokenOffer(id, code, practice) {

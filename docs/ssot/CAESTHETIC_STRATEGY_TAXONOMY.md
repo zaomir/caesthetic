@@ -120,7 +120,7 @@ Related: MATERIALS, CHANNELS, FUNNELS, PROCESSES
 ```text
 FREE GROWTH SCORE
 ↓
-30-DAY GROWTH SPRINT — $2,500
+30-DAY GROWTH SPRINT — price confirmed after scope review
 ↓
 OPTIONAL GROWTH SYSTEM
 ```
@@ -575,7 +575,7 @@ Growth Score
 ↓
 “Should we fix this?”
 ↓
-$2,500 Sprint
+price confirmed after scope review Sprint
 ↓
 Adoption
 ↓

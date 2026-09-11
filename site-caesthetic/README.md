@@ -11,7 +11,7 @@
 |-----|------|
 | `/` | Positioning → Growth Score |
 | `/growth-score/` | Score explainer + 4-field form |
-| `/lead-to-revenue-check/` | Always-recommended, optional-to-buy, evidence-gated internal-path diagnostic · fixed $500 · credited toward the next qualifying direct-continuation $2,500 Sprint |
+| `/lead-to-revenue-check/` | Always-recommended, optional-to-buy, evidence-gated internal-path diagnostic · fixed $500 · credited toward the next qualifying direct-continuation Sprint with price scoped to the work required |
 | `/audit/`, `/audits/`, `/multi-location-growth-score/` | Noindex synonym aliases to `/growth-score/` |
 | `/sprint/` | Diagnosis-led 30-Day Growth Sprint · generated fixed price · written scope/payment inquiry |
 | `/growth-system/` | Optional recurring ownership · client-specific Growth Budget with its Fixed Management Fee inside |
@@ -41,7 +41,7 @@ Every approved `site-caesthetic/score/**/report.json` is discovered automaticall
 
 Full Check500 sections use `check500-style/1.0.0`. The hash-locked reference is `docs/ssot/assets/caesthetic/check500-section-style-v1.png`: warm ivory tactile field, centered editorial hierarchy, deep-navy serif H2, deep-navy sans-serif supporting copy, thin navy rules, restrained burgundy accents and a wide burgundy CTA. Implement this as accessible responsive HTML/CSS; do not ship the reference raster as the live UI or add unrelated decoration.
 
-Every approved single-location Growth Score and every approved Multi-Location parent renders exactly two always-visible `check500-two-placement/1.0.0` sections: one immediately after the post-enquiry explanation or Lead-to-Revenue Map, and one at the end immediately after the primary `$2,500` Sprint offer as a smaller optional first engagement. The focus-location child remains navigation-only. Behavior may measure engagement but may not hide, delay, reorder or suppress either section. Visibility or interest is not evidence that an internal leak exists, and the Check does not displace a separate evidence-backed Sprint action.
+Every approved single-location Growth Score and every approved Multi-Location parent renders exactly two always-visible `check500-two-placement/1.0.0` sections: one immediately after the post-enquiry explanation or Lead-to-Revenue Map, and one at the end immediately after the primary Sprint offer with exact price confirmed in the written Order as a smaller optional first engagement. The focus-location child remains navigation-only. Behavior may measure engagement but may not hide, delay, reorder or suppress either section. Visibility or interest is not evidence that an internal leak exists, and the Check does not displace a separate evidence-backed Sprint action.
 
 ## Sender-domain web behavior
 
@@ -104,7 +104,7 @@ Sender-domain cleanup edge: Worker codebase `grainee-caesthetic-outreach`, deplo
 
 Master authority: `docs/ssot/CAESTHETIC.md`. The read-only `docs/caesthetic/` Dropbox mirror is provenance and working detail, not a competing SSOT.
 
-Public pricing exposes the free Growth Score, the always-recommended but optional-to-buy fixed $500 Lead-to-Revenue Check and the fixed $2,500 Sprint. The Check does not replace the Growth Score or prove an internal leak; when it continues directly into the next qualifying Sprint for the verified constraint, its $500 fee is credited toward the Sprint total. Sprint Extension stays internal, and recurring commercial values come only from a client-specific Commercial Schedule.
+Public pricing exposes the free Growth Score, the always-recommended but optional-to-buy fixed $500 Lead-to-Revenue Check and the fixed Sprint with price scoped to the work required. The Check does not replace the Growth Score or prove an internal leak; when it continues directly into the next qualifying Sprint for the verified constraint, its $500 fee is credited toward the Sprint total. Sprint Extension stays internal, and recurring commercial values come only from a client-specific Commercial Schedule.
 
 ## Archive
 

@@ -26,7 +26,7 @@ decision: docs/founder-notes/DEC-737_website-studio-standard.md
 
 **DESIGN DISCOVERY:** assumptions recorded from approved product, report, commercial and visual canon.
 
-- Known context reused: fixed $500 diagnostic; optional after Growth Score; one-time credit toward a direct-continuation $2,500 Sprint; eight-stage internal path; authorized non-clinical evidence only.
+- Known context reused: fixed $500 diagnostic; optional after Growth Score; one-time credit toward a direct-continuation the Sprint; eight-stage internal path; authorized non-clinical evidence only.
 - Material unknowns: none that change the approved service-page direction.
 - Questions asked: N/A — the user asked for autonomous implementation and the product/brand decisions are explicit in SSOT.
 - Desired effect/action: understand why the Check is conditional, see what it examines, and request written evidence scope before payment.

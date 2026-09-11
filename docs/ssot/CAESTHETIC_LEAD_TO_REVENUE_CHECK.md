@@ -32,7 +32,7 @@ supersedes_scope:
 
 The Lead-to-Revenue Check is an evidence-gated internal conversion diagnostic for the path after a public enquiry reaches the practice. It is not a fifth surface, not part of the Four Surfaces score, not a general business audit and not a replacement for the free Growth Score.
 
-**Canonical visibility rule:** every approved single-location Growth Score and every approved Multi-Location parent renders the Lead-to-Revenue Check in exactly two always-visible places. The first is a contextual section in the middle of the report, immediately after the explanation or map of what happens after a patient enquiry. The second is an alternative-start section at the end, immediately after the primary `$2,500` Sprint offer. A Multi-Location focus child renders neither section because its parent owns the commercial decision.
+**Canonical visibility rule:** every approved single-location Growth Score and every approved Multi-Location parent renders the Lead-to-Revenue Check in exactly two always-visible places. The first is a contextual section in the middle of the report, immediately after the explanation or map of what happens after a patient enquiry. The second is an alternative-start section at the end, immediately after the primary Sprint offer with exact price confirmed in the written Order. A Multi-Location focus child renders neither section because its parent owns the commercial decision.
 
 Always-visible availability is not a recommendation to buy the Check, and it is not evidence that an internal leak, weak receptionist, broken CRM, staffing problem or any other internal cause exists. The internal path remains `Not assessed` / `Insufficient evidence` until authorized internal evidence supports a finding.
 
@@ -42,30 +42,29 @@ The canonical sequence is:
 Growth Score — outside-in diagnosis across the Four Surfaces
 → mid-report: explain the post-enquiry boundary, then show the optional Lead-to-Revenue Check ($500)
 → continue the evidence, priorities and implementation guidance
-→ final decision: primary 30-Day Growth Sprint ($2,500)
+→ final decision: primary 30-Day Growth Sprint (price scoped to the work required)
 → immediately after it: optional Lead-to-Revenue Check ($500) as a smaller first engagement
 ```
 
-The public headline funnel remains `Growth Score → 30-Day Growth Sprint → optional Growth System`. 4444 remains the primary CAESTHETIC product, and the `$2,500` Sprint remains the primary paid action for implementing its approved priority. The Check is a secondary way to understand the post-enquiry path or begin with a smaller engagement; it does not become a fourth headline product, a gate before the Sprint or an automatic upsell.
+The public headline funnel remains `Growth Score → 30-Day Growth Sprint → optional Growth System`. 4444 remains the primary CAESTHETIC product, and the Sprint remains the primary paid action for implementing its approved priority. The Check is a secondary way to understand the post-enquiry path or begin with a smaller engagement; it does not become a fourth headline product, a gate before the Sprint or an automatic upsell.
 
 ## 2. Fixed commercial rule
 
 - Price: **$500**.
 - Every supported report locale renders both Check placements defined below; purchase remains optional.
 - Both placements are visible in the report without self-selection, behavior-based reveal, modal-only presentation or recommendation gating.
-- If the client proceeds directly from this Check into the next CAESTHETIC 30-Day Growth Sprint addressing a verified constraint, the **$500 is credited once toward that Sprint**. The canonical Sprint total remains **$2,500**; the remaining balance after the credit is **$2,000**.
-- The credit is not a separate discount, cash-equivalent, refund promise or recurring balance. It applies only to the next qualifying CAESTHETIC Sprint purchased as the direct continuation of the Check.
+- If the client proceeds directly from this Check into the next CAESTHETIC 30-Day Growth Sprint addressing a verified constraint, the **$500 is credited once toward that Sprint**. The exact Sprint price is confirmed in the written Order.
+- No credit, discount or remaining balance is assumed from the public page.
 - The Check recommendation does not alter the Growth Score binding constraint, Top 3, Do Not Fund Yet or any Four-Surface score.
 - No revenue, patient, ROI, ranking or conversion outcome is guaranteed.
 
 ### 2.1 Scoped included-Check offer
 
 The owner-approved Russian Spoken v3 offer, `spoken-four-surface-sprint/1.0.0`,
-includes this diagnostic and a next-step plan in the $2,500 Sprint without an
-additional charge. [Master §5.1](CAESTHETIC.md#spoken-four-surface-offer) owns the
+includes this diagnostic and a next-step plan in the Sprint without an additional charge. [Master §5.1](CAESTHETIC.md#spoken-four-surface-offer) owns the
 exact applicability and commercial exception. All evidence/access boundaries
 below remain in force; inclusion does not assert completed research or an
-internal defect. Standalone price, one-time direct-continuation credit, two
+internal defect. Standalone price, written commercial treatment, two
 canonical Check sections and their frozen locale copy remain unchanged.
 
 ## 3. Evidence boundary
@@ -130,9 +129,9 @@ In the free Growth Score, the `Lead Intake` ring remains the outside-in boundary
 Every approved single-location Growth Score and every approved Multi-Location parent must render these two instances:
 
 1. **Middle contextual section — after the post-enquiry explanation or Lead-to-Revenue Map.** Its job is to explain that public evidence cannot establish what happens after a patient contacts the practice and that the `$500` Check can examine that authorized internal path. It must not imply that an internal leak has already been found.
-2. **Final alternative-start section — immediately after the primary `$2,500` Sprint offer to implement the approved 4444 priority.** Its job is to offer a smaller first engagement for a person who wants to understand the post-enquiry path and experience how CAESTHETIC works before choosing a larger implementation engagement. It must remain visually and commercially secondary to 4444 and the Sprint.
+2. **Final alternative-start section — immediately after the primary Sprint offer with exact price confirmed in the written Order to implement the approved 4444 priority.** Its job is to offer a smaller first engagement for a person who wants to understand the post-enquiry path and experience how CAESTHETIC works before choosing a larger implementation engagement. It must remain visually and commercially secondary to 4444 and the Sprint.
 
-Both instances are sections, not hidden tooltips, modal-only content or behavior-triggered replacements. They identify the product, fixed `$500` price, purpose, route/action and direct-continuation credit. Their placement and visibility do not depend on `leadToRevenueCheck.recommendation`, scroll depth, dwell time, return visits, CTA reversals or any other inferred intent.
+Both instances are sections, not hidden tooltips, modal-only content or behavior-triggered replacements. They identify the product, fixed `$500` price, purpose, route/action and written commercial treatment. Their placement and visibility do not depend on `leadToRevenueCheck.recommendation`, scroll depth, dwell time, return visits, CTA reversals or any other inferred intent.
 
 All supported language versions preserve both placements and the same meaning. Client-facing wording must not call the person doubtful, afraid, confused, unqualified or unwilling to pay. Neutral wording such as `Want to understand what happens after a patient enquiry first?` or `Prefer to start with a smaller step?` is appropriate.
 
@@ -150,7 +149,7 @@ Every full English Check500 offer section that is intentionally rendered on a re
 - **Product line:** `Lead-to-Revenue Check · $500`
 - **Body:** `See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where enquiries may be getting lost.`
 - **CTA:** `Check My Lead-to-Revenue Path`
-- **Fine print:** `If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total.`
+- **Fine print:** `If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the Sprint total stated in the written Order.`
 
 This is an exact copy lock:
 
@@ -228,7 +227,7 @@ change. No diagnostic approval is inferred from this language correction.
   "product_line": "Lead-to-Revenue Check · $500",
   "body": "See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where inquiries may be getting lost.",
   "cta": "Check My Lead-to-Revenue Path",
-  "fine_print": "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total."
+  "fine_print": "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the Sprint total stated in the written Order."
 }
 ```
 <!-- check500-us-1.1:end -->

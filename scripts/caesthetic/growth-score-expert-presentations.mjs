@@ -13,6 +13,11 @@ const price = key => {
   if (!value) throw new TypeError(`Canonical price missing: ${key}`);
   return `$${new Intl.NumberFormat('en-US').format(Number(value[1]))}`;
 };
+const sprintMode = pricing.match(/\bgrowthSprintPricing:\s*"([^"]+)"/);
+if (!sprintMode || sprintMode[1] !== 'scoped_to_work_required') {
+  throw new TypeError('Canonical Sprint pricing must be scoped_to_work_required');
+}
+const sprintLabel = 'price confirmed after scope review';
 const e = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const p = value => `<p>${e(value)}</p>`;
 const surfaceIds = ['search', 'website', 'social', 'reputation'];
@@ -82,7 +87,7 @@ export function expertDocument(model, expert, {version='v6.2', preview=false, no
   const contracts={'v6.1':CLIENT_V61,'v6.2':CLIENT_V62};
   if (!contracts[version]) throw new TypeError('Unknown Expert presentation');
   const m=model, x=validateExpertContent(m,expert), u=V6_UI.ru;
-  const sprint=price('growthSprintUsd'), checkPrice=price('leadToRevenueCheckUsd');
+  const sprint=sprintLabel, checkPrice=price('leadToRevenueCheckUsd');
   const sources=refs=>`<div class="evidence-links">${refs.map(id=>{const s=x.sources.find(s=>s.id===id);return `<a href="${safeUrl(s.url)}" target="_blank" rel="noopener noreferrer">${e(s.title)}</a><span> · ${e(s.checked_at)}</span>`;}).join('<br>')}</div>`;
   const question=(q, compact=false)=>`${p(q.observation)}${p(q.why)}${compact?'':p(q.change)}${sources(q.evidence_refs)}<details class="expert-details"><summary>Обоснование и проверка</summary>${p(q.criterion)}${p(q.departure)}${p(q.verification)}</details>`;
   const platforms=x.platforms.map(s=>`<article class="platform-panel"><div class="platform-bar"><div class="left"><strong>${e(s.title)}</strong><span>${e(s.headline)}</span></div></div><div class="platform-body${!s.screenshot&&!preview?' without-shot':''}"><div class="platform-copy"><h3>${e(s.headline)}</h3><div class="platform-note">${sources(s.evidence_refs)}</div><ul><li><strong>Что увидели:</strong> ${e(s.observation)}</li><li><strong>Почему важно:</strong> ${e(s.implication)}</li></ul><div class="platform-summary">${e(s.action)}</div></div>${s.screenshot?`<figure class="platform-shot"><img src="${safeUrl(s.screenshot.src,{image:true})}" alt="${e(s.screenshot.alt)}" loading="lazy" decoding="async"><figcaption>${e(s.screenshot.caption)}</figcaption></figure>`:preview?'<div class="platform-shot evidence-slot"><p>Скриншот источника</p><span>В готовом отчёте здесь размещается подтверждение наблюдения.</span></div>':''}</div></article>`).join('');
@@ -90,7 +95,7 @@ export function expertDocument(model, expert, {version='v6.2', preview=false, no
   const plan=m.plan.map((r,i)=>`<div class="expert-plan"><h3>${i+1}. ${e(r.title)}</h3><p><strong>Результат:</strong> ${e(r.result)}</p><p><strong>Готово, когда:</strong> ${e(r.done_when)}</p><details class="expert-details"><summary>Состав работ</summary>${p(r.materials)}${sources(r.evidence_refs)}</details></div>`).join('');
   const check=placement=>`<aside class="expert-check" data-check500-placement="${placement}"><h3>Проверка пути от обращения до оплаты · ${e(checkPrice)}</h3>${p('Отдельный необязательный шаг при согласованном доступе к данным.')}<a class="expert-button secondary" href="https://caesthetic.com/lead-to-revenue-check/">Начать с проверки →</a></aside>`;
   const intake=m.intake_body.map(p).join('')+`<details class="expert-details"><summary>Что потребуется для проверки</summary>${p(m.intake_details)}</details>`+check('mid_report');
-  const terms=(m.commercial.continuation==='scoped-below-sprint'?u.spokenTerms:u.standardTerms).replaceAll('$2,500',sprint);
+  const terms=(m.commercial.continuation==='scoped-below-sprint'?u.spokenTerms:u.standardTerms);
   const offer=`${p(m.offer_body)}<div class="expert-price">${e(sprint)} · 30 дней</div>${p(m.coordination)}${p(terms)}${m.commercial.included_check?p(u.included):''}<a class="expert-button" data-expert-sprint href="https://caesthetic.com/sprint/${m.commercial.offer_id?'?offer='+encodeURIComponent(m.commercial.offer_id):''}">Перейти к реализации плана →</a>${m.commercial.credit?p(u.credit):''}${check('final_alternative')}<details class="expert-details"><summary>Что произойдёт дальше</summary>${m.limitations.map(p).join('')}</details>`;
   const risks=x.risks.length?`<div class="table-wrap" tabindex="0" role="region" aria-label="Риски выбора"><table><thead><tr><th>Наблюдение</th><th>Что это значит для клиента</th><th>Изменение</th></tr></thead><tbody>${x.risks.map(r=>`<tr><td>${e(r.observation)}${sources(r.evidence_refs)}</td><td>${e(r.meaning)}</td><td>${e(r.action)}</td></tr>`).join('')}</tbody></table></div>`:p('Дополнительные риски не установлены.');
   const questions=`<div class="expert-questions">${m.questions.map(q=>`<details class="expert-question"><summary><h3>${e(q.title)}</h3><span>${e(q.summary)}</span></summary><div>${question(q)}</div></details>`).join('')}</div>`;

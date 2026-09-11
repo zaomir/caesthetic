@@ -4,9 +4,7 @@ globalThis.CAESTHETIC_PRICING = Object.freeze({
   "growthScoreLabel": "$0",
   "leadToRevenueCheckUsd": 500,
   "leadToRevenueCheckLabel": "$500",
-  "sprintPriceUsd": 2500,
-  "sprintPriceLabel": "$2,500",
-  "sprintAfterCheckBalanceUsd": 2000,
-  "sprintAfterCheckBalanceLabel": "$2,000",
+  "sprintPricing": "scoped_to_work_required",
+  "sprintPricingLabel": "Scoped to the work required",
   "recurringCommercialTerms": "client_specific"
 });

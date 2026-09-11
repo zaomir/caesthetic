@@ -35,9 +35,11 @@ test('paid-product CTAs route through product pages before checkout', async()=>{
     await page.waitForURL(base+'/sprint/');
     assert.equal(await page.locator('dialog[open]').count(),0);
     await page.goto(base+'/sprint/?cae_product_routing_test=1');
+    const payNavigation = page.waitForURL('**/pay/**', { timeout: 2000 }).then(() => true).catch(() => false);
     await page.locator('[data-cae-sprint-inquiry]').first().click();
-    await page.waitForURL(base+'/pay/?product=growth_sprint');
-    assert.deepEqual(await page.locator('#product-order-form input').evaluateAll(nodes=>nodes.map(n=>n.name)),['practice_name','signer_name','signer_email']);
+    assert.equal(await payNavigation, false);
+    assert.equal(new URL(page.url()).pathname, '/sprint/');
+    assert.equal(await page.locator('dialog[open]').count(),0);
 
     await page.goto(base+'/?cae_product_routing_test=1');
     await page.locator('[data-cae-check-inquiry]').first().click();
@@ -77,16 +79,16 @@ test('Spoken report retains its offer through product, order and a mocked order 
     await page.waitForURL(base+'/sprint/?offer=spoken-four-surface-sprint-v1');
     await page.locator('#spoken-offer').waitFor({state:'visible'});
     assert.match(await page.locator('#spoken-offer').innerText(),/Lead-to-Revenue Check is included/);
-    assert.match(await page.locator('#spoken-offer').innerText(),/does not automatically apply a credit/);
+    assert.match(await page.locator('#spoken-offer').innerText(),/no credit or balance is assumed from this page/);
     await checkOfferLayout(page,'spoken-product');
     await page.locator('[data-spoken-order-link]').click();
     await page.waitForURL(base+'/pay/?product=growth_sprint&offer=spoken-four-surface-sprint-v1');
     await page.locator('#order-offer-details').waitFor({state:'visible'});
     assert.match(await page.locator('#order-offer-details').innerText(),/enquiry, response, booking, visit, consultation and payment/);
     assert.equal(await page.locator('[name=practice_name]').inputValue(),'Private Aesthetic Practice');
-    assert.equal(await page.locator('#order-price').textContent(),'$2,500 USD');
+    assert.equal(await page.locator('#order-price').textContent(),'price confirmed after scope review');
     await checkOfferLayout(page,'spoken-order');
-    await page.locator('#order-offer-details summary').click();assert.match(await page.locator('#order-offer-details details').innerText(),/does not automatically apply a credit/);await page.locator('#order-offer-details summary').click();
+    await page.locator('#order-offer-details summary').click();assert.match(await page.locator('#order-offer-details details').innerText(),/no credit or balance is assumed from this page/);await page.locator('#order-offer-details summary').click();
     await page.evaluate(()=>{window.CAESTHETIC_API.productOrder='/mock-spoken-order';});
     await page.route('**/mock-spoken-order',async route=>{
       const b=route.request().postDataJSON();assert.equal(b.offer_id,'spoken-four-surface-sprint-v1');assert.equal(b.product_code,'growth_sprint');assert.equal(b.amount_minor,undefined);
@@ -105,6 +107,6 @@ test('unrecognized offers fail closed and a browser credit does not reprice a st
   try {
     await page.locator('#payment-error').waitFor({state:'visible'});assert.equal(await page.locator('#checkout-panel').isVisible(),false);
     await page.goto(base+'/pay/?product=growth_sprint&credit=500&amount=2000');
-    await page.locator('#checkout-panel').waitFor({state:'visible'});assert.equal(await page.locator('#order-price').textContent(),'$2,500 USD');
+    await page.locator('#checkout-panel').waitFor({state:'visible'});assert.equal(await page.locator('#order-price').textContent(),'price confirmed after scope review');
   } finally {await page.context().close();}
 });

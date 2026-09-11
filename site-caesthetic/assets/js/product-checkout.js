@@ -11,15 +11,6 @@
   var pollTimer = null;
 
   var products = {
-    growth_sprint: {
-      label: "30-Day Growth Sprint",
-      price: "$2,500",
-      amount: 2500,
-      kicker: "30-Day Growth Sprint · $2,500",
-      title: "Reserve your 30-Day Growth Sprint.",
-      lead: "One practice. One fixed $2,500 product. The 30-day clock starts only after the priority scope, required access and Sprint Start Date are confirmed.",
-      scope: "Implementation around one confirmed priority constraint, with before evidence, live implementation evidence, adoption checks and a Day-30 decision."
-    },
     lead_to_revenue_check: {
       label: "Lead-to-Revenue Check",
       price: "$500",
@@ -28,6 +19,15 @@
       title: "Start your Lead-to-Revenue Check.",
       lead: "One practice. One fixed $500 diagnostic. We confirm the authorized non-clinical evidence access before any internal records are shared.",
       scope: "Map Lead Received → Response → Qualification → Booking → Confirmation → Show → Consultation → Payment and return an evidence-backed decision report."
+    },
+    growth_sprint: {
+      label: "30-Day Growth Sprint",
+      price: "price confirmed after scope review",
+      amount: null,
+      kicker: "30-Day Growth Sprint · pricing scoped to the work",
+      title: "Request your Sprint.",
+      lead: "Name and email only. We will confirm the practice-specific scope and send the written Order and private payment instructions.",
+      scope: "Implement the agreed 30-day priority across the surfaces named in the written Order."
     }
   };
 
@@ -59,7 +59,7 @@
     $("payment-title").textContent = spec.title;
     $("payment-status").textContent = spec.lead;
     $("order-product").textContent = spec.label;
-    $("order-price").textContent = spec.price + " USD";
+    $("order-price").textContent = spec.amount == null ? spec.price : spec.price + " USD";
     $("order-scope").textContent = spec.scope;
   }
 
@@ -69,14 +69,14 @@
     box.replaceChildren(); box.hidden = !offer;
     if (!offer) return;
     $('payment-title').textContent = 'Your practice Sprint.';
-    $('payment-status').textContent = 'Four connected surfaces, a finite first-visit project and an included Lead-to-Revenue Check. $2,500 USD.';
+    $('payment-status').textContent = 'Four connected surfaces, a finite first-visit project and an included Lead-to-Revenue Check. Exact price is confirmed in the written Sprint Order.';
     $('order-scope').textContent = offer.scope;
     var ul = document.createElement('ul');
     offer.deliverables.forEach(function (text) { var li = document.createElement('li'); li.textContent = text; ul.appendChild(li); });
     box.appendChild(ul);
     var included = document.createElement('p'); included.textContent = offer.included_check; box.appendChild(included);
     var details = document.createElement('details'), summary = document.createElement('summary');
-    summary.textContent = 'Delivery, Check credit and continuation terms'; details.appendChild(summary);
+    summary.textContent = 'Delivery and continuation terms'; details.appendChild(summary);
     ['acceptance','credit','continuation','boundary'].forEach(function (key) { var p = document.createElement('p'); p.textContent = offer[key]; details.appendChild(p); });
     box.appendChild(details);
     var link = document.createElement('a'); link.href = '/sprint/?offer=' + encodeURIComponent(offer.id); link.textContent = 'Already paid for a Check? Verify your credit before ordering.'; box.appendChild(link);

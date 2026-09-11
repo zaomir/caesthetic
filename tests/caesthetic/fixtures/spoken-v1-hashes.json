@@ -1,16 +1,16 @@
 {
   "source_sha": "faf2340d11c7b068b04727c3fddb072388b2449c",
   "files": {
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "b2e7edcd8e33dea763cb3082d9ea311c39e62d071f42a5a803dc1e9db3fe31aa",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "8687f9a256584633c6c0f4744d519ea91cb500f3475787877547f9c0de87c3da",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "d53a9d8e80cdfc34a0338b8c6c37ee28aa6fa7a871425416c32092f5e371d752",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "867e12dbfc5518d76284089b8e8387e76001a8127bdc52fff6153c7e206b8122",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "dab84034177deeecb2b6914b496839d76f8f5fc21b0403e09c650184cb1dae86",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "ea92d3bb2625edda1263268adc15aa9c7059c7001178f876a1a6949083343c2b",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "dc9627dbb3a366f648111ae4fd8793f172bcbeef3aec4c27bf68d4e8dd46144e",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "41fab0590126ef7244809b4756be965e2a2b9e15208a2829d3929a7f2a2a3465",
     "site-caesthetic/assets/css/tokens.css": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543",
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
-    "site-caesthetic/assets/js/caesthetic.js": "19430a59f2d688e14e8c56c5880c846040b6fed206dbbb28ba89a4043442be3d",
+    "site-caesthetic/assets/js/caesthetic.js": "432b4deda96cefc66c49269f2c668ba47fa6ed6dcf9a16b1825049e05b329825",
     "site-caesthetic/assets/js/caesthetic-config.js": "47d5e45c3ac2cd89cced4b00cc514e157766e149254cf07f3800320352dd3bf8",
-    "site-caesthetic/assets/js/growth-cockpit.js": "39176e08bde8fabc6e14302c262305acc68a9c15548e52d4a724cc88a39412e9",
+    "site-caesthetic/assets/js/growth-cockpit.js": "7b47593a1361ce1350cc7228a2ccdcd5629a13136b7e359acd1f16bb8e9b6fbf",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
   "shared_runtime_update": {
@@ -42,6 +42,11 @@
       "failed_run": "34137006400",
       "failed_job": "101790214265",
       "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-07-offer-integration/design-gate-101790214265.json"
+    },
+    {
+      "date": "2026-09-11",
+      "reason": "Refresh parent/shared hashes after scoped Sprint pricing landed on existing Spoken v1/v2 bytes. v3/v6/v7 diagnostic facts are unchanged.",
+      "source_sha": "663a13a30"
     }
   ],
   "privacy_update": {

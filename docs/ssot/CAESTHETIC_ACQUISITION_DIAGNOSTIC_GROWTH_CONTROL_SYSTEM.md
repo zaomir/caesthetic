@@ -100,7 +100,7 @@ CAESTHETIC — это growth intelligence / growth-control system для indepen
 ```text
 FREE GROWTH SCORE
       ↓
-30-DAY GROWTH SPRINT — $2,500
+30-DAY GROWTH SPRINT — price confirmed after scope review
       ↓
 OPTIONAL GROWTH SYSTEM
 ```
@@ -1435,7 +1435,7 @@ After Score:
 
 ```text
 “Should we fix this?”
-→ $2,500 Sprint
+→ Sprint with price scoped to the work required
 ```
 
 Sprint is constraint-first, not a generic business audit.
@@ -2284,7 +2284,7 @@ This section exists so earlier chat decisions are not silently lost.
 └──────────┬───────────┘
            ↓
 ┌──────────────────────┐
-│ $2,500 30-DAY SPRINT │
+│ price confirmed after scope review 30-DAY SPRINT │
 └──────────┬───────────┘
            ↓
 ┌──────────────────────┐

@@ -142,7 +142,7 @@ This is a focus rule as well as an evidence rule: mention that the internal laye
 3. Social;
 4. Reputation / Reviews, including owner responses.
 
-The paid implementation vehicle is the **30-Day Growth Sprint — $2,500**. The primary commercial objective of each Growth Score is to make the evidence-backed case for this Sprint as the way CAESTHETIC implements the agreed Connect4 priority. The Sprint does not sell an arbitrary task list; it implements the selected constraint and the cross-surface dependencies required to make the demand language coherent. The report still preserves complete in-house and alternative-provider instructions and never manufactures urgency or need.
+The paid implementation vehicle is the **30-Day Growth Sprint**, with exact price confirmed after scope review. The primary commercial objective of each Growth Score is to make the evidence-backed case for this Sprint as the way CAESTHETIC implements the agreed Connect4 priority. The Sprint does not sell an arbitrary task list; it implements the selected constraint and the cross-surface dependencies required to make the demand language coherent. The report still preserves complete in-house and alternative-provider instructions and never manufactures urgency or need.
 
 The canonical Connect4 deliverable system is:
 
@@ -162,7 +162,7 @@ The canonical commercial path is:
 Free Growth Score
 → show whether and where the Four Surfaces fail to operate as one demand-language system
 → primary recommendation: implement the agreed Connect4 priority
-→ primary paid action: 30-Day Growth Sprint — $2,500
+→ primary paid action: 30-Day Growth Sprint, with exact price confirmed after scope review
 → optional continuation: refresh queries and content, grow honest reviews, maintain owner responses and verify Four-Surface consistency
 ```
 
@@ -189,7 +189,7 @@ The canonical `Connect4 / Four Surfaces` client sketch uses the following visual
 3. Draw a separate **thick solid outer frame around the complete four-surface system**. The outer frame means **one owner of the logic**: a single accountable strategic authority and source of truth across every surface. It does not require one person to execute every specialist task.
 4. Draw **Growth Score** with a thin return arrow pointing back to one of the four surfaces. The returned-to surface is the human-verified priority constraint identified by the Score, not automatically the surface with the lowest displayed number. Mark that constraint with **burgundy hatching**; do not use the hatching as a general decoration across the system.
 
-This sketch is a problem-first client explanation and sales sequence. First establish the four surfaces, show that the dashed line makes them one system, show that the outer frame gives the system one owner of logic, and use Growth Score to reveal the constraint. The client should first agree that the problem requires a concentrated, synchronizing intervention — the **synchronizing strike** in the live sketch. Do not lead the sketch with the product name, `$2,500` price or an ongoing relationship. Only after the need for the intervention is understood may the presenter circle/name that intervention and connect it to the commercial path: **30-Day Growth Sprint — $2,500**, followed later, if justified, by an optional ongoing relationship. The sale follows understanding of the problem; the product is not the premise of the drawing.
+This sketch is a problem-first client explanation and sales sequence. First establish the four surfaces, show that the dashed line makes them one system, show that the outer frame gives the system one owner of logic, and use Growth Score to reveal the constraint. The client should first agree that the problem requires a concentrated, synchronizing intervention — the **synchronizing strike** in the live sketch. Do not lead the sketch with the product name, `price or an ongoing relationship. Only after the need for the intervention is understood may the presenter circle/name that intervention and connect it to the commercial path: **30-Day Growth Sprint — scope-confirmed pricing**, followed later, if justified, by an optional ongoing relationship. The sale follows understanding of the problem; the product is not the premise of the drawing.
 
 #### Spoken master script
 
@@ -248,7 +248,7 @@ So our first question is not, “How much more are you ready to spend on adverti
 ## 3. Canonical funnel
 Public funnel:
 
-`Growth Score (free) → 30-Day Growth Sprint ($2,500) → optional Growth System`
+`Growth Score (free) → 30-Day Growth Sprint (price scoped to the work required) → optional Growth System`
 
 **Private Growth Preview** is an acquisition mechanic before the public funnel, not a fourth headline product, a mini Growth Score or a fifth surface. It may expose only approved pre-Score business identity, a current verified public signal/factual observation, source/date and the Four Surfaces framework. It may not expose a numeric/Overall Score, binding constraint, Gap Inventory, Top 3, Repair Plans, Do Not Fund Yet, causality, loss or ROI claim. `Continue to My Free Growth Score` is the explicit permission boundary that enters the existing Growth Score request and human-reviewed schema-v5 pipeline. Detailed authority: `docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md` §16.
 
@@ -256,7 +256,7 @@ Public funnel:
 
 Issuing the link performs no research, LLM work, crawl, screenshot or Score-case creation. Before `Continue`, the private page may show practice identity, one already-approved current qualification/enrichment/signal/timing fact, the four locked/unassessed surfaces and a neutral explanation of cross-surface consistency. It must not show a numeric Score, binding constraint, Gap Inventory, Top 3, Repair Plans, Do Not Fund Yet, loss/ROI/causality claim, or say/imply that a report is ready. `Continue to My Free Growth Score` is the explicit permission event; only then may the canonical lead/case/outbox and existing schema-v5 research plus named-human approval workflow begin. Contract: `docs/caesthetic/GROWTH_PREVIEW_V1.md`.
 
-The **Lead-to-Revenue Check ($500)** is an optional diagnostic path for an owner who first wants to understand what happens after a patient enquiry or begin with a smaller engagement. It verifies the separately authorized internal path after the outside-in assessment; visibility of or interest in the Check does not itself prove an internal leak or other internal cause. It is not a mandatory stage or a fourth headline product. The `$2,500` 30-Day Growth Sprint remains the primary implementation action. Every approved single-location report and Multi-Location parent always shows the Check twice: in the middle immediately after the post-enquiry explanation or map, and at the end immediately after the primary Sprint offer as a secondary alternative. The Check's canonical public route is `/lead-to-revenue-check/`; it remains outside primary header navigation. If it continues directly into the next qualifying CAESTHETIC Sprint for the verified constraint, its $500 fee is credited once toward the unchanged $2,500 Sprint total. Exact copy, cross-locale placement and the approved visual language are owned by `check500-section/en-US/1.0.0`, `check500-two-placement/1.0.0` and `check500-style/1.0.0` in `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`.
+The **Lead-to-Revenue Check ($500)** is an optional diagnostic path for an owner who first wants to understand what happens after a patient enquiry or begin with a smaller engagement. It verifies the separately authorized internal path after the outside-in assessment; visibility of or interest in the Check does not itself prove an internal leak or other internal cause. It is not a mandatory stage or a fourth headline product. The 30-Day Growth Sprint remains the primary implementation action. Every approved single-location report and Multi-Location parent always shows the Check twice: in the middle immediately after the post-enquiry explanation or map, and at the end immediately after the primary Sprint offer as a secondary alternative. The Check's canonical public route is `/lead-to-revenue-check/`; it remains outside primary header navigation. A prior Check may inform the Sprint scope; any commercial treatment is stated in the written Order. Exact copy, cross-locale placement and the approved visual language are owned by `check500-section/en-US/1.0.0`, `check500-two-placement/1.0.0` and `check500-style/1.0.0` in `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`.
 
 The currently approved public recurring product is Growth System. Do not publish Fixed Retainer, Hybrid or Performance Compensation as public SKUs unless separately approved.
 
@@ -281,7 +281,7 @@ OR another specifically approved model
 
 Growth Budget is **not** the obligatory continuation of a Sprint. The public Growth System currently uses the Growth Budget commercial architecture unless a signed client-specific schedule selects another approved model. Exact rates remain client-specific.
 
-Operationally, after Sprint 1 there may be an **optional $2,500 second 30-day implementation Sprint**. It is not published as a standard product, is not promised upfront and is offered only after the Day-30 report when finite implementation work remains justified.
+Operationally, after Sprint 1 there may be an **optional second 30-day implementation Sprint**. It is not published as a standard product, is not promised upfront and is offered only after the Day-30 report when finite implementation work remains justified.
 
 Full lifecycle:
 
@@ -330,7 +330,7 @@ The same approved Four-Surface evidence may also be reorganized into five **deri
 
 The canonical Hero title is **`Where Clients Are Gained - and Lost`**. The sole approved visual for that section is the owner-uploaded raster at `site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png`, SHA-256 `64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05`, dimensions `6912×3456`. Runtime must serve and display those exact PNG bytes. It must not generate, redraw, trace, translate, recolor, crop, reconstruct or substitute the visual in HTML, SVG, canvas, CSS or another image format. CSS may scale the intact image proportionally for the viewport; no alternate mobile composition or transformed derivative is allowed. Any replacement or exception requires explicit owner approval plus an updated hash guard and canon change. The Journey Graph machine/evidence contract, Four Surfaces and the separate evidence-driven Broken Connections Map remain unchanged.
 
-Every approved Growth Score follows `check500-two-placement/1.0.0`. A single-location report and a Multi-Location parent always render two visible **Lead-to-Revenue Check · $500** sections: a contextual middle placement immediately after the post-enquiry explanation or map, and a final secondary placement immediately after the primary `$2,500` Sprint offer. A focus child renders neither. All language versions preserve both positions and meanings without labelling the person as doubtful, afraid or unwilling to pay. Behavior may measure engagement but may not hide, delay, reorder or suppress either section. The $500 is credited once toward the next qualifying direct-continuation Sprint addressing a verified constraint; the Sprint total remains $2,500. Visibility does not authorize any guaranteed enquiry, booking, patient, revenue, ROI or internal-cause claim. Full English Check sections use `check500-section/en-US/1.0.0` exactly.
+Every approved Growth Score follows `check500-two-placement/1.0.0`. A single-location report and a Multi-Location parent always render two visible **Lead-to-Revenue Check · $500** sections: a contextual middle placement immediately after the post-enquiry explanation or map, and a final secondary placement immediately after the primary Sprint offer with exact price confirmed in the written Order. A focus child renders neither. All language versions preserve both positions and meanings without labelling the person as doubtful, afraid or unwilling to pay. Behavior may measure engagement but may not hide, delay, reorder or suppress either section. A prior $500 Check may inform the Sprint scope; any commercial treatment is stated in the written Order. Visibility does not authorize any guaranteed enquiry, booking, patient, revenue, ROI or internal-cause claim. Full English Check sections use `check500-section/en-US/1.0.0` exactly.
 
 If less than 70% of a surface's metric weight is observable, publish `Insufficient evidence`, not a fabricated score. Overall and surface `/100` values are a compact navigator/tension layer, not the decision layer.
 
@@ -411,7 +411,7 @@ ManyChat mappings:
 | `$.website` | `cae_candidate_website` |
 
 ## 5. Sprint 1 — the only Sprint sold upfront
-**$2,500 · fixed 30 days · No retainer · No contract beyond 30 days.**
+**30 days · scope confirmed before work · No retainer · No contract beyond 30 days.**
 
 Sprint 1 converts the diagnosis into a deliberately limited implementation scope across the same four surfaces.
 
@@ -466,7 +466,7 @@ replaces the quoted legacy Sprint-card scope note, deliverables, clinic-input,
 Day-30 and implementation-owner copy. The existing English report, other cases,
 public product pages and signed agreements are not implicitly migrated.
 
-- **$2,500 / 30 days:** coordinate Search/Google Maps, Website/blog, Social
+- **30 days / price scoped to the work required:** coordinate Search/Google Maps, Website/blog, Social
   profiles/posts/comments/practice replies, and Reputation/reviews/practice
   replies. Agree the exact pages, platforms, materials, access and acceptance
   before starting. This is a finite named scope across all four surfaces, not
@@ -478,12 +478,12 @@ public product pages and signed agreements are not implicitly migrated.
   it does not mean the internal path has already been observed, a leak proved,
   or implementation of every discovered internal task included.
 - **Alternative entry:** the standalone Check remains $500. Direct continuation
-  into the next qualifying agreed Sprint credits it once; the balance is $2,000
-  and the total remains $2,500. Existing credit eligibility is unchanged.
+  into a Sprint, any commercial treatment is stated in the written Order
+  and the exact price is confirmed in the written Order.
 - **Optional continuation:** for this offer, the agreed monthly marketing-support
-  price will be **below $2,500**, with scope and exact terms determined after the
+  price will be **separately scoped**, with scope and exact terms determined after the
   Sprint in a separate agreement. This is no automatic enrolment, universal
-  retainer price, percentage or discount to the $2,500 finite Sprint Extension.
+  retainer price, percentage or discount is implied for the finite Sprint Extension.
   The existing optional Growth System agreement rules continue to apply.
 - Organic-search work means accurate real-service/geography language, useful
   content and coherent links, without buying advertising placements. Do not
@@ -498,7 +498,7 @@ Exact RU copy lives in the frozen Spoken v3 `copy.ru.json` → `connect4_offer`;
 its content and commercial authority are pinned by `release.json`.
 
 ## 6. Optional Sprint 2 — finite implementation continuation
-Sprint Extension is **$2,500 per additional 30 days; not an upfront product, not promised and not required**. Offer it after Day 30 only when remaining high-value work is predominantly finite implementation. Owner decision 2026-09-05T14:18:08Z permits a descriptive optional “Further Sprint(s), only if needed” step on the Connect4 page; this is not a separately purchasable headline product or an automatic extension.
+Sprint Extension is **separately scoped after Day 30; not an upfront product, not promised and not required**. Offer it after Day 30 only when remaining high-value work is predominantly finite implementation. Owner decision 2026-09-05T14:18:08Z permits a descriptive optional “Further Sprint(s), only if needed” step on the Connect4 page; this is not a separately purchasable headline product or an automatic extension.
 
 It may continue Bucket B work, take a next high-priority Bucket C problem or address a new constraint discovered during Sprint 1 only where the remaining implementation is finite and meets the justification below. It may not become a generalized second task bundle or bill for work deliberately left unfinished despite being reasonably completable in Sprint 1.
 

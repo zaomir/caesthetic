@@ -218,9 +218,9 @@ visible framing as method, not observation.
    failure criterion for it (V3.2 §12). An episode without that declaration
    does not compile.
 3. **Sprint price — resolved.** Canonical value is
-   `site-caesthetic/src/config/pricing.ts` → `growthSprintUsd: 2500`.
+   `site-caesthetic/src/config/pricing.ts` → scope-based Sprint pricing.
    `docs/caesthetic/caesthetic_days_1_30.md` outreach template corrected to
-   `$2,500` (2026-08-19). Any script must still read the price from
+   the Sprint price. Any script must still read the current pricing rule from
    `pricing.ts` at compile time rather than hardcoding a number, so this
    cannot drift again.
 4. **Track labels vs backlog.** B1 and the cross-surface theme appear in the

@@ -123,7 +123,7 @@ The client-visible 4444 outcome includes:
 - a compliant honest-review growth and owner-response system; and
 - continuing Four-Surface consistency verification.
 
-The primary commercial recommendation is to implement the approved 4444 priority. The primary paid action is the **30-Day Growth Sprint — $2,500**, with practice-specific scope confirmed separately. The report must explain which 4444 outcome the Sprint is intended to create without presenting the illustrative 30-day sequence as already purchased scope or promising results.
+The primary commercial recommendation is to implement the approved 4444 priority. The primary paid action is the **30-Day Growth Sprint — scope-confirmed pricing**, with practice-specific scope confirmed separately. The report must explain which 4444 outcome the Sprint is intended to create without presenting the illustrative 30-day sequence as already purchased scope or promising results.
 
 The optional **Lead-to-Revenue Check — $500** remains the secondary branch governed by `check500-two-placement/1.0.0`. It is appropriate for a person who wants more clarity about the post-enquiry path or prefers a smaller first engagement, but it does not displace 4444 or the Sprint.
 
@@ -194,7 +194,7 @@ State system:
 
 A red upstream stage does **not** automatically make downstream stages red. Downstream stages remain gray when they were not reached or assessed. The map must not infer a weak receptionist, broken CRM, poor training or other internal cause from a no-response or drop-off fact alone.
 
-In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. The active specific pricing, placement and copy authority is `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`. The first Check500 section appears immediately after this post-enquiry explanation or map. It states what the `$500` Check can examine and the direct-continuation credit toward the next qualifying `$2,500` Sprint; it is not a results promise, refund balance or automatic upsell.
+In the Free Growth Score, this map normally renders gray and explains that internal workflow/data access is required. After an approved internal conversion check or Sprint access, stages may be evidence-coloured. The active specific pricing, placement and copy authority is `docs/ssot/CAESTHETIC_LEAD_TO_REVENUE_CHECK.md`. The first Check500 section appears immediately after this post-enquiry explanation or map. It states what the `$500` Check can examine and the direct-continuation credit toward the next qualifying `Sprint`; it is not a results promise, refund balance or automatic upsell.
 
 The Check500 path is fail-closed for copy, evidence and placement. New authoring must not mark it `recommended` merely because the outside-in report cannot assess the internal path. Any case-specific recommendation or diagnostic statement requires approved evidence references and named-human approval. An absent or `not_recommended` report recommendation suppresses the recommendation claim, but it removes neither of the two standard placements. The Check never blocks or replaces a separate evidence-backed Sprint CTA because uncertainty reduction and implementation answer different decisions.
 
@@ -357,7 +357,7 @@ The final client-facing visual sequence is canonical even though it is composed 
 5. **Competitive decision.** Lead with why a patient/client may choose another practice, then expose the deeper comparison matrix. End with `Defend / Close / Differentiate / Do not copy`.
 6. **Thirty-day fit + Lead-to-Revenue boundary.** Explain what can realistically change in 30 days, then show the internal-conversion map and the first contextual Check500 section. The map shows what is and is not assessed after enquiry; it is a boundary/diagnostic branch, not a fifth surface or proof of a leak.
 7. **Final system synthesis.** State whether the findings represent isolated issues or one connected patient-decision system, then explain the relevant 4444 outcome: a shared demand-language map, query allocation, content/review-response system and consistency verification. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
-8. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The primary CAESTHETIC option is the 30-Day Growth Sprint at the canonical `$2,500` price, framed as implementation of the approved 4444 priority rather than an isolated technical task. Immediately after it, show the second Check500 section as a smaller optional first engagement. Any retail-equivalent comparison must pass §9.1.
+8. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The primary CAESTHETIC option is the 30-Day Growth Sprint at the agreed price confirmed in the written Sprint Order, framed as implementation of the approved 4444 priority rather than an isolated technical task. Immediately after it, show the second Check500 section as a smaller optional first engagement. Any retail-equivalent comparison must pass §9.1.
 9. **What happens next + founder note.** Show a branching continuation rather than a forced ladder, then close with a short real-founder note. Valerie Petra may be shown only in a truthful approved role; no fabricated biography or handwritten signature.
 
 ### 8.2 Mapping to the immutable nine-section machine contract
@@ -541,8 +541,8 @@ This is an operational validity window, not a discount mechanic:
 Current canonical commercial facts remain:
 
 - Growth Score: **$0**;
-- 30-Day Growth Sprint: **$2,500**;
-- optional Sprint 2 / Extension: **$2,500 per additional 30 days**, only after Day 30 when a finite remaining/new verified constraint justifies it;
+- 30-Day Growth Sprint: **exact price confirmed after scope review**;
+- optional Sprint 2 / Extension: **separately scoped after Day 30**, only after Day 30 when a finite remaining/new verified constraint justifies it;
 - Growth System: optional recurring ownership; exact recurring economics remain **client-specific** under the active master/economics SSOT and signed Commercial Schedule / SOW.
 
 There is **no universal `$1,500/month Sprint Alumni` fee in the current canon**. A reusable recurring amount may become canonical only through an explicit later pricing/SSOT decision that updates the applicable pricing authority. Do not publish or infer it from a working document.
@@ -556,7 +556,7 @@ The client-facing continuation is a decision tree, not an automatic sales ladder
 - if the outside-in external constraint is verified and finite and the owner is ready → optional 30-Day Growth Sprint;
 - at both standard report placements, the owner may choose the optional Lead-to-Revenue Check at `$500` to understand the post-enquiry path or begin with a smaller engagement;
 - after Day 30, if the constraint is resolved → the client may take the system and stop;
-- if a new/remaining finite verified constraint exists → optional Sprint 2 / Extension at `$2,500`;
+- if a new/remaining finite verified constraint exists → optional further Sprint, with exact price confirmed in the written Order;
 - if recurring ownership is justified → optional Growth System under client-specific terms.
 
 No later stage is mandatory.
@@ -587,7 +587,7 @@ Acceptance requires:
 1. canonical renderer validation and deterministic render-drift check;
 2. exact Intro + nine numbered sections;
 3. exactly one Primary + two Supporting Focus Gaps;
-4. at most one late evidence-backed implementation CTA for the `$2,500` Sprint implementing the approved 4444 priority, plus exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent; the first follows the post-enquiry map and the second follows the primary Sprint offer; a focus child has neither;
+4. at most one late evidence-backed implementation CTA for the `Sprint implementing the approved 4444 priority, plus exactly two always-visible `check500-two-placement/1.0.0` sections on a single-location report or Multi-Location parent; the first follows the post-enquiry map and the second follows the primary Sprint offer; a focus child has neither;
 5. source-level absence of client-visible reviewer/selector attribution and embedded walkthrough card/URL;
 6. Four Surfaces unchanged; Cross-Surface remains separate; Lead Intake/internal conversion is not rendered as a fifth surface;
 7. for new authoring: one reviewed `journeyGraph` artifact, both deterministic public views, identical edge state/evidence lineage, no automatic score mutation and no optional-link false positive;
@@ -670,7 +670,7 @@ a named CAESTHETIC manager discusses and explicitly decides its exact publicatio
 and scope. A general implementation request is not that case-specific decision.
 
 Separate patient-choice/enquiry materiality from the value of CAESTHETIC delivery.
-Do not justify a $2,500 Sprint with an isolated outdated name, typo or other easy
+Do not justify a Sprint with an isolated outdated name, typo or other easy
 DIY correction. Small observations belong in a compact final team-fixes section;
 they are not lost-client evidence or a Top 3 sales argument. A quick but genuinely
 urgent broken-path fix should be disclosed for immediate correction, without
@@ -716,7 +716,7 @@ A synthesis may establish that consistency is strong; the actual priority still
 follows evidence. An isolated outdated name is a minor DIY item, not its headline.
 
 The narrative continues to three linked Month-1 priorities, named deliverables,
-30-day acceptance/dependencies, and one primary $2,500 Sprint offer. Use the
+30-day acceptance/dependencies, and one primary Sprint offer with price confirmed after scope review. Use the
 catalog value gate (§2.1) to distinguish paid-scope value from DIY fixes and
 unknowns. The main constraint explains the supporting work. A fourth executable
 task may be a dependency; do not silently change Primary + two Supporting.
@@ -832,7 +832,7 @@ of this practice's losses. Actual campaign waste, causality or stop-spend advice
 requires relevant evidence. Proposed coordination may connect A02/A03/A06/A08/A09:
 confirmed facts → approved copy → dependent page/link updates → whole-path acceptance
 → update owner. Complexity comes from those dependencies, not invented tasks or
-claims that a team or freelancer cannot perform them. A $2,500 Sprint still needs
+claims that a team or freelancer cannot perform them. A Sprint with price confirmed after scope review still needs
 the material-value gate and a feasible Primary + two Supporting selection. The
 $500 Check remains the conditional post-enquiry diagnostic, never an evidence
 unlock. Minor DIY items remain the final disclosure.

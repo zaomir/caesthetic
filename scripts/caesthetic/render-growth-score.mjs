@@ -1096,14 +1096,14 @@ const CHECK500_COPY = Object.freeze({
   product: "Lead-to-Revenue Check · $500",
   body: "See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where enquiries may be getting lost.",
   cta: "Check My Lead-to-Revenue Path",
-  finePrint: ["If you move d", "irectly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total."].join(""),
+  finePrint: "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the the agreed Sprint price.",
 });
 const CHECK500_COPY_RU = Object.freeze({
   heading: "Все ли обращения доходят до записи?",
   product: "Проверка пути от обращения к выручке · $500",
   body: "Узнайте, что происходит после обращения потенциального пациента: от первого ответа и повторного контакта до записи, консультации и оплаты — и где могут теряться обращения.",
   cta: "Проверить путь от обращения к выручке",
-  finePrint: "Если после проверки вы сразу переходите к следующему подходящему 30-дневному спринту роста, $500 за проверку один раз засчитываются в общую стоимость спринта $2,500.",
+  finePrint: "Если после проверки вы сразу переходите к следующему подходящему 30-дневному спринту роста, $500 за проверку один раз засчитываются в общую стоимость спринта price confirmed after scope review.",
 });
 function isMultiLocationFocusChild(report) {
   return report.audit?.format === "multi_location" && report.audit?.package_role === "focus_location";
@@ -1244,7 +1244,7 @@ function plainCommercialNextStepHtml(report) {
     <article class="cae-owner-offer cae-owner-offer--sprint" data-owner-sprint-offer data-commercial-contract="${escapeHtml(report.presentation.commercial_contract || "")}">
       <p class="cae-kicker">${escapeHtml(offer.kicker || "Вариант с CAESTHETIC")}</p>
       <h3>${escapeHtml(offer.title || "30-дневный спринт роста")}</h3>
-      <p class="cae-owner-offer__price">${escapeHtml(offer.price || "$2,500 · 30 дней")}</p>
+      <p class="cae-owner-offer__price">${escapeHtml(offer.price || "price confirmed after scope review · 30 дней")}</p>
       <p>${escapeHtml(offer.body || report.why_caesthetic.sprint_boundary)}</p>
       ${offer.items?.length ? `<ul>${stringList(offer.items)}</ul>` : ""}
       ${offer.client_input ? `<p><strong>${escapeHtml(ui.sprint_client_input_label)}:</strong> ${escapeHtml(offer.client_input)}</p>` : ""}
@@ -1556,7 +1556,7 @@ function localizeReportHtml(html, locale) {
     ["Optional or irrelevant relationships are not drawn.", "Необязательные и нерелевантные связи не показываются."],
     ["Public evidence only · Lead Intake and internal conversion remain NOT ASSESSED without authorized internal evidence.", "Только публичные evidence · приём обращения и внутренняя конверсия остаются НЕ ОЦЕНЕНЫ без разрешённых внутренних evidence."],
     ["Growth Score ends at Lead Intake. It does not infer response, booking, attendance, consultation or payment performance from public evidence.", "Growth Score заканчивается на приёме обращения. Он не делает выводов об ответе, записи, явке, консультации или оплате по публичным evidence."],
-    ["An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>$2,500</span> Sprint total.", "Проверка разрешённого внутреннего пути только при наличии evidence. Если Check непосредственно продолжается следующим 30-дневным Growth Sprint CAESTHETIC по подтверждённому ограничению, $500 один раз засчитываются в общую стоимость Sprint <span data-cae-sprint-price>$2,500</span>."],
+    ["An evidence-gated review of the authorized internal path. If the Check continues directly into the next CAESTHETIC 30-Day Growth Sprint for the verified constraint, the $500 is credited once toward the <span data-cae-sprint-price>the agreed Sprint price</span>.", "Проверка разрешённого внутреннего пути только при наличии evidence. Если Check непосредственно продолжается следующим 30-дневным Growth Sprint CAESTHETIC по подтверждённому ограничению, $500 один раз засчитываются в общую стоимость Sprint <span data-cae-sprint-price>price confirmed after scope review</span>."],
     ["No enquiry, booking, patient, revenue or ROI outcome is promised.", "Результат по обращениям, записям, пациентам, выручке или окупаемости не обещается."],
     ["What to protect, watch, fix or verify", "Что сохранить, наблюдать, исправить или проверить"],
     ["Derived decision intelligence · Existing evidence only", "Производная аналитика решений · Только существующие evidence"],
@@ -2096,6 +2096,12 @@ function finalizeRussianHtml(html, report, { suppressRawMetricPayloads = false, 
       protectedUrls.push([token, url]);
       return token;
     });
+    const protectedPhrases = [];
+    output = output.replaceAll("price confirmed after scope review", () => {
+      const token = `@@CAE_SCOPED_PRICE_${protectedPhrases.length}@@`;
+      protectedPhrases.push([token, "price confirmed after scope review"]);
+      return token;
+    });
     const protectedNames = officialNames.map((name, index) => {
       const escapedName = name.replaceAll("&", "&amp;");
       const token = `@@CAE_OFFICIAL_${index}@@`;
@@ -2121,6 +2127,9 @@ function finalizeRussianHtml(html, report, { suppressRawMetricPayloads = false, 
     }
     for (const [token, escapedName] of protectedNames) {
       output = output.replaceAll(token, `<span data-brand>${escapedName}</span>`);
+    }
+    for (const [token, phrase] of protectedPhrases) {
+      output = output.replaceAll(token, phrase);
     }
     return output;
   };

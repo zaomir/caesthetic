@@ -117,7 +117,7 @@ try {
    assert.deepEqual(await offer.locator('[data-offer-surface] > h3').evaluateAll(nodes=>nodes.map(e=>e.tagName)),['H3','H3','H3','H3']);
    assert.match(await offer.locator('[data-offer-part="included-check"]').innerText(),/без дополнительной оплаты/);
    assert.match(await offer.locator('[data-offer-check-alternative]').innerText(),/доплатить \$2,000/);
-   assert.match(await offer.locator('[data-offer-continuation]').innerText(),/ниже \$2,500/);
+   assert.match(await offer.locator('[data-offer-continuation]').innerText(),/ниже price confirmed after scope review/);
    assert.doesNotMatch(await offer.innerText(),/Для клиника три существенных приоритета|Что входит в согласуемый объём|Что нужно от клиники|Что проверим на 30-й день|Ответственность за внедрение/);
   }else assert.equal(await page.locator('[data-sprint-offer-contract]').count(),0);
   const reject=page.getByRole('button',{name:locale==='ru'?'Отказаться':'Reject analytics',exact:true});if(await reject.isVisible())await reject.click();
@@ -206,7 +206,7 @@ try {
    await page.evaluate(id=>{const el=document.getElementById(id);scrollTo(0,el.getBoundingClientRect().top+scrollY-document.querySelector('.v3-bar').offsetHeight-24);},id);
    await page.waitForFunction(id=>document.querySelector('#report-navigation a[aria-current="location"]')?.getAttribute('href')==='#'+id,id,{timeout:5000});
   }
-  // Canonical paid-product route: report -> product -> three-field order.
+  // Canonical paid-product route: report -> product page. Check continues to three-field order; unscoped Sprint stays on /sprint/.
   // Enable the production router on localhost too; legacy modal mode is not a production check.
   for(const [selector,kind,productPath,productCode] of [
    ['[data-cae-sprint-inquiry]','sprint','/sprint/','growth_sprint'],
@@ -220,10 +220,19 @@ try {
    await Promise.all([routed.waitForURL(base+productPath+offerSuffix),routed.locator(selector).first().click()]);
    assert.equal(await routed.locator('dialog[open]').count(),0);
    if(!production)await routed.goto(base+productPath+(scoped?offerSuffix+'&':'?')+'cae_product_routing_test=1',{waitUntil:'networkidle'});
-   await Promise.all([routed.waitForURL(base+orderPath),routed.locator(scoped?'[data-spoken-order-link]':selector).first().click()]);
-   if(scoped){await routed.locator('#order-offer-details').waitFor({state:'visible'});assert.match(await routed.locator('#order-offer-details').innerText(),/included at no additional charge/);}
-   assert.deepEqual(await routed.locator('#product-order-form input').evaluateAll(nodes=>nodes.map(n=>n.name)),['practice_name','signer_name','signer_email']);
-   result.actions.push({locale,kind,status:'PASS',route:[productPath+offerSuffix,orderPath],submitted:false});
+   if(kind==='sprint' && !scoped){
+    const payNavigation=routed.waitForURL(base+orderPath,{timeout:2000}).then(()=>true).catch(()=>false);
+    await routed.locator(selector).first().click();
+    assert.equal(await payNavigation,false);
+    assert.equal(new URL(routed.url()).pathname,productPath);
+    assert.equal(await routed.locator('dialog[open]').count(),0);
+    result.actions.push({locale,kind,status:'PASS',route:[productPath],submitted:false});
+   } else {
+    await Promise.all([routed.waitForURL(base+orderPath),routed.locator(scoped?'[data-spoken-order-link]':selector).first().click()]);
+    if(scoped){await routed.locator('#order-offer-details').waitFor({state:'visible'});assert.match(await routed.locator('#order-offer-details').innerText(),/included at no additional charge/);}
+    assert.deepEqual(await routed.locator('#product-order-form input').evaluateAll(nodes=>nodes.map(n=>n.name)),['practice_name','signer_name','signer_email']);
+    result.actions.push({locale,kind,status:'PASS',route:[productPath+offerSuffix,orderPath],submitted:false});
+   }
    await routed.close();
   }
   // Questions keep the two-field dialog, keyboard dismissal and focus restoration.

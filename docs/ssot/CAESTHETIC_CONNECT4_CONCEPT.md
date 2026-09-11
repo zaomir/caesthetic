@@ -439,7 +439,7 @@ EN headline: **Start with the priority—not a bigger to-do list.**
 
 RU: **Начните с приоритета, а не с ещё одного длинного списка задач.**
 
-Воронка по master: Free Growth Score → 30-Day Growth Sprint, $2,500 → optional Growth System. Connect4 — программа/система, Sprint — способ внедрить согласованный приоритет за 30 дней, не вся программа для всей сети за эту сумму. Lead-to-Revenue Check, $500 — условная дополнительная диагностика при неразрешённой постобращенческой неопределённости, не обязательный этап и не конкурент основному CTA. Обязательные размещения Check в отчётах не заменяются этим объяснителем.
+Воронка по master: Free Growth Score → 30-Day Growth Sprint, price scoped to the work required → optional Growth System. Connect4 — программа/система, Sprint — способ внедрить согласованный приоритет за 30 дней, не вся программа для всей сети за эту сумму. Lead-to-Revenue Check, $500 — условная дополнительная диагностика при неразрешённой постобращенческой неопределённости, не обязательный этап и не конкурент основному CTA. Обязательные размещения Check в отчётах не заменяются этим объяснителем.
 
 FAQ отвечает: сохранятся ли текущие специалисты; кто отвечает; что потребуется от команды; что входит в scope; что остаётся после; как проверяем результат; применимость для сети. На публичной странице не придумывать постоянную плату или проценты. Навигационные CTA не смешивать с заявкой/оплатой. Точная интеграция существующей формы/checkout — отдельное runtime-задание.
 
@@ -569,7 +569,7 @@ Owner instruction `2026-09-05T14:18:08Z` authorizes all seven images in the supp
 
 The owner-selected artwork uses patient/practice and some shortened surface labels. Nearby HTML uses the approved complete names and neutral vocabulary. The provided system illustration does not contain the master sketch's separate solid ownership frame; the page states single accountable ownership explicitly in text, rather than claiming that the picture has that frame or modifying its pixels. The live-sketch grammar and the older protected originals remain unchanged.
 
-**Engagement-path rule:** Free Growth Score → optional $500 Check when required by post-inquiry uncertainty → $2,500 / 30-day Sprint → optional further Sprint(s), decided after Day 30 → optional ongoing Growth System under a separate annual / 12-month agreement. The main path can skip Check and extensions. No compulsory staircase, pre-sold extension bundle, guaranteed result, universal recurring price, advance annual payment, renewal or cancellation term is introduced. Human approval of diagnostic conclusions remains required.
+**Engagement-path rule:** Free Growth Score → optional $500 Check when required by post-inquiry uncertainty → price confirmed after scope review / 30-day Sprint → optional further Sprint(s), decided after Day 30 → optional ongoing Growth System under a separate annual / 12-month agreement. The main path can skip Check and extensions. No compulsory staircase, pre-sold extension bundle, guaranteed result, universal recurring price, advance annual payment, renewal or cancellation term is introduced. Human approval of diagnostic conclusions remains required.
 
 **Approved engagement artwork (2026-09-05):** the owner supplied `How we work together- desktop.png` and `How we work together- mob.png`. Publish their exact bytes with desktop/mobile art direction; no redraw, crop, re-encoding or substitution. Byte hashes and dimensions are recorded in `site-caesthetic/assets/connect4/engagement-20260905/manifest.json`; media IDs remain `connect4.engagement.desktop` and `connect4.engagement.mobile`. The illustration is an overview, not an expansion of scope: Free Growth Score uses public evidence; internal Lead Intake requires agreed access, and a Sprint implements the agreed priority and its dependencies. Keep the five HTML explanations readable outside the raster. Check, additional Sprint(s) after Day 30, and the separate client-specific 12-month Growth System agreement remain optional. No automatic renewal. The following paired EN/RU block remains part of this same SSOT.
 
@@ -603,14 +603,14 @@ The owner-selected artwork uses patient/practice and some shortened surface labe
       {
         "id": "sprint",
         "title": "30-Day Growth Sprint",
-        "price": "$2,500",
+        "price": "Price scoped to the work",
         "optional": false,
         "description": "We implement the agreed priority over 30 days and report what is live, what the team uses, and what the evidence supports. The first Sprint carries no commitment to further work."
       },
       {
         "id": "extension",
         "title": "Further Sprint(s), only if needed",
-        "price": "$2,500 per additional 30 days",
+        "price": "separately scoped after Day 30",
         "optional": true,
         "description": "After Day 30, we review any remaining finite implementation work together. A further Sprint is separately scoped and agreed only when justified—not reserved in advance or automatically renewed."
       },
@@ -645,14 +645,14 @@ The owner-selected artwork uses patient/practice and some shortened surface labe
       {
         "id": "sprint",
         "title": "30-Day Growth Sprint",
-        "price": "$2,500",
+        "price": "Price scoped to the work",
         "optional": false,
         "description": "За 30 дней внедряем согласованный приоритет и показываем, что работает, что использует команда и что подтверждают данные. Первый спринт не обязывает покупать продолжение."
       },
       {
         "id": "extension",
         "title": "Дополнительный спринт или спринты — при необходимости",
-        "price": "$2,500 за каждые дополнительные 30 дней",
+        "price": "Цена определяется отдельно после 30-го дня",
         "optional": true,
         "description": "После Day 30 совместно рассматриваем оставшуюся конечную работу по внедрению. Следующий спринт согласуется отдельно и только при обоснованной необходимости — не резервируется заранее и не продлевается автоматически."
       },

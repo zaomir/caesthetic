@@ -11,12 +11,12 @@ funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 
 | URL | Purpose | Audience intent | Primary proof | CTA | Indexing |
 |---|---|---|---|---|---|
-| `/` | Positioning and entry | Understand the offer | Four-Surface model | Free Growth Score; $500 Check; $2,500 Sprint | index |
+| `/` | Positioning and entry | Understand the offer | Four-Surface model | Free Growth Score; $500 Check; Sprint with price scoped to the work required | index |
 | `/connect4/` | Explain Connect4, owner imagery and the optional engagement path | Understand implementation, handoff and annual continuation | Three approved responsive image pairs plus one alternate; not client results | Free Growth Score request (Name + Email); optional stages explained, no forced bundle | index |
 | `/growth-score/` | Explain public-evidence diagnosis, show examples and accept the free request | Evaluate method / start diagnosis | Three labeled demos + dedicated four-field intake | Start free Growth Score | index |
 | `/lead-to-revenue-check/` | Explain the always-available smaller paid internal-path diagnostic | Start smaller before implementation or inspect post-enquiry uncertainty | Authorized evidence boundary, eight-stage path and fixed commercial terms | Start $500 Check | index |
 | `/audit/` · `/audits/` · `/multi-location-growth-score/` | Synonym compatibility aliases | Reach the canonical audit product | Canonical handoff | Continue to `/growth-score/` | noindex |
-| `/sprint/` | Explain finite implementation | Evaluate or request the paid implementation step | Scope and fixed pricing | Request Sprint · $2,500; start smaller with $500 Check | index |
+| `/sprint/` | Explain finite implementation | Evaluate or request the paid implementation step | Scope and fixed pricing | Request Sprint · price confirmed after scope review; start smaller with $500 Check | index |
 | `/growth-system/` | Explain recurring operating ownership | Evaluate optional ongoing work | Evidence/adoption/impact operating loop | Ask about Growth System | index |
 | `/pricing/` | Compare the public product ladder and optional tripwire | Understand commercial model | Generated public-stage pricing and client-specific recurring boundaries | Choose Score / Check / Sprint / System | index |
 | `/beauty-salons/` | English beauty-salon vertical | Diagnose salon growth constraints | Salon demand route and synthetic evidence ledger | Start four-field Salon Growth Score | index |
@@ -36,9 +36,9 @@ funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 
 ## Internal linking
 
-- `/` sends the primary acquisition path directly to the dedicated `/growth-score/` intake. The $500 Check is always available as a smaller paid tripwire and the $2,500 Sprint remains the implementation product.
+- `/` sends the primary acquisition path directly to the dedicated `/growth-score/` intake. The $500 Check is always available as a smaller paid tripwire and the Sprint with price scoped to the work required remains the implementation product.
 - The primary header stays focused on Growth Score, Sprint, Growth System, Pricing, About and Support. Case Studies remain direct-accessible but hidden from primary navigation while the catalog is still being populated.
-- The global footer exposes Free Growth Score, Lead-to-Revenue Check · $500, 30-Day Growth Sprint · $2,500, Growth System and an `Ask a question` escape hatch.
+- The global footer exposes Free Growth Score, Lead-to-Revenue Check · $500, 30-Day Growth Sprint · price scoped to the work, Growth System and an `Ask a question` escape hatch.
 - `/growth-score/` contains the dedicated four-field form (`Name`, `Work email`, `Practice name`, `City, State`). No generic popup precedes it.
 - `/lead-to-revenue-check/` is always accessible by customer choice. A Growth Score may separately *recommend* it only when the approved reason and supporting evidence satisfy the Check authority.
 - `/sprint/` and `/pricing/` expose the $500 Check as a smaller optional paid route rather than a mandatory gateway.
@@ -67,7 +67,7 @@ The public site does not contain a reusable Stripe/Wise checkout URL. Paid produ
 
 `commercial request → written scope / signed Order → private /pay/?token=… → payer authorization → configured provider`
 
-Stripe ACH is the recommended US-bank route where configured; Wise is the alternate provider rail. An eligible completed $500 Check may receive the one-time $500 credit toward the next $2,500 Sprint, leaving a $2,000 balance; written Order/backend state determines eligibility.
+Stripe ACH is the recommended US-bank route where configured; Wise is the alternate provider rail. An eligible completed $500 Check may receive the one-time $500 credit toward the next Sprint with price scoped to the work required, with any commercial treatment stated in the written Order; written Order/backend state determines eligibility.
 
 ## Sender-domain public-route contract
 

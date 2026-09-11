@@ -11,9 +11,13 @@ const amount=key=>{
   if(!match) throw new Error(`Canonical price missing: ${key}`);
   return Number(match[1]);
 };
+const sprintMode=pricingSource.match(/\bgrowthSprintPricing:\s*"([^"]+)"/);
+if (!sprintMode || sprintMode[1] !== 'scoped_to_work_required') {
+  throw new Error('Canonical Sprint pricing must be scoped_to_work_required');
+}
 const usd=value=>`$${new Intl.NumberFormat('en-US').format(value)}`;
-const sprintAmount=amount('growthSprintUsd'), checkAmount=amount('leadToRevenueCheckUsd');
-const prices={sprint:usd(sprintAmount),check:usd(checkAmount),balance:usd(sprintAmount-checkAmount)};
+const checkAmount=amount('leadToRevenueCheckUsd');
+const SPRINT_LABEL={ru:'price confirmed after scope review',en:'price confirmed after scope review'};
 const e = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
 const json = value => JSON.stringify(value).replaceAll('<', '\\u003c');
 
@@ -30,8 +34,8 @@ export const V6_UI = Object.freeze({
     check:'Хотите сначала проверить путь от обращения до оплаты? Начните с Check за $500.', checkButton:'Начать с проверки →',
     included:'Для этого предложения Lead-to-Revenue Check уже включён в Sprint — отдельно оплачивать его не нужно.',
     who:'Кто выполнит изменения', terms:'Условия оплаты', sprint:'Перейти к реализации плана →',
-    standardTerms:'$2,500 за Sprint на 30 дней. Точный объём и дату старта фиксируем до начала работы. Дальнейшее сопровождение необязательно; его объём и условия согласуются отдельно.',
-    spokenTerms:'$2,500 за Sprint на 30 дней. Дальнейшее сопровождение — по желанию, по отдельному ежемесячному тарифу ниже стоимости Sprint. Объём и цену согласуем по итогам первых 30 дней.',
+    standardTerms:'Цена Sprint на 30 дней подтверждается после согласования объёма. Точный объём и дату старта фиксируем до начала работы. Дальнейшее сопровождение необязательно; его объём и условия согласуются отдельно.',
+    spokenTerms:'price confirmed after scope review за Sprint на 30 дней. Дальнейшее сопровождение — по желанию, по отдельному ежемесячному тарифу ниже стоимости Sprint. Объём и цену согласуем по итогам первых 30 дней.',
     credit:'Можно начать с Check за $500. Если сразу после него вы переходите к согласованному Sprint, зачтём оплату полностью — останется доплатить $2,000. Зачёт подтверждает менеджер.',
     question:'Задать вопрос', preview:'Дизайн-референс: содержание из макета, без новой публикации или утверждения исследования.',
   },
@@ -47,8 +51,8 @@ export const V6_UI = Object.freeze({
     check:'Would you like to check the path from enquiry to payment first? Start with Check for $500.', checkButton:'Start with a Check →',
     included:'This offer already includes the Lead-to-Revenue Check in the Sprint; no separate payment is needed.',
     who:'Who will implement the changes', terms:'Payment terms', sprint:'Put the plan into action →',
-    standardTerms:'$2,500 for a 30-day Sprint. We confirm the exact scope and start date before work begins. Continued support is optional; its scope and terms are agreed separately.',
-    spokenTerms:'$2,500 for a 30-day Sprint. Continued support is optional, at a separate monthly fee below the Sprint price. We will agree the scope and price after the first 30 days.',
+    standardTerms:'Sprint price is confirmed after we agree the 30-day scope and start date. Continued support is optional; its scope and terms are agreed separately.',
+    spokenTerms:'price confirmed after scope review for a 30-day Sprint. Continued support is optional, at a separate monthly fee below the Sprint price. We will agree the scope and price after the first 30 days.',
     credit:'You can start with Check for $500. If you move directly from it to an agreed Sprint, we credit the full payment, leaving $2,000 to pay. A manager confirms the credit.',
     question:'Ask a question', preview:'Design reference: content from the mockup, without a new publication or research approval.',
   },
@@ -100,7 +104,8 @@ export function validateV6Content(m) {
 
 export function clientV6Document(model, {notice = '', publicAssets = false} = {}) {
   const m=validateV6Content(model), c=m.commercial;
-  const u=Object.fromEntries(Object.entries(V6_UI[m.locale]).map(([key,value])=>[key,value.replaceAll('$2,500',prices.sprint).replaceAll('$2,000',prices.balance).replaceAll('$500',prices.check)]));
+  const prices={sprint:SPRINT_LABEL[m.locale],check:usd(checkAmount)};
+  const u=Object.fromEntries(Object.entries(V6_UI[m.locale]).map(([key,value])=>[key,value.replaceAll('$500',prices.check)]));
   const p=value=>`<p>${e(value)}</p>`;
   const label=(key,value)=>`<p><strong>${e(u[key])}</strong> ${e(value)}</p>`;
   const share=()=>`<button type="button" class="v6-button" data-v6-share>${e(u.share)}</button>`;

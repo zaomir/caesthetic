@@ -45,7 +45,7 @@ Every full English Check500 offer section uses exactly this visible copy and ord
 2. **Product line** — `Lead-to-Revenue Check · $500`
 3. **Body** — `See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where enquiries may be getting lost.`
 4. **CTA** — `Check My Lead-to-Revenue Path`
-5. **Fine print** — `If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total.`
+5. **Fine print** — `If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the price confirmed after scope review Sprint total.`
 
 No extra eyebrow, badge, price chip, icon label, testimonial, secondary CTA or explanatory sentence may be inserted inside the canonical component. Surrounding page/report content may explain context outside the component as allowed by the parent Check SSOT.
 

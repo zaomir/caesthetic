@@ -127,7 +127,7 @@ test('RU offer replaces the requested body with four surfaces and scoped commerc
  assert.match(card,/<em>соответствие<\/em>/);
  assert.match(card,/без дополнительной оплаты проведём Lead-to-Revenue Check/);
  assert.match(card,/По согласованным доступам/);
- assert.match(card,/ежемесячного сопровождения будет ниже \$2,500/);
+  assert.match(card,/ежемесячного сопровождения будет ниже price confirmed after scope review/);
  assert.match(card,/непосредственно после него[\s\S]*доплатить \$2,000/);
  assert.match(card,/data-cae-sprint-inquiry>Начать 30-Day Growth Sprint<\/a>/);
  for(const key of ['offer_scope_note','deliverables','client_input','day30','owner'])assert.ok(!card.includes(p.copies.ru[key]),key);
