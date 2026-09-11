@@ -29,7 +29,7 @@ Use Outscraper Data -> Business Catalog.
 Required filters:
 - Category/type: Medical Spa. Adjacent acceptable categories for review only: Skin Care Clinic, Aesthetic Clinic, Wellness Center, IV Therapy Service, Weight Loss Service, Dermatology/Plastic Surgery only when Medical Spa/aesthetic services are present.
 - Country: US.
-- Geography: use the canonical target ZIP tiles from icp-collector/config/cities.json, not a broad US search and not only city names.
+- Geography: Queue A uses the canonical pilot ZIP tiles from `icp-collector/config/cities.json` (unchanged). Expansion Queues B and C use the selected city/ZIP list in `docs/ops/caesthetic-new-medspa-discovery/discovery-geography.json`. Do not call a city-only dump a full metro. Not a broad US search.
 - Freshness: use Added Date Range, never Updated Date Range, for the discovery window.
 - Do not filter by rating, review count, website, email, phone, or claimed status at the discovery stage.
 
@@ -40,15 +40,33 @@ Canonical September 2026 UI/API mapping:
 - added_from / added_to: Unix seconds for the local discovery window
 
 ## Cost rule
-Outscraper Business Data Export is priced per exported record, not per confirmed new business. First 50 records are free in the observed tier. If the export modal shows Total Price above $0.00, stop before checkout and ask for approval. Record the shown quantity, regular price, discount, and total price screenshot.
+Outscraper Business Data Export is priced per exported record, not per confirmed new business. Standing paid collection is authorized without a second confirmation:
+
+- **$3 USD maximum per run**, including geography expansion, retries, and any paid enrichment in that run.
+- **$9 USD maximum per ISO calendar week** (Mon–Sun UTC).
+- Unused run or week budget does **not** roll over and does not raise the next run cap.
+- Schedule: Monday, Wednesday, Friday **12:00 UTC** on VPS2402. One collector: `scripts/caesthetic/medspa-discovery/`.
+- Quote from current Outscraper terms before every paid request. If the upper bound is unknown, do not start the request. Cap volume in advance; do not rely on a post-facto counter.
+- Already-paid NYC/LA city-filter CSVs are not repurchased.
+
+Published catalog rate (2026-09): first 500 records free on the observed public tier, then about $3 / 1,000 records. The worker uses a conservative upper bound (at least the 2026-09-08 observed $0.01/row) unless the live `/profile/balance` invoice confirms a cheaper unit. Free remaining rows are assumed **0** unless the provider confirms unused free rows.
+
+## Live collection status (2026-09-11)
+
+- Worker + cron are installed on VPS2402: `/etc/cron.d/caesthetic-medspa-recurring` → `0 12 * * 1,3,5` UTC.
+- Starter run `disc-20260911Tstarter` did **not** purchase. Exact blocker: `OUTSCRAPER_API_KEY` is absent from `/etc/evo/secrets.env` (and sibling host files). The same secret **name** exists in the Supabase/check-reviews store (hash only; Management API does not return the value).
+- Paid collection is **not** claimed as working. After the existing key is copied into `/etc/evo/secrets.env`, run `python3 scripts/caesthetic/medspa-discovery/run.py run_discovery` with `starter: true`.
+- Because the starter did not buy, it does **not** replace Monday. Next scheduled fire: **2026-09-14T12:00:00Z**.
+- First provider job ID: none. Actual spend: $0. New unique locations / dupes / enrichment from this starter: none.
 
 ## Storage
-Save every run under docs/research/caesthetic-new-medspa-discovery/YYYY-MM-DD/ with:
-- raw/outscraper_business_catalog_raw.csv
-- verification/verified_records.csv
-- README.md containing run date, Added Date Range, ZIP list source commit/path, category filters, Outscraper estimated count, exported rows, price, and operator notes.
+Private raw CSV/JSON, provider job IDs, spend ledger, and contacts live under `/var/lib/caesthetic-medspa/` (not Git). Public run notes (no emails) may be summarized under `docs/research/caesthetic-new-medspa-discovery/YYYY-MM-DD/`.
 
-Do not overwrite prior runs. Preserve raw CSV exactly as exported.
+Each private run folder must keep: raw response/CSV, provider job ID, geography, window, quoted and actual USD, UTC time, SHA-256. Do not overwrite prior runs.
+
+Dedup: `place_id`, then company/branch. Do not overwrite existing statuses, exclusions, or contact/outreach history. Exclude Recovery Spa / `ChIJtest` / `test_fixture`.
+
+Distinguish: first seen by this process; added to catalog; confirmed business opening. Do not assign `new opening` without separate evidence.
 
 ## Verification classification
 Each exported record must be checked against public Google Maps/card evidence and, when useful, the business website/socials. Classify each row as one of:
@@ -87,6 +105,7 @@ Discovery implementation and operating docs should live in these paths:
 - `docs/ops/caesthetic-new-medspa-discovery/runbook.md` - weekly operator checklist and QA rules.
 - `docs/ops/caesthetic-new-medspa-discovery/downstream-growth-score-handoff.md` - optional handoff contract to a separate human-approved Growth Score workflow.
 - `docs/ops/caesthetic-new-medspa-discovery/backlog.md` - implementation backlog.
+- `docs/ops/caesthetic-new-medspa-discovery/discovery-geography.json` - Queues A/B/C, selected ZIPs, rotation.
 
 Per-run artifacts must stay under `docs/research/caesthetic-new-medspa-discovery/YYYY-MM-DD/` and must not overwrite prior runs.
 

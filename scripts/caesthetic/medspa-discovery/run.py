@@ -15,8 +15,10 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+from budget import RUN_CAP_USD, WEEK_CAP_USD, remaining_caps
 from inbox_transfer import needs_transfer, stage_inbox
-from outscraper_adapter import parse_csv_text, quote_catalog, remember_hash
+from outscraper_adapter import ingest_rows, is_test_fixture_row, merge_lead, parse_csv_text, quote_catalog, remember_hash
+from recurring import next_scheduled_after, run_recurring_discovery
 from outreach import (
     assert_public_payload,
     discover_channels,
@@ -52,6 +54,7 @@ ALLOWED_OPS = {
     "dry_run",
     "ingest_inbox",
     "quote_discovery",
+    "run_discovery",
     "logs",
     "health",
     "healthcheck",
@@ -104,7 +107,7 @@ def sha256_file(path: Path) -> str:
 
 
 def ensure_store() -> None:
-    for sub in ("inbox", "locks", "ingested", "enrichment", "queues", "canary", "audit"):
+    for sub in ("inbox", "locks", "ingested", "enrichment", "queues", "canary", "audit", "raw", "jobs"):
         (PRIVATE / sub).mkdir(parents=True, exist_ok=True)
     for name, default in (
         ("registry.json", {"locations": [], "updated_at": None}),
@@ -186,7 +189,13 @@ def op_health() -> dict:
         "ok": True,
         "host": subprocess.check_output(["hostname"], text=True).strip(),
         "instantly": {"present": instantly_present, "authorized": instantly_auth},
-        "outscraper": {"present": outscraper_present, "authorized": outscraper_auth, "paid_ops": "blocked_until_budget"},
+        "outscraper": {
+            "present": outscraper_present,
+            "authorized": outscraper_auth,
+            "paid_ops": "scheduled_3usd" if outscraper_present else "blocked_until_key",
+            "run_cap_usd": RUN_CAP_USD,
+            "week_cap_usd": WEEK_CAP_USD,
+        },
         "private_store": str(PRIVATE),
         "public_index": str(PUBLIC_INDEX.relative_to(REPO)) if PUBLIC_INDEX.is_relative_to(REPO) else str(PUBLIC_INDEX),
         "codex_path": "Agent API type=caesthetic_medspa; SSH vds2402 is optional and often unreachable from Codex cloud",
@@ -339,6 +348,8 @@ def op_status() -> dict:
     ingested = list((PRIVATE / "ingested").glob("*"))
     cron_canary = Path("/etc/cron.d/caesthetic-instantly-canary").exists()
     cron_poller = Path("/etc/cron.d/caesthetic-medspa-discovery").exists()
+    cron_recurring = Path("/etc/cron.d/caesthetic-medspa-recurring").exists()
+    caps = remaining_caps(PRIVATE)
     return {
         "ok": True,
         "health": health,
@@ -349,8 +360,12 @@ def op_status() -> dict:
         "schedules": {
             "canary_cron": cron_canary,
             "discovery_poller_cron": cron_poller,
-            "paid_recurring_discovery": False,
-            "paid_budget_usd": 0.0,
+            "paid_recurring_discovery": cron_recurring,
+            "paid_budget_usd": RUN_CAP_USD,
+            "week_budget_usd": WEEK_CAP_USD,
+            "cron": "0 12 * * 1,3,5 UTC",
+            "next_scheduled_utc": next_scheduled_after().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "week_spent_usd": caps.get("week_spent_usd"),
         },
         "missing": [
             *([] if health["outscraper"]["present"] else ["OUTSCRAPER_API_KEY_on_vds"]),
@@ -414,9 +429,13 @@ def op_ingest_inbox(params: dict | None = None) -> dict:
             parsed = parse_csv_text(path.read_text(encoding="utf-8", errors="replace"), source_file=path.name)
             registry = json.loads((PRIVATE / "registry.json").read_text(encoding="utf-8"))
             existing = {((row.get("identity") or {}).get("place_id") or row.get("lead_id")): row for row in registry.get("locations") or []}
+            excluded = 0
             for lead in parsed.get("leads") or []:
+                if is_test_fixture_row(lead):
+                    excluded += 1
+                    continue
                 key = (lead.get("identity") or {}).get("place_id") or lead.get("lead_id")
-                existing[key] = lead
+                existing[key] = merge_lead(existing.get(key), lead)
             registry["locations"] = list(existing.values())
             registry["updated_at"] = now()
             (PRIVATE / "registry.json").write_text(json.dumps(registry, indent=2) + "\n", encoding="utf-8")
@@ -424,6 +443,7 @@ def op_ingest_inbox(params: dict | None = None) -> dict:
                 "unique_place_ids": parsed.get("unique_place_ids"),
                 "without_place_id": parsed.get("without_place_id"),
                 "conflicts": parsed.get("conflicts"),
+                "excluded_fixtures": excluded,
             }
         accepted.append(
             {
@@ -446,31 +466,44 @@ def op_ingest_inbox(params: dict | None = None) -> dict:
     }
 
 
-def op_quote_discovery() -> dict:
+def op_quote_discovery(params: dict | None = None) -> dict:
     load_secrets()
+    params = params if isinstance(params, dict) else {}
     cities = json.loads((REPO / "icp-collector/config/cities.json").read_text(encoding="utf-8"))
     zips = []
     for city in cities.get("cities") or []:
         for tile in city.get("tiles") or []:
             zips.append(str(tile).split()[0])
-    quote = quote_catalog(postal_codes=zips, estimated_rows=50, budget_usd=0.0)
+    caps = remaining_caps(PRIVATE)
+    quote = quote_catalog(postal_codes=zips, estimated_rows=int(params.get("estimated_rows") or 50), budget_usd=caps["remaining_run_usd"])
+    quote["would_checkout"] = False
     if not os.environ.get("OUTSCRAPER_API_KEY"):
         return {
             "ok": False,
             "error": "OUTSCRAPER_API_KEY_absent_on_vds",
             "paid_ops": "blocked",
             "quote": quote,
-            "next_action": "Install the existing Outscraper key into /etc/evo/secrets.env from the same store used by check-reviews. Do not paste the key into chat.",
+            "caps": caps,
+            "next_action": "OUTSCRAPER_API_KEY is in the existing check-reviews/Supabase secret store. Install that same key into /etc/evo/secrets.env. Do not paste the key into chat.",
         }
     return {
         "ok": True,
         "authorized": True,
-        "paid_ops": "blocked_until_explicit_budget",
+        "paid_ops": "quote_only",
         "quote": quote,
+        "caps": caps,
+        "run_cap_usd": RUN_CAP_USD,
+        "week_cap_usd": WEEK_CAP_USD,
         "completed_purchase_budget_usd": 0.13,
-        "recurring_budget_usd": 0.0,
-        "note": "The $0.13 approval covered completed NYC/LA checkouts only. Do not treat it as a standing budget.",
+        "recurring_budget_usd": RUN_CAP_USD,
+        "note": "Standing cap is $3 per run and $9 per ISO week. Unused budget does not roll. Quote only; use run_discovery to checkout.",
     }
+
+
+def op_run_discovery(params: dict | None = None) -> dict:
+    load_secrets()
+    ensure_store()
+    return run_recurring_discovery(PRIVATE, params or {}, public_index=PUBLIC_INDEX)
 
 
 def op_logs() -> dict:
@@ -561,6 +594,10 @@ def dispatch(operation: str, params: dict | None = None, request: dict | None = 
             result = op_send_batch(params, request_id)
         elif canonical == "ingest_inbox":
             result = op_ingest_inbox(params)
+        elif canonical == "run_discovery":
+            result = op_run_discovery(params)
+        elif canonical == "quote_discovery":
+            result = op_quote_discovery(params)
         else:
             result = {
                 "health": op_health,
@@ -568,7 +605,6 @@ def dispatch(operation: str, params: dict | None = None, request: dict | None = 
                 "instantly_status": op_instantly_status,
                 "instantly_control": op_instantly_control,
                 "dry_run": op_dry_run,
-                "quote_discovery": op_quote_discovery,
                 "logs": op_logs,
             }[canonical]()
         result["operation"] = canonical
