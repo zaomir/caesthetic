@@ -18,6 +18,7 @@
     "docs/audits/caesthetic/README.md": "7943cfc6f563357be2b95c394188e4bfbd88e859de839471c651cd8ef61558db",
     "docs/audits/caesthetic/TASK-849_CONVERSION_INFRA_2026-08-21.md": "8d3d5be14a4333500a4259e4fa5d0e77878e9ffc71e10fa70dbac8203c3469e9",
     "docs/audits/caesthetic/TASK-849_TEST_LEAD_2026-08-21.json": "a5b898d38e1031b21db261a92a3eb198c3a83f96c46a26f1b685beaf71e62647",
+    "docs/audits/caesthetic/connect4-page/build-1840c449d374a13dd77fe3b3f3159ca0bae51dcb-34612948805-1.json": "e5ae0b8f39b3bd60ac598384e46321714c77c69197653491c816b6c0cf50a2e1",
     "docs/audits/caesthetic/connect4-page/build-950547571d95b8ab18849671103e8fc7d9e57154-33972568929-1.json": "1e65f7c70214dd37bfb65a635230a6f344b97f697aa0551850213957d891543c",
     "docs/audits/caesthetic/connect4-page/build-d563e79cf9b3b2b69acb5c82e8a49a3c123a6fd8-33971196177-1.json": "5a0a0b33594609c67db3f69b6b5f4ea327781b094b0771866402b7cc31dcb4a9",
     "docs/audits/caesthetic/connect4-page/engagement-local-20260905.json": "d88a6e3fdefe20c610a3d22009f0ed1988952f05795b6ccaf5aa64aa00c74f78",
@@ -417,7 +418,7 @@
     "docs/caesthetic/00_PIPELINE_PROTOCOL.md": "1f913ad23a9b313d41f157d1cfb094d8f6f98851a46cefe18d088f8b538ee1d4",
     "docs/caesthetic/CAESTHETIC_SSOT.md": "930130300c6c4e3a60751044a2757bf169952b50905f534d1b32afc944efa5ba",
     "docs/caesthetic/CASE_LIBRARY_TEXT_FIRST_PLAN.md": "03de79d623c1a16d92b7a32fbb48626096eadae4c21016cf459af2638954709f",
-    "docs/caesthetic/CONNECT4_BLOG_AND_LINKS_2026-09-11.md": "d8065d319373ea444ac456a535e0f895b125058220ff3b9bb845e2ca51ed5c1c",
+    "docs/caesthetic/CONNECT4_BLOG_AND_LINKS_2026-09-11.md": "fdf822064d598673a86836f962218b080498e7c647691b5105d72ac846ff94f4",
     "docs/caesthetic/GROWTH_PREVIEW_V1.md": "dd6f4b076f27f506b39b1b9e54fd4f9005af7c99824c5707a54ee9f8fec0a73a",
     "docs/caesthetic/GROWTH_SCORE_MOBILE_DECISION_UI.md": "9ffc5f1f710c34fa9d6be8a22ce15f51ebe85b87de51cf7d6daebd07a0d1bfcd",
     "docs/caesthetic/GROWTH_SCORE_NEXT_VERSION_JOURNEY_GRAPH.md": "fe6ef1ea7fddff1244437b38ecc7d29b8f54f4f2496fea1cb75ca3b8bb1161bc",
@@ -1054,7 +1055,7 @@
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/case-studies.css": "4cdfb00b87951c6348652be0b24ca9bd931ebe7cfe1382d7d5a44c825c773bf6",
     "site-caesthetic/assets/css/case-study-detail.css": "ab7ca456be6c5971c2ca6f175818c2762c010a40f0e87dbeb12c6564b6edb7fc",
-    "site-caesthetic/assets/css/connect4-blog.css": "0aea2e5ba9c814719f39279f108aaf3c001c8833d091e23ba6dcf919ed58d161",
+    "site-caesthetic/assets/css/connect4-blog.css": "f0eb5aa7aaf0f419679bdb7638edcc79d308be25f3df5c9bab9a1ac058201d8c",
     "site-caesthetic/assets/css/connect4-services.css": "bf57831be516dbf6862206ef7a23734fc2fe1e2efd75140343fdd94194d6ffd0",
     "site-caesthetic/assets/css/connect4.css": "968faa3d728d4a1c16204425c5a11a95571782e1c05077fa09ad66636fdf4884",
     "site-caesthetic/assets/css/ent-review-v6.css": "1a3d4ee098f9e8da0345f3b72718f2df0d61e524b5701f7f045e99ed296ef0dc",
@@ -1304,6 +1305,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-11T14:54:53Z",
+  "updated_at_utc": "2026-09-11T15:12:37Z",
   "version": 1
 }

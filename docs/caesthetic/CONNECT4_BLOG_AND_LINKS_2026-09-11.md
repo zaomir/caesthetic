@@ -27,3 +27,7 @@ Blog, service and Russian/English ENT generators pass deterministic checks. Scop
 ## Text enlargement correction
 
 Connect4 QA reproduced a 320px/200% text-zoom overflow in the existing `#implementation .c4-stages` grid: main client width 305px, scroll width 317px; the stage grid client width was 265px and scroll width 297px. The default `1fr` track retained intrinsic minimum content width. The correction uses `minmax(0,1fr)` tracks on desktop/mobile and `min-width:0` on the stage items. No overflow clipping or assertion waiver. The existing browser check now records geometry on failure; its required assertion is unchanged. Reverification pending.
+
+The corrected Connect4 grid passed the complete browser check at source `1840c449d374a13dd77fe3b3f3159ca0bae51dcb` (run 34612948805), including 200% text enlargement. Live article URLs already resolve, but the Worker retained a legacy `/blog/` → `/` redirect. Remove only that obsolete index redirect to enable the owner-requested blog; the unrelated retired article redirect remains. No access or authentication rules change.
+
+Live article review confirms the layout and links. Article section headings now explicitly use the canonical Source Serif 4 / 400 editorial role instead of the browser default heading weight.
