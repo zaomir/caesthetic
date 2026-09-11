@@ -780,7 +780,7 @@
     "scripts/caesthetic/compact-test-reporter.mjs": "29d26284aa55bad05ddb3c36e79621ac899938b455ce6465f11f3519ca1536fc",
     "scripts/caesthetic/compose-template-reel-example.py": "17e99f1ff51b84bd25d00d11203d93ddfa21db34605167373d3b7c93c31745a1",
     "scripts/caesthetic/connect4-media.mjs": "2caf81b484bfa9a02b53df0c1956c6f1d7ca25ff9cfb0f1fb26f56d3189313d6",
-    "scripts/caesthetic/connect4-page-browser-qa.mjs": "9f9251179b8d620ebd3ca4725f447b417fad20a5128bd2fcbf0e09e33afb02e4",
+    "scripts/caesthetic/connect4-page-browser-qa.mjs": "893739313bfba115414390b5031aab5d4cbce024c0d94a101402864cb1189af8",
     "scripts/caesthetic/consistency-contract.mjs": "46351b8e5dac8d324ece85d19b2434d5b8f0a8f44cb95a31fe73ab66be1be8e8",
     "scripts/caesthetic/continuous-sync-runner.sh": "1808168f655e732576d8bce4158996d8e3cb0e81d39daa8c64fb22d9ae89c62b",
     "scripts/caesthetic/dec829-parity-guard.mjs": "541e9d37ac2212cefcc2b90ea41b8361eb93d17c6a6299c01ab8cff3fa779369",
@@ -1304,6 +1304,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-11T14:42:23Z",
+  "updated_at_utc": "2026-09-11T14:48:53Z",
   "version": 1
 }

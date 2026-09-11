@@ -109,6 +109,7 @@ try {
  for(const width of [320,360,390,430,768,1024,1440,1920]){
   await page.setViewportSize({width,height:900});
   const overflow=await page.locator('main').evaluate(el=>el.scrollWidth>el.clientWidth+1);
+  if(overflow) results.zoom_geometry=await page.locator('main').evaluate(main=>({main:{client:main.clientWidth,scroll:main.scrollWidth,rect:main.getBoundingClientRect().toJSON()},viewport:innerWidth,scrollX,root:document.documentElement.scrollWidth,overflowing:[...main.querySelectorAll('*')].filter(el=>el.scrollWidth>el.clientWidth+1).map(el=>({tag:el.tagName,id:el.id,class:el.className,client:el.clientWidth,scroll:el.scrollWidth,rect:el.getBoundingClientRect().toJSON(),text:el.textContent.slice(0,100),display:getComputedStyle(el).display,whiteSpace:getComputedStyle(el).whiteSpace}))}));
   if(overflow){results.zoom_overflow=await page.locator('main').evaluate((main,w)=>[...main.querySelectorAll('*')].filter(el=>el.getBoundingClientRect().right>w+1).map(el=>({tag:el.tagName,class:el.className,text:el.textContent.slice(0,80),right:el.getBoundingClientRect().right})),width);await page.screenshot({path:path.join(out,`zoom-overflow-${width}.png`),fullPage:true});}
   assert.equal(overflow,false,`Text zoom overflow at ${width}`);
  }
@@ -129,3 +130,4 @@ try {
  assert.deepEqual(errors,[],'Browser errors');results.javascript_errors=errors;results.status='PASS';
 } catch(error){results.status='FAIL';results.error=error.stack;process.exitCode=1;}
 finally {if(browser)await browser.close();if(server)await new Promise(r=>server.close(r));fs.writeFileSync(path.join(out,'qa.json'),JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results,null,2));}
+
