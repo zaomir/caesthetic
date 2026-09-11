@@ -54,10 +54,10 @@ Published catalog rate (2026-09): first 500 records free on the observed public 
 ## Live collection status (2026-09-11)
 
 - Worker + cron are installed on VPS2402: `/etc/cron.d/caesthetic-medspa-recurring` → `0 12 * * 1,3,5` UTC.
-- Starter run `disc-20260911Tstarter` did **not** purchase. Exact blocker: `OUTSCRAPER_API_KEY` is absent from `/etc/evo/secrets.env` (and sibling host files). The same secret **name** exists in the Supabase/check-reviews store (hash only; Management API does not return the value).
-- Paid collection is **not** claimed as working. After the existing key is copied into `/etc/evo/secrets.env`, run `python3 scripts/caesthetic/medspa-discovery/run.py run_discovery` with `starter: true`.
-- Because the starter did not buy, it does **not** replace Monday. Next scheduled fire: **2026-09-14T12:00:00Z**.
-- First provider job ID: none. Actual spend: $0. New unique locations / dupes / enrichment from this starter: none.
+- `OUTSCRAPER_API_KEY` is on the host (`/etc/evo/secrets.env`, `root:root 600`). `load_secrets()` sees it; `/profile` authorizes. No key in Git or chat.
+- No paid purchase yet by design: the first buy is the scheduled slot, not a manual extra spend. Starter `disc-20260911Tstarter` remains $0 and does **not** replace Monday.
+- Next scheduled fire / first paid attempt: **2026-09-14T12:00:00Z**.
+- First provider job ID: none. Actual spend: $0. New unique locations / dupes / enrichment: none until that run completes.
 
 ## Storage
 Private raw CSV/JSON, provider job IDs, spend ledger, and contacts live under `/var/lib/caesthetic-medspa/` (not Git). Public run notes (no emails) may be summarized under `docs/research/caesthetic-new-medspa-discovery/YYYY-MM-DD/`.
