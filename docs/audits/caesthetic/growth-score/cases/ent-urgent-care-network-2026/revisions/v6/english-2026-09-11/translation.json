@@ -1,0 +1,1846 @@
+[
+  {
+    "source": "Сеть: 47 точек, два варианта пилота · ENT Urgent Care · русский v6",
+    "en": "Network: 47 locations, two pilot options · ENT Urgent Care · English v6"
+  },
+  {
+    "source": "Перейти к отчёту",
+    "en": "Skip to report"
+  },
+  {
+    "source": "Материал для проверки Валерией.",
+    "en": "ENT Urgent Care · Network audit."
+  },
+  {
+    "source": " Фокусная точка и решения ещё не утверждены. Сетевой аудит и два варианта моно-аудита. Цифровые Growth Score не рассчитаны: доказательств по всем поверхностям недостаточно.",
+    "en": " Network review and two location-level pilot options. The pilot location will be agreed before implementation. Numeric Growth Scores have not been calculated because evidence across all four surfaces is incomplete."
+  },
+  {
+    "source": "10 сентября 2026 · v6",
+    "en": "September 10, 2026 · v6"
+  },
+  {
+    "source": "ENT Urgent Care · исследование открытых источников",
+    "en": "ENT Urgent Care · Public-source research"
+  },
+  {
+    "source": "Сеть: 47 точек, два варианта пилота",
+    "en": "Network: 47 locations, two pilot options"
+  },
+  {
+    "source": "Главное наблюдаемое ограничение — выбранная точка не всегда сохраняется между каталогом, страницей и записью. Ниже — обновлённый сетевой разбор и два самостоятельных варианта для выбора Валерией.",
+    "en": "The main observable constraint is that the selected location is not always preserved between the directory, location page and booking destination. Below are the updated network review and two location-level options for choosing the first pilot."
+  },
+  {
+    "source": "Сеть",
+    "en": "Network"
+  },
+  {
+    "source": "Охват и ограничения",
+    "en": "Coverage and limitations"
+  },
+  {
+    "source": "Для проверки Валерией",
+    "en": "Audit findings"
+  },
+  {
+    "source": "Где сеть теряет ясность",
+    "en": "Where the network loses clarity"
+  },
+  {
+    "source": "В охвате сохранены все ",
+    "en": "The review retains all "
+  },
+  {
+    "source": "47 заявленных точек",
+    "en": "47 declared locations"
+  },
+  {
+    "source": ". Живой каталог показывает ",
+    "en": ". The live directory shows "
+  },
+  {
+    "source": "42 карточки",
+    "en": "42 listings"
+  },
+  {
+    "source": ". Прочитаны ",
+    "en": ". We read "
+  },
+  {
+    "source": "44 страницы филиалов",
+    "en": "44 location pages"
+  },
+  {
+    "source": "; три других проверенных маршрута вернули 404. Это четыре разных показателя, их нельзя смешивать.",
+    "en": "; three other checked routes returned 404. These are four different measures and should not be combined."
+  },
+  {
+    "source": "Наблюдение",
+    "en": "Observation"
+  },
+  {
+    "source": "Проверенный объём",
+    "en": "Verified coverage"
+  },
+  {
+    "source": "Значение",
+    "en": "Meaning"
+  },
+  {
+    "source": "Два разных расписания",
+    "en": "Two different sets of hours"
+  },
+  {
+    "source": "40 из 44 прочитанных страниц",
+    "en": "40 of 44 readable pages"
+  },
+  {
+    "source": "Несогласованная подача доступности; не доказательство, что все часы неверны.",
+    "en": "Inconsistent presentation of availability; this does not prove that all hours are incorrect."
+  },
+  {
+    "source": "Повтор координат другого филиала",
+    "en": "Coordinates repeated from another location"
+  },
+  {
+    "source": "4 из 42 карточек каталога",
+    "en": "4 of 42 directory listings"
+  },
+  {
+    "source": "Локальная ссылка Book не найдена",
+    "en": "Local Book link not found"
+  },
+  {
+    "source": "12 из 44 извлечённых страниц",
+    "en": "12 of 44 extracted pages"
+  },
+  {
+    "source": "Требуется ясный альтернативный маршрут; отсутствие Book не равно невозможности записаться.",
+    "en": "A clear alternative path is needed; the absence of a Book link does not mean booking is unavailable."
+  },
+  {
+    "source": "Нет в живом каталоге",
+    "en": "Missing from the live directory"
+  },
+  {
+    "source": "5 из 47 исторически заявленных",
+    "en": "5 of 47 historically declared locations"
+  },
+  {
+    "source": "Alamosa, Burlington, две Colorado Springs и Barrington.",
+    "en": "Alamosa, Burlington, two Colorado Springs locations and Barrington."
+  },
+  {
+    "source": "Маршрут вернул 404",
+    "en": "Route returned 404"
+  },
+  {
+    "source": "3 из 47 проверенных URL",
+    "en": "3 of 47 checked URLs"
+  },
+  {
+    "source": "Источник: ",
+    "en": "Source: "
+  },
+  {
+    "source": "Каталог сети",
+    "en": "Network directory"
+  },
+  {
+    "source": " · проверка 10 сентября 2026.",
+    "en": " · checked September 10, 2026."
+  },
+  {
+    "source": "1. Доходит ли пациент до выбранной точки?",
+    "en": "1. Does the patient reach the location they selected?"
+  },
+  {
+    "source": "В нескольких маршрутах меняется город или партнёр.",
+    "en": "Several paths change the city or partner practice."
+  },
+  {
+    "source": "В Alexander City данные детальной страницы относятся к Huntsville. В Roseville следующий экран записи явно называется ENT Urgent Care Edina.",
+    "en": "The Alexander City detail page shows Huntsville contact details. In Roseville, the next booking screen explicitly says ENT Urgent Care Edina."
+  },
+  {
+    "source": "Почему это важно:",
+    "en": "Why it matters:"
+  },
+  {
+    "source": " пациенту приходится заново выяснять, куда он записывается. Потеря обращений возможна, но не измерена.",
+    "en": " patients have to work out again where they are booking. Lost inquiries are possible but have not been measured."
+  },
+  {
+    "source": "Изменение:",
+    "en": "Change:"
+  },
+  {
+    "source": " связать каждую кнопку с подтверждённой записью филиала. ",
+    "en": " connect each button to the location's verified booking destination. "
+  },
+  {
+    "source": "Приёмка:",
+    "en": "Acceptance:"
+  },
+  {
+    "source": " название, адрес и телефон сохраняются до границы обращения.",
+    "en": " the name, address and phone number remain consistent up to the inquiry boundary."
+  },
+  {
+    "source": "2. Понятно ли, когда можно прийти?",
+    "en": "2. Is it clear when a patient can come in?"
+  },
+  {
+    "source": "40 из 44 прочитанных страниц показывают два расписания.",
+    "en": "40 of 44 readable pages display two sets of hours."
+  },
+  {
+    "source": "Разные часы могут обозначать офис и отдельный режим urgent care. Это допустимо только при понятных подписях и актуальных локальных правилах.",
+    "en": "Different hours may refer to office hours and a separate urgent-care schedule. This is appropriate only when the labels and current local rules make the distinction clear."
+  },
+  {
+    "source": " один главный блок доступности и отдельно условия приёма сегодня. ",
+    "en": " one main availability block, with same-day visit conditions explained separately. "
+  },
+  {
+    "source": " нет неразъяснённых противоречий, учтены перерывы и запись по звонку.",
+    "en": " no unexplained contradictions; breaks and call-to-book requirements are covered."
+  },
+  {
+    "source": "3. Достаточно ли обещания «приём сегодня»?",
+    "en": "3. Is a same-day appointment promise enough?"
+  },
+  {
+    "source": "В Monroe такое же обещание дают CEENTA и CornerStone.",
+    "en": "CEENTA and CornerStone make the same promise in Monroe."
+  },
+  {
+    "source": "Это наблюдение о публичных предложениях конкурентов, а не об их фактических свободных слотах. Быстрый доступ сам по себе не создаёт уникального позиционирования.",
+    "en": "This describes competitors' public offers, not their actual available appointments. Fast access alone does not create unique positioning."
+  },
+  {
+    "source": " показывать локального специалиста, подходящий запрос, способ записи и проверенные возможности диагностики. ",
+    "en": " show the local specialist, suitable patient concern, booking method and verified diagnostic capabilities. "
+  },
+  {
+    "source": " пациент понимает, почему ему подходит именно эта практика.",
+    "en": " patients understand why this practice is appropriate for them."
+  },
+  {
+    "source": "4. Можно ли переносить исправления на всю сеть?",
+    "en": "4. Can the corrections be extended across the network?"
+  },
+  {
+    "source": "Можно переносить правила, но не локальные факты.",
+    "en": "The rules can scale; local facts cannot simply be copied."
+  },
+  {
+    "source": "Общий реестр и проверки ссылок масштабируются. Адрес, часы, аппаратура и врачи подтверждаются отдельно по каждому филиалу.",
+    "en": "A shared register and link checks can scale. Addresses, hours, equipment and clinicians must be confirmed separately for each location."
+  },
+  {
+    "source": " все 47 строк имеют владельца данных и статус; карточка, страница и запись проверяются вместе после каждой правки.",
+    "en": " all 47 records have a data owner and status; the listing, page and booking destination are checked together after each change."
+  },
+  {
+    "source": "Одна общая тройка приоритетов",
+    "en": "One shared set of three priorities"
+  },
+  {
+    "source": "01 · Главное ограничение",
+    "en": "01 · Primary constraint"
+  },
+  {
+    "source": "Сохранять выбранную клинику на всём пути",
+    "en": "Keep the selected practice consistent throughout the path"
+  },
+  {
+    "source": "Адрес, телефон, партнёр, ссылка «Маршрут» и экран записи должны относиться к одной точке. Alexander City и Roseville дают воспроизводимые примеры разрыва.",
+    "en": "The address, phone number, partner, Directions link and booking screen should refer to the same location. Alexander City and Roseville provide reproducible examples of a break in this path."
+  },
+  {
+    "source": "02 · Поддерживающая задача",
+    "en": "02 · Supporting task"
+  },
+  {
+    "source": "Объяснить фактическую доступность",
+    "en": "Explain actual availability"
+  },
+  {
+    "source": "40 из 44 прочитанных страниц показывают два разных расписания. Развести часы работы офиса, приём ENT Urgent Care и условия записи на сегодня.",
+    "en": "40 of 44 readable pages display two different sets of hours. Distinguish office hours, ENT Urgent Care availability and conditions for a same-day appointment."
+  },
+  {
+    "source": "03 · Поддерживающая задача",
+    "en": "03 · Supporting task"
+  },
+  {
+    "source": "Согласовать каталог с действующими маршрутами",
+    "en": "Align the directory with active patient paths"
+  },
+  {
+    "source": "47 заявленных точек, 42 карточки в живом каталоге и три проверенных маршрута с ответом 404. Подтвердить статус каждого филиала и обновить все точки входа.",
+    "en": "There are 47 declared locations, 42 live directory listings and three verified routes returning 404. Confirm each location's status and update every entry point."
+  },
+  {
+    "source": "Это предлагаемая тройка по сетевому проходу. Более позднее исследование Monroe уточняет его локальное основание; финальная тройка и фокусная точка ещё не утверждены. Коммерческое предложение едино для сети.",
+    "en": "These priorities come from the network review. The later Monroe research refines its local evidence; the first pilot location remains to be selected. One implementation proposal covers the network."
+  },
+  {
+    "source": "Два варианта для выбора одной точки",
+    "en": "Two options for selecting the first location"
+  },
+  {
+    "source": "Рекомендую ",
+    "en": "We recommend "
+  },
+  {
+    "source": ", если цель — показать и устранить наиболее очевидный разрыв между филиалом и обращением. Выбирайте ",
+    "en": " if the goal is to demonstrate and correct the clearest break between a location and its inquiry path. Choose "
+  },
+  {
+    "source": ", если важнее пилот привлечения на sinus-направление в конкурентном локальном рынке.",
+    "en": " if the priority is a sinus-care acquisition pilot in a competitive local market."
+  },
+  {
+    "source": "Критерий отбора: подтверждённая проблема локальной идентичности/поискового пути или репутации + ещё одно наблюдаемое препятствие + конкурентное давление либо повторяемость исправления. Низкий рейтинг используется только после сопоставления правильной карточки; сам по себе он не определяет выбор.",
+    "en": "Selection criteria: a verified local identity, search-path or reputation issue, plus another observable obstacle, plus competitive pressure or repeatable corrections. A low rating is considered only after the correct listing is matched; it does not determine the choice on its own."
+  },
+  {
+    "source": "Точка",
+    "en": "Location"
+  },
+  {
+    "source": "Что подтверждено",
+    "en": "What is verified"
+  },
+  {
+    "source": "Решение",
+    "en": "Decision"
+  },
+  {
+    "source": "Чужой адрес/телефон; часы партнёра с обеденным перерывом; локальная процедура подтверждена.",
+    "en": "Another city's address and phone number; partner hours include a lunch break; a local procedure is confirmed."
+  },
+  {
+    "source": "Основной вариант для пилота маршрутизации.",
+    "en": "Primary option for a patient-path pilot."
+  },
+  {
+    "source": "Запись у партнёра существует; на странице сети прямого перехода нет. Два местных ENT-конкурента тоже обещают same-day.",
+    "en": "Partner booking exists, but the network page has no direct link. Two local ENT competitors also advertise same-day appointments."
+  },
+  {
+    "source": "Основной вариант для пилота sinus и записи.",
+    "en": "Primary option for a sinus-care and booking pilot."
+  },
+  {
+    "source": "Кнопка записи открывает ENT Urgent Care Edina. У Primary ENT Roseville отсутствует в текущем каталоге.",
+    "en": "The booking button opens ENT Urgent Care Edina. Roseville is absent from Primary ENT's current directory."
+  },
+  {
+    "source": "Срочно сверить статус. Не выбирать действующим пилотом до подтверждения.",
+    "en": "Verify status urgently. Do not select it as an active pilot before confirmation."
+  },
+  {
+    "source": "Чужое имя партнёра; правильный Niles-адрес подтверждается ENT Center. Заголовок города исправлен.",
+    "en": "Incorrect partner name; ENT Center confirms the Niles address. The city heading has been corrected."
+  },
+  {
+    "source": "Резерв; прежние числовые выводы по репутации не подтверждены.",
+    "en": "Reserve option; earlier numerical reputation claims are unconfirmed."
+  },
+  {
+    "source": "Координаты New York City и несоответствие имени/сайта партнёра.",
+    "en": "New York City coordinates and a mismatch between the partner name and website."
+  },
+  {
+    "source": "Срочное исправление в сетевом реестре.",
+    "en": "Urgent correction in the network register."
+  },
+  {
+    "source": "Адрес и телефон совпадают с Midwest ENT, ссылка ведёт к Queen City.",
+    "en": "Address and phone number match Midwest ENT, but the link leads to Queen City."
+  },
+  {
+    "source": "Срочное исправление партнёрского перехода.",
+    "en": "Urgent correction to the partner link."
+  },
+  {
+    "source": "Переход на партнёра в Connecticut; связь не подтверждена.",
+    "en": "Partner link leads to Connecticut; the relationship is unconfirmed."
+  },
+  {
+    "source": "Проверить владельца маршрута перед заменой.",
+    "en": "Verify ownership of the destination before replacing it."
+  },
+  {
+    "source": "Перейти к решению и условиям →",
+    "en": "Go to the proposal and terms →"
+  },
+  {
+    "source": "План исправлений для команды сети",
+    "en": "Correction plan for the network team"
+  },
+  {
+    "source": "Срок",
+    "en": "Timing"
+  },
+  {
+    "source": "Работа и ответственный",
+    "en": "Work and responsible role"
+  },
+  {
+    "source": "Проверяемый результат",
+    "en": "Verifiable result"
+  },
+  {
+    "source": "Дни 1–3",
+    "en": "Days 1-3"
+  },
+  {
+    "source": "Владелец сети и партнёры: подтвердить статусы, адреса, телефоны, часы и места записи.",
+    "en": "Network owner and partners: confirm status, addresses, phone numbers, hours and booking destinations."
+  },
+  {
+    "source": "47 строк со статусом; срочные ошибочные переходы исправлены или ясно помечены.",
+    "en": "47 records with a status; urgent incorrect destinations corrected or clearly flagged."
+  },
+  {
+    "source": "Дни 4–10",
+    "en": "Days 4-10"
+  },
+  {
+    "source": "Веб-команда: единый набор локальных полей и проверки ссылок; один выбранный пилот.",
+    "en": "Web team: standard local fields and link checks; one selected pilot."
+  },
+  {
+    "source": "В пилоте нет чужого города/партнёра; часы и следующий шаг понятны.",
+    "en": "No other city's or partner's details in the pilot; hours and the next step are clear."
+  },
+  {
+    "source": "Дни 11–20",
+    "en": "Days 11-20"
+  },
+  {
+    "source": "Локальный управляющий и маркетолог: подтвердить sinus-услуги, врачей и допустимые обещания.",
+    "en": "Local manager and marketer: confirm sinus services, clinicians and appropriate claims."
+  },
+  {
+    "source": "На странице филиала есть проверенный путь к консультации, без обещания процедуры всем пациентам.",
+    "en": "The location page has a verified path to a consultation, without promising a procedure to every patient."
+  },
+  {
+    "source": "Дни 21–30",
+    "en": "Days 21-30"
+  },
+  {
+    "source": "Веб-команда и аналитик: повторный проход по всем 47; события на звонок, запись, переход партнёру.",
+    "en": "Web team and analyst: recheck all 47 locations; track call, booking and partner-link clicks."
+  },
+  {
+    "source": "Реестр до/после, контроль маршрутов, назначенный владелец обновлений.",
+    "en": "Before-and-after register, path checks and a designated owner for updates."
+  },
+  {
+    "source": "Сразу своими силами:",
+    "en": "Your team can act immediately:"
+  },
+  {
+    "source": " исправить подтверждённые чужие адреса и ссылки; проверить Roseville; согласовать расписания. Эти действия не требуют покупки Sprint.",
+    "en": " correct verified wrong-location addresses and links; check Roseville; reconcile hours. These actions do not require purchasing a Sprint."
+  },
+  {
+    "source": "Эффект:",
+    "en": "Impact:"
+  },
+  {
+    "source": " сначала проверяется исправность пути, затем его использование и только затем изменение обращений. Выпущенная правка сама по себе не доказывает рост выручки.",
+    "en": " first verify that the path works, then whether people use it, and only then changes in inquiries. Publishing a correction does not itself prove revenue growth."
+  },
+  {
+    "source": "Куда пока не увеличивать вложения",
+    "en": "Where not to increase investment yet"
+  },
+  {
+    "source": "Предлагаемый порядок: сначала устранить подтверждённые ошибки маршрутизации, затем тестировать расширение привлечения на соответствующие страницы. Реклама, CAC и текущая окупаемость не исследовались; это не рекомендация автоматически отключить действующие кампании.",
+    "en": "Recommended sequence: correct verified routing errors first, then test expanded acquisition to the affected pages. Advertising, CAC and current returns were not assessed; this is not a recommendation to automatically switch off existing campaigns."
+  },
+  {
+    "source": "Не продвигать конкретную процедуру от имени филиала, пока не подтверждены её наличие, врач, клинические условия и запись. Не создавать новые GBP ради искусственного «разделения репутации».",
+    "en": "Do not promote a specific procedure for a location until its availability, clinician, clinical conditions and booking path are confirmed. Do not create new Google Business Profiles to artificially separate reputation."
+  },
+  {
+    "source": "Приоритет для проверки экономики — приём по повторяющимся проблемам пазух.",
+    "en": "Priority for testing the economics: consultations for recurring sinus problems."
+  },
+  {
+    "source": " Путь: первичная консультация → диагностика по показаниям → консервативное лечение или подходящая процедура. Это гипотеза о коммерческом потенциале, а не установленная самая высокая маржа сети.",
+    "en": " The path is an initial consultation, diagnostic testing when indicated, then conservative treatment or an appropriate procedure. This is a commercial-potential hypothesis, not a finding that this is the network's highest-margin service."
+  },
+  {
+    "source": "Направление",
+    "en": "Service area"
+  },
+  {
+    "source": "Публичное основание",
+    "en": "Public evidence"
+  },
+  {
+    "source": "Решение для пилота",
+    "en": "Pilot decision"
+  },
+  {
+    "source": "Sinus / повторяющийся синусит",
+    "en": "Sinus care / recurring sinusitis"
+  },
+  {
+    "source": "Сеть описывает осмотр, КТ и возможные процедуры; у Alexander City подтверждена баллонная синусопластика в кабинете, у Queen City — MiniCAT и баллонная процедура. ",
+    "en": "The network describes examination, CT imaging and possible procedures; Alexander City confirms in-office balloon sinuplasty, and Queen City describes MiniCAT and balloon treatment. "
+  },
+  {
+    "source": "Первое направление для проверки. Нельзя обещать КТ или процедуру в каждом филиале.",
+    "en": "First service area to evaluate. Do not promise CT imaging or procedures at every location."
+  },
+  {
+    "source": "Аллергология",
+    "en": "Allergy care"
+  },
+  {
+    "source": "Предполагает последовательное лечение и повторные посещения. ",
+    "en": "Involves a course of treatment and repeat visits. "
+  },
+  {
+    "source": "Страница сети",
+    "en": "Network page"
+  },
+  {
+    "source": "Второй вариант: оценить загрузку кабинета и экономику курса, а не только первого визита.",
+    "en": "Second option: assess office capacity and the economics of the course of care, not only the first visit."
+  },
+  {
+    "source": "Слух / слуховые аппараты",
+    "en": "Hearing / hearing aids"
+  },
+  {
+    "source": "Для части взрослых с предполагаемой лёгкой/умеренной потерей слуха существуют OTC-устройства. ",
+    "en": "OTC devices are available for some adults with perceived mild-to-moderate hearing loss. "
+  },
+  {
+    "source": "Нужна отдельная модель диагностики, подбора и сопровождения. Это не доказательство более низкой прибыли.",
+    "en": "Requires a separate model for evaluation, fitting and follow-up. This does not prove lower profitability."
+  },
+  {
+    "source": "Сон / Inspire",
+    "en": "Sleep / Inspire"
+  },
+  {
+    "source": "Сеть описывает отбор, обследование, имплантацию и последующую настройку. ",
+    "en": "The network describes selection, evaluation, implantation and subsequent adjustment. "
+  },
+  {
+    "source": "Более длинный путь; не основной продукт привлечения на быстрый ENT-приём.",
+    "en": "A longer path; not the primary acquisition offer for a quick ENT appointment."
+  },
+  {
+    "source": "Баллонная процедура подходит только отобранным пациентам; выбор делает врач после необходимого обследования. ",
+    "en": "Balloon treatment is appropriate only for selected patients; the clinician decides after the necessary evaluation. "
+  },
+  {
+    "source": "Позиция AAO-HNS",
+    "en": "AAO-HNS position statement"
+  },
+  {
+    "source": ". Маркетинговая цель — подходящая консультация, не максимальное число процедур.",
+    "en": ". The marketing goal is an appropriate consultation, not maximizing the number of procedures."
+  },
+  {
+    "source": "Как проверить выгоду:",
+    "en": "How to evaluate the economics:"
+  },
+  {
+    "source": " сравнить по направлениям чистые поступления за 90 дней минус прямые затраты и стоимость привлечения, на одного нового пациента и на час ограниченного ресурса врача. Учитывать долю оплат по страховке, разрешения плательщика, клиническую пригодность, явки и доступную мощность. Ни одно из этих значений не известно из открытых источников.",
+    "en": " compare 90-day net collections less direct costs and acquisition costs by service area, per new patient and per hour of the clinician's constrained capacity. Consider insurance payer mix, payer authorization, clinical eligibility, attendance and available capacity. None of these values is established by public sources."
+  },
+  {
+    "source": "Все 47 точек × четыре поверхности",
+    "en": "All 47 locations × four surfaces"
+  },
+  {
+    "source": "Поиск/GBP, сайт, социальные сети и репутация показаны отдельно. Недоступность доказательств не является отрицательной оценкой филиала. Область таблицы прокручивается горизонтально и доступна с клавиатуры.",
+    "en": "Search/GBP, website, social media and reputation are shown separately. Unavailable evidence is not a negative assessment of a location. The table scrolls horizontally and is keyboard accessible."
+  },
+  {
+    "source": "Следующее действие",
+    "en": "Next action"
+  },
+  {
+    "source": "Поиск / GBP",
+    "en": "Search / GBP"
+  },
+  {
+    "source": "Сайт",
+    "en": "Website"
+  },
+  {
+    "source": "Социальные сети",
+    "en": "Social media"
+  },
+  {
+    "source": "Репутация",
+    "en": "Reputation"
+  },
+  {
+    "source": "Проверить / исправить",
+    "en": "Verify / correct"
+  },
+  {
+    "source": "Карточка не сопоставлена; сетка не измерена",
+    "en": "Listing not matched; grid not measured"
+  },
+  {
+    "source": "Страница показывает адрес и телефон Huntsville; каталог и партнёр подтверждают Alexander City. Два расписания различаются. В извлечённом локальном блоке ссылка Book не обнаружена; телефон/сайт могут быть допустимой альтернативой.",
+    "en": "The page shows Huntsville's address and phone number; the directory and partner confirm Alexander City. Two sets of hours differ. No Book link was found in the extracted local block; phone or website may be a valid alternative."
+  },
+  {
+    "source": "Сетевые профили найдены; локальный контент не оценён",
+    "en": "Network profiles found; local content not assessed"
+  },
+  {
+    "source": "Рейтинг, объём и темп отзывов не измерены",
+    "en": "Rating, review count and review velocity not measured"
+  },
+  {
+    "source": "Сверить доступность",
+    "en": "Verify availability"
+  },
+  {
+    "source": "Два расписания различаются. В извлечённом локальном блоке ссылка Book не обнаружена; телефон/сайт могут быть допустимой альтернативой.",
+    "en": "Two sets of hours differ. No Book link was found in the extracted local block; phone or website may be a valid alternative."
+  },
+  {
+    "source": "Ссылка «Маршрут» в каталоге повторяет координаты Tuscaloosa. Два расписания различаются. В извлечённом локальном блоке ссылка Book не обнаружена; телефон/сайт могут быть допустимой альтернативой.",
+    "en": "The directory's Directions link repeats Tuscaloosa's coordinates. Two sets of hours differ. No Book link was found in the extracted local block; phone or website may be a valid alternative."
+  },
+  {
+    "source": "Два расписания различаются.",
+    "en": "Two sets of hours differ."
+  },
+  {
+    "source": "Ссылка «Маршрут» в каталоге повторяет координаты Tuscaloosa. Два расписания различаются.",
+    "en": "The directory's Directions link repeats Tuscaloosa's coordinates. Two sets of hours differ."
+  },
+  {
+    "source": "Два расписания совпадают.",
+    "en": "Two sets of hours match."
+  },
+  {
+    "source": "Уточнить статус",
+    "en": "Clarify status"
+  },
+  {
+    "source": "В живом каталоге отсутствует; действующий статус не установлен. Два расписания различаются. В извлечённом локальном блоке ссылка Book не обнаружена; телефон/сайт могут быть допустимой альтернативой.",
+    "en": "Absent from the live directory; current operating status is unconfirmed. Two sets of hours differ. No Book link was found in the extracted local block; phone or website may be a valid alternative."
+  },
+  {
+    "source": "Проверенный маршрут вернул 404. В живом каталоге отсутствует; действующий статус не установлен.",
+    "en": "The checked route returned 404. Absent from the live directory; current operating status is unconfirmed."
+  },
+  {
+    "source": "В живом каталоге отсутствует; действующий статус не установлен. Два расписания различаются.",
+    "en": "Absent from the live directory; current operating status is unconfirmed. Two sets of hours differ."
+  },
+  {
+    "source": "Ссылка на партнёра ведёт на ENT Institute of Connecticut; связь с Delaware требует проверки. Два расписания различаются. В извлечённом локальном блоке ссылка Book не обнаружена; телефон/сайт могут быть допустимой альтернативой.",
+    "en": "The partner link leads to ENT Institute of Connecticut; its connection to Delaware requires verification. Two sets of hours differ. No Book link was found in the extracted local block; phone or website may be a valid alternative."
+  },
+  {
+    "source": "Заголовок специалистов теперь Buffalo Grove: прежнее замечание про Orland Park снято. Два расписания различаются.",
+    "en": "The clinician heading now says Buffalo Grove: the earlier Orland Park finding has been withdrawn. Two sets of hours differ."
+  },
+  {
+    "source": "Вместо ENT Center указан партнёр Primary ENT. Сам адрес Niles подтверждается ENT Center; это не доказанная географическая ошибка. Два расписания различаются.",
+    "en": "Primary ENT is named instead of ENT Center. ENT Center confirms the Niles address itself; this is not a verified geographic error. Two sets of hours differ."
+  },
+  {
+    "source": "Адрес в детальной странице, координаты и экран записи относятся к Edina; статус Roseville у партнёра не подтверждён. Два расписания различаются.",
+    "en": "The detail-page address, coordinates and booking screen refer to Edina; Roseville's partner status is unconfirmed. Two sets of hours differ."
+  },
+  {
+    "source": "Партнёр подписан Primary ENT, ссылка ведёт на ENT North Mississippi. Два расписания совпадают. В извлечённом локальном блоке ссылка Book не обнаружена; телефон/сайт могут быть допустимой альтернативой.",
+    "en": "The partner is labeled Primary ENT, while the link leads to ENT North Mississippi. Two sets of hours match. No Book link was found in the extracted local block; phone or website may be a valid alternative."
+  },
+  {
+    "source": "Партнёр подписан Primary ENT, ссылка ведёт на ENT North Mississippi. Два расписания совпадают.",
+    "en": "The partner is labeled Primary ENT, while the link leads to ENT North Mississippi. Two sets of hours match."
+  },
+  {
+    "source": "Две карточки сопоставлены; сетка не измерена",
+    "en": "Two listings matched; grid not measured"
+  },
+  {
+    "source": "Согласовать роли ENT Urgent Care и Queen City, локальные услуги и ссылки. У Queen City уже есть запись и 4,8 / 104 отзыва; общая Review Us ведёт в Charlotte. Два расписания различаются. В извлечённом локальном блоке ссылка Book не обнаружена; телефон/сайт могут быть допустимой альтернативой.",
+    "en": "Align the roles of ENT Urgent Care and Queen City, local services and links. Queen City already has booking and a 4.8 rating from 104 reviews; the general Review Us link leads to Charlotte. Two sets of hours differ. No Book link was found in the extracted local block; phone or website may be a valid alternative."
+  },
+  {
+    "source": "Профили и часть публикаций прочитаны; география требует согласования",
+    "en": "Profiles and some posts reviewed; geographic presentation needs alignment"
+  },
+  {
+    "source": "Queen City: 4,8 / 104; сетевой профиль: 0. Темп за 90 дней не рассчитан",
+    "en": "Queen City: 4.8 / 104; network profile: 0. 90-day velocity not calculated"
+  },
+  {
+    "source": "Указан партнёр Queen City ENT и его сайт; Midwest ENT подтверждает тот же местный адрес и телефон. Два расписания различаются.",
+    "en": "Queen City ENT and its website are listed as the partner; Midwest ENT confirms the same local address and phone number. Two sets of hours differ."
+  },
+  {
+    "source": "Заголовок списка специалистов относится к Charlotte. Два расписания различаются.",
+    "en": "The clinician-list heading refers to Charlotte. Two sets of hours differ."
+  },
+  {
+    "source": "Маршрут повторяет координаты New York City; имя партнёра Capital ENT не совпадает с доменом oatenn.com. Два расписания различаются.",
+    "en": "Directions repeat New York City's coordinates; the partner name Capital ENT does not match the domain oatenn.com. Two sets of hours differ."
+  },
+  {
+    "source": "Партнёр подписан Otolaryngology Associates of Tennessee, ссылка ведёт на Capital ENT в Texas. Два расписания различаются.",
+    "en": "The partner is labeled Otolaryngology Associates of Tennessee, while the link leads to Capital ENT in Texas. Two sets of hours differ."
+  },
+  {
+    "source": "Что сохранить и что проверить",
+    "en": "What to preserve and what to verify"
+  },
+  {
+    "source": "Основание",
+    "en": "Basis"
+  },
+  {
+    "source": "Сохранить",
+    "en": "Preserve"
+  },
+  {
+    "source": "Разделение ENT и общей неотложной помощи; локальные телефонные маршруты; работающие переходы в запись.",
+    "en": "The distinction between ENT and general urgent care; local phone paths; working booking links."
+  },
+  {
+    "source": "Исправить в первую очередь",
+    "en": "Correct first"
+  },
+  {
+    "source": "Alexander City, Roseville, Fairhope, Opelika, Nashville; ошибочные подписи/ссылки партнёров.",
+    "en": "Alexander City, Roseville, Fairhope, Opelika, Nashville; incorrect partner labels and links."
+  },
+  {
+    "source": "Общее правило",
+    "en": "Shared rule"
+  },
+  {
+    "source": "Локальные поля не должны наследоваться от другого филиала; каталог и меню получают один источник данных.",
+    "en": "Local fields must not inherit another location's details; the directory and navigation should use one data source."
+  },
+  {
+    "source": "Пилот",
+    "en": "Pilot"
+  },
+  {
+    "source": "Одна точка после выбора Валерии. Два варианта доступны отдельными страницами.",
+    "en": "One location selected before implementation. Two options are available as separate reports."
+  },
+  {
+    "source": "Масштабирование",
+    "en": "Scaling"
+  },
+  {
+    "source": "Сначала общие проверки, затем подтверждённые локальные исправления. Никаких копирований чужого расписания.",
+    "en": "Shared checks first, then verified local corrections. Never copy another location's hours."
+  },
+  {
+    "source": "Решение менеджера",
+    "en": "Pilot decision"
+  },
+  {
+    "source": "Выбрать Alexander City или Monroe, утвердить общую тройку и границы внедрения.",
+    "en": "Choose Alexander City or Monroe and confirm the implementation scope against the shared priorities."
+  },
+  {
+    "source": "Сетевые профили: ",
+    "en": "Network profiles: "
+  },
+  {
+    "source": ". Их связь с брендом подтверждается сайтом. Контент Facebook/Instagram не удалось прочитать; доступный LinkedIn подтверждает позиционирование сети. YouTube и TikTok сети однозначно не сопоставлены.",
+    "en": ". The website confirms their association with the brand. Facebook and Instagram content could not be read; accessible LinkedIn content confirms network positioning. The network's YouTube and TikTok profiles were not conclusively matched."
+  },
+  {
+    "source": "страница сети",
+    "en": "network page"
+  },
+  {
+    "source": "запись в Edina",
+    "en": "Edina booking"
+  },
+  {
+    "source": "каталог партнёра",
+    "en": "partner directory"
+  },
+  {
+    "source": " перечисляет только Savage, Edina и Mankato.",
+    "en": " lists only Savage, Edina and Mankato."
+  },
+  {
+    "source": "В Monroe подтверждены ",
+    "en": "In Monroe, we verified "
+  },
+  {
+    "source": " и ",
+    "en": " and "
+  },
+  {
+    "source": " с same-day предложением. Это делает ясную локальную запись важной частью сравнения. Подробное сравнение — в варианте Monroe.",
+    "en": " with same-day offers. This makes clear local booking an important point of comparison. See the Monroe report for details."
+  },
+  {
+    "source": "Границы и воспроизводимость",
+    "en": "Limitations and reproducibility"
+  },
+  {
+    "source": "Сетевой проход и его ограничения сохранены. По Monroe выполнено более позднее сопоставление карт, отзывов и части соцсетей; актуальные сведения приведены в его локальном материале. Это не новый проход всей сети.",
+    "en": "The network review and its limitations are preserved. Later research matched Maps, reviews and some social content for Monroe; the current findings appear in its local report. This is not a new review of the entire network."
+  },
+  {
+    "source": "Для сети в целом не измерено:",
+    "en": "Not measured across the network:"
+  },
+  {
+    "source": " позиции в Google Maps по сетке 5×5 / радиус 5 миль; достоверный текущий рейтинг и число отзывов; прирост отзывов за одинаковые 90 дней; полный контент социальных профилей; рекламные расходы, обращения, явки, выручка и маржа. Нельзя превращать эти пробелы в нули или доказательство плохой работы.",
+    "en": " Google Maps positions on a 5×5 grid within a 5-mile radius; reliable current ratings and review counts; review growth over a comparable 90-day period; complete social-profile content; advertising spend, inquiries, attendance, revenue and margin. These gaps must not be converted into zeros or evidence of poor performance."
+  },
+  {
+    "source": "Живой API по 47 запросам бренда вернул ",
+    "en": "The live API returned "
+  },
+  {
+    "source": ". Это результат поиска провайдера, а не установленное отсутствие карточек. Ещё 13 уточняющих запросов по точным названиям партнёров и конкурентов также не дали совпадений. Ответы сохранены вместе с результатами исследования. Прежние цифры рейтингов из переписки исключены; новый прямой срез Monroe показан отдельно.",
+    "en": " for 47 brand queries. This is a provider search result, not proof that listings do not exist. Another 13 refined queries using exact partner and competitor names also returned no matches. The responses are retained with the research. Earlier rating figures from correspondence were excluded; the new direct Monroe snapshot is shown separately."
+  },
+  {
+    "source": "Часть источников прочитана из поискового извлечения с разными датами обхода; каталог и ключевые экраны записи проверены в браузере. Дата проверки означает дату доступа, а не обещание, что все источники обновлены в этот день.",
+    "en": "Some sources were read through search extraction with different crawl dates; the directory and key booking screens were checked in a browser. The verification date records access, not a claim that every source was updated that day."
+  },
+  {
+    "source": "После отправки обращения: ответ → уточнение запроса → запись → подтверждение → явка → консультация → оплата. Все эти внутренние этапы ",
+    "en": "After an inquiry: response → clarification → booking → confirmation → attendance → consultation → payment. All these internal stages were "
+  },
+  {
+    "source": "не оценивались",
+    "en": "not assessed"
+  },
+  {
+    "source": ". Формы и записи не отправлялись, в клиники не звонили.",
+    "en": ". No forms or appointment requests were submitted, and no calls were made to practices."
+  },
+  {
+    "source": "Отдельная необязательная проверка пути от обращения до оплаты при согласованном доступе к неклиническим данным. Проблемы внутри клиники этим аудитом не установлены.",
+    "en": "A separate, optional review of the path from inquiry to payment, with agreed access to nonclinical data. This audit has not established problems inside the practice."
+  },
+  {
+    "source": "Подробнее о проверке →",
+    "en": "Learn about the Check →"
+  },
+  {
+    "source": "Суммарный Network Score не создаётся. Баллы отдельных точек не публикуются при недостаточном охвате. Утверждённого медицинского адаптера ещё нет; этот материал предназначен для внутренней русской проверки. Финальная английская версия готовится после утверждения решения.",
+    "en": "No aggregate Network Score is created. Location scores are not published when coverage is insufficient. A validated medical scoring adapter is not yet available; this report presents the observed public-path findings and their limitations without assigning numerical scores."
+  },
+  {
+    "source": "Что изменилось после предыдущей версии",
+    "en": "What changed since the previous version"
+  },
+  {
+    "source": "У Buffalo Grove и Park Ridge заголовки города теперь корректны. В Roseville сейчас показаны данные Edina, а не прежнее расписание вторник/четверг. Homewood, Huntsville и Farmington больше не отмечаются как непрочитанные. Старые рейтинги и число отзывов не перенесены.",
+    "en": "Buffalo Grove and Park Ridge now have correct city headings. Roseville currently shows Edina details rather than the earlier Tuesday/Thursday schedule. Homewood, Huntsville and Farmington are no longer marked unread. Earlier ratings and review counts were not carried forward."
+  },
+  {
+    "source": "Начать устранение найденных противоречий",
+    "en": "Start correcting the inconsistencies found"
+  },
+  {
+    "source": "Валерии доступны два варианта с доказательствами, локальным сравнением и условиями приёмки. Выбор пока не сделан.",
+    "en": "Two location-level options include evidence, local comparisons and acceptance criteria. The first pilot location has not yet been selected."
+  },
+  {
+    "source": "Вариант A · Alexander City →",
+    "en": "Option A · Alexander City →"
+  },
+  {
+    "source": "Вариант B · Monroe →",
+    "en": "Option B · Monroe →"
+  },
+  {
+    "source": "Привести одну локацию в порядок · $500",
+    "en": "Align one location · $500"
+  },
+  {
+    "source": "Предложение для ENT Urgent Care: начнём с одной согласованной точки и одного приоритетного направления услуг. Вы получите внедрённые изменения на четырёх публичных плоскостях и запуск системы обратной связи в согласованном объёме.",
+    "en": "Our proposal for ENT Urgent Care: start with one agreed location and one priority service area. You receive implemented changes across four public surfaces and a feedback-system launch within the agreed scope."
+  },
+  {
+    "source": "Работа",
+    "en": "Work"
+  },
+  {
+    "source": "Что передаём и проверяем",
+    "en": "What we deliver and verify"
+  },
+  {
+    "source": "Поиск и карты",
+    "en": "Search and Maps"
+  },
+  {
+    "source": "Исправленные доступные сведения существующей карточки: контакты, часы, услуги, ссылки. До пяти уместных ответов бизнеса на отзывы.",
+    "en": "Corrections to accessible details in the existing listing: contacts, hours, services and links. Up to five appropriate business replies to reviews."
+  },
+  {
+    "source": "Сайт и блог",
+    "en": "Website and blog"
+  },
+  {
+    "source": "Одна локальная страница выбранной услуги и одна полезная статья в существующей CMS. Подтверждённая география, услуги, специалисты и путь обращения.",
+    "en": "One local page for the selected service and one useful article in the existing CMS. Verified geography, services, clinicians and inquiry path."
+  },
+  {
+    "source": "Согласованные сведения о локации в выбранном аккаунте и одна публикация об услуге с локальной ссылкой.",
+    "en": "Aligned location details in the selected account and one service post with a local link."
+  },
+  {
+    "source": "Репутационная площадка",
+    "en": "Reputation platform"
+  },
+  {
+    "source": "Одна релевантная площадка: исправленная доступная карточка или отдельно отмеченная заявка на модерации.",
+    "en": "One relevant platform: an updated accessible listing or a separately identified submission awaiting moderation."
+  },
+  {
+    "source": "Система отзывов и обратной связи",
+    "en": "Review and feedback system"
+  },
+  {
+    "source": "Базовая адаптация собственной системы для одной точки: вход по ссылке, согласованное приглашение, один ответственный получатель уведомлений, журнал и инструкция. Тестовые сценарии и передача команде.",
+    "en": "Basic adaptation of our own system for one location: link-based entry, an agreed invitation, one responsible notification recipient, a log and instructions. Test scenarios and team handover."
+  },
+  {
+    "source": "Приёмка",
+    "en": "Acceptance"
+  },
+  {
+    "source": "Ссылки, даты и сравнение «до / после». Опубликованное, ожидающее модерации и реально используемое командой показаны отдельно.",
+    "en": "Links, dates and before-and-after comparisons. Published changes, items awaiting moderation and actual team adoption are reported separately."
+  },
+  {
+    "source": "Как мы устраняем противоречия на четырёх плоскостях →",
+    "en": "How we correct inconsistencies across four surfaces →"
+  },
+  {
+    "source": "Наша система отзывов и обратной связи →",
+    "en": "Our review and feedback system →"
+  },
+  {
+    "source": "Первые пять локаций — по $500; шестая и следующие — по $300",
+    "en": "First five locations: $500 each; sixth and subsequent locations: $300 each"
+  },
+  {
+    "source": " при том же согласованном объёме и сопоставимой сложности. Первая точка входит в первые пять; покупать остальные заранее не требуется. Первые пять вместе — $2,500.",
+    "en": " for the same agreed scope and comparable complexity. The first location counts toward the first five; no advance commitment to the others is required. The first five total $2,500."
+  },
+  {
+    "source": "В первые 30 дней после подтверждения фактов и доступов выполняем согласованные изменения и базовый запуск. Сроки решений сторонних площадок отмечаем отдельно. Новая CMS, восстановление доступов, споры о карточках, CRM/WhatsApp-интеграции, платные рассылки и постоянное сопровождение требуют отдельного согласованного объёма; их стоимость не добавляется без согласования.",
+    "en": "We complete the agreed changes and basic launch within the first 30 days after facts and access are confirmed. Third-party platform decision times are tracked separately. A new CMS, access recovery, listing disputes, CRM/WhatsApp integrations, paid messaging and ongoing support require a separately agreed scope; no additional charges are added without agreement."
+  },
+  {
+    "source": "Возможность публичного отзыва сохраняется независимо от оценки. Отзывы, рейтинг и число обращений не гарантируются. У Queen City уже есть отзывы и ответы: необходимость новой системы проверяем вместе с командой, работающий процесс сохраняем. Отсутствие данных о текущем сборе отзывов не считается установленной проблемой.",
+    "en": "The option to leave a public review remains available regardless of rating. Reviews, ratings and inquiry volume are not guaranteed. Queen City already has reviews and replies: we assess the need for a new system with the team and preserve a process that works. Missing information about current review collection is not treated as an established problem."
+  },
+  {
+    "source": "До старта фиксируем поимённые площадки и критерии приёмки. Пропуски в согласованной работе дорабатываем без доплаты. Динамику органической видимости оцениваем от исходного состояния; выпущенные материалы сами по себе не доказывают рост.",
+    "en": "Before starting, we name the platforms and agree on acceptance criteria. Omissions within the agreed work are corrected at no additional charge. Organic visibility is assessed against the baseline; publishing materials alone does not prove growth."
+  },
+  {
+    "source": "Обсудить первую локацию →",
+    "en": "Discuss the first location →"
+  },
+  {
+    "source": "CAESTHETIC · версия для проверки",
+    "en": "CAESTHETIC · Connect4 audit"
+  },
+  {
+    "source": "По прямой ссылке · рабочая версия для проверки",
+    "en": "Direct-link report · Public-source findings"
+  },
+  {
+    "source": "A · Alexander City, Alabama · ENT Urgent Care · русский v6",
+    "en": "A · Alexander City, Alabama · ENT Urgent Care · English v6"
+  },
+  {
+    "source": " Фокусная точка и решения ещё не утверждены. Вариант моно-аудита внутри общего сетевого пакета. Цифровые Growth Score не рассчитаны: доказательств по всем поверхностям недостаточно.",
+    "en": " Location-level option within the network audit package. The pilot location will be agreed before implementation. Numeric Growth Scores have not been calculated because evidence across all four surfaces is incomplete."
+  },
+  {
+    "source": "Сеть ведёт пациента на страницу Alexander City, но показывает контакты Huntsville. У местной практики уже есть специалисты и процедуры; сначала нужно обеспечить правильный путь к ним.",
+    "en": "The network sends patients to an Alexander City page but shows Huntsville contact details. The local practice already has specialists and procedures; the first step is to provide the correct path to them."
+  },
+  {
+    "source": "Диагноз публичного пути",
+    "en": "Diagnosis of the public patient path"
+  },
+  {
+    "source": "Проверка",
+    "en": "Check"
+  },
+  {
+    "source": "Адрес",
+    "en": "Address"
+  },
+  {
+    "source": "В каталоге сети и у партнёра: 3368 Highway 280, Suite G-15 (в сети G-15A), Alexander City, AL 35010. На детальной странице: 1963 Memorial Pkwy SW, Suite 5A, Huntsville.",
+    "en": "Network directory and partner: 3368 Highway 280, Suite G-15 (G-15A in the network), Alexander City, AL 35010. Detail page: 1963 Memorial Pkwy SW, Suite 5A, Huntsville."
+  },
+  {
+    "source": "Телефон",
+    "en": "Phone"
+  },
+  {
+    "source": "Партнёр и каталог: 256-329-1114. Детальная страница сети: 256-536-9300.",
+    "en": "Partner and directory: 256-329-1114. Network detail page: 256-536-9300."
+  },
+  {
+    "source": "Часы",
+    "en": "Hours"
+  },
+  {
+    "source": "Партнёр: пн–чт 7:45–12:00 и 12:30–17:00; пт 7:45–13:00. Сетевой локальный блок не показывает перерыв; верхний общий блок задаёт другие часы.",
+    "en": "Partner: Mon-Thu 7:45 AM-noon and 12:30-5:00 PM; Fri 7:45 AM-1:00 PM. The network's local block omits the break; the general block above shows different hours."
+  },
+  {
+    "source": "Действие",
+    "en": "Action"
+  },
+  {
+    "source": "Локальный Book не найден. Переход Visit Website открывает партнёра; на его сайте доступны контакты и общая форма. Форма не равна подтверждённому слоту.",
+    "en": "No local Book link was found. Visit Website opens the partner, whose site provides contact details and a general form. A form is not a confirmed appointment slot."
+  },
+  {
+    "source": "Партнёр прямо указывает кабинет для баллонной синусопластики и эндоскопию в Alexander City. Наличие местной КТ не подтверждено.",
+    "en": "The partner explicitly lists an in-office balloon sinuplasty suite and endoscopy in Alexander City. Local CT availability is unconfirmed."
+  },
+  {
+    "source": "Найдёт ли пациент правильную клинику?",
+    "en": "Will patients find the right practice?"
+  },
+  {
+    "source": "Страница меняет адрес и телефон на Huntsville.",
+    "en": "The page changes the address and phone number to Huntsville."
+  },
+  {
+    "source": "Наблюдение:",
+    "en": "Observation:"
+  },
+  {
+    "source": " Страница меняет адрес и телефон на Huntsville.",
+    "en": " The page changes the address and phone number to Huntsville."
+  },
+  {
+    "source": " Сверить страницу, каталог, GBP и запись с локальной практикой. Сохранить адрес партнёра как источник, отдельно подтвердить суффикс кабинета G-15A.",
+    "en": " Reconcile the page, directory, GBP and booking with the local practice. Use the partner's address as the source and separately confirm the suite suffix G-15A."
+  },
+  {
+    "source": " Кнопки адреса и звонка ведут в Alexander City; нет чужого телефонного номера.",
+    "en": " Address and call buttons lead to Alexander City; no other city's phone number remains."
+  },
+  {
+    "source": "Понятно ли, почему идти именно сюда?",
+    "en": "Is it clear why a patient should choose this practice?"
+  },
+  {
+    "source": "Локальные возможности сильнее, чем их связь с сетевой страницей.",
+    "en": "Local capabilities are stronger than their connection to the network page."
+  },
+  {
+    "source": " Локальные возможности сильнее, чем их связь с сетевой страницей.",
+    "en": " Local capabilities are stronger than their connection to the network page."
+  },
+  {
+    "source": " Показать ENT-специализацию, конкретных врачей и обследование при повторяющихся sinus-проблемах. Баллонную процедуру описывать только как возможный вариант по показаниям.",
+    "en": " Show ENT specialization, named clinicians and evaluation for recurring sinus problems. Describe balloon treatment only as a possible option when clinically indicated."
+  },
+  {
+    "source": " У каждого обещания есть подтверждение филиала; КТ не приписана без основания.",
+    "en": " Every claim has location-level confirmation; CT imaging is not attributed without evidence."
+  },
+  {
+    "source": "Поддерживает ли доверие тот же филиал?",
+    "en": "Does the evidence supporting trust refer to the same location?"
+  },
+  {
+    "source": "Партнёр подтверждает адрес и услуги; Google-репутация не сопоставлена.",
+    "en": "The partner confirms the address and services; Google reputation has not been matched."
+  },
+  {
+    "source": " Партнёр подтверждает адрес и услуги; Google-репутация не сопоставлена.",
+    "en": " The partner confirms the address and services; Google reputation has not been matched."
+  },
+  {
+    "source": " Связать сетевой бренд и Southern Head & Neck Surgery понятной подписью. После идентификации GBP использовать подтверждённую карточку, не отзывы другого врача/города.",
+    "en": " Explain the relationship between the network brand and Southern Head & Neck Surgery with a clear label. After identifying the GBP, use the verified listing rather than reviews for another clinician or city."
+  },
+  {
+    "source": " Источник каждого доказательства относится к этой практике; неизвестные рейтинги не показаны.",
+    "en": " Every piece of supporting evidence refers to this practice; unknown ratings are not displayed."
+  },
+  {
+    "source": "Можно ли сделать следующий шаг без догадок?",
+    "en": "Can patients take the next step without guessing?"
+  },
+  {
+    "source": "Телефон есть, но в детальной странице он относится к другому городу.",
+    "en": "A phone number is present, but the detail page's number belongs to another city."
+  },
+  {
+    "source": " Телефон есть, но в детальной странице он относится к другому городу.",
+    "en": " A phone number is present, but the detail page's number belongs to another city."
+  },
+  {
+    "source": " Сделать основной кнопкой проверенный звонок; если будет подтверждена онлайн-запись, указать её отдельно. Показать перерыв и условия приёма сегодня.",
+    "en": " Make the verified phone call the primary action; show online booking separately if confirmed. Explain the break and same-day visit conditions."
+  },
+  {
+    "source": " Один ясный способ обращения с верными контактами; тест до границы отправки без записи пациента.",
+    "en": " One clear inquiry method with correct contacts; test up to the submission boundary without booking a patient."
+  },
+  {
+    "source": "Как этот вариант связан с общим Top 3",
+    "en": "How this option connects to the network's shared priorities"
+  },
+  {
+    "source": "Главная локальная работа ниже конкретизирует общую сетевую тройку. Новые независимые приоритеты или отдельное коммерческое предложение не создаются.",
+    "en": "The local work below applies the network's three shared priorities. It does not create a separate priority set or commercial offer."
+  },
+  {
+    "source": "Для этой точки:",
+    "en": "For this location:"
+  },
+  {
+    "source": " Сначала заменить чужой адрес/телефон и согласовать часы. Затем подтвердить приём новых пациентов сегодня, правила направления/страховки, локальные услуги и ссылку на реальную карточку.",
+    "en": " First replace the other city's address and phone number and reconcile hours. Then confirm same-day new-patient availability, referral and insurance requirements, local services and the correct listing link."
+  },
+  {
+    "source": "Общие задачи: правильная клиника на всём пути; объяснённая доступность; согласованный каталог. Для Monroe третья задача означает контроль записи реестра, а не обнаруженный здесь 404.",
+    "en": "Shared tasks: the correct practice throughout the path; explained availability; an aligned directory. For Monroe, the third task means checking its register entry, not a 404 found at that location."
+  },
+  {
+    "source": "Открыть единую тройку сети →",
+    "en": "Open the network's shared priorities →"
+  },
+  {
+    "source": "Почему этот вариант полезен как пилот",
+    "en": "Why this is a useful pilot option"
+  },
+  {
+    "source": "A · Пилот корректного маршрута",
+    "en": "A · Correct patient-path pilot"
+  },
+  {
+    "source": "Самый наглядный тест сохранения города и контактов. Исправления проверяются до увеличения привлечения; кабинетные sinus-процедуры подтверждены локальным источником.",
+    "en": "The clearest test of preserving the city and contact details. Corrections are checked before expanding acquisition; a local source confirms in-office sinus procedures."
+  },
+  {
+    "source": "Перейти к выбору этого варианта →",
+    "en": "Go to the pilot decision →"
+  },
+  {
+    "source": "План исправления и проверка результата",
+    "en": "Correction plan and result verification"
+  },
+  {
+    "source": "Шаг",
+    "en": "Step"
+  },
+  {
+    "source": "Кто отвечает",
+    "en": "Responsible role"
+  },
+  {
+    "source": "1. Подтвердить факты",
+    "en": "1. Confirm the facts"
+  },
+  {
+    "source": "Сначала заменить чужой адрес/телефон и согласовать часы. Затем подтвердить приём новых пациентов сегодня, правила направления/страховки, локальные услуги и ссылку на реальную карточку.",
+    "en": "First replace the other city's address and phone number and reconcile hours. Then confirm same-day new-patient availability, referral and insurance requirements, local services and the correct listing link."
+  },
+  {
+    "source": "Управляющий филиала / владелец партнёрства",
+    "en": "Location manager / partnership owner"
+  },
+  {
+    "source": "2. Исправить маршрут",
+    "en": "2. Correct the path"
+  },
+  {
+    "source": "Привести каталог, страницу, телефон и место записи к одной сущности. Проверить на мобильном и настольном экране.",
+    "en": "Align the directory, page, phone number and booking destination around one entity. Check on mobile and desktop."
+  },
+  {
+    "source": "Веб-команда",
+    "en": "Web team"
+  },
+  {
+    "source": "3. Связать услугу и доверие",
+    "en": "3. Connect services and supporting evidence"
+  },
+  {
+    "source": "Указать подтверждённого врача, услугу и источник доказательства; проверить переход из локального профиля после идентификации.",
+    "en": "Identify the verified clinician, service and evidence source; check the path from the local profile after matching its identity."
+  },
+  {
+    "source": "Маркетолог + локальный врач по содержанию",
+    "en": "Marketer + local clinician for content"
+  },
+  {
+    "source": "4. Принять работу",
+    "en": "4. Accept the work"
+  },
+  {
+    "source": "Повторить исходные пути и зафиксировать ошибки до/после. Измерять действия отдельно от состоявшихся приёмов.",
+    "en": "Repeat the original paths and record before-and-after errors. Measure actions separately from completed visits."
+  },
+  {
+    "source": "Веб-команда / аналитик",
+    "en": "Web team / analyst"
+  },
+  {
+    "source": "Исходное состояние:",
+    "en": "Baseline:"
+  },
+  {
+    "source": " Сейчас: два подтверждённых контакта чужого города на детальной странице; два расписания различаются; обеденный перерыв партнёра пропущен. Цель приёмки: ни одного чужого контакта, одно объяснённое расписание, один подтверждённый путь обращения.",
+    "en": " Currently: two verified wrong-city contact details on the detail page; two different sets of hours; the partner's lunch break is omitted. Acceptance target: no wrong-city contacts, one explained schedule and one verified inquiry path."
+  },
+  {
+    "source": "Планируемые метрики: доля корректных публичных маршрутов, нажатия Call/Book/Visit partner, завершение онлайн-записи при доступной агрегированной аналитике. Фактические показатели не получены; рост записей не обещан.",
+    "en": "Planned metrics: share of correct public paths, Call/Book/Visit partner clicks and completed online bookings when aggregate analytics are available. Actual metrics have not been obtained; increased bookings are not promised."
+  },
+  {
+    "source": "Какое привлечение отложить",
+    "en": "What acquisition to defer"
+  },
+  {
+    "source": "Предлагаемый порядок — сначала исправить подтверждённую проблему пути, затем расширять привлечение на эту страницу. Нельзя рекламировать локальную КТ, процедуру или гарантированный приём сегодня без подтверждения филиала.",
+    "en": "Recommended sequence: correct the verified path problem first, then expand acquisition to this page. Do not advertise local CT imaging, a procedure or guaranteed same-day availability without confirmation from the location."
+  },
+  {
+    "source": "Sinus — приоритетная коммерческая гипотеза. Реальная выгода определяется поступлениями, прямыми затратами, клинически подходящими пациентами и доступным временем команды.",
+    "en": "Sinus care is the priority commercial hypothesis. Actual value depends on collections, direct costs, clinically eligible patients and available team capacity."
+  },
+  {
+    "source": "Сравнение sinus, аллергологии, слуха и Inspire →",
+    "en": "Compare sinus care, allergy, hearing and Inspire →"
+  },
+  {
+    "source": "Четыре поверхности и локальное намерение",
+    "en": "Four surfaces and local intent"
+  },
+  {
+    "source": "Поверхность",
+    "en": "Surface"
+  },
+  {
+    "source": "Что есть",
+    "en": "What is available"
+  },
+  {
+    "source": "Что неизвестно",
+    "en": "What is unknown"
+  },
+  {
+    "source": "Публичная страница точки и локальный партнёр обнаружены.",
+    "en": "The public location page and local partner were found."
+  },
+  {
+    "source": "Правильная Google-сущность, категории, рейтинг, локальная сетка и доля показов не измерены.",
+    "en": "The correct Google entity, categories, rating, local grid and visibility share were not measured."
+  },
+  {
+    "source": "Прочитаны страница сети и первичные источники партнёра; проверен следующий публичный шаг.",
+    "en": "The network page and primary partner sources were read; the next public step was checked."
+  },
+  {
+    "source": "Фактическая отправка и обработка обращения не проверялись.",
+    "en": "Actual inquiry submission and handling were not tested."
+  },
+  {
+    "source": "Поиск обнаружил отдельные упоминания Southern Head & Neck Surgery в Instagram, но принадлежность конкретному аккаунту и филиалу не подтверждена. Их нельзя использовать как локальные отзывы или измеренное покрытие. Facebook, Instagram, YouTube и TikTok проверялись на обнаружение; полный контент не оценён.",
+    "en": "Search found some mentions of Southern Head & Neck Surgery on Instagram, but ownership of a specific account and its location association were unconfirmed. They cannot be treated as local reviews or measured coverage. Facebook, Instagram, YouTube and TikTok were checked for discovery; full content was not assessed."
+  },
+  {
+    "source": "Полный актуальный контент, регулярность, локальное покрытие и конверсия не оценены.",
+    "en": "Complete current content, posting frequency, local coverage and conversion were not assessed."
+  },
+  {
+    "source": "Партнёрские материалы и сведения о специалистах доступны.",
+    "en": "Partner materials and clinician information are available."
+  },
+  {
+    "source": "Google rating/count и 90-дневная динамика не получены; отзывы врача не приравнены к филиалу.",
+    "en": "Google rating/count and 90-day trends were not obtained; clinician reviews were not equated with location reputation."
+  },
+  {
+    "source": "10 поисковых намерений × четыре поверхности",
+    "en": "10 search intents × four surfaces"
+  },
+  {
+    "source": "Это одинаковая логика кандидатов запросов для двух городов. Частотность и позиции не измерены; наличие слова на сайте не означает видимость в Google.",
+    "en": "The same candidate-query approach is used for both cities. Search volume and rankings were not measured; a word appearing on the website does not establish Google visibility."
+  },
+  {
+    "source": "Кандидат запроса",
+    "en": "Candidate query"
+  },
+  {
+    "source": "Не измерено",
+    "en": "Not measured"
+  },
+  {
+    "source": "ENT/симптом описан; локальный путь требует правки",
+    "en": "ENT/symptom described; local path needs correction"
+  },
+  {
+    "source": "Не оценено",
+    "en": "Not assessed"
+  },
+  {
+    "source": "Тема есть на сетевом сайте",
+    "en": "Topic appears on the network website"
+  },
+  {
+    "source": "Процедура у партнёра описана",
+    "en": "Partner describes the procedure"
+  },
+  {
+    "source": "Локальная КТ не подтверждена",
+    "en": "Local CT imaging unconfirmed"
+  },
+  {
+    "source": "Услуга и специалисты",
+    "en": "Services and clinicians"
+  },
+  {
+    "source": "Объект",
+    "en": "Item"
+  },
+  {
+    "source": "Повторяющиеся sinus-проблемы",
+    "en": "Recurring sinus problems"
+  },
+  {
+    "source": "Описание на сети и у партнёра; локальная доступность уточняется",
+    "en": "Described by the network and partner; local availability needs confirmation"
+  },
+  {
+    "source": "Баллонная синусопластика",
+    "en": "Balloon sinuplasty"
+  },
+  {
+    "source": "Подтверждена для Alexander City партнёром",
+    "en": "Confirmed for Alexander City by the partner"
+  },
+  {
+    "source": "КТ пазух",
+    "en": "Sinus CT imaging"
+  },
+  {
+    "source": "Не подтверждена локально",
+    "en": "Not confirmed locally"
+  },
+  {
+    "source": "Имя в публичном списке; расписание в филиале уточняется",
+    "en": "Named in the public roster; location schedule needs confirmation"
+  },
+  {
+    "source": "Отзывы врача не заменяют репутацию филиала",
+    "en": "Clinician reviews do not replace location reputation"
+  },
+  {
+    "source": "Путь пациента",
+    "en": "Patient path"
+  },
+  {
+    "source": "Переход",
+    "en": "Transition"
+  },
+  {
+    "source": "Состояние",
+    "en": "Status"
+  },
+  {
+    "source": "Поиск → локальная страница",
+    "en": "Search → local page"
+  },
+  {
+    "source": "Локальная выдача по координатам не измерена.",
+    "en": "Local search results by coordinates were not measured."
+  },
+  {
+    "source": "Каталог → страница точки",
+    "en": "Directory → location page"
+  },
+  {
+    "source": "Контекст нарушен",
+    "en": "Context mismatch"
+  },
+  {
+    "source": "Название города сохраняется, контакты меняются на Huntsville.",
+    "en": "The city name stays the same, but contacts change to Huntsville."
+  },
+  {
+    "source": "Страница → обращение",
+    "en": "Page → inquiry"
+  },
+  {
+    "source": "Нарушен / требует исправления",
+    "en": "Broken / needs correction"
+  },
+  {
+    "source": "Звонок с детальной страницы относится к Huntsville.",
+    "en": "A call from the detail page goes to Huntsville."
+  },
+  {
+    "source": "Доверие → обращение",
+    "en": "Trust → inquiry"
+  },
+  {
+    "source": "Переходы из подтверждённых отзывов и социальных профилей не проверены.",
+    "en": "Paths from verified reviews and social profiles were not checked."
+  },
+  {
+    "source": "После обращения",
+    "en": "After inquiry"
+  },
+  {
+    "source": "Без отправки формы, звонка и доступа к внутренним данным.",
+    "en": "No form submission, phone call or access to internal data."
+  },
+  {
+    "source": "Почему пациент может выбрать альтернативу",
+    "en": "Why a patient might choose an alternative"
+  },
+  {
+    "source": "Альтернатива",
+    "en": "Alternative"
+  },
+  {
+    "source": "Роль",
+    "en": "Role"
+  },
+  {
+    "source": "Публичное предложение",
+    "en": "Public offer"
+  },
+  {
+    "source": "Что учитывать",
+    "en": "What to consider"
+  },
+  {
+    "source": "Прямая альтернатива для острой жалобы, не ЛОР-специалист",
+    "en": "Direct alternative for an acute complaint, not an ENT specialist"
+  },
+  {
+    "source": "2508 US Hwy 280; открыто семь дней, регистрация в очередь онлайн. На странице отдельно объяснено, что это не фиксированное время приёма.",
+    "en": "2508 US Hwy 280; open seven days, with online queue registration. The page separately explains that this is not a fixed appointment time."
+  },
+  {
+    "source": "Защитить ENT-специализацию и сделать телефонный путь столь же понятным.",
+    "en": "Preserve the ENT specialization and make the phone path equally clear."
+  },
+  {
+    "source": "Местная система помощи; не подтверждён как независимый ENT-конкурент",
+    "en": "Local healthcare system; not verified as an independent ENT competitor"
+  },
+  {
+    "source": "3316 Hwy 280; на сайте есть поиск врача и маршрут обращения. Связь с партнёром и конкретная urgent-care услуга в этом проходе не установлены.",
+    "en": "3316 Hwy 280; the website provides clinician search and a contact path. Its relationship with the partner and its specific urgent-care service were not established in this review."
+  },
+  {
+    "source": "Использовать как контекст выбора помощи, не считать полноценным конкурентом по sinus.",
+    "en": "Use as context for care choices, not as a fully comparable sinus-care competitor."
+  },
+  {
+    "source": "Подтверждён один прямой местный заменитель по острой жалобе и одна местная система помощи. Цель 3–5 независимых ENT-конкурентов не достигнута; East Alabama ENT нельзя подставлять в эту роль — это другая партнёрская точка той же сети. Радиусы и доли выдачи не измерены.",
+    "en": "One direct local substitute for an acute complaint and one local healthcare system were verified. The target of 3-5 independent ENT competitors was not reached; East Alabama ENT cannot fill that role because it is another partner location in the same network. Radii and search-result shares were not measured."
+  },
+  {
+    "source": "Сохранить:",
+    "en": "Preserve:"
+  },
+  {
+    "source": " ENT-специализацию и подтверждённые локальные возможности. ",
+    "en": " ENT specialization and verified local capabilities. "
+  },
+  {
+    "source": "Устранить:",
+    "en": "Correct:"
+  },
+  {
+    "source": " неоднозначность контактов, часов и следующего шага. ",
+    "en": " ambiguity in contacts, hours and the next step. "
+  },
+  {
+    "source": "Отличаться:",
+    "en": "Differentiate through:"
+  },
+  {
+    "source": " ясным маршрутом к нужному специалисту. ",
+    "en": " a clear path to the right specialist. "
+  },
+  {
+    "source": "Не копировать:",
+    "en": "Do not copy:"
+  },
+  {
+    "source": " непроверенные обещания скорости или общий urgent-care набор услуг.",
+    "en": " unverified speed promises or a general urgent-care service offering."
+  },
+  {
+    "source": "Контакты и часы партнёра",
+    "en": "Partner contacts and hours"
+  },
+  {
+    "source": "Что этот вариант доказывает",
+    "en": "What this option demonstrates"
+  },
+  {
+    "source": "Моно-аудит представлен по всем разделам, но его измерительные блоки неполны. Общий балл и баллы поверхностей не рассчитаны; недостаточный охват не замаскирован условными оценками. Источники подтверждают дефекты публичного пути, а не потерю выручки.",
+    "en": "The location audit covers every section, but its measurement blocks remain incomplete. No overall or surface scores have been calculated; insufficient coverage is not disguised as estimated scores. Sources establish public-path defects, not lost revenue."
+  },
+  {
+    "source": "Решение по варианту",
+    "en": "Decision on this option"
+  },
+  {
+    "source": "Этот вариант ещё не выбран. Условия внедрения, общая тройка задач и решение по сети находятся только в родительском отчёте.",
+    "en": "This option has not yet been selected as the pilot. Implementation terms, the shared priorities and the network decision are in the parent report."
+  },
+  {
+    "source": "Вернуться к выбору и условиям сети →",
+    "en": "Return to the network's pilot options and terms →"
+  },
+  {
+    "source": "Monroe · согласовать сеть и местную практику · ENT Urgent Care · русский v6",
+    "en": "Monroe · Align the network and local practice · ENT Urgent Care · English v6"
+  },
+  {
+    "source": "Monroe · согласовать сеть и местную практику",
+    "en": "Monroe · Align the network and local practice"
+  },
+  {
+    "source": "Существующую репутацию, услуги и запись Queen City нужно связать с представлением ENT Urgent Care и правильной географией Monroe.",
+    "en": "Connect Queen City's existing reputation, services and booking with ENT Urgent Care's presentation and the correct Monroe geography."
+  },
+  {
+    "source": "Что подтверждено по четырём плоскостям",
+    "en": "What is verified across the four surfaces"
+  },
+  {
+    "source": "Обновление исследования от 10 сентября 2026. Queen City Ear, Nose, and Throat — оператор практики Monroe; ENT Urgent Care — сеть. Этот срез имеет приоритет над ранними выводами об отсутствии данных Maps и репутации. Выбор фокусной точки и финальные выводы остаются на проверке.",
+    "en": "Research update from September 10, 2026. Queen City Ear, Nose, and Throat operates the Monroe practice; ENT Urgent Care is the network. This snapshot supersedes earlier conclusions about unavailable Maps and reputation data. The pilot location remains to be selected before implementation."
+  },
+  {
+    "source": "Плоскость",
+    "en": "Surface"
+  },
+  {
+    "source": "Что это меняет",
+    "en": "What this changes"
+  },
+  {
+    "source": "Две карточки одного места приёма: ENT Urgent Care Monroe и Queen City Monroe. Контакты, часы, отзывы и ссылки различаются.",
+    "en": "Two listings for the same care location: ENT Urgent Care Monroe and Queen City Monroe. Contacts, hours, reviews and links differ."
+  },
+  {
+    "source": "Подтвердить роли сущностей; исправлять установленные противоречия, сохраняя обоснованные различия.",
+    "en": "Confirm the entities' roles; correct established inconsistencies while preserving legitimate differences."
+  },
+  {
+    "source": "У Queen City уже есть специалисты, услуги и онлайн-запись. Часть общих переходов и локальных формулировок относится к Charlotte.",
+    "en": "Queen City already has clinicians, services and online booking. Some general links and local wording refer to Charlotte."
+  },
+  {
+    "source": "Связать существующие материалы с Monroe и подтвердить местное выполнение услуг.",
+    "en": "Connect existing materials to Monroe and confirm where services are performed."
+  },
+  {
+    "source": "У Queen City есть контент; географическое представление и связанные с сетью профили требуют согласования.",
+    "en": "Queen City has content; geographic presentation and network-related profiles need alignment."
+  },
+  {
+    "source": "Использовать подходящий существующий аккаунт и локальную публикацию. Полный SMM с нуля не обоснован.",
+    "en": "Use a suitable existing account and a local post. Building a full social-media presence from scratch is not justified."
+  },
+  {
+    "source": "Отзывы и репутация",
+    "en": "Reviews and reputation"
+  },
+  {
+    "source": "Queen City Monroe: 4.8 / 104 отзыва. Ответы видны на всех десяти просмотренных записях; общая Review Us открывает Charlotte.",
+    "en": "Queen City Monroe: 4.8 / 104 reviews. Replies are visible on all ten reviewed entries; the general Review Us link opens Charlotte."
+  },
+  {
+    "source": "Сохранить существующую репутацию; исправить локальную ссылку и проверить действующий процесс сбора.",
+    "en": "Preserve the existing reputation; correct the local link and check the current collection process."
+  },
+  {
+    "source": "Найдёт ли пациент правильную локацию?",
+    "en": "Will patients find the right location?"
+  },
+  {
+    "source": "У сети и партнёра разные публичные представления.",
+    "en": "The network and partner have different public presentations."
+  },
+  {
+    "source": "Подтверждены две Google-карточки одного места приёма. Нужно объяснить роли ENT Urgent Care и Queen City, назначение телефонов, часы и ссылки. Различие само по себе не означает ошибку или основание объединять карточки.",
+    "en": "Two Google listings were verified for the same care location. The roles of ENT Urgent Care and Queen City, phone purposes, hours and links need explaining. A difference alone is not an error or grounds for merging listings."
+  },
+  {
+    "source": "Понятно ли, какие услуги доступны именно здесь?",
+    "en": "Is it clear which services are available here?"
+  },
+  {
+    "source": "Услуги описаны, но локальная доступность уточняется.",
+    "en": "Services are described, but local availability needs confirmation."
+  },
+  {
+    "source": "Queen City публикует сведения о MiniCAT и баллонной синусопластике. Место выполнения этих услуг именно в Monroe по рассмотренным страницам не установлено. Перед локальными обещаниями требуется подтверждение практики.",
+    "en": "Queen City publishes information about MiniCAT and balloon sinuplasty. The reviewed pages do not establish that these services are performed specifically in Monroe. Confirm with the practice before making location-specific claims."
+  },
+  {
+    "source": "Подтверждает ли репутация ту же точку?",
+    "en": "Does the reputation refer to the same location?"
+  },
+  {
+    "source": "У Queen City Monroe уже есть 4,8 и 104 отзыва.",
+    "en": "Queen City Monroe already has a 4.8 rating and 104 reviews."
+  },
+  {
+    "source": "Это значение отдельной локальной карточки на 10 сентября. У сетевой карточки ENT Urgent Care — 0 отзывов; переносить это число на всю практику нельзя. Общая Review Us ведёт к Charlotte: нужна правильная локальная ссылка.",
+    "en": "This is the figure for a specific local listing as of September 10. The ENT Urgent Care network listing has 0 reviews; that number must not be applied to the whole practice. The general Review Us link leads to Charlotte and needs a correct local destination."
+  },
+  {
+    "source": "Легко ли сделать следующий шаг?",
+    "en": "Is it easy to take the next step?"
+  },
+  {
+    "source": "Запись у партнёра уже существует.",
+    "en": "Partner booking already exists."
+  },
+  {
+    "source": "Задача — сохранить понятную связь сети и практики на пути к существующей записи. Отсутствие отдельной кнопки Book на странице сети не доказывает потерю пациентов или отсутствие записи.",
+    "en": "The task is to preserve a clear connection between the network and practice on the path to existing booking. The absence of a separate Book button on the network page does not prove lost patients or unavailable booking."
+  },
+  {
+    "source": "Предмет пилота: согласовать сеть и местную практику",
+    "en": "Pilot scope: align the network and local practice"
+  },
+  {
+    "source": "Существующие активы уже дают содержательную основу. Предлагаем согласовать название и роль каждой сущности, подтверждённые услуги, географию и следующий шаг на четырёх плоскостях. Это кандидат на внедрение, а не утверждённый новый сетевой Top 3.",
+    "en": "Existing assets provide a substantial starting point. We propose aligning each entity's name and role, verified services, geography and next step across four surfaces. This is an implementation option within the network proposal, not a separate network priority set."
+  },
+  {
+    "source": "Как перейти от наблюдения к исправлению",
+    "en": "From observation to correction"
+  },
+  {
+    "source": "Проверяем одну локацию и одно направление услуг. Каждая работа должна устранять конкретное несоответствие из этого материала. Новая система отзывов предлагается как адаптация после проверки текущего процесса; плохая внутренняя работа не установлена.",
+    "en": "Start with one location and one service area. Each task must address a specific inconsistency in this report. A new review system is proposed as an adaptation after checking the current process; poor internal operations have not been established."
+  },
+  {
+    "source": "Посмотреть предложение по локациям →",
+    "en": "View the location proposal →"
+  },
+  {
+    "source": "Что меняем и как принимаем работу",
+    "en": "What changes and how we accept the work"
+  },
+  {
+    "source": "Предлагаемая работа",
+    "en": "Proposed work"
+  },
+  {
+    "source": "Два публичных представления Monroe",
+    "en": "Two public presentations of Monroe"
+  },
+  {
+    "source": "Согласовать роли сети и партнёра, факты и допустимые переходы.",
+    "en": "Align the roles of the network and partner, facts and appropriate links."
+  },
+  {
+    "source": "Имеется утверждённый локальный реестр; действующие различия объяснены.",
+    "en": "An approved local register is in place; legitimate differences are explained."
+  },
+  {
+    "source": "Неясная локальная доступность услуг",
+    "en": "Unclear local service availability"
+  },
+  {
+    "source": "Подтвердить выбранную услугу и связать её с локальной страницей, блогом, профилями.",
+    "en": "Confirm the selected service and connect it to the local page, blog and profiles."
+  },
+  {
+    "source": "Каждое обещание подтверждено практикой; ссылки ведут к нужному месту.",
+    "en": "Every claim is confirmed by the practice; links lead to the correct location."
+  },
+  {
+    "source": "Review Us ведёт в Charlotte",
+    "en": "Review Us leads to Charlotte"
+  },
+  {
+    "source": "Исправить локальную ссылку; проверить существующий сбор отзывов и при необходимости запустить базовую систему.",
+    "en": "Correct the local link; check existing review collection and launch the basic system if needed."
+  },
+  {
+    "source": "Ссылка открывает правильную карточку; тестовое обращение получает ответственный.",
+    "en": "The link opens the correct listing; a test inquiry reaches the responsible person."
+  },
+  {
+    "source": "Обновления должны сохраняться",
+    "en": "Updates need to be maintained"
+  },
+  {
+    "source": "Передать журнал изменений, правила обновления и ответственность.",
+    "en": "Hand over the change log, update rules and responsibilities."
+  },
+  {
+    "source": "Команда получила инструкции; опубликованное и ожидающее модерации различаются.",
+    "en": "The team has instructions; published changes and items awaiting moderation are distinguished."
+  },
+  {
+    "source": "Что пока не обосновано",
+    "en": "What is not justified yet"
+  },
+  {
+    "source": "Не обоснованы создание репутации с нуля, новый набор соцсетей для каждой точки или обещание бесплатного повышения позиций. Нельзя объединять и удалять карточки до проверки их назначения. Местную КТ или процедуру не включаем в рекламу без подтверждения практики.",
+    "en": "Building reputation from scratch, creating new social accounts for every location or promising a free ranking boost is not justified. Do not merge or delete listings before checking their purpose. Do not advertise local CT imaging or a procedure without practice confirmation."
+  },
+  {
+    "source": "Факты, которые нужно согласовать",
+    "en": "Facts to reconcile"
+  },
+  {
+    "source": "Поле",
+    "en": "Field"
+  },
+  {
+    "source": "888-327-3631 · номер сети",
+    "en": "888-327-3631 · network number"
+  },
+  {
+    "source": "704-703-1080 · номер практики",
+    "en": "704-703-1080 · practice number"
+  },
+  {
+    "source": "Пн–пт 8:00–17:00",
+    "en": "Mon-Fri 8:00 AM-5:00 PM"
+  },
+  {
+    "source": "Пн/вт/чт 8:00–16:30; ср 8:00–17:00; пт 8:00–16:00",
+    "en": "Mon/Tue/Thu 8:00 AM-4:30 PM; Wed 8:00 AM-5:00 PM; Fri 8:00 AM-4:00 PM"
+  },
+  {
+    "source": "Ссылка",
+    "en": "Link"
+  },
+  {
+    "source": "Главная enturgent.com",
+    "en": "enturgent.com homepage"
+  },
+  {
+    "source": "Сайт Queen City и существующая онлайн-запись",
+    "en": "Queen City website and existing online booking"
+  },
+  {
+    "source": "Отзывы на 10 сентября",
+    "en": "Reviews as of September 10"
+  },
+  {
+    "source": "0; рейтинг не назначен",
+    "en": "0; no rating assigned"
+  },
+  {
+    "source": "Различие контактов может быть обосновано устройством сети. Эти значения не являются готовым распоряжением заменить или объединить карточки.",
+    "en": "Different contact details may reflect the network's structure. These values are not an instruction to replace or merge listings."
+  },
+  {
+    "source": "Локальная репутация и источники",
+    "en": "Local reputation and sources"
+  },
+  {
+    "source": "Карточка",
+    "en": "Listing"
+  },
+  {
+    "source": "Оценка / отзывы",
+    "en": "Rating / reviews"
+  },
+  {
+    "source": "Ограничение",
+    "en": "Limitation"
+  },
+  {
+    "source": "Локальная практика, отдельно от карточки сети.",
+    "en": "Local practice, separate from the network listing."
+  },
+  {
+    "source": "Нет оценки / 0",
+    "en": "No rating / 0"
+  },
+  {
+    "source": "Отдельное представление сетевого бренда.",
+    "en": "Separate presentation of the network brand."
+  },
+  {
+    "source": "Размер практики и срок работы не нормированы.",
+    "en": "Practice size and operating history are not normalized."
+  },
+  {
+    "source": "Eye и ENT вместе; отзывы не выделены по ENT.",
+    "en": "Eye and ENT combined; reviews are not separated by ENT service."
+  },
+  {
+    "source": "В каждой из трёх практик прочитаны первые десять записей после сортировки по новым. У Queen City и CornerStone ответы видны на всех десяти просмотренных записях. Полный темп новых отзывов за одинаковые 90 дней не рассчитан. Это сравнение публичных данных, а не качества лечения или привлечённых пациентов.",
+    "en": "For each of the three practices, we read the first ten entries after sorting by newest. Queen City and CornerStone have visible replies on all ten reviewed entries. Complete review velocity over a comparable 90-day period was not calculated. This compares public information, not treatment quality or acquired patients."
+  },
+  {
+    "source": "Существующая запись",
+    "en": "Existing booking"
+  },
+  {
+    "source": "Что не измерено",
+    "en": "What was not measured"
+  },
+  {
+    "source": "Не выполнены контролируемая геосетка Google Maps, устойчивые позиции, полный 90-дневный срез соцсетей и отзывов. Не исследованы текущий процесс сбора обратной связи, обработка обращений, явки, выручка и маржа. Числовые баллы и утверждённый Top 3 не назначены.",
+    "en": "No controlled Google Maps grid, stable rankings or complete 90-day social and review window was measured. Current feedback collection, inquiry handling, attendance, revenue and margin were not assessed. No numeric scores or separate local priority set have been assigned."
+  },
+  {
+    "source": "Отдельные поисковые наблюдения получены в браузере с русским интерфейсом и регионом Испания, без фиксированных пользовательских координат. Они не являются измерением локальной доли видимости. Срез Monroe не заменяет повторный полный проход всех точек сети.",
+    "en": "Some search observations were obtained in a browser with a Russian interface and Spain region, without fixed user coordinates. They do not measure local share of visibility. The Monroe snapshot does not replace a new full review of all network locations."
+  },
+  {
+    "source": "Одна точка для начала",
+    "en": "One location to start"
+  },
+  {
+    "source": "Для сети подготовлено предложение: первые пять локаций по $500, начиная с шестой — по $300. В него включены согласованные исправления и базовый запуск системы обратной связи. Выбранная локация и права внедрения подтверждаются до старта.",
+    "en": "The network proposal covers the first five locations at $500 each and the sixth onward at $300 each. It includes agreed corrections and basic feedback-system setup. The selected location and implementation permissions are confirmed before starting."
+  },
+  {
+    "source": "Полный объём и условия сети →",
+    "en": "Full network scope and terms →"
+  }
+]

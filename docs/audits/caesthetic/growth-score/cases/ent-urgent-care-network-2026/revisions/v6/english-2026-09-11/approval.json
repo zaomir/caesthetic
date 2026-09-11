@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source_commit": "0eed0923baf47464dd2e93f899ec49eb86d2934b",
+  "approval_source": "Direct owner instruction in this conversation: аудит одобрен. собери аудит на англ и сопроводительное письмо для email; clarified: аудиты должны быть в формате ссылок на сайте.",
+  "russian_audit_approved": true,
+  "english_web_publication_requested": true,
+  "scope": "Network parent plus existing Alexander City and Monroe options. Preserve all findings and limitations; do not select a pilot or invent scores. No email sending.",
+  "named_reviewer_on_case": "Валерия",
+  "human_translation_qa": "Not separately recorded; translation and website delivery explicitly requested by owner. Do not claim a named-human translation review occurred.",
+  "selected_focus_location": null,
+  "scores": null,
+  "pages": [
+    {
+      "name": "network",
+      "source": "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/english-2026-09-11/approved-ru/network.html",
+      "sha256": "72a7fa171b517cd351d4dce78963942ffce2effcb8433857636fd418d2a46b4f",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/"
+    },
+    {
+      "name": "monroe",
+      "source": "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/english-2026-09-11/approved-ru/monroe.html",
+      "sha256": "eba116a109b801db69eacc127551d4334d0623f6ada4c0830c9ce269507bdc3b",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/monroe/"
+    },
+    {
+      "name": "alexander-city",
+      "source": "docs/audits/caesthetic/growth-score/cases/ent-urgent-care-network-2026/revisions/v6/english-2026-09-11/approved-ru/alexander-city.html",
+      "sha256": "6c27242e2f9ddc76f75b9fe6d4e75267ce674bd9b30894e2f1ac1d2b4fb59c66",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/alexander-city/"
+    }
+  ],
+  "editorial_changes": "Remove superseded internal-review prompts, retain pilot choice as an implementation decision, localize hours to US notation, and use English service links. No new research or business claims."
+}

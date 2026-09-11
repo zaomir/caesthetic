@@ -1477,20 +1477,16 @@
     {
       "source": "site-caesthetic/connect4/location-alignment/ru/index.html",
       "route": "/connect4/location-alignment/ru/",
-      "profile": "marketing",
+      "profile": "redirect",
       "states": [
-        "default",
-        "faq-open"
+        "default"
       ],
       "viewports": [
         320,
         390,
         1440
       ],
-      "stylesheets": [
-        "/assets/css/tokens.css",
-        "/assets/css/connect4-services.css"
-      ],
+      "stylesheets": [],
       "generator": "scripts/caesthetic/build-connect4-services.mjs"
     },
     {
@@ -1515,11 +1511,22 @@
     {
       "source": "site-caesthetic/connect4/review-system/ru/index.html",
       "route": "/connect4/review-system/ru/",
-      "profile": "marketing",
+      "profile": "redirect",
       "states": [
-        "default",
-        "faq-open"
+        "default"
       ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [],
+      "generator": "scripts/caesthetic/build-connect4-services.mjs"
+    },
+    {
+      "source": "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/index.html",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/",
+      "profile": "growth-score-client/v6.0.0",
       "viewports": [
         320,
         390,
@@ -1527,9 +1534,42 @@
       ],
       "stylesheets": [
         "/assets/css/tokens.css",
-        "/assets/css/connect4-services.css"
+        "/assets/css/growth-score-v6.css",
+        "/assets/css/ent-review-v6.css"
       ],
-      "generator": "scripts/caesthetic/build-connect4-services.mjs"
+      "generator": "scripts/caesthetic/build-ent-english-v6.py"
+    },
+    {
+      "source": "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/monroe/index.html",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/monroe/",
+      "profile": "growth-score-client/v6.0.0",
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/growth-score-v6.css",
+        "/assets/css/ent-review-v6.css"
+      ],
+      "generator": "scripts/caesthetic/build-ent-english-v6.py"
+    },
+    {
+      "source": "site-caesthetic/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/alexander-city/index.html",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/alexander-city/",
+      "profile": "growth-score-client/v6.0.0",
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/growth-score-v6.css",
+        "/assets/css/ent-review-v6.css"
+      ],
+      "generator": "scripts/caesthetic/build-ent-english-v6.py"
     }
   ],
   "tokens": {

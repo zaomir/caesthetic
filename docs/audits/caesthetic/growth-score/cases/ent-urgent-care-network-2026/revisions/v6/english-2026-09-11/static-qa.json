@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "Frozen-source English translation, markup structure, evidence links, complete 47-row inventory, privacy metadata, internal anchors and service locale links. Human translation QA not claimed.",
+  "pages": [
+    {
+      "target": "network",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/",
+      "status": "pass",
+      "external_source_links_preserved": 63,
+      "table_rows_preserved": 86,
+      "sections_preserved": 10,
+      "sha256": "5f002e7ce81b4bd6116ba8a265f77d9e23099b744c2dca3536d53105ee967798",
+      "text_sha256": "9412e6a4e67d20dc92cdf3a33999e093cd1852abf06269e167ef09569684a45f"
+    },
+    {
+      "target": "monroe",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/monroe/",
+      "status": "pass",
+      "external_source_links_preserved": 8,
+      "table_rows_preserved": 21,
+      "sections_preserved": 10,
+      "sha256": "dff4c4905d73d4da0458fd59cb8681e18814e74f4837a1f22a9abfc941da9afc",
+      "text_sha256": "e0cba77f82978d0984ace116beceffccf55ea9f92bc960499e8b8eaeae36836e"
+    },
+    {
+      "target": "alexander-city",
+      "route": "/score/ent-urgent-care-network-6f2c9a4e81d7/en/v6/alexander-city/",
+      "status": "pass",
+      "external_source_links_preserved": 6,
+      "table_rows_preserved": 44,
+      "sections_preserved": 10,
+      "sha256": "f08cd41e2011a8f39b2da4da24e2d83bc968e94cf7e27b8d5a5874450a205683",
+      "text_sha256": "951c4abae67a6b082453a4af977d7ee23e09cc91c309ff730e253f131e15501a"
+    }
+  ],
+  "numeric_review": "47/42/44 coverage, 40/44 hours, 4/42 coordinates, 12/44 Book, 3/47 404, all ratings and phones preserved; US time and decimal notation reviewed.",
+  "service_generator": "PASS",
+  "report_generator": "PASS",
+  "browser": "pending"
+}
