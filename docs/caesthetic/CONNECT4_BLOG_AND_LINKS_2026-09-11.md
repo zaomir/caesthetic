@@ -23,3 +23,7 @@ Primary sources checked for editorial claims: Google local ranking guidance, Goo
 ## Validation
 
 Blog, service and Russian/English ENT generators pass deterministic checks. Scoped HTML checks confirm English blog copy, one article H1, direct English service links and unchanged report evidence. English network/child navigation, service redirects and review-system disclosure verified on live pages in `english-browser-2026-09-11.json`. Blog visual and production verification pending canonical deployment.
+
+## Text enlargement correction
+
+Connect4 QA reproduced a 320px/200% text-zoom overflow in the existing `#implementation .c4-stages` grid: main client width 305px, scroll width 317px; the stage grid client width was 265px and scroll width 297px. The default `1fr` track retained intrinsic minimum content width. The correction uses `minmax(0,1fr)` tracks on desktop/mobile and `min-width:0` on the stage items. No overflow clipping or assertion waiver. The existing browser check now records geometry on failure; its required assertion is unchanged. Reverification pending.
