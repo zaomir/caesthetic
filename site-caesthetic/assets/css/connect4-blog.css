@@ -1,0 +1,25 @@
+/* Long-form editorial variant of the shared marketing profile. */
+.cae-blog { padding-bottom:var(--cae-space-16); }
+.cae-blog-hero { padding-block:var(--cae-space-20) var(--cae-space-12); border-bottom:1px solid var(--cae-border); }
+.cae-blog h1 { font-family:var(--cae-font-display); font-size:clamp(2.2rem,4.5vw,4rem); font-weight:400; line-height:1.1; letter-spacing:-.03em; max-width:24ch; margin:0 0 var(--cae-space-8); }
+.cae-blog-body { padding-top:var(--cae-space-12); font-size:var(--cae-text-lg); line-height:1.65; }
+.cae-blog-body h2 { font-size:clamp(1.75rem,3vw,2.5rem); line-height:1.2; margin:var(--cae-space-12) 0 var(--cae-space-6); }
+.cae-blog-body h2:first-child { margin-top:0; }
+.cae-blog-body p,.cae-blog-body li,.cae-blog-body dd { max-width:72ch; }
+.cae-blog-body p { margin-bottom:var(--cae-space-6); }
+.cae-blog-body li { margin-bottom:var(--cae-space-4); }
+.cae-blog-body ul,.cae-blog-body ol { padding-left:var(--cae-space-6); }
+.cae-blog :is(h1,h2,p,li,dt,dd,a) { overflow-wrap:anywhere; }
+.cae-blog a:not(.cae-btn) { text-decoration:underline; text-underline-offset:4px; }
+.cae-blog-meta { color:var(--cae-muted); font-size:var(--cae-text-sm); }
+.cae-blog-ledger { margin-block:var(--cae-space-8); }
+.cae-blog-ledger>div { border-top:1px solid var(--cae-border); padding-block:var(--cae-space-6); }
+.cae-blog-ledger dt { font-weight:600; margin-bottom:var(--cae-space-2); }
+.cae-blog-ledger dd { margin:0; }
+.cae-blog-next { background:var(--cae-bg-2); border-top:2px solid var(--cae-border-accent); padding:var(--cae-space-8); margin-block:var(--cae-space-12); }
+.cae-blog-next h2 { margin-top:0; }
+.cae-blog-entry { border-bottom:1px solid var(--cae-border); padding-bottom:var(--cae-space-8); margin-bottom:var(--cae-space-8); }
+.cae-blog-entry h2 { margin-top:0; }
+.cae-blog-skip { position:absolute; inset-inline-start:var(--cae-space-4); top:-100px; z-index:1000; background:var(--cae-bg); color:var(--cae-text); padding:var(--cae-space-4); }
+.cae-blog-skip:focus { top:var(--cae-space-4); }
+@media(max-width:768px) { .cae-blog-hero { padding-top:var(--cae-space-12); } .cae-blog-next { padding:var(--cae-space-6); } }

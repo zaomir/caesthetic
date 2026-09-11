@@ -1570,6 +1570,66 @@
         "/assets/css/ent-review-v6.css"
       ],
       "generator": "scripts/caesthetic/build-ent-english-v6.py"
+    },
+    {
+      "source": "site-caesthetic/blog/index.html",
+      "route": "/blog/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/point-of-contact.css",
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/connect4-blog.css"
+      ],
+      "generator": "scripts/caesthetic/build-connect4-blog.mjs"
+    },
+    {
+      "source": "site-caesthetic/blog/consistent-business-information/index.html",
+      "route": "/blog/consistent-business-information/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/point-of-contact.css",
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/connect4-blog.css"
+      ],
+      "generator": "scripts/caesthetic/build-connect4-blog.mjs"
+    },
+    {
+      "source": "site-caesthetic/blog/customer-reviews-and-feedback/index.html",
+      "route": "/blog/customer-reviews-and-feedback/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/point-of-contact.css",
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/connect4-blog.css"
+      ],
+      "generator": "scripts/caesthetic/build-connect4-blog.mjs"
     }
   ],
   "tokens": {

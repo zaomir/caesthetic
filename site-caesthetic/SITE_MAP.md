@@ -129,3 +129,10 @@ The production header, footer, favicon and Open Graph metadata use the canonical
 ## Amy client site — 2026-09-08
 
 Isolated client host `amy.caesthetic.com`, same canonical deployment. Files under `/amy/`; localized home `/fr/`, `/en/`; prices `/fr/tarifs/`, `/en/prices/`; feedback `/fr/avis/`, `/en/reviews/`. Primary CTA is the supplied Cal.com appointment. These pages do not sell CAESTHETIC products. Gallery images link to their actual Instagram sources. Google review destination remains unset until Amy has her own listing.
+
+
+## Connect4 implementation and related reading — 2026-09-11
+
+English-only services: `/connect4/location-alignment/` and `/connect4/review-system/`. Their former `/ru/` routes redirect to the English equivalent. No new primary-navigation items.
+
+Blog: `/blog/`, `/blog/consistent-business-information/` and `/blog/customer-reviews-and-feedback/` are indexable English editorial pages. Connect4 and each service link to the relevant article; articles link to their service and each other. Growth Score links to alignment after diagnosis, Sprint links to both as scoped examples, and the case catalog links in its general method explanation. Individual case attribution requires evidence of the actual work; no service claim has been added to an unverified case. ENT reports retain noindex and remain outside the sitemap.

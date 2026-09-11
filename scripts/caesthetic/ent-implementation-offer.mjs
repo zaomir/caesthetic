@@ -1,5 +1,5 @@
-export const alignmentRoute='/connect4/location-alignment/ru/';
-export const reviewsRoute='/connect4/review-system/ru/';
+export const alignmentRoute='/connect4/location-alignment/';
+export const reviewsRoute='/connect4/review-system/';
 
 export function implementationLinks({p,a}) {
  return p(`${a(alignmentRoute,'Как мы устраняем противоречия на четырёх плоскостях →')}`)+p(`${a(reviewsRoute,'Наша система отзывов и обратной связи →')}`);
