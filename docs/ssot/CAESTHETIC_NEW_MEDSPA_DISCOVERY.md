@@ -4,6 +4,10 @@ Status: active
 Owner: CAESTHETIC
 Source authority: docs/ssot/CAESTHETIC.md and icp-collector/config/cities.json
 
+## Autonomous factory override (2026-09-12)
+
+[CAESTHETIC_AUTONOMOUS_OUTREACH_FACTORY.md](CAESTHETIC_AUTONOMOUS_OUTREACH_FACTORY.md) is the latest founder authority for this motion. EmailVerifier is excluded for all future discovery cohorts; email outreach has standing authorization through interested-reply handoff; no founder daily recipient cap applies. Historical six-recipient-only verification waivers and per-wave human approval requirements below are superseded for this motion. Provider constraints, identity/conflict checks, known suppression, truthful copy and reply stops remain binding. Runtime readiness must be verified separately.
+
 ## Standing downstream policy (2026-09-08)
 
 Founder decision in issue #1580; permanent for CAESTHETIC discovery-sourced outreach, not a one-wave waiver.

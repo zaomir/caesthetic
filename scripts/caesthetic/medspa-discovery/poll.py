@@ -9,7 +9,6 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from run import handle_bridge
 
 REPO = Path("/var/www/grainee-v2")
 REQUESTS = REPO / "docs/agent-api/requests"
@@ -18,16 +17,62 @@ STATUS = Path("/var/lib/caesthetic-medspa/status.json")
 RETRY_STATUSES = {"queued", "queued_on_vds", "processing"}
 
 
-def git(*args: str) -> str:
-    return subprocess.check_output(["git", *args], cwd=REPO, text=True).strip()
+def git(*args: str, check: bool = True) -> str:
+    completed = subprocess.run(
+        ["git", *args],
+        cwd=REPO,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if check and completed.returncode != 0:
+        raise subprocess.CalledProcessError(
+            completed.returncode,
+            completed.args,
+            completed.stdout,
+            completed.stderr,
+        )
+    return (completed.stdout or "").strip()
 
 
-def sync_main() -> None:
-    git("fetch", "origin", "main", "-q")
+def materialize_origin_requests() -> None:
+    """Copy request JSON from origin/main without touching the git index."""
+    listing = git("ls-tree", "--name-only", "origin/main:docs/agent-api/requests")
+    REQUESTS.mkdir(parents=True, exist_ok=True)
+    for name in listing.splitlines():
+        if not name.endswith(".json") or name.startswith("TEMPLATE"):
+            continue
+        blob = git("show", f"origin/main:docs/agent-api/requests/{name}")
+        dest = REQUESTS / name
+        dest.write_text(blob if blob.endswith("\n") else blob + "\n", encoding="utf-8")
+
+
+def sync_main() -> str | None:
+    """Fast-forward to origin/main. Git contention must not skip pending requests."""
+    fetch_err = None
+    for _attempt in range(2):
+        try:
+            git("fetch", "origin", "main", "-q")
+            fetch_err = None
+            break
+        except subprocess.CalledProcessError as exc:
+            fetch_err = f"fetch:{exc.returncode}"
+    if fetch_err:
+        return fetch_err
     head = git("rev-parse", "HEAD")
     remote = git("rev-parse", "origin/main")
-    if head != remote:
+    if head == remote:
+        return None
+    try:
         git("merge", "--ff-only", "origin/main")
+        return None
+    except subprocess.CalledProcessError as exc:
+        try:
+            materialize_origin_requests()
+        except subprocess.CalledProcessError:
+            return f"merge:{exc.returncode}"
+        return f"merge_fallback:{exc.returncode}"
 
 
 def read_json(path: Path) -> dict | None:
@@ -64,9 +109,9 @@ def should_run(path: Path) -> bool:
         return False
     rid = request_id_for(path)
     result = RESULTS / f"{rid}.json"
-    if not result.exists():
-        return True
-    existing = read_json(result)
+    existing = read_json(result) if result.exists() else None
+    if existing is None and origin_has(result):
+        return False
     if existing is None:
         return True
     return existing.get("status") in RETRY_STATUSES
@@ -120,7 +165,13 @@ def commit_push(paths: list[str], message: str) -> None:
 
 def main() -> None:
     STATUS.parent.mkdir(parents=True, exist_ok=True)
-    sync_main()
+    try:
+        sync_error = sync_main()
+    except Exception as exc:
+        sync_error = f"sync:{exc.__class__.__name__}"
+    # Load handlers after sync so a newly received request uses the updated code.
+    from run import handle_bridge
+
     paths = sorted(REQUESTS.glob("*.json"))
     processed = 0
     recovered = 0
@@ -159,13 +210,24 @@ def main() -> None:
                 "recovered": recovered,
                 "current_request_id": last_id,
                 "next_poll": "cron */5",
+                "sync_error": sync_error,
             },
             indent=2,
         )
         + "\n",
         encoding="utf-8",
     )
-    print(json.dumps({"ok": True, "processed": processed, "recovered": recovered, "last_id": last_id}))
+    print(
+        json.dumps(
+            {
+                "ok": True,
+                "processed": processed,
+                "recovered": recovered,
+                "last_id": last_id,
+                "sync_error": sync_error,
+            }
+        )
+    )
 
 
 if __name__ == "__main__":

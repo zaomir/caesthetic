@@ -868,10 +868,10 @@ export function buildEnglishReport(source = JSON.parse(fs.readFileSync(sourceRep
         cross_surface: "Connections across the four surfaces",
       },
       greeting: {
-        kicker: "A note from Valerie",
+        kicker: "A note from CAESTHETIC",
         title: "Hello, Ivy.",
         body: "We reviewed your patient's journey: how they find клиника, compare practices, and decide where to book. Below are the three main barriers and a straightforward action plan.",
-        signature: "Valerie Petra · CAESTHETIC",
+        signature: "CAESTHETIC Growth Team",
       },
       research_scope: {
         kicker: "What we reviewed",
@@ -1124,10 +1124,10 @@ export function buildRussianReport(source = JSON.parse(fs.readFileSync(sourceRep
         cross_surface: "Связи между четырьмя каналами",
       },
       greeting: {
-        kicker: "Приветствие от Валерии",
+        kicker: "Приветствие от CAESTHETIC",
         title: "Здравствуйте, Ivy.",
         body: "Мы проверили путь вашего пациента: как он находит клиника, сравнивает клиники и выбирает, куда записаться. Ниже — три главные помехи и простой план действий.",
-        signature: "Валерия Петра · CAESTHETIC",
+        signature: "Команда CAESTHETIC",
       },
       research_scope: {
         kicker: "Что мы изучили",

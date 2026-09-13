@@ -6,8 +6,10 @@ import hashlib
 import io
 import json
 import re
+import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
+from company_resolution import CompanyResolver
 
 FORBIDDEN_CLAIM_RE = re.compile(
     r"\b(rank(?:ing)?|#1|patients?|revenue|roi|guaranteed?)\b",
@@ -182,7 +184,7 @@ def load_stop_flags(store: Path) -> dict:
     try:
         doc = json.loads(path.read_text(encoding="utf-8"))
     except Exception:
-        return {"active": False, "flags": ["stop_flags_unreadable"]}
+        return {"active": True, "flags": ["stop_flags_unreadable"]}
     flags = [str(item) for item in (doc.get("flags") or []) if item]
     active = bool(doc.get("active") or flags)
     return {"active": active, "flags": flags}
@@ -194,8 +196,8 @@ def load_sent_ledger(store: Path) -> dict:
         return {"items": {}}
     try:
         return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return {"items": {}}
+    except Exception as exc:
+        raise ValueError("sent_ledger_unreadable") from exc
 
 
 def save_sent_ledger(store: Path, ledger: dict) -> None:
@@ -361,7 +363,7 @@ def discover_channels(store: Path, public_index: Path, params: dict) -> dict:
     }
 
 
-def prepare_outreach(store: Path, public_index: Path, params: dict) -> dict:
+def prepare_outreach(store: Path, public_index: Path, params: dict, *, master_dir: Path | None = None) -> dict:
     batch_id = str(params.get("batch_id") or "public-index")
     channels = normalize_channels(params.get("channels"))
     profile = str(params.get("message_profile") or "growth_score_v6")
@@ -372,6 +374,7 @@ def prepare_outreach(store: Path, public_index: Path, params: dict) -> dict:
         discover_channels(store, public_index, {"batch_id": batch_id, "limit": limit or 0, "markets": params.get("markets")})
     stops = load_stop_flags(store)
     records = load_records(store, public_index)
+    records, company_resolution = CompanyResolver(master_dir or Path("/var/www/grainee-v2/data/master")).bind(records)
     if enrichment_path.exists():
         try:
             enriched = {row.get("lead_id"): row for row in json.loads(enrichment_path.read_text(encoding="utf-8")).get("records") or []}
@@ -381,11 +384,17 @@ def prepare_outreach(store: Path, public_index: Path, params: dict) -> dict:
         enriched = {}
     items = []
     skipped = 0
+    company_block_counts = {}
     for row in records:
         if limit and len(items) >= limit:
             break
         summary = enriched.get(row.get("lead_id"), {})
         flags = summary.get("channels") or channel_flags(row)
+        reply_block = company_reply_block(store, row)
+        if reply_block:
+            company_block_counts[reply_block] = company_block_counts.get(reply_block, 0) + 1
+            skipped += 1
+            continue
         if is_test_fixture(row) or row.get("stage") == "excluded" or row.get("blocker") or summary.get("stop") or stops["active"]:
             skipped += 1
             continue
@@ -400,6 +409,7 @@ def prepare_outreach(store: Path, public_index: Path, params: dict) -> dict:
         items.append(
             {
                 "lead_id": row.get("lead_id"),
+                "company_id": row.get("company_id"),
                 "name": row.get("name"),
                 "channels": selected,
                 "email_sha256": sha_contact(private_email) if private_email else None,
@@ -446,10 +456,40 @@ def prepare_outreach(store: Path, public_index: Path, params: dict) -> dict:
         "counts": counts,
         "prepared_count": len(items),
         "skipped_count": skipped,
+        "company_block_counts": company_block_counts,
+        "reply_guard_version": "canonical-company-v1",
+        "company_resolution": company_resolution,
         "stop_flags": stops,
         "sample_messages": samples,
         "output_path": str(path),
     }
+
+
+def company_reply_block(store: Path, item: dict) -> str | None:
+    """Read private canonical-company stops without creating/resetting a database.
+
+    A Maps place ID, company name or email domain is not a master company ID.
+    The ingestion/resolution stage must supply company_id explicitly.
+    """
+    company = item.get("company_id")
+    if not isinstance(company, str) or not company.strip():
+        return "canonical_company_id_missing"
+    if item.get("suppressed"):
+        return "recipient_suppressed"
+    path = store / "reply-state.sqlite3"
+    if not path.exists():
+        return None
+    try:
+        db = sqlite3.connect(path.resolve().as_uri() + "?mode=ro", uri=True)
+        try:
+            stopped = db.execute(
+                "SELECT 1 FROM company_stops WHERE company_id=?", (company,)
+            ).fetchone()
+        finally:
+            db.close()
+        return "company_replied" if stopped else None
+    except sqlite3.Error:
+        return "reply_state_unreadable"
 
 
 def load_queue(store: Path, queue_id: str) -> dict | None:
@@ -506,14 +546,14 @@ def resolve_canary_evidence(store: Path, repo: Path, params: dict) -> dict:
         receipt = store / "canary" / f"{result_id}.json"
         if receipt.exists():
             doc = json.loads(receipt.read_text(encoding="utf-8"))
-            if int(doc.get("sent_count") or 0) >= 1 and doc.get("ok"):
+            if int(doc.get("sent_count") or 0) >= 1 and doc.get("ok") and doc.get("provider_send_verified") is True:
                 return {"ok": True, "source": "private_receipt", "canary_result_id": result_id}
         public = repo / "docs/agent-api/results" / f"{result_id}.json"
         if public.exists():
             doc = json.loads(public.read_text(encoding="utf-8"))
             data = doc.get("data") or {}
             sent = int(data.get("sent_count") or doc.get("sent_count") or 0)
-            if doc.get("operation") == "send_canary" and doc.get("status") == "success" and sent >= 1:
+            if doc.get("operation") == "send_canary" and doc.get("status") == "success" and sent >= 1 and data.get("provider_send_verified") is True:
                 return {"ok": True, "source": "agent_api_result", "canary_result_id": result_id}
         return {"ok": False, "error": "canary_evidence_invalid", "canary_result_id": result_id}
     if params.get("canary_passed") is True:
@@ -532,6 +572,8 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
         limit = int(params.get("limit") if params.get("limit") is not None else (CANARY_DEFAULT_LIMIT if mode == "canary" else 25))
     except (TypeError, ValueError):
         return {"ok": False, "status": "error", "error": "invalid_limit"}
+    if queue.get("dry_run") and not dry_run:
+        return {"ok": False, "status": "blocked", "error": "dry_run_queue_not_live", "sent_count": 0}
     if mode == "canary" and limit > CANARY_HARD_MAX:
         return {
             "ok": False,
@@ -596,6 +638,11 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
                 continue
             candidates.append((item, channel))
     for item, channel in candidates:
+        reply_block = company_reply_block(store, item)
+        if reply_block:
+            skipped += 1
+            actions.append({"lead_id": item.get("lead_id"), "channel": channel, "result": reply_block})
+            continue
         if sent >= limit:
             skipped += 1
             continue
@@ -618,12 +665,15 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
             actions.append({"lead_id": contact_id, "channel": channel, "result": "dry_run_no_send"})
             continue
         if channel == "email":
+            ledger.setdefault("items", {})[key] = {"at": now(), "request_id": request_id, "mode": mode, "state": "import_pending_reconciliation"}
+            save_sent_ledger(store, ledger)
             result = send_email_lead(instantly_fn, campaign_id, item)
             if result.get("ok"):
                 sent += 1
                 per_channel["email"] += 1
-                ledger.setdefault("items", {})[key] = {"at": now(), "request_id": request_id, "mode": mode}
-                actions.append({"lead_id": contact_id, "channel": channel, "result": "sent"})
+                ledger.setdefault("items", {})[key] = {"at": now(), "request_id": request_id, "mode": mode, "state": "import_accepted"}
+                save_sent_ledger(store, ledger)
+                actions.append({"lead_id": contact_id, "channel": channel, "result": "import_accepted"})
             elif result.get("skipped"):
                 skipped += 1
                 actions.append({"lead_id": contact_id, "channel": channel, "result": result.get("reason")})
@@ -639,7 +689,9 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
         "mode": mode,
         "queue_id": queue_id,
         "dry_run": dry_run,
-        "sent_count": sent,
+        "sent_count": 0,
+        "import_accepted_count": sent,
+        "provider_send_verified": False,
         "skipped_count": skipped,
         "errors_count": errors,
         "per_channel": per_channel,
@@ -653,15 +705,16 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
     }
     audit_path = store / "audit" / f"{mode}-{queue_id}-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}.json"
     write_json(audit_path, {**audit, "actions": [{**row, "lead_id": row.get("lead_id")} for row in actions]})
-    if mode == "canary" and sent >= 1 and request_id:
-        write_json(store / "canary" / f"{request_id}.json", {"ok": True, "sent_count": sent, "queue_id": queue_id})
+    # Lead import acceptance is not evidence of a provider email send.
     status = "dry_run_ok" if dry_run else ("success" if errors == 0 else "error")
     return {
         "ok": errors == 0,
         "status": status,
         "dry_run": dry_run,
         "queue_id": queue_id,
-        "sent_count": sent,
+        "sent_count": 0,
+        "import_accepted_count": sent,
+        "provider_send_verified": False,
         "skipped_count": skipped,
         "errors_count": errors,
         "per_channel": per_channel,

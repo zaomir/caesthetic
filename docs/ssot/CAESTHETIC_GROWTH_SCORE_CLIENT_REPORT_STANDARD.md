@@ -212,12 +212,12 @@ Named-human approval remains mandatory internally where required by the Growth S
 
 The client-facing report HTML/source must not contain a reviewer card, selector card, reviewer name, selector name or a personal-approval presentation block merely to prove that the internal gate occurred.
 
-The Valerie Petra walkthrough remains a **separate delivery artifact** governed by `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; it is not a report section or report card.
+Any personal walkthrough remains a **separate delivery artifact** governed by `docs/ssot/CAESTHETIC_GROWTH_SCORE_WALKTHROUGH.md`; it is not a report section or report card.
 
 Therefore the report body/source must not render:
 
 - `Your Growth Review` / `Ваш разбор Growth Score`;
-- a Valerie Petra walkthrough card;
+- a personal walkthrough card;
 - `3–8 minutes` / `3–8 минут` as a walkthrough card element;
 - a pending walkthrough placeholder;
 - a walkthrough URL or button embedded inside the report UI.
@@ -320,7 +320,7 @@ Presentation rules:
 - in the owner-brief audit template, place one clearly labelled report-share action near the beginning and one after the final report content; on supported mobile devices both use the native sharing sheet, with a clean-URL copy fallback elsewhere;
 - render the owner-brief “studied links” block as a visually quiet list of ordinary text links without cards, borders or colored backgrounds; show at most one representative URL per source hostname and never repeat separate pages of the same site;
 - render the “Studied links” / **«Изученные ссылки»** label with the same metadata typography role or design token as the report address/date line: the same font style, size and weight, without a separate heading accent;
-- in the Russian greeting/Intro block, render the signature line **«Валерия Петра · CAESTHETIC»** in italic without changing its text or presenting it as reviewer/selector attribution;
+- in the Russian greeting/Intro block, render the signature line **«Команда CAESTHETIC»** in italic without changing its text or presenting it as reviewer/selector attribution;
 
 Approved visual grammar:
 
@@ -358,7 +358,7 @@ The final client-facing visual sequence is canonical even though it is composed 
 6. **Thirty-day fit + Lead-to-Revenue boundary.** Explain what can realistically change in 30 days, then show the internal-conversion map and the first contextual Check500 section. The map shows what is and is not assessed after enquiry; it is a boundary/diagnostic branch, not a fifth surface or proof of a leak.
 7. **Final system synthesis.** State whether the findings represent isolated issues or one connected patient-decision system, then explain the relevant 4444 outcome: a shared demand-language map, query allocation, content/review-response system and consistency verification. Cross-surface consistency may help people and search systems understand the business but must never be presented as a ranking guarantee.
 8. **Implementation decision.** Preserve the legitimate choices `in-house / separate specialists or another provider / CAESTHETIC / defer`. The primary CAESTHETIC option is the 30-Day Growth Sprint at the agreed price confirmed in the written Sprint Order, framed as implementation of the approved 4444 priority rather than an isolated technical task. Immediately after it, show the second Check500 section as a smaller optional first engagement. Any retail-equivalent comparison must pass §9.1.
-9. **What happens next + founder note.** Show a branching continuation rather than a forced ladder, then close with a short real-founder note. Valerie Petra may be shown only in a truthful approved role; no fabricated biography or handwritten signature.
+9. **What happens next + founder note.** Show a branching continuation rather than a forced ladder, then close with a short real-founder note. Any named person may be shown only in a truthful approved role; no fabricated biography or handwritten signature.
 
 ### 8.2 Mapping to the immutable nine-section machine contract
 
@@ -414,7 +414,7 @@ The report may close with a short, mostly editorial/italic founder note after th
 
 `We are not asking you to spend more. We are helping you decide what deserves funding next.`
 
-Use a real approved founder identity/signature presentation only. Do not fabricate handwriting, identity or biography. Valerie Petra may appear separately only in her truthful approved role.
+Use a real approved founder identity/signature presentation only. Do not fabricate handwriting, identity or biography. Any named person may appear separately only in a truthful approved role.
 
 
 ### 8.6 Multi-Location visual profile
@@ -616,7 +616,7 @@ Do not:
 - add a tenth machine section;
 - turn competitor analysis into a ranking or score;
 - expose reviewer/selector identity to prove human approval;
-- embed the Valerie/walkthrough card back into the report;
+- embed a personal walkthrough card back into the report;
 - diagnose internal conversion causes without access/evidence;
 - force Maps or Reputation into Top 3 without evidence;
 - display a client occupancy/revenue problem as fact merely because an illustrative owner question is persuasive;
@@ -957,7 +957,7 @@ Commercial copy and the product/order route must agree on the included Check,
 credit, four-surface scope, pre-start dependencies and optional follow-on terms.
 
 Owner-selected RU presentation corrections, 2026-09-07: place the monthly
-recommendation directly after the Valerie Petra signature and start-share button.
+recommendation directly after the CAESTHETIC team signature and start-share button.
 Its CTA reads «Посмотреть план от Caesthetic →» and targets `#next-step`
 («Кто выполнит изменения»). The header retains the home brand link with the exact
 owner-supplied 192×192 PNG at

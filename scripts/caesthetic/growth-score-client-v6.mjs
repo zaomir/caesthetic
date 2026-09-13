@@ -23,7 +23,7 @@ const json = value => JSON.stringify(value).replaceAll('<', '\\u003c');
 
 export const V6_UI = Object.freeze({
   ru: {
-    score:'Оценка роста', public:'Публичные наблюдения', author:'Валерия Петра · CAESTHETIC',
+    score:'Оценка роста', public:'Публичные наблюдения', author:'Команда CAESTHETIC',
     share:'Поделиться отчётом', copied:'Ссылка скопирована', shared:'Отчёт отправлен', manual:'Скопируйте ссылку из поля.',
     unpublished:'У этого предпросмотра ещё нет опубликованной ссылки.', link:'Ссылка на отчёт', skip:'Перейти к отчёту', days:'30 дней', proposalLabel:'Привести маркетинг в порядок', planLink:'Посмотреть план от Caesthetic →',
     shortPlan:'Посмотреть план →', questions:'Четыре вопроса при выборе клиники', observation:'Что увидели.',
@@ -40,7 +40,7 @@ export const V6_UI = Object.freeze({
     question:'Задать вопрос', preview:'Дизайн-референс: содержание из макета, без новой публикации или утверждения исследования.',
   },
   en: {
-    score:'Growth Score', public:'Public observations', author:'Valerie Petra · CAESTHETIC',
+    score:'Growth Score', public:'Public observations', author:'CAESTHETIC Growth Team',
     share:'Share report', copied:'Link copied', shared:'Report shared', manual:'Copy the link from the field.',
     unpublished:'This preview does not have a published link yet.', link:'Report link', skip:'Skip to report', days:'30 days', proposalLabel:'Get your marketing in order', planLink:'View the plan from Caesthetic →',
     shortPlan:'View the plan →', questions:'Four questions when choosing a practice', observation:'What we observed.',

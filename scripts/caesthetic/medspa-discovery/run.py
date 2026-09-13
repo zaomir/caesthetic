@@ -398,6 +398,29 @@ def op_dry_run() -> dict:
 def op_ingest_inbox(params: dict | None = None) -> dict:
     ensure_store()
     params = params if isinstance(params, dict) else {}
+    if "master_ingest_mode" in params:
+        mode = params["master_ingest_mode"]
+        if mode == "setup_drive_runtime":
+            from master_ingest import setup_drive_runtime
+            return setup_drive_runtime(REPO, PRIVATE)
+        if mode == "sync_drive":
+            from master_ingest import sync_master_mirror
+            return sync_master_mirror(REPO, PRIVATE)
+        if mode not in {"dry_run", "apply"}:
+            return {"ok": False, "status": "blocked", "error": "invalid_master_ingest_mode"}
+        from master_ingest import canonical_ingest
+        result = canonical_ingest(REPO, PRIVATE, PUBLIC_INDEX, PAID_HASHES, apply=mode == "apply")
+        if result.get("applied"):
+            try:
+                result["post_apply_readiness"] = prepare_outreach(
+                    PRIVATE, PUBLIC_INDEX,
+                    {"batch_id": "public-index", "queue_id": "q-after-master-" + result["package_sha256"][:16],
+                     "channels": ["email"], "dry_run": True},
+                    master_dir=REPO / "data/master",
+                )
+            except Exception as exc:
+                result["post_apply_readiness"] = {"ok": False, "error": exc.__class__.__name__}
+        return result
     transfer = None
     if needs_transfer(params):
         transfer = stage_inbox(params, PRIVATE / "inbox", allowed_hashes=PAID_HASHES)
@@ -517,7 +540,26 @@ def op_logs() -> dict:
     tail = []
     if cron_log.exists():
         tail = [redact(line) for line in cron_log.read_text(encoding="utf-8", errors="replace").splitlines()[-20:]]
-    return {"ok": True, "journal_tail": lines, "canary_cron_tail": tail}
+    sync_summary = {"log_present": False}
+    sync_path = REPO / "data/inbox/master_drive_sync.jsonl"
+    if sync_path.exists():
+        try:
+            last = sync_path.read_text(encoding="utf-8").splitlines()[-1]
+            event = json.loads(last)
+            auth = event.get("auth") or {}
+            code = str(auth.get("error") or "").split(":")[0]
+            sync_summary = {
+                "log_present": True, "ok": event.get("ok"),
+                "blocker": event.get("blocker"),
+                "auth_mode": auth.get("mode"),
+                "auth_error_code": code if re.fullmatch(r"[A-Za-z0-9_]*", code) else "unclassified",
+            }
+        except (OSError, ValueError, IndexError):
+            sync_summary = {"log_present": True, "error": "sync_log_unreadable"}
+    sync_summary["service_account_file_present"] = any(
+        p.is_file() for p in (Path("/srv/monya/google-sa-id-evo.json"), Path("/etc/evo/google_service_account.json"))
+    )
+    return {"ok": True, "journal_tail": lines, "canary_cron_tail": tail, "master_drive_sync": sync_summary}
 
 
 def resolve_operation(operation: str) -> str:
@@ -536,7 +578,7 @@ def op_discover_channels(params: dict) -> dict:
 
 def op_prepare_outreach(params: dict) -> dict:
     ensure_store()
-    return prepare_outreach(PRIVATE, PUBLIC_INDEX, params)
+    return prepare_outreach(PRIVATE, PUBLIC_INDEX, params, master_dir=REPO / "data/master")
 
 
 def op_send_canary(params: dict, request_id: str | None = None) -> dict:
