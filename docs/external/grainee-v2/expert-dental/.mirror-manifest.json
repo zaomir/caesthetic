@@ -293,7 +293,7 @@
     "docs/raimov/partnerships/PARTNER_PACKAGES.md": "7b9594a4fa9531ecbeee78cb2cd04d7d4d479f4c376a6e13de5e1afcdac3f73f",
     "docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_ECONOMICS_CONTRACT.md": "ada7a483aad946ceb5a08b065accc77bdd568df300536bb49675ad718f2a44c3",
     "docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_PAGE_STRATEGY.md": "5b9a0c6a488195ced3a0ec465706ca73f355a22952b46444f9a0530e0c4ebd1c",
-    "docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_PAGE_STRATEGY_V3.md": "178cf366e65faa3d1961223b6bfddeb1823c8075d707fbb5bd9c790b3cbe05ae",
+    "docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_PAGE_STRATEGY_V3.md": "5fdbee57b3d25243226bbc75434583265e612940a0aa17f28c578bfcd1ec1a51",
     "docs/raimov/partnerships/RAIM_SMILE_PARTNER_PROGRAM_MATRIX.md": "18f5adab25a5934b09a76da5b951df994fecf913e0ce9ef8bc3e7cbd2ff3ed7e",
     "docs/raimov/partnerships/RAIM_SMILE_VIP_ACCESS_CONTRACT.md": "57d3c0ae667e80f2916da7df06f69f87e5b99cd86e27ab34bf8c0f16f0388ee5",
     "docs/raimov/partnerships/README.md": "ea6c319b6a78555f61881b6eb69443b6ed118b666c6a0a62c40300d43ae76ad5",
@@ -360,7 +360,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "f3c1b3f150fedc961d1ef2d53a2c0ae0ed4750e8",
+  "source_sha": "4c1d3fe47797a29c57952c12991dc86c495fc9cb",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

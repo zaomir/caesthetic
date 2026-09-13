@@ -1657,6 +1657,42 @@
       ],
       "stylesheets": [],
       "catalog_visibility": "synthetic"
+    },
+    {
+      "source": "site-caesthetic/partnerships/index.html",
+      "route": "/partnerships/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/partnerships.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/ru/partnerships/index.html",
+      "route": "/ru/partnerships/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/caesthetic.css",
+        "/assets/css/caesthetic-impeccable.css",
+        "/assets/css/partnerships.css"
+      ]
     }
   ],
   "tokens": {
@@ -1760,8 +1796,6 @@
     "site-caesthetic/assets/img/logo.png": "a143a57a2069d85878d8655a43fbeec0c08e4a9fbae548b3de86abff039fd1c5",
     "site-caesthetic/assets/img/score-samples/grid-map-sample.svg": "0ede934508e102622001cb435bf550971136586aa36925af9c05ec38197cbb92",
     "site-caesthetic/assets/img/score-samples/review-velocity-sample.svg": "a51fc794c99f29f8f3908ff790d8f70acd62c4d29428410cc4507c5a8b69797e",
-    "site-caesthetic/assets/img/team/valerie-petra-office-portrait.webp": "db137601cb9189e663892e4d07e1d4bb1e9147c80d68d990b12ccb80c2a1a743",
-    "site-caesthetic/assets/img/team/valerie-petra.svg": "e6d2d308df3ce159909beeb4cc500f14fa8338870369cdafc8a95aa07e74c60b",
     "site-caesthetic/assets/img/wise-qr-code.png": "44b8bd77fecb0c6fa1fd0e1733ad601a4ade44beb60e0b38bb4a3267b78e5b06",
     "site-caesthetic/brand/logo-long.png": "d0eb247c9694012ec953076c60a5563834aadce216198ec5db6c1c030a1462b3",
     "site-caesthetic/brand/logo-long.svg": "741dc5e98658c639833d49c35da98772ec84797935df1353b0d124c06b201301",

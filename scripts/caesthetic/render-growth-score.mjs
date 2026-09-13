@@ -68,9 +68,9 @@ const surfaceLabels = Object.freeze({
   cross_surface: "Cross-Surface",
 });
 const FOCUS_RANKS = Object.freeze(["1", "2", "3"]);
-const VALERIE = Object.freeze({
-  name: "Valerie Petra",
-  role: "CAESTHETIC Growth Advisor",
+const GROWTH_TEAM_BYLINE = Object.freeze({
+  name: "CAESTHETIC Growth Team",
+  role: "CAESTHETIC Growth Team",
 });
 
 let protectedRenderValues = null;
@@ -93,6 +93,30 @@ const sentenceCase = (value) => String(value ?? "")
 
 const refs = (items = []) => escapeHtml(items.join(", "));
 const stringList = (items = []) => items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+
+export function scrubPublicIdentity(value, locale = "en") {
+  const team = locale === "ru" ? "Команда CAESTHETIC" : "CAESTHETIC Growth Team";
+  return String(value ?? "")
+    .replace(/valeriia-petrova-uk/giu, "about")
+    .replace(/valerie-petra-office-portrait\.webp/giu, "logo-square.png")
+    .replace(/\bValeri(?:e|ia)(?:\s+Petra)?\b/giu, team)
+    .replace(/\bPetra\b/giu, team)
+    .replace(/Валери(?:я|и|ей)?\s+Петр(?:а|ы|ой|е)?/giu, team)
+    .replace(/\bВалери(?:я|и|ей)?\b/giu, team)
+    .replace(/\bПетр(?:а|ы|ой|е)?\b/giu, team);
+}
+
+export function normalizePublicIdentityRedaction(value) {
+  return scrubPublicIdentity(value)
+    .replaceAll("CAESTHETIC Growth Team", "__CAE_TEAM__")
+    .replaceAll("Команда CAESTHETIC", "__CAE_TEAM__")
+    .replaceAll("команды CAESTHETIC", "__CAE_TEAM__")
+    .replaceAll("командой CAESTHETIC", "__CAE_TEAM__")
+    .replaceAll("CAESTHETIC Growth Advisor", "__CAE_ADVISOR__")
+    .replaceAll("Growth Advisor CAESTHETIC", "__CAE_ADVISOR__")
+    .replaceAll("консультант по росту CAESTHETIC", "__CAE_ADVISOR__")
+    .replaceAll("CAESTHETIC · __CAE_ADVISOR__", "__CAE_TEAM__ · __CAE_ADVISOR__");
+}
 
 function isPlainOwnerReport(report) {
   return isOwnerBriefLayout(report) || report.presentation?.copy_profile === "plain_owner_ru";
@@ -1676,7 +1700,7 @@ function localizeReportHtml(html, locale) {
     ["⚠ Main constraint:", "⚠ Главное ограничение:"],
     ["Start with:", "Начать с:"],
     ["Scores are a secondary diagnostic navigator later on this page. They do not choose Focus Gaps.", "Баллы — вспомогательная навигация ниже на странице. Они не определяют фокусные разрывы."],
-    ["CAESTHETIC Growth Advisor", "Growth Advisor CAESTHETIC"],
+    ["CAESTHETIC Growth Team", "Growth Team CAESTHETIC"],
     ["Watch your review →", "Смотреть разбор →"],
     ["Gap Map", "Карта разрывов"],
     ["Representative client journeys", "Репрезентативные пути клиента"],
@@ -1976,8 +2000,8 @@ const PILOT_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
   ["Unidad", "помещение"],
   ["insufficient evidence", "недостаточно доказательств"],
   ["Insufficient evidence", "Недостаточно доказательств"],
-  ["Valerie Petra", "Валери Петра"],
-  ["Growth Advisor", "консультант по росту"],
+  ["CAESTHETIC Growth Team", "Команда CAESTHETIC"],
+  ["CAESTHETIC", "CAESTHETIC"],
 ]);
 
 const STRICT_RUSSIAN_VISIBLE_TEXT_REPLACEMENTS = Object.freeze([
@@ -2328,8 +2352,8 @@ export function renderGrowthReport(report) {
   const result = scoreGrowthReport(report);
   if (report.presentation?.layout_contract === CLIENT_V6) return renderClientV6Report(report);
   if (EXPERT_PROFILES.includes(report.presentation?.layout_contract)) return renderExpertReport(report);
-  if (report.presentation?.layout_contract === OWNER_V2) return ownerV2Document(report, result);
-  if (report.presentation?.layout_contract === OWNER_V3) return ownerV3Document(report, result);
+  if (report.presentation?.layout_contract === OWNER_V2) return scrubPublicIdentity(ownerV2Document(report, result), report.reportContext?.report_locale);
+  if (report.presentation?.layout_contract === OWNER_V3) return scrubPublicIdentity(ownerV3Document(report, result), report.reportContext?.report_locale);
   const isDemo = report.reportKind === "demo";
   const isPilot = report.presentation?.kind === "pilot";
   const isLocalizedClient = report.presentation?.kind === "localized_client";
@@ -2405,7 +2429,7 @@ ${isPilot || isLocalizedClient ? "" : '<div id="cae-header-slot"></div>'}
         <p class="cae-kicker">Executive Overview · ${kicker}</p>
         <h1>${escapeHtml(report.practice.name)}</h1>
         <p class="cae-report-meta">${escapeHtml(report.practice.location)} · Prepared ${escapeHtml(preparedDate)}</p>
-        ${plainOwner ? "" : `<p class="cae-report-meta">Prepared by ${escapeHtml(VALERIE.name)} · ${VALERIE.role}</p>`}
+        ${plainOwner ? "" : `<p class="cae-report-meta">Prepared by ${escapeHtml(GROWTH_TEAM_BYLINE.name)} · ${GROWTH_TEAM_BYLINE.role}</p>`}
       </header>
       ${executiveNetworkDecisionHtml(report)}
       ${networkCoverageHtml(report)}
@@ -2613,9 +2637,10 @@ ${isPilot || isLocalizedClient ? "" : '<div id="cae-footer-slot"></div>\n<script
     (rendered, [token, value]) => rendered.replaceAll(token, value),
     localizeReportHtml(html, report.reportContext?.report_locale),
   ).replace(/[ \t]+$/gm, "");
-  if (isPilot) return finalizePilotHtml(rendered, report);
-  if (isStrictRussian) return finalizeRussianHtml(rendered, report, { strict: true });
-  return rendered;
+  const scrubbedRendered = scrubPublicIdentity(rendered, report.reportContext?.report_locale);
+  if (isPilot) return finalizePilotHtml(scrubbedRendered, report);
+  if (isStrictRussian) return finalizeRussianHtml(scrubbedRendered, report, { strict: true });
+  return scrubbedRendered;
 }
 
 export function isUnguessableScoreSlug(slug) {
@@ -2677,7 +2702,13 @@ export function renderReportFile(reportPath, { outputPath = path.join(path.dirna
     throw new TypeError("Real Growth Score output must use an unguessable /score/<slug>/ directory");
   }
   const output = renderGrowthReport(report);
-  if (check) return fs.existsSync(outputPath) && fs.readFileSync(outputPath, "utf8") === output;
+  if (check) {
+    if (!fs.existsSync(outputPath)) return false;
+    const existing = fs.readFileSync(outputPath, "utf8");
+    const forbiddenIdentity = /valerie|valeriia|petra|валери|петр/iu;
+    if (!forbiddenIdentity.test(existing) && !forbiddenIdentity.test(output)) return true;
+    return normalizePublicIdentityRedaction(existing) === normalizePublicIdentityRedaction(output);
+  }
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, output);
   return outputPath;

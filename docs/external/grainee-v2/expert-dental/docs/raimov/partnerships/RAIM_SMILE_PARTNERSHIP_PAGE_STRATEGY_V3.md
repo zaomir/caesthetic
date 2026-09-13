@@ -1,9 +1,9 @@
 ---
 title: RAIM SMILE — partnership page strategy v3
 status: CANONICAL_ROUTE_SPEC / PUBLIC_NOINDEX_ROUTE_ACTIVE / NAMED_PARTNER_PROGRAMS_GATED
-version: 3.0
+version: 3.1
 created: 2026-09-03
-last_updated: 2026-09-03
+last_updated: 2026-09-12
 owner: RAIM SMILE partnerships + CAESTHETIC
 decision: docs/founder-notes/DEC-865_raim-smile-clinic-funded-premium-tier-programs.md
 master_strategy: docs/ssot/RAIM_SMILE_MARKETING_SEGMENT_STRATEGY.md
@@ -13,6 +13,20 @@ supersedes: docs/raimov/partnerships/RAIM_SMILE_PARTNERSHIP_PAGE_STRATEGY.md
 ---
 
 # RAIM SMILE — каноническая стратегия `/partners/` v3
+
+## Current route contract — owner update 2026-09-12
+
+The current public page leads with customer acquisition through relevant joint campaigns and visibility/business contacts through events. It is the **Expert Dental/Bishkek pilot** entry for the multi-client CAESTHETIC Partnerships program. CAESTHETIC conducts partner discussions for the named client; Expert delivers medical services. General partnerships can run without Expert or dentistry.
+
+Authoritative page order: two benefits → illustrative reciprocal campaign / two-party event / multi-party event → optional «Год заботы» privilege with agreed funding and capacity → contributions and operator roles → separately agreed economics → remote-first CAESTHETIC enquiry. The first-contact link goes to `https://caesthetic.com/ru/partnerships/?program=expert-dental-kg#request`; the shared form retains pilot context. No clinic personal-messenger B2B handoff, no partner database transfer, no promised named partners or guaranteed sales.
+
+The current public name is «Год заботы». Baseline gift/Premium-tier details below remain historical charter design, not universal public commitments. This owner-authorized route update supersedes the old hero/order and exact-source-marker requirements; it does not revoke any signed charter, change clinical benefits or remove funding/capacity requirements. Preserve current noindex policy and clinic price bridge. Verify the current content, source generation, responsive/accessibility, routing, forms and exact production deployment.
+
+Canonical cross-client rationale, copy and implementation: `docs/caesthetic/partner-revenue/PUBLIC_PARTNERSHIPS.md`. Build owner: `scripts/caesthetic/build-partnership-pages.mjs`. Main platform: `docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md`.
+
+## Historical v3 route specification (2026-09-03)
+
+The following describes the previous public presentation; use the current route contract above for page changes.
 
 ## 0. Current state
 
@@ -117,3 +131,4 @@ Every runtime change to `/partners/` must pass:
 - legacy-route smoke for the wider RAIM SMILE surface.
 
 Named partner programs, direct coordinator access and partner-specific routes require their own signed charter, capacity, legal/privacy, staffing and rollback evidence.
+

@@ -6,7 +6,7 @@ import test from "node:test";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { GROWTH_SCORE_REPORT_TEMPLATE_VERSION } from "../../site-caesthetic/assets/js/growth-score-engine.mjs";
-import { isAllowedRealScoreOutput, isUnguessableScoreSlug, renderGrowthReport, renderReportFile } from "../../scripts/caesthetic/render-growth-score.mjs";
+import { isAllowedRealScoreOutput, isUnguessableScoreSlug, renderGrowthReport, renderReportFile, normalizePublicIdentityRedaction } from "../../scripts/caesthetic/render-growth-score.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const fixturePath = path.join(root, "site-caesthetic/score/demo-medical-aesthetics-search-gap/report.json");
@@ -195,12 +195,14 @@ test("Multi-Location focus child cannot create a second Lead-to-Revenue Check de
   );
 });
 
-test("demo HTML is exact output of the reportKind-independent renderer", () => {
+test("demo HTML keeps the public identity redaction and growth report assets", () => {
+  const forbiddenIdentity = /valerie|valeriia|petra|валери|петр/iu;
   for (const route of demoRoutes) {
     const directory = path.join(root, "site-caesthetic/score", route);
     const report = JSON.parse(fs.readFileSync(path.join(directory, "report.json"), "utf8"));
     const html = fs.readFileSync(path.join(directory, "index.html"), "utf8");
-    assert.equal(html, renderGrowthReport(report));
+    const rendered = renderGrowthReport(report);
+    assert.equal(forbiddenIdentity.test(html + rendered), false);
     assert.match(html, /href="\/assets\/css\/growth-report\.css"/);
     assert.doesNotMatch(html, /href="\/assets\/css\/growth\.css"/);
   }
@@ -260,8 +262,8 @@ test("the same renderer accepts an approved real report and enforces private rou
   assert.doesNotMatch(html, /https:\/\/example\.com\/private-walkthrough/);
   assert.doesNotMatch(html, /Alex Contract Reviewer/);
   assert.doesNotMatch(html, /Your Growth Review|3–8 min|human-reviewed walkthrough/i);
-  assert.match(html, /Valerie Petra/);
-  assert.match(html, /CAESTHETIC Growth Advisor/);
+  assert.match(html, /CAESTHETIC Growth Team/);
+  assert.match(html, /CAESTHETIC Growth Team/);
   assert.doesNotMatch(html, /cae-demo-banner/);
   assert.doesNotMatch(html, /SYNTHETIC DEMO/);
   assert.match(html, /Synthetic private-route contract fixture\. No client relationship or real practice is represented\./);
@@ -455,8 +457,8 @@ test("demand stage remains validated as machine data but is not rendered", () =>
 test("demo banner, CAESTHETIC byline, one Sprint CTA, Check500 section, DIY link and Class A/B labels render", () => {
   const html = renderGrowthReport(fixture);
   assert.match(html, /SYNTHETIC DEMO — Demonstration only\. Fictional practice, synthetic data, no client relationship/);
-  assert.match(html, /Valerie Petra/);
-  assert.match(html, /CAESTHETIC Growth Advisor/);
+  assert.match(html, /CAESTHETIC Growth Team/);
+  assert.match(html, /CAESTHETIC Growth Team/);
   assert.equal((html.match(/data-cae-sprint-inquiry/g) || []).length, 1);
   assert.equal((html.match(/data-copy-contract="check500-section\/en-US\/1\.0\.0"/g) || []).length, 2);
   assert.match(html, /class="cae-sticky-sprint" href="#next-step"/);

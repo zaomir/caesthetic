@@ -481,7 +481,7 @@
       /\bутвердил(?:а)?\b[^.·<]*/gi,
     ];
     if (!isPlainOwnerProfile()) {
-      neutralizePatterns.push(/\bValerie Petra\b/gi, /\bВалери(?:я)? Петра\b/gi);
+      neutralizePatterns.push(/\bCAESTHETIC Growth Team\b/gi, /\bКоманда CAESTHETIC\b/gi);
     }
 
     const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT);

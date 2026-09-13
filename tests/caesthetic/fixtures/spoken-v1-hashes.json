@@ -1,16 +1,16 @@
 {
   "source_sha": "faf2340d11c7b068b04727c3fddb072388b2449c",
   "files": {
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "dab84034177deeecb2b6914b496839d76f8f5fc21b0403e09c650184cb1dae86",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "ea92d3bb2625edda1263268adc15aa9c7059c7001178f876a1a6949083343c2b",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "dc9627dbb3a366f648111ae4fd8793f172bcbeef3aec4c27bf68d4e8dd46144e",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "41fab0590126ef7244809b4756be965e2a2b9e15208a2829d3929a7f2a2a3465",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "e4202b930c7416430c19acd2698153940db7b517427868b92cd6ac52c37c8517",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "4c10e2af4c74def5b3d41365c6f7f2f1c1aa565bf24839baefd7f8638d302e77",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "ccf097f4fac18e9fa83e0b594f32a50a9ef1f6d20908fabab0fdb7e371f2f08f",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "ff1cb6f5074a4a38a3fcbde4ca668094ca7282989528d1c41dc87e413c6f53a3",
     "site-caesthetic/assets/css/tokens.css": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543",
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
     "site-caesthetic/assets/js/caesthetic.js": "432b4deda96cefc66c49269f2c668ba47fa6ed6dcf9a16b1825049e05b329825",
-    "site-caesthetic/assets/js/caesthetic-config.js": "47d5e45c3ac2cd89cced4b00cc514e157766e149254cf07f3800320352dd3bf8",
-    "site-caesthetic/assets/js/growth-cockpit.js": "7b47593a1361ce1350cc7228a2ccdcd5629a13136b7e359acd1f16bb8e9b6fbf",
+    "site-caesthetic/assets/js/caesthetic-config.js": "391cde207bed744a5d06c0309ea109c75ead25aac7c0b9716ab7df3b17a01332",
+    "site-caesthetic/assets/js/growth-cockpit.js": "21c31294b7855dd7536c3991026fb3b1975f45213665e758080552a1955c34d9",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
   "shared_runtime_update": {
@@ -52,5 +52,9 @@
   "privacy_update": {
     "date": "2026-09-08",
     "reason": "Parent report bytes changed intentionally to remove client/practice names from CAESTHETIC public site surfaces while preserving legacy route slugs."
+  },
+  "public_identity_redaction": {
+    "date": "2026-09-13",
+    "reason": "Remove retired Valerie/Petra public identity markers from CAESTHETIC site while preserving report structure and runtime behavior."
   }
 }
