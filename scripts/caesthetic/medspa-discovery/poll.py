@@ -50,6 +50,12 @@ def materialize_origin_requests() -> None:
 
 def sync_main() -> str | None:
     """Fast-forward to origin/main. Git contention must not skip pending requests."""
+    subprocess.run(
+        ["bash", str(REPO / "scripts/lib/git-stale-lock.sh"), str(REPO)],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
     fetch_err = None
     for _attempt in range(2):
         try:
@@ -60,6 +66,13 @@ def sync_main() -> str | None:
             fetch_err = f"fetch:{exc.returncode}"
     if fetch_err:
         return fetch_err
+    # Requests are control-plane input. Always materialize them from origin/main
+    # after a successful fetch, even when a dirty checkout prevents merge or an
+    # older local tree happens to match a stale request directory.
+    try:
+        materialize_origin_requests()
+    except subprocess.CalledProcessError:
+        return "requests_materialize_failed"
     head = git("rev-parse", "HEAD")
     remote = git("rev-parse", "origin/main")
     if head == remote:
@@ -104,17 +117,36 @@ def origin_has(path: Path) -> bool:
     ).returncode == 0
 
 
+def origin_result(rid: str) -> dict | None:
+    blob = git("show", f"origin/main:docs/agent-api/results/{rid}.json", check=False)
+    if not blob:
+        return None
+    try:
+        data = json.loads(blob)
+    except Exception:
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def is_terminal_status(doc: dict | None) -> bool:
+    return isinstance(doc, dict) and doc.get("status") not in RETRY_STATUSES
+
+
 def should_run(path: Path) -> bool:
     if not is_medspa_request(path):
         return False
     rid = request_id_for(path)
     result = RESULTS / f"{rid}.json"
     existing = read_json(result) if result.exists() else None
-    if existing is None and origin_has(result):
+    remote = origin_result(rid)
+    # A queued_on_vds placeholder is not an execution receipt.
+    if is_terminal_status(remote):
         return False
-    if existing is None:
-        return True
-    return existing.get("status") in RETRY_STATUSES
+    if is_terminal_status(existing) and is_terminal_status(remote):
+        return False
+    if is_terminal_status(existing) and remote is None:
+        return False
+    return True
 
 
 def terminal_local_result(path: Path) -> Path | None:
@@ -122,12 +154,17 @@ def terminal_local_result(path: Path) -> Path | None:
         return None
     rid = request_id_for(path)
     result = RESULTS / f"{rid}.json"
-    if not result.exists() or origin_has(result):
+    if not result.exists():
         return None
     existing = read_json(result)
-    if existing is None or existing.get("status") in RETRY_STATUSES:
+    if not is_terminal_status(existing):
         return None
-    return result
+    remote = origin_result(rid)
+    # If origin still has only a queued placeholder, re-execute instead of
+    # publishing a stale local crash receipt.
+    if remote is None:
+        return result
+    return None
 
 
 def write_error_result(request: dict, output: Path, exc: Exception) -> None:
@@ -149,18 +186,41 @@ def write_error_result(request: dict, output: Path, exc: Exception) -> None:
     output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
 
-def commit_push(paths: list[str], message: str) -> None:
+def push_main_with_retry() -> bool:
+    """Push HEAD to origin/main; autostash so materialized requests do not break rebase."""
+    try:
+        subprocess.check_call(["git", "push", "origin", "HEAD:main"], cwd=REPO)
+        return True
+    except subprocess.CalledProcessError:
+        pass
+    git("fetch", "origin", "main", "-q")
+    pull = subprocess.run(
+        ["git", "pull", "--rebase", "--autostash", "origin", "main"],
+        cwd=REPO,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    if pull.returncode != 0:
+        subprocess.run(["git", "rebase", "--abort"], cwd=REPO, check=False)
+        try:
+            git("merge", "--ff-only", "origin/main")
+        except subprocess.CalledProcessError:
+            return False
+    try:
+        subprocess.check_call(["git", "push", "origin", "HEAD:main"], cwd=REPO)
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
+
+def commit_push(paths: list[str], message: str) -> bool:
     subprocess.check_call(["git", "add", *paths], cwd=REPO)
     staged = subprocess.run(["git", "diff", "--staged", "--quiet"], cwd=REPO)
     if staged.returncode == 0:
-        return
+        return True
     subprocess.check_call(["git", "commit", "-m", message], cwd=REPO)
-    try:
-        subprocess.check_call(["git", "push", "origin", "HEAD:main"], cwd=REPO)
-    except subprocess.CalledProcessError:
-        git("fetch", "origin", "main", "-q")
-        git("rebase", "origin/main")
-        subprocess.check_call(["git", "push", "origin", "HEAD:main"], cwd=REPO)
+    return push_main_with_retry()
 
 
 def main() -> None:
@@ -175,17 +235,20 @@ def main() -> None:
     paths = sorted(REQUESTS.glob("*.json"))
     processed = 0
     recovered = 0
+    push_failures = 0
     last_id = None
     for path in paths:
         pending = terminal_local_result(path)
         if pending is not None:
             rid = request_id_for(path)
             last_id = rid
-            commit_push(
+            if commit_push(
                 [str(pending.relative_to(REPO))],
                 f"chore(caesthetic-medspa): result {rid} [skip ci]",
-            )
-            recovered += 1
+            ):
+                recovered += 1
+            else:
+                push_failures += 1
             continue
         if not should_run(path):
             continue
@@ -197,11 +260,13 @@ def main() -> None:
             handle_bridge(req, out)
         except Exception as exc:
             write_error_result(req, out, exc)
-        commit_push(
+        if commit_push(
             [str(out.relative_to(REPO))],
             f"chore(caesthetic-medspa): result {rid} [skip ci]",
-        )
-        processed += 1
+        ):
+            processed += 1
+        else:
+            push_failures += 1
     STATUS.write_text(
         json.dumps(
             {
@@ -211,6 +276,7 @@ def main() -> None:
                 "current_request_id": last_id,
                 "next_poll": "cron */5",
                 "sync_error": sync_error,
+                "push_failures": push_failures,
             },
             indent=2,
         )
@@ -220,9 +286,10 @@ def main() -> None:
     print(
         json.dumps(
             {
-                "ok": True,
+                "ok": push_failures == 0,
                 "processed": processed,
                 "recovered": recovered,
+                "push_failures": push_failures,
                 "last_id": last_id,
                 "sync_error": sync_error,
             }

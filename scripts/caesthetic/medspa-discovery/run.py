@@ -634,6 +634,12 @@ def dispatch(operation: str, params: dict | None = None, request: dict | None = 
             result = op_send_canary(params, request_id)
         elif canonical == "send_batch":
             result = op_send_batch(params, request_id)
+        elif canonical == "instantly_control" and params.get("action") == "configure_factory_draft":
+            from draft_control import configure_draft
+            result = configure_draft(REPO, instantly)
+        elif canonical == "instantly_control" and params.get("action") == "activate_factory_canary":
+            from draft_control import activate_imported_canary
+            result = activate_imported_canary(REPO, instantly)
         elif canonical == "ingest_inbox":
             result = op_ingest_inbox(params)
         elif canonical == "run_discovery":

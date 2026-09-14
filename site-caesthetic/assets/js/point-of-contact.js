@@ -63,10 +63,10 @@
     var locale = (document.documentElement.lang || "en").toLowerCase().split("-")[0];
     var isRussian = locale === "ru";
     var localized = {
-      es: { label: "Tu contacto en CAESTHETIC", portrait: "Retrato de CAESTHETIC Growth Team", link: "Ver a CAESTHETIC en LinkedIn", lead: "CAESTHETIC explica los hallazgos, coordina el trabajo de CAESTHETIC según el alcance acordado y te informa de los próximos pasos. Otros especialistas pueden participar en tareas concretas; CAESTHETIC sigue siendo tu contacto." },
-      fr: { label: "Votre contact chez CAESTHETIC", portrait: "Portrait de CAESTHETIC Growth Team", link: "Voir CAESTHETIC sur LinkedIn", lead: "CAESTHETIC explique les constats, coordonne le travail de CAESTHETIC selon le périmètre convenu et vous informe des prochaines étapes. D’autres spécialistes peuvent intervenir sur certaines tâches ; CAESTHETIC reste votre interlocutrice." }
+      es: { label: "Tu contacto en CAESTHETIC", portrait: "Retrato de CAESTHETIC Growth Team", link: "Ver a CAESTHETIC en LinkedIn", lead: "El Growth Team de CAESTHETIC explica los hallazgos, coordina el trabajo según el alcance acordado y te informa de los próximos pasos. Otros especialistas pueden participar en tareas concretas; tu responsabilidad ante la dirección sigue estando clara." },
+      fr: { label: "Votre contact chez CAESTHETIC", portrait: "Portrait de CAESTHETIC Growth Team", link: "Voir CAESTHETIC sur LinkedIn", lead: "La Growth Team de CAESTHETIC explique les constats, coordonne le travail selon le périmètre convenu et vous informe des prochaines étapes. D’autres spécialistes peuvent intervenir sur certaines tâches ; la responsabilité vis-à-vis de la direction reste claire." }
     }[locale];
-    var displayName = isRussian ? "Команда CAESTHETIC" : analyst.name;
+    var displayName = isRussian ? "Команда CAESTHETIC" : analyst.name + " · " + analyst.role;
 
     var section = el("section", "cae-section cae-point-of-contact");
     section.setAttribute("data-cae-point-of-contact-component", "");
@@ -79,10 +79,12 @@
       image.src = analyst.photo;
       image.width = 140;
       image.height = 140;
-      image.alt = localized ? localized.portrait : isRussian ? "Портрет CAESTHETIC команды CAESTHETIC" : "Portrait of " + analyst.name;
+      image.alt = localized ? localized.portrait : isRussian ? "Портрет команды CAESTHETIC" : "Portrait of " + analyst.name;
       image.loading = "lazy";
       image.decoding = "async";
       person.appendChild(image);
+    } else {
+      person.classList.add("cae-point-of-contact__person--without-photo");
     }
 
     var copy = document.createElement("div");
@@ -91,9 +93,8 @@
 
     var lead = el("p", "cae-lead");
     lead.appendChild(document.createTextNode(localized ? localized.lead : isRussian
-      ? "CAESTHETIC объяснит выводы, согласует работу команды CAESTHETIC и расскажет, что будет дальше. К отдельным задачам могут подключаться другие специалисты, но за связь с вами отвечает CAESTHETIC."
-      : analyst.name + " · " + analyst.role +
-        " is your owner-facing point of contact for this process. She coordinates CAESTHETIC's work around the agreed scope, presents the findings, and makes sure you know what happens next. Specialist execution may involve other members of the distributed team; your owner-facing accountability stays clear."
+      ? "Команда CAESTHETIC объяснит выводы, согласует работу в утверждённых рамках и расскажет, что будет дальше. К отдельным задачам могут подключаться другие специалисты; ответственность перед владельцем остаётся ясной."
+      : "The CAESTHETIC Growth Team is your owner-facing point of contact for this process. The team coordinates work around the agreed scope, presents the findings, and makes sure you know what happens next. Specialist execution may involve other members of the distributed team; your owner-facing accountability stays clear."
     ));
     copy.appendChild(lead);
 

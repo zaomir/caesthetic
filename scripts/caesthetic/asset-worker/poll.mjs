@@ -107,12 +107,50 @@ function commitAndPush(paths, message) {
   return true;
 }
 
+function gitSoft(args) {
+  return spawnSync("git", args, { cwd: REPO_ROOT, encoding: "utf8" });
+}
+
+function recoverStaleLock() {
+  const helper = path.join(REPO_ROOT, "scripts/lib/git-stale-lock.sh");
+  if (!fs.existsSync(helper)) return;
+  spawnSync("bash", [helper, REPO_ROOT], { encoding: "utf8" });
+}
+
+function materializeOriginRequests(relDir) {
+  const listing = gitSoft(["ls-tree", "--name-only", `origin/main:${relDir}`]);
+  if (listing.status !== 0) return;
+  const destDir = path.join(REPO_ROOT, relDir);
+  fs.mkdirSync(destDir, { recursive: true });
+  for (const name of String(listing.stdout || "").split("\n")) {
+    if (!name.endsWith(".json") || name.startsWith("TEMPLATE")) continue;
+    const blob = gitSoft(["show", `origin/main:${relDir}/${name}`]);
+    if (blob.status !== 0) continue;
+    const text = blob.stdout.endsWith("\n") ? blob.stdout : `${blob.stdout}\n`;
+    fs.writeFileSync(path.join(destDir, name), text);
+  }
+}
+
 function syncMain() {
-  git(["fetch", "origin", "main", "-q"]);
+  recoverStaleLock();
+  let fetchErr = null;
+  for (let i = 0; i < 2; i += 1) {
+    const fetch = gitSoft(["fetch", "origin", "main", "-q"]);
+    if (fetch.status === 0) {
+      fetchErr = null;
+      break;
+    }
+    fetchErr = `fetch:${fetch.status}`;
+  }
+  if (fetchErr) return fetchErr;
   const head = git(["rev-parse", "HEAD"]);
   const remote = git(["rev-parse", "origin/main"]);
-  if (head === remote) return;
-  git(["merge", "--ff-only", "origin/main"]);
+  if (head === remote) return null;
+  const merge = gitSoft(["merge", "--ff-only", "origin/main"]);
+  if (merge.status === 0) return null;
+  materializeOriginRequests("docs/agent-api/requests");
+  materializeOriginRequests("docs/projects/caesthetic/publish-growth-score/server-requests");
+  return `merge_fallback:${merge.status}`;
 }
 
 async function main() {
@@ -123,11 +161,15 @@ async function main() {
     writePollerStatus("error", { last_error: err.code || err.message });
     throw err;
   }
+  let syncError = null;
   try {
-    syncMain();
+    syncError = syncMain();
   } catch (err) {
-    writePollerStatus("error", { last_error: "git_pull_failed" });
-    throw Object.assign(new Error(`git_pull_failed:${err.message}`), { code: "git_pull_failed" });
+    syncError = `sync:${err.message}`;
+    writePollerStatus("degraded", { last_error: syncError, sync_error: syncError });
+  }
+  if (syncError) {
+    writePollerStatus("degraded", { last_error: syncError, sync_error: syncError });
   }
 
   const queues = [
@@ -174,8 +216,24 @@ async function main() {
         ? await cmdVideoBridge({ input: rel })
         : await cmdBridge({ input: rel });
     } catch (error) {
-      if (!isRepoSyncOperation) throw error;
-      out = writeRepoSyncFailure({ request: req, outputPath: path.join(results, `${requestId}.json`), error });
+      if (isRepoSyncOperation) {
+        out = writeRepoSyncFailure({ request: req, outputPath: path.join(results, `${requestId}.json`), error });
+      } else {
+        const failPath = path.join(results, `${requestId}.json`);
+        fs.writeFileSync(
+          failPath,
+          `${JSON.stringify({
+            request_id: requestId,
+            type: req.type || "caesthetic_assets",
+            status: "error",
+            generated_at: new Date().toISOString(),
+            processor: "vps2402",
+            errors: [{ code: "internal_error", message: error.message }],
+            error: { code: "internal_error", message: error.message },
+          }, null, 2)}\n`,
+        );
+        out = failPath;
+      }
     }
     const outRel = path.relative(REPO_ROOT, out);
     commitAndPush(

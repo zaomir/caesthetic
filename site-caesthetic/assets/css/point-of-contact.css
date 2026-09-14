@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.cae-point-of-contact__person--without-photo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .cae-point-of-contact__person img {
   width: 140px;
   height: 140px;

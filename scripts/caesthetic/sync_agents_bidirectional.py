@@ -165,6 +165,9 @@ PROTECTED_PREFIXES = (
     "scripts/caesthetic/asset-worker/repo-sync-worker.mjs",
     "scripts/caesthetic/caesthetic-repo-sync-contract.mjs",
     "scripts/caesthetic/continuous-sync-runner.sh",
+    "scripts/caesthetic/medspa-discovery/",
+    "tests/caesthetic/medspa-factory-activation-guard.test.py",
+    "tests/caesthetic/medspa-poller-request-recovery.test.py",
 )
 
 STATE_REL = "docs/projects/caesthetic/.agents-sync-state.json"

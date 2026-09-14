@@ -112,6 +112,9 @@ protected_in_target:
   - scripts/caesthetic/asset-worker/repo-sync-worker.mjs
   - scripts/caesthetic/caesthetic-repo-sync-contract.mjs
   - scripts/caesthetic/continuous-sync-runner.sh
+  - scripts/caesthetic/medspa-discovery/**
+  - tests/caesthetic/medspa-factory-activation-guard.test.py
+  - tests/caesthetic/medspa-poller-request-recovery.test.py
 
 # Spoken v3 private revision packet and raw acceptance are never mirrored.
 # Enforced by sync_agents_bidirectional.py EXCLUDE_REL_PREFIXES:
