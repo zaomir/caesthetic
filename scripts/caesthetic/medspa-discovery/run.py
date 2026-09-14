@@ -64,6 +64,7 @@ ALLOWED_OPS = {
     "prepare_outreach",
     "send_canary",
     "send_batch",
+    "reply_smoke",
 }
 EMAIL_RE = re.compile(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}")
 
@@ -581,6 +582,45 @@ def op_prepare_outreach(params: dict) -> dict:
     return prepare_outreach(PRIVATE, PUBLIC_INDEX, params, master_dir=REPO / "data/master")
 
 
+def op_reply_smoke() -> dict:
+    """Exercise reply state in a temporary store; never poll/send to a provider."""
+    from tempfile import TemporaryDirectory
+    from reply_state import ReplyState
+
+    with TemporaryDirectory(prefix="caesthetic-reply-smoke-") as root:
+        state = ReplyState(root)
+        positive = state.ingest({
+            "provider": "smoke", "message_id": "interest-1", "company_id": "smoke-company-interest",
+            "campaign_id": "smoke-campaign", "direction": "inbound",
+            "classification": "interested", "classification_source": "human",
+        })
+        negative = state.ingest({
+            "provider": "smoke", "message_id": "unsubscribe-1", "company_id": "smoke-company-unsubscribe",
+            "campaign_id": "smoke-campaign", "direction": "inbound",
+            "classification": "unsubscribe", "classification_source": "human",
+        })
+        positive_tasks = set(positive.get("tasks") or [])
+        negative_tasks = set(negative.get("tasks") or [])
+        passed = (
+            state.stopped("smoke-company-interest")
+            and state.stopped("smoke-company-unsubscribe")
+            and {"stop_company_all_channels", "notify_interested"} <= positive_tasks
+            and {"stop_company_all_channels", "sync_shared_do_not_contact"} <= negative_tasks
+        )
+        return {
+            "ok": passed,
+            "status": "success" if passed else "blocked",
+            "error": None if passed else "reply_state_smoke_failed",
+            "mode": "isolated_no_provider_io",
+            "interest": {"company_stopped": state.stopped("smoke-company-interest"),
+                         "handoff_task_created": "notify_interested" in positive_tasks},
+            "unsubscribe": {"company_stopped": state.stopped("smoke-company-unsubscribe"),
+                            "shared_dnc_task_created": "sync_shared_do_not_contact" in negative_tasks},
+            "provider_inbound_adapter": "not_exercised",
+            "handoff_delivery": "not_exercised",
+        }
+
+
 def op_send_canary(params: dict, request_id: str | None = None) -> dict:
     ensure_store()
     return send_from_queue(
@@ -634,6 +674,8 @@ def dispatch(operation: str, params: dict | None = None, request: dict | None = 
             result = op_send_canary(params, request_id)
         elif canonical == "send_batch":
             result = op_send_batch(params, request_id)
+        elif canonical == "reply_smoke":
+            result = op_reply_smoke()
         elif canonical == "instantly_control" and params.get("action") == "configure_factory_draft":
             from draft_control import configure_draft
             result = configure_draft(REPO, instantly)

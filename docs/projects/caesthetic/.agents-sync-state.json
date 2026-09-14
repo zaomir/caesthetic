@@ -855,7 +855,7 @@
     "scripts/caesthetic/medspa-discovery/poll.sh": "1de9f8cb82ef7850919fe2823ece6d9f5ef2cca129340f1fb6e8aa92b4f7ce21",
     "scripts/caesthetic/medspa-discovery/recurring.py": "b3317cc7e98bacaabdc2b99c7925e615a73f7f1110a08f8e8fbe628995d281f8",
     "scripts/caesthetic/medspa-discovery/reply_state.py": "597e2f6cb67d15974d7366fd5e562ef8c3d43331264f1816b52d0d645da0e47f",
-    "scripts/caesthetic/medspa-discovery/run.py": "3d2a982a8161beda33ceff1f305b5678162969b153ee2405d5809b0b03eeb32a",
+    "scripts/caesthetic/medspa-discovery/run.py": "fceb0e297c28e0e733a8cfa622153c8707d699a477f043b90d05a8558275a24e",
     "scripts/caesthetic/medspa-discovery/schedule.sh": "ad5d9f1bd735db669d9baf57b02d1595a13a1bb394cf0990849cbfc299d31a15",
     "scripts/caesthetic/multi-location-decision-view-model.mjs": "590836d8fdbdd7beba50814759069ec50580a63561f6445bcf7123bf1371c8b7",
     "scripts/caesthetic/multi-location-growth-score-view-model.mjs": "b080108f1ea1a913375fcfc4e111184ac94d9a0283ff1ca904ca55d104398e7c",
@@ -1316,6 +1316,7 @@
     "tests/caesthetic/medspa-master-ingest.test.py": "f6c6355945250176d733cb36ca1ac735ed1c2b01aa798c742a4a52e18cf96d2a",
     "tests/caesthetic/medspa-poller-request-recovery.test.py": "5bc2f1be3a8b4ea4f3e97d728125998f63a2d31ad3008ac3f6e43571e0a0e320",
     "tests/caesthetic/medspa-reply-guard.test.py": "9685f0d5739a9dfce1c8d4f43b90c6433f67bd48a29b0cf95208d7888a29d30f",
+    "tests/caesthetic/medspa-reply-smoke-operation.test.py": "720a2dde93cf9b8ceecf944b216b67488a16ac06f88b47fdccd29085c66b7f8f",
     "tests/caesthetic/medspa_discovery_recurring.py": "8aa76ec8c983cb807f9983d22fb9a03716fa94b0f908a8d6046b5c0cb39b824b",
     "tests/caesthetic/multi-location-growth-score.test.mjs": "ec2d2789f674f2058f8547c8a7fc232825f7e81f7f6d770d1fa1ed479cd99e7d",
     "tests/caesthetic/outbound-domain-identity.test.mjs": "f0b954b8d931862321eceb672a236d7c86c14d6ff31f77fdebde022bc1ad6474",
@@ -1356,6 +1357,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-14T19:58:22Z",
+  "updated_at_utc": "2026-09-14T20:00:53Z",
   "version": 1
 }
