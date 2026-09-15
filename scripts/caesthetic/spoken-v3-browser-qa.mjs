@@ -205,6 +205,7 @@ try {
   await page.evaluate(()=>history.replaceState(null,'',location.pathname));
   // Every semantic section, including tall content and the final document edge.
   for(const id of V3_SECTION_IDS){
+   result.manual_scroll_target={locale,id};
    await page.evaluate(id=>{const el=document.getElementById(id);scrollTo({top:el.getBoundingClientRect().top+scrollY-document.querySelector('.v3-bar').offsetHeight-24,behavior:'instant'});},id);
    await page.waitForFunction(id=>document.querySelector('#report-navigation a[aria-current="location"]')?.getAttribute('href')==='#'+id,id,{timeout:5000});
   }
@@ -266,7 +267,7 @@ try {
  result.status='FAIL';result.failure=error.stack;process.exitCode=1;
  const failedPage=browser.contexts().flatMap(c=>c.pages()).at(-1);
  if(failedPage)try{
-  result.failed_navigation=await failedPage.evaluate(()=>{const t=document.getElementById(decodeURIComponent(location.hash.slice(1)));return {hash:location.hash,targetTop:t?.getBoundingClientRect().top,barHeight:document.querySelector('.v3-bar')?.offsetHeight,scrollY,scrollHeight:document.documentElement.scrollHeight,innerHeight};});
+  result.failed_navigation=await failedPage.evaluate(()=>{const t=document.getElementById(decodeURIComponent(location.hash.slice(1)));return {hash:location.hash,targetTop:t?.getBoundingClientRect().top,barHeight:document.querySelector('.v3-bar')?.offsetHeight,scrollY,scrollHeight:document.documentElement.scrollHeight,innerHeight,current:document.querySelector('#report-navigation a[aria-current="location"]')?.getAttribute('href'),focused:document.activeElement?.id,sections:[...document.querySelectorAll('[data-cockpit-order]')].map(e=>({id:e.id,top:e.getBoundingClientRect().top,height:e.getBoundingClientRect().height}))};});
   await failedPage.screenshot({path:path.join(out,'failure.png')});
  }catch{}
 }
