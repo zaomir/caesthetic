@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { join, relative, resolve } from 'node:path';
 import { runInNewContext } from 'node:vm';
 import test from 'node:test';
 
@@ -218,6 +218,30 @@ test('public company identity uses the supplied Los Angeles details everywhere i
     assert.doesNotMatch(source, /OXFORD PROJETS trading as CAESTHETIC/);
     assert.match(source, /#100, 600 W 7th St, Los Angeles, California 90017, US/);
   }
+});
+
+test('public sources do not keep Oxford identity or a brand sanitizer', () => {
+  assert.equal(existsSync(resolve(SITE, 'assets/js/public-brand-sanitizer.js')), false);
+  assert.doesNotMatch(config, /public-brand-sanitizer/);
+
+  const forbidden = /OXFORD\s+PROJETS|OXFORD\s+PROJECTS\s+LTD|trading as CAESTHETIC/i;
+  const hits = [];
+  const walk = (dir) => {
+    for (const name of readdirSync(dir)) {
+      if (name === 'node_modules' || name === '.git') continue;
+      const abs = join(dir, name);
+      const st = statSync(abs);
+      if (st.isDirectory()) {
+        walk(abs);
+        continue;
+      }
+      if (!/\.(html|js|mjs|json|md|xml|txt)$/i.test(name)) continue;
+      const text = readFileSync(abs, 'utf8');
+      if (forbidden.test(text)) hits.push(relative(SITE, abs));
+    }
+  };
+  walk(SITE);
+  assert.deepEqual(hits, [], `Oxford identity still present in ${hits.join(', ')}`);
 });
 
 test('public pricing artifact contains only public product prices and client-specific recurring terms', () => {

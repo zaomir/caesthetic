@@ -1,15 +1,15 @@
 {
   "source_sha": "faf2340d11c7b068b04727c3fddb072388b2449c",
   "files": {
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "e4202b930c7416430c19acd2698153940db7b517427868b92cd6ac52c37c8517",
-    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "4c10e2af4c74def5b3d41365c6f7f2f1c1aa565bf24839baefd7f8638d302e77",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/index.html": "69d0bdd73d3f7dc92153cadd7d4d19bfbe03f85a7fce59f6c0adff39bee4a573",
+    "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61/report.json": "7a6c5996d6f4e4479842dbe93d98a2c12a044a69a27530128d9a0d9807257b63",
     "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/index.html": "ccf097f4fac18e9fa83e0b594f32a50a9ef1f6d20908fabab0fdb7e371f2f08f",
     "site-caesthetic/score/spoken-medspa-snellville-9d7f3a5c2e184b61-rus/report.json": "ff1cb6f5074a4a38a3fcbde4ca668094ca7282989528d1c41dc87e413c6f53a3",
     "site-caesthetic/assets/css/tokens.css": "864b40e868ec6c1a263c0ae50d3ba85380b2c678aa8690a82c1f060320d46543",
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
     "site-caesthetic/assets/js/caesthetic.js": "432b4deda96cefc66c49269f2c668ba47fa6ed6dcf9a16b1825049e05b329825",
-    "site-caesthetic/assets/js/caesthetic-config.js": "cb3f530e0f301f8dad9a43aa173364157d1b445b2efe31c792c62b5585f7b994",
+    "site-caesthetic/assets/js/caesthetic-config.js": "c7e5a03c9baa4fc6fbf416ea65e30d108caabbcbd6eb6157c2a903674840edcd",
     "site-caesthetic/assets/js/growth-cockpit.js": "21c31294b7855dd7536c3991026fb3b1975f45213665e758080552a1955c34d9",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
@@ -53,6 +53,17 @@
       "reason": "Owner-authorized removal of Oxford legalEntity, dynamic public-brand sanitizer loader, and removal of an explanatory comment. Preserve these changes; refresh only the reviewed shared-config hash. Parent report facts, rendered report HTML, styles and protected illustration hashes are unchanged.",
       "source_sha": "ee4c664c53f430cebfaf2727b64fe3b89d4e9c9a",
       "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-15-partnership-closeout/shared-config-baseline.json"
+    },
+    {
+      "date": "2026-09-15",
+      "reason": "Reviewed concurrent DEC-887 removal of the temporary public-brand-sanitizer loader after identity was removed at source. Only the shared-config baseline changes; report HTML, facts, styles and protected illustrations remain locked.",
+      "source_sha": "c1a0887852187d80d845656ed5e6f4e6f5f340b7",
+      "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-15-partnership-closeout/source-brand-config.json"
+    },
+    {
+      "date": "2026-09-15",
+      "reason": "Align only the English Check credit fine print with the already-approved written-Order canon. No price, diagnostic fact, style or illustration changes.",
+      "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-15-partnership-closeout/credit-copy-baseline.json"
     }
   ],
   "privacy_update": {

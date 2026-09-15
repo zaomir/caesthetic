@@ -171,7 +171,7 @@ Phase 1 Lane A does **not** edit runtime, lockfiles, or deploy scripts.
    node scripts/repo/docs-index.mjs
    ```
 3. Push to `main` (or feature branch → merge by integrator).
-4. **Runtime / site-* / public surface tasks (hard DoD, DEC-773):** `main` + production deploy + public prod curl smoke + recorded `deployed_sha` (or release marker). Incomplete if stopped at «код готов / PR / CI green / можно деплоить». ChatGPT without VDS: write allowlisted `docs/agent-api/requests/*.json` (`type=deploy`) → Agent API Bridge → read `docs/agent-api/results/*.json` (SSOT `docs/ssot/AGENT_API_ACCESS.md`). Agents with VDS/hook: `scripts/agent-deploy.sh --smoke …`.
+4. **Runtime / site-* / public surface tasks (hard DoD, DEC-773 / DEC-887):** `main` + production deploy + public prod curl smoke + recorded `deployed_sha` (or release marker). Incomplete if stopped at «код готов / PR / CI green / можно деплоить / готово локально» or if the environment blocked `git push` without a GitHub-connector + Agent API fallback. ChatGPT without VDS: write allowlisted `docs/agent-api/requests/*.json` (`type=deploy`) → Agent API Bridge → read `docs/agent-api/results/*.json` (SSOT `docs/ssot/AGENT_API_ACCESS.md`). Agents with VDS/hook: `scripts/agent-deploy.sh --smoke …`.
 5. **Docs tasks:** update `docs/CONTEXT_HANDOFF.md` / `docs/LAST_SYNC.md`.
 6. Prod FAIL → revert + redeploy (runtime only).
 

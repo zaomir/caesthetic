@@ -34,15 +34,6 @@ window.CAESTHETIC = {
 };
 
 (() => {
-  const src = "/assets/js/public-brand-sanitizer.js";
-  if (!document.querySelector(`script[src="${src}"]`)) {
-    const script = document.createElement("script");
-    script.src = src;
-    document.head.appendChild(script);
-  }
-})();
-
-(() => {
   const src = "/assets/js/product-routing.js";
   if (!document.querySelector(`script[src="${src}"]`)) {
     const script = document.createElement("script");

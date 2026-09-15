@@ -1120,7 +1120,7 @@ const CHECK500_COPY = Object.freeze({
   product: "Lead-to-Revenue Check · $500",
   body: "See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where enquiries may be getting lost.",
   cta: "Check My Lead-to-Revenue Path",
-  finePrint: "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the the agreed Sprint price.",
+  finePrint: "If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the Sprint total stated in the written Order.",
 });
 const CHECK500_COPY_RU = Object.freeze({
   heading: "Все ли обращения доходят до записи?",

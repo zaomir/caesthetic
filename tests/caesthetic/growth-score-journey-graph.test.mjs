@@ -260,7 +260,7 @@ test("outside-in Lead-to-Revenue map stays gray and publishes only the canonical
   assert.match(block, /data-copy-contract="check500-section\/en-US\/1\.0\.0"/);
   assert.match(block, /Lead-to-Revenue Check · \$500/);
   assert.match(block, /Check My Lead-to-Revenue Path/);
-  assert.match(block, /credited toward the \$2,500 Sprint total/);
+  assert.match(block, /credited toward the Sprint total stated in the written Order/);
   assert.match(block, /does not infer response, booking, attendance, consultation or payment performance/i);
   assert.doesNotMatch(block, /guaranteed|increase in (?:inquiries|bookings|revenue)|bad receptionist|broken CRM/i);
 
@@ -280,7 +280,7 @@ test("outside-in Lead-to-Revenue map stays gray and publishes only the canonical
   assert.match(recommendedBlock, /data-copy-contract="check500-section\/en-US\/1\.0\.0"/);
   assert.match(recommendedBlock, /Lead-to-Revenue Check/);
   assert.match(recommendedBlock, /\$500/);
-  assert.match(recommendedBlock, /credited toward the \$2,500 Sprint total/);
+  assert.match(recommendedBlock, /credited toward the Sprint total stated in the written Order/);
   assert.doesNotMatch(recommendedBlock, /Public evidence stops at Lead Intake|Supporting evidence/);
   assert.doesNotMatch(recommendedBlock, /guaranteed|increase in (?:inquiries|bookings|revenue)|bad receptionist|broken CRM/i);
 });
