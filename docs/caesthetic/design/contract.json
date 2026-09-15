@@ -1693,6 +1693,159 @@
         "/assets/css/caesthetic-impeccable.css",
         "/assets/css/partnerships.css"
       ]
+    },
+    {
+      "source": "site-caesthetic/amy/en/book/index.html",
+      "route": "/amy/en/book/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/reserver/index.html",
+      "route": "/amy/fr/reserver/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/blog/index.html",
+      "route": "/amy/fr/blog/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/blog/choisir-cabinet-epilation-laser-lannion/index.html",
+      "route": "/amy/fr/blog/choisir-cabinet-epilation-laser-lannion/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/blog/combien-de-seances-epilation-laser/index.html",
+      "route": "/amy/fr/blog/combien-de-seances-epilation-laser/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/blog/laser-ou-electrolyse-quelle-difference/index.html",
+      "route": "/amy/fr/blog/laser-ou-electrolyse-quelle-difference/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/blog/premier-rendez-vous-epilation-laser-lannion/index.html",
+      "route": "/amy/fr/blog/premier-rendez-vous-epilation-laser-lannion/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/blog/preparer-seance-epilation-laser/index.html",
+      "route": "/amy/fr/blog/preparer-seance-epilation-laser/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
+    },
+    {
+      "source": "site-caesthetic/amy/fr/blog/soleil-bronzage-epilation-laser/index.html",
+      "route": "/amy/fr/blog/soleil-bronzage-epilation-laser/",
+      "profile": "marketing",
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "site-caesthetic/amy/assets/tokens.css",
+        "site-caesthetic/amy/assets/site.css"
+      ]
     }
   ],
   "tokens": {

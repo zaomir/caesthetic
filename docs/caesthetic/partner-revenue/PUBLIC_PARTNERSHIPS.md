@@ -1,8 +1,8 @@
 ---
 title: CAESTHETIC Partnerships — public offer and delivery
-status: IMPLEMENTED_IN_PR / RELEASE_BLOCKED
+status: PRODUCTION_PAGES_LIVE / ACCEPTANCE_IN_PROGRESS
 version: 1.0.0
-last_updated: 2026-09-12
+last_updated: 2026-09-15
 owner: CAESTHETIC
 parent: docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md
 issue: '#1618'
@@ -57,8 +57,14 @@ Open commercial work, outside publication: first named commissioning client mand
 
 Release evidence and exact remaining technical checks are recorded in the task session and its delivery receipt. Until those receipts exist, this document does not assert production completion.
 
-## Release observation — 2026-09-12
+## Historical release observation — 2026-09-12
 
 Implementation is in PR #1620, not on production. Local browser checks passed all three routes at 320/390/1440 and both enquiry flows; the worker route test passes after removing the old EN redirect at both edge and origin. The required GitHub Actions runs terminate as `startup_failure` with zero jobs; the same condition exists on earlier main commits. GitHub rejected retry with HTTP 403, “This workflow run cannot be retried”. The available API does not expose the underlying account/service cause.
 
 Release is blocked until Actions can execute required checks and both deployments. `type=deploy` for CAESTHETIC dispatches that same workflow and is not an independent release channel. Do not mark this task complete, claim notifications were freshly delivered, or treat the old live RAIM page as the new release. Evidence: `docs/runtime/projects/caesthetic/evidence/2026-09-12-partnership-pages/`.
+
+## Current release observation — 2026-09-15
+
+PR #1620 merged on 2026-09-13. The original Actions startup failure and generated-report failures were resolved; canonical deployments 34787133504 and 34885425816 passed, the latter for source 45ab4d630111b84c094cb533182da0bab723aa71. All three partnership routes are published. These observations supersede the historical startup blocker above.
+
+Current closeout repairs the shared-config regression fixture after the owner-authorized Oxford removal (47b69d83 / 01803cda), synchronizes the executable task state, and runs a newly explicit production acceptance on the exact deployed source. The dispatch-only `caesthetic-partnerships-production-smoke.yml` checks live pages, then sends two labelled anonymous QA enquiries through the existing configured operator route and reads back only their own saved rows. Credentials remain outside the browser. The test does not create client CRM records or activate memberships. Full completion and notification acknowledgement remain pending until the resulting evidence is bound in the existing session.

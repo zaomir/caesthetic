@@ -9,7 +9,7 @@
     "site-caesthetic/assets/css/caesthetic.css": "2c44cd7ef9a4dfe7271182a96c45d17fd4e64126af0c6a94cdaa2bb84f6cfcac",
     "site-caesthetic/assets/css/growth-report.css": "8a5e77b305b191faf07075f8f494424bc282460a7f5bffb5b93fff85c400a606",
     "site-caesthetic/assets/js/caesthetic.js": "432b4deda96cefc66c49269f2c668ba47fa6ed6dcf9a16b1825049e05b329825",
-    "site-caesthetic/assets/js/caesthetic-config.js": "391cde207bed744a5d06c0309ea109c75ead25aac7c0b9716ab7df3b17a01332",
+    "site-caesthetic/assets/js/caesthetic-config.js": "cb3f530e0f301f8dad9a43aa173364157d1b445b2efe31c792c62b5585f7b994",
     "site-caesthetic/assets/js/growth-cockpit.js": "21c31294b7855dd7536c3991026fb3b1975f45213665e758080552a1955c34d9",
     "site-caesthetic/assets/img/growth-score/where-clients-are-gained-and-lost--sha256-64d54a5a5fbb1aad.png": "64d54a5a5fbb1aaddbfdc9f7641103a0beab53c09e8b79ff38892e8a3348ca05"
   },
@@ -47,6 +47,12 @@
       "date": "2026-09-11",
       "reason": "Refresh parent/shared hashes after scoped Sprint pricing landed on existing Spoken v1/v2 bytes. v3/v6/v7 diagnostic facts are unchanged.",
       "source_sha": "663a13a30"
+    },
+    {
+      "date": "2026-09-15",
+      "reason": "Owner-authorized removal of Oxford legalEntity, dynamic public-brand sanitizer loader, and removal of an explanatory comment. Preserve these changes; refresh only the reviewed shared-config hash. Parent report facts, rendered report HTML, styles and protected illustration hashes are unchanged.",
+      "source_sha": "ee4c664c53f430cebfaf2727b64fe3b89d4e9c9a",
+      "evidence": "docs/runtime/projects/caesthetic/evidence/2026-09-15-partnership-closeout/shared-config-baseline.json"
     }
   ],
   "privacy_update": {

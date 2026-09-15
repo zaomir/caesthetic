@@ -18,14 +18,9 @@ window.CAESTHETIC = {
   scoreTurnaround: "",
   contactEmail: "info@caesthetic.com",
   billingEmail: "info@caesthetic.com",
-  /* Public paid-product path:
-     product page -> three-field electronic Order -> controlled Wise rail ->
-     confirmed funds. Provider URLs stay server-side; provider redirect is not
-     proof of payment. */
   approvedSprintPaymentPolicy: "product_page_then_electronic_order_then_wise",
   phoneDisplay: "",
   phoneE164: "",
-  legalEntity: "OXFORD PROJETS",
   companyAddress: "#100, 600 W 7th St, Los Angeles, California 90017, US",
   analyst: {
     name: "CAESTHETIC",
@@ -37,6 +32,15 @@ window.CAESTHETIC = {
   ga4MeasurementId: "G-PNQB0W9YB2",
   metaPixelId: "",
 };
+
+(() => {
+  const src = "/assets/js/public-brand-sanitizer.js";
+  if (!document.querySelector(`script[src="${src}"]`)) {
+    const script = document.createElement("script");
+    script.src = src;
+    document.head.appendChild(script);
+  }
+})();
 
 (() => {
   const src = "/assets/js/product-routing.js";

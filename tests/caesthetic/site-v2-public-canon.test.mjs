@@ -161,7 +161,7 @@ test('Customer Support publishes safe contact and legal details', () => {
   assert.match(support, /<h1 class="cae-h1">Customer Support<\/h1>/);
   assert.match(support, /mailto:info@caesthetic\.com/);
   assert.match(support, /We aim to respond within one business day/);
-  assert.match(support, /OXFORD PROJETS/);
+  assert.doesNotMatch(support, /OXFORD PROJETS/);
   assert.match(support, /#100, 600 W 7th St, Los Angeles, California 90017, US/);
   assert.doesNotMatch(support, /OXFORD PROJECTS LTD|16953799|128 City Road/);
   for (const href of ['/legal/privacy/', '/legal/terms/', '/legal/cookies/']) {
@@ -182,7 +182,7 @@ test('Stripe-facing legal aliases resolve to canonical policies and publish comp
   assert.match(termsAlias, /http-equiv="refresh" content="0; url=\/legal\/terms\/"/);
   assert.match(termsAlias, /rel="canonical" href="https:\/\/caesthetic\.com\/legal\/terms\/"/);
   for (const source of [privacyAlias, termsAlias, footer]) {
-    assert.match(source, /OXFORD PROJETS/);
+    assert.doesNotMatch(source, /OXFORD PROJETS/);
     assert.match(source, /#100, 600 W 7th St, Los Angeles, California 90017, US/);
     assert.doesNotMatch(source, /OXFORD PROJECTS LTD|16953799|128 City Road|Registered in England and Wales/);
     assert.match(source, /info@caesthetic\.com/);
@@ -193,7 +193,7 @@ test('Stripe-facing legal aliases resolve to canonical policies and publish comp
 
 test('public company identity uses the supplied Los Angeles details everywhere it is emitted', () => {
   const combined = companyIdentitySources.join('\n');
-  assert.match(combined, /OXFORD PROJETS/);
+  assert.doesNotMatch(combined, /OXFORD PROJETS/);
   assert.match(combined, /#100, 600 W 7th St/);
   assert.match(combined, /Los Angeles/);
   assert.match(combined, /California/);
@@ -201,7 +201,7 @@ test('public company identity uses the supplied Los Angeles details everywhere i
   assert.doesNotMatch(combined, /OXFORD PROJECTS LTD|128 City Road|16953799|Berkeley Square House|London W1J 6BD/);
 
   for (const source of [home, score, sprint, system, about, read('lead-to-revenue-check/index.html')]) {
-    assert.match(source, /"legalName": "OXFORD PROJETS"/);
+    assert.doesNotMatch(source, /"legalName"\s*:\s*"OXFORD PROJETS"/);
     assert.match(source, /"streetAddress": "#100, 600 W 7th St"/);
     assert.match(source, /"addressLocality": "Los Angeles"/);
     assert.match(source, /"addressRegion": "California"/);
@@ -215,7 +215,7 @@ test('public company identity uses the supplied Los Angeles details everywhere i
     read('legal/cookies/index.html'),
     read('legal/payment-terms/index.html'),
   ]) {
-    assert.match(source, /OXFORD PROJETS trading as CAESTHETIC/);
+    assert.doesNotMatch(source, /OXFORD PROJETS trading as CAESTHETIC/);
     assert.match(source, /#100, 600 W 7th St, Los Angeles, California 90017, US/);
   }
 });

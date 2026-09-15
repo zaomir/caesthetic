@@ -95,7 +95,7 @@ function central(lang) {
 <label for="cpp-email">${c.email}</label><input id="cpp-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="320">
 <p class="cpp-note">${c.privacy} <a href="/legal/privacy/">${c.privacyLink}</a>.</p><button type="submit" class="cae-btn cae-btn--primary">${c.send}</button><p class="cpp-status" role="status" aria-live="polite" tabindex="-1" data-partnership-status></p><noscript><p>${c.fallback} <a href="mailto:info@caesthetic.com">info@caesthetic.com</a></p></noscript>
 </form></div></section></main>
-<footer class="cae-footer"><div class="cae-wrap cpp-footer"><p>${c.footer}</p><p>© 2026 CAESTHETIC · OXFORD PROJETS</p><a href="/legal/privacy/">${c.privacyLink}</a></div></footer></body></html>\n`;
+<footer class="cae-footer"><div class="cae-wrap cpp-footer"><p>${c.footer}</p><p>© 2026 CAESTHETIC</p><a href="/legal/privacy/">${c.privacyLink}</a></div></footer></body></html>\n`;
 }
 function raim() {
  const link='https://caesthetic.com/ru/partnerships/?program=expert-dental-kg#request';

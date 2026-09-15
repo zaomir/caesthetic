@@ -111,7 +111,7 @@
 
 | ID | Поле | Значение | Статус | Источники |
 |---|---|---|---|---|
-| C-001 | Телефон / WhatsApp | +996 555 255 455 (`+996555255455`) | `discovered` на Expert Dental; также в `site.ts` | expertdental.kg · `site.ts` · wa.me |
+| C-001 | Телефон / WhatsApp | +996 774 255 455 (`+996774255455`) | `discovered` на Expert Dental; также в `site.ts` | expertdental.kg · `site.ts` · wa.me |
 | C-002 | Адрес (кратко) | г. Бишкек, ул. Киевская, 88 | `discovered` / `repo_reference_only` | expertdental.kg · `site.ts` · offer |
 | C-003 | Адрес (расширенный, внутренний) | Киевская 88, Первомайский р-н, Бишкек, 720040; пер. бульвар Эркиндик (на сайте) | `discovered` / `clinic_confirmation_required` для канона | offer · expertdental.kg |
 | C-004 | Email | пусто в `site.ts` | `clinic_confirmation_required` | `site.ts` |
@@ -132,7 +132,7 @@
 | CH-003 | Instagram clinic | https://www.instagram.com/expert_dental_studio/ | `discovered` + rights | После OK |
 | CH-004 | Instagram doctor handle | https://www.instagram.com/doctor_raimov/ | `clinic_confirmation_required` | Нет до ownership OK |
 | CH-005 | Telegram | https://t.me/doctor_raimov | `clinic_confirmation_required` | После OK |
-| CH-006 | WhatsApp | https://wa.me/996555255455 | `discovered` + clinic OK for canon | После OK |
+| CH-006 | WhatsApp | https://wa.me/996774255455 | `discovered` + clinic OK for canon | После OK |
 | CH-007 | 2GIS | https://2gis.kg/bishkek/firm/70000001089655879 | `needs_manual_validation` | После OK; **без** рейтинга |
 | CH-008 | Google Maps search | query Expert Dental + Kyivskaya 88 | `needs_manual_validation` | Нужен Place ID |
 | CH-009 | Yandex Maps house | URL из site config | `needs_manual_validation` | После OK |

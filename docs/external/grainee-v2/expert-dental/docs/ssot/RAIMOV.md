@@ -551,3 +551,8 @@ Next permitted operational outputs:
 ---
 
 *RAIMOV.md v1.23 · 2026-08-29 · DEC-862 CAESTHETIC partnership economics and phone-key VIP access accepted as canon; runtime VIP route, fee settlement, partner pilots and expanded SmileCare 12 v2 remain gated.*
+
+
+## Контакт клиники — решение владельца 2026-09-14
+
+Единый актуальный телефон и WhatsApp Expert Dental: **+996 774 255 455** (`+996774255455`). Телефонная ссылка: `tel:+996774255455`; WhatsApp: `https://wa.me/996774255455`. Машиночитаемый источник: `configs/expert-dental/public-contact.json`. Применяется ко всем сайтам и пациентским маршрутам клиники, включая RAIM SMILE и запись BALAM через Expert Dental. Исторические снимки не подтверждают актуальность прежнего номера. Проверка доставки сообщения и приёма звонка не следует из проверки ссылки.

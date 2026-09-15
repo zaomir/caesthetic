@@ -29,7 +29,7 @@ URL: `https://caesthetic.com/private/expert-dental/offer/`.
 
 Instagram: `https://www.instagram.com/expert_dental_studio?igsh=enRxbnpueTJxcXZ3`.
 
-Телефон / WhatsApp: `+996 555 255 455`.
+Телефон / WhatsApp: `+996 774 255 455`.
 
 Карты:
 - Google Maps: карточка «Стоматология: Эксперт дентал студия».
