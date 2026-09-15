@@ -949,7 +949,7 @@
     "scripts/caesthetic/score-pin-runtime.mjs": "b1b1b18c77b153231333fa0959d43c4ac184c19f12b9c02be55672fb5963421b",
     "scripts/caesthetic/seed-ig-students-w34.py": "fb67d60f7687932e29d32a7931b80e497eaeb78cc6e9fad8b63634a7f5ae1bca",
     "scripts/caesthetic/spoken-v2-browser-qa.mjs": "65ebdcaffb6f5b59f068075f0a2ca2b4e6e06cb947414c0f82880b7c477a9c09",
-    "scripts/caesthetic/spoken-v3-browser-qa.mjs": "da7472fd392cfbbf9f5c114f17dbe189e18c63d9e8306b17c1ec1df0e1586989",
+    "scripts/caesthetic/spoken-v3-browser-qa.mjs": "12db5d669ab29bbb4f8a88888566bbadd7b531308bd87b69f920175d82de2699",
     "scripts/caesthetic/spoken-v6-browser-qa.mjs": "2964d83f9a844c6a0a10ad7183a1aab88a481961a197cb9de9007349419053cb",
     "scripts/caesthetic/sync-agents-bidirectional.sh": "28babd473314fc7152ad03d378bcb5712b701fc6aa9e0ce73998d92ec1dc7c22",
     "scripts/caesthetic/sync-from-agents-repo.sh": "b70c7a816c964f98ce0c5a04059aa3e1e67b7fb2af4b44ea09d5297382c85502",
@@ -1261,10 +1261,11 @@
     "tests/caesthetic/caesthetic-4444-commercial-canon.test.mjs": "001962b45ec66dc46f70e1d860d69d9fc3b90e69313e20ab0e4bccd732d0ab80",
     "tests/caesthetic/canonical-ingest-stdlib.test.py": "9f5d28c73be252465c146ec62ec2fc918bc5e348bddac6ba714cfb083066691d",
     "tests/caesthetic/case-studies-runtime.test.mjs": "d30175c9658150e26b2af99ffdb4e19f920fe2ba1776bf8b4e4758865b252912",
-    "tests/caesthetic/check500-copy-lock.test.mjs": "12810a6cd3b73950e41b06949ac4a182f36b9e5f7be996b8af599edb766df7d5",
+    "tests/caesthetic/check500-copy-lock.test.mjs": "d17225d93d617040b87295e5ce13eebceac154dae95436fd540537a1f08227ec",
     "tests/caesthetic/connect4-page.test.mjs": "3044b72fc2840400bdfc0e5ff2302fad8e2cfb916b164dfe89a0f31e586fa22d",
     "tests/caesthetic/cprp-twenty-batch.test.mjs": "53cbe4705acc8b374f88379ef23bd997500b1af7083a8c779579806a20840a8b",
     "tests/caesthetic/delfin_readiness_test.py": "7e1fe7d0e484c2804dbabb00da6c25a31a4febfa4907712f7f20edc46cc69618",
+    "tests/caesthetic/deploy-dispatch-receipt.test.mjs": "68b58d734c99e3ab3ade0b115a605029c89706de4f0edcafc8dd03fde4f28674",
     "tests/caesthetic/deploy-origin-markers.test.mjs": "fd2ab481d895382e475ba137f41752c663b563b5be9eb668221a0295afd91240",
     "tests/caesthetic/design-contract.test.mjs": "2ef44949772867d2815df809f5ff15b517a4f7a3bb1f5f8d2990f0aeabab5c01",
     "tests/caesthetic/dispute-evidence-runtime.test.mjs": "ee07971a3f5f45687b306877ade86985dd22b7dbd186e3b529e00d3604559844",
@@ -1336,7 +1337,7 @@
     "tests/caesthetic/pricing-hardcode-guard.test.mjs": "0a6a7081d500fa231dad87c1f8b87e50224f224b1321b710829d731b53857d03",
     "tests/caesthetic/pricing-seo.test.mjs": "3c1bcdb5102f54ca1611c161bc770b6af2bbb3a36618bb958b7f466b992e56eb",
     "tests/caesthetic/product-checkout-routing-browser.test.mjs": "e721de05977c07d7854e88d4c02bfd444657ff226c3b619f032910543615329a",
-    "tests/caesthetic/product-payment-success.test.mjs": "a910f89fa9dea102442966a34d881f94f2d39124376b77ab12817910221725ac",
+    "tests/caesthetic/product-payment-success.test.mjs": "9a36dc45aaedd45189f8f322b08da78b08c5cd47ec4f4c9520bb0bae2faa0a5f",
     "tests/caesthetic/public-navigation-browser.test.mjs": "2a1db1daaec685852f17c5db392c6f8dd01411d23f300855a1e82b1e697ee8fb",
     "tests/caesthetic/publish-request.test.mjs": "50a3989ac3213597e111b5b415df26d84aa761c13cdd9aad59d21e56e16f2310",
     "tests/caesthetic/reel-automation-ssot.test.mjs": "c64e432c0a574a5b9cbbca316dc4c377b7a8ad06774d9e2e2f220456f12b8aa3",
@@ -1360,6 +1361,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-15T18:04:23Z",
+  "updated_at_utc": "2026-09-15T18:07:53Z",
   "version": 1
 }

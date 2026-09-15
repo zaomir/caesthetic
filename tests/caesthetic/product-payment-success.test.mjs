@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import test from 'node:test';
+import {runInNewContext} from 'node:vm';
 
 const root = resolve(new URL('../..', import.meta.url).pathname);
 const site = resolve(root, 'site-caesthetic');
@@ -15,9 +16,23 @@ const redirectJs = readFileSync(resolve(site, 'assets/js/payment-success-redirec
 const edge = readFileSync(resolve(root, 'supabase/functions/caesthetic-product-order/index.ts'), 'utf8');
 const nginx = readFileSync(resolve(root, 'deploy/nginx/caesthetic.com.origin.conf'), 'utf8');
 
-test('paid CTAs route non-product surfaces to product pages and product pages to the three-field order', () => {
-  assert.match(router, /path === SPRINT_PAGE \? "\/pay\/\?product=growth_sprint" : SPRINT_PAGE/);
-  assert.match(router, /path === CHECK_PAGE \? "\/pay\/\?product=lead_to_revenue_check" : CHECK_PAGE/);
+test('Sprint preserves scoped offers and Check routes to the fixed-price three-field order', () => {
+  const navigate=(pathname,kind,offer='',search='')=>{
+    let click,destination;
+    const window={location:{pathname,hostname:'caesthetic.com',search,assign(value){destination=value;}}};
+    const document={readyState:'complete',querySelectorAll:()=>[],addEventListener(type,handler){if(type==='click')click=handler;}};
+    runInNewContext(router,{window,document,URLSearchParams});
+    const trigger={hasAttribute:name=>kind==='sprint'&&name==='data-cae-sprint-inquiry',getAttribute:()=>offer};
+    click({target:{closest:()=>trigger},preventDefault(){},stopImmediatePropagation(){}});
+    return destination;
+  };
+  assert.equal(navigate('/score/example/','sprint'),'/sprint/');
+  assert.equal(navigate('/sprint/','sprint'),'/sprint/');
+  assert.equal(navigate('/score/example/','sprint','spoken-four-surface-sprint-v1'),'/sprint/?offer=spoken-four-surface-sprint-v1');
+  assert.equal(navigate('/sprint/','sprint','','?offer=spoken-four-surface-sprint-v1'),'/sprint/?offer=spoken-four-surface-sprint-v1');
+  assert.equal(navigate('/sprint/','sprint','','?offer=unapproved-price'),'/sprint/');
+  assert.equal(navigate('/score/example/','check'),'/lead-to-revenue-check/');
+  assert.equal(navigate('/lead-to-revenue-check/','check'),'/pay/?product=lead_to_revenue_check');
   const fields = [...pay.matchAll(/<input\b[^>]*\bname="([^"]+)"/g)].map((m) => m[1]).filter((name) => ['practice_name','signer_name','signer_email'].includes(name));
   assert.deepEqual(fields.slice(0, 3), ['practice_name','signer_name','signer_email']);
   assert.match(pay, /Continue to payment/);

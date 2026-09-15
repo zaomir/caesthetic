@@ -185,6 +185,8 @@ try {
    }
   }
   await page.setViewportSize({width:390,height:844});
+  // Resize and scroll anchoring must settle before measuring independent manual scrolling.
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
   if(locale==='ru')assert.deepEqual(await page.evaluate(()=>{
    const bad=[],walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
    while(walker.nextNode()){const n=walker.currentNode;if(/соответстви[еяюий]|соответствием/iu.test(n.textContent)&&!n.parentElement.closest('script,style')&&getComputedStyle(n.parentElement).fontStyle!=='italic')bad.push(n.textContent);}
@@ -203,7 +205,7 @@ try {
   await page.evaluate(()=>history.replaceState(null,'',location.pathname));
   // Every semantic section, including tall content and the final document edge.
   for(const id of V3_SECTION_IDS){
-   await page.evaluate(id=>{const el=document.getElementById(id);scrollTo(0,el.getBoundingClientRect().top+scrollY-document.querySelector('.v3-bar').offsetHeight-24);},id);
+   await page.evaluate(id=>{const el=document.getElementById(id);scrollTo({top:el.getBoundingClientRect().top+scrollY-document.querySelector('.v3-bar').offsetHeight-24,behavior:'instant'});},id);
    await page.waitForFunction(id=>document.querySelector('#report-navigation a[aria-current="location"]')?.getAttribute('href')==='#'+id,id,{timeout:5000});
   }
   // Canonical paid-product route: report -> product page. Check continues to three-field order; unscoped Sprint stays on /sprint/.
@@ -257,7 +259,7 @@ try {
   const accessibility=await new AxeBuilder({page}).include('main').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(accessibility.violations.map(v=>({id:v.id,nodes:v.nodes.length})),[]);result.actions.push({locale,kind:'axe-main',status:'PASS'});
   await context.close();
-  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();await plain.goto(url);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),5);assert.equal(await plain.locator('[data-choice-part]:visible').count(),locale==='ru'?16:24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
+  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce'});const plain=await noJS.newPage();await plain.goto(url);await plain.evaluate(()=>document.fonts.ready);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),5);assert.equal(await plain.locator('[data-choice-part]:visible').count(),locale==='ru'?16:24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
 }catch(error){
@@ -270,4 +272,3 @@ try {
 }
 finally{fs.writeFileSync(path.join(out,'result.json'),JSON.stringify(result,null,2)+'\n');await browser.close();await new Promise(r=>server.close(r));}
 console.log(JSON.stringify({status:result.status,engine,viewports:result.viewports.length,actions:result.actions.length,out,expected_sha:result.expected_sha,serving_release:result.serving_release,byte_checks:result.byte_checks.length,access:result.report_access,failure:result.failure||null}));
-

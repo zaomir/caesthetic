@@ -25,7 +25,7 @@ const LOCKED_FIELDS = [
   "- **Product line:** `Lead-to-Revenue Check · $500`",
   "- **Body:** `See what happens after a prospective patient contacts your practice — from the first response and follow-up to booking, consultation and payment — and find where enquiries may be getting lost.`",
   "- **CTA:** `Check My Lead-to-Revenue Path`",
-  "- **Fine print:** `If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the $2,500 Sprint total.`",
+  "- **Fine print:** `If you move directly into the next qualifying 30-Day Growth Sprint, your $500 Check fee is credited toward the Sprint total stated in the written Order.`",
 ];
 
 test("Check500 SSOT locks the exact reusable English section", () => {
