@@ -341,7 +341,7 @@
     "docs/ssot/EXPERT_DENTAL_PATIENT_DOCUMENTS_SSOT.md": "0a2fe50c87eadf2d87f82f2fb3e31cc5c6072868228914b220ebc01f4107e3fc",
     "docs/ssot/EXPERT_DENTAL_PATIENT_MOTIVATION_SYSTEM.md": "d5c1cf0f778856747e76510b19fc5b4e86fe7692176b416f981347b56ae49354",
     "docs/ssot/EXPERT_DENTAL_RAIMOV_ELITE_STRATEGY.md": "292d2ce23c3f1d5f930e46ff482dd40c809869ad1529240c73138536921ebfe2",
-    "docs/ssot/EXPERT_DENTAL_WEBSITE_SSOT.md": "fcf4a151269098ccc723898bbd31614206a1d0ac6162835b84721a8657292390",
+    "docs/ssot/EXPERT_DENTAL_WEBSITE_SSOT.md": "1c984bb29415865eda37a16207fe43cbc82fd371f542a9aa84cb39b097d5e84e",
     "docs/ssot/EXPERT_DENTAL_WORKSPACE_MVP.md": "1cfd9cfea233a94ffe5dcac08651e02f4a60dfdc8ec4a1e3bc1493303b621078",
     "docs/ssot/RAIMOV.md": "cd7c64b30ca647eba340d36777e6509bbec885bd311af1703e350d8638a594bd",
     "docs/ssot/RAIMOV_10M_MASTERPLAN.md": "0ca6b7b86f8329a3d9778fbf33daaeb42b2055b6cc69950f12fbff0d4789a0bf",
@@ -362,7 +362,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "c9c223b47d9eadfa0b8158c99c448330795783cb",
+  "source_sha": "401cddc085f88e78f8dc0486682d34f3b14459b0",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",
