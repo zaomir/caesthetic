@@ -1864,6 +1864,126 @@
         "site-caesthetic/amy/assets/tokens.css",
         "site-caesthetic/amy/assets/site.css"
       ]
+    },
+    {
+      "source": "site-caesthetic/connect4/sandbox/royal-petrol/index.html",
+      "route": "/connect4/sandbox/royal-petrol/",
+      "profile": "connect4",
+      "locales": [
+        "ru"
+      ],
+      "stylesheets": [
+        "/connect4/sandbox/royal-petrol/tokens/tokens.css",
+        "/connect4/sandbox/royal-petrol/assets/sandbox.css"
+      ],
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
+    },
+    {
+      "source": "site-caesthetic/connect4/sandbox/royal-petrol/locations/index.html",
+      "route": "/connect4/sandbox/royal-petrol/locations/",
+      "profile": "connect4",
+      "locales": [
+        "ru"
+      ],
+      "stylesheets": [
+        "/connect4/sandbox/royal-petrol/tokens/tokens.css",
+        "/connect4/sandbox/royal-petrol/assets/sandbox.css"
+      ],
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
+    },
+    {
+      "source": "site-caesthetic/connect4/sandbox/royal-petrol/locations/rp-37/index.html",
+      "route": "/connect4/sandbox/royal-petrol/locations/rp-37/",
+      "profile": "connect4",
+      "locales": [
+        "ru"
+      ],
+      "stylesheets": [
+        "/connect4/sandbox/royal-petrol/tokens/tokens.css",
+        "/connect4/sandbox/royal-petrol/assets/sandbox.css"
+      ],
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
+    },
+    {
+      "source": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/maps/index.html",
+      "route": "/connect4/sandbox/royal-petrol/surfaces/maps/",
+      "profile": "connect4",
+      "locales": [
+        "ru"
+      ],
+      "stylesheets": [
+        "/connect4/sandbox/royal-petrol/tokens/tokens.css",
+        "/connect4/sandbox/royal-petrol/assets/sandbox.css"
+      ],
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
+    },
+    {
+      "source": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/instagram/index.html",
+      "route": "/connect4/sandbox/royal-petrol/surfaces/instagram/",
+      "profile": "connect4",
+      "locales": [
+        "ru"
+      ],
+      "stylesheets": [
+        "/connect4/sandbox/royal-petrol/tokens/tokens.css",
+        "/connect4/sandbox/royal-petrol/assets/sandbox.css"
+      ],
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
+    },
+    {
+      "source": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/reputation/index.html",
+      "route": "/connect4/sandbox/royal-petrol/surfaces/reputation/",
+      "profile": "connect4",
+      "locales": [
+        "ru"
+      ],
+      "stylesheets": [
+        "/connect4/sandbox/royal-petrol/tokens/tokens.css",
+        "/connect4/sandbox/royal-petrol/assets/sandbox.css"
+      ],
+      "states": [
+        "default"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
     }
   ],
   "tokens": {
@@ -15658,6 +15778,294 @@
       "task": "TASK-CAESTHETIC-042",
       "reason": "Synthetic Spoken v8 test page keeps its experimental Expert visual system; CAESTHETIC_AUDIT_V8_SSOT.md. Not a production template.",
       "expires": "2026-12-11"
+    },
+    {
+      "id": "7763a0b7cee6d702dbbe52ab9e031f82ed50ca676b289c405d43314239c8e52d",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".sr-only",
+      "rule": "spacing-scale",
+      "value": "margin: -1px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "73d0c143c037dd27a157dae9935e85c98b9a13fae37c3a9c2ab4be4be057f734",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-nav",
+      "rule": "spacing-scale",
+      "value": "gap: 8px 18px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "bf0127a0663339b388a4a9147f8dc006adb5a2b5771401a12bea37e3bbc7313f",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-nav",
+      "rule": "spacing-scale",
+      "value": "padding: 0 0 14px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "da0011f93c30b79cee718d34f4c5c32b4e65ba5d4295447c56b90c3ea04a9680",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-hero__title",
+      "rule": "spacing-scale",
+      "value": "margin: 0 0 10px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "eee14fd8eb8720e6421bcbd503dfee6904018f79e8b40eb5609d6543bbda5b57",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-price",
+      "rule": "spacing-scale",
+      "value": "padding: 16px 10px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "a46cf674e47f629a6c4f7d89caaa7bc74bc8919a31f190e8f1270d27cb4ec2c0",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-tabs",
+      "rule": "spacing-scale",
+      "value": "margin-bottom: 18px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "d062af330822c4d0733ace3ae83b6973cd989b8b0b3353b5359a2c80cc5d9063",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-tab",
+      "rule": "spacing-scale",
+      "value": "padding: 8px 14px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "fe8a80dc73532fa625c55fefd9b0a1c484f1924fe85aced4318fe2803d2256c9",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-phrase",
+      "rule": "spacing-scale",
+      "value": "padding: 6px 12px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "61c23d3ff097b4ac3e818d15d297f289fc022f3155fa4fb324baed4f2d5eb6a6",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": "mark.c4-phrase,\n.c4-phrase",
+      "rule": "spacing-scale",
+      "value": "padding: 0 2px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "c1b484f1c94c8c6b9763c793a7cbe5d5f2382de3b82963dbef4452477174e64d",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".mock-comment",
+      "rule": "spacing-scale",
+      "value": "margin-top: 10px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "8c2c6608f52b417af93c6e21b780c7f31267d902e15db6fc5722cce4af90f677",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".mock-reply",
+      "rule": "spacing-scale",
+      "value": "margin: 8px 0 0 18px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "37e18402d004fe1a6f9f863f3c0e35bdc43b39d00fd2a01227162cfc700af91c",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".maps-review__label",
+      "rule": "spacing-scale",
+      "value": "padding: 2px 8px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "4bda1f07d55fcedcd1e864e064650d223e565c24ca246df3f373affe28b75470",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-compliance",
+      "rule": "spacing-scale",
+      "value": "margin-top: 18px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "3a4f649f2056d214350cb19bfe7a032f06fab04cd74bca4c5ae3248a643ac3b9",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/assets/sandbox.css",
+      "selector": ".rp-filters label",
+      "rule": "spacing-scale",
+      "value": "margin-bottom:6px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "3d118f249870be7ec299a0a6bd1043b538d68b06a57c6f4f987590d647a4bd6c",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/index.html",
+      "selector": "inline",
+      "rule": "small-text",
+      "value": "font-size:13px",
+      "count": 2,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "c9fb124b1330b31a45a0360a1b053f4dafd7173b74bc7d44df3894058a16574b",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/index.html",
+      "selector": "inline",
+      "rule": "literal-color",
+      "value": "color:#fff",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "d4df229faa231bb072749474724d1d2beb735dcdc443fb619e16742dd4a6065c",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/locations/index.html",
+      "selector": "inline",
+      "rule": "literal-color",
+      "value": "color:#fff",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "334a9b242c22edb0e1988088fbc5ed279641f6bd11f9926afab40fa1be7c68d3",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/locations/rp-37/index.html",
+      "selector": "inline",
+      "rule": "literal-color",
+      "value": "color:#fff",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "752d0f720ff7b4a20b696007771ce2fdaefe916ee2f3f274f7866036f744fbbe",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/instagram/index.html",
+      "selector": "inline",
+      "rule": "ornamental-gradient",
+      "value": "linear-gradient(160deg,#1e314f,#d0de00 140%)",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "85684372bb36563d89a49f4318145d37fefb7e5ab61fde93f7ad7e097d6a80ff",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/instagram/index.html",
+      "selector": "inline",
+      "rule": "synthetic-weight",
+      "value": "font-weight:800",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "76033aacbfcaedc333bf8c2adc60f68821b68c03a4392188152992c71a1d917e",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/instagram/index.html",
+      "selector": "inline",
+      "rule": "literal-color",
+      "value": "color:#fff",
+      "count": 2,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "a9f971378518dca9dfb79ec919c65ae8a4b2f987c4132eb188f5ca21cbc44633",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/maps/index.html",
+      "selector": "inline",
+      "rule": "literal-color",
+      "value": "color:#fff",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "d015cb33e2b12571bb3e52aed4f3d4bc5c7876e1f85961eca751b33416160fe3",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/reputation/index.html",
+      "selector": "inline",
+      "rule": "small-text",
+      "value": "font-size:12px",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
+    },
+    {
+      "id": "c6de89590fe83fec653e9053ff84a3eb202d35f62f1720bb7fd74f96c47676ea",
+      "file": "site-caesthetic/connect4/sandbox/royal-petrol/surfaces/reputation/index.html",
+      "selector": "inline",
+      "rule": "literal-color",
+      "value": "color:#fff",
+      "count": 1,
+      "reason": "Connect4 Client Sandbox royal-petrol mirrors client brand tokens/mocks (DEC-890); finite sandbox surface.",
+      "owner": "CAESTHETIC",
+      "task": "DEC-890",
+      "expires": "2026-12-31"
     }
   ],
   "scopedTokens": [

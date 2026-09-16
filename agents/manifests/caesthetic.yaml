@@ -71,6 +71,11 @@ topics:
   connect4_explanation: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   connect4_landing: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
   connect4_reusable_section: docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md
+  connect4_client_sandbox: docs/ssot/CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md
+  connect4_sandbox: docs/ssot/CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md
+  "Connect4 Client Sandbox": docs/ssot/CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md
+  "песочница Connect4": docs/ssot/CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md
+  "тестовая экосистема Connect4": docs/ssot/CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md
   case_studies_collection: docs/ssot/CAESTHETIC_CASE_STUDIES_COLLECTION.md
   strategy: docs/ssot/CAESTHETIC.md
   growth_score:

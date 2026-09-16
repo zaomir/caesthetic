@@ -1,0 +1,14 @@
+{
+  "bg": "#14223a",
+  "bg_deep": "#0d1b2e",
+  "surface": "#1e314f",
+  "surface_2": "#193260",
+  "text": "#ffffff",
+  "muted": "#bac7df",
+  "primary": "#d0de00",
+  "primary_ink": "#14223a",
+  "footer": "#24262b",
+  "font_display": "Inter, Arial, sans-serif",
+  "font_body": "Inter, Arial, sans-serif",
+  "radius": "6px"
+}

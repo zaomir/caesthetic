@@ -1,0 +1,25 @@
+{
+  "contract": "connect4-client-sandbox/1.0.0",
+  "client_slug": "royal-petrol",
+  "source_site_url": "https://royal-petrol.kz/",
+  "captured_at": "2026-09-16",
+  "method": "public HTML/CSS + visual capture of Tilda project; Inter + brand hex from page styles",
+  "tokens": {
+    "bg": "#14223a",
+    "bg_deep": "#0d1b2e",
+    "surface": "#1e314f",
+    "text": "#ffffff",
+    "muted": "#bac7df",
+    "primary": "#d0de00",
+    "primary_ink": "#14223a",
+    "footer": "#24262b",
+    "font_display": "Inter",
+    "font_body": "Inter",
+    "radius": "6px"
+  },
+  "assets": {
+    "logo_svg": "../assets/logo.svg",
+    "hero_remote": "https://static.tildacdn.pro/tild6532-3136-4461-a633-393539356365/____1_1.jpg"
+  },
+  "limitations": "Sandbox recreates brand shell and IA; not a pixel-perfect Tilda clone of every block."
+}

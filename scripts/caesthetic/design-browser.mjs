@@ -123,6 +123,12 @@ try {
         "/__design-kit/",
       ].includes(p.route),
   );
+  const missingViewports = queue.filter((p) => !Array.isArray(p.viewports) || !p.viewports.length);
+  if (missingViewports.length) {
+    throw new Error(
+      `Missing viewports for registered page(s): ${missingViewports.map((p) => p.route || p.source).join(", ")}`,
+    );
+  }
   async function worker() {
     while (queue.length) {
       const entry = queue.shift();
@@ -138,7 +144,11 @@ try {
       });
       const reviewAccess = await verifyReviewAccess(context,entry);
       const page = await context.newPage();
-      for (const width of entry.viewports) {
+      const viewports = Array.isArray(entry.viewports) ? entry.viewports : null;
+      if (!viewports?.length) {
+        throw new Error(`Missing viewports for registered page ${entry.route || entry.source || "?"}`);
+      }
+      for (const width of viewports) {
         await page.setViewportSize({ width, height: 900 });
         await page
           .goto(base + entry.route, {

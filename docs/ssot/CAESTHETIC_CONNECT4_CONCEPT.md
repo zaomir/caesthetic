@@ -1,8 +1,8 @@
 ---
 owner: CAESTHETIC
 status: active
-version: 1.7.0
-updated: 2026-09-05
+version: 1.7.1
+updated: 2026-09-16
 explanation_copy_status: approved
 explanation_contract: connect4-explanation/1.0.0
 approval_source: project-owner message in Connect4 discussion
@@ -18,6 +18,7 @@ scope: approved Connect4 concept, client-neutral explanation, EN/RU base copy, l
 parent: docs/ssot/CAESTHETIC.md
 related:
   - docs/ssot/CAESTHETIC_4444_CONSISTENCY_STANDARD.md
+  - docs/ssot/CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md
   - docs/ssot/CAESTHETIC_GROWTH_SYSTEM_OPERATING_MODEL.md
   - docs/ssot/MARKETING_SYSTEM_STANDARD.md
   - docs/ssot/BEHAVIORAL_COMMUNICATION_SYSTEM.md
@@ -41,6 +42,7 @@ related:
 | Одна секция для Кейсов и отчётов | [§10.7 — reusable section](#connect4-section) |
 | Картинки, desktop/mobile и значения линий | [§9 и §10.8 — визуалы](#connect4-visuals) |
 | Версии, изменения, производные публикации | [§10.9 — повторное использование](#connect4-reuse) |
+| Тестовая экосистема / Client Sandbox / демо без доступов / перенос на сайт клиента | [`CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md`](CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md#c4cs-routing) |
 
 Порядок authority: глобальные marketing/communication/evidence стандарты → `CAESTHETIC.md` для продукта, цены и воронки → этот SSOT для объяснения и его форматов → конкретный материал. Метод исследования остаётся в `CAESTHETIC_4444_CONSISTENCY_STANDARD.md`. Не восстанавливать определение из номера 4444, старого чата или устаревшего зеркала. Если доступен только `zaomir/caesthetic`, читать тот же путь на его актуальном main, указывать фактически доступную версию; это зеркало/authoring surface, не новая authority.
 
@@ -543,6 +545,10 @@ Desktop: чередование текст/визуал в двух колонк
 Публикационная проверка после реализации: одинаковая версия ядра на подробной странице, в Кейсах и разрешённых блоках новых отчётов; понятность desktop/mobile; корректные реальные картинки; существующий критический CTA-путь. Это проверка внедрения, не доказанный коммерческий эффект.
 
 ## 11. История и границы выпусков
+
+### v1.7.1 — Client Sandbox route (2026-09-16)
+
+Добавлена маршрутизация на `CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md` (DEC-890). Контракт объяснения `connect4-explanation/1.0.0` и публичная страница `/connect4/` не менялись.
 
 ### Восстановление v1.5
 

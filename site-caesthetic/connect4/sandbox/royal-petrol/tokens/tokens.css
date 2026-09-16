@@ -1,0 +1,49 @@
+/* Connect4 Client Sandbox — Royal Petrol design tokens
+ * Sourced from https://royal-petrol.kz/ public CSS/computed brand (2026-09-16)
+ * Use only var(--c4cs-*) in sandbox body; host demo chrome may use --c4cs-demo-*.
+ */
+:root {
+  --c4cs-bg: #14223a;
+  --c4cs-bg-deep: #0d1b2e;
+  --c4cs-surface: #1e314f;
+  --c4cs-surface-2: #193260;
+  --c4cs-text: #ffffff;
+  --c4cs-muted: #bac7df;
+  --c4cs-primary: #d0de00;
+  --c4cs-primary-ink: #14223a;
+  --c4cs-accent: #d0de00;
+  --c4cs-border: rgba(255, 255, 255, 0.14);
+  --c4cs-row: rgba(255, 255, 255, 0.04);
+  --c4cs-input-bg: #ffffff;
+  --c4cs-input-text: #14223a;
+  --c4cs-footer: #24262b;
+  --c4cs-danger: #ff6b6b;
+  --c4cs-font-display: "Inter", Arial, sans-serif;
+  --c4cs-font-body: "Inter", Arial, sans-serif;
+  --c4cs-radius: 6px;
+  --c4cs-radius-lg: 16px;
+  --c4cs-space-1: 8px;
+  --c4cs-space-2: 12px;
+  --c4cs-space-3: 16px;
+  --c4cs-space-4: 24px;
+  --c4cs-space-5: 40px;
+  --c4cs-space-6: 64px;
+  --c4cs-max: 1180px;
+  --c4cs-header-h: 108px;
+  --c4cs-demo: #0a1220;
+  --c4cs-phrase-bg: rgba(208, 222, 0, 0.22);
+  --c4cs-phrase-border: #d0de00;
+
+  --c4cs-mock-black: #111111;
+  --c4cs-mock-panel: #1a1a1a;
+  --c4cs-mock-panel-2: #222222;
+  --c4cs-mock-border: #333333;
+  --c4cs-mock-ink: #202124;
+  --c4cs-mock-muted: #5f6368;
+  --c4cs-mock-line: #e8eaed;
+  --c4cs-mock-warn-bg: #fff3cd;
+  --c4cs-mock-warn: #8a4800;
+  --c4cs-mock-reply: #f1f3f4;
+  --c4cs-mock-link: #1a73e8;
+  --c4cs-mock-gis: #007a37;
+}

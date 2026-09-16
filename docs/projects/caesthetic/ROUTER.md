@@ -39,6 +39,7 @@ Protected public/transactional domain: `caesthetic.com`
 | System / journey / Stop diagram; desktop/mobile; owner-supplied pictures | [Visual contracts — §9 and §10.8](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-visuals), with the later owner-media instruction in §12 |
 | Work with us; free Score / Check500 / Sprint / further Sprint(s); annual agreement; engagement-path picture | [Owner media and paired engagement copy — §12](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-engagement-path); term and extension boundaries remain in master §§6–7 |
 | EN/RU parity; new discussion; shorten/adapt; publication consistency | [Reuse and versioning — §10.9](../../ssot/CAESTHETIC_CONNECT4_CONCEPT.md#connect4-reuse) |
+| Тестовая экосистема Connect4; Client Sandbox; песочница без доступов; клон сайта клиента + Maps/IG/репутация; перенос на сайт клиента | [`CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md`](../../ssot/CAESTHETIC_CONNECT4_CLIENT_SANDBOX.md#c4cs-routing) (DEC-890); instances `docs/caesthetic/connect4-sandbox/` |
 
 Use one approved core at the appropriate length; do not invent a separate interpretation for each context. Client-specific facts, clinical wording and approved PNGs stay separate. `Search & Maps`, `Website`, `Social`, `Reviews & Reputation` are the four public surfaces. Consistency is between them; Lead Intake is a separate operational layer; Ads is Demand Layer. No fifth public surface.
 

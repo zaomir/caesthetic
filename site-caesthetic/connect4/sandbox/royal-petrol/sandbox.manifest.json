@@ -1,0 +1,78 @@
+{
+  "contract": "connect4-client-sandbox/1.0.0",
+  "client_slug": "royal-petrol",
+  "brand_name": "Royal Petrol",
+  "market": "KZ / Almaty focus",
+  "source_site_url": "https://royal-petrol.kz/",
+  "focus_location": {
+    "id": "rp-37",
+    "code": "RP-37",
+    "display_name": "Royal Petrol RP-37",
+    "address": "Жетысуский район, пр-т Райымбека, 227",
+    "fuels": "АИ-92 95 98 ДТ",
+    "services": "Мини-маркет"
+  },
+  "locations_count": 102,
+  "phrase_registry": [
+    {
+      "id": "K01",
+      "phrase": "АЗС Райымбека 227 Алматы",
+      "status": "candidate_query"
+    },
+    {
+      "id": "K02",
+      "phrase": "заправка Royal Petrol Жетысуский район",
+      "status": "candidate_query"
+    },
+    {
+      "id": "K03",
+      "phrase": "качественное топливо на Райымбека",
+      "status": "candidate_query"
+    },
+    {
+      "id": "K04",
+      "phrase": "мини-маркет АЗС Алматы Райымбек",
+      "status": "candidate_query"
+    },
+    {
+      "id": "K05",
+      "phrase": "сеть АЗС Royal Petrol Казахстан",
+      "status": "candidate_query"
+    }
+  ],
+  "tokens_path": "./tokens/tokens.css",
+  "surfaces": {
+    "maps": {
+      "mode": "mock",
+      "mock_path": "./surfaces/maps/",
+      "live_url": null,
+      "place_id": null
+    },
+    "instagram": {
+      "mode": "mock",
+      "mock_path": "./surfaces/instagram/",
+      "live_profile_url": "https://www.instagram.com/royalpetrol.kz/",
+      "live_post_url": null
+    },
+    "reputation": {
+      "mode": "mock",
+      "mock_path": "./surfaces/reputation/",
+      "platform": "2gis",
+      "live_url": null,
+      "article_url": null
+    }
+  },
+  "reputation_platform": {
+    "id": "2gis",
+    "rationale": "Dominant local directory/reviews surface in KZ; supports company card + long-form branch material"
+  },
+  "hosting_mode": "sandbox_host",
+  "ui": {
+    "phrase_highlight": true
+  },
+  "compliance": {
+    "demo_reviews_labelled": true
+  },
+  "created_at": "2026-09-16",
+  "updated_at": "2026-09-16"
+}
