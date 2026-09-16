@@ -1,5 +1,18 @@
 {
   "name": "caesthetic-agents",
-  "install": "node -v\nnpm -v",
-  "start": ""
+  "install": "node --version && python3 --version",
+  "start": "",
+  "terminals": [
+    {
+      "name": "site-caesthetic",
+      "command": "python3 -m http.server 8080 --directory site-caesthetic",
+      "description": "Static preview server for the CAESTHETIC website (site-caesthetic/) on http://localhost:8080 — home, /growth-score/, /pricing/, /about/, /score/ demo reports. Restart this terminal after editing HTML/CSS/JS."
+    }
+  ],
+  "ports": [
+    {
+      "name": "site-caesthetic web",
+      "port": 8080
+    }
+  ]
 }
