@@ -63,6 +63,8 @@ def public_run_summary(result: dict) -> dict:
             "status",
             "quoted_usd",
             "actual_usd",
+            "cost_upper_bound_usd",
+            "cost_basis",
             "markets_attempted",
             "markets_skipped",
             "new_unique",
@@ -93,6 +95,8 @@ def recover_unfinished(store: Path, remaining_usd: float) -> dict:
                 "recovered": recovered + [{"job_id": job_id, "status": "unknown"}],
                 "remaining_usd": remaining_usd,
             }
+        if job.get("sync"):
+            return {"ok": False, "error": "synchronous_request_requires_reconciliation", "stop_reason": "recover_before_new_purchase", "recovered": [{"request_id": job_id, "status": job.get("status")}], "remaining_usd": remaining_usd}
         polled = wait_for_job(store, job_id, timeout_s=90)
         recovered.append(
             {
@@ -102,7 +106,7 @@ def recover_unfinished(store: Path, remaining_usd: float) -> dict:
                 "rows": len(polled.get("rows") or []),
             }
         )
-        if polled.get("status") == "unknown":
+        if polled.get("status") in {"unknown", "pending"}:
             return {
                 "ok": False,
                 "error": "unfinished_job_status_unknown",
@@ -123,20 +127,29 @@ def recover_unfinished(store: Path, remaining_usd: float) -> dict:
 def run_recurring_discovery(store: Path, params: dict | None = None, *, public_index: Path | None = None) -> dict:
     params = params if isinstance(params, dict) else {}
     dry_run = bool(params.get("dry_run"))
+    if params.get("quotes") is not None and not dry_run:
+        return {"ok": False, "status": "blocked", "stop_reason": "live_quote_override_not_allowed"}
     starter = bool(params.get("starter") or params.get("replace_next_scheduled"))
-    run_cap = float(params.get("budget_usd") or RUN_CAP_USD)
-    week_cap = float(params.get("week_budget_usd") or WEEK_CAP_USD)
+    run_cap = min(RUN_CAP_USD, float(params.get("budget_usd") or RUN_CAP_USD))
+    week_cap = min(WEEK_CAP_USD, float(params.get("week_budget_usd") or WEEK_CAP_USD))
     geo_path = Path(params.get("geography_path") or DEFAULT_GEO_PATH)
     geo = load_geography(geo_path)
+    markets = rotate_markets(geo, store)
+    if params.get("market_ids") is not None:
+        ids = params["market_ids"]
+        known = {market["id"]: market for market in markets}
+        if not isinstance(ids, list) or not ids or any(not isinstance(mid, str) or mid not in known for mid in ids) or len(set(ids)) != len(ids):
+            return {"ok": False, "status": "blocked", "stop_reason": "invalid_market_ids"}
+        markets = [known[mid] for mid in ids]
     run_id = str(params.get("run_id") or f"disc-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}")
     caps = remaining_caps(store, run_cap=run_cap, week_cap=week_cap)
     state = load_state(store)
     next_slot = next_scheduled_after()
-    if starter and (dry_run or os.environ.get("OUTSCRAPER_API_KEY") or params.get("allow_offline")):
+    if starter and not dry_run and (os.environ.get("OUTSCRAPER_API_KEY") or params.get("allow_offline")):
         state["skip_next_scheduled"] = True
         state["replaced_scheduled_slot"] = next_slot.strftime("%Y-%m-%dT%H:%M:%SZ")
         save_state(store, state)
-    if not starter and state.get("skip_next_scheduled"):
+    if not starter and not dry_run and state.get("skip_next_scheduled"):
         skip_until = state.get("replaced_scheduled_slot")
         state["skip_next_scheduled"] = False
         save_state(store, state)
@@ -168,7 +181,7 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
             "caps": caps,
             "next_scheduled_utc": next_slot.strftime("%Y-%m-%dT%H:%M:%SZ"),
         }
-    recovered = recover_unfinished(store, caps["remaining_run_usd"])
+    recovered = {"ok": True, "recovered": []} if dry_run else recover_unfinished(store, caps["remaining_run_usd"])
     if not recovered.get("ok"):
         recovered.update({"run_id": run_id, "status": "blocked", "next_scheduled_utc": next_slot.strftime("%Y-%m-%dT%H:%M:%SZ")})
         return recovered
@@ -192,12 +205,16 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
     new_unique = 0
     duplicates = 0
     excluded = 0
-    for market in rotate_markets(geo, store):
+    completed_markets = 0
+    for market in markets:
+        if params.get("max_markets") and len(attempted) >= int(params["max_markets"]):
+            break
         if remaining <= 0:
             skipped.append({"id": market["id"], "reason": "run_cap"})
             break
         window = window_for_market(geo, store, market)
         zips = list(market.get("postal_codes") or [])
+        filters = catalog_filters(postal_codes=zips, added_from=window["added_from"], added_to=window["added_to"], types=market.get("types"))
         if params.get("quotes") is not None:
             if market["id"] not in params["quotes"]:
                 skipped.append({"id": market["id"], "queue": market.get("queue"), "reason": "not_in_quote_set"})
@@ -212,7 +229,7 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
             )
         if not quote or not quote.get("ok"):
             reason = (quote or {}).get("stop_reason") or (quote or {}).get("error") or "unknown_cost_upper_bound"
-            skipped.append({"id": market["id"], "queue": market.get("queue"), "reason": reason})
+            skipped.append({"id": market["id"], "queue": market.get("queue"), "reason": reason, "error": (quote or {}).get("error"), "http": (quote or {}).get("http")})
             if reason == "unknown_cost_upper_bound":
                 break
             continue
@@ -230,6 +247,9 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
                 "queue": market.get("queue"),
                 "coverage": market.get("coverage"),
                 "postal_codes": zips,
+                "geography_id": market.get("geography_id", market["id"]),
+                "niche_id": market.get("niche_id", "medspa"),
+                "types": market.get("types", ["medical spa"]),
                 "window": window,
                 "quoted_usd": max_cost,
             }
@@ -238,16 +258,20 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
             quoted_total += max_cost
             remaining = round(remaining - max_cost, 4)
             continue
-        reserve(store, run_id=run_id, quoted_usd=max_cost, geography={"market_id": market["id"], "queue": market.get("queue")}, window=window)
+        purchase_id = run_id + ":" + market["id"]
+        reservation = reserve(store, run_id=purchase_id, quoted_usd=max_cost, geography={"market_id": market["id"], "queue": market.get("queue")}, window=window)
+        if not reservation.get("ok"):
+            skipped.append({"id": market["id"], "reason": "reservation_rejected"})
+            break
         quoted_total += max_cost
-        filters = catalog_filters(postal_codes=zips, added_from=window["added_from"], added_to=window["added_to"])
         job = start_or_recover_catalog(store=store, filters=filters, limit=limit)
-        if job.get("job_id"):
+        attempted[-1]["request_id"] = job.get("job_id")
+        if job.get("job_id") and not job.get("sync"):
             job_ids.append(job["job_id"])
         if job.get("status") == "pending":
             job = wait_for_job(store, job["job_id"], timeout_s=int(params.get("timeout_s") or 180))
-        if job.get("status") == "unknown":
-            settle(store, run_id=run_id, actual_usd=0.0, provider_job_id=job.get("job_id"), status="unknown_no_repurchase")
+        if job.get("status") in {"unknown", "pending"}:
+            settle(store, run_id=purchase_id, actual_usd=0.0, provider_job_id=job.get("job_id"), status="unknown_no_repurchase")
             return {
                 "ok": False,
                 "status": "blocked",
@@ -260,7 +284,7 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
                 "next_scheduled_utc": next_scheduled_after().strftime("%Y-%m-%dT%H:%M:%SZ"),
             }
         if job.get("status") != "success":
-            settle(store, run_id=run_id, actual_usd=0.0, provider_job_id=job.get("job_id"), status="failed_unpaid")
+            settle(store, run_id=purchase_id, actual_usd=0.0, provider_job_id=job.get("job_id"), status="failed_unpaid")
             skipped.append({"id": market["id"], "reason": "provider_failure", "job_id": job.get("job_id")})
             continue
         rows = job.get("rows") or []
@@ -269,16 +293,29 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
             run_id=run_id,
             market_id=market["id"],
             rows=rows,
-            extra={"window": window, "quote": quote, "job_id": job.get("job_id"), "at": now()},
+            extra={"window": window, "quote": quote, "job_id": job.get("job_id"), "at": now(), "niche_id": market.get("niche_id", "medspa"), "types": filters["types"]},
         )
         ingest = ingest_rows(store, rows, source_file=f"{run_id}-{market['id']}.json")
         new_unique += int(ingest.get("added") or 0)
         duplicates += int(ingest.get("updated") or 0)
         excluded += int(ingest.get("excluded_fixtures") or 0)
-        settle(store, run_id=run_id, actual_usd=max_cost, provider_job_id=job.get("job_id"))
-        actual = round(actual + max_cost, 4)
-        remaining = round(remaining - max_cost, 4)
-        mark_success(store, market["id"], window=window, run_id=run_id)
+        cost_upper = round(min(max_cost, len(rows) * float(quote["unit_usd"])), 4)
+        settle(store, run_id=purchase_id, actual_usd=cost_upper, provider_job_id=job.get("job_id"), status="settled_upper_bound")
+        actual = round(actual + cost_upper, 4)
+        remaining = round(remaining - cost_upper, 4)
+        attempted[-1]["cost_upper_bound_usd"] = cost_upper
+        if job.get("window_complete", False):
+            mark_success(store, market["id"], window=window, run_id=run_id)
+            completed_markets += 1
+            from outscraper_adapter import save_job
+            job["ingested"] = True
+            save_job(store, job)
+        else:
+            skipped.append({"id": market["id"], "reason": "incomplete_window_reconcile_before_repurchase"})
+            from outscraper_adapter import save_job
+            job["status"] = "unknown"
+            job["reason"] = "incomplete_window_reconcile_before_repurchase"
+            save_job(store, job)
         attempted[-1]["raw_sha256"] = raw.get("sha256")
         attempted[-1]["job_id"] = job.get("job_id")
         attempted[-1]["ingest"] = {key: ingest.get(key) for key in ("added", "updated", "excluded_fixtures")}
@@ -302,13 +339,16 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
     if starter:
         next_after = next_scheduled_after(next_slot)
     result = {
-        "ok": True,
-        "status": "success" if not dry_run else "dry_run_ok",
+        "ok": bool(attempted) and (dry_run or completed_markets == len(attempted)),
+        "status": ("dry_run_ok" if dry_run else "success") if attempted and (dry_run or completed_markets == len(attempted)) else "blocked",
+        "stop_reason": (skipped[0]["reason"] if skipped else "no_markets") if not attempted or (not dry_run and completed_markets != len(attempted)) else None,
         "dry_run": dry_run,
         "run_id": run_id,
         "iso_week": iso_week_key(),
         "quoted_usd": round(quoted_total, 4),
-        "actual_usd": actual,
+        "actual_usd": None,
+        "cost_upper_bound_usd": actual,
+        "cost_basis": "conservative_reservation_not_provider_invoice",
         "remaining_run_usd": remaining,
         "caps": remaining_caps(store, run_cap=run_cap, week_cap=week_cap),
         "markets_attempted": attempted,
@@ -324,5 +364,6 @@ def run_recurring_discovery(store: Path, params: dict | None = None, *, public_i
         "geography_path": str(geo_path),
         "catch_up": False,
     }
-    (store / "last-run.json").write_text(json.dumps(public_run_summary(result), indent=2) + "\n", encoding="utf-8")
+    if not dry_run:
+        (store / "last-run.json").write_text(json.dumps(public_run_summary(result), indent=2) + "\n", encoding="utf-8")
     return result

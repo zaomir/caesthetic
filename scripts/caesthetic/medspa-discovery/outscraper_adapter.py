@@ -81,7 +81,7 @@ def map_row(row: dict, *, source_file: str, first_seen_at: str | None = None) ->
     place_id = _s(row.get("place_id") or row.get("google_place_id"))
     name = _s(row.get("name") or row.get("title")) or "unknown"
     categories = []
-    raw_cats = row.get("subtypes") or row.get("categories") or row.get("type")
+    raw_cats = row.get("subtypes") or row.get("categories") or row.get("category") or row.get("type")
     if isinstance(raw_cats, list):
         categories = [str(item).strip() for item in raw_cats if str(item).strip()]
     elif _s(raw_cats):
@@ -205,7 +205,7 @@ def remember_hash(store: Path, name: str, digest: str) -> bool:
 
 
 UA = "Mozilla/5.0 (compatible; GraineeAgent/1.0)"
-API_ROOT = "https://api.outscraper.com"
+API_ROOT = "https://api.outscraper.cloud"
 JOBS_DIRNAME = "jobs"
 RAW_DIRNAME = "raw"
 FIXTURE_PLACE_IDS = frozenset({"chijtest"})
@@ -286,42 +286,43 @@ def live_pricing() -> dict:
             "http": code,
             "stop_reason": "unknown_cost_upper_bound",
         }
-    unit = None
-    free_remaining = 0
+    units = []
     invoice = payload.get("upcoming_invoice") if isinstance(payload.get("upcoming_invoice"), dict) else {}
     for line in invoice.get("products_lines") or []:
         if not isinstance(line, dict):
             continue
         name = str(line.get("product_name") or "").lower()
-        if "map" not in name and "business" not in name and "place" not in name:
+        if not any(word in name for word in ("map", "business", "place", "catalog")):
             continue
         for sub in line.get("lines") or []:
-            price = str((sub or {}).get("unit_price") or "")
-            digits = "".join(ch for ch in price if ch.isdigit() or ch == ".")
-            if digits:
-                try:
-                    unit = float(digits)
-                except ValueError:
-                    unit = unit
-            if unit == 0:
-                free_remaining = max(free_remaining, int((sub or {}).get("quantity") or 0))
+            price = str((sub or {}).get("unit_price") or "").strip().replace("$", "")
+            try:
+                value = float(price)
+                if value > 0:
+                    units.append(value)
+            except ValueError:
+                pass
+    unit = max(units, default=None)
     return {
-        "ok": True,
+        "ok": payload.get("account_status") == "valid",
         "http": code,
         "balance": payload.get("balance"),
         "account_status": payload.get("account_status"),
         "live_unit_usd": unit,
-        "free_remaining": free_remaining if unit == 0 else 0,
-        "unit_usd": conservative_unit_usd(unit if unit and unit > 0 else None),
-        "source": "profile/balance+published_conservative",
+        "free_remaining": 0,
+        "unit_usd": conservative_unit_usd(unit),
+        "source": "profile/balance+standing_conservative_0.01usd",
+        "stop_reason": None if payload.get("account_status") == "valid" else "provider_account_not_valid",
     }
 
 
-def catalog_filters(*, postal_codes: list[str], added_from: int, added_to: int) -> dict:
+def catalog_filters(*, postal_codes: list[str], added_from: int, added_to: int, types: list[str] | None = None) -> dict:
+    from niches import validate_types
+    selected_types = validate_types(["medical spa"] if types is None else types)
     return {
         "country_code": "US",
         "postal_codes": list(postal_codes),
-        "types": ["medical spa"],
+        "types": selected_types,
         "added_from": int(added_from),
         "added_to": int(added_to),
         "business_only": True,
@@ -332,35 +333,14 @@ def quote_live(*, postal_codes: list[str], added_from: int, added_to: int, budge
     pricing = live_pricing()
     if not pricing.get("ok"):
         return {**pricing, "would_checkout": False}
-    if estimated_rows is None:
-        body = {
-            "filters": catalog_filters(postal_codes=postal_codes, added_from=added_from, added_to=added_to),
-            "limit": 1,
-            "include_total": True,
-            "fields": ["place_id", "name", "added_at"],
-        }
-        code, payload = outscraper_request("POST", "/businesses", body)
-        if code not in {200, 202} or not isinstance(payload, dict):
-            return {
-                "ok": False,
-                "would_checkout": False,
-                "error": "count_quote_failed",
-                "http": code,
-                "stop_reason": "unknown_cost_upper_bound",
-                "pricing": pricing,
-            }
-        estimated_rows = int(payload.get("total") or payload.get("count") or 0)
-        if estimated_rows <= 0 and isinstance(payload.get("data"), list):
-            estimated_rows = len(payload.get("data") or [])
-        if estimated_rows <= 0:
-            return {
-                "ok": False,
-                "would_checkout": False,
-                "error": "estimated_rows_unknown",
-                "http": code,
-                "stop_reason": "unknown_cost_upper_bound",
-                "pricing": pricing,
-            }
+    # A list/count request can itself be billable. Quote a bounded page without
+    # retrieving any records; reserve it before the single catalog request.
+    from decimal import Decimal, ROUND_FLOOR
+    unit = Decimal(str(pricing["unit_usd"]))
+    cap = int((Decimal(str(budget_usd)) / unit).to_integral_value(rounding=ROUND_FLOOR))
+    estimated_rows = min(100, cap) if estimated_rows is None else int(estimated_rows)
+    if estimated_rows <= 0:
+        return {"ok": False, "would_checkout": False, "stop_reason": "run_cap", "pricing": pricing}
     quote = quote_rows(
         int(estimated_rows),
         budget_usd,
@@ -368,6 +348,8 @@ def quote_live(*, postal_codes: list[str], added_from: int, added_to: int, budge
         free_remaining=int(pricing.get("free_remaining") or 0),
     )
     quote["pricing"] = pricing
+    quote["row_count_basis"] = "bounded_page_not_inventory_count"
+    quote["cost_basis"] = "upper_bound"
     quote["postal_code_count"] = len(postal_codes)
     quote["overlapping_window_days"] = OVERLAP_DAYS
     quote["paid_ops"] = "quote_only" if quote.get("ok") else "blocked"
@@ -403,7 +385,7 @@ def unfinished_jobs(store: Path) -> list[dict]:
             job = json.loads(path.read_text(encoding="utf-8"))
         except Exception:
             continue
-        if job.get("status") in {"pending", "unknown", "processing"}:
+        if job.get("status") in {"pending", "unknown", "processing"} or (job.get("status") == "success" and job.get("ingested") is False):
             rows.append(job)
     return rows
 
@@ -449,11 +431,15 @@ def start_or_recover_catalog(*, store: Path, filters: dict, limit: int, job_id: 
     body = {
         "filters": filters,
         "limit": max(1, min(int(limit), 1000)),
-        "include_total": False,
+        "include_total": True,
+        "enrichments": {"company_insights": False},
         "fields": [
             "place_id",
             "name",
             "full_address",
+            "country_code",
+            "category",
+            "website",
             "city",
             "state",
             "postal_code",
@@ -475,6 +461,12 @@ def start_or_recover_catalog(*, store: Path, filters: dict, limit: int, job_id: 
             "longitude",
         ],
     }
+    request_id = "sync-" + hashlib.sha256(json.dumps(body, sort_keys=True).encode()).hexdigest()[:24]
+    previous = load_job(store, request_id)
+    if previous:
+        return previous
+    save_job(store, {"job_id": request_id, "status": "unknown", "sync": True,
+                    "started_at": now(), "reason": "request_outcome_not_yet_recorded"})
     code, payload = outscraper_request("POST", "/businesses", body)
     job = {
         "job_id": None,
@@ -493,17 +485,29 @@ def start_or_recover_catalog(*, store: Path, filters: dict, limit: int, job_id: 
         else:
             job["status"] = "pending"
         save_job(store, job)
+        save_job(store, {"job_id": request_id, "status": "linked", "provider_job_id": job["job_id"]})
         return job
-    if code == 200 and isinstance(payload, (dict, list)):
+    if code == 200 and (isinstance(payload, list) or (isinstance(payload, dict) and any(isinstance(payload.get(k), list) for k in ("data", "results", "items")))):
         rows = flatten_businesses(payload)
-        job["job_id"] = hashlib.sha256(json.dumps(body, sort_keys=True).encode()).hexdigest()[:16]
+        job["job_id"] = request_id
         job["status"] = "success"
         job["rows"] = rows
         job["sync"] = True
+        job["provider_job_id"] = None
+        job["ingested"] = False
+        job["response_keys"] = sorted(payload) if isinstance(payload, dict) else []
+        job["next_cursor"] = payload.get("next_cursor") or payload.get("cursor") if isinstance(payload, dict) else None
+        job["total"] = payload.get("total") if isinstance(payload, dict) else None
+        job["window_complete"] = not job["next_cursor"] and len(rows) < body["limit"]
+        if job["total"] is not None:
+            job["window_complete"] = not job["next_cursor"] and int(job["total"]) <= len(rows)
         save_job(store, job)
         return job
     job["error"] = payload if isinstance(payload, dict) else {"raw": str(payload)[:200]}
-    job["status"] = "failure"
+    job["job_id"] = request_id
+    job["sync"] = True
+    job["status"] = "unknown" if code in {0, 200, 202} or code >= 500 else "failure"
+    save_job(store, job)
     return job
 
 
@@ -636,3 +640,4 @@ def ingest_rows(store: Path, rows: list[dict], *, source_file: str, first_seen_a
         "unique_place_ids": len(by_place),
         "total": len(registry["locations"]),
     }
+

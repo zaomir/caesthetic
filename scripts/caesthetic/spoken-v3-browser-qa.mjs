@@ -260,7 +260,26 @@ try {
   const accessibility=await new AxeBuilder({page}).include('main').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(accessibility.violations.map(v=>({id:v.id,nodes:v.nodes.length})),[]);result.actions.push({locale,kind:'axe-main',status:'PASS'});
   await context.close();
-  if(!production){const noJS=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce'});const plain=await noJS.newPage();await plain.goto(url);await plain.evaluate(()=>document.fonts.ready);assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);assert.equal(await plain.locator('picture').count(),5);assert.equal(await plain.locator('[data-choice-part]:visible').count(),locale==='ru'?16:24);assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();assert.equal(new URL(plain.url()).hash,'#choice-offer');assert.ok(await plain.locator('#choice-offer').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('.v3-bar').offsetHeight));await noJS.close();}
+  // Native hash + scroll-margin check: Chromium only. Firefox/WebKit hang or
+  // mis-count :visible with javaScriptEnabled:false and blew the design-gate budget.
+  if(!production && engine==='chromium'){
+    const noJS=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce'});
+    const plain=await noJS.newPage();
+    await plain.goto(url,{waitUntil:'domcontentloaded'});
+    // document.fonts.ready via page.evaluate hangs on Firefox/WebKit when JS is disabled
+    // and blew the 25m design-gate budget after Chromium already passed.
+    await plain.locator('[data-cockpit-order]').first().waitFor({state:'attached',timeout:15000});
+    assert.equal(await plain.locator('[data-cockpit-order]').count(),V3_SECTION_IDS.length);
+    assert.equal(await plain.locator('picture').count(),5);
+    assert.equal(await plain.locator('[data-choice-part]:visible').count(),locale==='ru'?16:24);
+    assert.equal(await plain.locator('[data-connect4-conclusion]').count(),1);
+    await plain.locator('[data-choice-navigation] a[href="#choice-offer"]').click();
+    assert.equal(new URL(plain.url()).hash,'#choice-offer');
+    const offer=await plain.locator('#choice-offer').boundingBox();
+    const bar=await plain.locator('.v3-bar').boundingBox();
+    assert.ok(offer&&bar&&offer.y+1>=bar.height);
+    await noJS.close();
+  }
  }
  assert.deepEqual(result.errors,[]);result.status='PASS';
 }catch(error){

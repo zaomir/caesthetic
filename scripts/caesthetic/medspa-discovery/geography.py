@@ -6,7 +6,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 DEFAULT_GEO_PATH = Path("/var/www/grainee-v2/docs/ops/caesthetic-new-medspa-discovery/discovery-geography.json")
-QUEUE_ORDER = ("A", "B", "C")
+QUEUE_ORDER = ("A", "B", "C", "D")
 
 
 def now_dt() -> datetime:
@@ -34,13 +34,28 @@ def load_geography(path: Path | None = None) -> dict:
 def iter_markets(geo: dict) -> list[dict]:
     markets = []
     queues = geo.get("queues") or {}
-    for queue_id in QUEUE_ORDER:
+    niches = geo.get("niches") or [{"id": "medspa", "types": ["medical spa"], "enabled": True, "priority": 1}]
+    for queue_id in sorted(queues, key=lambda key: (int(queues[key].get("priority") or 99), key)):
         queue = queues.get(queue_id) or {}
         for market in queue.get("markets") or []:
             row = dict(market)
             row["queue"] = queue_id
             row["queue_priority"] = int(queue.get("priority") or 99)
-            markets.append(row)
+            for niche in niches:
+                if not niche.get("enabled", False):
+                    continue
+                if niche.get("market_ids") is not None and market["id"] not in niche["market_ids"]:
+                    continue
+                tile = dict(row)
+                tile["geography_id"] = market["id"]
+                tile["niche_id"] = niche["id"]
+                tile["types"] = list(niche["types"])
+                tile["niche_priority"] = int(niche.get("priority") or 99)
+                tile["niche_review_rule"] = niche.get("review_rule")
+                # Legacy medspa IDs/cursors stay intact. New niches never inherit them.
+                if niche["id"] != "medspa":
+                    tile["id"] = market["id"] + "__" + niche["id"]
+                markets.append(tile)
     return markets
 
 
@@ -76,13 +91,13 @@ def mark_success(store: Path, market_id: str, *, window: dict, run_id: str) -> N
 
 
 def rotate_markets(geo: dict, store: Path) -> list[dict]:
-    """Oldest successful poll first inside the same queue so the last cities are not starved."""
+    """Oldest successful market/niche first, so budget cannot starve later queues."""
     state = load_market_state(store).get("markets") or {}
     ranked = []
     for market in iter_markets(geo):
         seen = parse_utc((state.get(market["id"]) or {}).get("last_success_at"))
         ranked.append((market["queue_priority"], seen or datetime(1970, 1, 1, tzinfo=timezone.utc), market["priority_inside_queue"], market))
-    ranked.sort(key=lambda item: (item[0], item[1], item[2], item[3]["id"]))
+    ranked.sort(key=lambda item: (item[1], item[0], item[3].get("niche_priority", 1), item[2], item[3]["id"]))
     return [item[3] for item in ranked]
 
 

@@ -156,7 +156,7 @@ ol.v3-list { list-style: decimal; }
 }
 
 /* Four open answers, followed by the unnumbered synthesis. */
-.cae-score-v3 .v3-choice { padding: var(--cae-space-12) 0; border-top: 1px solid var(--v3-line); }
+.cae-score-v3 .v3-choice { padding: var(--cae-space-12) 0; border-top: 1px solid var(--v3-line); scroll-margin-top: 8rem; }
 .cae-score-v3 .v3-choice:first-of-type { border-top: 0; padding-top: var(--cae-space-2); }
 .cae-score-v3 .v3-choice-narrative { max-width: 70ch; margin: var(--cae-space-6) 0; }
 .cae-score-v3 .v3-choice-narrative > div + div { margin-top: var(--cae-space-6); }

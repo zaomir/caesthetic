@@ -150,7 +150,8 @@ def max_rows_for_budget(budget_usd: float, *, live_unit: float | None = None, fr
         return {"ok": False, "error": "unit_price_unknown", "max_rows": 0}
     free = max(0, int(free_remaining or 0))
     payable = max(0.0, float(budget_usd))
-    paid_rows = int(payable // unit)
+    from decimal import Decimal, ROUND_FLOOR
+    paid_rows = int((Decimal(str(payable)) / Decimal(str(unit))).to_integral_value(rounding=ROUND_FLOOR))
     return {
         "ok": True,
         "unit_usd": unit,
@@ -245,3 +246,4 @@ def settle(store: Path, *, run_id: str, actual_usd: float, provider_job_id: str 
         },
     )
     return {"ok": True, "caps": remaining_caps(store)}
+

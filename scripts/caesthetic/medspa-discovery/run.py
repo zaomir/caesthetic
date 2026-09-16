@@ -203,11 +203,12 @@ def op_health() -> dict:
     }
 
 
-def op_instantly_status() -> dict:
-    code, camp = instantly("GET", f"/api/v2/campaigns/{CID}")
-    a_code, analytics = instantly("GET", f"/api/v2/campaigns/analytics?ids={CID}")
-    s_code, sending = instantly("GET", f"/api/v2/campaigns/{CID}/sending-status")
-    e_code, emails = instantly("GET", f"/api/v2/emails?campaign_id={CID}&limit=50")
+def op_instantly_status(campaign_id: str = CID) -> dict:
+    """Read one explicit campaign; never silently fall back to the old canary."""
+    code, camp = instantly("GET", f"/api/v2/campaigns/{campaign_id}")
+    a_code, analytics = instantly("GET", f"/api/v2/campaigns/analytics?ids={campaign_id}")
+    s_code, sending = instantly("GET", f"/api/v2/campaigns/{campaign_id}/sending-status")
+    e_code, emails = instantly("GET", f"/api/v2/emails?campaign_id={campaign_id}&limit=50")
     an = analytics[0] if isinstance(analytics, list) and analytics else {}
     items = (emails or {}).get("items") if isinstance(emails, dict) else []
     http = {"campaign": code, "analytics": a_code, "sending": s_code, "emails": e_code}
@@ -236,7 +237,7 @@ def op_instantly_status() -> dict:
         "ok": code == 200,
         "quality": quality,
         "http": http,
-        "campaign_id": CID,
+        "campaign_id": campaign_id,
         "name": camp.get("name") if isinstance(camp, dict) else None,
         "status": camp.get("status") if isinstance(camp, dict) else None,
         "settings": {
@@ -340,11 +341,69 @@ def seed_public_index() -> dict:
     return doc
 
 
+def read_public_index() -> dict:
+    """Diagnostics must never replace an ingested index with seed data."""
+    try:
+        doc = json.loads(PUBLIC_INDEX.read_text(encoding="utf-8"))
+        if not isinstance(doc, dict):
+            raise ValueError("index_not_object")
+        return doc
+    except FileNotFoundError:
+        return {"counts": {}, "error": "public_index_missing"}
+    except (OSError, ValueError):
+        return {"counts": {}, "error": "public_index_unreadable"}
+
+
+def discovery_receipts() -> dict:
+    """Expose only allowlisted aggregates; never raw records or provider bodies."""
+    from recurring import public_run_summary
+    result = {"last_run_present": False, "last_run": None}
+    path = PRIVATE / "last-run.json"
+    if path.exists():
+        result["last_run_present"] = True
+        try:
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            keys = ("ok", "run_id", "status", "quoted_usd", "actual_usd",
+                    "new_unique", "duplicates", "provider_job_ids", "stop_reason",
+                    "next_scheduled_utc")
+            result["last_run"] = {key: doc.get(key) for key in keys if key in doc}
+            result["market_results"] = [
+                {key: row.get(key) for key in ("id", "reason", "job_id") if key in row}
+                for row in (doc.get("markets_skipped") or []) if isinstance(row, dict)
+            ]
+        except (OSError, ValueError, AttributeError):
+            result["error"] = "last_run_unreadable"
+    try:
+        result["code_sha"] = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=REPO, text=True, stderr=subprocess.DEVNULL
+        ).strip()
+    except (OSError, subprocess.CalledProcessError):
+        result["code_sha"] = None
+    result["diagnostic_version"] = "read-only-discovery-v1"
+    from geography import load_geography, iter_markets
+    geo_path = REPO / "docs/ops/caesthetic-new-medspa-discovery/discovery-geography.json"
+    try:
+        tiles = iter_markets(load_geography(geo_path))
+        result["discovery_scope"] = {
+            "version": "beauty-expansion-v1",
+            "config_sha256": sha256_file(geo_path),
+            "geography_count": len({m["geography_id"] for m in tiles}),
+            "niche_count": len({m["niche_id"] for m in tiles}),
+            "tile_count": len(tiles),
+            "types": sorted({t for m in tiles for t in m["types"]}),
+            "code_hashes": {name: sha256_file(REPO / "scripts/caesthetic/medspa-discovery" / name)
+                            for name in ("geography.py", "niches.py", "recurring.py", "outscraper_adapter.py", "master_ingest.py", "contact_review.py", "run.py")},
+        }
+    except (OSError, ValueError, KeyError, TypeError):
+        result["discovery_scope"] = {"error": "scope_unreadable"}
+    return result
+
+
 def op_status() -> dict:
     ensure_store()
     health = op_health()
     instantly = op_instantly_status()
-    public = seed_public_index()
+    public = read_public_index()
     inbox = list((PRIVATE / "inbox").glob("*"))
     ingested = list((PRIVATE / "ingested").glob("*"))
     cron_canary = Path("/etc/cron.d/caesthetic-instantly-canary").exists()
@@ -356,6 +415,8 @@ def op_status() -> dict:
         "health": health,
         "instantly": instantly,
         "public_index_counts": public.get("counts"),
+        "public_index_error": public.get("error"),
+        "discovery_receipts": discovery_receipts(),
         "inbox_files": [p.name for p in inbox],
         "ingested_files": [p.name for p in ingested],
         "schedules": {
@@ -377,7 +438,7 @@ def op_status() -> dict:
 
 
 def op_dry_run() -> dict:
-    public = seed_public_index()
+    public = read_public_index()
     expected = {
         "canary_ready": 6,
         "excluded_conflicts": 1,
@@ -401,6 +462,17 @@ def op_ingest_inbox(params: dict | None = None) -> dict:
     params = params if isinstance(params, dict) else {}
     if "master_ingest_mode" in params:
         mode = params["master_ingest_mode"]
+        if mode == "review_discovery":
+            from master_ingest import discovery_source_rows
+            try:
+                rows = discovery_source_rows(PRIVATE, params.get("discovery_run_id"))
+            except (OSError, ValueError, TypeError, KeyError):
+                return {"ok": False, "status": "blocked", "error": "discovery_source_unverified"}
+            fields = ("place_id", "name", "website", "city", "state", "full_address", "country_code", "category", "added_at", "business_status")
+            return {"ok": True, "status": "success", "source_run_id": params.get("discovery_run_id"),
+                    "rows": [{**{key: row.get(key) for key in fields}, "email_present": bool(row.get("email")),
+                              "email_sha256": hashlib.sha256(str(row.get("email") or "").lower().encode()).hexdigest() if row.get("email") else None} for row in rows],
+                    "count": len(rows), "master_apply_attempted": False, "paid_ops": "none"}
         if mode == "setup_drive_runtime":
             from master_ingest import setup_drive_runtime
             return setup_drive_runtime(REPO, PRIVATE)
@@ -410,7 +482,7 @@ def op_ingest_inbox(params: dict | None = None) -> dict:
         if mode not in {"dry_run", "apply"}:
             return {"ok": False, "status": "blocked", "error": "invalid_master_ingest_mode"}
         from master_ingest import canonical_ingest
-        result = canonical_ingest(REPO, PRIVATE, PUBLIC_INDEX, PAID_HASHES, apply=mode == "apply")
+        result = canonical_ingest(REPO, PRIVATE, PUBLIC_INDEX, PAID_HASHES, apply=mode == "apply", discovery_run_id=params.get("discovery_run_id"))
         if result.get("applied"):
             try:
                 result["post_apply_readiness"] = prepare_outreach(
@@ -493,6 +565,42 @@ def op_ingest_inbox(params: dict | None = None) -> dict:
 def op_quote_discovery(params: dict | None = None) -> dict:
     load_secrets()
     params = params if isinstance(params, dict) else {}
+    if params.get("action") == "repair_utc_schedule":
+        from utc_schedule import repair
+        return repair(PRIVATE, params.get("expected_cron_sha256"))
+    if params.get("action") == "runtime_clock":
+        path = Path("/etc/cron.d/caesthetic-medspa-recurring")
+        content = path.read_text() if path.exists() else ""
+        timezone_path = Path("/etc/timezone")
+        return {"ok": True, "paid_ops": "none", "process_timezone": os.environ.get("TZ"),
+                "system_timezone": timezone_path.read_text().strip() if timezone_path.exists() else None,
+                "localtime_target": str(Path("/etc/localtime").resolve()),
+                "host_local_time": datetime.now().astimezone().isoformat(),
+                "utc_time": now(), "recurring_cron_sha256": hashlib.sha256(content.encode()).hexdigest(),
+                "cron_schedule": [" ".join(line.split()[:5]) for line in content.splitlines() if len(line.split()) >= 7 and not line.lstrip().startswith("#")],
+                "cron_timezone_lines": [line.strip() for line in content.splitlines() if line.strip().startswith(("TZ=", "CRON_TZ="))],
+                "owned_script_paths": re.findall(r"[A-Za-z0-9_./-]*medspa-discovery/[A-Za-z0-9_.-]+", content)}
+    if params.get("action") == "provider_diagnostics":
+        from outscraper_adapter import live_pricing, outscraper_request
+        code, payload = outscraper_request("GET", "/profile/balance")
+        invoice = payload.get("upcoming_invoice", {}) if isinstance(payload, dict) else {}
+        products = []
+        for product in invoice.get("products_lines", []) if isinstance(invoice, dict) else []:
+            if isinstance(product, dict):
+                products.append({"product_name": product.get("product_name"),
+                    "lines": [{k: line.get(k) for k in ("unit_price", "quantity")} for line in product.get("lines", []) if isinstance(line, dict)]})
+        schedules = []
+        for path in Path("/etc/cron.d").glob("*caesthetic*"):
+            for line in path.read_text().splitlines():
+                parts = line.split()
+                if line.startswith("CRON_TZ=") or line.startswith("TZ="):
+                    schedules.append({"file": path.name, "timezone": line})
+                elif len(parts) >= 7 and not line.lstrip().startswith("#"):
+                    schedules.append({"file": path.name, "schedule": " ".join(parts[:5])})
+        return {"ok": code == 200, "paid_ops": "none", "pricing": live_pricing(),
+                "balance_http": code, "payload_keys": sorted(payload) if isinstance(payload, dict) else [],
+                "products": products, "schedules": schedules,
+                "host_local_time": datetime.now().astimezone().isoformat()}
     cities = json.loads((REPO / "icp-collector/config/cities.json").read_text(encoding="utf-8"))
     zips = []
     for city in cities.get("cities") or []:
@@ -527,7 +635,27 @@ def op_quote_discovery(params: dict | None = None) -> dict:
 def op_run_discovery(params: dict | None = None) -> dict:
     load_secrets()
     ensure_store()
-    return run_recurring_discovery(PRIVATE, params or {}, public_index=PUBLIC_INDEX)
+    params = params or {}
+    if params.get("scheduled"):
+        current = datetime.now(timezone.utc)
+        if current.weekday() not in (0, 2, 4) or current.hour != 12 or current.minute >= 5:
+            return {"ok": True, "status": "outside_utc_slot", "paid_ops": "none"}
+        params = {**params, "run_id": "scheduled-" + current.strftime("%Y%m%dT120000Z")}
+    run_id = params.get("run_id")
+    receipt = None
+    if run_id and not params.get("dry_run"):
+        folder = PRIVATE / "run-results"
+        folder.mkdir(parents=True, exist_ok=True)
+        receipt = folder / (hashlib.sha256(str(run_id).encode()).hexdigest() + ".json")
+        if receipt.exists():
+            return {**json.loads(receipt.read_text()), "replayed_receipt": True}
+        # An interrupted attempt is a reconciliation task, never an automatic buy.
+        receipt.write_text(json.dumps({"ok": False, "status": "blocked", "run_id": run_id,
+            "stop_reason": "interrupted_run_requires_reconciliation"}) + "\n")
+    result = run_recurring_discovery(PRIVATE, params, public_index=PUBLIC_INDEX)
+    if receipt:
+        receipt.write_text(json.dumps(result, indent=2) + "\n")
+    return result
 
 
 def op_logs() -> dict:
@@ -579,6 +707,14 @@ def op_discover_channels(params: dict) -> dict:
 
 def op_prepare_outreach(params: dict) -> dict:
     ensure_store()
+    if params.get("contact_reviews") is not None:
+        from contact_review import hydrate_contacts
+        try:
+            review = hydrate_contacts(PRIVATE, params.get("discovery_run_id"), params["contact_reviews"])
+        except (OSError, ValueError, TypeError, KeyError):
+            return {"ok": False, "status": "blocked", "error": "first_party_contact_review_failed"}
+        if not review.get("ok"):
+            return review
     return prepare_outreach(PRIVATE, PUBLIC_INDEX, params, master_dir=REPO / "data/master")
 
 
@@ -621,15 +757,40 @@ def op_reply_smoke() -> dict:
         }
 
 
+def factory_campaign_id(params: dict) -> str | None:
+    """Allow a non-legacy campaign only when it is the pinned NY/LA factory draft."""
+    requested = str(params.get("campaign_id") or CID)
+    if requested == CID:
+        return CID
+    try:
+        manifest = json.loads((REPO / "docs/ops/caesthetic-new-medspa-discovery/campaign-20260914-nyla.json").read_text())
+    except (OSError, ValueError, TypeError):
+        return None
+    return requested if requested == manifest.get("instantly_campaign_id") else None
+
+
+
 def op_send_canary(params: dict, request_id: str | None = None) -> dict:
     ensure_store()
+    campaign_id = factory_campaign_id(params)
+    if not campaign_id:
+        return {"ok": False, "status": "blocked", "error": "campaign_not_factory_allowlisted",
+                "sent_count": 0, "import_accepted_count": 0}
+    if params.get("reconcile_only") is True:
+        from send_receipts import reconcile
+        return reconcile(PRIVATE, campaign_id, params, instantly)
+    # A named recipient allowlist is mandatory for the NY/LA draft. This prevents
+    # an unsafe first-in-queue import into the legacy canary campaign.
+    if campaign_id != CID and (not isinstance(params.get("lead_ids"), list) or not params.get("lead_ids")):
+        return {"ok": False, "status": "blocked", "error": "explicit_lead_ids_required",
+                "sent_count": 0, "import_accepted_count": 0}
     return send_from_queue(
         store=PRIVATE,
         repo=REPO,
         params=params,
         instantly_fn=instantly,
-        instantly_status=op_instantly_status(),
-        campaign_id=CID,
+        instantly_status=op_instantly_status(campaign_id),
+        campaign_id=campaign_id,
         mode="canary",
         request_id=request_id,
     )
@@ -637,13 +798,28 @@ def op_send_canary(params: dict, request_id: str | None = None) -> dict:
 
 def op_send_batch(params: dict, request_id: str | None = None) -> dict:
     ensure_store()
+    campaign_id = factory_campaign_id(params)
+    if not campaign_id:
+        return {"ok": False, "status": "blocked", "error": "campaign_not_factory_allowlisted",
+                "sent_count": 0, "import_accepted_count": 0}
+    if params.get("reconcile_only") is True:
+        from send_receipts import reconcile
+        return reconcile(PRIVATE, campaign_id, params, instantly, mode="batch")
+    if campaign_id != CID and (not isinstance(params.get("lead_ids"), list) or not params.get("lead_ids")):
+        return {"ok": False, "status": "blocked", "error": "explicit_lead_ids_required",
+                "sent_count": 0, "import_accepted_count": 0}
+    if params.get("campaign_daily_limit") is not None and not params.get("dry_run"):
+        from launch_capacity import configure
+        capacity = configure(PRIVATE, REPO, campaign_id, params, instantly)
+        if not capacity.get("ok"):
+            return capacity
     return send_from_queue(
         store=PRIVATE,
         repo=REPO,
         params=params,
         instantly_fn=instantly,
-        instantly_status=op_instantly_status(),
-        campaign_id=CID,
+        instantly_status=op_instantly_status(campaign_id),
+        campaign_id=campaign_id,
         mode="batch",
         request_id=request_id,
     )
@@ -676,6 +852,11 @@ def dispatch(operation: str, params: dict | None = None, request: dict | None = 
             result = op_send_batch(params, request_id)
         elif canonical == "reply_smoke":
             result = op_reply_smoke()
+        elif canonical == "instantly_control" and params.get("action") in {"poll_replies", "test_reply_chain"}:
+            from reply_runtime import poll_replies
+            result = poll_replies(REPO, PRIVATE, instantly,
+                                  test=params["action"] == "test_reply_chain",
+                                  dry_run=params.get("dry_run", True) is not False)
         elif canonical == "instantly_control" and params.get("action") == "configure_factory_draft":
             from draft_control import configure_draft
             result = configure_draft(REPO, instantly)
@@ -685,7 +866,7 @@ def dispatch(operation: str, params: dict | None = None, request: dict | None = 
         elif canonical == "ingest_inbox":
             result = op_ingest_inbox(params)
         elif canonical == "run_discovery":
-            result = op_run_discovery(params)
+            result = op_run_discovery({**params, **({"run_id": request_id} if request_id else {})})
         elif canonical == "quote_discovery":
             result = op_quote_discovery(params)
         else:
@@ -769,7 +950,7 @@ def main() -> int:
         out = Path(args.output or (REPO / "docs/agent-api/results" / f"{req.get('request_id') or 'medspa'}.json"))
         print(json.dumps(handle_bridge(req, out), indent=2))
         return 0
-    print(json.dumps(dispatch(args.operation), indent=2))
+    print(json.dumps(dispatch(args.operation, {"scheduled": True} if args.operation == "run_discovery" else {}), indent=2))
     return 0
 
 

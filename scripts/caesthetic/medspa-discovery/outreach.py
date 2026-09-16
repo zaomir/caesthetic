@@ -48,6 +48,7 @@ SEND_ATTEMPTS: list[dict] = []
 FIXTURE_PLACE_IDS = frozenset({"chijtest"})
 FIXTURE_NAMES = frozenset({"recovery spa"})
 FIXTURE_SOURCE_FILES = frozenset({"recovery-dummy.csv"})
+OWNERSHIP_REVIEW_HOLDS = frozenset({"berk beauty", "syr men's med spa studio"})
 
 
 def now() -> str:
@@ -249,6 +250,12 @@ def load_records(store: Path, public_index: Path) -> list[dict]:
             current["stage"] = row.get("stage")
             current["blocker"] = row.get("blocker")
             records[key] = current
+    reviewed_path = store / "reviewed-contacts.json"
+    if reviewed_path.exists():
+        reviewed = json.loads(reviewed_path.read_text())
+        for pid, contact in reviewed.items():
+            if pid in records and contact.get("place_id") == pid and contact.get("ownership") == "first_party_page_and_reviewed_contact_hash":
+                records[pid].update({key: contact[key] for key in ("email", "email_present", "website", "city", "phone") if contact.get(key)})
     return list(records.values())
 
 
@@ -267,6 +274,12 @@ def is_test_fixture(row: dict | None) -> bool:
     if name in FIXTURE_NAMES and (not place or place.startswith("chijtest") or Path(source_file).name in FIXTURE_SOURCE_FILES):
         return True
     return False
+
+
+def ownership_review_hold(row: dict) -> bool:
+    # Explicit unresolved launch holds in the discovery SSOT; not a DNC reset.
+    name = str(row.get("name") or (row.get("business") or {}).get("name") or "")
+    return " ".join(name.casefold().split()) in OWNERSHIP_REVIEW_HOLDS
 
 
 def record_status(row: dict, flags: dict[str, bool]) -> str:
@@ -369,6 +382,10 @@ def prepare_outreach(store: Path, public_index: Path, params: dict, *, master_di
     profile = str(params.get("message_profile") or "growth_score_v6")
     limit = int(params.get("limit") or 0)
     dry_run = bool(params.get("dry_run"))
+    requested_ids = params.get("lead_ids")
+    if requested_ids is not None and (not isinstance(requested_ids, list) or not all(isinstance(value, str) and value.strip() for value in requested_ids)):
+        return {"ok": False, "status": "blocked", "error": "invalid_lead_ids", "sent_count": 0}
+    selected_ids = set(requested_ids) if requested_ids is not None else None
     enrichment_path = store / "enrichment" / f"{batch_id}.json"
     if not enrichment_path.exists():
         discover_channels(store, public_index, {"batch_id": batch_id, "limit": limit or 0, "markets": params.get("markets")})
@@ -386,6 +403,12 @@ def prepare_outreach(store: Path, public_index: Path, params: dict, *, master_di
     skipped = 0
     company_block_counts = {}
     for row in records:
+        if selected_ids is not None and row.get("lead_id") not in selected_ids:
+            continue
+        if ownership_review_hold(row):
+            company_block_counts["ownership_review_unresolved"] = company_block_counts.get("ownership_review_unresolved", 0) + 1
+            skipped += 1
+            continue
         if limit and len(items) >= limit:
             break
         summary = enriched.get(row.get("lead_id"), {})
@@ -568,6 +591,10 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
         return {"ok": False, "status": "error", "error": "missing_or_unknown_queue_id", "queue_id": queue_id or None}
     channels = normalize_channels(params.get("channels") or queue.get("channels"))
     dry_run = bool(params.get("dry_run"))
+    requested_ids = params.get("lead_ids")
+    if requested_ids is not None and (not isinstance(requested_ids, list) or not all(isinstance(value, str) and value.strip() for value in requested_ids)):
+        return {"ok": False, "status": "blocked", "error": "invalid_lead_ids", "sent_count": 0}
+    selected_ids = set(requested_ids) if requested_ids is not None else None
     try:
         limit = int(params.get("limit") if params.get("limit") is not None else (CANARY_DEFAULT_LIMIT if mode == "canary" else 25))
     except (TypeError, ValueError):
@@ -629,8 +656,14 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
     actions = []
     candidates = []
     for item in queue.get("items") or []:
+        if selected_ids is not None and item.get("lead_id") not in selected_ids:
+            continue
         for channel in item.get("channels") or []:
             if channel not in channels:
+                continue
+            if ownership_review_hold(item):
+                skipped += 1
+                actions.append({"lead_id": item.get("lead_id"), "channel": channel, "result": "ownership_review_unresolved"})
                 continue
             if is_test_fixture(item):
                 skipped += 1
@@ -724,3 +757,4 @@ def send_from_queue(*, store: Path, repo: Path, params: dict, instantly_fn, inst
         "canary_evidence": evidence if mode == "batch" else None,
         "send_attempted": bool(SEND_ATTEMPTS) and not dry_run,
     }
+

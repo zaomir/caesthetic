@@ -13,6 +13,7 @@ funnel_standard: docs/ssot/CAESTHETIC_FUNNEL_ROUTING_STANDARD.md
 |---|---|---|---|---|---|
 | `/` | Positioning and entry | Understand the offer | Four-Surface model | Free Growth Score; $500 Check; Sprint with price scoped to the work required | index |
 | `/connect4/` | Explain Connect4, owner imagery and the optional engagement path | Understand implementation, handoff and annual continuation | Three approved responsive image pairs plus one alternate; not client results | Free Growth Score request (Name + Email); optional stages explained, no forced bundle | index |
+| `/connect4/what-we-build/` | Practical build: one demand-language set across Website, Social, Maps and local platforms | Understand how Connect4 is implemented surface by surface | Editorial SVG diagrams + approved system overview; not client results | Free Growth Score; links to review system and location alignment | index |
 | `/growth-score/` | Explain public-evidence diagnosis, show examples and accept the free request | Evaluate method / start diagnosis | Three labeled demos + dedicated four-field intake | Start free Growth Score | index |
 | `/lead-to-revenue-check/` | Explain the always-available smaller paid internal-path diagnostic | Start smaller before implementation or inspect post-enquiry uncertainty | Authorized evidence boundary, eight-stage path and fixed commercial terms | Start $500 Check | index |
 | `/audit/` · `/audits/` · `/multi-location-growth-score/` | Synonym compatibility aliases | Reach the canonical audit product | Canonical handoff | Continue to `/growth-score/` | noindex |
@@ -133,6 +134,6 @@ Isolated client host `amy.caesthetic.com`, same canonical deployment. Files unde
 
 ## Connect4 implementation and related reading — 2026-09-11
 
-English-only services: `/connect4/location-alignment/` and `/connect4/review-system/`. Their former `/ru/` routes redirect to the English equivalent. No new primary-navigation items.
+English-only services: `/connect4/what-we-build/`, `/connect4/location-alignment/` and `/connect4/review-system/`. Former `/ru/` routes for the latter two redirect to the English equivalent. No new primary-navigation items.
 
 Blog: `/blog/`, `/blog/consistent-business-information/` and `/blog/customer-reviews-and-feedback/` are indexable English editorial pages. Connect4 and each service link to the relevant article; articles link to their service and each other. Growth Score links to alignment after diagnosis, Sprint links to both as scoped examples, and the case catalog links in its general method explanation. Individual case attribution requires evidence of the actual work; no service claim has been added to an unverified case. ENT reports retain noindex and remain outside the sitemap.

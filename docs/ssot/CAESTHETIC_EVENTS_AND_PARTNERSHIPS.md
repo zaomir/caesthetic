@@ -3,7 +3,7 @@ owner: CAESTHETIC
 status: active
 version: 1.0.0
 created: 2026-09-13
-updated: 2026-09-13
+updated: 2026-09-15
 scope: CAESTHETIC event-led partnership direction, partner discovery, event matching, monetization and operating boundaries
 parent: docs/ssot/CAESTHETIC.md
 related:
@@ -427,7 +427,7 @@ If the two conflict:
 ```text
 Build 50–100 premium audience-holder accounts
 → identify Marketing / Partnerships / BD / PR / Events / GM owner
-→ routing email from a@caesthetic.com
+→ routing email through the approved warmed ROVLEX pool (new Bishkek first touches only)
 → wait for referral / interest
 → personalized second message
 → record interested partner asset map in Twenty
@@ -441,4 +441,4 @@ Build 50–100 premium audience-holder accounts
 → decide repeat / stop
 ```
 
-Direct Gmail is preferred for the first high-value wave. Instantly can be used later for broader, lower-priority scale after the message and account selection model are validated. LinkedIn is used for role discovery and selective follow-up, not uncontrolled mass messaging.
+Owner instruction 2026-09-15 approves a separate Instantly lane using all warmed ROVLEX mailboxes for new Bishkek premium-partner outreach. `ROVLEX_EVENTS_COMMUNICATION_STANDARD.md` owns sender eligibility, shared suppression, unchanged daily limits and the >=2% new-lane bounce gate. Existing `a@caesthetic.com` Gmail threads stay in place; `v@caesthetic.com` remains a concrete-readiness handoff only. LinkedIn is used for role discovery and selective follow-up, not uncontrolled mass messaging.

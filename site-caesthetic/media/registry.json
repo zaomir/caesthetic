@@ -947,7 +947,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -979,7 +980,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -1011,7 +1013,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -1043,7 +1046,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -1075,7 +1079,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -1107,7 +1112,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -1139,7 +1145,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -1171,7 +1178,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },
@@ -1203,7 +1211,8 @@
         "protected-preview"
       ],
       "allowed_routes": [
-        "/connect4/"
+        "/connect4/",
+        "/connect4/what-we-build/"
       ],
       "transformations": "none; original bytes locked"
     },

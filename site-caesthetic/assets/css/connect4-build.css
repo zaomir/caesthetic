@@ -1,0 +1,178 @@
+/* Connect4 — what we build across four surfaces (diagram layer on services shell) */
+@import url("./connect4-services.css");
+
+.c4-build .cs-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--cae-bg-2);
+}
+
+.c4-build .cs-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--cae-accent);
+}
+
+.c4-build .cs-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 40px;
+  align-items: end;
+}
+
+.c4-build .cs-plane-toc {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 32px 0 0;
+  list-style: none;
+  padding: 0;
+}
+
+.c4-build .cs-plane-toc a {
+  display: block;
+  padding: 16px 12px;
+  border-top: 2px solid var(--cae-border-accent);
+  text-decoration: none;
+  color: var(--cae-text);
+  background: var(--cae-bg);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.c4-build .cs-plane-toc a:hover {
+  transform: translateY(-2px);
+  border-color: var(--cae-signal);
+}
+
+.c4-build .cs-plane-toc span {
+  display: block;
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-sm);
+  color: var(--cae-signal);
+  margin-bottom: 8px;
+}
+
+.c4-build .cs-diagram {
+  margin: 28px 0 8px;
+  padding: 20px;
+  border: 1px solid var(--cae-border);
+  background: var(--cae-bg);
+}
+
+.c4-build .cs-diagram figcaption {
+  margin-top: 16px;
+  color: var(--cae-muted);
+  font-size: var(--cae-text-base);
+  max-width: 72ch;
+}
+
+.c4-build .cs-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.c4-build .cs-diagram--soft {
+  background: var(--cae-bg-2);
+}
+
+.c4-build .cs-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.c4-build .cs-phrase {
+  display: inline-block;
+  font-family: var(--cae-font-mono);
+  font-size: var(--cae-text-sm);
+  letter-spacing: 0.02em;
+  color: var(--cae-accent);
+  border-bottom: 1px dashed color-mix(in srgb, var(--cae-accent) 45%, transparent);
+  padding-bottom: 4px;
+}
+
+.c4-build .cs-callout {
+  margin-top: 28px;
+  padding: 20px 24px;
+  border-left: 4px solid var(--cae-signal);
+  background: var(--cae-bg);
+}
+
+.c4-build .cs-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.c4-build .cs-flow {
+  display: grid;
+  gap: 0;
+  margin: 24px 0 0;
+}
+
+.c4-build .cs-flow__step {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--cae-border);
+}
+
+.c4-build .cs-flow__step:last-child {
+  border-bottom: 0;
+}
+
+.c4-build .cs-flow__num {
+  font-family: var(--cae-font-mono);
+  color: var(--cae-signal);
+  font-size: var(--cae-text-sm);
+  padding-top: 4px;
+}
+
+.c4-build .draw-line {
+  stroke-dasharray: 6 5;
+  animation: c4-dash 18s linear infinite;
+}
+
+.c4-build .draw-fade {
+  animation: c4-fade 1.1s ease both;
+}
+
+.c4-build .draw-rise {
+  animation: c4-rise 0.9s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c4-build .draw-line,
+  .c4-build .draw-fade,
+  .c4-build .draw-rise,
+  .c4-build .cs-plane-toc a {
+    animation: none;
+    transition: none;
+  }
+}
+
+@keyframes c4-dash {
+  to { stroke-dashoffset: -120; }
+}
+
+@keyframes c4-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes c4-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .c4-build .cs-hero-grid,
+  .c4-build .cs-split,
+  .c4-build .cs-plane-toc {
+    grid-template-columns: 1fr;
+  }
+}

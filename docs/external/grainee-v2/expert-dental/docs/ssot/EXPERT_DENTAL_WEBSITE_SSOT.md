@@ -1113,3 +1113,12 @@ Evidence: `docs/audits/raimov/expert-cutover-2026-09-09/routes-and-intake-follow
 Грибанова: «25 лет» из сообщения владельца и «Практикует с 2004 года» из действующего профиля — разные утверждения. Текущее значение сохранено до уточнения основания общего стажа; автоматического пересчёта нет.
 
 Фото — отдельный незакрытый пункт: новые подготовленные портреты должны иметь достоверную привязку к врачу. До восстановления файлов прежнее фото Айдай сохраняется, новые карточки используют существующие инициалы без имитации фотографии. Это частичный выпуск данных, не завершение задачи портретов. Домен expertdental.kg не переключается.
+
+## 2026-09-15 — doctor navigation and authored education
+
+- Every doctor detail page, including the chief, exposes a quiet `Все врачи клиники` link to `/doctors/` after its content and before final booking. It retains a 44px hit target and visible keyboard focus.
+- `content/doctor-articles.mjs` adds two patient-education articles per current doctor, assigned only within the doctor's existing service scope. New topics must answer distinct patient questions, cite authoritative sources and avoid invented experience or quotations.
+- The author box links to `/doctors/<author>/`; article booking says `Записаться к врачу`. Both the page-wide contact context and final CTA include the full author name and article title.
+- `author` is editorial assignment, not evidence of completed medical review. `reviewedAt`, `reviewEvidence`, `reviewedBy` and medical-check claims remain exact-content evidence-gated. The 2026-09-09 approval is not extended to new articles.
+- Supporting editorial images use the existing semantic manifest, accurate topic matching and 640/1000/master JPEG sizes. They do not represent patients or outcomes.
+- Release evidence: `docs/audits/raimov/doctor-articles-2026-09-15/README.md` and content manifest. Scope remains the clinic runtime; indexable domain cutover is unchanged.

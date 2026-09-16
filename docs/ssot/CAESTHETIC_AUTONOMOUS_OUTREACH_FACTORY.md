@@ -1,6 +1,35 @@
 # CAESTHETIC autonomous discovery outreach factory
 
-Status: approved policy; runtime integration incomplete.
+## First recurring UTC slot accepted — 2026-09-16
+
+This section supersedes the pending recurring-slot statements below. It accepts the scheduled collector execution, not unreviewed downstream outreach.
+
+- VPS2402 completed the durable run `scheduled-20260916T120000Z` from the Wednesday 12:00 UTC slot. The observed collection windows run from 12:00:01Z through 12:05:37Z; next slot is 2026-09-18 12:00 UTC.
+- All 139 configured market/niche tiles completed with 139 distinct synchronous request IDs and 139 distinct raw SHA-256 hashes; 0 raw hashes or request IDs are missing and 0 markets were skipped.
+- 48 provider rows were ingested: 34 new unique companies, 14 updates/duplicates, 0 test fixtures. Catalog Added Date remains discovery evidence, not a confirmed opening date.
+- Conservative cost upper bound is $0.72; ISO-week reserved/spent upper bound is $1.08 with $7.92 remaining. `actual_usd`/provider invoice remains unknown. The $208.50 sum of per-tile catalog quotes is not expenditure.
+- An idempotent replay at 12:20:25Z returned the same durable receipt with `replayed_receipt=true`; it performed no second purchase. The manual expanded run `cae-medspa-expanded-20260915T212200Z` was not repeated.
+- Reply polling recovered in PR #1685. Live poll and the 12:30 heartbeat are `ok:true`: 0 mapped replies, 0 new events/actions, 1 provider message quarantined as `reply_sender_identity_unresolved`, and 0 runtime errors. The quarantined message did not trigger handoff, DNC, classification or follow-up stop.
+- This scheduled collector does not import recipients into Instantly or send outreach. Therefore no slot-originated outbound send is claimed. The earlier six-send receipt remains the only accepted new-cohort outbound evidence until the 34 new records pass ownership/opening review and recipient-specific Instantly outbound receipts exist.
+- Berk Beauty and SYR remain held; FiDi and fixtures were not reimported; no automatic Growth Score was issued.
+- Evidence: [scheduled receipt](../agent-api/results/scheduled-20260916T120000Z.json), [live reply recovery](../agent-api/results/cae-medspa-reply-poll-recovery-20260916T122900Z.json), [latest runtime](../ops/caesthetic-new-medspa-discovery/control/autonomous-runtime-latest.json), [launch receipt](../ops/caesthetic-new-medspa-discovery/control/launch-receipts-20260915.json).
+
+## Expanded manual launch — 2026-09-15 22:20 UTC
+
+This observation supersedes the earlier empty-cohort status below. The manual end-to-end run is complete; actual recurring-slot acceptance remains pending.
+
+- Run `cae-medspa-expanded-20260915T212200Z`: 18 markets / 166 selected ZIPs, including NYC and LA; 24 new records, 0 duplicates. Selected ZIPs are not full metro coverage.
+- Canonical writer added 20 source-category Medical Spa companies; 4 adjacent categories excluded. Companies 228,499; contacts unchanged at 130,732; private outreach queues contain the six reviewed emails. Drive mirror succeeded.
+- All 24 records reviewed: 6 business-owned contacts prepared, imported and actually sent; 14 held; 4 category exclusions. MATERA opened September 9. Soulshine James Island is announced for late September, not already open. Catalog dates are not opening dates.
+- New canary MATERA was reconciled before the remaining five imports. All six new recipient-specific provider IDs/timestamps/rendered-body hashes are verified. FiDi/test sends excluded; 0 new bounces/replies/unsubscribes at the post-send check.
+- Cost upper bound $0.36, actual invoice unknown; remaining same-run budget $2.64 and ISO-week budget $8.64. Sum of sequential quotes $27 is not expenditure.
+- Account cap remains 15/day; this campaign limit/max-new-leads 6, minimum gap 5 minutes, weekdays 10:00–20:00 America/Detroit. Reply/company/auto-reply stops, unsubscribe and bounce protection remain enabled.
+- Native UTC cron repair and independent readback passed. Existing collector runs only Mon/Wed/Fri 12:00 UTC under its UTC guard, durable slot identity and shared operation lock. Two clean runtime heartbeats at 22:15/22:20; current retry code verified at `36daec154e194d758c0fa500e3273af03614af03`.
+- EmailVerifier remains `not_performed_by_policy`; Berk Beauty/SYR stay held. No duplicate purchases/imports, manual Gmail substitute or automatic Score issuance.
+- [Full run report](../research/caesthetic-new-medspa-discovery/2026-09-15/expanded-launch-report.md), [immutable six-send evidence](../research/caesthetic-new-medspa-discovery/2026-09-15/manual-run-receipts.json), [runtime proof](../research/caesthetic-new-medspa-discovery/2026-09-15/runtime-checks.json), [launch receipt](../ops/caesthetic-new-medspa-discovery/control/launch-receipts-20260915.json).
+- Remaining acceptance: observe the actual 2026-09-16 12:00 UTC collector slot. Follow-up scheduled 12:10 UTC. Internal full-body Gmail/replay gate remains passed; no new customer handoff is claimed.
+
+Status: approved policy; recurring discovery runtime accepted; downstream review/outreach for the 2026-09-16 cohort remains pending.
 Authority: founder instructions in the CAESTHETIC discovery conversation, confirmed 2026-09-12; issue #1580.
 
 ## Standing authorization
@@ -13,7 +42,7 @@ Applies only to CAESTHETIC discovery-sourced outreach; supersedes historical six
 - Interested replies and their private lead/context handoff go to wsc8eq@gmail.com. Any reply stops automatic follow-ups for the company across connected channels. Unclear replies require review, not an invented interested classification. Refusals/opt-outs persist across CAESTHETIC, BOTOTOX, TOXIFILLERS and ROVLEX.
 - Factory ends at interested-reply handoff. Do not automatically issue a Score, promise delivery, sell a Sprint or send substantive commercial replies.
 - Sender: Valerie Petra, caesthetic.co. Offer to receive a Free Growth Score, not a completed Preview/Score. Required truthful identity, commercial disclosure, postal address and opt-out footer; one reminder then soft close.
-- Paid discovery: Mon/Wed/Fri 12:00 UTC; $3/run including expansion/retries/paid enrichment, $9/ISO-week, no rollover. First paid run remains 2026-09-14T12:00:00Z. Do not buy manually before that slot.
+- Paid discovery: Mon/Wed/Fri 12:00 UTC; $3/run including expansion/retries/paid enrichment, $9/ISO-week, no rollover. Bounded live run `cae-medspa-bounded-launch-20260915T202518Z` completed with 0 new records; actual invoice unknown. Next scheduled slot 2026-09-16T12:00:00Z. Do not repurchase the bounded request or buy off-slot.
 - No cold Instagram/Facebook DMs. Social automation must use supported integrations and shared reply/suppression state.
 
 ## Acceptance
@@ -105,3 +134,18 @@ The rendered sent message had no raw variables and had the required commercial d
 - Issue record: [#1580](https://github.com/zaomir/grainee-v2/issues/1580).
 - Agent results: `docs/agent-api/results/cae-medspa-fidi-live-queue-20260914T190400Z.json`, `cae-medspa-fidi-draft-import-20260914T191700Z.json`, `cae-medspa-fidi-activate-retry-20260914T192700Z.json`, `cae-medspa-reply-smoke-20260914T200100Z.json`.
 - Campaign manifest: `docs/ops/caesthetic-new-medspa-discovery/campaign-20260914-nyla.json` is historical creation metadata; this SSOT section holds the authoritative post-execution state.
+
+
+## Launch execution — 2026-09-15
+
+Founder authorized the controlled test and confirmed curator wsc8eq@gmail.com. [Observed receipts](../ops/caesthetic-new-medspa-discovery/control/launch-receipts-20260915.json) distinguish external provider evidence from queued GitHub placeholders.
+
+A real internal email reached Gmail, a real interested reply entered Instantly, the exact test lead was moved to a non-sending list (provider job success and list readback), and the curator notification arrived. The first notification omitted the original plaintext body. A second real reply with marker `MEDSPA-HANDOFF-BODY-20260915` produced Gmail `1a0a6b7317733ba7` containing the full original text; replay added 0 events/actions. Test campaign is paused. Real recipient cohorts were not expanded.
+
+Merged #1648–#1665 cover reply ingestion/outbox, body-preserving handoff, post-move thread attribution, native opt-outs/shared DNC, bounded catalog pages, crash/replay purchase guards, isolated receipt publication, UTC-slot ticks, Gmail-gate reply polling, hash-verified completed-run ingest, campaign/recipient guards, and dirty-worktree reconcile before fast-forward. Twenty-five focused tests pass. Static/code completion is not full launch acceptance.
+
+Runtime sync recovered on VPS2402 at 20:36–20:45 UTC via the #1664 poller from `/var/lib/caesthetic-medspa/launch-sync-fix-20260915`. Two consecutive cron heartbeats (`62c08e4a6`, `412531189`) have `sync_error` null, `ok` true and live `provider-reply-runtime-v2` with 0 new events. Bounded catalog run `cae-medspa-bounded-launch-20260915T202518Z` completed with 0 new records; actual invoice remains unknown. Do not repurchase that request.
+
+**Remaining before launch acceptance:** observed Mon/Wed/Fri 12:00 UTC collector fire (next slot 2026-09-16T12:00:00Z); a nonempty fresh cohort through opening-evidence and recipient-ownership review, canonical ingest, scoped canary and recipient-specific send receipts. Berk Beauty / SYR stay excluded. Catalog-added dates are not confirmed openings.
+
+[Recovery and remaining task](../ops/caesthetic-new-medspa-discovery/LAUNCH_RECOVERY_20260915.md). No new general GO or chat-pasted credentials are required. Business curator handles genuine interested/unclear replies; internal tests need no commercial follow-up.

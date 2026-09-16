@@ -15,6 +15,7 @@ import sys
 import unicodedata
 from pathlib import Path
 from company_resolution import CompanyResolver, text
+from niches import source_category_allowed
 
 
 def digest(path):
@@ -37,25 +38,60 @@ def package_rows(rows, public_rows):
         reason = blockers.get(name_key(name))
         if not reason and (not pid or not name or not row.get("city") or row.get("country_code") != "US"):
             reason = "missing_source_identity"
-        if not reason and text(row.get("category")) != "medical spa":
-            reason = "source_category_not_medspa"
+        if not reason and not source_category_allowed(row.get("category")):
+            reason = "source_category_out_of_scope"
         if reason:
             skipped[reason] = skipped.get(reason, 0) + 1
             continue
         item = {"company_name": name, "city": row["city"], "country": "US",
-                "phone": row.get("phone", ""), "category": "Medical Spa",
+                "phone": row.get("phone", ""), "category": str(row["category"]).strip(),
                 "website": row.get("website", ""),
-                "map_url": "https://www.google.com/maps/search/?api=1&query=Medical+Spa&query_place_id=" + pid,
+                "map_url": "https://www.google.com/maps/search/?api=1&query=Business&query_place_id=" + pid,
                 "tags": "CAESTHETIC discovery,not_send_ready",
                 "do_not_contact": "false",
                 "notes": "Outscraper source identity; recipient ownership and narrative clearance pending"}
-        if pid in selected and selected[pid] != item:
-            raise ValueError("source_identity_conflict")
+        if pid in selected:
+            # The same business can occur in several category queries. Keep
+            # its original source category; reject identity conflicts only.
+            if any(selected[pid][key] != item[key] for key in item if key != "category"):
+                raise ValueError("source_identity_conflict")
+            continue
         selected[pid] = item
     return list(selected.values()), skipped
 
 
-def canonical_ingest(repo, store, public_index, source_hashes, *, apply=False):
+def discovery_source_rows(store, run_id):
+    """Read only completed worker runs and verify every private raw file hash."""
+    import re
+    if not isinstance(run_id, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,180}", run_id):
+        raise ValueError("invalid_discovery_run_id")
+    receipt_path = store / "run-results" / (hashlib.sha256(run_id.encode()).hexdigest() + ".json")
+    receipt = json.loads(receipt_path.read_text())
+    if receipt.get("run_id") != run_id or receipt.get("status") != "success" or receipt.get("dry_run"):
+        raise ValueError("discovery_run_not_completed")
+    rows = []
+    for market in receipt.get("markets_attempted") or []:
+        market_id = market.get("id")
+        if not isinstance(market_id, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]*", market_id):
+            raise ValueError("invalid_discovery_market_id")
+        path = store / "raw" / run_id / (market_id + ".json")
+        if not market.get("raw_sha256") or digest(path) != market["raw_sha256"]:
+            raise ValueError("discovery_raw_hash_mismatch")
+        raw = json.loads(path.read_text())
+        if not isinstance(raw.get("rows"), list):
+            raise ValueError("discovery_raw_schema_invalid")
+        for source in raw["rows"]:
+            row = dict(source)
+            row["category"] = source.get("category") or source.get("type") or ""
+            row["website"] = source.get("website") or source.get("site") or ""
+            # Country is fixed by the authenticated collector's US-only query.
+            # A contradictory explicit provider country is never overwritten.
+            row["country_code"] = source.get("country_code") or "US"
+            rows.append(row)
+    return rows
+
+
+def canonical_ingest(repo, store, public_index, source_hashes, *, apply=False, discovery_run_id=None):
     master_dir = repo / "data/master"
     resolver = CompanyResolver(master_dir)
     if resolver.error:
@@ -63,7 +99,12 @@ def canonical_ingest(repo, store, public_index, source_hashes, *, apply=False):
     paths = [master_dir / name for name in ("master_companies.csv", "master_contacts.csv")]
     before = {p.name: digest(p) for p in paths}
     raw_rows = []
-    for name, expected in sorted(source_hashes.items()):
+    if discovery_run_id is not None:
+        try:
+            raw_rows = discovery_source_rows(store, discovery_run_id)
+        except (OSError, ValueError, TypeError, KeyError):
+            return {"ok": False, "status": "blocked", "error": "discovery_source_unverified"}
+    for name, expected in sorted(({} if discovery_run_id is not None else source_hashes).items()):
         source = next((store / folder / name for folder in ("ingested", "inbox") if (store / folder / name).is_file()), None)
         if source is None or digest(source) != expected:
             return {"ok": False, "status": "blocked", "error": "paid_source_missing_or_hash_mismatch"}

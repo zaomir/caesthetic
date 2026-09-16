@@ -1,5 +1,49 @@
 # CAESTHETIC New Med Spa Discovery SSOT
 
+## First recurring UTC slot accepted — 2026-09-16
+
+This section supersedes the pending recurring-slot statements below. It accepts the scheduled collector execution, not unreviewed downstream outreach.
+
+- VPS2402 completed the durable run `scheduled-20260916T120000Z` from the Wednesday 12:00 UTC slot. The observed collection windows run from 12:00:01Z through 12:05:37Z; next slot is 2026-09-18 12:00 UTC.
+- All 139 configured market/niche tiles completed with 139 distinct synchronous request IDs and 139 distinct raw SHA-256 hashes; 0 raw hashes or request IDs are missing and 0 markets were skipped.
+- 48 provider rows were ingested: 34 new unique companies, 14 updates/duplicates, 0 test fixtures. Catalog Added Date remains discovery evidence, not a confirmed opening date.
+- Conservative cost upper bound is $0.72; ISO-week reserved/spent upper bound is $1.08 with $7.92 remaining. `actual_usd`/provider invoice remains unknown. The $208.50 sum of per-tile catalog quotes is not expenditure.
+- An idempotent replay at 12:20:25Z returned the same durable receipt with `replayed_receipt=true`; it performed no second purchase. The manual expanded run `cae-medspa-expanded-20260915T212200Z` was not repeated.
+- Reply polling recovered in PR #1685. Live poll and the 12:30 heartbeat are `ok:true`: 0 mapped replies, 0 new events/actions, 1 provider message quarantined as `reply_sender_identity_unresolved`, and 0 runtime errors. The quarantined message did not trigger handoff, DNC, classification or follow-up stop.
+- This scheduled collector does not import recipients into Instantly or send outreach. Therefore no slot-originated outbound send is claimed. The earlier six-send receipt remains the only accepted new-cohort outbound evidence until the 34 new records pass ownership/opening review and recipient-specific Instantly outbound receipts exist.
+- Berk Beauty and SYR remain held; FiDi and fixtures were not reimported; no automatic Growth Score was issued.
+- Evidence: [scheduled receipt](../agent-api/results/scheduled-20260916T120000Z.json), [live reply recovery](../agent-api/results/cae-medspa-reply-poll-recovery-20260916T122900Z.json), [latest runtime](../ops/caesthetic-new-medspa-discovery/control/autonomous-runtime-latest.json), [launch receipt](../ops/caesthetic-new-medspa-discovery/control/launch-receipts-20260915.json).
+
+## Geography and beauty niches — founder expansion 2026-09-15
+
+Authority: user in this conversation: “расширь гео и ниши”; preceding city/niche proposal accepted for implementation. This section supersedes the Medical Spa-only query/import restrictions below; it does not reclassify historical receipts or automatically clear prior holds.
+
+- Active config: [discovery-geography.json](../ops/caesthetic-new-medspa-discovery/discovery-geography.json). 31 geographical clusters, 9 source-category cohorts, 139 market/niche tiles. All are selected ZIPs, never full-metro coverage.
+- Queue D adds Orlando, Jacksonville/Ponte Vedra/St. Johns, San Antonio/Boerne, Charlotte outer suburbs, Franklin/Brentwood, McKinney/Prosper/Celina, Chandler/Gilbert/Paradise Valley, Seattle Eastside, North New Jersey, Sarasota/Lakewood Ranch. Original pilot ZIPs and existing market IDs are preserved.
+- Medical Spa, Skin Care Clinic, Laser Hair Removal Service and Tattoo Removal Service are eligible across all 31 clusters.
+- Hair Salon, Permanent Make-up Clinic, Cosmetic Dentist, Plastic Surgeon and Dermatologist begin as distinct cohorts in Dallas North, Tampa and Orlando. Hair/PMU require service specialization and a team; dermatology requires evidenced aesthetic services. Category membership is not qualification.
+- Each market/niche has its own cursor, raw file, request identity and receipt. Original medspa cursor IDs stay intact; new niches begin with the existing 14-day Added Date window and 3-day overlap. Rotation is oldest successful tile first across queues, with queue/niche priorities breaking ties.
+- Quote and reserve under the same $3/run and $9/ISO-week caps before each purchase. Expansion does not authorize a second collector, higher budget, larger sender capacity or a replay of completed requests.
+- Import preserves the actual source category. Cross-category place-ID duplicates are one company; identity conflicts and known holds remain blocked. Adjacent contacts require recorded niche-fit review plus existing first-party ownership evidence. No salon is called a medical clinic by virtue of import.
+- Discovery remains Added Date-based catalog collection. Public-event research and historical comparison are a separate evidence step described in [public-signals.md](../ops/caesthetic-new-medspa-discovery/public-signals.md). No autonomous event crawler is claimed by this change.
+- Generic Free Growth Score invitations remain possible with unknown opening date. Event-based wording requires exact evidence; no fabricated loss, capacity, revenue or opening claims.
+- Runtime acceptance PASSED 2026-09-15 22:50 UTC: VPS2402 reported beauty-expansion-v1, matching config/seven code hashes and 31/9/139 scope. Dry-run enumerated all 139 tiles with zero skips and no purchase; previous real-run receipt preserved. 25 focused tests pass. [Runtime evidence](../research/caesthetic-new-medspa-discovery/2026-09-15/beauty-expansion-runtime.json). Actual new-category provider counts require subsequent paid-run receipts.
+
+## Expanded manual launch — 2026-09-15 22:20 UTC
+
+This observation supersedes the earlier empty-cohort status below. The manual end-to-end run is complete; actual recurring-slot acceptance remains pending.
+
+- Run `cae-medspa-expanded-20260915T212200Z`: 18 markets / 166 selected ZIPs, including NYC and LA; 24 new records, 0 duplicates. Selected ZIPs are not full metro coverage.
+- Canonical writer added 20 source-category Medical Spa companies; 4 adjacent categories excluded. Companies 228,499; contacts unchanged at 130,732; private outreach queues contain the six reviewed emails. Drive mirror succeeded.
+- All 24 records reviewed: 6 business-owned contacts prepared, imported and actually sent; 14 held; 4 category exclusions. MATERA opened September 9. Soulshine James Island is announced for late September, not already open. Catalog dates are not opening dates.
+- New canary MATERA was reconciled before the remaining five imports. All six new recipient-specific provider IDs/timestamps/rendered-body hashes are verified. FiDi/test sends excluded; 0 new bounces/replies/unsubscribes at the post-send check.
+- Cost upper bound $0.36, actual invoice unknown; remaining same-run budget $2.64 and ISO-week budget $8.64. Sum of sequential quotes $27 is not expenditure.
+- Account cap remains 15/day; this campaign limit/max-new-leads 6, minimum gap 5 minutes, weekdays 10:00–20:00 America/Detroit. Reply/company/auto-reply stops, unsubscribe and bounce protection remain enabled.
+- Native UTC cron repair and independent readback passed. Existing collector runs only Mon/Wed/Fri 12:00 UTC under its UTC guard, durable slot identity and shared operation lock. Two clean runtime heartbeats at 22:15/22:20; current retry code verified at `36daec154e194d758c0fa500e3273af03614af03`.
+- EmailVerifier remains `not_performed_by_policy`; Berk Beauty/SYR stay held. No duplicate purchases/imports, manual Gmail substitute or automatic Score issuance.
+- [Full run report](../research/caesthetic-new-medspa-discovery/2026-09-15/expanded-launch-report.md), [immutable six-send evidence](../research/caesthetic-new-medspa-discovery/2026-09-15/manual-run-receipts.json), [runtime proof](../research/caesthetic-new-medspa-discovery/2026-09-15/runtime-checks.json), [launch receipt](../ops/caesthetic-new-medspa-discovery/control/launch-receipts-20260915.json).
+- Remaining acceptance: observe the actual 2026-09-16 12:00 UTC collector slot. Follow-up scheduled 12:10 UTC. Internal full-body Gmail/replay gate remains passed; no new customer handoff is claimed.
+
 Status: active
 Owner: CAESTHETIC
 Source authority: docs/ssot/CAESTHETIC.md and icp-collector/config/cities.json
@@ -55,13 +99,13 @@ Outscraper Business Data Export is priced per exported record, not per confirmed
 
 Published catalog rate (2026-09): first 500 records free on the observed public tier, then about $3 / 1,000 records. The worker uses a conservative upper bound (at least the 2026-09-08 observed $0.01/row) unless the live `/profile/balance` invoice confirms a cheaper unit. Free remaining rows are assumed **0** unless the provider confirms unused free rows.
 
-## Live collection status (2026-09-11)
+## Live collection status (2026-09-15)
 
-- Worker + cron are installed on VPS2402: `/etc/cron.d/caesthetic-medspa-recurring` → `0 12 * * 1,3,5` UTC.
+- Worker + cron are installed on VPS2402: `/etc/cron.d/caesthetic-medspa-recurring` → `0 12 * * 1,3,5` UTC. Poller cron `/etc/cron.d/caesthetic-medspa-discovery` is `*/5` and follows `origin/main` with #1664 reconcile.
 - `OUTSCRAPER_API_KEY` is on the host (`/etc/evo/secrets.env`, `root:root 600`). `load_secrets()` sees it; `/profile` authorizes. No key in Git or chat.
-- No paid purchase yet by design: the first buy is the scheduled slot, not a manual extra spend. Starter `disc-20260911Tstarter` remains $0 and does **not** replace Monday.
-- Next scheduled fire / first paid attempt: **2026-09-14T12:00:00Z**.
-- First provider job ID: none. Actual spend: $0. New unique locations / dupes / enrichment: none until that run completes.
+- Authorized bounded live run `cae-medspa-bounded-launch-20260915T202518Z` (Scottsdale six ZIPs, 14-day window) completed at 20:30:21Z: 0 new / 0 duplicates, quote $1.50, cost upper bound $0, `actual_usd` unknown (reservation is not an invoice). Raw SHA `beb8e2febf3cde94669b4e605fff6aa0933a6ff2414e6f0fcf340df362c77e30`. Do not repeat that request.
+- Next scheduled collector fire: **2026-09-16T12:00:00Z**. Tuesday ticks correctly report `outside_utc_slot` / `paid_ops: none`. Actual Wednesday execution is not yet proven.
+- Starter `disc-20260911Tstarter` remains $0 and does not replace a scheduled slot. Already-paid NYC/LA city-filter CSVs are not repurchased.
 
 ## Storage
 Private raw CSV/JSON, provider job IDs, spend ledger, and contacts live under `/var/lib/caesthetic-medspa/` (not Git). Public run notes (no emails) may be summarized under `docs/research/caesthetic-new-medspa-discovery/YYYY-MM-DD/`.
@@ -132,3 +176,11 @@ Discovery output is a lead signal, not a diagnosis. Do not claim a binding const
 
 ## First export observations
 The first reviewed export file, `medical_spa_US_2026_Sep_07-10.csv`, contained 11 rows across TX, FL, NC, and SC. Website and phone were present for all rows; email was present for 7/11; Instagram for 8/11; Facebook for 6/11; LinkedIn for 3/11; booking links for 2/11. One entity appeared as a duplicate by Maps/business identity with conflicting email values, confirming that entity-level deduplication must run before any verification table or downstream handoff.
+
+## Immediate full-run observation (2026-09-15 21:10 UTC)
+
+Founder requested execution now. Run `cae-medspa-full-20260915T210300Z-collect` completed on VPS at 21:05:26Z: Nashville and Charlotte, six ZIPs each, Sep 1–15 Added Date window, 0 new / 0 duplicates. Quote $3 total, conservative result cost $0; actual per-run invoice unknown. Profile balance at 21:10:24Z remains $51.06; Business Data Export invoice remains 17 paid records at $0.015 (no observed increase).
+
+Hash-verified canonical source readback `cae-medspa-full-20260915T210300Z-ingest` passed at 21:10:40Z with 0 candidates and no master apply. Live reply poll passed, 0 new events/actions. Existing provider history remains 12 sends / 6 leads in legacy and 1 send / 1 lead in NYLA, with 0 replies/bounces/unsubscribes. Those are prior sends, not sends from this run.
+
+New canary/send/handoff count: 0 because the new cohort is empty. Full launch is not accepted. No Scottsdale request replay, fixture/FiDi re-import, or renewed test email. Berk Beauty/SYR remain excluded. Next scheduled slot unchanged: 2026-09-16 12:00 UTC. Detailed raw hashes and operation receipts: [launch receipts](../ops/caesthetic-new-medspa-discovery/control/launch-receipts-20260915.json).

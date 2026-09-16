@@ -1458,6 +1458,24 @@
       ]
     },
     {
+      "source": "site-caesthetic/connect4/what-we-build/index.html",
+      "route": "/connect4/what-we-build/",
+      "profile": "marketing",
+      "states": [
+        "default",
+        "faq-open"
+      ],
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "stylesheets": [
+        "/assets/css/tokens.css",
+        "/assets/css/connect4-build.css"
+      ]
+    },
+    {
       "source": "site-caesthetic/connect4/location-alignment/index.html",
       "route": "/connect4/location-alignment/",
       "profile": "marketing",
