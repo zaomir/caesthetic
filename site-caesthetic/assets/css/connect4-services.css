@@ -1,6 +1,8 @@
 /* Connect4 implementation pages: existing CAESTHETIC tokens and editorial roles. */
-.c4-service { font-family:var(--cae-font); font-size:var(--cae-text-lg); line-height:1.65; background:var(--cae-bg); color:var(--cae-text); }
+.c4-service { font-family:var(--cae-font); font-size:var(--cae-text-lg); line-height:1.65; background:var(--cae-bg); color:var(--cae-text); overflow-x:clip; }
 .c4-service * { box-sizing:border-box; }
+.c4-service :is(img,svg,video,picture) { max-width:100%; height:auto; }
+.c4-service .cs-copy,.c4-service figure { min-width:0; max-width:100%; }
 .c4-service a { color:var(--cae-accent); text-underline-offset:4px; }
 .c4-service a:focus-visible,.c4-service summary:focus-visible { outline:3px solid var(--cae-signal); outline-offset:4px; }
 .cs-wrap { width:min(1120px,calc(100% - 48px)); margin-inline:auto; }

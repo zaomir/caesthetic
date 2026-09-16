@@ -59,6 +59,9 @@
   padding: 20px;
   border: 1px solid var(--cae-border);
   background: var(--cae-bg);
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .c4-build .cs-diagram figcaption {
@@ -68,9 +71,12 @@
   max-width: 72ch;
 }
 
+.c4-build .cs-diagram picture,
+.c4-build .cs-diagram img,
 .c4-build .cs-diagram svg {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -174,5 +180,10 @@
   .c4-build .cs-split,
   .c4-build .cs-plane-toc {
     grid-template-columns: 1fr;
+  }
+
+  .c4-build .cs-diagram {
+    padding: 12px;
+    margin-inline: 0;
   }
 }
