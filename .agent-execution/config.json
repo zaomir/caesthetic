@@ -1,0 +1,23 @@
+{
+  "schema": "agent-execution-install/1",
+  "repository": "zaomir/caesthetic",
+  "source_repo": "zaomir/grainee-v2",
+  "source_sha": "2ea8e62f8d7c418ce38e2f5199bec74d7ed616ad",
+  "source_paths": [
+    "scripts/runtime/atomic_checkpoint.py",
+    "scripts/runtime/test_atomic_checkpoint.py"
+  ],
+  "source_files_sha256": {
+    "atomic_checkpoint.py": "e6f2376db49522a8559f5adec2748e343b26dadb8f9bfc05cff94aab12d3cb29",
+    "test_atomic_checkpoint.py": "42cf2576b5e525ab1ff0283b8299de0a859c7cc1ffb6ed54360273479bb8f395"
+  },
+  "state_roots": [
+    ".agent-execution/state"
+  ],
+  "policy": {
+    "max_iteration_seconds": 300,
+    "max_work_units": 1,
+    "max_poll_seconds": 60,
+    "progress_interval_seconds": 60
+  }
+}
