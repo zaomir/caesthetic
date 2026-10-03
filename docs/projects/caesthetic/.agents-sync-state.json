@@ -453,7 +453,7 @@
     "docs/caesthetic/design/report-v6/spoken-reference.en.json": "cc67494d6c7cb62d86d6ebe46de1203aad231c143087bd9a2053f230449cb913",
     "docs/caesthetic/design/report-v6/spoken-reference.ru.json": "cb1b950e2f79a0568765661a8ecdbda9dc7d6a99a88d0e7058697ff708d6fde9",
     "docs/caesthetic/design/review-pages.json": "a20feb142da7a848c63abcbaddb1b20417e13d7dcf189948996ace15213b3b90",
-    "docs/caesthetic/events/BISHKEK_OUTREACH_100_STATUS.md": "f194125839622cd8491a42f422ffe9e3861872b9a26da78977f7df08d79750ff",
+    "docs/caesthetic/events/BISHKEK_OUTREACH_100_STATUS.md": "2a2a9019f326134fd163ecad3b4aeab2ece8f4e1f7fad966be45d06c8b109835",
     "docs/caesthetic/events/BISHKEK_PILOT.md": "a879cab6b97a797c328c02843ee2b0ebeb46b744666a8ca45468e13331cbbbfc",
     "docs/caesthetic/events/BISHKEK_ROVLEX_V3_READY_QUEUE_20_2026-09-15.md": "9f8e836718b0734cacd35a9430a66967098059f70f8d8acf046861dd3a9dc572",
     "docs/caesthetic/events/EVENT_CLUSTER_BRIEF.md": "7d88c71b194397dff764c7608348c82cf089be7bc2390bfbe3345d021ba95688",
@@ -680,7 +680,7 @@
     "docs/ssot/CAESTHETIC_ACQUISITION_DIAGNOSTIC_GROWTH_CONTROL_SYSTEM.md": "9c4001a326cb8e78ddb36a77285caa3bab7860a865ab8efd94aa75de59d5af5d",
     "docs/ssot/CAESTHETIC_ASSET_WORKER.md": "89971ad6f945b56c84e46d88efd0efa09643b66a276582159262089403578d2b",
     "docs/ssot/CAESTHETIC_ATTRIBUTED_SALES_COMPENSATION_STANDARD.md": "5ee033327eaf43c9839acee8dc448e1375c437e896a3f72a9c64726a2c11e466",
-    "docs/ssot/CAESTHETIC_AUDIENCE_LISTS.md": "19e5d5966bcc3f9df63cd842bd4c128d53fa235f5213e6e7e2d5a736b5203220",
+    "docs/ssot/CAESTHETIC_AUDIENCE_LISTS.md": "9b6c27f44b0a83f9b30ff19bcb4413f41785cd3161d3cf22f0d7a22a99a29b49",
     "docs/ssot/CAESTHETIC_AUDIT_V8_SSOT.md": "65c24bafae142b2f271187c6f8e0667b1041796a9986d6af13f64b8180fa89e2",
     "docs/ssot/CAESTHETIC_AUTONOMOUS_OUTREACH_FACTORY.md": "3dedbc431304289f9914a9e479a5237b5a50d7e0a29e924be937bde434ba58c2",
     "docs/ssot/CAESTHETIC_CASE_STUDIES_COLLECTION.md": "c78173dc37be1f7b022749c0da17314a763dec4ad9dbb26f5a70245ed276ac0e",
@@ -1190,10 +1190,6 @@
     "site-caesthetic/blog/consistent-business-information/index.html": "c36d052035107233e98135076b6427dbf5049447a0912103784a603d03177934",
     "site-caesthetic/blog/customer-reviews-and-feedback/index.html": "a8a33fcf8fc907779236a5da9117d2cbc6655368d34779eb5c192cac326e1987",
     "site-caesthetic/blog/index.html": "ae31f925357ee45c6741b83d61ca16b8fcf22e92a15220a2f3c06501375b2f04",
-    "site-caesthetic/brand/logo-long.png": "d0eb247c9694012ec953076c60a5563834aadce216198ec5db6c1c030a1462b3",
-    "site-caesthetic/brand/logo-long.svg": "741dc5e98658c639833d49c35da98772ec84797935df1353b0d124c06b201301",
-    "site-caesthetic/brand/logo-square.png": "5e7031f129cd59a538ad9e9ad99bea4f2656d96d9387bc71841608bf9ee0adf4",
-    "site-caesthetic/brand/logo-square.svg": "9c16f91d5f25553b8af2bab4b0f5400fb9f67ac967d401d18b6b32d2a0e9cfd1",
     "site-caesthetic/case-studies/README.md": "39b577de1737b3fde7ade7adaa7b85b2ef5aebe6a100647048b0832f2608436c",
     "site-caesthetic/case-studies/case/index.html": "96c96d886ba737eebad90bf637f0482fadde6761ccfc3377077e01535508d5ee",
     "site-caesthetic/case-studies/index.html": "7bcfcabbc93706c94c49ddee735b8d92e4a291edea77edbf67bf264c6514813e",
@@ -1410,6 +1406,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-09-16T22:12:23Z",
+  "updated_at_utc": "2026-10-03T18:54:25Z",
   "version": 1
 }

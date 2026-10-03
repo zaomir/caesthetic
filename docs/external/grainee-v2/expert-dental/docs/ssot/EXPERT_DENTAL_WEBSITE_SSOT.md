@@ -3,7 +3,7 @@ title: Expert Dental Website SSOT
 status: ACTIVE SSOT
 version: 1.1
 date: 2026-07-24
-last_updated: 2026-08-06
+last_updated: 2026-09-18
 owner: ROVLEX / Expert Dental Studio
 business: стоматология «Эксперт Дентал Студия», Бишкек
 website: https://expertdental.kg/
@@ -1044,7 +1044,7 @@ Staging закрыт `noindex,nofollow` и `Disallow: /`. Production-профи�
 - [ ] Клиника закрыла блокеры из `/internal/pending/` — минимум: формат номера лицензии,
       орган и дата выдачи, график приёма, координаты, ID счётчиков.
 - [ ] Прайс на сайте сверен с `PRICE_CATALOG.json` и подтверждён клиникой.
-- [ ] GA4 и Метрика: ID проставлены в `patient-site/config/site.mjs`, события долетают.
+- [x] GA4: `G-BPS068ZYD1` в `patient-site/config/site.mjs`, тег на `clinic.raimovdental.com`. Метрика: ID ещё нет.
 - [ ] `deploy-patient-site.sh production` собирает с `ORIGIN=https://expertdental.kg`,
       канонические URL и sitemap указывают на боевой домен.
 - [ ] Редиректы §33.2 проверены на боевом хосте по списку из старого sitemap — 0 ответов 404.
@@ -1122,3 +1122,7 @@ Evidence: `docs/audits/raimov/expert-cutover-2026-09-09/routes-and-intake-follow
 - `author` is editorial assignment, not evidence of completed medical review. `reviewedAt`, `reviewEvidence`, `reviewedBy` and medical-check claims remain exact-content evidence-gated. The 2026-09-09 approval is not extended to new articles.
 - Supporting editorial images use the existing semantic manifest, accurate topic matching and 640/1000/master JPEG sizes. They do not represent patients or outcomes.
 - Release evidence: `docs/audits/raimov/doctor-articles-2026-09-15/README.md` and content manifest. Scope remains the clinic runtime; indexable domain cutover is unchanged.
+
+## 2026-09-18 — GA4 on the temporary clinic host
+
+Owner supplied measurement ID `G-BPS068ZYD1`. It is set in `patient-site/config/site.mjs` and rendered by the existing layout gtag slot. Live host until expertdental.kg cutover: https://clinic.raimovdental.com/. Yandex Metrika stays unset. Form fields are not sent as analytics parameters. This does not change indexation or the domain cutover.

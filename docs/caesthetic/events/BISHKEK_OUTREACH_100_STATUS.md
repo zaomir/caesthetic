@@ -1,7 +1,7 @@
 ---
 owner: CAESTHETIC
 status: active
-updated: 2026-09-16
+updated: 2026-09-17
 scope: operational status for the additional 100 Bishkek premium-partner candidates
 authority: operational tracker; product rules remain in CAESTHETIC_EVENTS_AND_PARTNERSHIPS.md
 source_universe: docs/research/caesthetic/BISHKEK_PREMIUM_PARTNER_UNIVERSE_100_2026-09-13.md
@@ -40,10 +40,11 @@ This file tracks only the **additional 100-candidate universe**. Earlier Bishkek
 |---|---:|
 | Universe | 100 |
 | Contact target | 100 |
-| Sent | 10 |
-| Remaining to contact | 90 |
-| Replied | 1 |
-| Positive / interested | 1 |
+| Loaded in Instantly | 100 |
+| Active Senders Pool | 12 (@rovlex.com) |
+| Daily Limit | 120 |
+| Live Google Sheet Worksheets | `Bishkek_Outreach_Pipeline`, `Bishkek_KPI_Summary` |
+| Sync Script | `scripts/outreach/sync_bishkek_outreach_to_sheet.py` |
 | Hard bounce inside this 100-account cohort | 0 |
 | Complaint | 0 |
 
@@ -86,6 +87,14 @@ The one-company canary has a confirmed outgoing receipt and no recorded bounce/r
 
 Before any second admission, recheck original Gmail + Instantly Unibox + workspace blocklist + campaign/company history + private shared suppression sources, then obtain a fresh canonical EmailVerifier.io result. At hard bounces / confirmed ROVLEX-lane first touches >=2%, or any complaint/material sender or delivery warning, pause the lane.
 
+### 2026-09-17 preflight refresh
+
+- The ROVLEX canary remains at **1 confirmed first touch, 0 hard bounces, 0 replies and 0 unsubscribes** on the fresh campaign recheck; the lane therefore remains below its stop threshold.
+- No new substantive JIA, IBC, Event M or Orion reply requiring a new outreach decision was found in the fresh Gmail check.
+- The next four high-priority staged routes — #50 Salymbekov Business School, #90 ORO Multibrand Jewelry, #95 NoviNomad and #100 Gapar Aitiev Fine Arts Museum — were rechecked across the original Gmail account, Instantly campaign history and workspace blocklist. They have no prior send, no active Instantly campaign and no blocklist entry. Old unsent Gmail drafts exist for these routes and are not treated as contact or authorization.
+- These four routes are now preflight-clear **except for fresh canonical EmailVerifier.io validation**. No live send was admitted because the current connected runtime still does not expose the VDS EmailVerifier secret/client path required by the canonical standard.
+- Public-source research was refreshed for several retry accounts: Asia Mall continues to publish an active marketing route and 2026 event programme; Crocus Fitness Bishkek remains active as a premium club with spa/recovery and a published general contact route; Eldik Bank continues to demonstrate event/sponsorship and partnership propensity; KICB’s current management and active 2026 customer programmes remain strong fit evidence. None of these facts overrides a failed/pending email route or the canonical verification gate.
+
 ## Sent
 
 | # | Company | Priority | Decision-maker route | Status | Date | Evidence / personalization basis |
@@ -118,15 +127,15 @@ Priority below is operational and may change after current research. `VERIFIED_R
 | # | Company | Why hot now | Current state | Next action |
 |---:|---|---|---|---|
 | 82 | KICB | Current evidence of sponsorships, forums and partner activations; Marketing / CSR and Sales & Marketing functions are identifiable | RESEARCHED / PENDING_VERIFICATION | General official reception route failed verification; continue enrichment until a canonical-valid route exists |
-| 50 | Salymbekov Business School | Executive/entrepreneur audience and education/event fit | RESEARCHED / VERIFIED_ROUTE_READY | Re-run canonical verification and shared suppression before any admission |
-| 31 | Crocus Fitness Bishkek | Premium fitness/wellness audience and event/benefit fit | INVALID_ROUTE / RETRY | Resolve named commercial/marketing decision-maker and alternate verified route |
+| 50 | Salymbekov Business School | Executive/entrepreneur audience and education/event fit | PREFLIGHT_CLEAR / NEEDS_CANONICAL_VERIFY | Fresh Gmail / Instantly / blocklist preflight clear; run canonical EmailVerifier.io before admission |
+| 31 | Crocus Fitness Bishkek | Premium fitness/wellness audience and event/benefit fit | INVALID_ROUTE / RETRY | Current generic email failed verification; resolve named commercial/marketing decision-maker and alternate verified route |
 | 94 | Maple Leaf Golf & Country Club | Highly concentrated affluent leisure audience; current 2026 activity confirmed | RESEARCHED / NEEDS_DECISION_MAKER | Find current operator/GM/marketing lead and an unambiguous verified work route |
-| 28 | Asia Mall | Large retail audience, tenants, app/event capability | INVALID_ROUTE / RETRY | Find alternate verified marketing/events route |
-| 95 | Novinomad | Premium high-touch travel audience; current marketing role identified on official site | RESEARCHED / VERIFIED_ROUTE_READY | Re-run canonical verification and shared suppression before any admission |
+| 28 | Asia Mall | Large retail audience, tenants, app/event capability | INVALID_ROUTE / RETRY | Official marketing route remains publicly active, but prior verification failed; find alternate verified marketing/events route rather than reusing an invalid route |
+| 95 | NoviNomad | Premium high-touch travel audience; current marketing role identified on official site | PREFLIGHT_CLEAR / NEEDS_CANONICAL_VERIFY | Fresh Gmail / Instantly / blocklist preflight clear; run canonical EmailVerifier.io before admission |
 | 89 | Chopard Boutique Bishkek | Ultra-premium client base; current Chopard locator confirms local ORO operator | RESEARCHED / VERIFIED_ROUTE_READY | Identify brand/marketing owner or use verified operator route after canonical recheck |
-| 73 | Eldik Bank | Large banking audience | INVALID_ROUTE / RETRY | Use identified current marketing/PR team to find verified work route |
+| 73 | Eldik Bank | Large banking audience; current sponsorship/event and partnership activity reconfirmed | INVALID_ROUTE / RETRY | Use identified current marketing/PR team to find verified work route; do not reuse failed generic route |
 | 79 | Eco Islamic Bank | Distinct values-based banking audience; current marketing sales function explicitly handles partnership/cooperation | RESEARCHED / PENDING_VERIFICATION | Direct partnership/marketing route remains pending; do not send until canonical-valid |
-| 100 | Gapar Aitiev Fine Arts Museum | Cultural venue and trusted audience; official marketing department contact channel exists | RESEARCHED / VERIFIED_ROUTE_READY | Re-run canonical verification and shared suppression before any admission |
+| 100 | Gapar Aitiev Fine Arts Museum | Cultural venue and trusted audience; official marketing department contact channel exists | PREFLIGHT_CLEAR / NEEDS_CANONICAL_VERIFY | Fresh Gmail / Instantly / blocklist preflight clear; run canonical EmailVerifier.io before admission |
 
 ## Reply handling
 
@@ -153,7 +162,7 @@ The campaign reaches its primary completion condition when every one of the 100 
 
 Non-terminal research states:
 
-`QUEUED / RESEARCHED / RETRY_ROUTE / INVALID_ROUTE / PENDING_VERIFICATION / VERIFIED_ROUTE_READY / NEEDS_DECISION_MAKER`.
+`QUEUED / RESEARCHED / RETRY_ROUTE / INVALID_ROUTE / PENDING_VERIFICATION / VERIFIED_ROUTE_READY / NEEDS_DECISION_MAKER / PREFLIGHT_CLEAR`.
 
 Terminal exceptions without a send are permitted only as:
 

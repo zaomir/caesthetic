@@ -46,15 +46,35 @@ authority remains here in `grainee-v2`.
 
 ## Global cross-project routing
 
+### COLDER2 Email Engine first (DEC-904)
+
+Any **COLDER2 / cold email engine / warmup / Google Workspace / Instantly replacement** → `docs/ssot/COLDER2_SSOT.md`.  
+First command: `node scripts/colder2/intent-router.mjs --prompt "<task>"`.  
+Foreign workspace: Mac `/Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/docs/ssot/COLDER2_SSOT.md`, VDS `/var/www/grainee-v2/docs/ssot/COLDER2_SSOT.md` (see `docs/ssot/COLDER2_CROSS_REPO_POINTER.md`).
+
+### Twenty CRM first (DEC-902)
+
+Any **Twenty / CRM twenty / twenty crm / TWENTY_CRM / твенти / controlcenter** question or integration → `docs/ssot/TWENTY_CRM.md`.  
+First command: `node scripts/twenty/intent-router.mjs --prompt "<task>"`.  
+Foreign workspace: Mac `/Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/docs/ssot/TWENTY_CRM.md`, VDS `/var/www/grainee-v2/docs/ssot/TWENTY_CRM.md`, or `scripts/repo/fetch-twenty-canon.sh ssot` (see `docs/ssot/TWENTY_CROSS_REPO_POINTER.md`). Do **not** use raw.githubusercontent (private 404). Do **not** open SENDER1 Intake just to find this file.
+
+### SENDER1 first (DEC-894)
+
+Any **automation, stream, cron, outreach, рассылка, WhatsApp/WAHA, Instagram DM, LinkedIn invite, scraper, notification worker** → read `docs/ssot/SENDER1_SSOT.md` (+ ADR-012 + `.cursor/skills/sender1/SKILL.md`).  
+If this workspace is **not** grainee-v2: Mac path `/Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/...`, VDS `/var/www/grainee-v2/...`, or `gh api` / `scripts/repo/fetch-sender1-canon.sh` (see `docs/ssot/SENDER1_CROSS_REPO_POINTER.md`). Do **not** use raw.githubusercontent (private 404).
+
+### Outbound / social
+
 Before any task involving **outbound, cold outreach, prospecting, lead generation, demand generation, Instantly, Sales Navigator, LinkedIn/Instagram/TikTok/Reddit/Facebook outreach or content, multiprofile work, WhatsApp/Telegram commercial outreach, account-based marketing, partner origination or professional buyer acquisition**, read:
 
-1. `docs/ssot/OUTBOUND_LED_DEMAND_GENERATION_STANDARD.md`.
-2. `docs/ssot/SOCIAL_ACCOUNT_CONTROL_PLANE.md` + `docs/ssot/data/social-account-registry.yaml` when any personal/authorised social account is involved.
-3. `docs/ssot/SOCIAL_GROWTH_OPERATING_SYSTEM.md` for multi-network factory / content / inbox / approval layers; then the matching `docs/ssot/SOCIAL_ADAPTER_<PLATFORM>.md`.
-4. Relevant domain/project SSOT (from registry `project_ssot` when set).
-5. `docs/ssot/MASTER_CONTACTS.md`, `docs/ssot/OUTREACH_V4.md` and `docs/ssot/OUTREACH_SELECTIONS.md` as applicable.
-6. `docs/ssot/LINKEDIN_MULTIPROFILE_OPERATING_MODEL.md` whenever a personal LinkedIn profile / Truth Pack allocation is involved.
-7. ChatGPT social ops (inbox / calendar / approvals): `docs/ssot/ROVLEX_SOCIAL_CONTROL_MCP.md` + security companion — not Dolphin writes. Lifecycle remains `docs/ssot/DOLPHIN_PROFILE_CONTROL.md`.
+1. `docs/ssot/SENDER1_SSOT.md` (stream / intake — always when creating or changing a worker).
+2. `docs/ssot/OUTBOUND_LED_DEMAND_GENERATION_STANDARD.md`.
+3. `docs/ssot/SOCIAL_ACCOUNT_CONTROL_PLANE.md` + `docs/ssot/data/social-account-registry.yaml` when any personal/authorised social account is involved.
+4. `docs/ssot/SOCIAL_GROWTH_OPERATING_SYSTEM.md` for multi-network factory / content / inbox / approval layers; then the matching `docs/ssot/SOCIAL_ADAPTER_<PLATFORM>.md`.
+5. Relevant domain/project SSOT (from registry `project_ssot` when set).
+6. `docs/ssot/MASTER_CONTACTS.md`, `docs/ssot/OUTREACH_V4.md` and `docs/ssot/OUTREACH_SELECTIONS.md` as applicable.
+7. `docs/ssot/LINKEDIN_MULTIPROFILE_OPERATING_MODEL.md` whenever a personal LinkedIn profile / Truth Pack allocation is involved.
+8. ChatGPT social ops (inbox / calendar / approvals): `docs/ssot/ROVLEX_SOCIAL_CONTROL_MCP.md` + security companion — not Dolphin writes. Lifecycle remains `docs/ssot/DOLPHIN_PROFILE_CONTROL.md`.
 
 Hard routing rules: one account receives one opening narrative; assign `project_origin` and a human owner before drafting; resolve owner → Dolphin workspace → surface before writes; personal social actions keep the named owner accountable (Agent Factory may execute only when registry `factory.status` allows); PII stays outside Git; no campaign bypasses evidence, compliance, suppression or GO/NO-GO; AI public text routes remain `/ru/text` and `/en/text`; Telegram CTA remains deeplink-only under `docs/ssot/TELEGRAM.md`; продажный бот + человек — `docs/ssot/TELEGRAM_BOT_DESK_STANDARD.md` (DEC-852).
 
@@ -62,6 +82,8 @@ Hard routing rules: one account receives one opening narrative; assign `project_
 
 | Topic | Path |
 |-------|------|
+| Twenty CRM / CRM twenty | `docs/ssot/TWENTY_CRM.md` · `scripts/twenty/intent-router.mjs` · `docs/ssot/TWENTY_CROSS_REPO_POINTER.md` |
+| SENDER1 automation / streams | `docs/ssot/SENDER1_SSOT.md` · `docs/ssot/SENDER1_CROSS_REPO_POINTER.md` |
 | Deploy / secrets | `docs/ssot/AGENT_DEPLOY_CHANNELS.md`, `docs/ssot/AGENT_LOCAL_ENV.md`, `docs/ssot/GITHUB_SECRETS.md` |
 | Outbound-led demand generation | `docs/ssot/OUTBOUND_LED_DEMAND_GENERATION_STANDARD.md` |
 | Archive policy | `docs/global/ARCHIVE_POLICY.md` |

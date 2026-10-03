@@ -1,5 +1,20 @@
 # AGENTS.md — root agent entry (Phase 1 slim + DEC-757 token budget)
 
+<!-- durable-agent-execution:v1 -->
+## Durable execution / restart
+Before long-running work or retry, read `.agent-execution/README.md` and the
+existing task checkpoint. Use bounded atomic iterations; persist pending intent
+before side effects and verified evidence/next action after each significant
+unit. UI stream is not state. Reconcile pending operations and skip matching
+verified work on restart. Run `python3 .agent-execution/check.py` before ship.
+This execution adapter preserves all project, privacy, merge, sync and deploy
+authorities below; it does not activate scheduling or outreach.
+<!-- /durable-agent-execution:v1 -->
+
+## ROVLEX research discovery — RU-speaking US businesses
+
+For ROVLEX audience / prior scraping, русскоязычные бизнесы США, Miami / South Florida, Ripa / Рипа / Smile Creators or Tetri, read [research artifact router](docs/projects/rovlex/research/us-russian-speaking/README.md) before broad repository or external search. It indexes the preserved 20 named candidates and the separate 30-page crawler output, with original chat IDs and local/server/GitHub paths. Missing repository hits do not prove no local research exists. Follow evidence boundaries: historical qualification is not current verification; page counts are not company counts.
+
 **Report access, owner instruction 2026-09-10:** all cases and reports open by direct link without passwords by default. Add a password only on a direct instruction for the named page/package. Read `docs/ssot/CAESTHETIC_GROWTH_SCORE_ACCESS_STANDARD.md`; mandatory PIN defaults in older material are superseded. This does not change CRM/admin authentication.
 
 
@@ -11,6 +26,101 @@ CPRP — отдельный коммерческий слой CAESTHETIC для 
 [CPRP master](docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md) · [Topic/file router](docs/caesthetic/partner-revenue/README.md).
 
 All AI agents (Cursor, Codex, Eva, Roo) start here. **Humans are not the primary UI for this repo** — optimise for agent token economy (`docs/ssot/AGENT_TOKEN_ECONOMY.md`).
+
+---
+
+## Universal MAP2 pre-router (DEC-900 / DEC-901 — any agent / any repo)
+
+**Brand:** MAP2 = Grainee white review funnel (`ru.tc/money`, WAHA, Twenty).  
+**Первая команда (fail-closed):**
+
+```bash
+node scripts/map2/intent-router.mjs --prompt "<задача>"
+# foreign cwd:
+node /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/map2/intent-router.mjs --prompt "<задача>"
+bash /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/repo/fetch-map2-canon.sh howto
+```
+
+| Artifact | Path |
+|----------|------|
+| **Intent router** | [`scripts/map2/intent-router.mjs`](scripts/map2/intent-router.mjs) |
+| **HOWTO + Support** | [`docs/ssot/MAP2_AGENT_HOWTO.md`](docs/ssot/MAP2_AGENT_HOWTO.md) |
+| SSOT | [`docs/ssot/MAP2_SSOT.md`](docs/ssot/MAP2_SSOT.md) |
+| Cross-repo pointer | [`docs/ssot/MAP2_CROSS_REPO_POINTER.md`](docs/ssot/MAP2_CROSS_REPO_POINTER.md) |
+| Fetch helper | [`scripts/repo/fetch-map2-canon.sh`](scripts/repo/fetch-map2-canon.sh) |
+| Skill | [`.cursor/skills/map2/SKILL.md`](.cursor/skills/map2/SKILL.md) |
+| Schema | [`docs/ssot/UNIFIED_NPS_FUNNEL.md`](docs/ssot/UNIFIED_NPS_FUNNEL.md) |
+
+Triggers: `map2`, `nps`, `ru.tc/money`, `автосбор отзывов`, `nps-*`, `verification_status`, `review_request`, `stream-grainee-nps-funnel`.  
+If MAP2 matched → **do not** open new SENDER1 Intake. New cold outreach → SENDER1 below.
+
+## Universal Twenty CRM pre-router (DEC-902 — any agent / any repo)
+
+**Канон:** `docs/ssot/TWENTY_CRM.md`. Фразы `CRM twenty`, `twenty crm`, `TWENTY_CRM`, `твенти`, `controlcenter` — один и тот же файл.  
+**Первая команда (fail-closed):**
+
+```bash
+node scripts/twenty/intent-router.mjs --prompt "<задача>"
+# foreign cwd:
+node /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/twenty/intent-router.mjs --prompt "<задача>"
+bash /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/repo/fetch-twenty-canon.sh ssot
+```
+
+| Artifact | Path |
+|----------|------|
+| **Intent router** | [`scripts/twenty/intent-router.mjs`](scripts/twenty/intent-router.mjs) |
+| **CRM SSOT** | [`docs/ssot/TWENTY_CRM.md`](docs/ssot/TWENTY_CRM.md) |
+| Cross-repo pointer | [`docs/ssot/TWENTY_CROSS_REPO_POINTER.md`](docs/ssot/TWENTY_CROSS_REPO_POINTER.md) |
+| Fetch helper | [`scripts/repo/fetch-twenty-canon.sh`](scripts/repo/fetch-twenty-canon.sh) |
+| CPRP sync | [`docs/caesthetic/partner-revenue/TWENTY_SYNC_CONTRACT.md`](docs/caesthetic/partner-revenue/TWENTY_SYNC_CONTRACT.md) |
+| Backup | [`docs/ssot/TWENTY_WAHA_BACKUP.md`](docs/ssot/TWENTY_WAHA_BACKUP.md) |
+| Skill | [`.cursor/skills/twenty-crm/SKILL.md`](.cursor/skills/twenty-crm/SKILL.md) |
+
+Поиск «CRM twenty» без этого роутера = FAIL. Не открывать SENDER1 Intake вместо канона. MAP2 остаётся воронкой `ru.tc/money`.
+
+## Universal COLDER2 pre-router (DEC-904 — any agent / any repo)
+
+**Канон:** `docs/ssot/COLDER2_SSOT.md`. Фразы `COLDER2`, `colder 2`, `colder2`, `колдер2`, `cold email engine`, `instantly replacement`, `google workspace engine` — относятся к COLDER2.  
+**Первая команда (fail-closed):**
+
+```bash
+node scripts/colder2/intent-router.mjs --prompt "<задача>"
+# foreign cwd:
+node /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/colder2/intent-router.mjs --prompt "<задача>"
+```
+
+| Artifact | Path |
+|----------|------|
+| **Intent router** | [`scripts/colder2/intent-router.mjs`](scripts/colder2/intent-router.mjs) |
+| **COLDER2 SSOT** | [`docs/ssot/COLDER2_SSOT.md`](docs/ssot/COLDER2_SSOT.md) |
+| Cross-repo pointer | [`docs/ssot/COLDER2_CROSS_REPO_POINTER.md`](docs/ssot/COLDER2_CROSS_REPO_POINTER.md) |
+| Operator Playbook | [`docs/playbooks/EMAIL_ENGINE_OPERATOR_PLAYBOOK.md`](docs/playbooks/EMAIL_ENGINE_OPERATOR_PLAYBOOK.md) |
+| Skill | [`.cursor/skills/colder2/SKILL.md`](.cursor/skills/colder2/SKILL.md) |
+
+## Universal SENDER1 pre-router (DEC-894/895/896 — any agent / any repo)
+
+**Первая команда (fail-closed):**
+
+```bash
+node scripts/sender1/intent-router.mjs --prompt "<задача>"
+# foreign cwd:
+node /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/sender1/intent-router.mjs --prompt "<задача>"
+```
+
+Потом HOWTO + Intake. **Код до этого = FAIL.** Триггеры: `sender1`, `сендер`, `поток`, `stream-*`, `outreach`, `аутрич`, `рассылка`, `cron`, `windmill`, `waha`, WhatsApp, Instagram DM, LinkedIn invite/outreach, парсинг, scraper, Valeriia, fillers.  
+Twenty CRM / `CRM twenty` → секция выше (`scripts/twenty/intent-router.mjs`), не Intake. Новый поток, который пишет в Twenty, открывает канон и только потом Intake.
+
+| Artifact | Path |
+|----------|------|
+| **Intent router** | [`scripts/sender1/intent-router.mjs`](scripts/sender1/intent-router.mjs) |
+| **HOWTO** | [`docs/ssot/SENDER1_AGENT_HOWTO.md`](docs/ssot/SENDER1_AGENT_HOWTO.md) |
+| SSOT | [`docs/ssot/SENDER1_SSOT.md`](docs/ssot/SENDER1_SSOT.md) |
+| Fake rejector | [`scripts/sender1/reject-fake-patterns.mjs`](scripts/sender1/reject-fake-patterns.mjs) |
+| Cross-repo pointer | [`docs/ssot/SENDER1_CROSS_REPO_POINTER.md`](docs/ssot/SENDER1_CROSS_REPO_POINTER.md) |
+| ADR-012 | [`docs/architecture/ADR-012_AUTOMATION_CONTROL_PLANE_AND_WORKERS.md`](docs/architecture/ADR-012_AUTOMATION_CONTROL_PLANE_AND_WORKERS.md) |
+| Skill | [`.cursor/skills/sender1/SKILL.md`](.cursor/skills/sender1/SKILL.md) |
+
+Intake **overrides** «не спрашивай — делай». Mega-runner / Dolphin REST на `:13000` = FAIL (docs-guards).
 
 ---
 
@@ -232,6 +342,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 
 | Need | File |
 |------|------|
+| Twenty CRM / CRM twenty / controlcenter | `docs/ssot/TWENTY_CRM.md` · `scripts/twenty/intent-router.mjs` |
 | Connect4 / 4444 / Четверки / Четвёрки explanation | `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` |
 | Pricing (EVO products) | `docs/ssot/PRICING_AND_PRODUCTS.md` |
 | Token economy (agents) | `docs/ssot/AGENT_TOKEN_ECONOMY.md` |

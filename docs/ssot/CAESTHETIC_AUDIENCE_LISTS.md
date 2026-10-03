@@ -3,7 +3,7 @@
 **Status:** ACTIVE pointer  
 **Date:** 2026-08-14  
 **Owner:** platform / CAESTHETIC ops  
-**Related:** `CAESTHETIC_EMAIL_TO_IG.md` · `CAESTHETIC_IG_LOOKUP.md` · `OUTREACH_USERNAME_REGISTRY.md` · `CAESTHETIC_IG_GROWTH_PROGRAM.md` · `CAESTHETIC_PRACTITIONER_GROWTH_TO_SUPPLY_FUNNEL.md` · `OUTREACH_SELECTIONS.md` · `docs/ssot/data/outreach-username-registries.yaml` · `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md` · DEC-781 · DEC-791 · DEC-793 · DEC-818 · DEC-819 · DEC-821 · **DEC-822** · DEC-824 · **DEC-827** · **DEC-845**
+**Related:** `CAESTHETIC_EMAIL_TO_IG.md` · `CAESTHETIC_IG_LOOKUP.md` · `OUTREACH_USERNAME_REGISTRY.md` · `CAESTHETIC_IG_GROWTH_PROGRAM.md` · `CAESTHETIC_PRACTITIONER_GROWTH_TO_SUPPLY_FUNNEL.md` · `OUTREACH_SELECTIONS.md` · `docs/ssot/data/outreach-username-registries.yaml` · `docs/ssot/reports/cae_ig_task814_harvest_agent_card_2026-08-14.md` · DEC-781 · **DEC-891** · DEC-791 · DEC-793 · DEC-818 · DEC-819 · DEC-821 · **DEC-822** · DEC-824 · **DEC-827** · **DEC-845**
 
 **Two-base Apify pass (preferred for students):** `scripts/outreach/cae_ig_schools_students_apify.py` — schools DB + students DB (followers + post engagers). Rebuild without spend: `cae_ig_two_base_rebuild.py`. Legacy single-workbook pass (2026-08-02) remains valid for Priority A warm queue until Sheet reseed.
 
@@ -178,7 +178,7 @@ Pipeline:
 **Rules:**
 
 1. Tag every row: `audience=aesthetic_student_or_trainee_unverified` (username ≠ licence).  
-2. Run **DEC-781 ramp** on `@caesthetic.growth` only — **never** a second outreach IG on Dolphin `833304152` (same fingerprint as Valerie LI + Lana FB).
+2. Run **DEC-781 ramp** on `@caesthetic.growth`. Parallel Toxifillers supply opening of the **same** contact is allowed on `@toxifillers` (DEC-891) as a second narrative, not a second template from fingerprint `833304152` in the same hour. A third IG outreach account still needs its own Dolphin + proxy.
 3. Opening narrative = **`ACADEMY_GRADUATE_SUPPORT`** or `PRACTICE_LAUNCH` only. No link in first DM. No Toxifillers/grey SKU.  
 4. Use list for (order matters — see `CAESTHETIC_IG_GROWTH_PROGRAM.md` §12):  
    - seed lookalike creative research for student pillars S1–S4;  
