@@ -273,6 +273,9 @@ async function opReadiness(req, { fetchImpl } = {}) {
       hold: fleet.hold,
       window: windowState(),
       identity_probe: {
+        platform: probe.platform || null,
+        profile_id: probe.profile_id || null,
+        surface_account_id: probe.surface_account_id || null,
         probed: Boolean(probe.probed),
         identity_state: probe.identity_state,
         identity_verified: probe.identity_verified === true,

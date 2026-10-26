@@ -157,11 +157,17 @@ export function verifiedLinkedInSelf(snapshot) {
     /^(valeriia petrova|valerie petra|валерия петрова)$/i.test(String(snapshot.heading || '').trim());
 }
 
+export function validLinkedInAttestation(cached, { now = Date.now(), sourceSha = PROBE_SOURCE_SHA } = {}) {
+  const age = now - Date.parse(cached?.generated_at || '');
+  return Number.isFinite(age) && age >= 0 && age <= IDENTITY_TTL_MS &&
+    cached.platform === 'linkedin' && cached.profile_id === DOLPHIN_PROFILE_ID &&
+    cached.surface_account_id === 'valeria-lana-linkedin' && cached.identity_proof === 'linkedin_in_me_v1' &&
+    cached.probe_source_sha256 === sourceSha && ['www.linkedin.com', 'linkedin.com'].includes(cached.observed_url_host);
+}
+
 function readIdentityCache(now = Date.now()) {
   const cached = readJson(IDENTITY_CACHE, null);
-  if (!cached?.generated_at) return null;
-  if (now - Date.parse(cached.generated_at) > IDENTITY_TTL_MS) return null;
-  return cached;
+  return validLinkedInAttestation(cached, { now }) ? cached : null;
 }
 
 export function listReadyPackages() {
@@ -372,6 +378,9 @@ async function runLinkedInProbe({ holder = "cae-social-readiness", onVerified = 
     const t=await loginDolphinLocal(c);profileStopped=!(await getRunningProfiles(c,t))[DOLPHIN_PROFILE_ID];
   } catch {}
   result.identity_proof='linkedin_in_me_v1';
+  result.platform='linkedin';
+  result.profile_id=DOLPHIN_PROFILE_ID;
+  result.surface_account_id='valeria-lana-linkedin';
   result.self_diagnostics=selfDiagnostics;
   result.adoption_diagnostics=adoptionDiagnostics;
   result.profile_stopped=profileStopped;
@@ -425,6 +434,7 @@ export function surfaceIdentity(surfaceId, probe) {
     return { identity_verified: false, identity_state: "unchecked", code: probe?.code || "IDENTITY_UNCHECKED" };
   }
   if (surfaceId === "valeria-lana-linkedin") {
+    if (!validLinkedInAttestation(probe)) return { identity_verified: false, identity_state: 'unchecked', code: 'SURFACE_ATTESTATION_INVALID' };
     return {
       identity_verified: probe.identity_verified === true,
       identity_state: probe.identity_state,
