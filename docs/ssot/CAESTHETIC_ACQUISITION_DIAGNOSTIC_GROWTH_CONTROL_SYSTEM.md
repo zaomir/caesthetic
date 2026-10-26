@@ -32,6 +32,8 @@ related:
 
 # CAESTHETIC — Universal Acquisition, Diagnostic & Growth Control System
 
+> **DEC-SIMON-069 (founder, 2026-10-25):** холодные DM разрешены на всех аккаунтах проекта; формулировки «cold DM OFF» и «нет холодных DM» в этом документе устарели. Остаются правила содержания (без диагнозов и советов пациентам, без PHI, без таргета на пациентов-потребителей) и возрастной ramp. См. `docs/founder-notes/DEC-SIMON-069_autonomous_publish_inbox_cold_dm_all_accounts_2026-10-25.md`.
+
 > **Универсальная система привлечения, диагностики и управления ростом на примере CAESTHETIC.**
 
 Этот документ объединяет в один непротиворечивый SSOT все решения из стратегического обсуждения CAESTHETIC до 22 августа 2026 включительно: каналы привлечения, account intelligence, Instagram candidate/CURRENT, 1,886-кандидатную Instantly-проекцию, LinkedIn/partner registry, квалификацию, tiers, signals, Maps, Meta Ad Library, events, partners, referrals, website/SEO/paid, Growth Score, Sprint, Impact, Evidence Bank, AI/Дельфин, freelancers, stage gates и owner cockpit.
@@ -983,7 +985,9 @@ This exception does not grant generic browser authority. It does not allow
 arbitrary scraping, mass messaging, CAPTCHA/checkpoint bypass, unapproved copy,
 or reuse of the 1,886 Instantly universe. A logged-in session, Dolphin profile
 or Sales Navigator list alone is not action authority. Limits remain
-account-specific: DM `2/day, 10/week`; InMail `2/day, 10/week, 50/month`;
+account-specific: DM `2/day, 10/week`; InMail has no internal count cap for
+Dolphin `833304152` (`DEC-873`) — live LinkedIn credits and platform state
+govern (the former `2/day, 10/week, 50/month` values are superseded);
 Sales Navigator saves `25/day`. Cold Instagram DM remains off.
 
 Private LinkedIn rows are classified into one controlled lane:

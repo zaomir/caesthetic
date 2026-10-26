@@ -25,6 +25,8 @@ related:
 
 # CAESTHETIC — Email → Instagram sequencing (Phase-1)
 
+> **DEC-SIMON-069 (founder, 2026-10-25):** холодные DM разрешены на всех аккаунтах проекта; формулировки «cold DM OFF» и «нет холодных DM» в этом документе устарели. Остаются правила содержания (без диагнозов и советов пациентам, без PHI, без таргета на пациентов-потребителей) и возрастной ramp. См. `docs/founder-notes/DEC-SIMON-069_autonomous_publish_inbox_cold_dm_all_accounts_2026-10-25.md`.
+
 ## 0. Decision
 
 Instagram alone cannot cover the Phase-1 universe at follow pace. **Email carries volume; Instagram carries familiarity and trust.**

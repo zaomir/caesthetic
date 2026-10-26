@@ -115,7 +115,7 @@ class DelfinReadinessTest(unittest.TestCase):
             ("DRAFT_ONLY_READY", "execute_adapter_unavailable"),
         )
 
-    def test_unbound_human_publish_and_retired_inventory_are_policy_terminal(self):
+    def test_unbound_draft_and_retired_inventory_are_policy_terminal(self):
         account = {
             "activation_gate": {"status": "clear"},
             "adapter_capabilities": {"instagram": {"draft": True, "execute": False}},
@@ -134,7 +134,7 @@ class DelfinReadinessTest(unittest.TestCase):
         }
         self.assertEqual(
             MODULE.classify_surface(account, live_draft, None),
-            ("DRAFT_ONLY_READY", "human_publish_unbound"),
+            ("DRAFT_ONLY_READY", "draft_only_unbound"),
         )
         self.assertEqual(
             MODULE.classify_surface(account, retired, None),

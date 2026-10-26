@@ -1,5 +1,7 @@
 # CAESTHETIC Dolphin `833304152` autonomy
 
+> **Canon-lock (2026-10-21):** действующие значения лимитов — в [`SOCIAL_ACTIVITY_LIMITS_CANON.md`](SOCIAL_ACTIVITY_LIMITS_CANON.md) §3. При расхождении **выигрывает канон**. В частности: Instagram runtime guard `20 story / 7 like / 2 follow / 2 follow-back / 2 comment` **superseded** → канон `120–180 / 30–50 / 5–8 / 5–8 / 3–8`; LinkedIn connects `5/день·25/нед` **superseded** → канон `10–15/день·50–80/нед`. InMail «no internal cap» остаётся верным (platform credits).
+
 **Status:** ACTIVE SSOT  
 **Effective:** 2026-08-31  
 **Authority:** founder directives “отмени все запреты” + “InMail нужно как можно больше” + `DEC-870` + `DEC-871` + `DEC-872` + `DEC-873`  
@@ -24,7 +26,7 @@ The runtime may autonomously execute, verify and log:
 - publication of content that has passed the project evidence, claims, rights and identity gates;
 - TikTok inbox/comment triage and write actions when a verified adapter and an eligible asset or inbound target exist.
 
-Zero caps and blanket `observe`, `owner_review`, `human_publish`, `invite-cap` or `read-only` defaults do not apply to routine actions that the executable production manifest and verified adapter authorize for this profile.
+Zero caps and blanket `observe`, `owner_review`, `invite-cap` or `read-only` defaults do not apply to routine actions that the executable production manifest and verified adapter authorize for this profile.
 
 This does **not** make raw activity volume the objective. The objective is maximum qualified commercial throughput under evidence, suppression, identity, platform-state, downstream-capacity and accepted-state gates.
 

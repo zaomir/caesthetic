@@ -148,7 +148,7 @@ export const SURFACES = Object.freeze({
     expected_url: "https://www.instagram.com/caesthetic.growth/",
     project_origin: "caesthetic",
     execute: false,
-    cold_dm: false,
+    cold_dm: true,
     hooppy_page_id: "2442190",
   },
   "caesthetic-facebook-page": {

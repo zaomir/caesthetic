@@ -25,6 +25,8 @@ related:
 
 # CAESTHETIC — Funnel, Tooling & First-Lead Readiness
 
+> **DEC-SIMON-069 (founder, 2026-10-25):** холодные DM разрешены на всех аккаунтах проекта; формулировки «cold DM OFF» и «нет холодных DM» в этом документе устарели. Остаются правила содержания (без диагнозов и советов пациентам, без PHI, без таргета на пациентов-потребителей) и возрастной ramp. См. `docs/founder-notes/DEC-SIMON-069_autonomous_publish_inbox_cold_dm_all_accounts_2026-10-25.md`.
+
 > Куда ведём prospect по воронке, какие инструменты нужны на каждом переходе, что уже готово, что требует live verification и кто закрывает каждый пробел.
 
 Этот SSOT — операционный companion к общей acquisition-архитектуре. Он не создаёт новый продукт и не меняет решение DEC-845: до явного запроса Free Growth Score не делается персональный mini-audit / `1-Minute Leak` / deep 4444 diagnosis.

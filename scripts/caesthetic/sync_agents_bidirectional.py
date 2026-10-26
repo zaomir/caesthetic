@@ -203,22 +203,54 @@ def fetch_origin_main(repo: Path) -> None:
         run(["git", "fetch", "origin", "main", "-q"], cwd=repo)
         return
     authority, remote = authority_config
-    run(["git", "fetch", remote, "main", "-q"], cwd=authority)
+    # The authority is the shared production checkout where operators run
+    # `git pull`. Rewriting its FETCH_HEAD every 15 seconds made those pulls
+    # fail with "Cannot fast-forward to multiple branches"; remote-tracking
+    # refs are still updated.
+    run(["git", "fetch", "--no-write-fetch-head", remote, "main", "-q"], cwd=authority)
     authority_ref = f"refs/remotes/{remote}/main"
     run(["git", "fetch", "--no-tags", str(authority),
          f"+{authority_ref}:refs/remotes/origin/main", "-q"], cwd=repo)
 
 
-def push_main(repo: Path) -> None:
+def push_main_once(repo: Path) -> None:
     authority_config = authority_for(repo)
     if not authority_config:
         run(["git", "push", "origin", "main"], cwd=repo)
         return
     authority, remote = authority_config
     sha = run_out(["git", "rev-parse", "HEAD"], cwd=repo)
-    run(["git", "fetch", "--no-tags", str(repo), sha, "-q"], cwd=authority)
+    run(["git", "fetch", "--no-write-fetch-head", "--no-tags", str(repo), sha, "-q"], cwd=authority)
     run(["git", "push", remote, f"{sha}:main"], cwd=authority)
     run(["git", "update-ref", "refs/remotes/origin/main", sha], cwd=repo)
+
+
+def push_main(repo: Path, attempts: int = 3) -> None:
+    """Push local main, rebasing onto a concurrently advanced main and retrying.
+
+    grainee main moves every few minutes (medspa heartbeat, Agent API results).
+    A rejected push aborts the run after the satellite has been written, which
+    leaves it dirty_checkout for every later run until repaired by hand.
+    """
+    for attempt in range(attempts):
+        try:
+            push_main_once(repo)
+            return
+        except subprocess.CalledProcessError:
+            if attempt == attempts - 1:
+                raise
+            fetch_origin_main(repo)
+            rebase_onto_origin_main(repo)
+
+
+def rebase_onto_origin_main(repo: Path) -> None:
+    # Rebase preserves local commits and obeys the repo's no-force policy; any
+    # conflict aborts and leaves the timer failed/visible.
+    try:
+        run(["git", "rebase", "origin/main"], cwd=repo)
+    except subprocess.CalledProcessError:
+        subprocess.run(["git", "rebase", "--abort"], cwd=str(repo), check=False)
+        raise RuntimeError(f"diverged_checkout_rebase_conflict:{repo}")
 
 
 def sha256_file(path: Path) -> str:
@@ -441,13 +473,8 @@ def sync_main_checkout(repo: Path) -> None:
         push_main(repo)
         return
 
-    # Both sides advanced. Rebase preserves local commits and obeys the repo's
-    # no-force policy; any conflict aborts and leaves the timer failed/visible.
-    try:
-        run(["git", "rebase", "origin/main"], cwd=repo)
-    except subprocess.CalledProcessError:
-        subprocess.run(["git", "rebase", "--abort"], cwd=str(repo), check=False)
-        raise RuntimeError(f"diverged_checkout_rebase_conflict:{repo}")
+    # Both sides advanced.
+    rebase_onto_origin_main(repo)
 
 
 def ensure_satellite(sat: Path) -> None:

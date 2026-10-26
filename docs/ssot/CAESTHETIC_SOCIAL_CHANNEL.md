@@ -14,6 +14,8 @@ related:
 
 # CAESTHETIC_SOCIAL_CHANNEL — ChatGPT → GitHub → VPS2402
 
+> **Canon-lock (2026-10-21):** значения лимитов в этом файле подчинены [`SOCIAL_ACTIVITY_LIMITS_CANON.md`](SOCIAL_ACTIVITY_LIMITS_CANON.md). InMail `20/day, 140/week, 600/month` **superseded** → platform credits only (без внутреннего капа). При расхождении выигрывает канон.
+
 Permanent typed Agent API for CAESTHETIC social checks, publication and allowed interactions. ChatGPT does **not** hand tasks to Cursor for routine work.
 
 **Type:** `caesthetic_social`  
@@ -78,7 +80,7 @@ Availability ≠ permission.
 
 | `surface_account_id` | Notes |
 |---|---|
-| `valeria-lana-linkedin` | Valerie `/in/valeriia-petrova-uk/`. InMail ceiling **20/day, 140/week, 600/month** across all executors. Coordinate with Aside; do not disable their routines. |
+| `valeria-lana-linkedin` | Valerie `/in/valeriia-petrova-uk/`. ~~InMail ceiling **20/day, 140/week, 600/month**~~ **SUPERSEDED 2026-10-21 → platform credits only** (см. `SOCIAL_ACTIVITY_LIMITS_CANON.md` §3.2). Coordinate with Aside; do not disable their routines. |
 | `valeria-lana-facebook` | Lana. Exact identity URL still unverified. |
 | `caesthetic-instagram` | `@caesthetic.growth`. Cold DM = 0. Registry execute may be false. |
 | `caesthetic-facebook-page` | Page `987019634498026` / Hooppy `1977644`. Login ≠ page role. |

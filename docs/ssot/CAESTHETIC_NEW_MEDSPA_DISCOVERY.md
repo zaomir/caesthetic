@@ -1,5 +1,7 @@
 # CAESTHETIC New Med Spa Discovery SSOT
 
+> **DEC-SIMON-069 (founder, 2026-10-25):** холодные DM разрешены на всех аккаунтах проекта; формулировки «cold DM OFF» и «нет холодных DM» в этом документе устарели. Остаются правила содержания (без диагнозов и советов пациентам, без PHI, без таргета на пациентов-потребителей) и возрастной ramp. См. `docs/founder-notes/DEC-SIMON-069_autonomous_publish_inbox_cold_dm_all_accounts_2026-10-25.md`.
+
 ## First recurring UTC slot accepted — 2026-09-16
 
 This section supersedes the pending recurring-slot statements below. It accepts the scheduled collector execution, not unreviewed downstream outreach.

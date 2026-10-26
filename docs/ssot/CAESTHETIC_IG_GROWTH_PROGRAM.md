@@ -1,5 +1,9 @@
 # CAESTHETIC Instagram Growth Program — `@caesthetic.growth`
 
+> **DEC-SIMON-069 (founder, 2026-10-25):** холодные DM разрешены на всех аккаунтах проекта; формулировки «cold DM OFF» и «нет холодных DM» в этом документе устарели. Остаются правила содержания (без диагнозов и советов пациентам, без PHI, без таргета на пациентов-потребителей) и возрастной ramp. См. `docs/founder-notes/DEC-SIMON-069_autonomous_publish_inbox_cold_dm_all_accounts_2026-10-25.md`.
+
+> **Canon-lock (2026-10-21):** coverage-потолки подчинены [`SOCIAL_ACTIVITY_LIMITS_CANON.md`](SOCIAL_ACTIVITY_LIMITS_CANON.md) §3.1. Где расходятся — выигрывает канон.
+
 **Status:** ACTIVE SSOT  
 **Date:** 2026-08-10  
 **Last reviewed:** 2026-08-22

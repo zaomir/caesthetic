@@ -4,8 +4,8 @@
   "files": {
     ".github/workflows/deploy-expert-esign-test.yml": "dfc916e5418de77dc264147806db7cdde263a9ed3017d0fca9fb91e967767f25",
     ".github/workflows/record-expert-esign-deploy.yml": "4a12436e1da435c5f14f7b5992e32a363f4f542c5728a9cfce5a89161fefa107",
-    "AGENTS.md": "e2f59804ca60b1eb3da09d36643fbbced2e0d86776b05592919cfa77a3ad1abe",
-    "START.md": "ff0fa572d60efa0d8643db4a419b372f866ff43d395cc15a4969dcdcf005a106",
+    "AGENTS.md": "95fb2ce8de61971f8786c76b1ca24eb161d4d6be0343f46ef02a0cf1001b3845",
+    "START.md": "d9ddf35c0c80bff2445a40cbe9720a4246c1da8b0e753e8f4dae67a8aab2fd42",
     "agents/manifests/healthcare-ecosystem.yaml": "caa0ce20e6ea5e28458cbfae2546badfdc4a2436d4eecb5e7195d3a732a6c666",
     "agents/manifests/raimovdental.yaml": "ea66ddbd38d8ae60b9699cb8373c062bf32b8ea1f5deae84bed206900ea56f6f",
     "apps/expert-esign/.dockerignore": "7e0fcb999e5702a590005e756ca17f329ffc955df9c6753cea47c05bf603a096",
@@ -364,7 +364,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "ad8bbadd229e6e5e0fce594315c9716b22f515df",
+  "source_sha": "8e31c09ef4dd2633d4f07c843316260557e1f106",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",

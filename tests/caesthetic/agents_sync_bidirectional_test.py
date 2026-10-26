@@ -385,6 +385,55 @@ class DecideDeletionTest(unittest.TestCase):
         remote = subprocess.check_output(["git", "ls-remote", str(bare), "refs/heads/main"], text=True).split()[0]
         self.assertEqual(remote, subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=isolated, text=True).strip())
 
+    def test_push_main_rebases_after_concurrent_main_push_and_keeps_fetch_head(self):
+        root = Path(self.tmp.name)
+        bare = root / "authority-remote.git"
+        authority = root / "authority"
+        isolated = root / "isolated"
+        heartbeat = root / "heartbeat"
+        subprocess.run(["git", "init", "--bare", "--initial-branch=main", str(bare)], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "clone", str(bare), str(authority)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "config", "user.name", "Test"], cwd=authority, check=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=authority, check=True)
+        (authority / "seed").write_text("one\n")
+        subprocess.run(["git", "add", "."], cwd=authority, check=True)
+        subprocess.run(["git", "commit", "-m", "seed"], cwd=authority, check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=authority, check=True, stdout=subprocess.DEVNULL)
+        for clone in (isolated, heartbeat):
+            subprocess.run(["git", "clone", str(bare), str(clone)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=clone, check=True)
+            subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=clone, check=True)
+        (isolated / "isolated-change").write_text("two\n")
+        subprocess.run(["git", "add", "."], cwd=isolated, check=True)
+        subprocess.run(["git", "commit", "-m", "isolated"], cwd=isolated, check=True, stdout=subprocess.DEVNULL)
+        # Another writer (the medspa heartbeat) lands on main between the sync's
+        # fetch and its push; the 2026-10-03 run aborted exactly here.
+        (heartbeat / "heartbeat.json").write_text("{}\n")
+        subprocess.run(["git", "add", "."], cwd=heartbeat, check=True)
+        subprocess.run(["git", "commit", "-m", "heartbeat"], cwd=heartbeat, check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=heartbeat, check=True, stdout=subprocess.DEVNULL)
+        # An operator `git pull` in the shared authority checkout owns FETCH_HEAD.
+        fetch_head = authority / ".git" / "FETCH_HEAD"
+        fetch_head.write_text("operator-pull-in-progress\n")
+        keys = ("GRAINEE_ROOT", "CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT", "CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE")
+        old = {key: os.environ.get(key) for key in keys}
+        try:
+            os.environ["GRAINEE_ROOT"] = str(isolated)
+            os.environ["CAESTHETIC_SYNC_GRAINEE_AUTHORITY_ROOT"] = str(authority)
+            os.environ["CAESTHETIC_SYNC_GRAINEE_AUTHORITY_REMOTE"] = "origin"
+            SYNC.push_main(isolated)
+        finally:
+            for key, value in old.items():
+                if value is None:
+                    os.environ.pop(key, None)
+                else:
+                    os.environ[key] = value
+        remote = subprocess.check_output(["git", "ls-remote", str(bare), "refs/heads/main"], text=True).split()[0]
+        self.assertEqual(remote, subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=isolated, text=True).strip())
+        subjects = subprocess.check_output(["git", "log", "--format=%s", "main"], cwd=isolated, text=True).split()
+        self.assertEqual(subjects, ["isolated", "heartbeat", "seed"])
+        self.assertEqual(fetch_head.read_text(), "operator-pull-in-progress\n")
+
 
 if __name__ == "__main__":
     unittest.main()

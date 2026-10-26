@@ -1,6 +1,29 @@
 # START
 
+
+
+**PACK4 trigger:** On `pack4` / `PACK4` / `пак4` for Simon, before other work read [`docs/ssot/PACK4_SSOT.md`](docs/ssot/PACK4_SSOT.md), ask only missing client-case questions, then follow its four-document approval and delivery path. No unsolicited send or signature.
+
 Read `/AGENTS.md`, then the nearest project-level `AGENTS.md` (or run `pnpm agent:context <project>`).
+
+## ASR-1 — автономный ship, ноль напоминаний (founder-literal)
+
+Основатель **не напоминает** про commit / merge / push / deploy. Агент доводит
+начатую задачу до `main` и production (если runtime) **в том же ходе**, без
+вопроса и без «следующего шага». Вопросы «закоммитить?», «смержить?», «деплоить?»,
+«одобряешь?», «готово локально», «жду подтверждения» = FAIL. Блокер — только
+внешняя невозможность после перебора каналов, сообщается в том же ходе диагнозом.
+**Чат — не хранилище:** ответ с последствиями сразу попадает в `main` и в среду
+исполнения (VDS `/var/www/grainee-v2`), чтобы другой агент прочитал его оттуда.
+Канон: [`docs/ssot/AUTONOMOUS_SHIP_CANON.md`](docs/ssot/AUTONOMOUS_SHIP_CANON.md).
+Guard: `node scripts/repo/check-autonomous-ship.mjs`.
+Без предупреждений и без служебных слов: не анонсировать действие и не спрашивать
+«дай добро»; основателю — результат («сохранил», «опубликовал», «обновил сервер»),
+а не слова процесса («коммит», «мердж», «пуш», «деплой», «PR», «ветка»).
+Формулировку агент выбирает сам и словарь расширяет сам, без вопросов и без
+уведомлений: [`docs/ssot/FOUNDER_COMMUNICATION_CANON.md`](docs/ssot/FOUNDER_COMMUNICATION_CANON.md).
+Вопросов основателю нет вообще, а все технические решения агент принимает и
+выполняет сам после каждого сообщения — до его отправки.
 
 ## Token budget (DEC-757)
 

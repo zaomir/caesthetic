@@ -4,6 +4,8 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import {createHash} from "node:crypto";
+import {cachedSessionMatches,localDebuggerEndpoint} from "../../../services/social-browser-operator/scripts/chatgpt-session-supervisor.mjs";
 import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
 import {
@@ -19,7 +21,9 @@ import { aggregateInbox, contentRefHash } from "./sanitize.mjs";
 import { createScheduledPost, listSanitizedPosts, reconcileHooppyPost } from "./hooppy.mjs";
 import { findFleetJob } from "./fleet-status.mjs";
 import { windowState } from "./window.mjs";
-import { acquireProfileLease } from "../../../services/social-browser-operator/scripts/lib/fleet-runtime.mjs";
+import { acquireProfileLease as acquireCanonicalProfileLease, releaseProfileLease } from "../../../services/social-browser-operator/scripts/lib/delfin-profile-lease.mjs";
+
+const PROBE_SOURCE_SHA=createHash('sha256').update(fs.readFileSync(new URL(import.meta.url))).digest('hex');
 
 const DOLPHIN = process.env.DOLPHIN_OPERATOR_PACKAGE || "/opt/dolphin-profile-control/current";
 const SBO = process.env.SBO_OPERATOR_PACKAGE || process.env.SBO_PKG_ROOT || "/opt/social-browser-operator/current";
@@ -139,21 +143,18 @@ function classifySnapshot(url, title, text) {
   return "ok";
 }
 
-function identityVerified(surfaceId, url, title, text) {
-  const blob = `${url}\n${title}\n${text}`;
-  if (surfaceId === "valeria-lana-linkedin") {
-    return /valeriia petrova|valerie petra|валерия петрова|valeriia-petrova-uk/i.test(blob);
-  }
-  if (surfaceId === "valeria-lana-facebook") {
-    return /lana evans|facebook\.com/i.test(blob);
-  }
-  if (surfaceId === "caesthetic-instagram") {
-    return /caesthetic\.growth/i.test(blob);
-  }
-  if (surfaceId === "caesthetic-tiktok") {
-    return /user6837161549441|caesthetic/i.test(blob);
-  }
-  return false;
+export function canAdoptSupervisorSession(parked,running,command,version) {
+  try {
+    return parked?.holder==='sbo-chatgpt-sessions' &&
+      cachedSessionMatches(parked,running,command,DOLPHIN_PROFILE_ID) &&
+      localDebuggerEndpoint(version,Number(parked.debug_port))===parked.cdp_endpoint;
+  } catch {return false;}
+}
+
+export function verifiedLinkedInSelf(snapshot) {
+  // The self route may stay /in/me in the live SPA; require the observed account heading too.
+  return /^https:\/\/www\.linkedin\.com\/in\/(?:me|valerie-petra-uk)\/?(?:[?#]|$)/i.test(snapshot.url || '') &&
+    /^(valeriia petrova|valerie petra|валерия петрова)$/i.test(String(snapshot.heading || '').trim());
 }
 
 function readIdentityCache(now = Date.now()) {
@@ -189,7 +190,9 @@ export function listReadyPackages() {
   return found;
 }
 
-async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
+async function runLinkedInProbe({ holder = "cae-social-readiness", onVerified = null } = {}) {
+  const holdFile=path.join(FLEET_STATE_DIR,"profiles/valeriia-lana/HOLD");
+  const holdHash=fs.existsSync(holdFile)?createHash("sha256").update(fs.readFileSync(holdFile)).digest("hex"):null;
   if (skipBrowser()) {
     return {
       probed: false,
@@ -200,13 +203,26 @@ async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
       code: "BROWSER_SKIPPED",
     };
   }
-  const lease = acquireProfileLease(FLEET_STATE_DIR, {
-    profileId: DOLPHIN_PROFILE_ID,
-    jobId: `cae-social-probe-${process.pid}`,
-    worker: "caesthetic-social",
-    ttlMs: 20 * 60 * 1000,
+  // Retain the supervisor's protected handoff before it voluntarily clears ownership.
+  const {readOperatorState,writeOperatorState}=await import(pathToFileURL(path.join(DOLPHIN,'dist/browser/state.js')).href);
+  const directHandoff=await readOperatorState(DOLPHIN_PROFILE_ID).catch(()=>null);
+  const handoffs=[{source:'operator_state',state:directHandoff},
+    {source:'supervisor_cache',state:(!directHandoff||directHandoff.holder==='sbo-chatgpt-sessions')?readJson(`/var/lib/sbo-chatgpt-sessions/${DOLPHIN_PROFILE_ID}.json`):null}].filter(r=>r.state);
+  const adoptionDiagnostics={candidates:handoffs.map(r=>({source:r.source,supervisor:r.state.holder==='sbo-chatgpt-sessions',has_browser_pid:!!r.state.browser_pid,has_run_id:!!r.state.dolphin_run_id})),adopted:false};
+  // Own the cross-project operation lock before any lifecycle action, including a failed start's cleanup.
+  const {acquireProfileOpLock}=await import(pathToFileURL(path.join(SBO,'dist/browser/profile-op-lock.js')).href);
+  let operationLock;
+  try {operationLock=await acquireProfileOpLock(DOLPHIN_PROFILE_ID,{holder,waitMs:0});}
+  catch {return {probed:false,identity_verified:false,messaging_open:false,code:'PROFILE_OPERATION_BUSY'};}
+  // Cooperatively request the read-only supervisor to yield; never reclaim a live writer's lease.
+  const acquired = acquireCanonicalProfileLease(DOLPHIN_PROFILE_ID, {
+    ownerPid: process.pid, holder, jobId: `cae-social-probe-${process.pid}`, ttlMs: 20 * 60 * 1000,
+    leaseDir: path.join(FLEET_STATE_DIR, 'leases'),
   });
+  const lease = acquired.acquired ? {lease: acquired.record, path: acquired.path,
+    release: () => releaseProfileLease(DOLPHIN_PROFILE_ID, {ownerPid: process.pid, leaseId: acquired.record.lease_id, leaseDir: path.join(FLEET_STATE_DIR, 'leases')})} : null;
   if (!lease) {
+    await operationLock.release();
     return {
       probed: false,
       identity_state: "unchecked",
@@ -225,13 +241,34 @@ async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
     DOLPHIN_OPERATOR_PACKAGE: DOLPHIN,
     SBO_OPERATOR_PACKAGE: SBO,
   };
-  const started = spawnSync(process.execPath, [startScript, DOLPHIN_PROFILE_ID, `--holder=${holder}`], {
+  let adopted=false;
+  try {
+    const {loadDolphinOperatorEnv}=await import(pathToFileURL(path.join(DOLPHIN,'scripts/lib/env.mjs')).href);
+    const {loginDolphinLocal,getRunningProfiles}=await import(pathToFileURL(path.join(DOLPHIN,'dist/browser/dolphin-local-client.js')).href);
+    const e=loadDolphinOperatorEnv(),c={localApiUrl:e.DOLPHIN_LOCAL_API_URL||'http://127.0.0.1:3001',apiToken:e.DOLPHIN_API_TOKEN};
+    const token=await loginDolphinLocal(c),running=(await getRunningProfiles(c,token))[DOLPHIN_PROFILE_ID];
+    for(const candidate of handoffs) {
+      try {
+      const parked=candidate.state;
+      if(!running || !Number(parked.browser_pid) || Number(parked.browser_pid)!==Number(running.pid))continue;
+      const command=fs.readFileSync(`/proc/${Number(running.pid)}/cmdline`,'utf8');
+      const response=await fetch(`http://127.0.0.1:${Number(parked.debug_port)}/json/version`,{signal:AbortSignal.timeout(3000),redirect:'error'});
+      const version=await response.json();
+      if(canAdoptSupervisorSession(parked,running,command,version)) {
+        await writeOperatorState({...parked,owner_pid:process.pid,holder,lease_id:lease.lease.lease_id,updated_at:new Date().toISOString()});
+        adopted=true;adoptionDiagnostics.adopted=true;adoptionDiagnostics.source=candidate.source;break;
+      }
+      } catch {} // A stale logical handoff must not hide a valid preserved supervisor cache.
+    }
+  } catch {}
+  const started = adopted ? {status:0} : spawnSync(process.execPath, [startScript, DOLPHIN_PROFILE_ID, `--holder=${holder}`], {
     encoding: "utf8",
     env,
     timeout: 180_000,
   });
   if (started.status !== 0) {
     lease.release();
+    await operationLock.release();
     return {
       probed: false,
       identity_state: "unchecked",
@@ -239,9 +276,11 @@ async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
       messaging_open: false,
       unread_count: null,
       code: "PROFILE_START_FAILED",
+      adoption_diagnostics:adoptionDiagnostics,
       detail: String(started.stderr || started.stdout || "").slice(0, 240),
     };
   }
+  let session = null, selfDiagnostics = null;
   let result = {
     probed: true,
     identity_state: "unchecked",
@@ -252,17 +291,23 @@ async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
   };
   try {
     const { connectSocialSession } = await import(pathToFileURL(path.join(SBO, "dist/browser/connect.js")).href);
-    const session = await connectSocialSession(DOLPHIN_PROFILE_ID, /linkedin\.com/i);
+    session = await connectSocialSession(DOLPHIN_PROFILE_ID, /linkedin\.com/i);
     const page = session.page;
-    await page.goto("https://www.linkedin.com/in/valeriia-petrova-uk/", {
+    await page.goto("https://www.linkedin.com/in/me/", {
       waitUntil: "domcontentloaded",
       timeout: 60_000,
     }).catch(() => null);
+    await page.locator("main h1, main section h2").first().waitFor({state:"visible", timeout:15000}).catch(() => null);
     const identitySnap = await page.evaluate(() => ({
+      heading: (document.querySelector("main")?.querySelector("section") || document.querySelector("main"))?.querySelector("h1,h2")?.textContent || "",
       url: location.href,
       title: document.title,
       text: (document.body?.innerText || "").slice(0, 8000),
     }));
+    const observedPath=new URL(identitySnap.url).pathname.replace(/\/$/,'');
+    selfDiagnostics={known_path:['/in/me','/in/valerie-petra-uk','/in/valeriia-petrova-uk','/feed','/login','/checkpoint'].includes(observedPath)?observedPath:'other',
+      heading_present:!!identitySnap.heading,heading_exact:/^(valeriia petrova|valerie petra|валерия петрова)$/i.test(String(identitySnap.heading||'').trim()),
+      heading_contains_known:/valeriia petrova|valerie petra|валерия петрова/i.test(identitySnap.heading||''),title_contains_known:/valeriia petrova|valerie petra|валерия петрова/i.test(identitySnap.title||'')};
     const identityClass = classifySnapshot(identitySnap.url, identitySnap.title, identitySnap.text);
     if (identityClass !== "ok") {
       result = {
@@ -271,7 +316,7 @@ async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
         code: identityClass === "challenge" ? "CHALLENGE_OR_RESTRICTION" : "LOGIN_REQUIRED",
         observed_url_host: safeHost(identitySnap.url),
       };
-    } else if (!identityVerified("valeria-lana-linkedin", identitySnap.url, identitySnap.title, identitySnap.text)) {
+    } else if (!verifiedLinkedInSelf(identitySnap)) {
       result = { ...result, identity_state: "mismatch", code: "IDENTITY_MISMATCH" };
     } else {
       await page.goto("https://www.linkedin.com/messaging/", {
@@ -296,6 +341,7 @@ async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
         code: inboxClass === "challenge" ? "CHALLENGE_OR_RESTRICTION" : inboxClass === "login_required" ? "LOGIN_REQUIRED" : null,
         observed_url_host: safeHost(inboxSnap.url),
       };
+      if (result.identity_verified && result.messaging_open && onVerified) await onVerified(page);
     }
   } catch (err) {
     result = {
@@ -313,8 +359,24 @@ async function runLinkedInProbe({ holder = "cae-social-readiness" } = {}) {
       env,
       timeout: 120_000,
     });
+    if (session) await session.release().catch(() => {});
     lease.release();
+    await operationLock.release();
   }
+  // Independently verify Local API stop; operator-stop itself uses best-effort cleanup.
+  let profileStopped=false;
+  try {
+    const {loadDolphinOperatorEnv}=await import(pathToFileURL(path.join(DOLPHIN,'scripts/lib/env.mjs')).href);
+    const {loginDolphinLocal,getRunningProfiles}=await import(pathToFileURL(path.join(DOLPHIN,'dist/browser/dolphin-local-client.js')).href);
+    const e=loadDolphinOperatorEnv(),c={localApiUrl:e.DOLPHIN_LOCAL_API_URL||'http://127.0.0.1:3001',apiToken:e.DOLPHIN_API_TOKEN};
+    const t=await loginDolphinLocal(c);profileStopped=!(await getRunningProfiles(c,t))[DOLPHIN_PROFILE_ID];
+  } catch {}
+  result.identity_proof='linkedin_in_me_v1';
+  result.self_diagnostics=selfDiagnostics;
+  result.adoption_diagnostics=adoptionDiagnostics;
+  result.profile_stopped=profileStopped;
+  result.hold_sha256=holdHash;
+  result.probe_source_sha256=PROBE_SOURCE_SHA;
   result.generated_at = new Date().toISOString();
   writeJson(IDENTITY_CACHE, result);
   if (result.identity_verified) {
@@ -340,12 +402,12 @@ function safeHost(url) {
   }
 }
 
-export async function probeIdentity({ force = false } = {}) {
-  if (!force) {
+export async function probeIdentity({ force = false, onVerified = null } = {}) {
+  if (!force && !onVerified) {
     const cached = readIdentityCache();
     if (cached) return { ...cached, cached: true };
   }
-  return runLinkedInProbe();
+  return runLinkedInProbe({onVerified});
 }
 
 export function surfaceIdentity(surfaceId, probe) {

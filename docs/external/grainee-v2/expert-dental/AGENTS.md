@@ -1,5 +1,71 @@
 # AGENTS.md — root agent entry (Phase 1 slim + DEC-757 token budget)
 
+## 🔒 Simon outreach production canon (2026-10-22) — roll back to it, never around it
+
+`docs/ssot/SIMON_OUTREACH_PRODUCTION_CANON_2026-10-22.md`, tag `simon-outreach-canon-2026-10-22`. Before and after touching
+`scripts/vps2402/*simon*`, `scripts/simon/`, `services/social-browser-operator/`, `config/simon-outreach/` or the text canon run
+`python3 scripts/simon/canon_verify.py`; on drift run `--restore`. Only the founder's literal instruction may re-baseline (`--update`).
+
+## 🔒 Simon ICP filters are founder-locked (DEC-SIMON-027, 2026-10-22)
+
+ICP data = LinkedIn only; no external services; no evidence/fact gate; send window = Paris, `config/simon-outreach/send-window.json` (DEC-SIMON-029; the London windows of DEC-027 and canon v2.4 are superseded, DEC-SIMON-037).
+**No agent may add, remove or edit a source, gate, filter, keyword, saved search or window in
+`config/simon-outreach/icp-filters.json`, or edit the InMail text canon, without a literal instruction from
+the founder in the current conversation.** `tests/ops/test_simon_icp_filter_lock.py` fails on any drift.
+The send freeze was lifted on 2026-10-22 at the founder's instruction (commit `37606d5a8d` removed
+`config/simon-outreach/SEND_FREEZE.json`). Gates G1–G5 of
+`docs/ops/sender1/SIMON_OUTREACH_P0_REPAIR_PLAN_2026-10-22.md` remain the reliability backlog; never message anyone in
+`config/simon-outreach/do-not-contact.json`.
+
+**Simon outreach — работа по пайплайну:** карта блоков `docs/ssot/SIMON_OUTREACH_PIPELINE_2026-10-22.md`, строгий рунбук
+`docs/ops/simon-outreach/AGENT_RUNBOOK.md`, проверка `python3 scripts/simon/pipeline_check.py`. Реальную отправку — только с фразой основателя `ОТПРАВИТЬ <batch> <digest12>` для этой пачки (DEC-SIMON-029), по Парижу. Неотвеченные треды — не гейт (DEC-SIMON-036; снят в коде этапом A, DEC-SIMON-037).
+Решения по автопилоту и починка этапа A — `docs/founder-notes/DEC-SIMON-037_autopilot_decisions_and_stage_a_repair.md`;
+целевой контур и этапы — `docs/ssot/SIMON_OUTREACH_AUTOPILOT_PROPOSAL_2026-10-22.md`. Автопилот (DEC-SIMON-039): `scripts/vps2402/simon_autopilot.py status`; сухой, пока основатель не напишет `ВКЛЮЧИТЬ АВТОПИЛОТ <policy_sha12>`; `approve --phrase` только с его фразой.
+
+## 🔴 ASR-1 — автономный ship, НОЛЬ напоминаний (founder-literal, 2026-10-21)
+
+**Основатель не напоминает про коммит, merge, push и deploy.** Всё, что агент
+начал, доводится до `main` (и до production, если затронут runtime / `site-*` /
+public surface) **в том же ходе**, без вопроса и без «следующего шага».
+
+- **Не заканчивать ответ** вопросами «закоммитить?», «смержить?», «деплоить?»,
+  «одобряешь?», «продолжать?» и формулировками «готово локально», «PR создан»,
+  «осталось смержить/задеплоить», «жду подтверждения», «следующим шагом».
+- **Чат — не хранилище.** Любой ответ, который что-то меняет, решает или создаёт
+  знание, в том же ходе попадает в `main` **и** синхронизируется в среду
+  исполнения (VDS `/var/www/grainee-v2`, сервер проекта) — чтобы следующий агент
+  прочитал это из репозитория/сервера, а не из пересказа. «Сохранил в чат»,
+  «закоммичу позже», «уточни, куда коммитить» = FAIL.
+- **Без предупреждений и без служебных слов.** Не анонсировать «сейчас сохраню /
+  опубликую / обновлю сервер» и не спрашивать «дай добро» — делать и показывать
+  результат. Основателю — человеческий результат: «сохранил», «опубликовал»,
+  «обновил сервер», «изменение уже у всех агентов». Слова «коммит», «мердж»,
+  «пуш», «деплой», «PR», «ветка», «репозиторий» в ответе основателю не
+  употреблять — это FAIL. Как сказать иначе — агент решает сам, словарь
+  [`docs/ssot/PLAIN_LANGUAGE_GLOSSARY.md`](docs/ssot/PLAIN_LANGUAGE_GLOSSARY.md)
+  при нужде расширяет сам; спрашивать «как это назвать» и уведомлять о правке
+  нельзя. Канон:
+  [`docs/ssot/FOUNDER_COMMUNICATION_CANON.md`](docs/ssot/FOUNDER_COMMUNICATION_CANON.md).
+- **Никаких вопросов основателю.** Ни про технику, ни про выбор, ни про
+  формулировку. Не хватает данных — агент берёт лучшее допущение, называет его
+  одной строкой и продолжает. Технические решения (сохранение, публикация,
+  слияние, выкладка, обновление сервера, разбор расхождений, откат) агент
+  принимает и выполняет сам после каждого сообщения, до его отправки.
+- **Рабочая линия слита после каждого сообщения:** к отправке ответа она
+  совпадает с `main`, удалённая копия удалена, открытых предложений нет.
+- **Порядок:** проверки → commit (только файлы задачи) → merge в `main` →
+  non-force push → deploy/DEPLOY_TARGET → prod smoke → sync VDS/сервера →
+  запись SHA → `LAST_SYNC` / `CONTEXT_HANDOFF` → отчёт с evidence.
+- **Блокер** — только внешняя невозможность после перебора каналов (local
+  `agent-deploy.sh`, SSH/MCP VDS, Agent API Bridge); сообщается в том же ходе
+  как диагноз, а не как вопрос.
+- **Юридические подписи, реальные отправки аутрича, оплаты, named-human approval
+  клиентского отчёта** останавливают только само внешнее действие — код, docs,
+  commit, merge, push и deploy всё равно шипятся сразу.
+- **Канон:** [`docs/ssot/AUTONOMOUS_SHIP_CANON.md`](docs/ssot/AUTONOMOUS_SHIP_CANON.md).
+  Guard: `node scripts/repo/check-autonomous-ship.mjs`. Отмена/ослабление —
+  только буквальной командой основателя.
+
 <!-- durable-agent-execution:v1 -->
 ## Durable execution / restart
 Before long-running work or retry, read `.agent-execution/README.md` and the
@@ -9,7 +75,46 @@ unit. UI stream is not state. Reconcile pending operations and skip matching
 verified work on restart. Run `python3 .agent-execution/check.py` before ship.
 This execution adapter preserves all project, privacy, merge, sync and deploy
 authorities below; it does not activate scheduling or outreach.
+
+
+## Universal PACK4 router — Simon async 4-document sales pack (DEC-SIMON-021)
+
+If a user or agent invokes **`pack4` / `PACK4` / `пак4`** or asks to run PACK4 for a client, **first read [`docs/ssot/PACK4_SSOT.md`](docs/ssot/PACK4_SSOT.md)** and start its conversational intake. Ask only the next missing question, reuse known case data, and do not invent an asset, Simon's signature, lawyers, insurance or issued documents. A bare `pack4` starts with the three-way choice: client / illustrative sample / existing case. Explaining or editing the canon is not a client intake. This route **takes precedence over broad outreach/SENDER1 keyword rules** for preparing the four documents; actual outreach still follows the existing SENDER1/Valeriia controlled-pilot policy. Never send, sign, invoice, publish or start a timer on the trigger alone. Canon: `docs/ssot/PACK4_SSOT.md`. This only routes agents that load this repo's instructions.
+
 <!-- /durable-agent-execution:v1 -->
+
+## Simon portfolio retainer and Red Flag Desktop template (2026-10-22)
+
+If a user or agent asks about **Portfolio Watch**, a **portfolio retainer / ретейнер / абонемент** for Oxford Frame or Simon, the **Watch 10 / Watch 20** plans, or the **Red Flag Desktop template / шаблон разбора / Red Flag Report** for Simon's approval, **first read** the matching canon below. Both are **not approved**: do not quote them to a client, do not publish them, and do not send, sign or invoice anything from them.
+
+- Retainer offer and its legal blockers: [`docs/ssot/SIMON_PORTFOLIO_WATCH_OFFER_2026-10-22.md`](docs/ssot/SIMON_PORTFOLIO_WATCH_OFFER_2026-10-22.md)
+- Desktop report template, worked example and questions for specialists: [`docs/ssot/SIMON_RED_FLAG_DESKTOP_TEMPLATE_2026-10-22.md`](docs/ssot/SIMON_RED_FLAG_DESKTOP_TEMPLATE_2026-10-22.md)
+- Founder decision note: [`docs/founder-notes/SIMON_PORTFOLIO_WATCH_2026-10-22.md`](docs/founder-notes/SIMON_PORTFOLIO_WATCH_2026-10-22.md)
+
+Legal and tax points in these documents stay **PENDING** until a named avocat, fiscaliste or insurance broker confirms them in writing ([Oxford Legal Canon](docs/ssot/OXFORD_LEGAL_CANON.md)). The worked example is a synthetic composite, not a client case.
+
+## Universal Oxford legal pre-router — Oxford/Simon FR regulatory (LEGAL CANON v1.1)
+
+**Before answering or modifying Oxford legal/compliance topics**, invoke
+`node scripts/oxford-legal/intent-router.mjs --prompt "<user request>"`.
+On `matched:true`, **first read [Oxford Legal Canon](docs/ssot/OXFORD_LEGAL_CANON.md)**.
+Scope: OXFORD PROJECTS LTD / Oxford Frame / Simon client engagements and legal,
+contracts, Full lawyer/third-party payments, French TVA, Hoguet/Carte T,
+Operating Partner / construction liability / décennale, insurance, UK–France
+permanent establishment, immigration/employment, GDPR and regulated finance.
+RU/EN/FR synonyms are handled in the intent router.
+The canon is **founder-approved business guardrails with legal review PENDING**,
+not a lawyer's sign-off. It controls legal scope and legal holds, **not** business
+pricing/URLs/corporate facts, which remain governed by
+[`OXFORD_FRAME_DOMAIN_AND_PRODUCT_CANON.md`](docs/ssot/OXFORD_FRAME_DOMAIN_AND_PRODUCT_CANON.md),
+DEC-SIMON-017/021/024 and `SIMON_STATE_OF_TRUTH.md`.
+Legal conflicts put action on HOLD and require specialist review; never silently
+change Full's included specialists, quote, invoices or signed arrangements.
+**PACK4 bare invocation keeps its intake above**; the legal canon applies
+*additively* when PACK4 concerns contracts, tax, insurance or law. SENDER1/Twenty
+transport gates remain independently mandatory. This is documentation/agent
+routing only, not a runtime listener or authority to publish, bill or send.
+Skill: [`.cursor/skills/oxford-legal/SKILL.md`](.cursor/skills/oxford-legal/SKILL.md).
 
 ## ROVLEX research discovery — RU-speaking US businesses
 
@@ -74,9 +179,14 @@ bash /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/repo/fetch-twe
 | Fetch helper | [`scripts/repo/fetch-twenty-canon.sh`](scripts/repo/fetch-twenty-canon.sh) |
 | CPRP sync | [`docs/caesthetic/partner-revenue/TWENTY_SYNC_CONTRACT.md`](docs/caesthetic/partner-revenue/TWENTY_SYNC_CONTRACT.md) |
 | Backup | [`docs/ssot/TWENTY_WAHA_BACKUP.md`](docs/ssot/TWENTY_WAHA_BACKUP.md) |
+| **OPS REGULATION (BINDING)** | [`docs/ssot/TWENTY_OPS_REGULATION.md`](docs/ssot/TWENTY_OPS_REGULATION.md) |
+| Incident register | [`docs/ops/twenty/INCIDENT_REGISTER.md`](docs/ops/twenty/INCIDENT_REGISTER.md) |
+| Watchdog / backup / restore | `scripts/ops/twenty-watchdog.sh` · `twenty-backup.sh` · `twenty-restore.sh` |
 | Skill | [`.cursor/skills/twenty-crm/SKILL.md`](.cursor/skills/twenty-crm/SKILL.md) |
 
 Поиск «CRM twenty» без этого роутера = FAIL. Не открывать SENDER1 Intake вместо канона. MAP2 остаётся воронкой `ru.tc/money`.
+
+**Строгое соблюдение (обязательно для всех агентов):** перед любым чтением/записью/ремонтом/обновлением Twenty — health first `scripts/ops/twenty-watchdog.sh --check`, затем регламент §5–§9. Нарушение запретов §6 (F1–F15: `down -v`, правка live compose руками, `latest`, SQL по `workspace_*`, ключ в чат/лог, `EnvironmentFile=/etc/evo/deploy.env`, мёртвые адреса) = FAIL задачи. Проверки: `node scripts/twenty/check-ops-regulation.mjs` + `check-route-wired.mjs` (входят в `docs-guards`).
 
 ## Universal COLDER2 pre-router (DEC-904 — any agent / any repo)
 
@@ -99,6 +209,8 @@ node /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/colder2/intent
 
 ## Universal SENDER1 pre-router (DEC-894/895/896 — any agent / any repo)
 
+**Любой аутрич — SENDER1 по умолчанию.** При недоступности/сбое последовательно пробовать все остальные реально доступные, разрешённые и реализованные в repo способы отправки/публикации, включая Hooppy и Social Browser Operator, до подтверждённого успеха или исчерпания вариантов. Канон: [`SENDER1_SSOT.md §1.1`](docs/ssot/SENDER1_SSOT.md#outreach-default-and-fallback). Неизвестный исход → reconcile до следующей попытки; общий ключ дедупликации, журнал результатов/ошибок и ограничения аккаунтов обязательны. Очередь/расписание не равны отправке. Правка канона не запускает кампанию.
+
 **Первая команда (fail-closed):**
 
 ```bash
@@ -118,9 +230,42 @@ Twenty CRM / `CRM twenty` → секция выше (`scripts/twenty/intent-rout
 | Fake rejector | [`scripts/sender1/reject-fake-patterns.mjs`](scripts/sender1/reject-fake-patterns.mjs) |
 | Cross-repo pointer | [`docs/ssot/SENDER1_CROSS_REPO_POINTER.md`](docs/ssot/SENDER1_CROSS_REPO_POINTER.md) |
 | ADR-012 | [`docs/architecture/ADR-012_AUTOMATION_CONTROL_PLANE_AND_WORKERS.md`](docs/architecture/ADR-012_AUTOMATION_CONTROL_PLANE_AND_WORKERS.md) |
+| **OPS REGULATION (BINDING)** | [`docs/ssot/SENDER1_OPS_REGULATION.md`](docs/ssot/SENDER1_OPS_REGULATION.md) |
+| As-built / recovery | [`docs/ops/sender1/SENDER1_ARCHITECTURE_AND_RECOVERY.md`](docs/ops/sender1/SENDER1_ARCHITECTURE_AND_RECOVERY.md) |
+| Incident register | [`docs/ops/sender1/INCIDENT_REGISTER.md`](docs/ops/sender1/INCIDENT_REGISTER.md) |
+| Improvements / architect Qs | [`docs/ops/sender1/IMPROVEMENTS_AND_ARCHITECT_QUESTIONS.md`](docs/ops/sender1/IMPROVEMENTS_AND_ARCHITECT_QUESTIONS.md) |
+| Watchdog / backup / install | `scripts/ops/sender1-watchdog.sh` · `sender1-backup.sh` · `sender1-ops-install.sh` |
 | Skill | [`.cursor/skills/sender1/SKILL.md`](.cursor/skills/sender1/SKILL.md) |
 
+**Строгое соблюдение (обязательно для всех агентов, DEC-919):** перед любым чтением/записью/запуском/ремонтом/деплоем SENDER1 — health first `ssh grainee 'sender1-watchdog --check'` (или `bash scripts/ops/sender1-watchdog.sh --check`), затем регламент §R1–R12 и §SOP-1…6. Нарушение R-правила или совершение F-действия (`docker compose down -v`, правка live compose/nginx/SPA руками, `windmill:main` в prod, трактовка `POST /cock2-api/state` (409 advisory) как паузы, «ACTIVE = работает», повторная отправка при `uncertain`, секрет в git/чат, `rm HOLD`, обход ban/opt-out) = **FAIL задачи** + откат + запись `INC-S1`. Проверки: `node scripts/sender1/check-ops-regulation.mjs` + `node scripts/repo/docs-guards.mjs`. Дашборд `sender.evo.do` — карта конфигурации, **не** доказательство выполнения: истина = executor receipt + `health.json`.
+
 Intake **overrides** «не спрашивай — делай». Mega-runner / Dolphin REST на `:13000` = FAIL (docs-guards).
+
+---
+
+## Universal SOCIAL ACTIVITY LIMITS pre-router (founder-locked, 2026-10-21 — any agent / any repo)
+
+**Любой лимит/кап/потолок/квота/темп прогрева/аутрича — только по единому канону.** Канон: [`docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md`](docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md) — единственный источник истины для всех аккаунтов (существующих и новых), всех соцсетей и всех типов активностей.
+
+**Первая команда (fail-closed):**
+
+```bash
+node scripts/limits/intent-router.mjs --prompt "<задача>"
+# foreign cwd:
+node /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/limits/intent-router.mjs --prompt "<задача>"
+```
+
+**Founder-literal lock:** менять значения лимитов/гейтов **запрещено без явного указания основателя**. Автоматические safety-снижения (circuit breaker, cooldown, delivery/accept-rate паузы) — не изменение канона. Внутренний потолок **не выдавать** за лимит площадки.
+
+| Artifact | Path |
+|----------|------|
+| **Intent router** | [`scripts/limits/intent-router.mjs`](scripts/limits/intent-router.mjs) |
+| **Canon** | [`docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md`](docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md) |
+| Inventory (audit) | [`docs/ssot/SOCIAL_ACTIVITY_LIMITS_INVENTORY.md`](docs/ssot/SOCIAL_ACTIVITY_LIMITS_INVENTORY.md) |
+| Recommendations (advisory) | [`docs/ssot/SOCIAL_ACTIVITY_LIMITS_RECOMMENDATIONS.md`](docs/ssot/SOCIAL_ACTIVITY_LIMITS_RECOMMENDATIONS.md) |
+| Volume governance | [`docs/ssot/OUTBOUND_VOLUME_AND_LIMIT_GOVERNANCE.md`](docs/ssot/OUTBOUND_VOLUME_AND_LIMIT_GOVERNANCE.md) |
+
+Триггеры: `лимит`, `limit`, `кап`, `cap`, `потолок`, `ceiling`, `квота`, `quota`, `гейт`, `gate`, `rate limit`, `throttle`, `daily cap`, `per day`, `warmup`, `прогрев`, `разгон`, `invite cap`, `action block`, `поднять лимит`, `повысить лимит`.
 
 ---
 
@@ -169,6 +314,10 @@ git fetch origin main -q && git pull --ff-only origin main
 ```
 
 - Push to `main` via normal merge/PR — no force-push.
+- **`main` is the only resting state.** A feature branch is transport: merge it into `main` in the same task, push, delete it. Never ask «мержить?» and never leave an open PR for a human to merge.
+- Merge mechanics: `git fetch origin main` → rebase branch on `origin/main` → re-run touched-zone guards → fast-forward merge → `git push origin main` (non-force).
+- Conflict → rebase and re-verify; duplicate commits (same change, different SHA) → drop yours, never replay `main`. Force-push stays forbidden.
+- Leave a branch unmerged only when it holds unverified/unrelated WIP or secrets — and then name that branch in the report instead of silently parking it.
 - **Structural Phase 1 PRs:** docs/control-plane only — **no production deploy** unless integrator explicitly ships runtime.
 - Parallel agents: pull before push; on reject → rebase, not force.
 
@@ -280,7 +429,7 @@ Phase 1 Lane A does **not** edit runtime, lockfiles, or deploy scripts.
    node scripts/repo/docs-guards.mjs
    node scripts/repo/docs-index.mjs
    ```
-3. Push to `main` (or feature branch → merge by integrator).
+3. Land on `main`: merge the finished branch yourself (§2), push, delete it. An open PR handed to a human = not done.
 4. **Runtime / site-* / public surface tasks (hard DoD, DEC-773 / DEC-887):** `main` + production deploy + public prod curl smoke + recorded `deployed_sha` (or release marker). Incomplete if stopped at «код готов / PR / CI green / можно деплоить / готово локально» or if the environment blocked `git push` without a GitHub-connector + Agent API fallback. ChatGPT without VDS: write allowlisted `docs/agent-api/requests/*.json` (`type=deploy`) → Agent API Bridge → read `docs/agent-api/results/*.json` (SSOT `docs/ssot/AGENT_API_ACCESS.md`). Agents with VDS/hook: `scripts/agent-deploy.sh --smoke …`.
 5. **Docs tasks:** update `docs/CONTEXT_HANDOFF.md` / `docs/LAST_SYNC.md`.
 6. Prod FAIL → revert + redeploy (runtime only).
@@ -342,6 +491,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 
 | Need | File |
 |------|------|
+| Social activity limits / лимиты, капы, гейты, прогрев | `docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md` · `scripts/limits/intent-router.mjs` |
 | Twenty CRM / CRM twenty / controlcenter | `docs/ssot/TWENTY_CRM.md` · `scripts/twenty/intent-router.mjs` |
 | Connect4 / 4444 / Четверки / Четвёрки explanation | `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` |
 | Pricing (EVO products) | `docs/ssot/PRICING_AND_PRODUCTS.md` |
@@ -353,6 +503,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 | SSOT index | `docs/ssot/INDEX.md` |
 | Reading order | `docs/READING_ORDER.md` |
 | Deploy channels | `docs/ssot/AGENT_DEPLOY_CHANNELS.md` |
+| Mac local folders / new laptop agent setup | `docs/ssot/MAC_LOCAL_AGENT_LAYOUT.md` |
 | Telegram desk (бот + человек) | `docs/ssot/TELEGRAM_BOT_DESK_STANDARD.md` |
 | Archive policy | `docs/global/ARCHIVE_POLICY.md` |
 
