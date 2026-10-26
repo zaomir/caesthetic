@@ -20,6 +20,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -103,7 +104,8 @@ PROTECTED_PREFIXES = (
     "scripts/caesthetic/build-spoken-medspa-v3.mjs",
     "scripts/caesthetic/check500-copy.mjs",
     "scripts/caesthetic/consistency-contract.mjs",
-    "scripts/caesthetic/growth-score-owner-v3",
+    "scripts/caesthetic/growth-score-owner-v3.mjs",
+    "scripts/caesthetic/growth-score-owner-v3-model.mjs",
     "scripts/caesthetic/spoken-v3-browser-qa.mjs",
     "tests/caesthetic/spoken-medspa-v3.test.mjs",
     "deploy/systemd/caesthetic-repo-sync.service",
@@ -111,6 +113,7 @@ PROTECTED_PREFIXES = (
     "site-caesthetic/",
     "docs/founder-notes/DEC-829.md",
     "docs/ssot/CAESTHETIC.md",
+    "docs/ssot/CAESTHETIC_PARTNER_REVENUE_PLATFORM.md",
     "docs/ssot/CAESTHETIC_OUTBOUND_DOMAIN_STANDARD.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_CLIENT_REPORT_STANDARD.md",
     "docs/ssot/CAESTHETIC_GROWTH_SCORE_PRODUCTION_SOP.md",
@@ -173,6 +176,11 @@ PROTECTED_PREFIXES = (
 STATE_REL = "docs/projects/caesthetic/.agents-sync-state.json"
 MARKER_REL = "docs/projects/caesthetic/AGENTS_REPO_SYNC.md"
 CONFLICTS_REL = "docs/projects/caesthetic/AGENTS_SYNC_CONFLICTS.md"
+MIRROR_MANIFEST_REL = f"{MIRROR_DEST}/.mirror-manifest.json"
+# Rewritten by every apply; sync decisions read the committed grainee state.
+GENERATED_RELS = (STATE_REL, MARKER_REL, CONFLICTS_REL, MIRROR_MANIFEST_REL)
+FETCH_ATTEMPTS = 3
+FETCH_RETRY_SECONDS = 2.0
 
 
 def run(cmd: List[str], cwd: Optional[Path] = None) -> None:
@@ -181,6 +189,19 @@ def run(cmd: List[str], cwd: Optional[Path] = None) -> None:
 
 def run_out(cmd: List[str], cwd: Optional[Path] = None) -> str:
     return subprocess.check_output(cmd, cwd=str(cwd) if cwd else None, text=True).strip()
+
+
+def run_fetch(cmd: List[str], cwd: Path) -> None:
+    # The authority checkout is shared with pollers and operators fetching the
+    # same refs; a concurrent update fails ours with "cannot lock ref".
+    for attempt in range(FETCH_ATTEMPTS):
+        try:
+            run(cmd, cwd=cwd)
+            return
+        except subprocess.CalledProcessError:
+            if attempt == FETCH_ATTEMPTS - 1:
+                raise
+            time.sleep(FETCH_RETRY_SECONDS)
 
 
 def authority_for(repo: Path) -> Optional[Tuple[Path, str]]:
@@ -200,17 +221,17 @@ def authority_for(repo: Path) -> Optional[Tuple[Path, str]]:
 def fetch_origin_main(repo: Path) -> None:
     authority_config = authority_for(repo)
     if not authority_config:
-        run(["git", "fetch", "origin", "main", "-q"], cwd=repo)
+        run_fetch(["git", "fetch", "origin", "main", "-q"], cwd=repo)
         return
     authority, remote = authority_config
     # The authority is the shared production checkout where operators run
     # `git pull`. Rewriting its FETCH_HEAD every 15 seconds made those pulls
     # fail with "Cannot fast-forward to multiple branches"; remote-tracking
     # refs are still updated.
-    run(["git", "fetch", "--no-write-fetch-head", remote, "main", "-q"], cwd=authority)
+    run_fetch(["git", "fetch", "--no-write-fetch-head", remote, "main", "-q"], cwd=authority)
     authority_ref = f"refs/remotes/{remote}/main"
-    run(["git", "fetch", "--no-tags", str(authority),
-         f"+{authority_ref}:refs/remotes/origin/main", "-q"], cwd=repo)
+    run_fetch(["git", "fetch", "--no-tags", str(authority),
+               f"+{authority_ref}:refs/remotes/origin/main", "-q"], cwd=repo)
 
 
 def push_main_once(repo: Path) -> None:
@@ -229,8 +250,8 @@ def push_main(repo: Path, attempts: int = 3) -> None:
     """Push local main, rebasing onto a concurrently advanced main and retrying.
 
     grainee main moves every few minutes (medspa heartbeat, Agent API results).
-    A rejected push aborts the run after the satellite has been written, which
-    leaves it dirty_checkout for every later run until repaired by hand.
+    A failure here aborts the run after the satellite has been written; the
+    next run can only heal bookkeeping (restore_interrupted_bookkeeping).
     """
     for attempt in range(attempts):
         try:
@@ -444,12 +465,37 @@ def delete_file(path: Path) -> None:
         path.unlink()
 
 
+def restore_interrupted_bookkeeping(repo: Path) -> bool:
+    """Restore bookkeeping an interrupted run left uncommitted, if that is all.
+
+    Every apply rewrites these files, so restoring them loses nothing. Any other
+    dirty path (a copied file) stays fatal: discarding it after the new state
+    was pushed would sync the stale side back on the next run.
+    """
+    dirty = set(run_out(["git", "diff", "--name-only", "HEAD"], cwd=repo).splitlines())
+    dirty |= set(run_out(["git", "ls-files", "--others", "--exclude-standard"], cwd=repo).splitlines())
+    dirty.discard("")
+    if not dirty or not dirty <= set(GENERATED_RELS):
+        return False
+    tracked = [
+        rel for rel in sorted(dirty)
+        if subprocess.run(["git", "cat-file", "-e", f"HEAD:{rel}"], cwd=str(repo),
+                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
+    ]
+    if tracked:
+        run(["git", "restore", "--source=HEAD", "--staged", "--worktree", "--"] + tracked, cwd=repo)
+    for rel in sorted(dirty - set(tracked)):
+        delete_file(repo / rel)
+    print(f"[{repo.name}] restored interrupted-run bookkeeping: {' '.join(sorted(dirty))}")
+    return True
+
+
 def sync_main_checkout(repo: Path) -> None:
     """Bring a clean local main to origin/main without discarding local commits."""
     fetch_origin_main(repo)
     run(["git", "checkout", "main"], cwd=repo)
     dirty = run_out(["git", "status", "--porcelain"], cwd=repo)
-    if dirty:
+    if dirty and not restore_interrupted_bookkeeping(repo):
         raise RuntimeError(f"dirty_checkout:{repo}")
 
     local = run_out(["git", "rev-parse", "HEAD"], cwd=repo)

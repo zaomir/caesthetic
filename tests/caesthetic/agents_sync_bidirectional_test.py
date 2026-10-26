@@ -4,6 +4,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
 
@@ -433,6 +434,66 @@ class DecideDeletionTest(unittest.TestCase):
         subjects = subprocess.check_output(["git", "log", "--format=%s", "main"], cwd=isolated, text=True).split()
         self.assertEqual(subjects, ["isolated", "heartbeat", "seed"])
         self.assertEqual(fetch_head.read_text(), "operator-pull-in-progress\n")
+
+    def test_interrupted_bookkeeping_is_restored_but_copied_files_stay_fatal(self):
+        root = Path(self.tmp.name)
+        bare = root / "remote.git"
+        repo = root / "satellite"
+        subprocess.run(["git", "init", "--bare", "--initial-branch=main", str(bare)], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "clone", str(bare), str(repo)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "config", "user.name", "Test"], cwd=repo, check=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=repo, check=True)
+        content = repo / "docs" / "projects" / "caesthetic" / "README.md"
+        for rel in (SYNC.STATE_REL, SYNC.MARKER_REL, SYNC.MIRROR_MANIFEST_REL, str(content.relative_to(repo))):
+            (repo / rel).parent.mkdir(parents=True, exist_ok=True)
+            (repo / rel).write_text(f"committed {rel}\n")
+        subprocess.run(["git", "add", "."], cwd=repo, check=True)
+        subprocess.run(["git", "commit", "-m", "sync"], cwd=repo, check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=repo, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+        # The 2026-10-26 01:11Z run died after writing these three files.
+        for rel in (SYNC.STATE_REL, SYNC.MARKER_REL, SYNC.MIRROR_MANIFEST_REL):
+            (repo / rel).write_text("interrupted run\n")
+        SYNC.sync_main_checkout(repo)
+        self.assertEqual(subprocess.check_output(["git", "status", "--porcelain"], cwd=repo, text=True), "")
+        self.assertEqual((repo / SYNC.STATE_REL).read_text(), f"committed {SYNC.STATE_REL}\n")
+
+        (repo / SYNC.STATE_REL).write_text("interrupted run\n")
+        content.write_text("copied from grainee\n")
+        with self.assertRaisesRegex(RuntimeError, "dirty_checkout"):
+            SYNC.sync_main_checkout(repo)
+        self.assertEqual(content.read_text(), "copied from grainee\n")
+
+    def test_authority_fetch_retries_a_locked_remote_tracking_ref(self):
+        root = Path(self.tmp.name)
+        bare = root / "remote.git"
+        repo = root / "authority"
+        other = root / "other"
+        subprocess.run(["git", "init", "--bare", "--initial-branch=main", str(bare)], check=True, stdout=subprocess.DEVNULL)
+        for clone in (repo, other):
+            subprocess.run(["git", "clone", str(bare), str(clone)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=clone, check=True)
+            subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=clone, check=True)
+        (other / "seed").write_text("one\n")
+        subprocess.run(["git", "add", "."], cwd=other, check=True)
+        subprocess.run(["git", "commit", "-m", "seed"], cwd=other, check=True, stdout=subprocess.DEVNULL)
+        subprocess.run(["git", "push", "origin", "main"], cwd=other, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # A concurrent poller fetch holds the ref lock when ours starts.
+        lock = repo / ".git" / "refs" / "remotes" / "origin" / "main.lock"
+        lock.parent.mkdir(parents=True, exist_ok=True)
+        lock.write_text("")
+        sleeps = []
+        old_time = SYNC.time
+        try:
+            SYNC.time = types.SimpleNamespace(sleep=lambda seconds: (sleeps.append(seconds), lock.unlink()))
+            SYNC.fetch_origin_main(repo)
+        finally:
+            SYNC.time = old_time
+        self.assertEqual(len(sleeps), 1)
+        self.assertEqual(
+            subprocess.check_output(["git", "rev-parse", "refs/remotes/origin/main"], cwd=repo, text=True),
+            subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=other, text=True),
+        )
 
 
 if __name__ == "__main__":
