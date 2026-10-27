@@ -368,7 +368,7 @@ pnpm agent:context <domain-or-project-id>
 
 Fallback: read manifest `read_first` (≤3 files) if `agent:context` fails.
 
-### Knowledge domains (9)
+### Knowledge domains (10)
 
 | Domain ID | Name | Status | Runtime projects |
 |-----------|------|--------|------------------|
@@ -380,6 +380,7 @@ Fallback: read manifest `read_first` (≤3 files) if `agent:context` fails.
 | `bototox` | US Pharma & Aesthetic Marketing | active | toxifillers |
 | `farmers-island` | Farmers Island | planned | — |
 | `mmjherb` | MMJHERB | planned | — |
+| `ca-eu-trade` | Central Asia → EU Trade House | planned | — |
 | `personal` | Personal | private-knowledge | — (no public deploy) |
 
 SSOT: `docs/ssot/PROJECT_DOMAIN_REGISTRY.md`, `docs/ssot/PROJECT_ARCHITECTURE_STANDARD.md`
