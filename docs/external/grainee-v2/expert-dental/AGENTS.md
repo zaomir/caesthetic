@@ -243,6 +243,22 @@ Intake **overrides** «не спрашивай — делай». Mega-runner / D
 
 ---
 
+## Universal WhatsApp +44 inbound pre-router (2026-10-29 — any agent / any repo)
+
+**Канон:** [`docs/projects/ca-eu-trade/operations/WHATSAPP_INBOUND_PIPELINE.md`](docs/projects/ca-eu-trade/operations/WHATSAPP_INBOUND_PIPELINE.md). Фразы `+44 inbound`, `входящие WhatsApp`, `релей`, `квитанции`, `receipts-185-216-214-28.sslip.io`, `agro-lead-relay`, `правило WhatsApp +44 inbound` → только этот файл.
+
+Инварианты (нарушение = FAIL задачи):
+
+- **Ноль служебных прогонов в Grok.** Живость доказывают квитанции реальных прогонов; heartbeat-пробы и hourly-поллеры не добавлять (обе схемы отброшены 2026-10-29).
+- **Никаких приватных ключей в промпте автоматизации.** Единственный допустимый секрет там — ротируемый `RECEIPT_TOKEN` (может только дописать строку квитанции).
+- **WAHA не подписывает Standard Webhooks** → webhook только на релей `http://agro-lead-relay:8099/agro-lead`, напрямую в `grok.com` — никогда.
+- Автоматизация **не отвечает** в WhatsApp, не ставит реакции, не отмечает прочитанным.
+- Старый bot-routine `bot-routine:5f71aca1-6608-4216-8fdf-f253258f6263:whatsapp-44-inbound` держать **на паузе**.
+
+Проверка (fail-closed): `ssh vps2402 'node /opt/ca-eu-trade/receipts-watchdog.mjs'` — в логе `ok: no unacknowledged inbound`; затем `tail -3 /var/log/ca-eu-trade/receipts.jsonl`. В UI: Automations → «WhatsApp +44 inbound» → Runs — один прогон на реальное входящее, между ними пусто. Симптом «залипло»: вебхук отвечает `202`, прогонов нет → Pause + Resume в UI.
+
+---
+
 ## Universal SOCIAL ACTIVITY LIMITS pre-router (founder-locked, 2026-10-21 — any agent / any repo)
 
 **Любой лимит/кап/потолок/квота/темп прогрева/аутрича — только по единому канону.** Канон: [`docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md`](docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md) — единственный источник истины для всех аккаунтов (существующих и новых), всех соцсетей и всех типов активностей.
