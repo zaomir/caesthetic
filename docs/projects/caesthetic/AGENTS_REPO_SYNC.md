@@ -1,9 +1,9 @@
 # Agents repo sync marker
 
 - **Mode:** bidirectional (DEC-829)
-- **Grainee SHA (pre-commit):** `e4396944a35c89e5eb6a0d6e15e63ac51833d433`
-- **Satellite SHA (pre-commit):** `7e93cbe3f5b70b0767728eaa0b8bf96f8ea9daa8`
-- **Synced at (UTC):** 2026-10-29T01:40:38Z
+- **Grainee SHA (pre-commit):** `a1433fabfd766fbcbc088f568648fec5e8ed2a08`
+- **Satellite SHA (pre-commit):** `f297a15354a860ff2e996c11411ac4b4e7d9b387`
+- **Synced at (UTC):** 2026-10-29T01:45:38Z
 - **Script:** `scripts/caesthetic/sync-agents-bidirectional.sh`
 - **Summary:** g2s=0 s2g=0 conflicts=0 expert_mirror_changed=0 expert_writeback=0 expert_writeback_removed=0
 
