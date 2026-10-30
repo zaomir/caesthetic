@@ -739,7 +739,7 @@ def main() -> int:
     if args.commit:
         git_commit_push(
             grainee,
-            f"sync(caesthetic): bidirectional Agents↔grainee ({summary})",
+            f"sync(caesthetic): bidirectional Agents↔grainee ({summary}) [skip ci]",
             mapped_files,
             True,
             args.push,
