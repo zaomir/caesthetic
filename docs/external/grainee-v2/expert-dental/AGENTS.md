@@ -8,7 +8,7 @@
 
 ## 🔒 Simon ICP filters are founder-locked (DEC-SIMON-027, 2026-10-22)
 
-ICP data = LinkedIn only; no external services; no evidence/fact gate; send window = Paris, `config/simon-outreach/send-window.json` (DEC-SIMON-029; the London windows of DEC-027 and canon v2.4 are superseded, DEC-SIMON-037).
+ICP data = LinkedIn only; no external services; no evidence/fact gate; activity window for every account = Mon-Fri 09:00-18:00 Europe/Paris, end exclusive, weekends closed, `config/simon-outreach/send-window.json` (DEC-SIMON-078, founder 2026-10-30 13:57 UTC, verbatim: «все активности во всех аккантах - с 9.00 до 18.00 по Парижу кроме выходных. внеси изменения в канон и проверь конфликты.»; supersedes the DEC-SIMON-029 slots; the London windows of DEC-027 and canon v2.4 stay superseded).
 **No agent may add, remove or edit a source, gate, filter, keyword, saved search or window in
 `config/simon-outreach/icp-filters.json`, or edit the InMail text canon, without a literal instruction from
 the founder in the current conversation.** `tests/ops/test_simon_icp_filter_lock.py` fails on any drift.
@@ -18,9 +18,9 @@ The send freeze was lifted on 2026-10-22 at the founder's instruction (commit `3
 `config/simon-outreach/do-not-contact.json`.
 
 **Simon outreach — работа по пайплайну:** карта блоков `docs/ssot/SIMON_OUTREACH_PIPELINE_2026-10-22.md`, строгий рунбук
-`docs/ops/simon-outreach/AGENT_RUNBOOK.md`, проверка `python3 scripts/simon/pipeline_check.py`. Реальную отправку — только с фразой основателя `ОТПРАВИТЬ <batch> <digest12>` для этой пачки (DEC-SIMON-029), по Парижу. Неотвеченные треды — не гейт (DEC-SIMON-036; снят в коде этапом A, DEC-SIMON-037).
+`docs/ops/simon-outreach/AGENT_RUNBOOK.md`, проверка `python3 scripts/simon/pipeline_check.py`. Реальная отправка — автономно, без фразы и go основателя (t14u, DEC-SIMON-074); digest-фраза `ОТПРАВИТЬ <batch> <digest12>` — только технический контроль неизменности пачки, исполнитель берёт её из вывода проверки сам. Окно — пн–пт 09:00–18:00 Paris (DEC-SIMON-078). Неотвеченные треды — не гейт (DEC-SIMON-036; снят в коде этапом A, DEC-SIMON-037).
 Решения по автопилоту и починка этапа A — `docs/founder-notes/DEC-SIMON-037_autopilot_decisions_and_stage_a_repair.md`;
-целевой контур и этапы — `docs/ssot/SIMON_OUTREACH_AUTOPILOT_PROPOSAL_2026-10-22.md`. Автопилот (DEC-SIMON-039): `scripts/vps2402/simon_autopilot.py status`; сухой, пока основатель не напишет `ВКЛЮЧИТЬ АВТОПИЛОТ <policy_sha12>`; `approve --phrase` только с его фразой.
+целевой контур и этапы — `docs/ssot/SIMON_OUTREACH_AUTOPILOT_PROPOSAL_2026-10-22.md`. Автопилот (DEC-SIMON-039): `scripts/vps2402/simon_autopilot.py status`; фраза основателя `ВКЛЮЧИТЬ АВТОПИЛОТ` больше не нужна (DEC-SIMON-074); `policy_sha` остаётся техническим замком — после изменения политики автопилот ждёт переутверждения политики.
 
 ## 🔴 ASR-1 — автономный ship, НОЛЬ напоминаний (founder-literal, 2026-10-21)
 
