@@ -40,7 +40,7 @@ proxy-preflight → start(833304152)
 
 | Cadence | Requirement |
 |---------|-------------|
-| Minimum | **≥1× / working day** Europe/London window |
+| Minimum | **≥1× / working day** ~~Europe/London window~~ America/New_York window Mon–Fri 09:00–17:00 (founder 2026-10-30 17:44 UTC, exception to DEC-SIMON-078, DECISIONS 137) |
 | With badge | Triage on pulse when notification badge > 0 |
 | Same-day comments | Reply to owner-relevant comments on new posts same day |
 | 7-day review | Saves/shares + Score clicks — not vanity DM count |

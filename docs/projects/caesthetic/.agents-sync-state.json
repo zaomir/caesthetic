@@ -546,7 +546,7 @@
     "docs/projects/caesthetic/operations/ig-growth/04-LAUNCH_GRID.md": "f90316d1ddb3288bf9e3b27dda786104d2cbfa8b92758ed46d7353a3317ed27b",
     "docs/projects/caesthetic/operations/ig-growth/05-14DAY_CONTENT_BUFFER.md": "7f1e29b59e641f5e17b00f08384c7bb8f1999f735b3fa0fd13cf849c760f3e6f",
     "docs/projects/caesthetic/operations/ig-growth/06-ARCHIVE_LEDGER.md": "e05895f865c6e0430b9758d71d197a8c4552c403bf1f9426d3e60900f140d084",
-    "docs/projects/caesthetic/operations/ig-growth/07-COMMUNITY_DM_SOP.md": "364b027b75d3f74a4498b2d4842254657ae8a937379807a7fd808dd6d1e71004",
+    "docs/projects/caesthetic/operations/ig-growth/07-COMMUNITY_DM_SOP.md": "7c8992334a88d4d22c2985d1b818e7aafa6b56bada03cd954ddf79529646a096",
     "docs/projects/caesthetic/operations/ig-growth/08-PUBLISH_COMPLIANCE_AND_MEASUREMENT_GATE.md": "d6bc9e9d305f924f7969da66b6a48a214c3b7b6e44998b6dbad2dc1699d80ba6",
     "docs/projects/caesthetic/operations/ig-growth/09-CAROUSEL_VOC_AND_SMM_BRIEF.md": "ae776e728c0733434b2e4c5261d88a0f4a64d76cf38236e7fe6632bfa702c2b8",
     "docs/projects/caesthetic/operations/ig-growth/10-CAROUSEL_CHAT_HANDOFF.md": "d5b2da67c1c6e197d1be0c1bd0120e9ee6871bf2638a21bb521b9568a5cce60a",
@@ -554,7 +554,7 @@
     "docs/projects/caesthetic/operations/ig-growth/11-REEL_SCRIPTS_L5_L7_L8.md": "657ea193ca4ff7857ce5176cf4bdfc6d766cf62d53fa183541186f8252ab1f8f",
     "docs/projects/caesthetic/operations/ig-growth/12-TEMPLATE_REEL_FACTORY.md": "4374c736ba4d554a03a2d23a96ef107c70e003b116f0712141dd16c8684095af",
     "docs/projects/caesthetic/operations/ig-growth/README.md": "f7e444f1359e41b32a936317c504d0a64e45ddb63d564f2972e87793c616f05b",
-    "docs/projects/caesthetic/operations/ig-growth/TEMPLATE.CAE_CREATIVE_PIPELINE.json": "38cd5d782684121fc6503f4f72c1d551eae972801ff55e0351c1e18cf04e5d22",
+    "docs/projects/caesthetic/operations/ig-growth/TEMPLATE.CAE_CREATIVE_PIPELINE.json": "468062e85c9f3347b5969a9f9541b912af7fcbe25c4afaa6b9792ca21fb752bd",
     "docs/projects/caesthetic/operations/ig-growth/daily-growth-note/README.md": "badf66e06d1ffdc4f1f9eb999ff01304567fbedcf163e53ef665a2032465d778",
     "docs/projects/caesthetic/operations/ig-growth/daily-growth-note/config/series.v1.json": "e7f59035082b82059f530f8bfa832e2e894da053857a715901b0b10208bccfdb",
     "docs/projects/caesthetic/operations/ig-growth/daily-growth-note/config/text-card.v1.json": "c98a50ebe7e5b7b80be9629aa858a4aebfd020fa9ddee45810249cdca31c24f3",
@@ -570,7 +570,7 @@
     "docs/projects/caesthetic/operations/ig-growth/reels/REGISTRY.yaml": "2b933a05513b484b31ed622fbdfedd78c8ece800f0f65b427562875cf68320aa",
     "docs/projects/caesthetic/operations/ig-growth/reels/episodes/001-more-traffic-not-yet.yaml": "7b174c6ace898d7fb8e9b0a4e9b01d8b6490fe6f3c63b2f431a1e5fc3412c2ce",
     "docs/projects/caesthetic/operations/ig-growth/reels/episodes/002-200k-trust-leak-format-b.yaml": "25bca2a869067255be50b9401af193b3fffb6ed8096f3ff27bfa87df5dcf4559",
-    "docs/projects/caesthetic/operations/ig-growth/reels/episodes/003-instagram-interest-no-booking-publish.json": "8d0e78a3253c7fad43103e77f1360784e2af6f51fdf9d8456f7b65b0141a4689",
+    "docs/projects/caesthetic/operations/ig-growth/reels/episodes/003-instagram-interest-no-booking-publish.json": "c1fdbc3e2df07dd1b859a6ee791ca0dc45eeb76b0fe3dc1c53bfce363b648040",
     "docs/projects/caesthetic/operations/ig-growth/reels/episodes/003-instagram-interest-no-booking.yaml": "6c81f24485d0a9e9d297f36cb17e588108b16eae0a1d00169f18b81acee7deec",
     "docs/projects/caesthetic/operations/ig-growth/template-reels/W34-2026-08-17.yaml": "b5b1ff3ae98f5826913424a6165c5e7aa5994fac9414be1e76a073701b9db4a2",
     "docs/projects/caesthetic/product/PRODUCTS_AND_SERVICES_SOURCES.md": "866da5d73bb77dc9e9c07fc18a1a52c7ab2aaaa481848ae066d72ee309a1fcd0",
@@ -1407,6 +1407,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-10-30T17:56:09Z",
+  "updated_at_utc": "2026-10-30T18:00:39Z",
   "version": 1
 }
