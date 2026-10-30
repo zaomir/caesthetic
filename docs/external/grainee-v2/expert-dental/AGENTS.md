@@ -8,7 +8,7 @@
 
 ## 🔒 Simon ICP filters are founder-locked (DEC-SIMON-027, 2026-10-22)
 
-ICP data = LinkedIn only; no external services; no evidence/fact gate; activity window for every account = Mon-Fri 09:00-18:00 Europe/Paris, end exclusive, weekends closed, `config/simon-outreach/send-window.json` (DEC-SIMON-078, founder 2026-10-30 13:57 UTC, verbatim: «все активности во всех аккантах - с 9.00 до 18.00 по Парижу кроме выходных. внеси изменения в канон и проверь конфликты.»; supersedes the DEC-SIMON-029 slots; the London windows of DEC-027 and canon v2.4 stay superseded).
+ICP data = LinkedIn only; no external services; no evidence/fact gate; activity window for every account = Mon-Fri 09:00-18:00 Europe/Paris, end exclusive, weekends closed, `config/simon-outreach/send-window.json` (DEC-SIMON-078, founder 2026-10-30 13:57 UTC, verbatim: «все активности во всех аккантах - с 9.00 до 18.00 по Парижу кроме выходных. внеси изменения в канон и проверь конфликты.»; supersedes the DEC-SIMON-029 slots; the London windows of DEC-027 and canon v2.4 stay superseded). Exception: Caesthetic (Instagram/TikTok of the US clinic) runs on the New York window (America/New_York, Mon-Fri 09:00-17:00), founder 2026-10-30 17:44 UTC «Caesthetic: оставить окно Нью-Йорка» (ca-eu-trade DECISIONS row 137).
 **No agent may add, remove or edit a source, gate, filter, keyword, saved search or window in
 `config/simon-outreach/icp-filters.json`, or edit the InMail text canon, without a literal instruction from
 the founder in the current conversation.** `tests/ops/test_simon_icp_filter_lock.py` fails on any drift.

@@ -131,7 +131,7 @@ Re-read path: `docs/agent-api/results/{request_id}.json` ref `main`. If missing 
 
 ## Remaining limits
 
-- Valerie writes stay inside Mon–Fri 09:00–17:00 America/New_York. Outside that window `execute` / `full_run` return `WINDOW_CLOSED` and leave the existing queue untouched. Next open: next weekday 09:00 New York.
+- Valerie writes stay inside Mon–Fri 09:00–17:00 America/New_York. Outside that window `execute` / `full_run` return `WINDOW_CLOSED` and leave the existing queue untouched. Next open: next weekday 09:00 New York. Authority: founder 2026-10-30 17:44 UTC «Caesthetic: оставить окно Нью-Йорка» — explicit exception to DEC-SIMON-078 (Paris 09:00–18:00 for all other accounts), ca-eu-trade DECISIONS row 137.
 - If fleet HOLD reappears after the 2026-09-15 clearance, read the new `blocker_code` — do not delete HOLD again automatically.
 - Robertas/Viktorija: no Dolphin binding.
 - CAESTHETIC LinkedIn Company Page: unknown surface.
