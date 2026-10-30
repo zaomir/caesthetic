@@ -1,10 +1,7 @@
 name: Record Expert E-sign Deploy Evidence
 
 on:
-  workflow_run:
-    workflows: ['Deploy Expert E-sign Test']
-    types: [completed]
-
+  workflow_dispatch:
 permissions:
   contents: write
 

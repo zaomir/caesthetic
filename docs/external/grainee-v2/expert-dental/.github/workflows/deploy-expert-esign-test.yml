@@ -2,13 +2,6 @@ name: Deploy Expert E-sign Test
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'apps/expert-esign/**'
-      - 'scripts/raimov/deploy-expert-esign-test.sh'
-      - '.github/workflows/deploy-expert-esign-test.yml'
-
 permissions:
   contents: read
 
