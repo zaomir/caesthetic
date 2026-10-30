@@ -5,7 +5,7 @@
 
 import os from "node:os";
 
-export const REPO_ROOT = process.env.CAE_ASSET_REPO_ROOT || "/var/www/grainee-v2";
+export const REPO_ROOT = process.env.CAE_ASSET_REPO_ROOT || process.env.GRAINEE_REPO_ROOT || "/var/www/grainee-v2";
 export const STORAGE_PATH = process.env.STORAGE_PATH || "/opt/caesthetic-assets";
 export const RCLONE_REMOTE = process.env.CAESTHETIC_RCLONE_REMOTE || "dropbox:";
 export const AUDIT_LOG = "/var/log/grainee/caesthetic-assets-audit.jsonl";

@@ -28,7 +28,7 @@ from outreach import (
     send_from_queue,
 )
 
-REPO = Path(os.environ.get("CAESTHETIC_MEDSPA_REPO", "/var/www/grainee-v2"))
+REPO = Path(os.environ.get("CAESTHETIC_MEDSPA_REPO") or os.environ.get("GRAINEE_REPO_ROOT") or "/var/www/grainee-v2")
 PRIVATE = Path(os.environ.get("CAESTHETIC_MEDSPA_STORE", "/var/lib/caesthetic-medspa"))
 PUBLIC_INDEX = Path(
     os.environ.get(

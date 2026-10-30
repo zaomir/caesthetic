@@ -8,7 +8,8 @@ if [[ "$host" != "vps2402" && " $ips " != *" 185.216.214.28 "* ]]; then
   printf '%s\n' "{\"ok\":false,\"error\":\"forbidden_host:${host:-unknown}\"}" >> /var/log/grainee/caesthetic-social-poll.log
   exit 1
 fi
-cd /var/www/grainee-v2
+# Repo checkout: canonical server clone via GRAINEE_REPO_ROOT (docs/ssot/NO_GITHUB_ACTIONS.md); legacy default kept.
+cd "${GRAINEE_REPO_ROOT:-/var/www/grainee-v2}"
 set -a
 [ -f /etc/evo/secrets.env ] && . /etc/evo/secrets.env
 [ -f /etc/social-fleet/hooppy.env ] && . /etc/social-fleet/hooppy.env

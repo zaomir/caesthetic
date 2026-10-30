@@ -34,7 +34,7 @@ from outscraper_adapter import (
     wait_for_job,
 )
 
-PUBLIC_INDEX_DEFAULT = Path("/var/www/grainee-v2/docs/ops/caesthetic-new-medspa-discovery/public-index.json")
+PUBLIC_INDEX_DEFAULT = Path(os.environ.get("GRAINEE_REPO_ROOT") or "/var/www/grainee-v2") / "docs/ops/caesthetic-new-medspa-discovery/public-index.json"
 
 
 def now() -> str:

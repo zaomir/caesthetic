@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-REPO = Path("/var/www/grainee-v2")
+REPO = Path(os.environ.get("GRAINEE_REPO_ROOT") or "/var/www/grainee-v2")
 REQUESTS = REPO / "docs/agent-api/requests"
 RESULTS = REPO / "docs/agent-api/results"
 STATUS = Path("/var/lib/caesthetic-medspa/status.json")

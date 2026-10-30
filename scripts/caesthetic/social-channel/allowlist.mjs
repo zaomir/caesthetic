@@ -7,7 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export const REQUEST_TYPE = "caesthetic_social";
-export const REPO_ROOT = process.env.CAE_SOCIAL_REPO_ROOT || "/var/www/grainee-v2";
+export const REPO_ROOT = process.env.CAE_SOCIAL_REPO_ROOT || process.env.GRAINEE_REPO_ROOT || "/var/www/grainee-v2";
 export const PRIVATE_ROOT = process.env.CAE_SOCIAL_PRIVATE_ROOT || "/var/lib/caesthetic-social";
 export const FLEET_STATE_DIR = process.env.SBO_FLEET_STATE_DIR || "/var/lib/social-fleet";
 export const DOLPHIN_PROFILE_ID = "833304152";

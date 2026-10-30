@@ -2,10 +2,11 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-DEFAULT_GEO_PATH = Path("/var/www/grainee-v2/docs/ops/caesthetic-new-medspa-discovery/discovery-geography.json")
+DEFAULT_GEO_PATH = Path(os.environ.get("GRAINEE_REPO_ROOT") or "/var/www/grainee-v2") / "docs/ops/caesthetic-new-medspa-discovery/discovery-geography.json"
 QUEUE_ORDER = ("A", "B", "C", "D")
 
 

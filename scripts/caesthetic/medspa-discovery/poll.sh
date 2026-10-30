@@ -8,7 +8,8 @@ if [[ "$host" != "vps2402" && " $ips " != *" 185.216.214.28 "* ]]; then
   printf '%s\n' "{\"ok\":false,\"error\":\"forbidden_host:${host:-unknown}\"}" >> /var/log/grainee/caesthetic-medspa-poll.log
   exit 1
 fi
-cd /var/www/grainee-v2
+# Repo checkout: canonical server clone via GRAINEE_REPO_ROOT (docs/ssot/NO_GITHUB_ACTIONS.md); legacy default kept.
+cd "${GRAINEE_REPO_ROOT:-/var/www/grainee-v2}"
 exec /usr/bin/flock -n /var/run/caesthetic-medspa-poll.lock \
   /usr/bin/python3 scripts/caesthetic/medspa-discovery/poll.py \
   >> /var/log/grainee/caesthetic-medspa-poll.log 2>&1
