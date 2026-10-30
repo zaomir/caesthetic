@@ -2,7 +2,7 @@
 
 ## 🔒 Simon outreach production canon (2026-10-22) — roll back to it, never around it
 
-`docs/ssot/SIMON_OUTREACH_PRODUCTION_CANON_2026-10-22.md`, tag `simon-outreach-canon-2026-10-22`. Before and after touching
+`docs/ssot/SIMON_OUTREACH_PRODUCTION_CANON_2026-10-22.md`, tag `simon-outreach-canon-2026-10-30` (was `simon-outreach-canon-2026-10-22`, superseded 2026-10-30). Before and after touching
 `scripts/vps2402/*simon*`, `scripts/simon/`, `services/social-browser-operator/`, `config/simon-outreach/` or the text canon run
 `python3 scripts/simon/canon_verify.py`; on drift run `--restore`. Only the founder's literal instruction may re-baseline (`--update`).
 
