@@ -364,7 +364,7 @@
     "scripts/raimov/deploy-expert-esign-test.sh": "df0cc014edf25cc1c8a5bd3b7f3ea5ec303c68f44031b71ca4e514898857cf93"
   },
   "schema": "caesthetic.expert-dental-hybrid-mirror.v2",
-  "source_sha": "2af936098d78ee8c8876dd0809bc56d58b6ee77f",
+  "source_sha": "cec6fb257cca2a68923eb9359e377f4a1c868242",
   "writeback": {
     "allowed_trees": [
       "docs/projects/healthcare-ecosystem",
