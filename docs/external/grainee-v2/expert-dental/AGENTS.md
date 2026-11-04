@@ -163,7 +163,7 @@ If MAP2 matched → **do not** open new SENDER1 Intake. New cold outreach → SE
 
 ## Universal Twenty CRM pre-router (DEC-902 — any agent / any repo)
 
-**Канон:** `docs/ssot/TWENTY_CRM.md`. Фразы `CRM twenty`, `twenty crm`, `TWENTY_CRM`, `твенти`, `controlcenter` — один и тот же файл.  
+**Канон:** `docs/ssot/TWENTY_CRM.md`. Фразы `CRM twenty`, `twenty crm`, `TWENTY_CRM`, `твенти`, `controlcenter` и позывные `CRM20`, `срм20`, `c20`, `с20` (DEC-921) — один и тот же файл.  
 **Первая команда (fail-closed):**
 
 ```bash
@@ -186,7 +186,7 @@ bash /Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/scripts/repo/fetch-twe
 | Watchdog / backup / restore | `scripts/ops/twenty-watchdog.sh` · `twenty-backup.sh` · `twenty-restore.sh` |
 | Skill | [`.cursor/skills/twenty-crm/SKILL.md`](.cursor/skills/twenty-crm/SKILL.md) |
 
-Поиск «CRM twenty» без этого роутера = FAIL. Не открывать SENDER1 Intake вместо канона. MAP2 остаётся воронкой `ru.tc/money`.
+Поиск «CRM twenty» (или обращения «CRM20» / «срм20» / «c20» / «с20») без этого роутера = FAIL. Не открывать SENDER1 Intake вместо канона. MAP2 остаётся воронкой `ru.tc/money`.
 
 **Строгое соблюдение (обязательно для всех агентов):** перед любым чтением/записью/ремонтом/обновлением Twenty — health first `scripts/ops/twenty-watchdog.sh --check`, затем регламент §5–§9. Нарушение запретов §6 (F1–F15: `down -v`, правка live compose руками, `latest`, SQL по `workspace_*`, ключ в чат/лог, `EnvironmentFile=/etc/evo/deploy.env`, мёртвые адреса) = FAIL задачи. Проверки: `node scripts/twenty/check-ops-regulation.mjs` + `check-route-wired.mjs` (входят в `docs-guards`).
 
@@ -511,7 +511,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 | Need | File |
 |------|------|
 | Social activity limits / лимиты, капы, гейты, прогрев | `docs/ssot/SOCIAL_ACTIVITY_LIMITS_CANON.md` · `scripts/limits/intent-router.mjs` |
-| Twenty CRM / CRM twenty / controlcenter | `docs/ssot/TWENTY_CRM.md` · `scripts/twenty/intent-router.mjs` |
+| Twenty CRM / CRM twenty / CRM20 / срм20 / c20 / с20 / controlcenter | `docs/ssot/TWENTY_CRM.md` · `scripts/twenty/intent-router.mjs` |
 | Connect4 / 4444 / Четверки / Четвёрки explanation | `docs/ssot/CAESTHETIC_CONNECT4_CONCEPT.md` |
 | Pricing (EVO products) | `docs/ssot/PRICING_AND_PRODUCTS.md` |
 | Token economy (agents) | `docs/ssot/AGENT_TOKEN_ECONOMY.md` |

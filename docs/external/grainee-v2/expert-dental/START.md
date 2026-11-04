@@ -77,7 +77,7 @@ Foreign workspace: Mac `/Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/doc
 
 ### Twenty CRM first (DEC-902)
 
-Any **Twenty / CRM twenty / twenty crm / TWENTY_CRM / твенти / controlcenter** question or integration → `docs/ssot/TWENTY_CRM.md`.  
+Any **Twenty / CRM twenty / twenty crm / TWENTY_CRM / твенти / controlcenter / CRM20 / срм20 / c20 / с20** question or integration → `docs/ssot/TWENTY_CRM.md`. (Call signs: DEC-921, `docs/founder-notes/DEC-921.md`.)  
 First command: `node scripts/twenty/intent-router.mjs --prompt "<task>"`.  
 Foreign workspace: Mac `/Users/donnyduck/Projects/repo-grainee-v2/grainee-v2/docs/ssot/TWENTY_CRM.md`, VDS `/var/www/grainee-v2/docs/ssot/TWENTY_CRM.md`, or `scripts/repo/fetch-twenty-canon.sh ssot` (see `docs/ssot/TWENTY_CROSS_REPO_POINTER.md`). Do **not** use raw.githubusercontent (private 404). Do **not** open SENDER1 Intake just to find this file.
 
