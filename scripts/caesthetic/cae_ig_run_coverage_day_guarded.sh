@@ -20,6 +20,14 @@ BLOCK_COOLDOWN_HOURS="${CAE_IG_BLOCK_COOLDOWN_HOURS:-6}"
 RACE_GUARD_SECONDS="${CAE_IG_RACE_GUARD_SECONDS:-8}"
 mkdir -p "$LOCK_DIR" "$STATE_DIR" /var/log/cae-ig
 
+# A platform stop is a decision, not a fault: while Instagram holds Valerie's account suspended (2026-10-29, stop
+# open until 2027-01-01) there is nothing to read or act on, so this block exits green instead of timing out red.
+if bash "$ROOT/scripts/caesthetic/cae_ig_platform_closed.sh"; then
+  echo "[cae-ig-day] SKIP instagram circuit open for 833304152 — account stopped until its owner restores it" \
+    | tee -a /var/log/cae-ig/coverage.log
+  exit 0
+fi
+
 exec 9>"$LOCK_FILE"
 if ! flock -n 9; then
   echo "[cae-ig-day] SKIP locked by another coverage run" | tee -a /var/log/cae-ig/coverage.log
@@ -155,4 +163,12 @@ export CAE_IG_COMMENT_DRAFTS="${CAE_IG_COMMENT_DRAFTS:-$STATE_DIR/comment_drafts
 echo "[cae-ig-day] start block=$BLOCK story=$CAE_IG_STORY_LIMIT like=$CAE_IG_LIKE_LIMIT follow=$CAE_IG_FOLLOW_LIMIT follow_back=$CAE_IG_FOLLOW_BACK_LIMIT comment=$CAE_IG_COMMENT_DRAFT_LIMIT send=$CAE_IG_COMMENT_SEND runtime_ms=$CAE_IG_MAX_RUNTIME_MS" \
   | tee -a /var/log/cae-ig/coverage.log
 
-bash "$ROOT/scripts/caesthetic/cae_ig_run_coverage_day.sh" 2>&1 | tee -a /var/log/cae-ig/coverage.log
+# Write to the log file instead of piping through tee: on 04.11 an orphaned browser child kept the pipe open after the
+# block finished, so tee never returned and systemd held the unit "active" for 2.5 h until TimeoutStartSec. Bounded
+# too, so a wedged browser cannot eat the next block.
+COVERAGE_LOG="${CAE_IG_COVERAGE_LOG:-/var/log/cae-ig/coverage.log}"
+rc=0
+timeout --kill-after=30 "${CAE_IG_HARD_TIMEOUT_S:-1500}" \
+  bash "$ROOT/scripts/caesthetic/cae_ig_run_coverage_day.sh" >>"$COVERAGE_LOG" 2>&1 || rc=$?
+tail -n 40 "$COVERAGE_LOG"
+exit "$rc"

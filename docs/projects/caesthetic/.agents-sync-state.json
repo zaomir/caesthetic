@@ -784,11 +784,12 @@
     "scripts/caesthetic/cae_ig_build_dolphin_queue.mjs": "d335073f6ff4128e18b296452beb9a736069ab8a6b27af04a563a6debc5ab27f",
     "scripts/caesthetic/cae_ig_current_policy.json": "3552a2e2bddcd26f8ace2700ea90ab0f15bbdfc18359dc43edeb204fad7dfc8d",
     "scripts/caesthetic/cae_ig_dolphin_current_dryrun.mjs": "05da218bc5ce4f1a111a592dd7c8aa16970be14d388dfce0aa3c320a90a8fb73",
+    "scripts/caesthetic/cae_ig_platform_closed.sh": "794927843760e3ba2494337e213f206c9b36397cb1d5b1e010b264627a28666f",
     "scripts/caesthetic/cae_ig_promote_current.py": "52dfcf190e2d5db3845931cd25bbd8ff8f28fb901f5627b8c107d553ec57581f",
     "scripts/caesthetic/cae_ig_qualify_candidate_pool.py": "e9b32ceb2f4b5ddc008a6993ec989255c0677b42f647eee261d56a2a4d0944d2",
     "scripts/caesthetic/cae_ig_qualify_enrich.py": "ae81ba3dda764a6a3aa7512d9366142991362f8868112643514f33b0d56f82c6",
     "scripts/caesthetic/cae_ig_run_coverage_day.sh": "d98b4fab697065f8c3c4ec557702068f05982f6a08736e10639e8d191cc1290c",
-    "scripts/caesthetic/cae_ig_run_coverage_day_guarded.sh": "05c13c26e1d61c6fa397eb3656e0d83a76fd2339852e02202af11f9e70a53c65",
+    "scripts/caesthetic/cae_ig_run_coverage_day_guarded.sh": "9495a4685ade0173d4f7cc6506aee68efbb5280323fa192508719e88d3b2c799",
     "scripts/caesthetic/cae_linkedin_master_audit.py": "91f1e3a4152db8b804071f6099eb0dadc782042bc6cdd1ffe890ec82f355efc3",
     "scripts/caesthetic/cae_wave1_no_write.py": "d311df4ac4f54d112eb8efc7614c5dcccca2d70192febe39d4629c0b01ec7c0c",
     "scripts/caesthetic/cae_wave1_public_enrich.py": "62bcf4db20bd0766082a77570e50052268273634f4ce069c48abfde45252ff3b",
@@ -1407,6 +1408,6 @@
     "tests/caesthetic/wise-send.test.mjs": "a0284270e5b2be8298e10fa1f71777b73e669391b6fed9617ee4bb1dc387a37d"
   },
   "policy": "bidirectional_hash_lww_protected_grainee",
-  "updated_at_utc": "2026-11-04T22:11:39Z",
+  "updated_at_utc": "2026-11-04T22:16:25Z",
   "version": 1
 }
