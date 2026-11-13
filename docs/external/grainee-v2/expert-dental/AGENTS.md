@@ -524,6 +524,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 | SSOT index | `docs/ssot/INDEX.md` |
 | Reading order | `docs/READING_ORDER.md` |
 | Deploy channels | `docs/ssot/AGENT_DEPLOY_CHANNELS.md` |
+| Model tiers (canon): routine vs judgement, router, consultation budget | `docs/ssot/MODEL_TIERS_AND_ROUTING.md` |
 | Model tiers: expensive vs routine, token saving, task router | `docs/architecture/MODEL_TIERING_ASSESSMENT_2026-11-13.md` |
 | GitHub Actions не работают / без CI / CI green / workflow | `docs/ssot/DEPLOY_WITHOUT_GITHUB_ACTIONS.md` |
 | Mac local folders / new laptop agent setup | `docs/ssot/MAC_LOCAL_AGENT_LAYOUT.md` |
