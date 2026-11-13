@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuramis Deep & Volume Lidocaine | Корейские филлеры Medytox — Toxifillers</title>
+  <meta name="description" content="Оптовые поставки оригинальных дермальных филлеров Neuramis Deep ($32) и Volume ($33) от Medytox (Южная Корея). Технология SHAPE, остаточный BDDE ~0, 0.3% лидокаин. Оптовый прайс для клиник и врачей.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090B0E;
+      --card-bg: #12161C;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #2DE0A5;
+      --accent-glow: rgba(45, 224, 165, 0.18);
+      --accent-blue: #3E8BFF;
+      --accent-purple: #A855F7;
+      --text: #F3F4F6;
+      --text-muted: #8E98A5;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+    }
+    .glow-top { top: -200px; right: -100px; }
+    .glow-mid { top: 1200px; left: -200px; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      border-bottom: 1px solid var(--card-border);
+      padding: 18px 0;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 11, 14, 0.85);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: rgba(45, 224, 165, 0.1);
+      border: 1px solid rgba(45, 224, 165, 0.25);
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: #FFF; }
+
+    .btn-header {
+      background: #FFF;
+      color: #000;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.2s;
+    }
+    .btn-header:hover { transform: translateY(-1px); opacity: 0.95; }
+
+    /* Hero */
+    .hero { padding: 80px 0 60px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      margin-bottom: 22px;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(135deg, #FFF 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .hero-meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #E2E8F0;
+    }
+    .meta-tag svg { color: var(--accent); }
+
+    /* Product Card */
+    .product-widget {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .product-widget::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .widget-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .widget-sku {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .widget-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .widget-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .price-box { text-align: right; }
+    .price-main {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #FFF;
+      line-height: 1;
+    }
+
+    .price-sub {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .format-switcher {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      margin-bottom: 24px;
+    }
+
+    .format-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 10px 6px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .format-btn span.tag {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      opacity: 0.7;
+    }
+
+    .format-btn.active {
+      background: #1E2530;
+      color: #FFF;
+      border: 1px solid rgba(45, 224, 165, 0.3);
+    }
+    .format-btn.active span.tag { color: var(--accent); opacity: 1; }
+
+    .spec-list {
+      list-style: none;
+      border-top: 1px solid var(--card-border);
+      padding-top: 18px;
+      margin-bottom: 26px;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      padding: 7px 0;
+      color: var(--text-muted);
+    }
+    .spec-item span.val { color: #FFF; font-weight: 600; }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 1rem;
+      text-align: center;
+      padding: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(45, 224, 165, 0.3);
+    }
+
+    /* Sections */
+    .section {
+      padding: 90px 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 30px;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(45, 224, 165, 0.08);
+      border: 1px solid rgba(45, 224, 165, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #FFF;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    th {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    th.highlight-col, td.highlight-col {
+      background: rgba(45, 224, 165, 0.04);
+      border-left: 1px solid rgba(45, 224, 165, 0.15);
+      border-right: 1px solid rgba(45, 224, 165, 0.15);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    .check-icon { color: var(--accent); font-weight: bold; }
+
+    /* Calculator */
+    .calc-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 44px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .slider-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .slider-val {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: #1E2530;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(45, 224, 165, 0.6);
+    }
+
+    .calc-summary-card {
+      background: #0E1217;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 26px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 14px;
+      margin-top: 14px;
+      border-top: 1px solid var(--card-border);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFF;
+    }
+
+    .summary-total span.num {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    .margin-gain-card {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: rgba(168, 85, 247, 0.08);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+    }
+    .margin-gain-card span.gain-val {
+      color: var(--accent-purple);
+      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #FFF;
+      margin-bottom: 10px;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 50px 0 30px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .calc-grid, .faq-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-mid"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="https://toxifillers.com/en/" class="logo">
+        <span>TOXIFILLERS</span>
+        <span class="logo-badge">ORDER DESK</span>
+      </a>
+      <div class="header-nav">
+        <a href="#lineup">Линейка Neuramis</a>
+        <a href="#technology">Технология SHAPE</a>
+        <a href="#calculator">Оптовый расчет</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://toxifillers.com/en/contact/" class="btn-header">Запросить оптовый прайс</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          Оригинал Medytox Inc. (Южная Корея)
+        </div>
+
+        <h1>
+          Neuramis Lidocaine.<br>
+          <span class="highlight">Пластичность, безопасность</span><br>
+          и себестоимость от $32/шприц.
+        </h1>
+
+        <p class="hero-lead">
+          Монофазные дермальные филлеры премиум-очистки на основе японской ГК (Shiseido). Двухстадийная сшивка по технологии <strong>SHAPE</strong>, остаточный BDDE близкий к нулю и 0.3% лидокаин для безболезненной процедуры.
+        </p>
+
+        <div class="hero-meta-badges">
+          <div class="meta-tag">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            От $32.00 за 1.0 мл
+          </div>
+          <div class="meta-tag">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            Минимум отёка и гиперкоррекции
+          </div>
+          <div class="meta-tag">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            Японское сырье Shiseido
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card Interactive Widget -->
+      <div class="product-widget">
+        <div class="widget-head">
+          <div>
+            <span class="widget-sku" id="skuDisplay">SKU: TF-FIL-NEURAMIS-DEEP-LIDO</span>
+            <div class="widget-title" id="cardProductTitle">Neuramis Deep Lidocaine</div>
+            <div class="widget-sub">Medytox Inc., Южная Корея · 1 шприц × 1.0 мл + 2 иглы UTW 27G</div>
+          </div>
+          <div class="price-box">
+            <div class="price-main" id="cardPriceDisplay">$32.00</div>
+            <div class="price-sub">Оптовая цена B2B</div>
+          </div>
+        </div>
+
+        <!-- Format Switcher -->
+        <div class="format-switcher">
+          <button class="format-btn active" onclick="selectVariant('Deep Lidocaine', 32.00, 'TF-FIL-NEURAMIS-DEEP-LIDO', 'Губы, носогубка, морщины средние/глубокие')">
+            <span>Deep Lido</span>
+            <span class="tag">Флагман ($32)</span>
+          </button>
+          <button class="format-btn" onclick="selectVariant('Volume Lidocaine', 33.00, 'TF-FIL-NEURAMIS-VOL-LIDO', 'Скулы, подбородок, контур челюсти')">
+            <span>Volume Lido</span>
+            <span class="tag">Волюмайзер ($33)</span>
+          </button>
+          <button class="format-btn" onclick="selectVariant('Lidocaine', 31.00, 'TF-FIL-NEURAMIS-LIDO', 'Мелкие морщины, кисет, дермальные заломы')">
+            <span>Lidocaine</span>
+            <span class="tag">Мягкий ($31)</span>
+          </button>
+        </div>
+
+        <ul class="spec-list">
+          <li class="spec-item">
+            <span>Концентрация ГК:</span>
+            <span class="val">20 мг/мл (стабилизированная ГК)</span>
+          </li>
+          <li class="spec-item">
+            <span>Анестетик:</span>
+            <span class="val">Лидокаина гидрохлорид 0.3%</span>
+          </li>
+          <li class="spec-item">
+            <span>Иглы в комплекте:</span>
+            <span class="val">2 × 27G × 1/2” (Ultra Thin Wall)</span>
+          </li>
+          <li class="spec-item">
+            <span>Показания:</span>
+            <span class="val" id="specIndication">Губы, носогубка, морщины средние/глубокие</span>
+          </li>
+          <li class="spec-item">
+            <span>Длительность эффекта:</span>
+            <span class="val">9–12 месяцев</span>
+          </li>
+        </ul>
+
+        <a href="#calculator" class="cta-btn">Рассчитать партию со скидкой ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advantages -->
+  <section class="section" id="technology">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Технологическое превосходство</span>
+        <h2 class="section-title">Технология SHAPE от создателей Innotox</h2>
+        <p class="section-desc">Запатентованный процесс очистки и стабилизации ГК Medytox гарантирует пластичность геля и минимальный отек после процедуры.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          </div>
+          <div class="feature-title">Остаточный BDDE ~ 0 ppm</div>
+          <div class="feature-desc">Двойная промывка геля нейтрализует свободный несвязанный сшивающий агент BDDE, сводя к нулю риски отсроченного гранулематоза и аллергических реакций у пациентов.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <div class="feature-title">Легкая экструзия через 27G</div>
+          <div class="feature-desc">Однородная монофазная микроструктура геля обеспечивает плавное выдавливание без рывков. Врач полностью контролирует болюс при аугментации губ и контурной пластике.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div class="feature-title">Маржинальность клиники > 85%</div>
+          <div class="feature-desc">При рыночной стоимости контурной пластики губ \$200–$300 себестоимость препарата составляет всего \$27–$32. Чистая прибыль с процедуры возрастает на \$80–$120 по сравнению с европейскими филлерами.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lineup Guide -->
+  <section class="section" id="lineup">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Протоколы введения</span>
+        <h2 class="section-title">Клиническое позиционирование линейки Neuramis</h2>
+        <p class="section-desc">Оптимальная вязкость и плотность под каждую анатомическую зону лица.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Препарат</th>
+              <th>Плотность / Модуль G'</th>
+              <th>Анатомическая зона</th>
+              <th>Глубина введения</th>
+              <th>Закупочная цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Neuramis Light Lido</strong></td>
+              <td>Низкая (мягкий гель)</td>
+              <td>Периоральные морщины, шея, «гусиные лапки»</td>
+              <td>Поверхностная дерма</td>
+              <td><strong style="color:var(--accent);">$31.00</strong></td>
+            </tr>
+            <tr style="background: rgba(45, 224, 165, 0.04);">
+              <td><strong>Neuramis Deep Lido ★</strong></td>
+              <td>Средняя (универсальный)</td>
+              <td>Губы (объем и контур), носогубные складки, марионетки</td>
+              <td>Средняя и глубокая дерма</td>
+              <td><strong style="color:var(--accent);">$32.00</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Neuramis Volume Lido</strong></td>
+              <td>Высокая (волюметрик)</td>
+              <td>Скуловая дуга, подбородок, углы нижней челюсти</td>
+              <td>Глубоко супрапериостально</td>
+              <td><strong style="color:var(--accent);">$33.00</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Калькулятор оптовой партии</span>
+        <h2 class="section-title">Оптовые уровни и маржинальный эффект</h2>
+        <p class="section-desc">Выберите объем закупки, зафиксируйте скидку и оцените прибыль кабинета.</p>
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-grid">
+          <div>
+            <div class="slider-block">
+              <div class="slider-head">
+                <label style="font-weight:700; color:#FFF;">Количество шприцев (1.0 мл):</label>
+                <div class="slider-val" id="sliderCountText">25 шприцев</div>
+              </div>
+              <input type="range" id="syringesRange" min="2" max="150" value="25" oninput="updateCalculator(this.value)">
+              <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-top:8px; font-family:var(--font-mono);">
+                <span>2 шт.</span>
+                <span>Tier 1: 10+ шт. (-5%)</span>
+                <span>Tier 2: 25+ шт. (-10%)</span>
+                <span>Tier 3: 60+ шт. (-15%)</span>
+              </div>
+            </div>
+
+            <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.6; margin-top:24px;">
+              <p>• <strong>Защита партии:</strong> Лазерный голографический стикер Medytox на каждом блистере.</p>
+              <p>• <strong>Сроки годности:</strong> 24 месяца с даты производства (всегда свежие партии).</p>
+              <p>• <strong>Экспресс-доставка:</strong> Прямо из Сеула в клинику за 2–4 рабочих дня.</p>
+            </div>
+          </div>
+
+          <div class="calc-summary-card">
+            <div style="font-size:0.85rem; font-weight:700; color:#FFF; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.05em;">
+              Спецификация партии
+            </div>
+
+            <div class="summary-row">
+              <span>Выбранная позиция:</span>
+              <span id="summaryProduct" style="color:#FFF; font-weight:600;">Neuramis Deep Lido</span>
+            </div>
+            <div class="summary-row">
+              <span>Сумма без скидки:</span>
+              <span id="basePriceTotal">$800.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Оптовая скидка тиража:</span>
+              <span id="discountVal" style="color:var(--accent); font-weight:600;">-$80.00 (10%)</span>
+            </div>
+            <div class="summary-row">
+              <span>Себестоимость шприца:</span>
+              <span id="unitPriceFinal" style="color:#FFF; font-weight:700;">$28.80</span>
+            </div>
+            <div class="summary-total">
+              <span>Итоговый инвойс:</span>
+              <span class="num" id="finalTotal">$720.00</span>
+            </div>
+
+            <div class="margin-gain-card">
+              <span>Выручка клиники (при чеке $200):</span>
+              <span class="gain-val" id="clinicRevenueText">$5,000.00</span>
+            </div>
+
+            <a href="https://toxifillers.com/en/contact/" class="cta-btn" style="margin-top:20px; padding:13px;">
+              Запросить официальный B2B-инвойс →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Частые вопросы врачей</span>
+        <h2 class="section-title">Вопросы о филлерах Neuramis и безопасности</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">Какова вероятность образования комков и фиброза?</div>
+          <div class="faq-a">
+            Благодаря монофазной гомогенной структуре и полному отсутствию несвязанных макрочастиц, Neuramis равномерно распределяется в тканях и плавно деградирует ферментом гиалуронидазой без капсулирования.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Легко ли вывести Neuramis гиалуронидазой в случае ошибки?</div>
+          <div class="faq-a">
+            Да. В отличие от высоковязких бифазных гелей, Neuramis полностью растворяется стандартными дозами гиалуронидазы (Liporase / Hylase) в течение 2–4 часов без следа.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Как проверить оригинальность упаковки Medytox?</div>
+          <div class="faq-a">
+            Каждая коробка запечатана защитным оптическим стикером Medytox с микротекстом. Внутри блистера напечатан уникальный номер партии и QR-код для верификации на официальном портале.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Можно ли совместить Neuramis с токсинами Innotox в одной посылке?</div>
+          <div class="faq-a">
+            Да, вы можете заказать комбинированную посылку. Филлеры укладываются в термобокс вместе с токсинами при температуре 2–8°C, что полностью соответствует правилам хранения ГК.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-flex">
+        <div class="logo">
+          <span>TOXIFILLERS</span>
+          <span class="logo-badge">ORDER DESK</span>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:0.8rem;">
+          Official Wholesale Procurement for Medical Aesthetics · Seoul, South Korea
+        </div>
+      </div>
+      <p style="font-size:0.75rem; color:#6B7280; line-height:1.5;">
+        Отказ от ответственности: продукция предназначена строго для квалифицированных врачей-косметологов, дерматологов и зарегистрированных клиник эстетической медицины. Не для самостоятельного применения.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    let currentVariant = 'Deep Lidocaine';
+    let basePrice = 32.00;
+    let currentSku = 'TF-FIL-NEURAMIS-DEEP-LIDO';
+    const clinicProcedurePrice = 200.00;
+
+    function selectVariant(name, price, sku, indication) {
+      currentVariant = name;
+      basePrice = price;
+      currentSku = sku;
+
+      document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      document.getElementById('cardProductTitle').innerText = 'Neuramis ' + name;
+      document.getElementById('cardPriceDisplay').innerText = '$' + price.toFixed(2);
+      document.getElementById('skuDisplay').innerText = 'SKU: ' + sku;
+      document.getElementById('specIndication').innerText = indication;
+      document.getElementById('summaryProduct').innerText = 'Neuramis ' + name;
+
+      updateCalculator(document.getElementById('syringesRange').value);
+    }
+
+    function updateCalculator(val) {
+      val = parseInt(val);
+      document.getElementById('sliderCountText').innerText = val + ' шприцев';
+
+      let discountPercent = 0;
+      if (val >= 60) discountPercent = 0.15;
+      else if (val >= 25) discountPercent = 0.10;
+      else if (val >= 10) discountPercent = 0.05;
+
+      const rawTotal = val * basePrice;
+      const discountAmount = rawTotal * discountPercent;
+      const finalPrice = rawTotal - discountAmount;
+      const effectiveUnitPrice = finalPrice / val;
+      const clinicRevenue = val * clinicProcedurePrice;
+
+      document.getElementById('basePriceTotal').innerText = '$' + rawTotal.toFixed(2);
+      document.getElementById('discountVal').innerText = discountPercent > 0 
+        ? '-$' + discountAmount.toFixed(2) + ' (' + (discountPercent * 100) + '%)' 
+        : '$0.00 (0%)';
+      document.getElementById('unitPriceFinal').innerText = '$' + effectiveUnitPrice.toFixed(2);
+      document.getElementById('finalTotal').innerText = '$' + finalPrice.toFixed(2);
+      document.getElementById('clinicRevenueText').innerText = '$' + clinicRevenue.toFixed(2);
+    }
+
+    // Init
+    updateCalculator(25);
+  </script>
+</body>
+</html>

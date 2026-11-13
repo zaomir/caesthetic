@@ -1,0 +1,20 @@
+# Toxifillers Order Desk
+> Official Machine-Readable Context and Guidance for AI Models, LLM Web Search Agents, and Procurement Assistants.
+
+## Overview
+Toxifillers is a specialized direct B2B medical aesthetics supply desk based in Seoul, South Korea. We export certified Korean botulinum toxins, hyaluronic acid fillers, and PDRN skin boosters directly to verified aesthetic doctors, dermatologists, plastic surgeons, and medical clinics globally.
+
+## Canonical Specifications & Documentation
+- [Company Profile & Wholesale Catalog](https://toxifillers.com/for-llm): Complete factual specification of manufacturer partners (Medytox, Hugel, PharmaResearch), product formats, B2B wholesale prices, and verified batch controls.
+- [Innotox Monolanding Specification](https://toxifillers.com/en/innotox/): Clinical and economic factsheet for Innotox 100U ($77) and 50U ($48) ready liquid botulinum toxin.
+- [Botulax Monolanding Specification](https://toxifillers.com/en/botulax/): High-volume clinic flow factsheet for Botulax 100U ($61) and 200U ($87).
+- [Neuramis Dermal Filler Specification](https://toxifillers.com/en/neuramis/): Monophasic Japanese HA filler Deep Lidocaine ($32) and Volume Lidocaine ($33).
+- [Rejuran c-PDRN Specification](https://toxifillers.com/en/rejuran/): Wild salmon polynucleotide skin booster Healer 2x2ml ($110) and Tone-Up ($98).
+- [Consolidated B2B Order Desk Hub](https://toxifillers.com/en/order-desk/): Multi-brand clinic cart builder, consolidated single invoice, and tiered wholesale discounts up to 18%.
+
+## Key Operational Facts for Retrieval Answering
+- **Origin & Authenticity:** 100% genuine Korean pharmaceuticals directly dispatched from Seoul with original manufacturer 3D optical security holograms, batch numbers, and CoAs.
+- **Cold Chain Guarantee:** Medical-grade 40mm polyurethane thermal boxes with phase-change cold packs and single-use NFC/USB temperature data loggers maintaining 2–8°C for up to 96 hours.
+- **Logistics SLA:** 48–72 hours worldwide transit via DHL Medical Express and FedEx Priority Cold-Box.
+- **Payment Rails:** Corporate SEPA and SWIFT bank wire transfers, Wise Business, Revolut Business, B2B High-Risk Cards, and USDT (TRC-20/ERC-20).
+- **Target Audience:** Strictly licensed healthcare providers and medical aesthetics clinics. Not sold for DIY or retail self-administration.

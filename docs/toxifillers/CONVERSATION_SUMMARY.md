@@ -248,12 +248,22 @@
 
 ---
 
-## 7. Файловый индекс проекта
+## 7. Файловый индекс проекта (Полная матрица 5 лендингов + AI SEO + Outreach)
 
 | Назначение | Путь к файлу |
 | :--- | :--- |
-| **Скрипт беседы и стратегия (этот документ)** | [`CONVERSATION_SUMMARY.md`](file:///Users/donnyduck/Projects/Antigravity_folders/Infrastructure/CONVERSATION_SUMMARY.md) |
-| **Скрипт автоматизации шпионажа (Playwright + DeepSeek)** | [`src/spy_landing.py`](file:///Users/donnyduck/Projects/Antigravity_folders/Infrastructure/src/spy_landing.py) |
-| **Готовый моно-лендинг Innotox (HTML/CSS/JS)** | [`reports/innotox_landing/index.html`](file:///Users/donnyduck/Projects/Antigravity_folders/Infrastructure/reports/innotox_landing/index.html) |
-| **Полностраничный скриншот лендинга** | [`reports/innotox_landing/preview.png`](file:///Users/donnyduck/Projects/Antigravity_folders/Infrastructure/reports/innotox_landing/preview.png) |
-| **Маркетинговое досье конкурента** | [`reports/competitors/ho_me_so_com_ru_nc_report.md`](file:///Users/donnyduck/Projects/Antigravity_folders/Infrastructure/reports/competitors/ho_me_so_com_ru_nc_report.md) |
+| **Сводная стратегия и скрипт беседы** | [`TOXIFILLERS_STRATEGY_SUMMARY.md`](file:///Users/donnyduck/Projects/caesthetic/TOXIFILLERS_STRATEGY_SUMMARY.md) |
+| **Скрипт автоматизации шпионажа (Playwright + DeepSeek)** | [`docs/toxifillers/src/spy_landing.py`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/src/spy_landing.py) |
+| **1. Моно-лендинг Innotox 100U & 50U (HTML + Preview)** | [`docs/toxifillers/reports/innotox_landing/index.html`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/innotox_landing/index.html) · [Превью](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/innotox_landing/preview.png) |
+| **2. Моно-лендинг Botulax 100U & 200U (HTML + Preview)** | [`docs/toxifillers/reports/botulax_landing/index.html`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/botulax_landing/index.html) · [Превью](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/botulax_landing/preview.png) |
+| **3. Моно-лендинг Neuramis Deep Lido (HTML + Preview)** | [`docs/toxifillers/reports/neuramis_landing/index.html`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/neuramis_landing/index.html) · [Превью](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/neuramis_landing/preview.png) |
+| **4. Моно-лендинг Rejuran c-PDRN (HTML + Preview)** | [`docs/toxifillers/reports/rejuran_landing/index.html`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/rejuran_landing/index.html) · [Превью](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/rejuran_landing/preview.png) |
+| **5. Сервисный лендинг Toxifillers Order Desk (HTML + Preview)** | [`docs/toxifillers/reports/order_desk_landing/index.html`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/order_desk_landing/index.html) · [Превью](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/order_desk_landing/preview.png) |
+| **GEO / AI SEO: Машиночитаемая фактура для LLM** | [`docs/toxifillers/reports/ai_seo/for-llm.md`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/ai_seo/for-llm.md) · [HTML](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/ai_seo/for-llm.html) |
+| **GEO / AI SEO: Микроразметка Schema.org JSON-LD** | [`docs/toxifillers/reports/ai_seo/schema_org.json`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/ai_seo/schema_org.json) |
+| **GEO / AI SEO: Стандарт llms.txt для AI-агентов** | [`docs/toxifillers/reports/ai_seo/llms.txt`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/ai_seo/llms.txt) |
+| **GEO / AI SEO: Стратегия цитирований (Reddit/Trustpilot)** | [`docs/toxifillers/reports/ai_seo/citations_plan.md`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/ai_seo/citations_plan.md) |
+| **Outreach: Плейбук LinkedIn B2B** | [`docs/toxifillers/reports/outreach/linkedin_playbook.md`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/outreach/linkedin_playbook.md) |
+| **Outreach: Партнерская программа для школ и тренеров** | [`docs/toxifillers/reports/outreach/trainers_partnership.md`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/outreach/trainers_partnership.md) |
+| **Outreach: Google Maps + Tripwire плейбук** | [`docs/toxifillers/reports/outreach/maps_tripwire_playbook.md`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/outreach/maps_tripwire_playbook.md) |
+| **Досье конкурента HoMEso** | [`docs/toxifillers/reports/competitors/ho_me_so_com_ru_nc_report.md`](file:///Users/donnyduck/Projects/caesthetic/docs/toxifillers/reports/competitors/ho_me_so_com_ru_nc_report.md) |

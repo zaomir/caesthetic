@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toxifillers Order Desk | Единый стол сборных заказов для клиник эстетической медицины</title>
+  <meta name="description" content="Консолидированные поставки эстетических препаратов из Сеула в клиники по всему миру. Сборный заказ из 126 SKU (Innotox, Botulax, Neuramis, Rejuran): один инвойс, оптовая скидка до 18% на корзину, медицинский термобокс с логгером 2–8°C.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090B0E;
+      --card-bg: #12161C;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #2DE0A5;
+      --accent-glow: rgba(45, 224, 165, 0.18);
+      --accent-blue: #3E8BFF;
+      --accent-purple: #A855F7;
+      --text: #F3F4F6;
+      --text-muted: #8E98A5;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(90px);
+    }
+    .glow-top { top: -250px; right: -100px; }
+    .glow-mid { top: 1100px; left: -250px; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      border-bottom: 1px solid var(--card-border);
+      padding: 18px 0;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 11, 14, 0.85);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: rgba(45, 224, 165, 0.1);
+      border: 1px solid rgba(45, 224, 165, 0.25);
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: #FFF; }
+
+    .btn-header {
+      background: #FFF;
+      color: #000;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.2s;
+    }
+    .btn-header:hover { transform: translateY(-1px); opacity: 0.95; }
+
+    /* Hero */
+    .hero { padding: 80px 0 60px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      margin-bottom: 22px;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(135deg, #FFF 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 580px;
+    }
+
+    .hero-meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #E2E8F0;
+    }
+    .meta-tag svg { color: var(--accent); }
+
+    /* Builder Widget */
+    .builder-widget {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .builder-widget::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .builder-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .builder-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .builder-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    /* Product row in builder */
+    .product-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .row-info {
+      flex: 1;
+      padding-right: 12px;
+    }
+    .row-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFF;
+    }
+    .row-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 3px 6px;
+    }
+
+    .qty-btn {
+      background: transparent;
+      border: none;
+      color: #FFF;
+      font-size: 1.1rem;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .qty-btn:hover { background: #1E2530; color: var(--accent); }
+
+    .qty-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    .row-price {
+      min-width: 80px;
+      text-align: right;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #FFF;
+    }
+
+    /* Progress Tier Bar */
+    .tier-progress-box {
+      margin: 20px 0;
+      background: #0E1217;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .tier-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .tier-text strong { color: var(--accent); }
+
+    .tier-track {
+      width: 100%;
+      height: 6px;
+      background: #1E2530;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .tier-bar {
+      height: 100%;
+      width: 45%;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent));
+      transition: width 0.3s ease;
+    }
+
+    /* Builder Summary */
+    .builder-summary {
+      background: #0E1217;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .summary-total-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 12px;
+      border-top: 1px solid var(--card-border);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFF;
+    }
+    .summary-total-line span.num {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 1rem;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 16px;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(45, 224, 165, 0.3);
+    }
+
+    /* Sections */
+    .section {
+      padding: 90px 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 30px;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(45, 224, 165, 0.08);
+      border: 1px solid rgba(45, 224, 165, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #FFF;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Cold Chain Steps */
+    .chain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .chain-step {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* RFQ Box */
+    .rfq-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .rfq-form input, .rfq-form textarea {
+      width: 100%;
+      background: #0E1217;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 14px;
+      color: #FFF;
+      font-family: var(--font-main);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+      outline: none;
+    }
+    .rfq-form input:focus, .rfq-form textarea:focus {
+      border-color: var(--accent);
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #FFF;
+      margin-bottom: 10px;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 50px 0 30px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .chain-grid, .rfq-box, .faq-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-mid"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="https://toxifillers.com/en/" class="logo">
+        <span>TOXIFILLERS</span>
+        <span class="logo-badge">ORDER DESK</span>
+      </a>
+      <div class="header-nav">
+        <a href="#builder">Конструктор сборного заказа</a>
+        <a href="#coldchain">Холодовая цепь 2–8°C</a>
+        <a href="#payment">Оплата и инвойсы</a>
+        <a href="#rfq">Быстрый просчет</a>
+        <a href="https://toxifillers.com/en/contact/" class="btn-header">Консультация B2B</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          Прямой логистический хаб в Сеуле (Южная Корея)
+        </div>
+
+        <h1>
+          Один инвойс.<br>
+          Одна посылка.<br>
+          <span class="highlight">Все бренды Кореи.</span>
+        </h1>
+
+        <p class="hero-lead">
+          Прекратите координировать 5 разных поставщиков. Заказывайте токсины (Innotox, Botulax), филлеры (Neuramis, Revolax) и полинуклеотиды (Rejuran) в едином B2B Order Desk с консолидированной скидкой корзины до 18%.
+        </p>
+
+        <div class="hero-meta-badges">
+          <div class="meta-tag">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            126 сертифицированных SKU
+          </div>
+          <div class="meta-tag">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            DHL Medical Express 48-72h
+          </div>
+          <div class="meta-tag">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            NFC-датчик температуры в коробке
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Basket Builder Widget -->
+      <div class="builder-widget" id="builder">
+        <div class="builder-head">
+          <div class="builder-title">Сборная корзина клиники</div>
+          <div class="builder-tag">Смешивайте бренды в 1 заказ</div>
+        </div>
+
+        <!-- Innotox Row -->
+        <div class="product-row">
+          <div class="row-info">
+            <div class="row-name">Innotox 100U (Medytox)</div>
+            <div class="row-meta">Жидкий ботулотоксин · $77.00/шт</div>
+          </div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="updateItem('innotox', -1)">−</button>
+            <span class="qty-val" id="qty-innotox">5</span>
+            <button class="qty-btn" onclick="updateItem('innotox', 1)">+</button>
+          </div>
+          <div class="row-price" id="price-innotox">$385.00</div>
+        </div>
+
+        <!-- Botulax Row -->
+        <div class="product-row">
+          <div class="row-info">
+            <div class="row-name">Botulax 100U (Hugel)</div>
+            <div class="row-meta">Лиофилизат KGMP · $61.00/шт</div>
+          </div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="updateItem('botulax', -1)">−</button>
+            <span class="qty-val" id="qty-botulax">10</span>
+            <button class="qty-btn" onclick="updateItem('botulax', 1)">+</button>
+          </div>
+          <div class="row-price" id="price-botulax">$610.00</div>
+        </div>
+
+        <!-- Neuramis Deep Row -->
+        <div class="product-row">
+          <div class="row-info">
+            <div class="row-name">Neuramis Deep Lido (Medytox)</div>
+            <div class="row-meta">Филлер ГК 1.0 мл · $32.00/шт</div>
+          </div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="updateItem('neuramis', -1)">−</button>
+            <span class="qty-val" id="qty-neuramis">15</span>
+            <button class="qty-btn" onclick="updateItem('neuramis', 1)">+</button>
+          </div>
+          <div class="row-price" id="price-neuramis">$480.00</div>
+        </div>
+
+        <!-- Rejuran Healer Row -->
+        <div class="product-row">
+          <div class="row-info">
+            <div class="row-name">Rejuran Healer 2×2ml (PharmaResearch)</div>
+            <div class="row-meta">Полинуклеотиды c-PDRN · $110.00/уп</div>
+          </div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="updateItem('rejuran', -1)">−</button>
+            <span class="qty-val" id="qty-rejuran">4</span>
+            <button class="qty-btn" onclick="updateItem('rejuran', 1)">+</button>
+          </div>
+          <div class="row-price" id="price-rejuran">$440.00</div>
+        </div>
+
+        <!-- Tier Progress -->
+        <div class="tier-progress-box">
+          <div class="tier-text">
+            <span>Прогресс оптового дисконта:</span>
+            <strong id="tierStatusText">Tier 2: Скидка 7% активирована</strong>
+          </div>
+          <div class="tier-track">
+            <div class="tier-bar" id="tierProgressBar" style="width: 55%;"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:0.7rem; color:var(--text-muted); margin-top:6px; font-family:var(--font-mono);">
+            <span>$500 (Free Express)</span>
+            <span>$1,500 (-7%)</span>
+            <span>$3,000 (-12%)</span>
+            <span>$5,000 (-18%)</span>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="builder-summary">
+          <div class="summary-line">
+            <span>Сумма позиций без скидки:</span>
+            <span id="rawBasketTotal">$1,915.00</span>
+          </div>
+          <div class="summary-line">
+            <span>Оптовая скидка корзины:</span>
+            <span id="discountBasketVal" style="color:var(--accent); font-weight:600;">-$134.05 (7%)</span>
+          </div>
+          <div class="summary-line">
+            <span>Медицинский термобокс с хладоэлементами:</span>
+            <span style="color:var(--accent); font-weight:600;">Бесплатно ($0.00)</span>
+          </div>
+          <div class="summary-total-line">
+            <span>Сумма к оплате (Инвойс):</span>
+            <span class="num" id="finalInvoiceTotal">$1,780.95</span>
+          </div>
+
+          <a href="#rfq" class="cta-btn">
+            Сформировать официальный B2B-инвойс →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cold Chain Standard -->
+  <section class="section" id="coldchain">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Логистический протокол</span>
+        <h2 class="section-title">Авиадоставка с гарантией холодовой цепи 2–8°C</h2>
+        <p class="section-desc">Каждый флакон ботулотоксина доставляется в строгом фармацевтическом режиме. Мы несем 100% финансовую ответственность за сохранность биологической активности.</p>
+      </div>
+
+      <div class="chain-grid">
+        <div class="chain-step">
+          <span class="step-num">01 / СКЛАД В СЕУЛЕ</span>
+          <div class="step-title">Хранилище с эко-контролем</div>
+          <div class="step-desc">Препараты поступают напрямую с заводов Medytox и Hugel и хранятся в промышленных холодильных камерах при температуре +4°C с дублированным питанием.</div>
+        </div>
+
+        <div class="chain-step">
+          <span class="step-num">02 / ТЕРМОКОНТЕЙНЕР</span>
+          <div class="step-title">Медицинский пенополиуретан</div>
+          <div class="step-desc">Коробка с толщиной стенок 40 мм и фазовыми аккумуляторами холода держит заданную температуру до 96 часов даже при наружной жаре +35°C.</div>
+        </div>
+
+        <div class="chain-step">
+          <span class="step-num">03 / ТЕМП-ЛОГГЕР</span>
+          <div class="step-title">NFC/USB регистратор</div>
+          <div class="step-desc">В каждую коробку вкладывается одноразовый сертифицированный датчик температуры, записывающий показания каждые 15 минут перелета.</div>
+        </div>
+
+        <div class="chain-step">
+          <span class="step-num">04 / ГАРАНТИЯ КЛИНИКЕ</span>
+          <div class="step-title">100% замена при сбое</div>
+          <div class="step-desc">Если при вскрытии логгер зафиксировал отклонение выше +8°C — мы бесплатно отправляем повторный заказ в течение 24 часов за наш счет.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Rails -->
+  <section class="section" id="payment">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Юридическая и финансовая чистота</span>
+        <h2 class="section-title">Гибкие международные способы оплаты</h2>
+        <p class="section-desc">Официальный документооборот, инвойсы на компанию, быстрые платежи без риска блокировок.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+          </div>
+          <div class="feature-title">Банковский перевод Wire / SEPA</div>
+          <div class="feature-desc">Прямой банковский инвойс в USD/EUR на зарегистрированное юридическое лицо. Полная отчетность для бухгалтерии клиники с указанием кодов ТН ВЭД.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <div class="feature-title">Wise / Revolut Business</div>
+          <div class="feature-desc">Мгновенный расчет для частнопрактикующих специалистов и докторов в Великобритании, Европе и ОАЭ с минимальной комиссией за конвертацию.</div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <div class="feature-title">USDT (TRC-20 / ERC-20) B2B</div>
+          <div class="feature-desc">Моментальное подтверждение и отправка день-в-день без трансграничных банковских задержек и валютного контроля. Скидка 2% при оплате крипто-рейлом.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RFQ Fast Quoting -->
+  <section class="section" id="rfq">
+    <div class="container">
+      <div class="rfq-box">
+        <div>
+          <span class="section-eyebrow">Запрос оптового расчета</span>
+          <h2 style="font-size:2rem; font-weight:800; margin-bottom:16px;">Пришлите ваш список закупок клиники</h2>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:24px;">
+            У вас уже есть текущий счет от локального дистрибьютора? Отправьте нам список позиций или прикрепите фото накладной — мы пересчитаем заказ по прямым сеульским ценам и покажем чистую экономию клиники за 30 минут.
+          </p>
+          <div style="font-family:var(--font-mono); font-size:0.85rem; color:var(--accent);">
+            ✓ Ответ главного менеджера за 30 минут в WhatsApp/Email<br>
+            ✓ Бесплатный тестовый набор температурного датчика
+          </div>
+        </div>
+
+        <div class="rfq-form">
+          <input type="text" placeholder="Имя врача / Название клиники" id="rfqName">
+          <input type="text" placeholder="WhatsApp / Telegram для отправки инвойса" id="rfqContact">
+          <input type="text" placeholder="Город и страна доставки" id="rfqCity">
+          <textarea rows="3" placeholder="Список необходимых препаратов и объемов (например: Innotox 100U — 10 шт, Neuramis Deep — 20 шт)"></textarea>
+          <a href="https://toxifillers.com/en/contact/" class="cta-btn" style="margin-top:0;">
+            Получить встречный расчет с экономией →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Вопросы главврачей и директоров</span>
+        <h2 class="section-title">Часто задаваемые вопросы по B2B Order Desk</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">Какой минимальный порог сборного заказа?</div>
+          <div class="faq-a">
+            Минимальный порог отсутствует. Вы можете заказать даже 2 флакона токсина на пробу. Однако для бесплатной авиадоставки в медицинском термоконтейнере сумма корзины должна составлять от $500.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Как рассчитывается оптовая скидка на смешанные бренды?</div>
+          <div class="faq-a">
+            Скидка считается от общей суммы корзины, а не от объема одного SKU. Добавив по несколько позиций из разных линеек (Medytox, Hugel, Rejuran), вы легко преодолеваете порог \$1,500 (скидка 7%) или \$3,000 (скидка 12%).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Как осуществляется прохождение таможни (Customs)?</div>
+          <div class="faq-a">
+            Мы работаем по проверенным логистическим каналам DDP (Delivered Duty Paid) и B2B Medical Courier. Груз доставляется непосредственно до дверей клиники без задержек на таможенных терминалах.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Предоставляете ли вы отсрочку платежа?</div>
+          <div class="faq-a">
+            Первые три отгрузки для новых клиентов осуществляются по 100% предоплате. Начиная с 4-го регулярного заказа клиники могут претендовать на кредитный лимит и постоплату до 14 календарных дней.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-flex">
+        <div class="logo">
+          <span>TOXIFILLERS</span>
+          <span class="logo-badge">ORDER DESK</span>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:0.8rem;">
+          Official Multi-Brand B2B Logistics for Aesthetic Clinics · Seoul, South Korea
+        </div>
+      </div>
+      <p style="font-size:0.75rem; color:#6B7280; line-height:1.5;">
+        Отказ от ответственности: сервис предназначен исключительно для дипломированных специалистов эстетической медицины, дерматологов и юридических лиц клиник. Не является публичной офертой для розничных потребителей.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const prices = {
+      innotox: 77.00,
+      botulax: 61.00,
+      neuramis: 32.00,
+      rejuran: 110.00
+    };
+
+    const cart = {
+      innotox: 5,
+      botulax: 10,
+      neuramis: 15,
+      rejuran: 4
+    };
+
+    function updateItem(item, delta) {
+      cart[item] = Math.max(0, cart[item] + delta);
+      document.getElementById('qty-' + item).innerText = cart[item];
+      const itemTotal = cart[item] * prices[item];
+      document.getElementById('price-' + item).innerText = '$' + itemTotal.toFixed(2);
+      calculateBasket();
+    }
+
+    function calculateBasket() {
+      let rawTotal = 0;
+      for (const [k, v] of Object.entries(cart)) {
+        rawTotal += v * prices[k];
+      }
+
+      let discountPercent = 0;
+      let tierText = 'Базовый тариф';
+      let progressPercent = 0;
+
+      if (rawTotal >= 5000) {
+        discountPercent = 0.18;
+        tierText = 'VIP Tier: Скидка 18% + персональный менеджер';
+        progressPercent = 100;
+      } else if (rawTotal >= 3000) {
+        discountPercent = 0.12;
+        tierText = 'Tier 3: Скидка 12% + резерв партий';
+        progressPercent = 75;
+      } else if (rawTotal >= 1500) {
+        discountPercent = 0.07;
+        tierText = 'Tier 2: Скидка 7% активирована';
+        progressPercent = 50;
+      } else if (rawTotal >= 500) {
+        discountPercent = 0.00;
+        tierText = 'Tier 1: Бесплатная экспресс-доставка термобокса';
+        progressPercent = 25;
+      } else {
+        discountPercent = 0.00;
+        tierText = 'Добавьте товаров до $500 для бесплатной доставки';
+        progressPercent = Math.min(20, (rawTotal / 500) * 20);
+      }
+
+      const discountVal = rawTotal * discountPercent;
+      const finalTotal = rawTotal - discountVal;
+
+      document.getElementById('rawBasketTotal').innerText = '$' + rawTotal.toFixed(2);
+      document.getElementById('discountBasketVal').innerText = discountPercent > 0
+        ? '-$' + discountVal.toFixed(2) + ' (' + (discountPercent * 100) + '%)'
+        : '$0.00 (0%)';
+      document.getElementById('finalInvoiceTotal').innerText = '$' + finalTotal.toFixed(2);
+      document.getElementById('tierStatusText').innerText = tierText;
+      document.getElementById('tierProgressBar').style.width = progressPercent + '%';
+    }
+
+    // Init
+    calculateBasket();
+  </script>
+</body>
+</html>

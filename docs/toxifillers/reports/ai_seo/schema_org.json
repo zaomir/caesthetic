@@ -1,0 +1,167 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://toxifillers.com/#medical-business",
+      "name": "Toxifillers Global Order Desk",
+      "url": "https://toxifillers.com",
+      "description": "Wholesale supplier and consolidated procurement hub of certified South Korean aesthetic pharmaceuticals, botulinum toxins, dermal fillers, and polynucleotide skin boosters.",
+      "telephone": "+82-2-555-0199",
+      "email": "orderdesk@toxifillers.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Teheran-ro, Gangnam-gu",
+        "addressLocality": "Seoul",
+        "postalCode": "06158",
+        "addressCountry": "KR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.5013,
+        "longitude": 127.0396
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "currenciesAccepted": "USD, EUR, GBP, USDT",
+      "paymentAccepted": "Wire Transfer, SEPA, SWIFT, Credit Card, Cryptocurrency"
+    },
+    {
+      "@type": "Product",
+      "@id": "https://toxifillers.com/innotox/#product",
+      "name": "Innotox 100U",
+      "image": "https://toxifillers.com/image/catalog/innotox-100u.jpg",
+      "description": "World's first liquid-phase botulinum toxin type A requiring zero saline reconstitution. Manufactured by Medytox Inc., South Korea.",
+      "sku": "TF-TOX-INNOTOX-100U",
+      "mpn": "INNOTOX-100",
+      "brand": {
+        "@type": "Brand",
+        "name": "Medytox"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://toxifillers.com/en/innotox/",
+        "priceCurrency": "USD",
+        "price": "77.00",
+        "priceValidUntil": "2027-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://toxifillers.com/#medical-business"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0.00",
+            "currency": "USD"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": ["US", "GB", "AE", "ES", "BR", "MX"]
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "d"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 2,
+              "maxValue": 4,
+              "unitCode": "d"
+            }
+          }
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://toxifillers.com/botulax/#product",
+      "name": "Botulax 100U",
+      "image": "https://toxifillers.com/image/catalog/botulax-100u.jpg",
+      "description": "Standardized vacuum-dried botulinum toxin type A powder for high-volume clinic practice. Manufactured by Hugel Inc., South Korea.",
+      "sku": "TF-TOX-BOTULAX-100U",
+      "mpn": "BOTULAX-100",
+      "brand": {
+        "@type": "Brand",
+        "name": "Hugel"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://toxifillers.com/en/botulax/",
+        "priceCurrency": "USD",
+        "price": "61.00",
+        "priceValidUntil": "2027-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://toxifillers.com/#medical-business"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://toxifillers.com/neuramis/#product",
+      "name": "Neuramis Deep Lidocaine",
+      "image": "https://toxifillers.com/image/catalog/neuramis-deep-lido.jpg",
+      "description": "Monophasic hyaluronic acid dermal filler 20mg/ml with 0.3% lidocaine via SHAPE technology. Manufactured by Medytox Inc., South Korea.",
+      "sku": "TF-FIL-NEURAMIS-DEEP-LIDO",
+      "mpn": "NEURAMIS-DEEP-LIDO",
+      "brand": {
+        "@type": "Brand",
+        "name": "Medytox"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://toxifillers.com/en/neuramis/",
+        "priceCurrency": "USD",
+        "price": "32.00",
+        "priceValidUntil": "2027-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://toxifillers.com/#medical-business"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://toxifillers.com/rejuran/#product",
+      "name": "Rejuran Healer",
+      "image": "https://toxifillers.com/image/catalog/rejuran-healer.jpg",
+      "description": "Wild salmon DNA polynucleotide c-PDRN cellular renewal skin booster 2x2.0ml. Manufactured by PharmaResearch, South Korea.",
+      "sku": "TF-BOOST-REJURAN-HEALER",
+      "mpn": "REJURAN-HEALER-2X2ML",
+      "brand": {
+        "@type": "Brand",
+        "name": "PharmaResearch"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://toxifillers.com/en/rejuran/",
+        "priceCurrency": "USD",
+        "price": "110.00",
+        "priceValidUntil": "2027-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://toxifillers.com/#medical-business"
+        }
+      }
+    }
+  ]
+}
