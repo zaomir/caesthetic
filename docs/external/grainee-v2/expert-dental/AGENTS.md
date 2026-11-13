@@ -533,3 +533,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 
 *Phase 1 control plane — full legacy AGENTS preserved in git history pre-slim merge.*
 
+
+<!-- routine-services:v1 -->
+## Routine execution
+For routine services, WAHA/warmup, ICP, correspondence, model consultations, Leonardo, design, copy or website execution, first read [ROUTINE_SERVICES](docs/ssot/ROUTINE_SERVICES.md). Use the existing Desk catalog and native executors; keep project canons and one writer. Drafts do not prove external actions.
