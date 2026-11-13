@@ -1014,7 +1014,15 @@ Legal pages не могут быть lorem или generic template, не соо�
 
 Неизвестное помечается как gap/placeholder, блокирующий production.
 
-### 19.4 Visual review loop
+### 19.4 Vibe-Coding Toolchain (Solokumi Canon)
+
+Для быстрой и безошибочной сборки страниц с AI агенты следуют регламенту:
+1. **Текст ДО дизайна (Text Before Design):** запрещено генерировать дизайн с lorem ipsum или смысловыми заглушками. Сначала в LLM пишется и шлифуется финальный текст (оффер, физика продукта, сравнительная таблица, калькулятор, FAQ по СПИН), и только затем этот готовый текст передается в верстку.
+2. **Связка Figma MCP + Auto-layouts:** макет победителя переносится через `html.to.design` в Figma, подключается через Figma MCP (`claude mcp add --transport http figma https://mcp.figma.com/mcp`) и служит точным структурным референсом для агента.
+3. **Пакетные правки (Batch Prompts):** замечания к макету группируются пачками (типографика + отступы + интерактив), чтобы не вызывать деградации CSS-кода частыми мелкими промптами.
+4. **Визуальная упаковка:** готовые интерфейсы оформляются в 3D-мокапы через [shots.so](https://shots.so/), а интерактивные калькуляторы и скрипты записываются через [Screen Studio](https://www.screen.studio/).
+
+### 19.5 Visual review loop
 
 После каждого representative component/page обязательны screenshots минимум mobile и desktop.
 
