@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innotox 100U & 50U | Оригинальный жидкий ботулотоксин — Toxifillers</title>
+  <meta name="description" content="Официальные поставки Innotox 100U / 50U от Medytox (Южная Корея) для клиник и практикующих специалистов. Готовая жидкая форма без физраствора. Контроль холодовой цепи.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090B0E;
+      --card-bg: #12161C;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #2DE0A5;
+      --accent-glow: rgba(45, 224, 165, 0.18);
+      --accent-blue: #3E8BFF;
+      --text: #F3F4F6;
+      --text-muted: #8E98A5;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient glow backgrounds (anti-slop clean geometry) */
+    .ambient-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(80px);
+    }
+    .glow-top { top: -200px; right: -100px; }
+    .glow-mid { top: 1200px; left: -200px; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--card-border);
+      padding: 18px 0;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 11, 14, 0.85);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: rgba(45, 224, 165, 0.1);
+      border: 1px solid rgba(45, 224, 165, 0.25);
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover {
+      color: #FFF;
+    }
+
+    .btn-header {
+      background: #FFF;
+      color: #000;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.2s;
+    }
+    .btn-header:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      margin-bottom: 22px;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(135deg, #FFF 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    .trust-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .metric-item .val {
+      font-family: var(--font-mono);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-item .lbl {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* Product Card Widget on Hero */
+    .order-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    .order-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .brand-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .product-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-top: 2px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(45, 224, 165, 0.1);
+      border: 1px solid rgba(45, 224, 165, 0.25);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .format-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .format-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .format-btn.active {
+      border-color: var(--accent);
+      background: rgba(45, 224, 165, 0.07);
+    }
+
+    .format-btn .name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #FFF;
+      display: block;
+    }
+    .format-btn .sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .price-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .unit-price {
+      font-family: var(--font-mono);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #FFF;
+    }
+
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: #06110D;
+      font-weight: 800;
+      font-size: 1rem;
+      text-align: center;
+      padding: 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(45, 224, 165, 0.35);
+    }
+
+    .sec-note {
+      text-align: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+
+    /* Comparison & Tech Specs */
+    .section {
+      padding: 80px 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .section-head {
+      margin-bottom: 50px;
+      max-width: 650px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 30px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(45, 224, 165, 0.08);
+      border: 1px solid rgba(45, 224, 165, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 10px;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Table Specs */
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 16px 20px;
+      color: var(--text-muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td.check {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Tier Calculator */
+    .calculator-box {
+      background: linear-gradient(180deg, #12161C 0%, #0D1015 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 40px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .slider-group {
+      margin-top: 20px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .summary-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(45, 224, 165, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 14px;
+      margin-top: 14px;
+      border-top: 1px solid var(--card-border);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFF;
+    }
+
+    .summary-total span.num {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #FFF;
+      margin-bottom: 10px;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 50px 0 30px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .calc-grid, .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-mid"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="https://toxifillers.com/en/" class="logo">
+        <span>TOXIFILLERS</span>
+        <span class="logo-badge">ORDER DESK</span>
+      </a>
+      <div class="header-nav">
+        <a href="#advantages">Преимущества</a>
+        <a href="#comparison">Сравнение</a>
+        <a href="#calculator">Оптовые тиры</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://toxifillers.com/en/contact/" class="btn-header">Связаться с менеджером</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>В НАЛИЧИИ НА СКЛАДЕ · ПРЯМОЙ ИМПОРТ ИЗ ЮЖНОЙ КОРЕИ</span>
+        </div>
+        <h1>
+          Оригинальный <span class="highlight">Innotox 100U & 50U</span> для клиник и практикующих врачей
+        </h1>
+        <p class="hero-lead">
+          Первый в мире готовый жидкий ботулотоксин типа A от Medytox. Полное отсутствие риска ошибки при разведении физраствором. Поставки с сертификатами соответствия, контролем холодовой цепи (Cold Chain 2–8°C) и прозрачным инвойсом.
+        </p>
+
+        <div class="trust-metrics">
+          <div class="metric-item">
+            <div class="val">100%</div>
+            <div class="lbl">Жидкая стабильная фаза без разведения NaCl</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">2–8°C</div>
+            <div class="lbl">Гарантия соблюдения холодовой цепи</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">1 инвойс</div>
+            <div class="lbl">Официальный инвойс на юридическое лицо</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Order / Price Selector Card -->
+      <div class="order-card">
+        <div class="order-card-header">
+          <div>
+            <span class="brand-tag">MEDYTOX INC. · ЮЖНАЯ КОРЕЯ</span>
+            <div class="product-title" id="cardProductTitle">Innotox 100 Units</div>
+          </div>
+          <span class="status-badge">● На складе</span>
+        </div>
+
+        <div class="format-selector">
+          <div class="format-btn active" onclick="selectVariant('100U', 77, 'TF-TOX-INNOTOX-100U')">
+            <span class="name">100 Units</span>
+            <span class="sub">1 флакон × 100 ед.</span>
+          </div>
+          <div class="format-btn" onclick="selectVariant('50U', 48, 'TF-TOX-INNOTOX-50U')">
+            <span class="name">50 Units</span>
+            <span class="sub">1 флакон × 50 ед.</span>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div>
+            <div class="unit-price" id="cardPriceDisplay">$77.00</div>
+            <div style="font-size:0.75rem; color:var(--accent); font-family:var(--font-mono);" id="skuDisplay">SKU: TF-TOX-INNOTOX-100U</div>
+          </div>
+          <div class="price-note">
+            <div>Оптовая цена B2B</div>
+            <div style="color:var(--accent);">Скидки от 5 шт.</div>
+          </div>
+        </div>
+
+        <a href="https://toxifillers.com/en/shop/" class="cta-btn" id="orderBtn">
+          Добавить в заказ клиники →
+        </a>
+        <div class="sec-note">
+          🔒 Проверка батч-номера и партии перед отгрузкой · Экспресс-доставка
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Advantages for Clinics -->
+  <section class="section" id="advantages">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Клинические и операционные выгоды</span>
+        <h2 class="section-title">Почему клиники переходят с порошковых форм на жидкий Innotox</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">Исключен риск человеческого фактора</h3>
+          <p class="card-desc">
+            Традиционные токсины требуют разведения физраствором: ошибка ассистента в пропорциях или вспенивание раствора снижают активность белка. Innotox поставляется готовым в точной концентрации 4 ед. / 0.1 мл.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">🧪</div>
+          <h3 class="card-title">Безопасная формула без альбумина человека</h3>
+          <p class="card-desc">
+            В составе отсутствуют белки человеческой плазмы (HSA) и продукты животного происхождения. Стабилизация достигнута за счет растительного полисорбата и метионина, что снижает риск аллергических реакций.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon">❄️</div>
+          <h3 class="card-title">Меньшая диффузия в соседние ткани</h3>
+          <p class="card-desc">
+            Жидкая формула минимизирует нежелательную диффузию препарата в смежные мышечные волокна, что гарантирует точечный результат в зонах лба, межбровья и "гусиных лапок" без птоза.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="section" id="comparison">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Сравнительный анализ закупки</span>
+        <h2 class="section-title">Innotox против классических лиофилизатов (Botox, Botulax)</h2>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Параметр сравнения</th>
+              <th>Innotox (Medytox)</th>
+              <th>Классические порошковые токсины</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Форма выпуска</strong></td>
+              <td class="check">Готовый жидкий раствор (Liquid)</td>
+              <td>Лиофилизированный порошок (требует физраствор)</td>
+            </tr>
+            <tr>
+              <td><strong>Время подготовки к инъекции</strong></td>
+              <td class="check">0 минут (готов к набору в шприц)</td>
+              <td>5–10 минут на расчет и восстановление</td>
+            </tr>
+            <tr>
+              <td><strong>Стабильность дозировки</strong></td>
+              <td class="check">Заводская стандартизация в каждой капле</td>
+              <td>Зависит от точности дозирования NaCl персоналом</td>
+            </tr>
+            <tr>
+              <td><strong>Белковая чистота</strong></td>
+              <td class="check">Без сывороточного альбумина человека</td>
+              <td>Содержит альбумин человека (HSA)</td>
+            </tr>
+            <tr>
+              <td><strong>Себестоимость 100U для клиники</strong></td>
+              <td class="check">$77.00 (прямая экономия 30–50%)</td>
+              <td>$110.00 – $180.00 за флакон</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Volume & Margin Calculator -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Экономика процедуры</span>
+        <h2 class="section-title">Рассчитайте оптовую скидку и маржинальность клиники</h2>
+      </div>
+
+      <div class="calculator-box">
+        <div class="calc-grid">
+          <div>
+            <h3 style="font-size:1.25rem; font-weight:700; color:#FFF; margin-bottom:10px;">Объем закупки Innotox 100U</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">
+              Двигайте ползунок для расчета скидки от тиража и прогноза маржи с процедур.
+            </p>
+
+            <div class="slider-group">
+              <div class="slider-header">
+                <span>Количество флаконов:</span>
+                <strong id="sliderCountText" style="color:var(--accent); font-size:1.1rem;">10 флаконов</strong>
+              </div>
+              <input type="range" id="vialsRange" min="1" max="50" value="10" oninput="updateCalculator(this.value)">
+            </div>
+
+            <div style="margin-top:24px; font-size:0.85rem; color:var(--text-muted); line-height:1.5;">
+              💡 <em>Флакон 100U рассчитан в среднем на 3–4 комплексные зоны (лоб + межбровье + глаза). При среднем чеке процедуры $150 окупаемость партии наступает с первых 2 процедур.</em>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-row">
+              <span>Базовая цена:</span>
+              <span id="basePriceTotal">$770.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Оптовая скидка тиража:</span>
+              <span id="discountVal" style="color:var(--accent);">-$77.00 (10%)</span>
+            </div>
+            <div class="summary-row">
+              <span>Цена за флакон со скидкой:</span>
+              <span id="unitPriceFinal">$69.30</span>
+            </div>
+            <div class="summary-total">
+              <span>Итоговый инвойс:</span>
+              <span class="num" id="finalTotal">$693.00</span>
+            </div>
+
+            <a href="https://toxifillers.com/en/contact/" class="cta-btn" style="margin-top:20px; padding:12px;">
+              Запросить спецификацию на этот объем →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Частые вопросы закупок</span>
+        <h2 class="section-title">Вопросы о поставке, хранении и проверке подлинности</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">Как соблюдается холодовая цепь при доставке?</div>
+          <div class="faq-a">
+            Все заказы с ботулотоксинами упаковываются в термоконтейнеры медицинского класса с сухими хладоэлементами. Температурный режим поддерживается в диапазоне 2–8°C на протяжении всего времени авиадоставки.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Как проверить оригинальность партии?</div>
+          <div class="faq-a">
+            Каждая упаковка Innotox снабжена голографической защитой завода Medytox, четким серийным номером партии (Batch No) и сроком годности на флаконе и внешней коробке. Мы предоставляем сертификат подлинности производителя к каждому инвойсу.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Сколько хранится вскрытый флакон Innotox?</div>
+          <div class="faq-a">
+            Благодаря жидкой стабилизированной формуле препарат сохраняет биологическую активность в холодильнике при температуре 2–8°C до 72 часов после забора первой дозы при соблюдении правил асептики.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Можно ли объединить Innotox с филлерами в один инвойс?</div>
+          <div class="faq-a">
+            Да, сервис Toxifillers создан специально для смешанных клинических заказов. Вы можете добавить в одну корзину Innotox, филлеры Neuramis/HyalDew и биоревитализанты Rejuran — и получить единый детальный инвойс.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-flex">
+        <div class="logo">
+          <span>TOXIFILLERS</span>
+          <span class="logo-badge">ORDER DESK</span>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:0.8rem;">
+          Official Wholesale Procurement for Medical Aesthetics
+        </div>
+      </div>
+      <p style="font-size:0.75rem; color:#6B7280; line-height:1.5;">
+        Отказ от ответственности: продукция предназначена строго для дипломированных врачей-косметологов, дерматологов и лицензированных медицинских клиник. Не является инструкцией для самостоятельного применения. Условия доступности и регуляторные требования зависят от юрисдикции заказчика.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    let currentUnit = '100U';
+    let basePrice = 77;
+    let currentSku = 'TF-TOX-INNOTOX-100U';
+
+    function selectVariant(unit, price, sku) {
+      currentUnit = unit;
+      basePrice = price;
+      currentSku = sku;
+
+      document.querySelectorAll('.format-btn').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      document.getElementById('cardProductTitle').innerText = 'Innotox ' + unit;
+      document.getElementById('cardPriceDisplay').innerText = '$' + price.toFixed(2);
+      document.getElementById('skuDisplay').innerText = 'SKU: ' + sku;
+
+      updateCalculator(document.getElementById('vialsRange').value);
+    }
+
+    function updateCalculator(val) {
+      val = parseInt(val);
+      document.getElementById('sliderCountText').innerText = val + ' флаконов';
+
+      let discountPercent = 0;
+      if (val >= 25) discountPercent = 0.15;
+      else if (val >= 10) discountPercent = 0.10;
+      else if (val >= 5) discountPercent = 0.05;
+
+      const rawTotal = val * basePrice;
+      const discountAmount = rawTotal * discountPercent;
+      const finalPrice = rawTotal - discountAmount;
+      const effectiveUnitPrice = finalPrice / val;
+
+      document.getElementById('basePriceTotal').innerText = '$' + rawTotal.toFixed(2);
+      document.getElementById('discountVal').innerText = discountPercent > 0 
+        ? '-$' + discountAmount.toFixed(2) + ' (' + (discountPercent * 100) + '%)' 
+        : '$0.00 (0%)';
+      document.getElementById('unitPriceFinal').innerText = '$' + effectiveUnitPrice.toFixed(2);
+      document.getElementById('finalTotal').innerText = '$' + finalPrice.toFixed(2);
+    }
+
+    // Init
+    updateCalculator(10);
+  </script>
+</body>
+</html>
