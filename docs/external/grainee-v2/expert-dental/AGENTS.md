@@ -449,7 +449,7 @@ Phase 1 Lane A does **not** edit runtime, lockfiles, or deploy scripts.
    node scripts/repo/docs-index.mjs
    ```
 3. Land on `main`: merge the finished branch yourself (§2), push, delete it. An open PR handed to a human = not done.
-4. **Runtime / site-* / public surface tasks (hard DoD, DEC-773 / DEC-887):** `main` + production deploy + public prod curl smoke + recorded `deployed_sha` (or release marker). Incomplete if stopped at «код готов / PR / CI green / можно деплоить / готово локально» or if the environment blocked `git push` without a GitHub-connector + Agent API fallback. ChatGPT without VDS: write allowlisted `docs/agent-api/requests/*.json` (`type=deploy`) → Agent API Bridge → read `docs/agent-api/results/*.json` (SSOT `docs/ssot/AGENT_API_ACCESS.md`). Agents with VDS/hook: `scripts/agent-deploy.sh --smoke …`.
+4. **Runtime / site-* / public surface tasks (hard DoD, DEC-773 / DEC-887):** `main` + production deploy + public prod curl smoke + recorded `deployed_sha` (or release marker). Incomplete if stopped at «код готов / PR / CI green / можно деплоить / готово локально». **GitHub Actions не запускаются** here (every push run is `startup_failure`/«BuildFailed», canon `docs/ssot/NO_GITHUB_ACTIONS.md`): never wait for a workflow and never treat its absence as a blocker — the CI substitute is `bash scripts/deploy/predeploy-tests.sh --baseline scripts/deploy/predeploy-baseline-main.txt`, and bot services under `/opt/*` on vps2402 ship with `scripts/deploy/server-service.sh`. Runbook: `docs/ssot/DEPLOY_WITHOUT_GITHUB_ACTIONS.md`. Incomplete if the environment blocked `git push` without a GitHub-connector + Agent API fallback. ChatGPT without VDS: write allowlisted `docs/agent-api/requests/*.json` (`type=deploy`) → Agent API Bridge → read `docs/agent-api/results/*.json` (SSOT `docs/ssot/AGENT_API_ACCESS.md`). Agents with VDS/hook: `scripts/agent-deploy.sh --smoke …`.
 5. **Docs tasks:** update `docs/CONTEXT_HANDOFF.md` / `docs/LAST_SYNC.md`.
 6. Prod FAIL → revert + redeploy (runtime only).
 
@@ -504,6 +504,8 @@ No invented proof, no reference clone, no generic AI slop, and no mass page gene
 
 Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. GitHub SSOT preflight: `bash scripts/codex-github-preflight.sh`.
 
+**Any agent doing GitHub work or a deploy without CI:** GitHub Actions are dead on this repo (`startup_failure` on every push) — read `docs/ssot/DEPLOY_WITHOUT_GITHUB_ACTIONS.md` before choosing a deploy or test channel. A red/green "workflow" badge is neither evidence nor a blocker; evidence = live URL + `deployed_sha`.
+
 ---
 
 ## 10. Help
@@ -522,6 +524,7 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 | SSOT index | `docs/ssot/INDEX.md` |
 | Reading order | `docs/READING_ORDER.md` |
 | Deploy channels | `docs/ssot/AGENT_DEPLOY_CHANNELS.md` |
+| GitHub Actions не работают / без CI / CI green / workflow | `docs/ssot/DEPLOY_WITHOUT_GITHUB_ACTIONS.md` |
 | Mac local folders / new laptop agent setup | `docs/ssot/MAC_LOCAL_AGENT_LAYOUT.md` |
 | Telegram desk (бот + человек) | `docs/ssot/TELEGRAM_BOT_DESK_STANDARD.md` |
 | Archive policy | `docs/global/ARCHIVE_POLICY.md` |
