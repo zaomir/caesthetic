@@ -537,3 +537,6 @@ Codex: read English section in full `AGENTS.md` on `main` or use `CODEX.md`. Git
 <!-- routine-services:v1 -->
 ## Routine execution
 For routine services, WAHA/warmup, ICP, correspondence, model consultations, Leonardo, design, copy or website execution, first read [ROUTINE_SERVICES](docs/ssot/ROUTINE_SERVICES.md). Use the existing Desk catalog and native executors; keep project canons and one writer. Drafts do not prove external actions.
+
+<!-- human-routine-ui:2026-11-14 -->
+Routine control for humans uses ordinary language, no slash commands or JSON. If a request is unclear or ambiguous, ask a short question with human answer buttons and a normal free-text field. Clear authorized work runs immediately; do not add per-action confirmation. Internal API/CLI stays structured. Canon: docs/ops/routine-services/HUMAN_UI_GUIDE.md and docs/ssot/ROUTINE_SERVICES.md.
