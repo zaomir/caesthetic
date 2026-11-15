@@ -1,5 +1,17 @@
 # AGENTS.md — root agent entry (Phase 1 slim + DEC-757 token budget)
 
+## Server access (2026-11-15)
+
+Use the shared MCP server `vds2402-http`. In a configured Cloud environment,
+`/home/agent/bin/vds-exec` is the shell fallback; verify it exists before relying on it.
+ChatGPT's VDS2402 Server plugin is a separate route, not proof of Cloud environment setup.
+Before server changes, run `hostname; whoami; sudo -n whoami` and require
+`vps2402`, `codex`, `root` respectively. Never print credentials or put them in
+responses, logs, or repository files. Task-specific connection restrictions take precedence:
+**TASK-0015 is SSH-only**, so do not use HTTP MCP or the plugin for that task.
+These instructions do not create tools or grant permissions.
+
+
 ## 🔒 Simon outreach production canon (2026-10-22) — roll back to it, never around it
 
 `docs/ssot/SIMON_OUTREACH_PRODUCTION_CANON_2026-10-22.md`, tag `simon-outreach-canon-2026-10-30` (was `simon-outreach-canon-2026-10-22`, superseded 2026-10-30). Before and after touching
